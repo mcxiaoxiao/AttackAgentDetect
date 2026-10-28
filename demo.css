@@ -27,7 +27,7 @@
 .demo-verdict strong { color: var(--sky); font: 600 21px/1.3 var(--font-display); }
 .demo-verdict p { margin: 0; color: var(--existing-24); font: 400 14px/1.7 var(--font-body); }
 .demo-verdict code { padding: 0; background: transparent; color: var(--existing-22); font: 12px/1.85 var(--mono); overflow-wrap: anywhere; }
-.demo-inspector-note, .demo-footnote { padding: 12px 20px; border-top: 1px solid var(--existing-23); color: var(--existing-24); font: 400 12px/1.6 var(--font-body); }
+.demo-inspector-note, .demo-footnote, .demo-timeline-note { padding: 12px 20px; border-top: 1px solid var(--existing-23); color: var(--existing-24); font: 400 12px/1.6 var(--font-body); }
 .demo-timeline { padding: 24px; border: 1px solid var(--line); background: var(--surface); }
 .demo-timeline ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; }
 .demo-timeline li { position: relative; display: grid; align-content: start; gap: 10px; min-height: 128px; padding: 0 16px 16px; border-top: 1px solid var(--line); }
@@ -45,15 +45,41 @@
 .demo-compare-head > strong { color: var(--existing-22); font: 500 15px/1.4 var(--font-body); }
 .demo-compare-head .demo-mode-picks button { border-color: var(--existing-26); background: var(--existing-27); color: var(--existing-24); }
 .demo-compare-head .demo-mode-picks button[aria-pressed="true"] { border-color: var(--sky); background: var(--existing-29); color: var(--existing-22); }
-.demo-compare-traces { display: grid; grid-template-columns: 1fr 1fr; }
-.demo-compare-traces > div { display: grid; align-content: start; gap: 20px; padding: 24px; }
-.demo-compare-traces > div + div { border-left: 1px solid var(--existing-23); }
-.demo-compare-traces > div > span { color: var(--existing-24); font: 500 14px/1.4 var(--font-body); }
-.demo-compare-traces code { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; background: transparent; }
-.demo-compare-traces code b { padding: 7px 10px; border: 1px solid var(--existing-26); border-radius: 3px; color: var(--existing-22); font: 400 13px/1.4 var(--mono); transition: color .16s ease, border-color .16s ease, background .16s ease; }
-.demo-compare-traces code b.is-match { border-color: var(--sky); background: var(--existing-29); color: var(--sky); }
-.demo-compare-action { padding: 16px 20px; border-top: 1px solid var(--existing-23); }
-.demo-compare-action .button { min-height: 38px; padding-inline: 14px; font-size: 13px; }
+.tempo-summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 22px 24px 8px; }
+.tempo-summary p { max-width: 62ch; margin: 0; color: var(--existing-24); font-size: 14px; line-height: 1.65; }
+.tempo-speed { flex: 0 0 auto; padding: 6px 10px; border: 1px solid var(--existing-26); background: var(--existing-29); color: var(--sky); font: 600 13px/1.3 var(--font-display); }
+.tempo-method-note { padding: 0 24px 18px; color: var(--existing-24); font: 400 12px/1.6 var(--font-body); }
+.tempo-board { padding: 0 24px; border-top: 1px solid var(--existing-23); }
+.tempo-axis, .tempo-lane { display: grid; grid-template-columns: minmax(148px, .28fr) minmax(0, 1fr); gap: 10px 20px; }
+.tempo-axis { align-items: center; padding: 12px 0 10px; border-bottom: 1px solid var(--existing-23); color: var(--existing-24); font: 400 11px/1.4 var(--font-body); }
+.tempo-axis-ticks { display: flex; justify-content: space-between; color: var(--existing-24); font: 400 10px/1.4 var(--mono); }
+.tempo-lane { align-items: center; padding: 15px 0 16px; border-bottom: 1px solid var(--existing-23); }
+.tempo-lane:last-child { border-bottom: 0; }
+.tempo-mode { grid-column: 1; grid-row: 1 / span 2; display: grid; align-content: center; gap: 6px; min-width: 0; }
+.tempo-mode strong { color: var(--existing-22); font: 600 15px/1.3 var(--font-display); }
+.tempo-mode span { color: var(--existing-24); font: 400 11px/1.45 var(--font-body); }
+.tempo-track { position: relative; grid-column: 2; grid-row: 1; height: 22px; border-bottom: 1px solid var(--existing-26); background: linear-gradient(90deg, transparent calc(25% - .5px), var(--existing-23) 25%, transparent calc(25% + .5px)) repeat-x; background-size: 25% 100%; }
+.tempo-progress { position: absolute; inset: 0; z-index: 1; display: block; background: var(--existing-29); transform: scaleX(var(--playback-progress, 0)); transform-origin: left center; }
+.tempo-progress::after { position: absolute; top: 0; right: 0; bottom: 0; width: 2px; background: var(--sky); content: ""; }
+.tempo-markers { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.tempo-marker { position: absolute; top: 50%; left: var(--at); display: block; width: 8px; height: 8px; border: 1.5px solid var(--sky); border-radius: 50%; background: var(--existing-27); transform: translate(-50%, -50%); transition: background-color .12s ease, transform .12s ease; }
+.tempo-lane[data-mode-lane="script"] .tempo-marker { border-color: var(--existing-24); }
+.tempo-lane[data-mode-lane="script"] .tempo-marker.is-fired { background: var(--existing-24); }
+.tempo-marker.is-fired { background: var(--sky); }
+.tempo-marker.is-current { transform: translate(-50%, -50%) scale(1.35); }
+.tempo-events { grid-column: 2; grid-row: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.tempo-events li { display: inline-flex; align-items: baseline; gap: 5px; min-width: 0; padding: 3px 5px; border: 1px solid transparent; color: var(--existing-24); transition: background-color .12s ease, border-color .12s ease, color .12s ease; }
+.tempo-events time { flex: 0 0 auto; color: var(--existing-24); font: 400 9px/1.45 var(--mono); }
+.tempo-events code { padding: 0; background: transparent; color: inherit; font: 400 10px/1.45 var(--mono); overflow-wrap: anywhere; }
+.tempo-events li.is-current { border-color: var(--sky); background: var(--existing-29); color: var(--existing-22); }
+.tempo-events li.is-done { color: var(--existing-24); }
+.tempo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 16px 24px 20px; border-top: 1px solid var(--existing-23); background: var(--existing-27); }
+.tempo-clock { display: grid; gap: 2px; margin-right: auto; }
+.tempo-clock code { padding: 0; background: transparent; color: var(--existing-22); font: 500 12px/1.4 var(--mono); }
+.tempo-clock span { color: var(--existing-24); font: 400 11px/1.4 var(--font-body); }
+.tempo-controls .button { min-height: 38px; padding-inline: 14px; font-size: 13px; }
+.tempo-controls p { flex-basis: 100%; margin: 0; color: var(--existing-24); font-size: 12px; line-height: 1.6; }
+.tempo-controls button:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
 .demo-source-table { padding: 0 20px; }
 .demo-source-table table { width: 100%; border-collapse: collapse; text-align: left; font: 13px/1.55 var(--font-body); }
 .demo-source-table th, .demo-source-table td { padding: 13px 12px 13px 0; border-bottom: 1px solid var(--existing-23); vertical-align: middle; }
@@ -66,6 +92,7 @@
 .demo-source-table button:focus-visible, .demo-timeline-action button:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
 .demo-source-table > pre { min-height: 86px; margin: 0; padding: 16px 0; overflow-x: auto; color: var(--existing-22); font: 12px/1.7 var(--mono); }
 .demo-footnote { border-top: 0; color: var(--muted); }
+.demo-timeline-note { margin: 0; padding: 0; border: 0; color: var(--muted); font: 400 12px/1.6 var(--font-body); }
 .pypi-link { display: inline-flex; align-items: center; gap: 7px; min-height: 40px; color: var(--muted); }
 .pypi-link img { display: block; width: 21px; height: 19px; object-fit: contain; }
 .rail { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
@@ -99,7 +126,6 @@
   .demo-source-table th, .demo-source-table td { padding-block: 10px; }
   .demo-source-table td:nth-child(2) { max-width: 142px; overflow-wrap: anywhere; }
   .demo-source-table td code { font-size: 10px; }
-  .demo-compare-traces > div { padding: 16px; }
 }
 @media (max-width: 600px) {
   .rail-bottom { gap: 12px; }
@@ -120,16 +146,29 @@
   .demo-compare-head { padding-inline: 12px; }
   .demo-compare-head .demo-mode-picks { width: 100%; }
   .demo-compare-head .demo-mode-picks button { padding-inline: 10px; font-size: 12px; }
-  .demo-compare-traces { grid-template-columns: minmax(0, 1fr); }
-  .demo-compare-traces > div { gap: 12px; padding: 14px 12px; }
-  .demo-compare-traces > div + div { border-top: 1px solid var(--existing-23); border-left: 0; }
-  .demo-compare-traces code b { padding: 5px 7px; font-size: 11px; }
-  .demo-compare-action { padding-inline: 12px; }
+  .tempo-summary { gap: 12px; padding: 18px 14px 8px; }
+  .tempo-summary p { font-size: 13px; }
+  .tempo-speed { font-size: 12px; white-space: nowrap; }
+  .tempo-method-note { padding: 0 14px 14px; font-size: 11px; }
+  .tempo-board { padding-inline: 14px; }
+  .tempo-axis, .tempo-lane { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .tempo-axis > span { grid-column: 1; grid-row: 1; }
+  .tempo-axis-ticks { grid-column: 1; grid-row: 2; }
+  .tempo-lane { padding: 13px 0; }
+  .tempo-mode { grid-column: 1; grid-row: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .tempo-mode span { text-align: right; }
+  .tempo-track { grid-column: 1; grid-row: 2; }
+  .tempo-events { grid-column: 1; grid-row: 3; gap: 3px; }
+  .tempo-events li { gap: 4px; padding: 3px; }
+  .tempo-events time { font-size: 8px; }
+  .tempo-events code { font-size: 9px; }
+  .tempo-controls { gap: 10px 12px; padding: 14px 12px 16px; }
+  .tempo-controls p { font-size: 11px; }
   .demo-source-table { overflow-x: auto; padding-inline: 10px; }
   .demo-source-table table { min-width: 570px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .demo-tabs button, .demo-compare-traces code b { transition: none; }
+  .demo-tabs button, .tempo-marker, .tempo-events li { transition: none; }
 }
 .deploy-meta { display: inline-flex; align-items: baseline; gap: 5px; white-space: nowrap; }
 .deploy-meta code { padding: 0; background: transparent; color: inherit; font: 500 12px/1.6 var(--mono); }

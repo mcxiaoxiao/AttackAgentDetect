@@ -44,7 +44,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
 }
 
 /* Cobalt reference: https://www.usehallmark.com/themes/cobalt/.
-   This field illustrates session-level Human / Model agent inference; examples are schematic, not live verdicts. */
+   This field illustrates Human / Script / Model-agent execution labels; examples are schematic, not live verdicts. */
 (() => {
   const hero = document.querySelector('.hero');
   const canvas = hero?.querySelector('.field');
@@ -273,19 +273,20 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         context.fillStyle = colors.muted; context.fillText(example.raw[i], x, y + 1);
       }
       if (modeVisible) {
-        const outputX = (col + outputStart) * cw;
+        const outputX = Math.max((col + outputStart) * cw, gate * cw + 64);
         context.save();
         context.beginPath(); context.rect(gate * cw, 0, width - gate * cw, height); context.clip();
         context.globalAlpha = 1;
         const labelWidth = context.measureText(example.mode).width;
-        context.fillStyle = colors.paper; context.fillRect(outputX - 5, laneY[packet.lane] - ch / 2, labelWidth + 10, ch);
+        // Keep a clear break between the classifier seam and the mode label; no leader bar.
+        const labelY = laneY[packet.lane] - ch / 2;
+        context.fillStyle = colors.paper;
+        context.fillRect(gate * cw + 1, labelY, Math.max(0, outputX - gate * cw - 34), ch);
+        context.fillRect(outputX - 34, labelY, labelWidth + 44, ch);
         context.fillStyle = colors.ink; context.fillText(example.mode, outputX, laneY[packet.lane] + 1);
         context.restore();
       }
-      context.fillStyle = colors.blue;
-      const trailTyped = packet.resolved || modeVisible;
-      const trailY = trailTyped ? laneY[packet.lane] : inputY;
-      context.fillText('────', (col + (trailTyped ? outputStart : 0) - 4) * cw, trailY + 1);
+
     }
     context.globalAlpha = 1;
     const captionY = laneY[0] - 48;
