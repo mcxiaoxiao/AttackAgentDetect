@@ -1,0 +1,56 @@
+{
+  "status": "fixed post-hoc algorithm transfer check; not a Trace replication",
+  "train_task_count": 16,
+  "test_task_count": 6,
+  "test_samples": 27,
+  "class_counts": {
+    "human": 9,
+    "agent": 18
+  },
+  "features": "TF-IDF command-name unigrams and bigrams",
+  "model": "LinearSVC(C=1.0, class_weight=balanced)",
+  "calibrated_probabilities": false,
+  "metrics": {
+    "accuracy": 0.9259259259259259,
+    "balanced_accuracy": 0.9444444444444444,
+    "macro_f1": 0.9205882352941177,
+    "human_precision": 0.8181818181818182,
+    "human_recall": 1.0,
+    "agent_precision": 1.0,
+    "agent_recall": 0.8888888888888888,
+    "roc_auc": 1.0,
+    "confusion_matrix_human_agent": [
+      [
+        9,
+        0
+      ],
+      [
+        2,
+        16
+      ]
+    ]
+  },
+  "task_cluster_bootstrap_95_ci": {
+    "balanced_accuracy": {
+      "lower_95": 0.8333333333333333,
+      "upper_95": 1.0,
+      "valid_resamples": 5000
+    },
+    "macro_f1": {
+      "lower_95": 0.75,
+      "upper_95": 1.0,
+      "valid_resamples": 5000
+    },
+    "roc_auc": {
+      "lower_95": 0.9999999999999999,
+      "upper_95": 1.0,
+      "valid_resamples": 5000
+    }
+  },
+  "bootstrap_resamples": 5000,
+  "limitations": [
+    "Labels distinguish benchmark human sessions from selected model sessions, not attacker identity.",
+    "Terminal recording and model tool-call logging remain confounded with labels.",
+    "Only six independent test tasks are available."
+  ]
+}

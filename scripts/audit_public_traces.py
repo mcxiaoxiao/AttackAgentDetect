@@ -43,7 +43,11 @@ def main():
                     for call in (message.get("tool_calls", []) or [])
                 ]
                 counts = collections.Counter(call.get("function") for call in calls)
-                agents.append({"task": sample.get("id"), "model": path.parent.name, "calls": counts})
+                agents.append({
+                    "task": sample.get("id"),
+                    "model": manifest["model_sets"].get(path.parent.name, path.parent.name),
+                    "calls": counts,
+                })
     h_tasks = {x["task"] for x in human if x["task"] is not None}
     a_tasks = {x["task"] for x in agents if x["task"] is not None}
     matched = h_tasks & a_tasks

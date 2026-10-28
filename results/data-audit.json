@@ -13,9 +13,9 @@
   "agent_samples": 194,
   "agent_distinct_tasks": 74,
   "agent_samples_by_model": {
-    "eval-set-83d0a1kx3i5t3u6b": 74,
-    "eval-set-q2eavajb0blxpmc1": 46,
-    "eval-set-x2n13zd6vulak29q": 74
+    "claude-opus-4.6": 74,
+    "claude-sonnet-4.6": 74,
+    "gpt-5.5": 46
   },
   "agent_tool_calls": {
     "bash": 954,

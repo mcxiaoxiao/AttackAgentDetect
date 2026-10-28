@@ -1,0 +1,324 @@
+{
+  "analysis_status": "post-hoc diagnostic, after first exploratory result was viewed",
+  "seed": 20261029,
+  "bootstrap_resamples": 5000,
+  "bootstrap_unit": "task; pairs are treated as dependent within and across tasks",
+  "test_task_count": 6,
+  "test_observation_count": 27,
+  "test_label_counts": {
+    "human": 9,
+    "agent": 18
+  },
+  "classification": {
+    "majority": {
+      "n": 27,
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.4,
+      "human_precision": 0.0,
+      "human_recall": 0.0,
+      "agent_precision": 0.6666666666666666,
+      "agent_recall": 1.0,
+      "roc_auc": 0.5,
+      "confusion_matrix_human_agent": [
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          18
+        ]
+      ],
+      "task_cluster_bootstrap_95_ci": {
+        "balanced_accuracy": {
+          "lower_95": 0.5,
+          "upper_95": 0.5,
+          "valid_resamples": 5000
+        },
+        "macro_f1": {
+          "lower_95": 0.3829787234042553,
+          "upper_95": 0.4186046511627907,
+          "valid_resamples": 5000
+        },
+        "roc_auc": {
+          "lower_95": 0.5,
+          "upper_95": 0.5,
+          "valid_resamples": 5000
+        }
+      },
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 6,
+          "recall": 1.0
+        },
+        "claude-sonnet-4.6": {
+          "n": 6,
+          "recall": 1.0
+        },
+        "gpt-5.5": {
+          "n": 6,
+          "recall": 1.0
+        }
+      }
+    },
+    "command_count": {
+      "n": 27,
+      "accuracy": 0.48148148148148145,
+      "balanced_accuracy": 0.5833333333333333,
+      "macro_f1": 0.475,
+      "human_precision": 0.38095238095238093,
+      "human_recall": 0.8888888888888888,
+      "agent_precision": 0.8333333333333334,
+      "agent_recall": 0.2777777777777778,
+      "roc_auc": 0.7962962962962963,
+      "confusion_matrix_human_agent": [
+        [
+          8,
+          1
+        ],
+        [
+          13,
+          5
+        ]
+      ],
+      "task_cluster_bootstrap_95_ci": {
+        "balanced_accuracy": {
+          "lower_95": 0.49603174603174605,
+          "upper_95": 0.6444444444444445,
+          "valid_resamples": 5000
+        },
+        "macro_f1": {
+          "lower_95": 0.35,
+          "upper_95": 0.5625,
+          "valid_resamples": 5000
+        },
+        "roc_auc": {
+          "lower_95": 0.5833333333333334,
+          "upper_95": 0.954861111111111,
+          "valid_resamples": 5000
+        }
+      },
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 6,
+          "recall": 0.16666666666666666
+        },
+        "claude-sonnet-4.6": {
+          "n": 6,
+          "recall": 0.5
+        },
+        "gpt-5.5": {
+          "n": 6,
+          "recall": 0.16666666666666666
+        }
+      }
+    },
+    "action_mix": {
+      "n": 27,
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.7222222222222222,
+      "macro_f1": 0.6648275862068966,
+      "human_precision": 0.5,
+      "human_recall": 0.8888888888888888,
+      "agent_precision": 0.9090909090909091,
+      "agent_recall": 0.5555555555555556,
+      "roc_auc": 0.7067901234567902,
+      "confusion_matrix_human_agent": [
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "task_cluster_bootstrap_95_ci": {
+        "balanced_accuracy": {
+          "lower_95": 0.5902777777777778,
+          "upper_95": 0.8055555555555556,
+          "valid_resamples": 5000
+        },
+        "macro_f1": {
+          "lower_95": 0.5438596491228069,
+          "upper_95": 0.7586206896551724,
+          "valid_resamples": 5000
+        },
+        "roc_auc": {
+          "lower_95": 0.6327160493827161,
+          "upper_95": 0.8111111111111111,
+          "valid_resamples": 5000
+        }
+      },
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 6,
+          "recall": 0.16666666666666666
+        },
+        "claude-sonnet-4.6": {
+          "n": 6,
+          "recall": 0.5
+        },
+        "gpt-5.5": {
+          "n": 6,
+          "recall": 1.0
+        }
+      }
+    },
+    "command_ngrams": {
+      "n": 27,
+      "accuracy": 0.8518518518518519,
+      "balanced_accuracy": 0.8888888888888888,
+      "macro_f1": 0.8465909090909092,
+      "human_precision": 0.6923076923076923,
+      "human_recall": 1.0,
+      "agent_precision": 1.0,
+      "agent_recall": 0.7777777777777778,
+      "roc_auc": 1.0,
+      "confusion_matrix_human_agent": [
+        [
+          9,
+          0
+        ],
+        [
+          4,
+          14
+        ]
+      ],
+      "task_cluster_bootstrap_95_ci": {
+        "balanced_accuracy": {
+          "lower_95": 0.7777777777777778,
+          "upper_95": 1.0,
+          "valid_resamples": 5000
+        },
+        "macro_f1": {
+          "lower_95": 0.6753246753246753,
+          "upper_95": 1.0,
+          "valid_resamples": 5000
+        },
+        "roc_auc": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_resamples": 5000
+        }
+      },
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 6,
+          "recall": 0.6666666666666666
+        },
+        "claude-sonnet-4.6": {
+          "n": 6,
+          "recall": 0.6666666666666666
+        },
+        "gpt-5.5": {
+          "n": 6,
+          "recall": 1.0
+        }
+      }
+    }
+  },
+  "same_task_retrieval": {
+    "command_cosine": {
+      "human-human": {
+        "candidate_pairs": 36,
+        "same_task_pairs": 3,
+        "different_task_pairs": 33,
+        "same_task_mean_similarity": 0.9388321936425751,
+        "different_task_mean_similarity": 0.8852659154274144,
+        "independent_positive_tasks": 3,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.6212121212121211,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.4375,
+          "upper_95": 0.875,
+          "valid_resamples": 4920
+        }
+      },
+      "agent-human": {
+        "candidate_pairs": 162,
+        "same_task_pairs": 27,
+        "different_task_pairs": 135,
+        "same_task_mean_similarity": 0.539190358150883,
+        "different_task_mean_similarity": 0.5307640359481102,
+        "independent_positive_tasks": 6,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.5113854595336077,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.39616967394745173,
+          "upper_95": 0.6666666666666666,
+          "valid_resamples": 5000
+        }
+      },
+      "agent-agent": {
+        "candidate_pairs": 153,
+        "same_task_pairs": 18,
+        "different_task_pairs": 135,
+        "same_task_mean_similarity": 0.5895919177380189,
+        "different_task_mean_similarity": 0.5507643277015507,
+        "independent_positive_tasks": 6,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.5812757201646093,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.3698559670781893,
+          "upper_95": 0.8251964085297417,
+          "valid_resamples": 5000
+        }
+      }
+    },
+    "procgrep_jsd_similarity": {
+      "human-human": {
+        "candidate_pairs": 36,
+        "same_task_pairs": 3,
+        "different_task_pairs": 33,
+        "same_task_mean_similarity": 1.0,
+        "different_task_mean_similarity": 0.5285294066166781,
+        "independent_positive_tasks": 3,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.8787878787878788,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.6426948051948052,
+          "upper_95": 1.0,
+          "valid_resamples": 4920
+        }
+      },
+      "agent-human": {
+        "candidate_pairs": 162,
+        "same_task_pairs": 27,
+        "different_task_pairs": 135,
+        "same_task_mean_similarity": 0.19745724062353354,
+        "different_task_mean_similarity": 0.13736572108521122,
+        "independent_positive_tasks": 6,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.5330589849108367,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.4464699270577879,
+          "upper_95": 0.6763668430335096,
+          "valid_resamples": 5000
+        }
+      },
+      "agent-agent": {
+        "candidate_pairs": 153,
+        "same_task_pairs": 18,
+        "different_task_pairs": 135,
+        "same_task_mean_similarity": 0.05915797104165944,
+        "different_task_mean_similarity": 0.1005302937003227,
+        "independent_positive_tasks": 6,
+        "independent_negative_task_pairs": 15,
+        "pair_auc": 0.47489711934156387,
+        "task_cluster_bootstrap_95_ci": {
+          "lower_95": 0.39814814814814814,
+          "upper_95": 0.5856481481481481,
+          "valid_resamples": 5000
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Task identity is a benchmark task proxy, not a shared attack actor or campaign label.",
+    "Human terminal keystrokes and model tool calls have different collection pipelines.",
+    "Only six independent test tasks are available; bootstrap intervals are coarse and exploratory.",
+    "A command-count baseline is a confound audit, not a deployable behavior detector."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "dataset": "InterCode-CTF",
+  "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "sessions": {
+    "human": 47,
+    "model_agent": 194,
+    "script": 0
+  },
+  "test": {
+    "held_out_tasks": 6,
+    "mode_classifier": {
+      "labels": "human vs selected model-agent sessions",
+      "balanced_accuracy": 0.889
+    },
+    "same_task_retrieval": {
+      "pair": "human-agent",
+      "auc": 0.511,
+      "label_limit": "same task is not same actor or campaign"
+    }
+  },
+  "scope": "exploratory; capture pipeline is confounded with class"
+}

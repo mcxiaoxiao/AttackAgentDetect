@@ -1,0 +1,869 @@
+{
+  "status": "post-hoc split sensitivity diagnostic; descriptive, not confirmatory",
+  "dataset_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "matched_nonempty_task_count": 27,
+  "session_count": 121,
+  "class_counts": {
+    "human": 40,
+    "agent": 81
+  },
+  "features": "TF-IDF command-name unigrams and bigrams",
+  "classifier": "LogisticRegression(C=1.0, class_weight=balanced)",
+  "test_fraction": 0.2,
+  "repeats": 50,
+  "base_seed": 20261029,
+  "random_session_split": {
+    "metrics": {
+      "balanced_accuracy": {
+        "repeats": 50,
+        "mean": 0.8641176470588233,
+        "sd_across_splits_descriptive_only": 0.06992185581408607,
+        "median": 0.8786764705882353,
+        "min": 0.7242647058823529,
+        "max": 1.0
+      },
+      "macro_f1": {
+        "repeats": 50,
+        "mean": 0.8557472901697284,
+        "sd_across_splits_descriptive_only": 0.06551211565473304,
+        "median": 0.8617265087853323,
+        "min": 0.7242647058823529,
+        "max": 1.0
+      }
+    },
+    "mean_train_test_task_overlap": 17.68,
+    "per_split": [
+      {
+        "balanced_accuracy": 0.9411764705882353,
+        "macro_f1": 0.9131944444444444,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 20,
+        "overlap_task_count": 20
+      },
+      {
+        "balanced_accuracy": 0.9705882352941176,
+        "macro_f1": 0.9554367201426025,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9080882352941176,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.7242647058823529,
+        "macro_f1": 0.7242647058823529,
+        "test_sessions": 25,
+        "train_task_count": 26,
+        "test_task_count": 17,
+        "overlap_task_count": 16
+      },
+      {
+        "balanced_accuracy": 0.7867647058823529,
+        "macro_f1": 0.7771836007130125,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.7242647058823529,
+        "macro_f1": 0.7242647058823529,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.9411764705882353,
+        "macro_f1": 0.9131944444444444,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.8125,
+        "macro_f1": 0.8440748440748441,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.9375,
+        "macro_f1": 0.9523809523809523,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.8161764705882353,
+        "macro_f1": 0.8161764705882353,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 20,
+        "overlap_task_count": 20
+      },
+      {
+        "balanced_accuracy": 0.8161764705882353,
+        "macro_f1": 0.8161764705882353,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.8492647058823529,
+        "macro_f1": 0.8263888888888888,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 20,
+        "overlap_task_count": 20
+      },
+      {
+        "balanced_accuracy": 0.8492647058823529,
+        "macro_f1": 0.8263888888888888,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 14,
+        "overlap_task_count": 14
+      },
+      {
+        "balanced_accuracy": 0.8198529411764706,
+        "macro_f1": 0.7877758913412564,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.9117647058823529,
+        "macro_f1": 0.8726655348047538,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.7867647058823529,
+        "macro_f1": 0.7771836007130125,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.7867647058823529,
+        "macro_f1": 0.7771836007130125,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 16,
+        "overlap_task_count": 16
+      },
+      {
+        "balanced_accuracy": 0.9375,
+        "macro_f1": 0.9523809523809523,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.7830882352941176,
+        "macro_f1": 0.8015873015873016,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.9080882352941176,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.8161764705882353,
+        "macro_f1": 0.8161764705882353,
+        "test_sessions": 25,
+        "train_task_count": 26,
+        "test_task_count": 15,
+        "overlap_task_count": 14
+      },
+      {
+        "balanced_accuracy": 0.8198529411764706,
+        "macro_f1": 0.7877758913412564,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9080882352941176,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.7830882352941176,
+        "macro_f1": 0.8015873015873016,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9080882352941176,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 15,
+        "overlap_task_count": 15
+      },
+      {
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.8823529411764706,
+        "macro_f1": 0.8333333333333334,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.7830882352941176,
+        "macro_f1": 0.8015873015873016,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9117647058823529,
+        "macro_f1": 0.8726655348047538,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "test_sessions": 25,
+        "train_task_count": 26,
+        "test_task_count": 19,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.875,
+        "macro_f1": 0.9007936507936507,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.8455882352941176,
+        "macro_f1": 0.8571428571428572,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.8161764705882353,
+        "macro_f1": 0.8161764705882353,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 20,
+        "overlap_task_count": 20
+      },
+      {
+        "balanced_accuracy": 0.9411764705882353,
+        "macro_f1": 0.9131944444444444,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 16,
+        "overlap_task_count": 16
+      },
+      {
+        "balanced_accuracy": 0.8823529411764706,
+        "macro_f1": 0.8333333333333334,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.8125,
+        "macro_f1": 0.8440748440748441,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.9117647058823529,
+        "macro_f1": 0.8726655348047538,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 15,
+        "overlap_task_count": 15
+      },
+      {
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9411764705882353,
+        "macro_f1": 0.9131944444444444,
+        "test_sessions": 25,
+        "train_task_count": 26,
+        "test_task_count": 16,
+        "overlap_task_count": 15
+      },
+      {
+        "balanced_accuracy": 0.9705882352941176,
+        "macro_f1": 0.9554367201426025,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.9705882352941176,
+        "macro_f1": 0.9554367201426025,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 16,
+        "overlap_task_count": 16
+      },
+      {
+        "balanced_accuracy": 0.7242647058823529,
+        "macro_f1": 0.7242647058823529,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.8455882352941176,
+        "macro_f1": 0.8571428571428572,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 15,
+        "overlap_task_count": 15
+      },
+      {
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.9080882352941176,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 18,
+        "overlap_task_count": 18
+      },
+      {
+        "balanced_accuracy": 0.8492647058823529,
+        "macro_f1": 0.8263888888888888,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      },
+      {
+        "balanced_accuracy": 0.9411764705882353,
+        "macro_f1": 0.9131944444444444,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 17,
+        "overlap_task_count": 17
+      },
+      {
+        "balanced_accuracy": 0.7536764705882353,
+        "macro_f1": 0.7619047619047619,
+        "test_sessions": 25,
+        "train_task_count": 27,
+        "test_task_count": 19,
+        "overlap_task_count": 19
+      }
+    ]
+  },
+  "task_group_split": {
+    "metrics": {
+      "balanced_accuracy": {
+        "repeats": 50,
+        "mean": 0.8642810245310244,
+        "sd_across_splits_descriptive_only": 0.07728499240707569,
+        "median": 0.8717171717171717,
+        "min": 0.6736111111111112,
+        "max": 1.0
+      },
+      "macro_f1": {
+        "repeats": 50,
+        "mean": 0.8550049665969272,
+        "sd_across_splits_descriptive_only": 0.07688546667549108,
+        "median": 0.8594594594594596,
+        "min": 0.6601307189542484,
+        "max": 1.0
+      }
+    },
+    "mean_train_test_task_overlap": 0.0,
+    "per_split": [
+      {
+        "balanced_accuracy": 0.9722222222222222,
+        "macro_f1": 0.9619047619047618,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9097222222222222,
+        "macro_f1": 0.9097222222222222,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8819444444444444,
+        "macro_f1": 0.8689075630252101,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.75,
+        "macro_f1": 0.75,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.7638888888888888,
+        "macro_f1": 0.7450980392156863,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8722222222222222,
+        "macro_f1": 0.8805120910384068,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8888888888888888,
+        "macro_f1": 0.8263888888888888,
+        "test_sessions": 25,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9722222222222222,
+        "macro_f1": 0.9563025210084033,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9722222222222222,
+        "macro_f1": 0.9593984962406015,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8125,
+        "macro_f1": 0.8461538461538463,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8055555555555556,
+        "macro_f1": 0.7969924812030075,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.898989898989899,
+        "macro_f1": 0.8919254658385093,
+        "test_sessions": 29,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8888888888888888,
+        "macro_f1": 0.8541666666666667,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.95,
+        "macro_f1": 0.9601706970128023,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8888888888888888,
+        "macro_f1": 0.8781954887218044,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.8615384615384616,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.8051948051948052,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8055555555555556,
+        "macro_f1": 0.7969924812030075,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.7222222222222222,
+        "macro_f1": 0.7157894736842105,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.6736111111111112,
+        "macro_f1": 0.6601307189542484,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8055555555555556,
+        "macro_f1": 0.7698863636363636,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8712121212121212,
+        "macro_f1": 0.857843137254902,
+        "test_sessions": 29,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9080882352941176,
+        "test_sessions": 25,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8194444444444444,
+        "macro_f1": 0.8194444444444444,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8472222222222222,
+        "macro_f1": 0.8594594594594596,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.8615384615384616,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9722222222222222,
+        "macro_f1": 0.9619047619047618,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9097222222222222,
+        "macro_f1": 0.9097222222222222,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.7928571428571429,
+        "test_sessions": 29,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8174603174603174,
+        "macro_f1": 0.7771836007130125,
+        "test_sessions": 25,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8611111111111112,
+        "macro_f1": 0.8712241653418125,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9375,
+        "macro_f1": 0.9531531531531532,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.7388888888888889,
+        "macro_f1": 0.7333333333333334,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8888888888888888,
+        "macro_f1": 0.8541666666666667,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8944444444444444,
+        "macro_f1": 0.8857142857142857,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9150326797385621,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.6944444444444444,
+        "macro_f1": 0.6823529411764706,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9150326797385621,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8472222222222222,
+        "macro_f1": 0.8594594594594596,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8444444444444444,
+        "macro_f1": 0.8444444444444444,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9166666666666667,
+        "macro_f1": 0.8945454545454545,
+        "test_sessions": 29,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8125,
+        "macro_f1": 0.8461538461538463,
+        "test_sessions": 26,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.75,
+        "macro_f1": 0.7692307692307692,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9570747217806042,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.8051948051948052,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8333333333333333,
+        "macro_f1": 0.8333333333333333,
+        "test_sessions": 27,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.8888888888888888,
+        "macro_f1": 0.8541666666666667,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      },
+      {
+        "balanced_accuracy": 0.9444444444444444,
+        "macro_f1": 0.9251336898395721,
+        "test_sessions": 28,
+        "train_task_count": 21,
+        "test_task_count": 6,
+        "overlap_task_count": 0
+      }
+    ]
+  },
+  "protocol_notes": [
+    "Each split fits the vocabulary and classifier on its training partition only.",
+    "Random session splits may place sessions from the same benchmark task in train and test.",
+    "Task-group splits hold out complete task IDs and are the relevant generalization check.",
+    "Repeated splits share observations and are not independent; SD and ranges are descriptive, not confidence intervals.",
+    "The class label remains confounded with the data collection modality in both conditions.",
+    "No hyperparameter search or threshold tuning was performed."
+  ]
+}

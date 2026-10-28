@@ -1,0 +1,384 @@
+{
+  "seed": 20261029,
+  "dataset_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "matched_nonempty_tasks": 27,
+  "splits": {
+    "train": {
+      "task_count": 16,
+      "tasks": [
+        "intercode-ctf_general_skills/task_21",
+        "intercode-ctf_general_skills/task_23",
+        "intercode-ctf_general_skills/task_24",
+        "intercode-ctf_reverse/task_10",
+        "intercode-ctf_reverse/task_14",
+        "intercode-ctf_reverse/task_3",
+        "intercode-ctf_reverse/task_44",
+        "intercode-ctf_reverse/task_48",
+        "intercode-ctf_reverse/task_49",
+        "intercode-ctf_reverse/task_51",
+        "intercode-ctf_reverse/task_68",
+        "intercode-ctf_reverse/task_76",
+        "intercode-ctf_reverse/task_77",
+        "intercode-ctf_reverse/task_8",
+        "intercode-ctf_reverse/task_81",
+        "intercode-ctf_reverse/task_85"
+      ],
+      "human_samples": 23,
+      "agent_samples": 48
+    },
+    "validation": {
+      "task_count": 5,
+      "tasks": [
+        "intercode-ctf_reverse/task_2",
+        "intercode-ctf_reverse/task_46",
+        "intercode-ctf_reverse/task_47",
+        "intercode-ctf_reverse/task_50",
+        "intercode-ctf_reverse/task_82"
+      ],
+      "human_samples": 8,
+      "agent_samples": 15
+    },
+    "test": {
+      "task_count": 6,
+      "tasks": [
+        "intercode-ctf_general_skills/task_11",
+        "intercode-ctf_general_skills/task_36",
+        "intercode-ctf_general_skills/task_4",
+        "intercode-ctf_reverse/task_13",
+        "intercode-ctf_reverse/task_45",
+        "intercode-ctf_reverse/task_83"
+      ],
+      "human_samples": 9,
+      "agent_samples": 18
+    }
+  },
+  "excluded_empty": {
+    "human": 4,
+    "agent": 13
+  },
+  "python_tool_calls_excluded": 291,
+  "classification": {
+    "validation": {
+      "n": 23,
+      "accuracy": 0.9130434782608695,
+      "balanced_accuracy": 0.9041666666666667,
+      "macro_f1": 0.9041666666666667,
+      "human_precision": 0.875,
+      "human_recall": 0.875,
+      "agent_precision": 0.9333333333333333,
+      "agent_recall": 0.9333333333333333,
+      "roc_auc": 0.95,
+      "confusion_matrix_human_agent": [
+        [
+          7,
+          1
+        ],
+        [
+          1,
+          14
+        ]
+      ],
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 5,
+          "recall": 0.8
+        },
+        "claude-sonnet-4.6": {
+          "n": 5,
+          "recall": 1.0
+        },
+        "gpt-5.5": {
+          "n": 5,
+          "recall": 1.0
+        }
+      }
+    },
+    "test": {
+      "n": 27,
+      "accuracy": 0.8518518518518519,
+      "balanced_accuracy": 0.8888888888888888,
+      "macro_f1": 0.8465909090909092,
+      "human_precision": 0.6923076923076923,
+      "human_recall": 1.0,
+      "agent_precision": 1.0,
+      "agent_recall": 0.7777777777777778,
+      "roc_auc": 1.0,
+      "confusion_matrix_human_agent": [
+        [
+          9,
+          0
+        ],
+        [
+          4,
+          14
+        ]
+      ],
+      "agent_recall_by_model": {
+        "claude-opus-4.6": {
+          "n": 6,
+          "recall": 0.6666666666666666
+        },
+        "claude-sonnet-4.6": {
+          "n": 6,
+          "recall": 0.6666666666666666
+        },
+        "gpt-5.5": {
+          "n": 6,
+          "recall": 1.0
+        }
+      }
+    }
+  },
+  "association": {
+    "command_cosine": {
+      "threshold_selected_on_validation": 0.49999999999999994,
+      "group_thresholds_selected_on_validation": {
+        "human-human": 0.8660254037844387,
+        "agent-human": 0.49999999999999994,
+        "agent-agent": 0.46776427696374895
+      },
+      "validation_pair_counts": {
+        "human-human": {
+          "same": 3,
+          "different": 25
+        },
+        "agent-human": {
+          "same": 24,
+          "different": 96
+        },
+        "agent-agent": {
+          "same": 15,
+          "different": 90
+        }
+      },
+      "test": {
+        "human-human": {
+          "positive_pairs": 3,
+          "negative_pairs": 33,
+          "same_task_mean_similarity": 0.9388321936425751,
+          "different_task_mean_similarity": 0.8852659154274144,
+          "false_split_rate": 0.0,
+          "false_merge_rate": 1.0,
+          "pair_auc": 0.6212121212121211
+        },
+        "agent-human": {
+          "positive_pairs": 27,
+          "negative_pairs": 135,
+          "same_task_mean_similarity": 0.539190358150883,
+          "different_task_mean_similarity": 0.5307640359481102,
+          "false_split_rate": 0.4444444444444444,
+          "false_merge_rate": 0.5703703703703704,
+          "pair_auc": 0.5113854595336077
+        },
+        "agent-agent": {
+          "positive_pairs": 18,
+          "negative_pairs": 135,
+          "same_task_mean_similarity": 0.5895919177380189,
+          "different_task_mean_similarity": 0.5507643277015507,
+          "false_split_rate": 0.2222222222222222,
+          "false_merge_rate": 0.6444444444444445,
+          "pair_auc": 0.5812757201646093
+        }
+      },
+      "downstream_test": {
+        "common": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.3333333333333333,
+          "false_merge_rate": 0.6501650165016502,
+          "balanced_accuracy": 0.5082508250825082,
+          "confusion_matrix_different_same": [
+            [
+              106,
+              197
+            ],
+            [
+              16,
+              32
+            ]
+          ]
+        },
+        "uniform_half": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 1.0,
+          "false_merge_rate": 0.019801980198019802,
+          "balanced_accuracy": 0.4900990099009901,
+          "confusion_matrix_different_same": [
+            [
+              297,
+              6
+            ],
+            [
+              48,
+              0
+            ]
+          ]
+        },
+        "oracle_groups": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.3541666666666667,
+          "false_merge_rate": 0.5907590759075908,
+          "balanced_accuracy": 0.5275371287128713,
+          "confusion_matrix_different_same": [
+            [
+              124,
+              179
+            ],
+            [
+              17,
+              31
+            ]
+          ]
+        },
+        "predicted_groups": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.4791666666666667,
+          "false_merge_rate": 0.48514851485148514,
+          "balanced_accuracy": 0.5178424092409242,
+          "confusion_matrix_different_same": [
+            [
+              156,
+              147
+            ],
+            [
+              23,
+              25
+            ]
+          ]
+        }
+      }
+    },
+    "procgrep_jsd_similarity": {
+      "threshold_selected_on_validation": 0.33771826282657025,
+      "group_thresholds_selected_on_validation": {
+        "human-human": 1.0,
+        "agent-human": 0.33771826282657025,
+        "agent-agent": 0.37919306173106726
+      },
+      "validation_pair_counts": {
+        "human-human": {
+          "same": 3,
+          "different": 25
+        },
+        "agent-human": {
+          "same": 24,
+          "different": 96
+        },
+        "agent-agent": {
+          "same": 15,
+          "different": 90
+        }
+      },
+      "test": {
+        "human-human": {
+          "positive_pairs": 3,
+          "negative_pairs": 33,
+          "same_task_mean_similarity": 1.0,
+          "different_task_mean_similarity": 0.5285294066166781,
+          "false_split_rate": 0.0,
+          "false_merge_rate": 0.696969696969697,
+          "pair_auc": 0.8787878787878788
+        },
+        "agent-human": {
+          "positive_pairs": 27,
+          "negative_pairs": 135,
+          "same_task_mean_similarity": 0.19745724062353354,
+          "different_task_mean_similarity": 0.13736572108521122,
+          "false_split_rate": 0.7777777777777778,
+          "false_merge_rate": 0.18518518518518517,
+          "pair_auc": 0.5330589849108367
+        },
+        "agent-agent": {
+          "positive_pairs": 18,
+          "negative_pairs": 135,
+          "same_task_mean_similarity": 0.05915797104165944,
+          "different_task_mean_similarity": 0.1005302937003227,
+          "false_split_rate": 0.8888888888888888,
+          "false_merge_rate": 0.1259259259259259,
+          "pair_auc": 0.47489711934156387
+        }
+      },
+      "downstream_test": {
+        "common": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.7708333333333334,
+          "false_merge_rate": 0.2145214521452145,
+          "balanced_accuracy": 0.5073226072607261,
+          "confusion_matrix_different_same": [
+            [
+              238,
+              65
+            ],
+            [
+              37,
+              11
+            ]
+          ]
+        },
+        "uniform_half": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.8333333333333334,
+          "false_merge_rate": 0.1254125412541254,
+          "balanced_accuracy": 0.5206270627062707,
+          "confusion_matrix_different_same": [
+            [
+              265,
+              38
+            ],
+            [
+              40,
+              8
+            ]
+          ]
+        },
+        "oracle_groups": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.7916666666666666,
+          "false_merge_rate": 0.15841584158415842,
+          "balanced_accuracy": 0.5249587458745875,
+          "confusion_matrix_different_same": [
+            [
+              255,
+              48
+            ],
+            [
+              38,
+              10
+            ]
+          ]
+        },
+        "predicted_groups": {
+          "pairs": 351,
+          "same_task_pairs": 48,
+          "false_split_rate": 0.8333333333333334,
+          "false_merge_rate": 0.12871287128712872,
+          "balanced_accuracy": 0.518976897689769,
+          "confusion_matrix_different_same": [
+            [
+              264,
+              39
+            ],
+            [
+              40,
+              8
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "procgrep_vocab_spec": "3a5f83afcfb0:32",
+  "limitations": [
+    "Same task is a proxy and not a verified shared attacker or campaign.",
+    "Human keystrokes and model tool calls are differently instrumented.",
+    "Pairs share traces and are not independent statistical observations.",
+    "No traditional automation control is present.",
+    "Group-specific threshold selection has more fitted parameters than the common baseline."
+  ]
+}

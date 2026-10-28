@@ -18,6 +18,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "vendor" / "procgrep" / "src"))
 from attackagent.traces import ATOM_GROUP, load_observations  # noqa: E402
 from procgrep import Trace, encode, fit_bpe, jsd  # noqa: E402
 from procgrep.bpe import ProcedureVocabulary  # noqa: E402
