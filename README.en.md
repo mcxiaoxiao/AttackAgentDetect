@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="site/assets/attackagent-detect-logo.png" width="620" alt="AttackAgent Detect — owl logo" />
-</p>
+<h1 align="center">
+  <img src="site/assets/attackagent-detect-logo.png" width="620" alt="AttackAgent Detect" />
+</h1>
 
 <p align="center"><a href="README.md">中文</a> | <strong>English</strong></p>
 
