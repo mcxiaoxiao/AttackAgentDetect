@@ -16,7 +16,7 @@ if ("IntersectionObserver" in window) {
 for (const button of document.querySelectorAll("[data-copy]")) {
   button.addEventListener("click", async () => {
     const target = document.getElementById(button.dataset.copy);
-    const text = target?.innerText?.trim();
+    const text = target?.innerText?.trim().replace(/^\$\s*/, "");
     if (!text) return;
     try {
       if (navigator.clipboard?.writeText) {
@@ -33,11 +33,12 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         field.remove();
       }
       const original = button.textContent;
-      button.textContent = "已复制";
-      window.setTimeout(() => { button.textContent = original; }, 1400);
+      const english = () => document.documentElement.lang === "en";
+      button.textContent = english() ? "Copied" : "已复制";
+      window.setTimeout(() => { button.textContent = button.dataset.en ? (english() ? button.dataset.en : "复制") : original; }, 1400);
     } catch {
-      button.textContent = "请手动复制";
-      window.setTimeout(() => { button.textContent = "复制"; }, 1600);
+      button.textContent = document.documentElement.lang === "en" ? "Select and copy" : "请手动复制";
+      window.setTimeout(() => { button.textContent = document.documentElement.lang === "en" ? "Copy" : "复制"; }, 1600);
     }
   });
 }
@@ -58,7 +59,6 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   };
   const mono = token('--mono');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const toggle = hero.querySelector('.field-toggle');
   const ramp = ' ·:-=+*#%@';
   const typed = [' ', '⠁', '⠃', '⠇', '⡇', '⣇', '⣧', '⣷', '⣿', '⣿'];
   const logCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[]{}():/._= ,\"-';
@@ -69,17 +69,19 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   // Simulated sessions use the visitor's local clock at page open, never a fixed date.
   const openedAt = Date.now();
   const templates = [
-    {channel: 'bash', level: 'INFO', body: 'tty=pts/0 pid={pid} cmd="pwd" exit=0', mode: 'Human'},
-    {channel: 'agent.tool_call', level: 'INFO', body: 'step=03 tool=bash call={id}', mode: 'Model agent'},
-    {channel: 'audit', level: 'INFO', body: 'type=EXECVE uid=1000 exe=/usr/bin/find', mode: 'Human'},
-    {channel: 'agent.tool_result', level: 'INFO', body: 'call={id} exit=0 elapsed_ms={ms}', mode: 'Model agent'},
-    {channel: 'agent.plan', level: 'DEBUG', body: 'role=assistant step=04 action=inspect_file', mode: 'Model agent'},
-    {channel: 'sshd', level: 'INFO', body: 'pid={pid} user=analyst session=pts/0', mode: 'Human'},
-    {channel: 'agent.retry', level: 'WARN', body: 'step=04 attempt=2 backoff_ms=500', mode: 'Model agent'},
-    {channel: 'sudo', level: 'NOTICE', body: 'user=analyst tty=pts/0 command=/usr/bin/id', mode: 'Human'},
-    {channel: 'agent.request', level: 'INFO', body: 'POST /tools/bash status=200 request={id}', mode: 'Model agent'},
-    {channel: 'bash', level: 'INFO', body: 'session=pts/0 cmd="cat README.md" exit=0', mode: 'Human'},
-    {channel: 'agent.completion', level: 'DEBUG', body: 'finish_reason=tool_calls tokens=184', mode: 'Model agent'},
+    {channel: 'bash', level: 'INFO', body: 'tty=pts/0 pid={pid} cmd="pwd" exit=0', mode: '🥷 Human'},
+    {channel: 'agent.tool_call', level: 'INFO', body: 'step=03 tool=bash call={id}', mode: '🤖 AI agent'},
+    {channel: 'audit', level: 'INFO', body: 'type=EXECVE uid=1000 exe=/usr/bin/find', mode: '🥷 Human'},
+    {channel: 'agent.tool_result', level: 'INFO', body: 'call={id} exit=0 elapsed_ms={ms}', mode: '🤖 AI agent'},
+    {channel: 'agent.plan', level: 'DEBUG', body: 'role=assistant step=04 action=inspect_file', mode: '🤖 AI agent'},
+    {channel: 'sshd', level: 'INFO', body: 'pid={pid} user=analyst session=pts/0', mode: '🥷 Human'},
+    {channel: 'agent.retry', level: 'WARN', body: 'step=04 attempt=2 backoff_ms=500', mode: '🤖 AI agent'},
+    {channel: 'sudo', level: 'NOTICE', body: 'user=analyst tty=pts/0 command=/usr/bin/id', mode: '🥷 Human'},
+    {channel: 'agent.request', level: 'INFO', body: 'POST /tools/bash status=200 request={id}', mode: '🤖 AI agent'},
+    {channel: 'bash', level: 'INFO', body: 'session=pts/0 cmd="cat README.md" exit=0', mode: '🥷 Human'},
+    {channel: 'agent.completion', level: 'DEBUG', body: 'finish_reason=tool_calls tokens=184', mode: '🤖 AI agent'},
+    {channel: 'cron', level: 'INFO', body: 'job=scan.sh pid={pid} schedule="*/5 * * * *" exit=0', mode: '⚙️ Script'},
+    {channel: 'python.worker', level: 'DEBUG', body: 'batch=07 targets=32 retries=0 elapsed_ms={ms}', mode: '⚙️ Script'},
   ];
   function sampleLog(index) {
     const template = templates[index % templates.length];
@@ -94,7 +96,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   const cw = 8, ch = 16;
   let width, height, columns, rows, gate, laneY, origins, atlas, calm, quiet;
   let particles = [], time = 37, frameId = 0, previous = 0, nextId = 0;
-  let visible = true, paused = false, ready = false;
+  let visible = true, ready = false;
   const pointer = {x: -1000, y: -1000, strength: 0, target: 0};
 
   // Seeded gradient noise preserves the reference's broad, soft-edged flow shapes.
@@ -128,8 +130,9 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     particles = [
       {lane: 0, x: gate - 43, example: 1},
       {lane: 1, x: gate + (columns - gate) * .24, example: 2, resolved: true},
-      {lane: 2, x: gate - 55, example: 0},
+      {lane: 2, x: width >= 900 ? gate - 55 : gate + (columns - gate) * .2, example: width >= 900 ? 0 : 11, resolved: width < 900},
       {lane: 3, x: gate + (columns - gate) * .22, example: 3, resolved: true},
+      {lane: 4, x: gate + (columns - gate) * .4, example: 11, resolved: true},
     ].filter(p => p.lane < laneY.length).map(p => {
       const sample = sampleLog(p.example);
       const offset = Math.max(2, Math.floor((sample.raw.length - sample.mode.length) / 2));
@@ -261,19 +264,23 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       const modeVisible = col + outputStart >= gate;
       for (let i = 0; i < example.raw.length; i++) {
         const x = (col + i) * cw;
-        if (packet.resolved && col + i < gate) continue;
-        let char = example.raw[i], color = colors.muted;
-        if (col + i >= gate) {
-          if (!modeVisible || i < outputStart || i >= outputStart + example.mode.length + 2) continue;
-          char = modeVisible ? (' ' + example.mode + ' ')[i - outputStart] || ' ' : ' ';
-          color = colors.ink;
-        }
-        const y = col + i >= gate ? laneY[packet.lane] : inputY;
+        if (packet.resolved || col + i >= gate) continue;
+        const y = inputY;
         const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
         const cell = Math.max(0, Math.min(columns - 1, col + i));
-        context.globalAlpha = (1 - quiet[row * columns + cell]) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length)) * (col + i < gate ? .72 : 1);
+        context.globalAlpha = (1 - quiet[row * columns + cell]) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length)) * .72;
         context.fillStyle = colors.paper; context.fillRect(x, y - ch / 2, cw, ch);
-        context.fillStyle = color; context.fillText(char, x, y + 1);
+        context.fillStyle = colors.muted; context.fillText(example.raw[i], x, y + 1);
+      }
+      if (modeVisible) {
+        const outputX = (col + outputStart) * cw;
+        context.save();
+        context.beginPath(); context.rect(gate * cw, 0, width - gate * cw, height); context.clip();
+        context.globalAlpha = 1;
+        const labelWidth = context.measureText(example.mode).width;
+        context.fillStyle = colors.paper; context.fillRect(outputX - 5, laneY[packet.lane] - ch / 2, labelWidth + 10, ch);
+        context.fillStyle = colors.ink; context.fillText(example.mode, outputX, laneY[packet.lane] + 1);
+        context.restore();
       }
       context.fillStyle = colors.blue;
       const trailTyped = packet.resolved || modeVisible;
@@ -306,13 +313,6 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     }
     draw(); frameId = requestAnimationFrame(frame);
   }
-  toggle?.addEventListener('click', () => {
-    paused = !paused;
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.setAttribute('aria-label', paused ? '继续首屏动效' : '暂停首屏动效');
-    toggle.textContent = paused ? '继续动效' : '暂停动效';
-    if (paused) stop(); else start();
-  });
   hero.addEventListener('pointermove', event => {
     const rect = hero.getBoundingClientRect();
     pointer.x = event.clientX - rect.left; pointer.y = event.clientY - rect.top; pointer.target = 1;
@@ -322,7 +322,16 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
   reduce.addEventListener('change', () => { if (reduce.matches) { stop(); seed(); draw(); } else start(); });
   new ResizeObserver(() => { if (ready) resize(); }).observe(hero);
+  document.addEventListener('pagelanguagechange', () => { if (ready) requestAnimationFrame(resize); });
   const fonts = document.fonts ? Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1500))]) : Promise.resolve();
   fonts.then(() => { resize(); ready = true; document.documentElement.classList.add('has-field'); start(); });
   document.fonts?.addEventListener('loadingdone', () => { if (ready) resize(); });
 })();
+
+// Reveal the runnable source workflow when its link is followed from the API preview.
+for (const link of document.querySelectorAll('a[href="#source-reproduction"]')) {
+  link.addEventListener('click', () => {
+    const details = document.getElementById('source-reproduction')?.closest('details');
+    if (details) details.open = true;
+  });
+}
