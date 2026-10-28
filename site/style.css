@@ -427,3 +427,7 @@ footer::before { display: none; }
   .signature-art { font-size: clamp(52px, 11.4vw, 80px); }
   .footer-legal { margin-top: 8px; font-size: 8px; }
 }
+
+.footer-legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; }
+.footer-legal a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.footer-legal a:hover { color: var(--cobalt); }

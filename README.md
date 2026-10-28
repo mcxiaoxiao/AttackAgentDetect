@@ -53,3 +53,5 @@ The research workflow also draws on the open procedural literature-review and ex
 ## License
 
 Project source code: [MIT](LICENSE). Dataset files remain under their upstream terms and are fetched locally rather than redistributed. The page owl and vendored ProcGrep code have separate notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The owl icon is by [Selina Bauder / OpenMoji](https://openmoji.org/library/emoji-1F989/), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
