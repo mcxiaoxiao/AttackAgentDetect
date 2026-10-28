@@ -243,11 +243,12 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
       context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
       const outputStart = Math.max(2, Math.floor((example.raw.length - example.mode.length) / 2));
+      const modeVisible = col + outputStart >= gate;
       for (let i = 0; i < example.raw.length; i++) {
         const x = (col + i) * cw;
         let char = example.raw[i], color = colors.muted;
         if (col + i >= gate) {
-          char = (' ' + example.mode + ' ')[i - outputStart] || ' ';
+          char = modeVisible ? (' ' + example.mode + ' ')[i - outputStart] || ' ' : ' ';
           color = colors.ink;
         }
         const cell = Math.max(0, Math.min(columns - 1, col + i));
