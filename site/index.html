@@ -37,7 +37,7 @@
       <section class="hero" id="top" aria-labelledby="hero-title">
         <canvas class="field" aria-hidden="true"></canvas>
         <div class="hero-copy">
-          <h1 id="hero-title">Human or agent?<br>Read the traces.</h1>
+          <h1 id="hero-title">Infer execution mode<br>from cyber traces.</h1>
           <p class="hero-desc">从公开 CTF 会话推断人工与 Agent 执行，检验执行模式对同题轨迹匹配的影响。</p>
           <div class="hero-links">
             <a class="button primary" href="#quickstart">快速接入</a>
@@ -168,11 +168,16 @@ python3 -m venv .venv
             <tbody>
               <tr class="direct-work"><td>日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small>预印研究 / 论文审稿中</small></td><td>用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别参与方式”最直接相邻，但不是攻击场景，无脚本组或活动关联评测。</td></tr>
               <tr class="direct-work"><td>行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small>人类与购物 Agent 会话区分</small></td><td>把多类弱行为信号汇总为 session 特征；同类强分类器表现相近，贡献主要在行为视角。不同于攻击主机遥测，也不测攻击活动关联。</td></tr>
+              <tr class="direct-work"><td>日志关联综述</td><td><a href="https://doi.org/10.1016/j.jisa.2025.104096">System log correlation · JISA 2025</a><small>62 篇论文 · 26 种工具</small></td><td>回顾用于网络攻击检测和预测的日志关联方法，并指出虚假相关、缺失数据与阈值设置等可靠性问题。</td></tr>
+              <tr class="direct-work"><td>关联综述</td><td><a href="https://doi.org/10.1109/ACCESS.2022.3168976">Security event correlation · IEEE Access 2022</a><small>系统综述 · 127 篇</small></td><td>覆盖安全事件关联系统，归纳相似度、步骤式和混合方法，并整理数据集与评估指标；说明事件关联是成熟研究方向。</td></tr>
+              <tr class="direct-work"><td>跨主机关联</td><td><a href="https://arxiv.org/abs/2312.09321">OSTINATO · 2023</a><small>行为图相似度</small></td><td>比较带 TTP 标签的主机溯源图，在 500 台主机的红队场景中扩展攻击活动；未按人、脚本或 Agent 执行方式分层。</td></tr>
+              <tr class="direct-work"><td>因果关联</td><td><a href="https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf">HOLMES · IEEE S&amp;P 2019</a><small>审计日志与信息流</small></td><td>将多主机审计行为与信息流组合为 campaign 信号；公开评估未报告执行方式标签。</td></tr>
+              <tr class="direct-work"><td>跨主机关联</td><td><a href="https://doi.org/10.1145/3488932.3523261">SteinerLog · ASIA CCS 2022</a><small>告警因果图</small></td><td>用因果分析和层级图遍历关联企业内的攻击活动；摘要未提供执行方式对照。</td></tr>
             </tbody>
           </table>
         </div>
         <details class="related-details">
-          <summary>完整相关工作与方法参考<span>其余 17 项</span></summary>
+          <summary>完整相关工作与方法参考<span>其余 18 项</span></summary>
           <div class="related-table-wrap">
           <table class="related-table">
             <thead><tr><th>方向</th><th>工作</th><th>TL;DR / 与本项目的关系</th></tr></thead>
@@ -187,7 +192,8 @@ python3 -m venv .venv
               <tr><td>攻击故事</td><td><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE · ACSAC 2016</a><small>加权日志图</small></td><td>以社区发现从异构日志中重建多阶段攻击；展示行为关联的实际用途，不含执行方式标签。</td></tr>
               <tr><td>日志关联</td><td><a href="https://arxiv.org/abs/1910.00056">POIROT · ACM CCS 2019</a><small>CTI 图 ↔ 来源图</small></td><td>将威胁情报中的攻击图与审计日志来源图对齐，用于已知攻击活动搜寻；不比较人类与 Agent 执行。</td></tr>
               <tr><td>攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS · USENIX Security 2021</a><small>因果与语义序列</small></td><td>从系统审计日志恢复攻击故事；关注活动内部的因果重建，不判断操作者类别。</td></tr>
-              <tr><td>日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · ICC 2025</a><small>日志到 ATT&amp;CK / campaign</small></td><td>从审计日志映射技术并关联已知 campaign；邻近活动关联问题，但没有参与方式标签。</td></tr>
+              <tr><td>日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · arXiv 2024</a><small>日志到 ATT&amp;CK / campaign</small></td><td>从审计日志映射技术并关联已知 campaign；邻近活动关联问题，但没有参与方式标签。</td></tr>
+              <tr><td>组织关联</td><td><a href="https://doi.org/10.3390/electronics13061106">APT group behavior patterns · Electronics 2024</a><small>粗糙集 + 威胁情报</small></td><td>用恶意软件和威胁情报中的行为特征建模组织间关联；输入与目标是组级情报，不是统一传感器下的活动日志匹配，公开关系标签也未经独立真值裁定。</td></tr>
               <tr><td>文本检测类比</td><td><a href="https://proceedings.mlr.press/v202/mitchell23a.html">DetectGPT · ICML 2023</a><small>模型 log-prob</small></td><td>比较原文与扰动文本在语言模型概率下的差异；启发评分设计，但日志不是自然语言生成文本。</td></tr>
               <tr><td>文本检测类比</td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6b8c6f846c3575e1d1ad496abea28826-Abstract-Conference.html">Fast-DetectGPT · ICLR 2024</a><small>条件概率曲率</small></td><td>以代理模型概率评分做高效零样本文本检测；可借鉴概率特征，但结构化系统事件没有自然语言 token 概率。</td></tr>
               <tr><td>文本检测类比</td><td><a href="https://aclanthology.org/2024.naacl-long.95/">Ghostbuster · NAACL 2024</a><small>辅助模型特征 + 分类器</small></td><td>从弱语言模型的 token 概率构造固定特征后监督分类；可借鉴固定特征和线性基线，仍需有标签训练数据。</td></tr>
@@ -198,7 +204,7 @@ python3 -m venv .venv
           </table>
           </div>
         </details>
-        <p class="related-conclusion">当前可争取的空白更窄：在同一遥测与已知活动标签下，检验执行方式是否改变活动关联错误，以及参与识别能否减少误拆分 / 误合并。</p>
+        <p class="related-conclusion">相关研究会用行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估未按人、脚本、Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这类差异，而不是预设方法已经失效。</p>
       </section>
 
       <footer>
