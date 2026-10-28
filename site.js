@@ -43,7 +43,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
 }
 
 /* Cobalt reference: https://www.usehallmark.com/themes/cobalt/.
-   This field illustrates command-to-action parsing, not live inference or attribution. */
+   This field illustrates session-level Human / Model agent inference; examples are schematic, not live verdicts. */
 (() => {
   const hero = document.querySelector('.hero');
   const canvas = hero?.querySelector('.field');
@@ -64,13 +64,31 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   const glyphs = [...new Set([...ramp, ...typed, '┊', '┼', '┬', '┴'])];
   const tints = [...colors.glyphs, colors.blue, colors.deep];
   const tintAt = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5];
-  const examples = [
-    {raw: '{"cmd":"pwd"}', action: 'environment'},
-    {raw: '{"cmd":"find . -type f"}', action: 'discover'},
-    {raw: '{"cmd":"head -n 20 file"}', action: 'read'},
-    {raw: '{"cmd":"grep pattern file"}', action: 'search'},
-    {raw: '{"cmd":"ls -la"}', action: 'discover'},
+  // Simulated sessions use the visitor's local clock at page open, never a fixed date.
+  const openedAt = Date.now();
+  const templates = [
+    {channel: 'bash', level: 'INFO', body: 'tty=pts/0 pid={pid} cmd="pwd" exit=0', mode: 'Human'},
+    {channel: 'agent.tool_call', level: 'INFO', body: 'step=03 tool=bash call={id}', mode: 'Model agent'},
+    {channel: 'audit', level: 'INFO', body: 'type=EXECVE uid=1000 exe=/usr/bin/find', mode: 'Human'},
+    {channel: 'agent.tool_result', level: 'INFO', body: 'call={id} exit=0 elapsed_ms={ms}', mode: 'Model agent'},
+    {channel: 'agent.plan', level: 'DEBUG', body: 'role=assistant step=04 action=inspect_file', mode: 'Model agent'},
+    {channel: 'sshd', level: 'INFO', body: 'pid={pid} user=analyst session=pts/0', mode: 'Human'},
+    {channel: 'agent.retry', level: 'WARN', body: 'step=04 attempt=2 backoff_ms=500', mode: 'Model agent'},
+    {channel: 'sudo', level: 'NOTICE', body: 'user=analyst tty=pts/0 command=/usr/bin/id', mode: 'Human'},
+    {channel: 'agent.request', level: 'INFO', body: 'POST /tools/bash status=200 request={id}', mode: 'Model agent'},
+    {channel: 'bash', level: 'INFO', body: 'session=pts/0 cmd="cat README.md" exit=0', mode: 'Human'},
+    {channel: 'agent.completion', level: 'DEBUG', body: 'finish_reason=tool_calls tokens=184', mode: 'Model agent'},
   ];
+  function sampleLog(index) {
+    const template = templates[index % templates.length];
+    const date = new Date(openedAt - Math.floor(Math.random() * 72 * 60 * 60 * 1000));
+    const pad = value => String(value).padStart(2, '0');
+    const stamp = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+    const id = Math.floor(Math.random() * 65536).toString(16).padStart(4, '0');
+    const body = template.body.replace('{id}', 'sim_' + id).replace('{pid}', String(1000 + Math.floor(Math.random() * 8000))).replace('{ms}', String(30 + Math.floor(Math.random() * 1500)));
+    return {...template, raw: `[${stamp}] [${template.level}] [${template.channel}] ${body}`};
+  }
+  const ambientLogs = [sampleLog(1), sampleLog(0), sampleLog(6)];
   const cw = 8, ch = 16;
   let width, height, columns, rows, gate, laneY, origins, atlas, calm, quiet;
   let particles = [], time = 37, frameId = 0, previous = 0, nextId = 0;
@@ -92,13 +110,17 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   }
   function seed() {
     particles = [
-      {lane: 0, x: gate - 21, example: 1},
+      {lane: 0, x: gate - 43, example: 1},
       {lane: 1, x: gate + (columns - gate) * .24, example: 2},
-      {lane: 2, x: gate - 37, example: 0},
+      {lane: 2, x: gate - 55, example: 0},
       {lane: 3, x: gate + (columns - gate) * .12, example: 3},
       {lane: 4, x: gate + (columns - gate) * .43, example: 4},
-      {lane: 4, x: gate - 57, example: 2},
-    ].filter(p => p.lane < laneY.length).map(p => ({...p, speed: 9 + p.lane * .7}));
+      {lane: 4, x: gate - 69, example: 2},
+    ].filter(p => p.lane < laneY.length).map(p => {
+      const sample = sampleLog(p.example);
+      const offset = Math.max(2, Math.floor((sample.raw.length - sample.mode.length) / 2));
+      return {...p, x: p.x - (p.x >= gate ? offset : 0), sample, speed: 9 + p.lane * .7};
+    });
   }
   function resize() {
     const rect = hero.getBoundingClientRect();
@@ -144,7 +166,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       quiet[row * columns + col] = near;
     }
     const wide = width >= 900;
-    gate = Math.round(width * (wide ? .585 : .3) / cw);
+    gate = Math.round(width * (wide ? .585 : .55) / cw);
     const count = wide ? 5 : 4;
     const top = wide ? height * .245 : textBottom + 90;
     const spacing = wide ? Math.min(80, height * .105) : 48;
@@ -179,6 +201,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     const bands = laneY.map((_, lane) => Array.from({length: columns}, (_, col) => band(lane, col * cw + cw / 2)));
     for (let row = 1; row < rows - 1; row++) for (let col = 1; col < columns - 1; col++) {
       const y = row * ch, mask = calm[row * columns + col];
+      if (col < gate) continue;
       let glyph, tint, alpha = 1 - mask * .7;
       if (col === gate && y >= laneY[0] - 32 && y <= laneY.at(-1) + 32) {
         glyph = y < laneY[0] - 16 ? '┬' : y > laneY.at(-1) + 16 ? '┴' : laneY.includes(y + ch / 2) ? '┼' : '┊';
@@ -199,28 +222,36 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       context.drawImage(atlas, glyphs.indexOf(glyph) * cw * dpr, tint * ch * dpr, cw * dpr, ch * dpr, col * cw, y, cw, ch);
     }
     context.globalAlpha = 1;
-    const captionY = laneY[0] - 48;
-    label(width >= 900 ? 'command traces' : 'traces', gate * cw - (width >= 900 ? 56 : 24), captionY, colors.muted);
-    const caption = width >= 900 ? 'action groups' : 'actions';
-    label(caption, width - caption.length * cw - 24, captionY, colors.muted);
-    for (const packet of particles) {
-      const example = examples[packet.example];
-      const col = Math.floor(packet.x);
-      const y = Math.round((band(packet.lane, Math.max(0, Math.min(width, col * cw))).y - ch / 2) / ch) * ch + ch / 2;
+    // Readable log records provide the source texture; only the resolved side uses glyphs.
+    ambientLogs.forEach((sample, line) => {
+      const y = Math.round(height * [.1, .84, .91][line] / ch) * ch + ch / 2;
       const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
-      let covered = 0;
-      for (let i = Math.max(0, col); i < Math.min(columns, col + example.raw.length); i++) covered = Math.max(covered, quiet[row * columns + i]);
-      context.globalAlpha = (1 - covered * .95) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length));
+      const start = Math.round((width < 600 ? 16 : 40) / cw) - Math.floor((time - 37) * 1.2) % 18;
+      context.font = `400 13.333px ${mono}`; context.textBaseline = 'middle';
+      context.fillStyle = colors.muted;
+      for (let i = 0; i < sample.raw.length; i++) {
+        const col = start + i;
+        if (col < 1 || col >= gate - 2) continue;
+        context.globalAlpha = .48 * (1 - quiet[row * columns + col]);
+        context.fillText(sample.raw[i], col * cw, y + 1);
+      }
+    });
+    for (const packet of particles) {
+      const example = packet.sample;
+      const col = Math.floor(packet.x);
+      const y = laneY[packet.lane];
+      const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
       context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
-      const outputStart = Math.max(2, Math.floor((example.raw.length - example.action.length) / 2));
+      const outputStart = Math.max(2, Math.floor((example.raw.length - example.mode.length) / 2));
       for (let i = 0; i < example.raw.length; i++) {
         const x = (col + i) * cw;
-        let char = example.raw[i], color = colors.blue;
+        let char = example.raw[i], color = colors.muted;
         if (col + i >= gate) {
-          char = (' ' + example.action + ' ')[i - outputStart] || ' ';
+          char = (' ' + example.mode + ' ')[i - outputStart] || ' ';
           color = colors.ink;
-          if (!reduce.matches && !paused && col + i - gate < 2) { char = '#%*+=:'[(Math.floor(time * 30) + i) % 6]; color = colors.blue; }
         }
+        const cell = Math.max(0, Math.min(columns - 1, col + i));
+        context.globalAlpha = (1 - quiet[row * columns + cell] * .98) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length));
         context.fillStyle = colors.paper; context.fillRect(x, y - ch / 2, cw, ch);
         context.fillStyle = color; context.fillText(char, x, y + 1);
       }
@@ -228,6 +259,10 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, y + 1);
     }
     context.globalAlpha = 1;
+    const captionY = laneY[0] - 48;
+    label(width >= 900 ? 'Session traces' : 'Traces', gate * cw - (width >= 900 ? 56 : 24), captionY, colors.muted);
+    const caption = width >= 900 ? 'Execution mode' : 'Mode';
+    label(caption, width - caption.length * cw - 24, captionY, colors.muted);
   }
   function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
   function start() {
@@ -244,7 +279,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     particles = particles.filter(packet => packet.x < columns + 5);
     for (let lane = 0; lane < laneY.length; lane++) {
       if (!particles.some(packet => packet.lane === lane && packet.x < gate * .6)) {
-        particles.push({lane, x: -34 - lane * 6, example: nextId++ % examples.length, speed: 9 + lane * .7});
+        particles.push({lane, x: -52 - lane * 6, sample: sampleLog(nextId++), speed: 9 + lane * .7});
       }
     }
     draw(); frameId = requestAnimationFrame(frame);
