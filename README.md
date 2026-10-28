@@ -1,12 +1,13 @@
 # 攻击活动关联中的 Agent 参与识别
 
-本仓库记录一项早期研究：基于可观察的攻击轨迹，研究 LLM Agent 参与是否改变行为证据，并检验在具体活动关联任务中，参与信息是否有用。
+本仓库旨在提供攻击 Agent 参与识别与活动关联工具，以及支撑其设计和适用范围的案例、实验与论文研究。研究从可观察的攻击轨迹出发，检验 LLM Agent 参与是否改变行为证据，以及参与信息对具体活动关联任务是否有用。
 
 研究不预设 Agent 会使现有关联方法失效。复现实验、公开论文结论、模拟结果和未检验假设将分别标注。模拟攻击或相同任务的轨迹，不等于真实 APT 组织归因。
 
 ## 进度
 
 - [约 8 小时自动科研计划](00-研究计划.md)：研究问题、数据路线、实验、复核与交付。
+- [初步实验预设](01-实验预设.md)：公开轨迹、划分、关联基线与实验边界。
 - 调研报告、实验 Notebook、结果和复现说明随研究推进补充；当前不代表实验已完成。
 
 ## 环境
@@ -16,6 +17,8 @@
 ```bash
 uv venv --python 3.10 .venv
 uv pip install --python .venv/bin/python -r requirements.lock.txt
+.venv/bin/python scripts/setup_procgrep.py
+.venv/bin/python scripts/download_public_traces.py
 .venv/bin/jupyter lab
 ```
 

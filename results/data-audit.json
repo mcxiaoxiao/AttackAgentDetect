@@ -1,0 +1,29 @@
+{
+  "source": "https://github.com/lyptus-research/cyber-task-horizons-data",
+  "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "benchmark": "intercode-ctf",
+  "human_files": 48,
+  "human_samples": 47,
+  "human_distinct_tasks": 33,
+  "human_without_input": 0,
+  "human_files_without_sample": [
+    "session_167_20260211_141726_partial.eval.gz"
+  ],
+  "agent_files": 3,
+  "agent_samples": 194,
+  "agent_distinct_tasks": 74,
+  "agent_samples_by_model": {
+    "eval-set-83d0a1kx3i5t3u6b": 74,
+    "eval-set-q2eavajb0blxpmc1": 46,
+    "eval-set-x2n13zd6vulak29q": 74
+  },
+  "agent_tool_calls": {
+    "bash": 954,
+    "python": 291
+  },
+  "matched_task_count": 31,
+  "matched_human_samples": 45,
+  "matched_agent_samples": 93,
+  "matched_agent_without_bash": 9,
+  "caveat": "Task IDs are not attack-actor or campaign labels; instrumentation differs by class."
+}
