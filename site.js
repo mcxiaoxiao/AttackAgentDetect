@@ -61,7 +61,9 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   const toggle = hero.querySelector('.field-toggle');
   const ramp = ' ·:-=+*#%@';
   const typed = [' ', '⠁', '⠃', '⠇', '⡇', '⣇', '⣧', '⣷', '⣿', '⣿'];
-  const glyphs = [...new Set([...ramp, ...typed, '┊', '┼', '┬', '┴'])];
+  const logCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[]{}():/._= ,\"-';
+  const glyphs = [...new Set([...ramp, ...typed, ...logCharacters, '┊', '┼', '┬', '┴'])];
+  const glyphIndex = new Map(glyphs.map((glyph, index) => [glyph, index]));
   const tints = [...colors.glyphs, colors.blue, colors.deep];
   const tintAt = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5];
   // Simulated sessions use the visitor's local clock at page open, never a fixed date.
@@ -88,24 +90,38 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     const body = template.body.replace('{id}', 'sim_' + id).replace('{pid}', String(1000 + Math.floor(Math.random() * 8000))).replace('{ms}', String(30 + Math.floor(Math.random() * 1500)));
     return {...template, raw: `[${stamp}] [${template.level}] [${template.channel}] ${body}`};
   }
-  const ambientLogs = [sampleLog(1), sampleLog(0), sampleLog(6)];
+  const ambientLogs = Array.from({length: 24}, (_, index) => sampleLog(index));
   const cw = 8, ch = 16;
   let width, height, columns, rows, gate, laneY, origins, atlas, calm, quiet;
   let particles = [], time = 37, frameId = 0, previous = 0, nextId = 0;
   let visible = true, paused = false, ready = false;
   const pointer = {x: -1000, y: -1000, strength: 0, target: 0};
 
-  // Smooth, deterministic noise keeps the character streams continuous.
-  function hash(x, y) {
-    const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
-    return n - Math.floor(n);
+  // Seeded gradient noise preserves the reference's broad, soft-edged flow shapes.
+  const permutation = new Uint8Array(512);
+  {
+    const values = Array.from({length: 256}, (_, index) => index);
+    let seed = 1042;
+    for (let index = 255; index > 0; index--) {
+      seed = seed * 16807 % 2147483647;
+      const other = Math.floor(seed / 2147483647 * (index + 1));
+      [values[index], values[other]] = [values[other], values[index]];
+    }
+    for (let index = 0; index < 512; index++) permutation[index] = values[index & 255];
   }
+  const gradientX = [1, -1, 1, -1, 1, -1, 0, 0];
+  const gradientY = [1, 1, -1, -1, 0, 0, 1, -1];
   function noise(x, y) {
     const ix = Math.floor(x), iy = Math.floor(y);
-    let u = x - ix, v = y - iy;
-    u = u * u * (3 - 2 * u); v = v * v * (3 - 2 * v);
-    const top = hash(ix, iy) * (1 - u) + hash(ix + 1, iy) * u;
-    const bottom = hash(ix, iy + 1) * (1 - u) + hash(ix + 1, iy + 1) * u;
+    const dx = x - ix, dy = y - iy, px = ix & 255, py = iy & 255;
+    const u = dx * dx * dx * (dx * (dx * 6 - 15) + 10);
+    const v = dy * dy * dy * (dy * (dy * 6 - 15) + 10);
+    const aa = permutation[permutation[px] + py] & 7;
+    const ab = permutation[permutation[px] + py + 1] & 7;
+    const ba = permutation[permutation[px + 1] + py] & 7;
+    const bb = permutation[permutation[px + 1] + py + 1] & 7;
+    const top = (gradientX[aa] * dx + gradientY[aa] * dy) * (1 - u) + (gradientX[ba] * (dx - 1) + gradientY[ba] * dy) * u;
+    const bottom = (gradientX[ab] * dx + gradientY[ab] * (dy - 1)) * (1 - u) + (gradientX[bb] * (dx - 1) + gradientY[bb] * (dy - 1)) * u;
     return top * (1 - v) + bottom * v;
   }
   function seed() {
@@ -176,19 +192,25 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     seed(); draw();
   }
   function band(lane, x) {
-    if (x >= gate * cw) return {y: laneY[lane], spread: 7, amplitude: .42 + .12 * Math.sin((x - time * 70) / 46 + lane)};
-    let blend = Math.max(0, Math.min(1, (x - gate * cw * .3) / (gate * cw * .62)));
-    blend = blend * blend * (3 - 2 * blend);
-    const wave = (noise((x - time * 26) / 260, lane * 3.7 + .5) - .5) * 180 * (1 - blend);
-    let y = origins[lane] + (laneY[lane] - origins[lane]) * blend + wave;
-    let amplitude = (.5 + .75 * noise((x - time * 48) / 150, lane * 7.3 + 3)) * (1 - blend * .25) + blend * .25;
+    let y, spread, amplitude;
+    if (x >= gate * cw) {
+      y = laneY[lane]; spread = 7;
+      amplitude = .4 + .12 * Math.sin((x - time * 70) / 46 + lane);
+    } else {
+      let blend = Math.max(0, Math.min(1, (x - gate * cw * .3) / (gate * cw * .62)));
+      blend = blend * blend * (3 - 2 * blend);
+      const wave = noise((x - time * 26) / 260, lane * 3.7 + .5) * 120 * (1 - blend);
+      y = origins[lane] + (laneY[lane] - origins[lane]) * blend + wave;
+      spread = (1 - blend) * (26 + 20 * (.5 + noise((x - time * 40) / 180, lane * 5.1 + 9))) + blend * 9;
+      amplitude = Math.min(1, .5 + .75 * (.5 + noise((x - time * 48) / 150, lane * 7.3 + 3))) * (1 - blend * .25) + blend * .25;
+    }
     const distance = Math.hypot(x - pointer.x, y - pointer.y);
     if (distance < 200) {
       const force = (1 - distance / 200) ** 2 * pointer.strength;
       y += (y >= pointer.y ? 1 : -1) * force * 46;
       amplitude *= 1 + force * .7;
     }
-    return {y, spread: (1 - blend) * (26 + 20 * noise((x - time * 40) / 180, lane * 5.1 + 9)) + blend * 9, amplitude};
+    return {y, spread, amplitude};
   }
   function label(text, x, y, color = colors.ink) {
     context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
@@ -201,7 +223,6 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     const bands = laneY.map((_, lane) => Array.from({length: columns}, (_, col) => band(lane, col * cw + cw / 2)));
     for (let row = 1; row < rows - 1; row++) for (let col = 1; col < columns - 1; col++) {
       const y = row * ch, mask = calm[row * columns + col];
-      if (col < gate) continue;
       let glyph, tint, alpha = 1 - mask * .7;
       if (col === gate && y >= laneY[0] - 32 && y <= laneY.at(-1) + 32) {
         glyph = y < laneY[0] - 16 ? '┬' : y > laneY.at(-1) + 16 ? '┴' : laneY.includes(y + ch / 2) ? '┼' : '┊';
@@ -215,32 +236,28 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         density *= 1 - mask * .93;
         if (density < .09) continue;
         const level = Math.min(9, 1 + Math.floor((density - .09) / .91 * 9));
-        glyph = col > gate ? typed[level] : ramp[level]; tint = tintAt[level];
+        tint = tintAt[level];
+        if (col > gate) {
+          glyph = typed[level];
+        } else {
+          // The reference's broad clouds remain intact. Their denser cells contain
+          // coherent log fragments, with pale punctuation noise along the edges.
+          const record = ambientLogs[row % ambientLogs.length].raw;
+          const drift = Math.floor((time - 37) * (2 + row % 3));
+          const offset = (col + drift + Math.floor(row / 3) * 13) % (record.length + 12);
+          glyph = level >= 4 && row % 3 !== 0 ? record[offset] || ' ' : ramp[level];
+        }
         if (col < 8) alpha *= (col + 1) / 9;
       }
       context.globalAlpha = alpha;
-      context.drawImage(atlas, glyphs.indexOf(glyph) * cw * dpr, tint * ch * dpr, cw * dpr, ch * dpr, col * cw, y, cw, ch);
+      context.drawImage(atlas, glyphIndex.get(glyph) * cw * dpr, tint * ch * dpr, cw * dpr, ch * dpr, col * cw, y, cw, ch);
     }
     context.globalAlpha = 1;
-    // Readable log records provide the source texture; only the resolved side uses glyphs.
-    ambientLogs.forEach((sample, line) => {
-      const y = Math.round(height * [.1, .84, .91][line] / ch) * ch + ch / 2;
-      const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
-      const start = Math.round((width < 600 ? 16 : 40) / cw) - Math.floor((time - 37) * 1.2) % 18;
-      context.font = `400 13.333px ${mono}`; context.textBaseline = 'middle';
-      context.fillStyle = colors.muted;
-      for (let i = 0; i < sample.raw.length; i++) {
-        const col = start + i;
-        if (col < 1 || col >= gate - 2) continue;
-        context.globalAlpha = .48 * (1 - quiet[row * columns + col]);
-        context.fillText(sample.raw[i], col * cw, y + 1);
-      }
-    });
     for (const packet of particles) {
       const example = packet.sample;
       const col = Math.floor(packet.x);
-      const y = laneY[packet.lane];
-      const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
+      const sourceHead = Math.max(0, Math.min(gate - 1, col + example.raw.length - 1));
+      const inputY = Math.round((band(packet.lane, sourceHead * cw).y - ch / 2) / ch) * ch + ch / 2;
       context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
       const outputStart = Math.max(2, Math.floor((example.raw.length - example.mode.length) / 2));
       const modeVisible = col + outputStart >= gate;
@@ -248,16 +265,20 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         const x = (col + i) * cw;
         let char = example.raw[i], color = colors.muted;
         if (col + i >= gate) {
+          if (!modeVisible || i < outputStart || i >= outputStart + example.mode.length + 2) continue;
           char = modeVisible ? (' ' + example.mode + ' ')[i - outputStart] || ' ' : ' ';
           color = colors.ink;
         }
+        const y = col + i >= gate ? laneY[packet.lane] : inputY;
+        const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
         const cell = Math.max(0, Math.min(columns - 1, col + i));
         context.globalAlpha = (1 - quiet[row * columns + cell] * .98) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length));
         context.fillStyle = colors.paper; context.fillRect(x, y - ch / 2, cw, ch);
         context.fillStyle = color; context.fillText(char, x, y + 1);
       }
       context.fillStyle = colors.blue;
-      context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, y + 1);
+      const trailY = col >= gate ? laneY[packet.lane] : inputY;
+      context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, trailY + 1);
     }
     context.globalAlpha = 1;
     const captionY = laneY[0] - 48;
@@ -267,7 +288,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   }
   function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
   function start() {
-    if (!ready || frameId || reduce.matches || paused || !visible || document.hidden) return;
+    if (!ready || frameId || reduce.matches || !visible || document.hidden) return;
     frameId = requestAnimationFrame(frame);
   }
   function frame(ms) {
@@ -285,7 +306,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     }
     draw(); frameId = requestAnimationFrame(frame);
   }
-  toggle.addEventListener('click', () => {
+  toggle?.addEventListener('click', () => {
     paused = !paused;
     toggle.setAttribute('aria-pressed', String(paused));
     toggle.setAttribute('aria-label', paused ? '继续首屏动效' : '暂停首屏动效');
