@@ -41,6 +41,7 @@ class Observation:
     names: tuple
     groups: tuple
     skipped_python_calls: int = 0
+    benchmark: str = "intercode-ctf"
 
 
 def terminal_lines(raw):
@@ -143,4 +144,66 @@ def load_observations():
                 trace_id = hashlib.sha256((row["path"] + "/" + name).encode()).hexdigest()[:16]
                 model = manifest["model_sets"][path.parent.name]
                 output.append(Observation(trace_id, str(sample["id"]), "agent", model, tuple(heads), tuple(ATOM_GROUP[x] for x in heads), skipped))
+    return output
+
+
+def load_crossbenchmark_observations():
+    """Load pinned CyBench/NYUCTF traces; latest dated model attempt wins per task.
+
+    Only command heads are returned. Raw logs remain local under the ignored
+    data/raw directory and are never copied into experiment outputs.
+    """
+    manifest_path = ROOT / "data" / "manifests" / "crossbenchmark_public_subset.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("revision") != "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae":
+        raise ValueError("Unexpected cross-benchmark dataset revision")
+    output = []
+    agent_samples = {}
+    for row in manifest["files"]:
+        path = DATA / row["path"]
+        if not path.is_file() or path.stat().st_size != row["size"]:
+            raise FileNotFoundError(f"Missing or incomplete public trace: {row['path']}")
+        if row["kind"] == "human":
+            with gzip.open(path, "rb") as handle:
+                parsed = samples(io.BytesIO(handle.read()))
+            for name, sample in parsed:
+                logs = sample.get("store", {}).get("HumanAgentState:logs", {})
+                lines = []
+                for key, value in sorted(logs.items()):
+                    if key.endswith(".input"):
+                        lines.extend(terminal_lines(value))
+                heads = command_heads("\n".join(lines))
+                trace_id = hashlib.sha256((row["path"] + "/" + name).encode()).hexdigest()[:16]
+                task = f"{row['benchmark']}/{row['task_id']}"
+                output.append(Observation(
+                    trace_id, task, "human", "expert", tuple(heads),
+                    tuple(ATOM_GROUP[x] for x in heads), 0, row["benchmark"]
+                ))
+        else:
+            # The upstream analysis overlays timestamped eval files in
+            # chronological order, with later attempts replacing earlier ones.
+            for name, sample in samples(path):
+                raw_task = str(sample.get("id", "")).strip().split("/")[-1]
+                if not raw_task:
+                    continue
+                key = (row["benchmark"], row["model"], raw_task)
+                order = row.get("attempt_filename", row["path"].rsplit("/", 1)[-1])
+                if key not in agent_samples or order > agent_samples[key][0]:
+                    agent_samples[key] = (order, row, name, sample)
+
+    for (benchmark, model, raw_task), (order, row, name, sample) in sorted(agent_samples.items()):
+        heads, skipped = [], 0
+        for message in sample.get("messages", []):
+            for call in message.get("tool_calls", []) or []:
+                args = call.get("arguments", {})
+                if call.get("function") == "bash" and isinstance(args.get("cmd"), str):
+                    heads.extend(command_heads(args["cmd"]))
+                elif call.get("function") == "python":
+                    skipped += 1
+        trace_id = hashlib.sha256((row["path"] + "/" + name).encode()).hexdigest()[:16]
+        task = f"{benchmark}/{raw_task}"
+        output.append(Observation(
+            trace_id, task, "agent", model, tuple(heads),
+            tuple(ATOM_GROUP[x] for x in heads), skipped, benchmark
+        ))
     return output
