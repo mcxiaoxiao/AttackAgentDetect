@@ -29,7 +29,7 @@
         <a href="#related">相关工作</a>
       </nav>
       <div class="rail-bottom">
-        <a href="https://github.com/mcxiaoxiao/AttackAgentDetect">GitHub 仓库</a>
+        <a href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg class="github-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z"/></svg><span>GitHub 仓库</span></a>
       </div>
     </aside>
 
@@ -38,10 +38,10 @@
         <canvas class="field" aria-hidden="true"></canvas>
         <div class="hero-copy">
           <h1 id="hero-title">Infer execution mode<br>from cyber traces.</h1>
-          <p class="hero-desc">在公开 CTF 会话中比较人工 shell 记录与模型 Agent 工具调用，检验执行模式标签能否改善同题轨迹匹配。当前数据没有脚本组或 APT campaign 真值。</p>
+          <p class="hero-desc">从公开 CTF 会话推断人工与 Agent 执行，检验执行模式对同题轨迹匹配的影响。</p>
           <div class="hero-links">
-            <a class="button primary" href="#results">查看结果</a>
-            <a class="button secondary" href="https://github.com/mcxiaoxiao/AttackAgentDetect">查看源码</a>
+            <a class="button primary" href="#quickstart">快速接入</a>
+            <a class="button secondary" href="#question">研究细节</a>
           </div>
           <div class="install-preview" aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行">
             <code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
@@ -50,10 +50,10 @@
           <p class="hero-terms">PyPI 计划于 2027 年发布；当前请从源码运行。</p>
         </div>
         <div class="legend-row">
-          <ul class="legend" aria-label="命令解析动效图例">
-            <li><code class="legend-raw">{"cmd":</code><span>命令轨迹</span></li>
-            <li><code>discover</code><span>动作类别</span></li>
-            <li class="legend-note">流程示意</li>
+          <ul class="legend" aria-label="Simulated session traces resolving into Human or Model agent execution modes">
+            <li><code class="legend-raw">[log]</code><span>Session traces</span></li>
+            <li><code>Human / Agent</code></li>
+            <li class="legend-note">Simulation</li>
           </ul>
           <button class="field-toggle" type="button" aria-pressed="false" aria-label="暂停首屏动效">暂停动效</button>
         </div>
@@ -138,14 +138,13 @@
           <a href="https://saga-tw.github.io/dataset/v2">SAGA v2 <span>攻击活动标签明确；无执行方式标签</span></a>
           <a href="https://cyberclear-bench.github.io/cyberclear/">CyberClear <span>日志与攻击溯源图配对；评估防守侧 Agent</span></a>
         </div>
-        <div class="quickstart">
+        <div class="quickstart" id="quickstart">
           <div class="quickstart-copy">
-            <span class="quickstart-kicker">REPRODUCE THE CASE</span>
             <h3>从源码跑通这组基线</h3>
             <p>Python 3.10+，无需 Conda。先下载固定版本的公开轨迹，再运行分析与一致性检查。PyPI 计划于 2027 年开放。</p>
           </div>
           <div class="quickstart-terminal">
-          <div class="terminal-head"><span>TERMINAL / SOURCE CHECKOUT</span><button type="button" class="copy-button" data-copy="quickstart-command">复制</button></div>
+          <div class="terminal-head"><span>源码复现</span><button type="button" class="copy-button" data-copy="quickstart-command">复制</button></div>
             <pre id="quickstart-command"><code>git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
 cd AttackAgentDetect
 python3 -m venv .venv
@@ -154,7 +153,7 @@ python3 -m venv .venv
 .venv/bin/python scripts/run_all.py</code></pre>
           </div>
           <div class="quickstart-output">
-            <div class="terminal-head"><span>RESULT EXCERPT / results/quick-summary.json</span><span>TEST SPLIT · 6 TASKS</span></div>
+            <div class="terminal-head"><span>结果摘录 / quick-summary.json</span><span>测试集：6 个任务</span></div>
             <pre><code>{
   "sessions": { "human": 47, "model_agent": 194, "script": 0 },
   "test": {
@@ -177,6 +176,15 @@ python3 -m venv .venv
             <tbody>
               <tr class="direct-work"><td>日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small>预印研究 / 论文审稿中</small></td><td>用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别参与方式”最直接相邻，但不是攻击场景，无脚本组或活动关联评测。</td></tr>
               <tr class="direct-work"><td>行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small>人类与购物 Agent 会话区分</small></td><td>把多类弱行为信号汇总为 session 特征；同类强分类器表现相近，贡献主要在行为视角。不同于攻击主机遥测，也不测攻击活动关联。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <details class="related-details">
+          <summary>完整相关工作与方法参考<span>其余 17 项</span></summary>
+          <div class="related-table-wrap">
+          <table class="related-table">
+            <thead><tr><th>方向</th><th>工作</th><th>TL;DR / 与本项目的关系</th></tr></thead>
+            <tbody>
               <tr><td>浏览器识别</td><td><a href="https://arxiv.org/abs/2607.26935">Agent detection · 2026</a><small>浏览器自动化轨迹</small></td><td>区分 Human / Bot / Agent；主要判别信号来自 Playwright 输入事件缺失。说明三分类很重要，但该指纹依赖浏览器遥测。</td></tr>
               <tr><td>威胁分析</td><td><a href="https://www.sei.cmu.edu/library/observational-humanai-ohai-a-defender-attribution-framework-for-distinguishing-human-vs-ai-threats/">OHAI · CMU SEI 2025</a><small>框架与公开案例</small></td><td>提出人类 / AI 威胁归因的分析流程；已有工作先例意味着不能把“区分人和 AI”单独作为新颖性。</td></tr>
               <tr><td>攻击轨迹指纹</td><td><a href="https://arxiv.org/abs/2605.01186">Trace · 2026</a><small>终端命令序列</small></td><td>识别攻击 Agent 的模型家族，并探索防御性提示注入；识别的是“哪个模型”，不是“人 / 脚本 / Agent”。</td></tr>
@@ -196,16 +204,20 @@ python3 -m venv .venv
               <tr><td>鲁棒性评估</td><td><a href="https://aclanthology.org/2024.acl-long.674/">RAID · ACL 2024</a><small>多模型文本基准</small></td><td>跨生成模型、领域和改写攻击测文本检测鲁棒性；借鉴分组留出与压力测试，数据不是执行日志。</td></tr>
             </tbody>
           </table>
-        </div>
+          </div>
+        </details>
         <p class="related-conclusion">当前可争取的空白更窄：在同一遥测与已知活动标签下，检验执行方式是否改变活动关联错误，以及参与识别能否减少误拆分 / 误合并。</p>
       </section>
 
       <footer>
-        <a class="footer-owl" href="#top" aria-label="AttackAgent Detect 首页"><img src="assets/openmoji-owl.png" alt="" width="42" height="42"></a>
+        <div class="footer-logos" aria-label="项目与学校标识">
+          <a class="footer-owl" href="#top" aria-label="AttackAgent Detect 首页"><img src="assets/openmoji-owl.png" alt="" width="80" height="80"></a>
+          <span class="footer-cross" aria-hidden="true">×</span>
+          <a class="footer-hit" href="https://www.hit.edu.cn/" aria-label="哈尔滨工业大学"><img src="assets/hit-logo.png" alt="哈尔滨工业大学校徽" width="72" height="72"></a>
+        </div>
         <div class="footer-signature" aria-label="AttackAgent Detect">
           <strong class="signature-art">AttackAgent<br>Detect</strong>
         </div>
-        <a class="footer-hit" href="https://www.hit.edu.cn/" aria-label="哈尔滨工业大学"><img src="assets/hit-logo.png" alt="哈尔滨工业大学校徽" width="64" height="64"></a>
         <a class="asset-credit footer-legal" href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a>
       </footer>
     </main>
