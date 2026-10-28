@@ -1,152 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An open research prototype for inferring human versus model-agent execution from public cyber-task traces and testing task-level trace matching.">
-  <meta name="theme-color" content="#f7fafd">
-  <title>AttackAgent Detect | Execution-mode inference from cyber traces</title>
-  <link rel="icon" href="assets/openmoji-owl.png" type="image/png" sizes="240x240">
-  <link rel="apple-touch-icon" href="assets/openmoji-owl.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="site.js" defer></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="An open research prototype for inferring human versus model-agent execution from public cyber-task traces and testing task-level trace matching." name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<title data-en="AttackAgent Detect | Execution-mode research">AttackAgent Detect | 执行方式识别研究</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script>
+<link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script></head>
 <body>
-  <a class="skip" href="#main">跳转到正文</a>
-  <div class="layout">
-    <aside class="rail" aria-label="页面导航">
-      <a class="wordmark" href="#top" aria-label="AttackAgent Detect 首页">
-        <img src="assets/openmoji-owl.png" alt="" width="42" height="42">
-        <span>AttackAgent<br>Detect</span>
-      </a>
-      <nav>
-        <a href="#question">研究目标</a>
-        <a href="#results">结果</a>
-        <a href="#method">数据与方法</a>
-        <a href="#related">相关工作</a>
-      </nav>
-      <div class="rail-bottom">
-        <a href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg class="github-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z"/></svg><span>GitHub 仓库</span></a>
-      </div>
-    </aside>
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="#top">
+<img alt="" height="42" src="assets/openmoji-owl.png" width="42"/>
+<span>AttackAgent<br/>Detect</span>
+</a>
+<nav><a data-en="Research" href="#question">研究目标</a><a data-en="Results" href="#results">结果</a><a data-en="Data &amp; methods" href="#method">数据与方法</a><a data-en="Related work" href="#related">相关工作</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub 仓库" data-en-aria-label="GitHub repository" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub repository">GitHub 仓库</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a><div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div></div>
+</aside>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero" id="top">
+<canvas aria-hidden="true" class="field"></canvas>
+<div class="hero-copy">
+<h1 data-en-html="Human or AI agent? Read the attack logs." id="hero-title">从日志判断攻击者是人还是智能体。</h1>
+<p class="hero-desc" data-en="AttackAgent Detect is open research into agent participation signals and their impact on attack activity correlation.">AttackAgent Detect 是一项开放研究，探索智能体参与识别及其对攻击活动关联的影响。</p>
+<div class="hero-links">
+<a class="button primary" data-en="Quick start" href="#quickstart">快速接入</a>
+<a class="button secondary" data-en="Research details" href="#question">研究细节</a>
+</div>
+<div aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行" class="install-preview" data-en-aria-label="PyPI release planned for 2027. Run the current version from source.">
+<code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
+<button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
+</div>
+<p class="hero-terms" data-en="PyPI release planned for 2027. Run from source today.">PyPI 计划于 2027 年发布；当前请从源码运行。</p>
+</div>
+</section>
+<section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
+<div class="quickstart-band-copy"><h2 data-en="Your logs reveal execution mode." id="quickstart-title">载入日志，判断执行方式。</h2>
+<p class="quickstart-band-lead" data-en="Install the package. Analyze commands and tool calls from a session.">安装工具包，分析会话中的命令与工具调用。</p>
+<div class="api-install"><code id="planned-install">pip install attackagent-detect</code><button data-copy="planned-install" data-en="Copy" type="button">复制</button></div>
+<p class="quickstart-plan"><span data-en="API preview. PyPI planned for 2027.">接口示意，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
+<figure class="api-pane"><div class="api-file"><code>quickstart.py</code><span data-en="Your session trace">会话轨迹分析</span><button data-copy="planned-usage" data-en="Copy" type="button">复制</button></div>
+<pre id="planned-usage"><code><span class="syntax-keyword">from</span> attackagent_detect <span class="syntax-keyword">import</span> <span class="syntax-type">TraceDetector</span>
 
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <canvas class="field" aria-hidden="true"></canvas>
-        <div class="hero-copy">
-          <h1 id="hero-title">Infer execution mode<br>from cyber traces.</h1>
-          <p class="hero-desc">从公开 CTF 会话推断人工与 Agent 执行，检验执行模式对同题轨迹匹配的影响。</p>
-          <div class="hero-links">
-            <a class="button primary" href="#quickstart">快速接入</a>
-            <a class="button secondary" href="#question">研究细节</a>
-          </div>
-          <div class="install-preview" aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行">
-            <code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
-            <button class="install-copy" type="button" data-copy="install-command" aria-label="复制计划中的安装命令">复制</button>
-          </div>
-          <p class="hero-terms">PyPI 计划于 2027 年发布；当前请从源码运行。</p>
-        </div>
-      </section>
-
-      <section class="section question" id="question">
-        <div class="split">
-          <div>
-            <h2>研究目标</h2>
-            <p>测量人工、脚本与 Agent 执行对攻击活动关联的影响。当前公开实验只有人类操作记录与模型 Agent 工具调用，暂无匹配的脚本执行样本。</p>
-          </div>
-          <aside class="margin-note">
-            <b>范围</b>
-            <p>研究活动关联，不做组织归因。公开数据没有攻击者或 campaign 同源标签。</p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section results" id="results">
-        <div class="result-intro">
-          <h2>分类分数高，<br><span>不代表关联有效。</span></h2>
-          <p>跨来源人类—Agent 同题检索接近随机；标签与日志采集方式完全混杂。</p>
-        </div>
-        <figure class="diagnostic-figure">
-          <picture>
-            <source media="(max-width: 600px)" srcset="association-results-mobile.svg">
-            <img src="association-results.svg" alt="比较人类与Agent轨迹分类的平衡准确率，以及人类、人类与Agent、Agent之间的同题检索AUC。分类分数较高，但跨来源检索接近0.5；区间按任务聚类计算。">
-          </picture>
-          <figcaption>探索性代理基准。测试集含 6 个任务；同题不代表同一攻击活动。</figcaption>
-        </figure>
-        <div class="result-metrics">
-          <article class="metric-card blue-card">
-            <span>人类 / Agent 分类</span>
-            <strong>0.889</strong>
-            <small>Balanced Accuracy · 命令 n-gram 逻辑回归</small>
-          </article>
-          <article class="metric-card orange-card">
-            <span>人类—Agent 同题检索</span>
-            <strong>0.511</strong>
-            <small>命令余弦 AUC · 95% 区间 0.396–0.667</small>
-          </article>
-          <article class="metric-card mint-card">
-            <span>同题轨迹对</span>
-            <strong>48 / 351</strong>
-            <small>测试集 · 同一题目仅作关联代理标签</small>
-          </article>
-        </div>
-        <p class="caveat"><span>!</span> 本轮仅比较人类与 Agent，缺少脚本样本；两类标签又与日志采集方式绑定。结果不代表现实攻击者识别能力。</p>
-        <div class="result-links">
-          <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/04-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E4%B8%8E%E5%88%9D%E6%AD%A5%E5%AE%9E%E9%AA%8C.md">实验记录</a>
-          <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/notebooks">Notebook</a>
-          <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/results">结果 JSON</a>
-        </div>
-      </section>
-
-      <section class="section method" id="method">
-        <div class="split">
-          <div>
-            <h2>数据与方法</h2>
-            <p>数据：Offensive Cybersecurity Time Horizons / InterCode-CTF。版本：<code>178c0da</code>。</p>
-          </div>
-          <aside class="margin-note blue-note">
-            <b>固定任务划分</b>
-            <p>27 个共同任务按 16 / 5 / 6 划分。置信区间按任务聚类 bootstrap 5,000 次。</p>
-          </aside>
-        </div>
-        <div class="data-grid">
-          <article><strong>47</strong><span>人类会话</span><small>48 个文件中 1 个为空</small></article>
-          <article><strong>194</strong><span>模型轨迹</span><small>三个公开模型评估组</small></article>
-          <article><strong>31</strong><span>共同任务 ID</span><small>分析前排除空轨迹后为 27 个</small></article>
-        </div>
-        <div class="workflow" aria-label="实验流程">
-          <article><span>01</span><b>日志来源</b><small>公开人类与 Agent 轨迹</small></article>
-          <article><span>02</span><b>行为特征</b><small>命令名与动作类别</small></article>
-          <article><span>03</span><b>参与分类</b><small>按任务留出测试</small></article>
-          <article><span>04</span><b>关联评估</b><small>同题检索与误差率</small></article>
-        </div>
-        <p class="caption">当前输入为固定版本 InterCode-CTF 压缩轨迹：从人类终端输入和 Agent 的 bash 工具调用提取命令名与动作类别；不执行命令，也不读取任意 auditd / Sysmon 日志。Python 工具调用不纳入主特征。同题仅作代理标签。</p>
-        <div class="candidate-data">
-          <b>后续可用的数据底座</b>
-          <a href="https://github.com/FiveDirections/OpTC-data">OpTC <span>真实红队遥测；体量大，缺执行方式标签</span></a>
-          <a href="https://saga-tw.github.io/dataset/v2">SAGA v2 <span>攻击活动标签明确；无执行方式标签</span></a>
-          <a href="https://cyberclear-bench.github.io/cyberclear/">CyberClear <span>日志与攻击溯源图配对；评估防守侧 Agent</span></a>
-        </div>
-        <div class="quickstart" id="quickstart">
-          <div class="quickstart-copy">
-            <h3>从源码跑通这组基线</h3>
-            <p>Python 3.10+，无需 Conda。先下载固定版本的公开轨迹，再运行分析与一致性检查。PyPI 计划于 2027 年开放。</p>
-          </div>
-          <div class="quickstart-terminal">
-          <div class="terminal-head"><span>源码复现</span><button type="button" class="copy-button" data-copy="quickstart-command">复制</button></div>
-            <pre id="quickstart-command"><code>git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
+<span class="syntax-comment"># Analyze commands and tool calls</span>
+detector = <span class="syntax-type">TraceDetector</span>()
+result = detector.analyze(<span class="syntax-string">"session.jsonl"</span>)
+<span class="api-highlight">print(result.mode, result.signals)</span>
+<span class="syntax-comment"># "ai_agent", ["tool_calls", "retry_pattern"]</span></code></pre>
+<figcaption class="api-note" data-en="Planned API example. Current experiments run from source.">规划中的接口示例，当前实验请从源码运行。</figcaption></figure>
+</section>
+<section aria-labelledby="demo-title" class="section product-demo" id="demo">
+<div class="demo-heading"><h2 data-en="One trace. More than one way to act." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching. Interactive preview with simulated logs.">从执行方式、行为信号到轨迹关联。交互演示使用模拟日志。</p></div>
+<div aria-label="产品演示" class="demo-tabs" data-en-aria-label="Product demo" role="tablist">
+<button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><span aria-hidden="true">1</span><b data-en="Detect">执行识别</b></button>
+<button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><span aria-hidden="true">2</span><b data-en="Signals">行为信号</b></button>
+<button aria-controls="demo-match" aria-selected="false" id="demo-tab-match" role="tab" tabindex="-1" type="button"><span aria-hidden="true">3</span><b data-en="Compare">轨迹关联</b></button>
+<button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><span aria-hidden="true">4</span><b data-en="Sources">日志来源</b></button>
+</div>
+<div aria-labelledby="demo-tab-detect" class="demo-panel" id="demo-detect" role="tabpanel" tabindex="0">
+<p class="demo-say" data-en="The same task can leave different traces. Switch the executor and inspect the evidence.">同样的任务，不同的执行痕迹。切换执行者，查看判断线索。</p>
+<div aria-label="执行方式示例" class="demo-mode-picks" data-en-aria-label="Execution mode examples" role="group"><button aria-pressed="false" data-demo-mode="human" type="button">🥷 Human</button><button aria-pressed="false" data-demo-mode="script" type="button">⚙️ Script</button><button aria-pressed="true" data-demo-mode="agent" type="button">🤖 AI agent</button></div>
+<figure class="demo-inspector"><figcaption><code>session.jsonl</code><span data-en="Simulated input">模拟输入</span><span data-en="Execution signals">执行线索</span></figcaption><div class="demo-inspector-grid">
+<pre class="demo-log" data-demo-log=""></pre><div class="demo-verdict">
+<div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Interactive terminal input, pauses between commands, and manual corrections.">交互式终端输入、命令间停顿与手动修正。</p><code>tty=pts/0<br/>interactive=true<br/>correction=manual</code></div>
+<div data-mode-case="script" hidden=""><strong>⚙️ Script</strong><p data-en="Scheduled starts, repeated command sequences, and fixed retry intervals.">定时启动、重复命令序列与固定重试间隔。</p><code>parent=cron<br/>batch=true<br/>retry=fixed_interval</code></div>
+<div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Assistant plans, structured tool calls, and feedback-driven retries.">助手规划、结构化工具调用与基于反馈的重试。</p><code>role=assistant<br/>finish_reason=tool_calls<br/>retry=feedback_driven</code></div>
+</div></div><div class="demo-inspector-note" data-en="Illustrative signals, not a live model verdict. The published benchmark currently covers human and model-agent traces.">信号示意，并非在线模型判定。公开基准当前仅覆盖人类与模型 Agent 轨迹。</div></figure>
+</div>
+<div aria-labelledby="demo-tab-signals" class="demo-panel" hidden="" id="demo-signals" role="tabpanel" tabindex="0">
+<p class="demo-say" data-en="One command is rarely enough. Follow the plan, tool call, result, and retry as one sequence.">一条命令不够。把规划、调用、返回与重试看成一段连续行为。</p>
+<div class="demo-timeline"><ol><li data-signal-step="0"><strong>Plan</strong><span data-en="Inspect the target">检查目标</span><code>role=assistant</code></li><li data-signal-step="1"><strong>Call</strong><span data-en="Invoke the shell tool">调用终端工具</span><code>tool=bash</code></li><li data-signal-step="2"><strong>Result</strong><span data-en="Read the failure">读取失败反馈</span><code>exit=1</code></li><li data-signal-step="3"><strong>Retry</strong><span data-en="Revise the command">调整后再次调用</span><code>attempt=2</code></li></ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play sequence" data-play-sequence="" type="button">播放行为序列</button><span data-en="A simulated agent tool-use sequence" data-sequence-status="" role="status">模拟 Agent 工具调用序列</span></div></div>
+</div>
+<div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
+<p class="demo-say" data-en="Compare behavior across execution modes. A similar trace is a lead to inspect, not proof of a shared attacker.">跨执行方式比较行为。轨迹相似提供检查线索，不等于同一攻击者。</p>
+<div class="demo-compare"><div class="demo-compare-head"><strong data-en="Compare two sessions">对比两段会话</strong><div aria-label="对比样例" class="demo-mode-picks" data-en-aria-label="Comparison examples" role="group"><button aria-pressed="true" data-compare-case="shared" data-en="Shared task" type="button">同题示例</button><button aria-pressed="false" data-compare-case="different" data-en="Different task" type="button">异题示例</button></div></div><div class="demo-compare-traces"><div><span>🥷 Human</span><code><b data-command="inspect">ls</b><b data-command="inspect">cat</b><b data-command="search">grep</b><b data-command="read">cat</b></code></div><div><span>🤖 AI agent</span><code data-compare-commands=""><b data-command="inspect">ls</b><b data-command="inspect">cat</b><b data-command="search">grep</b><b data-command="read">cat</b></code></div></div><div class="demo-compare-action"><button class="button primary" data-compare-run="" data-en="Compare traces" type="button">对比轨迹</button><p data-compare-result="" role="status"><span data-en="Ready to compare this simulated pair">等待比较这组模拟轨迹</span></p></div></div>
+</div>
+<div aria-labelledby="demo-tab-sources" class="demo-panel" hidden="" id="demo-sources" role="tabpanel" tabindex="0">
+<p class="demo-say" data-en="Different sources, one trace format. Preview how terminal, scheduled, audit, and agent records could be normalized.">不同日志来源，统一轨迹格式。预览终端、调度、审计与 Agent 记录的接入方式。</p>
+<div class="demo-source-table"><table><thead><tr><th data-en="Source">来源</th><th data-en="Observable fields">可观测字段</th><th data-en="Execution context">执行上下文</th><th data-en="Preview">预览</th></tr></thead><tbody><tr><th>Shell history</th><td><code>command, tty, timestamp</code></td><td>🥷 Human</td><td><button data-en="Inspect" data-source-preview="human" type="button">查看</button></td></tr><tr><th>Cron / batch</th><td><code>schedule, pid, exit_code</code></td><td>⚙️ Script</td><td><button data-en="Inspect" data-source-preview="script" type="button">查看</button></td></tr><tr><th>Agent tool calls</th><td><code>role, tool_call_id, result</code></td><td>🤖 AI agent</td><td><button data-en="Inspect" data-source-preview="agent" type="button">查看</button></td></tr><tr><th>Audit events</th><td><code>EXECVE, ppid, uid</code></td><td data-en="Requires context">需结合上下文</td><td><button data-en="Inspect" data-source-preview="audit" type="button">查看</button></td></tr></tbody></table><pre data-source-log=""></pre></div>
+<p class="demo-footnote" data-en="Adapter concept only. Current reproduction reads the pinned InterCode-CTF archives; arbitrary log ingestion is not yet available.">接入方式为产品规划示意。当前复现流程只读取固定版本 InterCode-CTF 归档，尚未开放任意日志接入。</p>
+</div>
+</section>
+<section class="section question" id="question">
+<div class="split">
+<div>
+<h2 data-en="Research">研究目标</h2>
+<p data-en="Measure how human, scripted, and agent execution affects attack activity correlation. Current public experiments contain human records and model-agent tool calls, with no matched script-execution samples.">测量人工、脚本与 Agent 执行对攻击活动关联的影响。当前公开实验只有人类操作记录与模型 Agent 工具调用，暂无匹配的脚本执行样本。</p>
+</div>
+<aside class="margin-note">
+<b data-en="Scope">范围</b>
+<p data-en="Activity correlation, rather than attribution to an organization. The public data has no shared-actor or campaign ground truth.">研究活动关联，不做组织归因。公开数据没有攻击者或 campaign 同源标签。</p>
+</aside>
+</div>
+</section>
+<section class="section results" id="results">
+<div class="result-intro">
+<h2 data-en-html="High classification scores.&lt;br&gt;&lt;span&gt;Do not prove correlation.&lt;/span&gt;">分类分数高，<br/><span>不代表关联有效。</span></h2>
+<p data-en="Cross-source human–agent same-task retrieval is near chance. Class labels are fully confounded with the logging pipeline.">跨来源人类与 Agent 同题检索接近随机；标签与日志采集方式完全混杂。</p>
+</div>
+<figure class="diagnostic-figure">
+<picture>
+<source media="(max-width: 600px)" srcset="association-results-mobile.svg"/>
+<img alt="比较人类与Agent轨迹分类的平衡准确率，以及人类、人类与Agent、Agent之间的同题检索AUC。分类分数较高，但跨来源检索接近0.5；区间按任务聚类计算。" data-en-alt="Human-versus-agent trace classification balanced accuracy and same-task retrieval AUC within and across sources. Classification scores are high, but cross-source retrieval is near 0.5. Intervals are clustered by task." src="association-results.svg"/>
+</picture>
+<figcaption data-en="Exploratory proxy benchmark with six held-out tasks. A shared task does not establish a shared attack activity.">探索性代理基准。测试集含 6 个任务；同题不代表同一攻击活动。</figcaption>
+</figure>
+<div class="result-metrics">
+<article class="metric-card blue-card">
+<span data-en="Human / agent classification">人类 / Agent 分类</span>
+<strong>0.889</strong>
+<small data-en="Balanced accuracy · command n-gram logistic regression">Balanced Accuracy · 命令 n-gram 逻辑回归</small>
+</article>
+<article class="metric-card orange-card">
+<span data-en="Human and agent same-task retrieval">人类与 Agent 同题检索</span>
+<strong>0.511</strong>
+<small data-en="Command-cosine AUC · 95% interval 0.396–0.667">命令余弦 AUC · 95% 区间 0.396–0.667</small>
+</article>
+<article class="metric-card mint-card">
+<span data-en="Same-task trace pairs">同题轨迹对</span>
+<strong>48 / 351</strong>
+<small data-en="Test split · shared task IDs serve only as proxy labels">测试集 · 同一题目仅作关联代理标签</small>
+</article>
+</div>
+<p class="caveat"><span>!</span><span class="i18n-text" data-en="This round compares humans and agents only. Script samples are absent and class labels are tied to different logging pipelines. Results do not establish real-world attacker identification."> 本轮仅比较人类与 Agent，缺少脚本样本；两类标签又与日志采集方式绑定。结果不代表现实攻击者识别能力。</span></p>
+<div class="result-links">
+<a data-en="Experiment report" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/04-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E4%B8%8E%E5%88%9D%E6%AD%A5%E5%AE%9E%E9%AA%8C.md">实验记录</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/notebooks">Notebook</a>
+<a data-en="Results JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/results">结果 JSON</a>
+</div>
+</section>
+<section class="section method" id="method">
+<div class="split">
+<div>
+<h2 data-en="Data &amp; methods">数据与方法</h2>
+<p><span class="i18n-text" data-en="Data: Offensive Cybersecurity Time Horizons / InterCode-CTF. Revision:">数据：Offensive Cybersecurity Time Horizons / InterCode-CTF。版本：</span><code>178c0da</code>。</p>
+</div>
+<aside class="margin-note blue-note">
+<b data-en="Fixed task split">固定任务划分</b>
+<p data-en="27 shared tasks split into 16 / 5 / 6. Intervals use 5,000 task-cluster bootstrap samples.">27 个共同任务按 16 / 5 / 6 划分。置信区间按任务聚类 bootstrap 5,000 次。</p>
+</aside>
+</div>
+<div class="data-grid">
+<article><strong>47</strong><span data-en="Human sessions">人类会话</span><small data-en="One of 48 files is empty">48 个文件中 1 个为空</small></article>
+<article><strong>194</strong><span data-en="Model traces">模型轨迹</span><small data-en="Three public model evaluation groups">三个公开模型评估组</small></article>
+<article><strong>31</strong><span data-en="Shared task IDs">共同任务 ID</span><small data-en="27 remain after excluding empty traces">分析前排除空轨迹后为 27 个</small></article>
+</div>
+<div aria-label="实验流程" class="workflow" data-en-aria-label="Experiment workflow">
+<article><span>01</span><b data-en="Trace sources">日志来源</b><small data-en="Public human and agent records">公开人类与 Agent 轨迹</small></article>
+<article><span>02</span><b data-en="Behavioral features">行为特征</b><small data-en="Command names and action groups">命令名与动作类别</small></article>
+<article><span>03</span><b data-en="Execution classification">参与分类</b><small data-en="Task-held-out evaluation">按任务留出测试</small></article>
+<article><span>04</span><b data-en="Correlation evaluation">关联评估</b><small data-en="Same-task retrieval and error rates">同题检索与误差率</small></article>
+</div>
+<p class="caption" data-en="Current inputs are the pinned InterCode-CTF trace archives. Command names and action groups are extracted from human terminal input and agent bash calls. Recorded commands are never executed; arbitrary auditd or Sysmon logs are not accepted. Python tool calls are excluded from the primary features. A shared task is only a proxy label.">当前输入为固定版本 InterCode-CTF 压缩轨迹：从人类终端输入和 Agent 的 bash 工具调用提取命令名与动作类别；不执行命令，也不读取任意 auditd / Sysmon 日志。Python 工具调用不纳入主特征。同题仅作代理标签。</p>
+<div class="candidate-data">
+<b data-en="Candidate datasets for follow-up">后续可用的数据底座</b>
+<a href="https://github.com/FiveDirections/OpTC-data">OpTC <span data-en="Real red-team telemetry; large, with no execution-mode labels">真实红队遥测；体量大，缺执行方式标签</span></a>
+<a href="https://saga-tw.github.io/dataset/v2">SAGA v2 <span data-en="Clear attack activity labels; no execution-mode labels">攻击活动标签明确；无执行方式标签</span></a>
+<a href="https://cyberclear-bench.github.io/cyberclear/">CyberClear <span data-en="Paired logs and attack provenance graphs; evaluates defender agents">日志与攻击溯源图配对；评估防守侧 Agent</span></a>
+</div>
+<details class="source-details"><summary data-en="Reproduce the experiment from source">从源码复现实验</summary><div class="quickstart" id="source-reproduction">
+<div class="quickstart-copy">
+<h3 data-en="Available now: reproduce from source">当前可用：从源码复现</h3>
+<p data-en="Python 3.10+; no Conda required. Download the pinned public traces, then run analysis and consistency checks. PyPI release is planned for 2027.">Python 3.10+，无需 Conda。先下载固定版本的公开轨迹，再运行分析与一致性检查。PyPI 计划于 2027 年开放。</p>
+</div>
+<div class="quickstart-terminal">
+<div class="terminal-head"><span data-en="Source reproduction">源码复现</span><button class="copy-button" data-copy="quickstart-command" data-en="Copy" type="button">复制</button></div>
+<pre id="quickstart-command"><code>git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
 cd AttackAgentDetect
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock.txt
 .venv/bin/python scripts/download_public_traces.py
 .venv/bin/python scripts/run_all.py</code></pre>
-          </div>
-          <div class="quickstart-output">
-            <div class="terminal-head"><span>结果摘录 / quick-summary.json</span><span>测试集：6 个任务</span></div>
-            <pre><code>{
+</div>
+<div class="quickstart-output">
+<div class="terminal-head"><span data-en="Result excerpt / quick-summary.json">结果摘录 / quick-summary.json</span><span data-en="Test split: 6 tasks">测试集：6 个任务</span></div>
+<pre><code>{
   "sessions": { "human": 47, "model_agent": 194, "script": 0 },
   "test": {
     "held_out_tasks": 6,
@@ -154,71 +193,122 @@ python3 -m venv .venv
     "same_task_retrieval": { "pair": "human-agent", "auc": <b>0.511</b> }
   }
 }</code></pre>
-            <small>脚本实际导出的聚合结果；同题不是同源标签，不提供单条日志的分类 API。</small>
-          </div>
-        </div>
-      </section>
-
-      <section class="section related" id="related">
-        <h2>相关工作</h2>
-        <p class="related-scope">范围性检索 · 2026-10 · 行为识别、攻击日志关联与检测方法类比。AIGC 工作输入是文本，不是系统日志。</p>
-        <div class="related-table-wrap">
-          <table class="related-table">
-            <thead><tr><th>方向</th><th>工作</th><th>TL;DR / 与本项目的关系</th></tr></thead>
-            <tbody>
-              <tr class="direct-work"><td>日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small>预印研究 / 论文审稿中</small></td><td>用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别参与方式”最直接相邻，但不是攻击场景，无脚本组或活动关联评测。</td></tr>
-              <tr class="direct-work"><td>行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small>人类与购物 Agent 会话区分</small></td><td>把多类弱行为信号汇总为 session 特征；同类强分类器表现相近，贡献主要在行为视角。不同于攻击主机遥测，也不测攻击活动关联。</td></tr>
-              <tr class="direct-work"><td>日志关联综述</td><td><a href="https://doi.org/10.1016/j.jisa.2025.104096">System log correlation · JISA 2025</a><small>62 篇论文 · 26 种工具</small></td><td>回顾用于网络攻击检测和预测的日志关联方法，并指出虚假相关、缺失数据与阈值设置等可靠性问题。</td></tr>
-              <tr class="direct-work"><td>关联综述</td><td><a href="https://doi.org/10.1109/ACCESS.2022.3168976">Security event correlation · IEEE Access 2022</a><small>系统综述 · 127 篇</small></td><td>覆盖安全事件关联系统，归纳相似度、步骤式和混合方法，并整理数据集与评估指标；说明事件关联是成熟研究方向。</td></tr>
-              <tr class="direct-work"><td>跨主机关联</td><td><a href="https://arxiv.org/abs/2312.09321">OSTINATO · 2023</a><small>行为图相似度</small></td><td>比较带 TTP 标签的主机溯源图，在 500 台主机的红队场景中扩展攻击活动；未按人、脚本或 Agent 执行方式分层。</td></tr>
-              <tr class="direct-work"><td>因果关联</td><td><a href="https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf">HOLMES · IEEE S&amp;P 2019</a><small>审计日志与信息流</small></td><td>将多主机审计行为与信息流组合为 campaign 信号；公开评估未报告执行方式标签。</td></tr>
-              <tr class="direct-work"><td>跨主机关联</td><td><a href="https://doi.org/10.1145/3488932.3523261">SteinerLog · ASIA CCS 2022</a><small>告警因果图</small></td><td>用因果分析和层级图遍历关联企业内的攻击活动；摘要未提供执行方式对照。</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <details class="related-details">
-          <summary>完整相关工作与方法参考<span>其余 18 项</span></summary>
-          <div class="related-table-wrap">
-          <table class="related-table">
-            <thead><tr><th>方向</th><th>工作</th><th>TL;DR / 与本项目的关系</th></tr></thead>
-            <tbody>
-              <tr><td>浏览器识别</td><td><a href="https://arxiv.org/abs/2607.26935">Agent detection · 2026</a><small>浏览器自动化轨迹</small></td><td>区分 Human / Bot / Agent；主要判别信号来自 Playwright 输入事件缺失。说明三分类很重要，但该指纹依赖浏览器遥测。</td></tr>
-              <tr><td>威胁分析</td><td><a href="https://www.sei.cmu.edu/library/observational-humanai-ohai-a-defender-attribution-framework-for-distinguishing-human-vs-ai-threats/">OHAI · CMU SEI 2025</a><small>框架与公开案例</small></td><td>提出人类 / AI 威胁归因的分析流程；已有工作先例意味着不能把“区分人和 AI”单独作为新颖性。</td></tr>
-              <tr><td>攻击轨迹指纹</td><td><a href="https://arxiv.org/abs/2605.01186">Trace · 2026</a><small>终端命令序列</small></td><td>识别攻击 Agent 的模型家族，并探索防御性提示注入；识别的是“哪个模型”，不是“人 / 脚本 / Agent”。</td></tr>
-              <tr><td>主动模型指纹</td><td><a href="https://arxiv.org/abs/2609.28559">LIDAR · 2026</a><small>主动探针 + 概率识别器</small></td><td>利用 Agent 的验证、失败恢复等行为识别底层模型；需要主动探针与干净参考，问题目标不同。</td></tr>
-              <tr><td>主动模型指纹</td><td><a href="https://arxiv.org/abs/2610.32092">AgentTrace · 2026</a><small>执行级序列</small></td><td>诱发工具接口失败，分析后续修复序列识别模型；不是被动防守侧日志分类。</td></tr>
-              <tr><td>轨迹表示</td><td><a href="https://arxiv.org/abs/2606.16988">ProcGrep · 2026</a><small>程序化行为表示</small></td><td>将动作序列编码为程序频率分布并计算 JSD；可借鉴轨迹比较，论文任务是编码 Agent 工作流，不是攻击同源性。</td></tr>
-              <tr><td>攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/hossain">SLEUTH · USENIX Security 2017</a><small>溯源图压缩</small></td><td>从审计事件依赖图压缩并重建攻击活动；解决图内攻击故事重建，不标识操作者。</td></tr>
-              <tr><td>攻击故事</td><td><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE · ACSAC 2016</a><small>加权日志图</small></td><td>以社区发现从异构日志中重建多阶段攻击；展示行为关联的实际用途，不含执行方式标签。</td></tr>
-              <tr><td>日志关联</td><td><a href="https://arxiv.org/abs/1910.00056">POIROT · ACM CCS 2019</a><small>CTI 图 ↔ 来源图</small></td><td>将威胁情报中的攻击图与审计日志来源图对齐，用于已知攻击活动搜寻；不比较人类与 Agent 执行。</td></tr>
-              <tr><td>攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS · USENIX Security 2021</a><small>因果与语义序列</small></td><td>从系统审计日志恢复攻击故事；关注活动内部的因果重建，不判断操作者类别。</td></tr>
-              <tr><td>日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · arXiv 2024</a><small>日志到 ATT&amp;CK / campaign</small></td><td>从审计日志映射技术并关联已知 campaign；邻近活动关联问题，但没有参与方式标签。</td></tr>
-              <tr><td>组织关联</td><td><a href="https://doi.org/10.3390/electronics13061106">APT group behavior patterns · Electronics 2024</a><small>粗糙集 + 威胁情报</small></td><td>用恶意软件和威胁情报中的行为特征建模组织间关联；输入与目标是组级情报，不是统一传感器下的活动日志匹配，公开关系标签也未经独立真值裁定。</td></tr>
-              <tr><td>文本检测类比</td><td><a href="https://proceedings.mlr.press/v202/mitchell23a.html">DetectGPT · ICML 2023</a><small>模型 log-prob</small></td><td>比较原文与扰动文本在语言模型概率下的差异；启发评分设计，但日志不是自然语言生成文本。</td></tr>
-              <tr><td>文本检测类比</td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6b8c6f846c3575e1d1ad496abea28826-Abstract-Conference.html">Fast-DetectGPT · ICLR 2024</a><small>条件概率曲率</small></td><td>以代理模型概率评分做高效零样本文本检测；可借鉴概率特征，但结构化系统事件没有自然语言 token 概率。</td></tr>
-              <tr><td>文本检测类比</td><td><a href="https://aclanthology.org/2024.naacl-long.95/">Ghostbuster · NAACL 2024</a><small>辅助模型特征 + 分类器</small></td><td>从弱语言模型的 token 概率构造固定特征后监督分类；可借鉴固定特征和线性基线，仍需有标签训练数据。</td></tr>
-              <tr><td>文本检测类比</td><td><a href="https://proceedings.mlr.press/v235/hans24a.html">Binoculars · ICML 2024</a><small>双模型困惑度</small></td><td>用两个预训练模型的困惑度与交叉困惑度检出生成文本；不依赖生成模型 logits，但仍需语言模型概率。</td></tr>
-              <tr><td>泛化评估</td><td><a href="https://aclanthology.org/2024.acl-long.3/">MAGE · ACL 2024</a><small>跨任务 / 模型 / 提示</small></td><td>用多任务、多模型文本检测设置评估域外泛化；可借鉴分组留出，数据不是命令或主机日志。</td></tr>
-              <tr><td>鲁棒性评估</td><td><a href="https://aclanthology.org/2024.acl-long.674/">RAID · ACL 2024</a><small>多模型文本基准</small></td><td>跨生成模型、领域和改写攻击测文本检测鲁棒性；借鉴分组留出与压力测试，数据不是执行日志。</td></tr>
-            </tbody>
-          </table>
-          </div>
-        </details>
-        <p class="related-conclusion">相关研究会用行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估未按人、脚本、Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这类差异，而不是预设方法已经失效。</p>
-      </section>
-
-      <footer>
-        <div class="footer-logos" aria-label="项目与学校标识">
-          <a class="footer-owl" href="#top" aria-label="AttackAgent Detect 首页"><img src="assets/openmoji-owl.png" alt="" width="80" height="80"></a>
-          <span class="footer-cross" aria-hidden="true">×</span>
-          <a class="footer-hit" href="https://www.hit.edu.cn/" aria-label="哈尔滨工业大学"><img src="assets/hit-logo.png" alt="哈尔滨工业大学校徽" width="72" height="72"></a>
-        </div>
-        <div class="footer-signature" aria-label="AttackAgent Detect">
-          <strong class="signature-art">AttackAgent<br>Detect</strong>
-        </div>
-        <div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a class="asset-credit" href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a></div>
-      </footer>
-    </main>
-  </div>
+<small data-en="Aggregate output exported by the scripts. Shared tasks are not shared-actor labels. No per-record prediction API is provided.">脚本实际导出的聚合结果；同题不是同源标签，不提供单条日志的分类 API。</small>
+</div>
+</div></details>
+</section>
+<section class="section related" id="related">
+<h2 data-en="Related work">相关工作</h2>
+<p class="related-scope" data-en="Scoping search, October 2026: behavior identification, attack-log correlation, and methodological analogies. Generated-text studies analyze text, not system logs.">范围性检索，2026-10：行为识别、攻击日志关联与检测方法类比。AIGC 工作输入是文本，不是系统日志。</p>
+<div class="related-drawers">
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="Activity and alert correlation">活动与告警关联</span><span class="related-category-note" data-en="Behavior similarity, attack stages, and causal relationships">行为相似、攻击步骤、因果关系</span><span class="related-count" data-en="8 studies">8 项</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="These methods combine events, alerts, or host traces into activity or campaign candidates. Their targets and labels differ.">这类方法将事件、告警或主机轨迹组合为活动或 campaign 候选；目标和标签并不完全相同。</p>
+<div class="related-table-wrap">
+<table class="related-table">
+<thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
+<tbody>
+<tr class="direct-work"><td data-en="Log correlation survey">日志关联综述</td><td><a href="https://doi.org/10.1016/j.jisa.2025.104096">System log correlation (JISA 2025)</a><small data-en="62 papers, 26 tools">62 篇论文，26 种工具</small></td><td data-en="Reviews log correlation for cyberattack detection and prediction, highlighting reliability issues involving spurious correlations, missing data, and threshold choices.">回顾用于网络攻击检测和预测的日志关联方法，并指出虚假相关、缺失数据与阈值设置等可靠性问题。</td></tr>
+<tr class="direct-work"><td data-en="Correlation survey">关联综述</td><td><a href="https://doi.org/10.1109/ACCESS.2022.3168976">Security event correlation (IEEE Access 2022)</a><small data-en="Systematic review, 127 papers">系统综述，127 篇</small></td><td data-en="Reviews security event correlation systems, grouping similarity-based, step-based, and hybrid methods, alongside datasets and evaluation metrics. Event correlation is an established research area.">覆盖安全事件关联系统，归纳相似度、步骤式和混合方法，并整理数据集与评估指标；说明事件关联是成熟研究方向。</td></tr>
+<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://arxiv.org/abs/2312.09321">Ostinato (2023)</a><small data-en="Behavioral graph similarity">行为图相似度</small></td><td data-en="Compares host provenance graphs annotated with TTPs to extend attack activities in a 500-host red-team setting. Results are not stratified by human, scripted, or agent execution.">比较带 TTP 标签的主机溯源图，在 500 台主机的红队场景中扩展攻击活动；未按人、脚本或 Agent 执行方式分层。</td></tr>
+<tr class="direct-work"><td data-en="Causal correlation">因果关联</td><td><a href="https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf">HOLMES · IEEE S&amp;P 2019</a><small data-en="Audit logs and information flow">审计日志与信息流</small></td><td data-en="Combines multi-host audit behavior and information flow into campaign signals. Public evaluations do not report execution-mode labels.">将多主机审计行为与信息流组合为 campaign 信号；公开评估未报告执行方式标签。</td></tr>
+<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://doi.org/10.1145/3488932.3523261">SteinerLog · ASIA CCS 2022</a><small data-en="Causal alert graphs">告警因果图</small></td><td data-en="Uses causal analysis and hierarchical graph traversal to correlate enterprise attack activities. The abstract does not provide an execution-mode comparison.">用因果分析和层级图遍历关联企业内的攻击活动；摘要未提供执行方式对照。</td></tr>
+<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · arXiv 2024</a><small data-en="Logs to ATT&amp;CK / campaigns">日志到 ATT&amp;CK / campaign</small></td><td data-en="Maps audit logs to techniques and known campaigns. Adjacent to activity correlation, without execution-mode labels.">从审计日志映射技术并关联已知 campaign；邻近活动关联问题，但没有参与方式标签。</td></tr>
+<tr><td data-en="APT behavior survey">APT 行为综述</td><td><a href="https://academic.oup.com/cybersecurity/article/10/1/tyad023/7504935">APT detection review · Journal of Cybersecurity 2024</a><small data-en="45 studies on behavioral similarity and causal correlation">45 项研究，行为相似与因果关联</small></td><td data-en="Surveys similarity, causality, structure, and case-based methods for APT detection. Some address tasks other than identity correlation across activities.">归纳 APT 检测中的相似度、因果、结构和案例方法；覆盖的不全是跨活动身份关联。</td></tr>
+<tr><td data-en="Alert sequences">告警序列</td><td><a href="https://doi.org/10.1109/ACCESS.2019.2930200">HMM alert correlation · IEEE Access 2019</a><small data-en="IP addresses, hosts, time windows, and synthetic alerts">IP、主机、时间窗与合成告警</small></td><td data-en="Clusters alerts by attributes and time windows, then infers APT stages with an HMM. Results use synthetic data, rather than a fine-grained host-behavior similarity benchmark.">先按告警属性和时间窗聚类，再用 HMM 推断 APT 阶段；结果来自合成数据，不是细粒度主机行为相似度评估。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="Attack stories and intelligence matching">攻击故事与情报匹配</span><span class="related-category-note" data-en="Single-attack path reconstruction and CTI-to-log matching">单次攻击路径重建、CTI 到日志匹配</span><span class="related-count" data-en="4 studies">4 项</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="These studies reconstruct paths within an attack or match threat-intelligence graphs to audit records. They are adjacent to activity correlation, without identifying the operator.">这些工作重建一次攻击内部的路径，或将威胁情报图匹配到审计记录；与活动关联相邻，但不判断操作者。</p>
+<div class="related-table-wrap">
+<table class="related-table">
+<thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
+<tbody>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/hossain">SLEUTH · USENIX Security 2017</a><small data-en="Provenance graph compression">溯源图压缩</small></td><td data-en="Compresses audit-event dependency graphs to reconstruct attack activities. Reconstructs a story within a graph, without identifying its operator.">从审计事件依赖图压缩并重建攻击活动；解决图内攻击故事重建，不标识操作者。</td></tr>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE · ACSAC 2016</a><small data-en="Weighted log graphs">加权日志图</small></td><td data-en="Uses community detection to reconstruct multistage attacks from heterogeneous logs. Demonstrates a practical use for behavioral correlation, without execution-mode labels.">以社区发现从异构日志中重建多阶段攻击；展示行为关联的实际用途，不含执行方式标签。</td></tr>
+<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/1910.00056">POIROT · ACM CCS 2019</a><small data-en="CTI graphs ↔ provenance graphs">CTI 图 ↔ 来源图</small></td><td data-en="Aligns attack graphs from threat intelligence with audit-log provenance graphs to hunt known attack activities. Does not compare human and agent execution.">将威胁情报中的攻击图与审计日志来源图对齐，用于已知攻击活动搜寻；不比较人类与 Agent 执行。</td></tr>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS · USENIX Security 2021</a><small data-en="Causal and semantic sequences">因果与语义序列</small></td><td data-en="Recovers attack stories from system audit logs. Focuses on causal reconstruction within an activity, without classifying the operator.">从系统审计日志恢复攻击故事；关注活动内部的因果重建，不判断操作者类别。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="Executor identification and trace representation">执行者识别与轨迹表示</span><span class="related-category-note" data-en="Humans, agents, model fingerprints, and operation traces">Human、Agent、模型指纹与操作轨迹</span><span class="related-count" data-en="8 studies">8 项</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="Includes distinguishing humans from agents, identifying an agent's underlying model, and comparing operation traces. Collection pipelines and research targets vary substantially.">包含直接区分人类与 Agent、推断 Agent 模型身份或比较操作轨迹；采集方式和研究目标差异较大。</p>
+<div class="related-table-wrap">
+<table class="related-table">
+<thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
+<tbody>
+<tr class="direct-work"><td data-en="Log-based identification">日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small data-en="Preprint / under review">预印研究 / 论文审稿中</small></td><td data-en="Distinguishes human and LLM operations agents using Linux audit, syslog, and application logs. Closely related to identifying execution mode from logs, but outside attack scenarios, without a script group or activity-correlation evaluation.">用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别参与方式”最直接相邻，但不是攻击场景，无脚本组或活动关联评测。</td></tr>
+<tr class="direct-work"><td data-en="Behavioral identification">行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small data-en="Human versus shopping-agent sessions">人类与购物 Agent 会话区分</small></td><td data-en="Aggregates weak behavioral signals into session features. Strong classifiers perform similarly; the contribution is primarily the behavioral perspective. It does not study attack-host telemetry or activity correlation.">把多类弱行为信号汇总为 session 特征；同类强分类器表现相近，贡献主要在行为视角。不同于攻击主机遥测，也不测攻击活动关联。</td></tr>
+<tr><td data-en="Browser identification">浏览器识别</td><td><a href="https://arxiv.org/abs/2607.26935">Agent detection · 2026</a><small data-en="Browser automation traces">浏览器自动化轨迹</small></td><td data-en="Distinguishes humans, bots, and agents, relying mainly on missing Playwright input events. Supports three-way evaluation, while exposing a dependency on browser telemetry.">区分 Human / Bot / Agent；主要判别信号来自 Playwright 输入事件缺失。说明三分类很重要，但该指纹依赖浏览器遥测。</td></tr>
+<tr><td data-en="Threat analysis">威胁分析</td><td><a href="https://www.sei.cmu.edu/library/observational-humanai-ohai-a-defender-attribution-framework-for-distinguishing-human-vs-ai-threats/">OHAI · CMU SEI 2025</a><small data-en="Framework and public cases">框架与公开案例</small></td><td data-en="Proposes an analytical workflow for human / AI threat attribution. Existing precedents mean distinguishing humans from AI is insufficient as a standalone novelty claim.">提出人类 / AI 威胁归因的分析流程；已有工作先例意味着不能把“区分人和 AI”单独作为新颖性。</td></tr>
+<tr><td data-en="Attack trace fingerprints">攻击轨迹指纹</td><td><a href="https://arxiv.org/abs/2605.01186">Trace · 2026</a><small data-en="Terminal command sequences">终端命令序列</small></td><td data-en="Identifies attack-agent model families and explores defensive prompt injection. Identifies which model, rather than human / script / agent execution.">识别攻击 Agent 的模型家族，并探索防御性提示注入；识别的是“哪个模型”，不是“人 / 脚本 / Agent”。</td></tr>
+<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2609.28559">LIDAR · 2026</a><small data-en="Active probes + probabilistic identification">主动探针 + 概率识别器</small></td><td data-en="Identifies underlying models through agent verification and failure-recovery behavior. Requires active probes and clean references; the target differs.">利用 Agent 的验证、失败恢复等行为识别底层模型；需要主动探针与干净参考，问题目标不同。</td></tr>
+<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2610.32092">AgentTrace · 2026</a><small data-en="Execution-level sequences">执行级序列</small></td><td data-en="Induces tool-interface failures and analyzes repair sequences to identify the model. It is not passive classification of defender-side logs.">诱发工具接口失败，分析后续修复序列识别模型；不是被动防守侧日志分类。</td></tr>
+<tr><td data-en="Trace representation">轨迹表示</td><td><a href="https://arxiv.org/abs/2606.16988">ProcGrep · 2026</a><small data-en="Programmatic behavior representations">程序化行为表示</small></td><td data-en="Encodes action sequences as program-frequency distributions and compares them using JSD. A useful trace-comparison idea; the paper studies coding-agent workflows, not shared attack origins.">将动作序列编码为程序频率分布并计算 JSD；可借鉴轨迹比较，论文任务是编码 Agent 工作流，不是攻击同源性。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="Analogies from generated-content detection">生成内容检测方法类比</span><span class="related-category-note" data-en="Probability features, classifiers, and cross-domain evaluation">概率特征、分类器与跨域评估</span><span class="related-count" data-en="6 studies">6 项</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="Useful references for probability scoring, lightweight classification, and out-of-domain evaluation. Their inputs are text, rather than host audit events.">可参考概率评分、轻量分类和域外测试设计；这些研究输入是文本，不是主机审计事件。</p>
+<div class="related-table-wrap">
+<table class="related-table">
+<thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
+<tbody>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v202/mitchell23a.html">DetectGPT · ICML 2023</a><small data-en="Model log probabilities">模型 log-prob</small></td><td data-en="Compares language-model probabilities for original and perturbed text. Inspires scoring methods, but logs are not natural-language generations.">比较原文与扰动文本在语言模型概率下的差异；启发评分设计，但日志不是自然语言生成文本。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6b8c6f846c3575e1d1ad496abea28826-Abstract-Conference.html">Fast-DetectGPT · ICLR 2024</a><small data-en="Conditional probability curvature">条件概率曲率</small></td><td data-en="Uses surrogate-model probability scores for efficient zero-shot text detection. Probability features may be useful, but structured system events lack natural-language token probabilities.">以代理模型概率评分做高效零样本文本检测；可借鉴概率特征，但结构化系统事件没有自然语言 token 概率。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://aclanthology.org/2024.naacl-long.95/">Ghostbuster · NAACL 2024</a><small data-en="Auxiliary-model features + classifier">辅助模型特征 + 分类器</small></td><td data-en="Builds fixed features from weaker language models' token probabilities for supervised classification. Inspires fixed features and linear baselines, while still requiring labeled training data.">从弱语言模型的 token 概率构造固定特征后监督分类；可借鉴固定特征和线性基线，仍需有标签训练数据。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v235/hans24a.html">Binoculars · ICML 2024</a><small data-en="Two-model perplexity">双模型困惑度</small></td><td data-en="Detects generated text with perplexity and cross-perplexity from two pretrained models. Does not require the generating model's logits, but still depends on language-model probabilities.">用两个预训练模型的困惑度与交叉困惑度检出生成文本；不依赖生成模型 logits，但仍需语言模型概率。</td></tr>
+<tr><td data-en="Generalization evaluation">泛化评估</td><td><a href="https://aclanthology.org/2024.acl-long.3/">MAGE · ACL 2024</a><small data-en="Across tasks / models / prompts">跨任务 / 模型 / 提示</small></td><td data-en="Evaluates out-of-domain generalization across tasks and models in text detection. A reference for grouped holdouts; its data is not commands or host logs.">用多任务、多模型文本检测设置评估域外泛化；可借鉴分组留出，数据不是命令或主机日志。</td></tr>
+<tr><td data-en="Robustness evaluation">鲁棒性评估</td><td><a href="https://aclanthology.org/2024.acl-long.674/">RAID · ACL 2024</a><small data-en="Multi-model text benchmark">多模型文本基准</small></td><td data-en="Tests text-detection robustness across generating models, domains, and rewriting attacks. A reference for grouped holdouts and stress tests, with execution logs outside its scope.">跨生成模型、领域和改写攻击测文本检测鲁棒性；借鉴分组留出与压力测试，数据不是执行日志。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="APT organization-level relationships">APT 组织级关联</span><span class="related-category-note" data-en="Threat intelligence and malware behavior patterns">威胁情报与恶意软件行为模式</span><span class="related-count" data-en="1 study">1 项</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="Infers relationships between organizations. Labels and units of analysis are organizational, rather than log-level activity correlation.">该工作推断组织之间的关系，标签和分析对象在组织层，不等同于日志级活动关联。</p>
+<div class="related-table-wrap">
+<table class="related-table">
+<thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
+<tbody>
+<tr><td data-en="Organization relationships">组织关联</td><td><a href="https://doi.org/10.3390/electronics13061106">APT group behavior patterns · Electronics 2024</a><small data-en="Rough sets + threat intelligence">粗糙集 + 威胁情报</small></td><td data-en="Models relationships between groups using malware and threat-intelligence behavior features. Inputs and targets are group-level intelligence, rather than activity-log matching under a shared sensor pipeline. Public relationship labels lack independently adjudicated ground truth.">用恶意软件和威胁情报中的行为特征建模组织间关联；输入与目标是组级情报，不是统一传感器下的活动日志匹配，公开关系标签也未经独立真值裁定。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+</div>
+<p class="related-conclusion" data-en="Related work connects logs and activities through behavioral similarity, attack stages, and causality. Existing public evaluations do not compare correlation errors across human, scripted, and agent execution. The next step is to test these differences with shared telemetry and activity labels, without presupposing that existing methods have failed.">相关研究会用行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估未按人、脚本、Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这类差异，而不是预设方法已经失效。</p>
+</section>
+<footer>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
+<a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
+<span aria-hidden="true" class="footer-cross">×</span>
+<a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>
+</div>
+<div aria-label="AttackAgent Detect" class="footer-signature">
+<strong class="signature-art">AttackAgent<br/>Detect</strong>
+</div>
+<div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true">/</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed from">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/gh-pages" title="GitHub Pages source branch"><code>gh-pages</code></a></span></div>
+</footer>
+</main>
+</div>
 </body>
 </html>
