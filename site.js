@@ -127,11 +127,9 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   function seed() {
     particles = [
       {lane: 0, x: gate - 43, example: 1},
-      {lane: 1, x: gate + (columns - gate) * .24, example: 2},
+      {lane: 1, x: gate + (columns - gate) * .24, example: 2, resolved: true},
       {lane: 2, x: gate - 55, example: 0},
-      {lane: 3, x: gate + (columns - gate) * .12, example: 3},
-      {lane: 4, x: gate + (columns - gate) * .43, example: 4},
-      {lane: 4, x: gate - 69, example: 2},
+      {lane: 3, x: gate + (columns - gate) * .22, example: 3, resolved: true},
     ].filter(p => p.lane < laneY.length).map(p => {
       const sample = sampleLog(p.example);
       const offset = Math.max(2, Math.floor((sample.raw.length - sample.mode.length) / 2));
@@ -245,7 +243,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
           const record = ambientLogs[row % ambientLogs.length].raw;
           const drift = Math.floor((time - 37) * (2 + row % 3));
           const offset = (col + drift + Math.floor(row / 3) * 13) % (record.length + 12);
-          glyph = level >= 4 && row % 3 !== 0 ? record[offset] || ' ' : ramp[level];
+          glyph = level >= 5 && row % 9 === 1 ? record[offset] || ' ' : ramp[level];
         }
         if (col < 8) alpha *= (col + 1) / 9;
       }
@@ -263,6 +261,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       const modeVisible = col + outputStart >= gate;
       for (let i = 0; i < example.raw.length; i++) {
         const x = (col + i) * cw;
+        if (packet.resolved && col + i < gate) continue;
         let char = example.raw[i], color = colors.muted;
         if (col + i >= gate) {
           if (!modeVisible || i < outputStart || i >= outputStart + example.mode.length + 2) continue;
@@ -272,13 +271,14 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         const y = col + i >= gate ? laneY[packet.lane] : inputY;
         const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
         const cell = Math.max(0, Math.min(columns - 1, col + i));
-        context.globalAlpha = (1 - quiet[row * columns + cell] * .98) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length));
+        context.globalAlpha = (1 - quiet[row * columns + cell]) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length)) * (col + i < gate ? .72 : 1);
         context.fillStyle = colors.paper; context.fillRect(x, y - ch / 2, cw, ch);
         context.fillStyle = color; context.fillText(char, x, y + 1);
       }
       context.fillStyle = colors.blue;
-      const trailY = col >= gate ? laneY[packet.lane] : inputY;
-      context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, trailY + 1);
+      const trailTyped = packet.resolved || modeVisible;
+      const trailY = trailTyped ? laneY[packet.lane] : inputY;
+      context.fillText('────', (col + (trailTyped ? outputStart : 0) - 4) * cw, trailY + 1);
     }
     context.globalAlpha = 1;
     const captionY = laneY[0] - 48;
@@ -299,7 +299,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     pointer.strength += (pointer.target - pointer.strength) * .12;
     for (const packet of particles) packet.x += packet.speed * dt;
     particles = particles.filter(packet => packet.x < columns + 5);
-    for (let lane = 0; lane < laneY.length; lane++) {
+    for (const lane of [0, 2]) {
       if (!particles.some(packet => packet.lane === lane && packet.x < gate * .6)) {
         particles.push({lane, x: -52 - lane * 6, sample: sampleLog(nextId++), speed: 9 + lane * .7});
       }
