@@ -13,7 +13,7 @@
       attributes.push({element, name, zh: element.getAttribute(name), en: element.getAttribute(`data-en-${name}`)});
     }
   }
-  function choose(language, persist = true) {
+  function choose(language) {
     const english = language === 'en';
     root.lang = english ? 'en' : 'zh-CN';
     root.dataset.language = english ? 'en' : 'zh';
@@ -25,16 +25,13 @@
     for (const button of document.querySelectorAll('button[data-language]')) {
       button.setAttribute('aria-pressed', String(button.dataset.language === (english ? 'en' : 'zh')));
     }
-    if (persist) {
-      try { localStorage.setItem('attackagent-language', english ? 'en' : 'zh'); } catch {}
-    }
     document.dispatchEvent(new CustomEvent('pagelanguagechange', {detail: {language: english ? 'en' : 'zh'}}));
   }
   for (const button of document.querySelectorAll('button[data-language]')) {
     button.addEventListener('click', () => choose(button.dataset.language));
   }
-  let saved = 'zh';
-  try { saved = localStorage.getItem('attackagent-language') || 'zh'; } catch {}
   const requested = new URL(location.href).searchParams.get('lang');
-  choose(requested === 'en' || requested === 'zh' ? requested : saved, false);
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const preferred = browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  choose(requested === 'en' || requested === 'zh' ? requested : preferred);
 })();

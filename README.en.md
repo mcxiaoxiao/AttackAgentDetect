@@ -2,7 +2,7 @@
   <img src="site/assets/attackagent-detect-logo.png" width="620" alt="AttackAgent Detect" />
 </h1>
 
-<p align="center"><a href="README.md">中文</a> | <strong>English</strong></p>
+<p align="center"><a href="README.zh-CN.md">简体中文</a> | <strong>English</strong></p>
 
 **[Visit the project website](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=en)** — research aims, results, data, methods, and related work.
 

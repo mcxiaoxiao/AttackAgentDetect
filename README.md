@@ -2,35 +2,35 @@
   <img src="site/assets/attackagent-detect-logo.png" width="620" alt="AttackAgent Detect" />
 </h1>
 
-<p align="center"><strong>中文</strong> | <a href="README.en.md">English</a></p>
+<p align="center"><a href="README.zh-CN.md">简体中文</a> | <strong>English</strong></p>
 
-**[访问项目主页](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=zh)** — 研究目标、实验结果、数据与方法、相关工作。
+**[Visit the project website](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=en)** — research aims, results, data, methods, and related work.
 
 [中文主页](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=zh) · [English website](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=en)
 
-**AttackAgent Detect 是一项开放研究，探索智能体参与识别及其对攻击活动关联的影响。**
+**An open-source research project and experimental toolkit for studying execution-mode signals in attack traces.**
 
-项目研究可观测轨迹能否区分人工、脚本与 AI Agent 执行，以及执行方式是否影响攻击活动关联。当前可复现实验仅包含人类操作记录与模型 Agent 工具调用，没有匹配的脚本执行样本。研究方案、分析代码、固定版本的数据清单、Notebook、汇总结果与局限均已公开，供检查和扩展。
+The project studies whether observable traces can distinguish human, scripted, and AI-agent execution, and whether execution mode affects attack activity correlation. The current reproducible experiment contains human operation records and model-agent tool calls only; it has no matched script-execution samples. The research protocol, analysis code, pinned data manifest, notebook, aggregate results, and limitations are published for checking and extension.
 
-当前可行性研究使用 InterCode-CTF 的公开人类与模型 Agent 会话。命令 n-gram 分类器在 6 个留出任务上的平衡准确率为 0.889；跨来源同题检索接近随机（AUC 0.511，按任务聚类的 95% 区间为 0.396–0.667）。这些是探索性基准结果，不能作为识别真实攻击者或关联 APT 攻击活动的证据：人类与模型会话采用不同的日志采集流程，缺少脚本样本，相同任务 ID 也不代表相同攻击者或攻击活动。
+The current feasibility study uses public human and model-agent sessions from InterCode-CTF. A command n-gram classifier reached 0.889 balanced accuracy on six held-out tasks; cross-source same-task retrieval was near chance (AUC 0.511, task-cluster 95% interval 0.396–0.667). These are exploratory benchmark results, not evidence of real attacker identification or APT campaign correlation: human and model sessions use different logging pipelines, scripts are absent, and shared task IDs are not shared-actor or campaign labels.
 
-**PyPI 计划于 2027 年发布。** 软件包目前尚不可安装；页面中的安装与 API 调用为规划示意，当前请按下文从源码复现。
+**PyPI release planned for 2027.** The package is not available to install yet; use the source checkout and reproduction steps below.
 
-## 研究与结果
+## Research and results
 
-- [研究框架与八小时探索计划](00-研究计划.md)
-- [主要实验预设](01-实验预设.md)
-- [相关工作与初步实验](04-相关工作与初步实验.md)
-- [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
-- [数据审计](results/data-audit.json)、[主要基线](results/preliminary.json)、[事后诊断](results/sensitivity.json)与 [Trace 风格迁移检查](results/trace-baseline.json)
-- [重复划分敏感性检查](results/split-diagnostics.json)
-- [精简汇总结果](results/quick-summary.json)
+- [Research framing and eight-hour exploration plan](00-研究计划.md)
+- [Primary experiment protocol](01-实验预设.md)
+- [Related work and initial results](04-相关工作与初步实验.md)
+- [Executable preliminary-analysis notebook](notebooks/01_preliminary.ipynb)
+- [Data audit](results/data-audit.json), [primary baselines](results/preliminary.json), [post-hoc diagnostics](results/sensitivity.json), and [Trace-style transfer check](results/trace-baseline.json)
+- [Repeated split sensitivity check](results/split-diagnostics.json)
+- [Compact aggregate output](results/quick-summary.json)
 
-实验脚本从公开记录中解析已知命令名称，不执行其中记录的命令。仓库在 `vendor/procgrep/` 中固定保存了 [ProcGrep](https://github.com/hamidahoderinwale/procgrep) 的一个精简 MIT 许可子集，以便在不安装未发布依赖的情况下复现其轨迹表示与 JSD 计算。猫头鹰图标与引入代码的说明见[第三方声明](THIRD_PARTY_NOTICES.md)。
+The experiment scripts parse known command names from public records; they never execute recorded commands. A compact, MIT-licensed subset of [ProcGrep](https://github.com/hamidahoderinwale/procgrep) is pinned in `vendor/procgrep/` so the published representation and JSD calculations can be reproduced without installing an unpublished dependency. See [third-party notices](THIRD_PARTY_NOTICES.md) for the owl icon and vendored code.
 
-## 从源码复现
+## Reproduce
 
-需要 Python 3.10 或更新版本，无需 Conda。获取仓库后，创建本地虚拟环境，安装固定版本的分析依赖，并下载指定版本的公开数据：
+Python 3.10 or newer is required. Conda is not needed. Create a local virtual environment, install the frozen analysis dependencies, and acquire the pinned public data:
 
 ```bash
 git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
@@ -40,30 +40,30 @@ python3 -m venv .venv
 .venv/bin/python scripts/download_public_traces.py
 ```
 
-随后运行完整的数据审计、基线、诊断、汇总导出与一致性检查：
+Then run the complete audit, baselines, diagnostics, summary export, and consistency checks:
 
 ```bash
 .venv/bin/python scripts/run_all.py
 ```
 
-该命令写入包括 `results/quick-summary.json` 在内的汇总 JSON。这是一套可复现的基准实验流程；当前尚未提供逐条记录预测的 API。脚本接受指定的 InterCode-CTF 归档结构，暂不支持任意 auditd、Sysmon 或上传的日志文件。
+The command writes aggregate JSON outputs, including `results/quick-summary.json`. It is a reproducible benchmark workflow, not a per-record prediction API. Current scripts accept the pinned InterCode-CTF archive layout; they do not yet accept arbitrary auditd, Sysmon, or uploaded log files.
 
-运行 `.venv/bin/jupyter lab` 并打开 `notebooks/01_preliminary.ipynb` 可查看 Notebook。生成结果文件后，Notebook 会验证这些文件、展示诊断表格，并导出桌面与移动端图表。若需完整重建，将第一个分析单元中的 `REBUILD_RESULTS` 设为 `True`；对应的终端命令为 `.venv/bin/python scripts/run_all.py`。
+To open the notebook, run `.venv/bin/jupyter lab` and open `notebooks/01_preliminary.ipynb`. After the result files are generated, the notebook verifies them, presents the diagnostic tables, and exports desktop and mobile charts. Set `REBUILD_RESULTS = True` in its first analysis cell for a full rebuild; the equivalent terminal command is `.venv/bin/python scripts/run_all.py`.
 
-数据下载器会校验公开源文件的哈希。原始轨迹与本地环境不纳入 Git；仓库中的数据审计与汇总指标不含原始命令内容。数据版本与已知局限记录在研究报告中。
+The data downloader verifies the public source's file hashes. Raw trajectories and local environments are excluded from Git; the checked-in audit and aggregate metrics contain no raw command content. The dataset revision and known limitations are documented in the report.
 
-## 开放研究
+## Open research
 
-[项目主页](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=zh) 展示相关工作脉络与当前证据。仓库面向公开检查与可复现的后续研究：不支持假设的结果也会保留记录。在缺少通过统一遥测流程采集的攻击者与攻击活动真值时，不将当前结论推广到真实 APT 活动。
+The related-work map and current evidence are presented on the [project page](https://mcxiaoxiao.github.io/AttackAgentDetect/). The repository is intended for public review and reproducible follow-up: results that fail to support the hypothesis remain documented, and no conclusion is generalized to real-world APT activity without actor and campaign ground truth collected through a common telemetry pipeline.
 
-研究流程也参考了 Kassis 等人的开放文献综述与实验设计程序指南：[*Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents*](https://arxiv.org/abs/2609.00065)（2026）。
+The research workflow also draws on the open procedural literature-review and experiment-design guidance in Kassis et al., [*Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents*](https://arxiv.org/abs/2609.00065) (2026).
 
-## 项目发起
+## Project initiators
 
-[sunyinggang](https://github.com/sunyinggang) 与 [OrlosZiming](https://mcxiaoxiao.github.io/)。
+[sunyinggang](https://github.com/sunyinggang) and [OrlosZiming](https://mcxiaoxiao.github.io/).
 
-## 开源协议
+## License
 
-项目源代码采用 [MIT 协议](LICENSE)，© 2026 AttackAgent Detect contributors。数据集遵循上游条款，仅下载到本地，不在本仓库重新分发。页面猫头鹰图标与引入的 ProcGrep 代码另见[第三方声明](THIRD_PARTY_NOTICES.md)。
+Project source code: [MIT](LICENSE). Dataset files remain under their upstream terms and are fetched locally rather than redistributed. The page owl and vendored ProcGrep code have separate notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-猫头鹰图标由 [Selina Bauder / OpenMoji](https://openmoji.org/library/emoji-1F989/) 创作，采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可；上方品牌图使用同一图标。
+The owl icon is by [Selina Bauder / OpenMoji](https://openmoji.org/library/emoji-1F989/), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
