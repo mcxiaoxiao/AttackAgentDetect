@@ -10,16 +10,7 @@ if ("IntersectionObserver" in window) {
   }, {rootMargin: "-15% 0px -72% 0px"});
   document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
 
-  const evidence = document.querySelector(".hero-evidence");
-  if (evidence && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const traceObserver = new IntersectionObserver((entries, observer) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        evidence.classList.add("is-visible");
-        observer.disconnect();
-      }
-    }, {threshold: 0.25});
-    traceObserver.observe(evidence);
-  }
+
 }
 
 for (const button of document.querySelectorAll("[data-copy]")) {
@@ -50,3 +41,231 @@ for (const button of document.querySelectorAll("[data-copy]")) {
     }
   });
 }
+
+/* Cobalt reference: https://www.usehallmark.com/themes/cobalt/.
+   This field illustrates command-to-action parsing, not live inference or attribution. */
+(() => {
+  const hero = document.querySelector('.hero');
+  const canvas = hero?.querySelector('.field');
+  const context = canvas?.getContext('2d');
+  if (!context) return;
+  const css = getComputedStyle(document.documentElement);
+  const token = name => css.getPropertyValue(name).trim();
+  const colors = {
+    paper: token('--paper'), ink: token('--ink'), muted: token('--muted'),
+    blue: token('--cobalt'), deep: token('--cobalt-deep'),
+    glyphs: [1, 2, 3, 4].map(n => token('--glyph-' + n)),
+  };
+  const mono = token('--mono');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const toggle = hero.querySelector('.field-toggle');
+  const ramp = ' ·:-=+*#%@';
+  const typed = [' ', '⠁', '⠃', '⠇', '⡇', '⣇', '⣧', '⣷', '⣿', '⣿'];
+  const glyphs = [...new Set([...ramp, ...typed, '┊', '┼', '┬', '┴'])];
+  const tints = [...colors.glyphs, colors.blue, colors.deep];
+  const tintAt = [0, 0, 0, 1, 1, 2, 3, 4, 4, 5];
+  const examples = [
+    {raw: '{"cmd":"pwd"}', action: 'environment'},
+    {raw: '{"cmd":"find . -type f"}', action: 'discover'},
+    {raw: '{"cmd":"head -n 20 file"}', action: 'read'},
+    {raw: '{"cmd":"grep pattern file"}', action: 'search'},
+    {raw: '{"cmd":"ls -la"}', action: 'discover'},
+  ];
+  const cw = 8, ch = 16;
+  let width, height, columns, rows, gate, laneY, origins, atlas, calm, quiet;
+  let particles = [], time = 37, frameId = 0, previous = 0, nextId = 0;
+  let visible = true, paused = false, ready = false;
+  const pointer = {x: -1000, y: -1000, strength: 0, target: 0};
+
+  // Smooth, deterministic noise keeps the character streams continuous.
+  function hash(x, y) {
+    const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+    return n - Math.floor(n);
+  }
+  function noise(x, y) {
+    const ix = Math.floor(x), iy = Math.floor(y);
+    let u = x - ix, v = y - iy;
+    u = u * u * (3 - 2 * u); v = v * v * (3 - 2 * v);
+    const top = hash(ix, iy) * (1 - u) + hash(ix + 1, iy) * u;
+    const bottom = hash(ix, iy + 1) * (1 - u) + hash(ix + 1, iy + 1) * u;
+    return top * (1 - v) + bottom * v;
+  }
+  function seed() {
+    particles = [
+      {lane: 0, x: gate - 21, example: 1},
+      {lane: 1, x: gate + (columns - gate) * .24, example: 2},
+      {lane: 2, x: gate - 37, example: 0},
+      {lane: 3, x: gate + (columns - gate) * .12, example: 3},
+      {lane: 4, x: gate + (columns - gate) * .43, example: 4},
+      {lane: 4, x: gate - 57, example: 2},
+    ].filter(p => p.lane < laneY.length).map(p => ({...p, speed: 9 + p.lane * .7}));
+  }
+  function resize() {
+    const rect = hero.getBoundingClientRect();
+    width = Math.round(rect.width); height = Math.round(rect.height);
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = width * dpr; canvas.height = height * dpr;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    columns = Math.ceil(width / cw); rows = Math.ceil(height / ch);
+    atlas = document.createElement('canvas');
+    atlas.width = glyphs.length * cw * dpr; atlas.height = tints.length * ch * dpr;
+    const pen = atlas.getContext('2d');
+    pen.scale(dpr, dpr); pen.font = `400 13.333px ${mono}`;
+    pen.textAlign = 'center'; pen.textBaseline = 'middle';
+    tints.forEach((tint, row) => {
+      pen.fillStyle = tint;
+      glyphs.forEach((glyph, col) => pen.fillText(glyph, col * cw + cw / 2, row * ch + ch / 2 + 1));
+    });
+    const boxes = [];
+    let textBottom = 0;
+    for (const element of hero.querySelector('.hero-copy').children) {
+      let rectangles = [element.getBoundingClientRect()];
+      if (/^(H1|P)$/.test(element.tagName)) {
+        const range = document.createRange(); range.selectNodeContents(element);
+        rectangles = [...range.getClientRects()];
+      }
+      for (const box of rectangles) {
+        if (!box.width) continue;
+        boxes.push({left: box.left - rect.left - 20, right: box.right - rect.left + 28,
+          top: box.top - rect.top - 12, bottom: box.bottom - rect.top + 12});
+        textBottom = Math.max(textBottom, box.bottom - rect.top);
+      }
+    }
+    calm = new Float32Array(columns * rows); quiet = new Float32Array(columns * rows);
+    for (let row = 0; row < rows; row++) for (let col = 0; col < columns; col++) {
+      let mask = 0, near = 0;
+      for (const box of boxes) {
+        const distance = Math.hypot(Math.max(box.left - col * cw, 0, col * cw - box.right),
+          Math.max(box.top - row * ch, 0, row * ch - box.bottom));
+        mask = Math.max(mask, Math.max(0, 1 - distance / 64));
+        near = Math.max(near, Math.max(0, 1 - distance / 20));
+      }
+      calm[row * columns + col] = mask * mask * (3 - 2 * mask);
+      quiet[row * columns + col] = near;
+    }
+    const wide = width >= 900;
+    gate = Math.round(width * (wide ? .585 : .3) / cw);
+    const count = wide ? 5 : 4;
+    const top = wide ? height * .245 : textBottom + 90;
+    const spacing = wide ? Math.min(80, height * .105) : 48;
+    laneY = Array.from({length: count}, (_, i) => Math.round((top + spacing * i) / ch) * ch + ch / 2);
+    origins = Array.from({length: count}, (_, i) => height * .1 + height * .8 * (i + .5) / count);
+    if (!wide) origins = laneY.map((y, i) => y + Math.sin(i * 2) * 36);
+    seed(); draw();
+  }
+  function band(lane, x) {
+    if (x >= gate * cw) return {y: laneY[lane], spread: 7, amplitude: .42 + .12 * Math.sin((x - time * 70) / 46 + lane)};
+    let blend = Math.max(0, Math.min(1, (x - gate * cw * .3) / (gate * cw * .62)));
+    blend = blend * blend * (3 - 2 * blend);
+    const wave = (noise((x - time * 26) / 260, lane * 3.7 + .5) - .5) * 180 * (1 - blend);
+    let y = origins[lane] + (laneY[lane] - origins[lane]) * blend + wave;
+    let amplitude = (.5 + .75 * noise((x - time * 48) / 150, lane * 7.3 + 3)) * (1 - blend * .25) + blend * .25;
+    const distance = Math.hypot(x - pointer.x, y - pointer.y);
+    if (distance < 200) {
+      const force = (1 - distance / 200) ** 2 * pointer.strength;
+      y += (y >= pointer.y ? 1 : -1) * force * 46;
+      amplitude *= 1 + force * .7;
+    }
+    return {y, spread: (1 - blend) * (26 + 20 * noise((x - time * 40) / 180, lane * 5.1 + 9)) + blend * 9, amplitude};
+  }
+  function label(text, x, y, color = colors.ink) {
+    context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
+    context.fillStyle = colors.paper; context.fillRect(x - 6, y - 9, text.length * cw + 12, ch + 2);
+    context.fillStyle = color; context.fillText(text, x, y + 1);
+  }
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const bands = laneY.map((_, lane) => Array.from({length: columns}, (_, col) => band(lane, col * cw + cw / 2)));
+    for (let row = 1; row < rows - 1; row++) for (let col = 1; col < columns - 1; col++) {
+      const y = row * ch, mask = calm[row * columns + col];
+      let glyph, tint, alpha = 1 - mask * .7;
+      if (col === gate && y >= laneY[0] - 32 && y <= laneY.at(-1) + 32) {
+        glyph = y < laneY[0] - 16 ? '┬' : y > laneY.at(-1) + 16 ? '┴' : laneY.includes(y + ch / 2) ? '┼' : '┊';
+        tint = 3;
+      } else {
+        let density = 0;
+        for (const lane of bands) {
+          const b = lane[col];
+          density = Math.max(density, b.amplitude * Math.exp(-((y + ch / 2 - b.y) ** 2) / (2 * b.spread ** 2)));
+        }
+        density *= 1 - mask * .93;
+        if (density < .09) continue;
+        const level = Math.min(9, 1 + Math.floor((density - .09) / .91 * 9));
+        glyph = col > gate ? typed[level] : ramp[level]; tint = tintAt[level];
+        if (col < 8) alpha *= (col + 1) / 9;
+      }
+      context.globalAlpha = alpha;
+      context.drawImage(atlas, glyphs.indexOf(glyph) * cw * dpr, tint * ch * dpr, cw * dpr, ch * dpr, col * cw, y, cw, ch);
+    }
+    context.globalAlpha = 1;
+    const captionY = laneY[0] - 48;
+    label(width >= 900 ? 'command traces' : 'traces', gate * cw - (width >= 900 ? 56 : 24), captionY, colors.muted);
+    const caption = width >= 900 ? 'action groups' : 'actions';
+    label(caption, width - caption.length * cw - 24, captionY, colors.muted);
+    for (const packet of particles) {
+      const example = examples[packet.example];
+      const col = Math.floor(packet.x);
+      const y = Math.round((band(packet.lane, Math.max(0, Math.min(width, col * cw))).y - ch / 2) / ch) * ch + ch / 2;
+      const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
+      let covered = 0;
+      for (let i = Math.max(0, col); i < Math.min(columns, col + example.raw.length); i++) covered = Math.max(covered, quiet[row * columns + i]);
+      context.globalAlpha = (1 - covered * .95) * Math.min(1, Math.max(0, (col + example.raw.length) / example.raw.length));
+      context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
+      const outputStart = Math.max(2, Math.floor((example.raw.length - example.action.length) / 2));
+      for (let i = 0; i < example.raw.length; i++) {
+        const x = (col + i) * cw;
+        let char = example.raw[i], color = colors.blue;
+        if (col + i >= gate) {
+          char = (' ' + example.action + ' ')[i - outputStart] || ' ';
+          color = colors.ink;
+          if (!reduce.matches && !paused && col + i - gate < 2) { char = '#%*+=:'[(Math.floor(time * 30) + i) % 6]; color = colors.blue; }
+        }
+        context.fillStyle = colors.paper; context.fillRect(x, y - ch / 2, cw, ch);
+        context.fillStyle = color; context.fillText(char, x, y + 1);
+      }
+      context.fillStyle = colors.blue;
+      context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, y + 1);
+    }
+    context.globalAlpha = 1;
+  }
+  function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
+  function start() {
+    if (!ready || frameId || reduce.matches || paused || !visible || document.hidden) return;
+    frameId = requestAnimationFrame(frame);
+  }
+  function frame(ms) {
+    frameId = 0;
+    if (previous && ms - previous < 1000 / 30) { frameId = requestAnimationFrame(frame); return; }
+    const dt = previous ? Math.min(.1, (ms - previous) / 1000) : 0;
+    previous = ms; time += dt;
+    pointer.strength += (pointer.target - pointer.strength) * .12;
+    for (const packet of particles) packet.x += packet.speed * dt;
+    particles = particles.filter(packet => packet.x < columns + 5);
+    for (let lane = 0; lane < laneY.length; lane++) {
+      if (!particles.some(packet => packet.lane === lane && packet.x < gate * .6)) {
+        particles.push({lane, x: -34 - lane * 6, example: nextId++ % examples.length, speed: 9 + lane * .7});
+      }
+    }
+    draw(); frameId = requestAnimationFrame(frame);
+  }
+  toggle.addEventListener('click', () => {
+    paused = !paused;
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? '继续首屏动效' : '暂停首屏动效');
+    toggle.textContent = paused ? '继续动效' : '暂停动效';
+    if (paused) stop(); else start();
+  });
+  hero.addEventListener('pointermove', event => {
+    const rect = hero.getBoundingClientRect();
+    pointer.x = event.clientX - rect.left; pointer.y = event.clientY - rect.top; pointer.target = 1;
+  }, {passive: true});
+  hero.addEventListener('pointerleave', () => { pointer.target = 0; });
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) start(); else stop(); }).observe(hero);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
+  reduce.addEventListener('change', () => { if (reduce.matches) { stop(); seed(); draw(); } else start(); });
+  new ResizeObserver(() => { if (ready) resize(); }).observe(hero);
+  const fonts = document.fonts ? Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1500))]) : Promise.resolve();
+  fonts.then(() => { resize(); ready = true; document.documentElement.classList.add('has-field'); start(); });
+  document.fonts?.addEventListener('loadingdone', () => { if (ready) resize(); });
+})();
