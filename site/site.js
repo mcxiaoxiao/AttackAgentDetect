@@ -273,12 +273,16 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         context.fillStyle = colors.muted; context.fillText(example.raw[i], x, y + 1);
       }
       if (modeVisible) {
-        const outputX = Math.max((col + outputStart) * cw, gate * cw + 64);
         context.save();
         context.beginPath(); context.rect(gate * cw, 0, width - gate * cw, height); context.clip();
         context.globalAlpha = 1;
         const labelWidth = context.measureText(example.mode).width;
         // Keep a clear break between the classifier seam and the mode label; no leader bar.
+        // On narrow canvases clamp the label so its final glyphs stay inside the viewport.
+        const outputX = Math.min(
+          Math.max((col + outputStart) * cw, gate * cw + 64),
+          width - labelWidth - 18,
+        );
         const labelY = laneY[packet.lane] - ch / 2;
         context.fillStyle = colors.paper;
         context.fillRect(gate * cw + 1, labelY, Math.max(0, outputX - gate * cw - 34), ch);
