@@ -14,6 +14,8 @@
 
 当前可复现实验使用三个公开 CTF 基准，共 177 条人类与 Agent 轨迹、40 个题目组。混合候选库中，模式感知排序 Hit@1 为 0.607，任务监督行为排序为 0.571，配对增量 +0.036（95% 任务簇区间 `[+0.006, +0.069]`）；相对命令余弦的增量仅 +0.008（95% `[−0.046, +0.059]`）。五个替代任务划分的平均增量为 −0.007（95% `[−0.026, +0.012]`）。因此当前结果对划分敏感，尚不能建立稳定关联收益。同一题目 ID 只是同题代理标签；人类终端记录与 Agent 工具调用采集路径和标签共线，也没有脚本组。详见[关联分析文献与混合候选实验](09-关联分析文献与混合候选实验.md)。
 
+新增的嵌套阈值实验直接拆分配对误差：模式增强排序的任务宏平衡准确率为 0.669，较任务监督行为排序高 5.7 个百分点（配对 95% 任务簇区间 `[+3.4, +8.1]`）；相对命令余弦只高 0.6 个百分点（`[−4.1, +4.8]`）。在同题 H–Agent 配对上，误拆分下降 12.6 个百分点；在异题 H–Agent 配对上，误合并增加 8.4 个百分点。它表明模式信息改变跨模式关联的错误取舍，但仍只是 CTF 同题代理结果。详见[逐对结果、实验协议和复现产物](09-关联分析文献与混合候选实验.md#新增实验训练侧阈值下的误拆分与误合并)。
+
 数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：PicoCTF 衍生的 InterCode-CTF、来自四项竞赛的 CyBench，以及 NYU CTF Bench。保留三套基准中同时有人类专家和 Agent 记录的 40 个 benchmark-qualified 题目组。来源、过滤、哈希、标签和切分协议见当前[研究报告](09-关联分析文献与混合候选实验.md)。
 
 执行方式分类头在当前三折任务留出诊断中的记录级混淆矩阵为 `[[43, 14], [8, 112]]`（Human/Agent 行），平衡准确率 0.844。由于类别与采集路径一致，这只能说明该发布中的两类记录可区分，不能说明模型已识别真实操作者。此前实验保留为历史协议，不能与当前混合候选结果合并。
@@ -32,6 +34,7 @@
 - [模式标签条件置换诊断](results/mode_label_permutation.json)、[本地模型比较 Notebook](notebooks/06_local_model_comparison.ipynb)
 - [论文实验正文](paper/experiment-results.tex)、[附录](paper/appendix.tex)与[图形生成代码](scripts/generate_paper_figures.py)
 - [当前混合候选 Notebook](notebooks/07_mixed_gallery.ipynb)、[结果 JSON](results/mixed_gallery.json)与[绘图及实验脚本](scripts/run_mixed_gallery.py)
+- [嵌套阈值关联错误实验](scripts/run_association_error_analysis.py)、[机器可读结果](results/association_error_analysis.json)、[逐对得分](results/association_error_pair_scores.csv)和[复现 Notebook](notebooks/08_association_error_analysis.ipynb)
 - [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
 - [可执行的特异性对照 Notebook](notebooks/03_specificity_controls.ipynb)
 - [置换诊断 Notebook](notebooks/04_mode_label_permutation.ipynb)、[未见模型来源 Notebook](notebooks/05_unseen_agent_model.ipynb)
@@ -62,7 +65,9 @@ python3 -m venv .venv
 当前混合候选实验和绘图按以下命令复现：
 
 ```bash
+.venv/bin/python scripts/download_crossbenchmark_traces.py
 .venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
+.venv/bin/python scripts/run_association_error_analysis.py --bootstraps 5000 --threshold-grid 101
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -79,7 +84,7 @@ python3 -m venv .venv
 
 Human/Agent 检测需要调用者提供与输入格式匹配的标注训练数据，当前仍为实验性功能；Script 类尚无支持检测器。格式不匹配时拒判或保留纯行为排序，得分和排序都不代表攻击者或 APT 归因。auditd 和 JSONL 样例均为手工接口演示，不是实验数据；格式见 [`examples/auditd/`](examples/auditd/) 与 [`examples/jsonl/README.md`](examples/jsonl/README.md)。
 
-运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/07_mixed_gallery.ipynb` 重跑当前实验并展示论文图；较早的 Notebook 与报告保留先前探索协议，供对照追溯。
+运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/07_mixed_gallery.ipynb` 重跑混合候选排序；`notebooks/08_association_error_analysis.ipynb` 重跑嵌套阈值误差分析与分层图；较早的 Notebook 与报告保留先前探索协议，供对照追溯。
 
 数据下载器会校验公开源文件的哈希。原始轨迹与本地环境不纳入 Git；仓库中的数据审计与汇总指标不含原始命令内容。数据版本与已知局限记录在研究报告中。
 

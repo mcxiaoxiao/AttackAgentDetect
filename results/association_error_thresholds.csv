@@ -1,0 +1,13 @@
+outer_fold,method,validation_task_groups,threshold,training_macro_balanced_accuracy,training_macro_false_split_rate,training_macro_false_merge_rate,training_benchmarks_for_split,training_benchmarks_for_merge,threshold_fit_pair_rows,threshold_grid_size,tie_rule
+1,command_cosine,26,0.19632254008454256,0.7893170838823013,0.27499999999999997,0.14636583223539748,3,3,2306,101,highest threshold among equal task-macro balanced-accuracy candidates
+1,behavior_only,26,0.4834526015116339,0.7372828526814034,0.26450617283950617,0.26092812179768704,3,3,2306,101,highest threshold among equal task-macro balanced-accuracy candidates
+1,mode_aware,26,0.5007817637962101,0.7689284145805885,0.30370370370370375,0.15843946713511933,3,3,2306,101,highest threshold among equal task-macro balanced-accuracy candidates
+1,length_only,26,0.3571428571428572,0.7939680622651637,0.1873456790123457,0.2247181964573269,3,3,2306,101,highest threshold among equal task-macro balanced-accuracy candidates
+2,command_cosine,27,0.28539084666193426,0.5396198505935825,0.5193827160493827,0.4013775827634523,3,3,2292,101,highest threshold among equal task-macro balanced-accuracy candidates
+2,behavior_only,27,0.4404446221284206,0.5705174915999192,0.022222222222222227,0.8367427945779395,3,3,2292,101,highest threshold among equal task-macro balanced-accuracy candidates
+2,mode_aware,27,0.451067766852906,0.5822454727572481,0.047530864197530866,0.7879781902879729,3,3,2292,101,highest threshold among equal task-macro balanced-accuracy candidates
+2,length_only,27,0.26315789473684215,0.6023217422673944,0.14259259259259258,0.6527639228726185,3,3,2292,101,highest threshold among equal task-macro balanced-accuracy candidates
+3,command_cosine,27,0.15467934990790383,0.6945542031773917,0.21802469135802469,0.39286690228719207,3,3,2336,101,highest threshold among equal task-macro balanced-accuracy candidates
+3,behavior_only,27,0.4725604806014752,0.6536409645105298,0.22901234567901232,0.46370572529992815,3,3,2336,101,highest threshold among equal task-macro balanced-accuracy candidates
+3,mode_aware,27,0.46457591529524456,0.6528284919589268,0.22345679012345676,0.4708862259586897,3,3,2336,101,highest threshold among equal task-macro balanced-accuracy candidates
+3,length_only,27,0.31578947368421056,0.6697699693623607,0.12345679012345678,0.5370032711518219,3,3,2336,101,highest threshold among equal task-macro balanced-accuracy candidates

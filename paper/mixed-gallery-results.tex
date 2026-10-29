@@ -73,6 +73,39 @@ The mode classifier's pooled confusion matrix is $[[43,14],[8,112]]$ for Human/A
 \label{fig:confusion}
 \end{figure}
 
+\subsection{Association errors at a training-only threshold}
+
+Retrieval metrics do not show the errors made when the system decides whether to connect a pair. We therefore evaluate pairwise decisions under a nested protocol: each outer training fold supplies three inner task-held-out folds for threshold selection; the outer test tasks remain untouched. Each method receives its own threshold, selected to maximize task-macro balanced accuracy on inner out-of-fold pairs. A test pair is linked when its score meets that threshold. We compare command cosine, the task-supervised behavior ranker, its mode-aware extension, and a command-length control. The target is same-task matching within the released CTF benchmarks, not real attack-activity matching.
+
+The mode-aware ranker reaches task-macro balanced accuracy 0.669 (95\% task-cluster CI [0.611, 0.722]), compared with 0.612 [0.568, 0.657] for the behavior-only ranker. The paired increase is 5.7 percentage points [3.4, 8.1]. Against command cosine, however, the increase is 0.6 points [−4.1, 4.8], leaving no clear gain over this simpler baseline.
+
+The pair-type breakdown shows where the mode score changes decisions. Relative to behavior-only ranking, it lowers the false-split rate for same-task H--Agent pairs from 0.317 to 0.191 (−12.6 points, 95\% CI [−17.7, −7.6]) while raising the false-merge rate for different-task H--Agent pairs from 0.387 to 0.472 (+8.4 points, [3.4, 13.2]). Execution-mode context therefore reduces one cross-mode proxy error while increasing another; the result supports conditional use of this signal, not a universal correction.
+
+\begin{table}[t]
+\centering
+\caption{Task-held-out pairwise association errors. Each method's decision threshold is selected on inner training-task out-of-fold pairs. Entries are task-macro rates with 95\% task-cluster bootstrap intervals. A shared CTF task is only a same-challenge proxy.}
+\label{tab:association-errors}
+\small
+\rowcolors{2}{PaleGray}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrr}
+\toprule
+\rowcolor{InkBlue}\textcolor{white}{Method} & \textcolor{white}{False split} & \textcolor{white}{False merge} & \textcolor{white}{Balanced accuracy} \\
+\midrule
+Command cosine & 0.377 [0.288, 0.470] & 0.296 [0.198, 0.399] & 0.664 [0.597, 0.731] \\
+Task-supervised behavior & 0.275 [0.185, 0.371] & 0.501 [0.433, 0.569] & 0.612 [0.568, 0.657] \\
+\rowcolor{PaleBlue}\textbf{Mode-aware behavior} & \textbf{0.238 [0.148, 0.343]} & \textbf{0.423 [0.363, 0.491]} & \textbf{0.669 [0.611, 0.722]} \\
+Length-only control & 0.195 [0.122, 0.277] & 0.600 [0.506, 0.689] & 0.602 [0.531, 0.677] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{association_error_rates.pdf}
+\caption{False-split and false-merge rates stratified by pair mode. H--A denotes a pair of records labeled Human and Agent in the dataset. The same-task H--H estimate uses 17 task groups; all other strata use 40. Error bars are 95\% task-cluster bootstrap intervals.}
+\label{fig:association-errors}
+\end{figure}
+
 \section{Conclusion}
 
-Prior attack-investigation systems establish behavioral association as a real stage of operational analysis: logs and host traces are connected through event sequences, TTP patterns, entity relations, and causal provenance. We extend this line by testing execution mode as an additional context signal. In the available public CTF proxy task, mode-aware ranking leads the fixed-split table but does not outperform command cosine with a clear paired difference, and its average incremental gain reverses across alternate splits. The evidence motivates a controlled next experiment with repeated human, script, and Agent executions under one sensor pipeline and independently assigned activity identifiers. That experiment can directly measure false merges and false splits at the activity level.
+Prior attack-investigation systems connect host behavior through event sequences, TTP patterns, entity relations, and causal provenance. We test execution mode as additional context for these associations. In the public CTF proxy evaluation, mode-aware ranking reduces same-task cross-mode false splits but increases different-task cross-mode false merges; its overall balanced accuracy is not clearly above command cosine. These outcomes identify a specific tradeoff for a controlled follow-up: repeated human, script, and Agent executions under one sensor pipeline, labeled with independent activity identifiers, so both errors can be measured at the activity level.

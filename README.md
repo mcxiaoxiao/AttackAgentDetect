@@ -14,6 +14,8 @@ The project is an open research library for normalizing security traces, compari
 
 The current reproducible study uses 177 human and Agent traces across 40 task groups from three public CTF benchmarks. In a mixed candidate gallery, mode-aware ranking reaches Hit@1 0.607 versus 0.571 for a task-supervised behavior ranker (paired change +0.036, 95% task-cluster CI [+0.006, +0.069]); versus command cosine, the change is only +0.008 (95% CI [−0.046, +0.059]). Across five alternate task splits, the mean change versus the task-supervised ranker is −0.007 (95% CI [−0.026, +0.012]). The result is split-sensitive and does not establish a stable association gain. The task ID is only a same-challenge proxy; human terminal capture and Agent tool-call capture are confounded with the labels, and scripts are absent. See the [current literature and experiment report](09-关联分析文献与混合候选实验.md).
 
+A separate nested-threshold experiment measures pairwise proxy errors. Mode-aware ranking reaches task-macro balanced accuracy 0.669 versus 0.612 for the behavior ranker (+5.7 pp, paired 95% task-cluster CI [+3.4, +8.1]); against command cosine the difference is +0.6 pp (CI [−4.1, +4.8]). For same-task Human–Agent pairs it reduces false splits by 12.6 pp, while false merges on different-task Human–Agent pairs rise by 8.4 pp. This is a CTF same-challenge error profile, not an estimate of real attack-activity linkage. Reproduce it with [`scripts/run_association_error_analysis.py`](scripts/run_association_error_analysis.py); inspect the [pair scores](results/association_error_pair_scores.csv), [task-level results](results/association_error_task_metrics.csv), [machine-readable summary](results/association_error_analysis.json), [Notebook](notebooks/08_association_error_analysis.ipynb), and [figure source](scripts/run_association_error_analysis.py).
+
 The traces come from a pinned [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data) release: PicoCTF-derived InterCode-CTF tasks, CyBench challenges from four competitions, and NYU CTF Bench tasks. The evaluated subset contains 40 benchmark-qualified task groups with both expert and Agent records. The current report documents provenance, filtering, hashes, labels, and the exact retrieval protocol.
 
 For the current task-held-out mode-label diagnostic, the record-level confusion matrix is `[[43, 14], [8, 112]]` (Human/Agent rows); balanced accuracy is 0.844. Since capture path and label coincide, this is trace-label separability, not general operator identification. Older analyses remain in the repository as historical protocols and should not be pooled with the current mixed-gallery results.
@@ -32,6 +34,7 @@ For the current task-held-out mode-label diagnostic, the record-level confusion 
 - [Conditional mode-label permutation diagnostic](results/mode_label_permutation.json) and [model comparison notebook](notebooks/06_local_model_comparison.ipynb)
 - [Paper results section](paper/experiment-results.tex), [appendix](paper/appendix.tex), and [figure-generation source](scripts/generate_paper_figures.py)
 - [Current mixed-gallery notebook](notebooks/07_mixed_gallery.ipynb), [result JSON](results/mixed_gallery.json), and [figure-generation source](scripts/run_mixed_gallery.py)
+- [Nested association-error analysis](scripts/run_association_error_analysis.py), [result JSON](results/association_error_analysis.json), [pair scores](results/association_error_pair_scores.csv), and [reproducible notebook](notebooks/08_association_error_analysis.ipynb)
 - [Executable preliminary-analysis notebook](notebooks/01_preliminary.ipynb)
 - [Executable specificity-controls notebook](notebooks/03_specificity_controls.ipynb)
 - [Executable permutation notebook](notebooks/04_mode_label_permutation.ipynb), [unseen-model notebook](notebooks/05_unseen_agent_model.ipynb)
@@ -76,7 +79,9 @@ Reproduce the cross-benchmark association and the new mode-specificity controls 
 The current mixed-gallery protocol and figures are reproduced with:
 
 ```bash
+.venv/bin/python scripts/download_crossbenchmark_traces.py
 .venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
+.venv/bin/python scripts/run_association_error_analysis.py --bootstraps 5000 --threshold-grid 101
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -93,7 +98,7 @@ The library accepts raw Linux auditd `SYSCALL`/`EXECVE` lines and normalizes the
 
 Human/Agent mode detection requires caller-provided, format-matched labels and remains experimental. Script has no supported detector yet; incompatible inputs abstain or keep the behavior-only ranking. Scores are not actor or APT attribution. The auditd fixture and JSONL rows are hand-written interface examples, not experimental data. See [`examples/auditd/`](examples/auditd/) and [`examples/jsonl/README.md`](examples/jsonl/README.md).
 
-To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/07_mixed_gallery.ipynb` reproduces the current study and figures; earlier notebooks and reports preserve exploratory protocols for comparison.
+To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/07_mixed_gallery.ipynb` reproduces mixed-gallery ranking; `notebooks/08_association_error_analysis.ipynb` reproduces the nested threshold analysis and error-profile figure. Earlier notebooks and reports preserve exploratory protocols for comparison.
 
 The data downloader verifies the public source's file hashes. Raw trajectories and local environments are excluded from Git; the checked-in audit and aggregate metrics contain no raw command content. The dataset revision and known limitations are documented in the report.
 

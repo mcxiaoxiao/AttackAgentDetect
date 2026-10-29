@@ -34,13 +34,20 @@
 \label{fig:calibration}
 \end{figure}
 
+\paragraph{Pairwise error protocol.} The association-error experiment uses the same 177 traces and three benchmark-stratified outer task folds as the mixed-gallery study. Within each outer training partition, a second three-fold task-grouped cross-fit generates out-of-fold association scores for threshold selection. For each method, the threshold maximizes task-macro balanced accuracy over 101 empirical score quantiles and the observed score bounds; ties select the higher threshold. The outer test fold is scored once with the outer-training model and this fixed threshold. Pair features and pair-training labels are unchanged from the mixed-gallery rankers: benchmark/task identity constructs training positives and negatives, while the evaluator alone uses held-out task IDs.
+
+For a query trace $q$, the false-split rate is the fraction of same-task proxy candidates rejected, and the false-merge rate is the fraction of different-task proxy candidates accepted. Candidate rates are averaged within each query, queries within each task, tasks within each benchmark, and benchmarks with equal weight. Task-macro balanced accuracy is $1 - (\mathrm{FNR}+\mathrm{FPR})/2$, where FNR and FPR denote these aggregated false-split and false-merge rates. The H--H, H--A, and A--A rates use the same query/task aggregation restricted to the indicated pair type. Pair rows are directed for query-level scoring; uncertainty resamples task groups, not pair rows.
+
+The 95\% intervals use 5,000 paired task-cluster bootstrap samples within benchmark. Bootstrap draws condition on the fitted outer-fold models and the training-selected thresholds; they do not capture variability from repeating the complete nested fit. Pair-level outputs retain trace IDs, proxy labels, scores, and decisions, but no raw command text. The reproducible implementation and figure code are in \texttt{scripts/run\_association\_error\_analysis.py}; the runnable notebook is \texttt{notebooks/08\_association\_error\_analysis.ipynb}.
+
 \paragraph{Data source and license.} Cyber Task Horizons is pinned to commit \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae} under CC BY 4.0. The manifest records selected source files, hashes, suite and task IDs, collection labels, and latest-attempt deduplication. Raw traces are fetched locally and are not redistributed by this repository. Task identity provides a same-challenge retrieval proxy only.
 
 \paragraph{Reproduction.} From the repository root, install the locked CPU dependencies, download the pinned public traces, then run:
 
 \begin{verbatim}
 .venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
+.venv/bin/python scripts/run_association_error_analysis.py --bootstraps 5000 --threshold-grid 101
 .venv/bin/python -m unittest discover -s tests -v
 \end{verbatim}
 
-The run writes \texttt{results/mixed\_gallery.json}, task/query CSVs, held-out mode predictions, and three PDF/PNG figures. The experiment and drawing implementation is retained in \texttt{scripts/run\_mixed\_gallery.py}; the executable notebook is \texttt{notebooks/07\_mixed\_gallery.ipynb}. The JSON records the data revision, protocol version, split seeds, evaluation definition, bootstrap method, and script hash.
+The mixed-gallery run writes \texttt{results/mixed\_gallery.json}, task/query CSVs, held-out mode predictions, and three PDF/PNG figures. The association-error run writes \texttt{results/association\_error\_analysis.json}, pair-score, task-metric, and threshold CSVs, plus a PDF/PNG error-profile figure. Both result JSON files record the data revision, protocol version, evaluation definition, bootstrap method, and source hash. Figure-generation code remains in the corresponding experiment scripts.

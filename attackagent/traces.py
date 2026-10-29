@@ -108,9 +108,12 @@ def command_heads(text):
 
 
 def samples(data):
+    """Yield one decoded sample at a time to keep large public logs bounded in memory."""
     with zipfile.ZipFile(data) as archive:
         names = [n for n in archive.namelist() if n.startswith("samples/") and n.endswith(".json")]
-        return [(n, json.loads(archive.read(n))) for n in names]
+        for name in names:
+            with archive.open(name) as handle:
+                yield name, json.load(handle)
 
 
 def load_observations():
