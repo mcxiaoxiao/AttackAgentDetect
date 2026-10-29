@@ -615,3 +615,6 @@ a[href^="https://"]:not(.footer-owl):not(.footer-hit):hover { text-decoration-co
 @media (max-width: 480px) {
   .title-break { display: block; }
 }
+
+/* A small install-method tag keeps "pip" visible without parentheses in the primary action. */
+.button.primary .pip-tag { display: inline-grid; min-height: 19px; margin-left: 9px; padding: 0 6px; place-items: center; border: 1px solid oklch(100% 0 0 / .38); border-radius: 3px; background: oklch(100% 0 0 / .14); color: var(--surface); font: 600 10px/1 var(--mono); letter-spacing: .04em; }
