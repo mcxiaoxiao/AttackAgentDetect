@@ -528,9 +528,9 @@ html[lang="zh-CN"] .hero h1 { max-width: 9em; font-size: clamp(48px, 4.4vw + 9.6
 .footer-credits, .footer-legal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 10px 20px; margin: 0; color: var(--muted); font: 400 12px/1.6 var(--font-body); }
 .footer-credits a, .footer-legal a { color: inherit; font: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .footer-credits a:hover, .footer-legal a:hover { color: var(--cobalt); }
-.footer-credits { margin-top: 14px; }
-.footer-legal { margin-top: 16px; }
-@media (max-width: 760px) { .footer-legal { margin-top: 8px; } }
+.footer-credits { margin-top: 32px; }
+.footer-legal { margin-top: 0; }
+@media (max-width: 760px) { .footer-credits { margin-top: 24px; } }
 
 /* Cobalt's handler stage: four text columns, one open column, seven code columns. */
 .quickstart-band { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; min-height: 0; padding-block: 120px; }
