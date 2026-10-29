@@ -35,7 +35,7 @@
 <h1 data-en-html="Human or AI agent? Read the attack logs." id="hero-title">从日志判断攻击者是人还是智能体。</h1>
 <p class="hero-desc" data-en="AttackAgent Detect is open research into agent participation signals and their impact on attack activity correlation.">AttackAgent Detect 是一项开放研究，探索智能体参与识别及其对攻击活动关联的影响。</p>
 <div class="hero-links">
-<a class="button primary" data-en="Quick start" href="#quickstart">快速接入</a>
+<a class="button primary" data-en="Quick start (pip)" href="#quickstart">快速接入（pip）</a>
 <a class="button secondary" data-en="Research details" href="#question">研究细节</a>
 </div>
 <div aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行" class="install-preview" data-en-aria-label="PyPI release planned for 2027. Run the current version from source.">
@@ -47,21 +47,32 @@
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
 <div class="quickstart-band-copy"><h2 data-en="Your logs reveal execution mode." id="quickstart-title">载入日志，判断执行方式。</h2>
-<p class="quickstart-band-lead" data-en="Install the package. Analyze commands and tool calls from a session.">安装工具包，分析会话中的命令与工具调用。</p>
-<div class="api-install"><code id="planned-install">pip install attackagent-detect</code><button data-copy="planned-install" data-en="Copy" type="button">复制</button></div>
-<p class="quickstart-plan"><span data-en="API preview. PyPI planned for 2027.">接口示意，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
-<figure class="api-pane"><div class="api-file"><code>quickstart.py</code><span data-en="Your session trace">会话轨迹分析</span><button data-copy="planned-usage" data-en="Copy" type="button">复制</button></div>
-<pre id="planned-usage"><code><span class="syntax-keyword">from</span> attackagent_detect <span class="syntax-keyword">import</span> <span class="syntax-type">TraceDetector</span>
-
-<span class="syntax-comment"># Analyze commands and tool calls</span>
-detector = <span class="syntax-type">TraceDetector</span>()
-result = detector.analyze(<span class="syntax-string">"session.jsonl"</span>)
-<span class="api-highlight">print(result.mode, result.signals)</span>
-<span class="syntax-comment"># "ai_agent", ["tool_calls", "retry_pattern"]</span></code></pre>
-<figcaption class="api-note" data-en="Planned API example. Current experiments run from source.">规划中的接口示例，当前实验请从源码运行。</figcaption></figure>
+<p class="quickstart-band-lead" data-en="Run from source on pinned public traces. Reproduce a held-out task lookup with human and Agent commands.">从源码运行固定版本公开轨迹，复现一次按任务留出的检索。</p>
+<div class="api-install"><code id="quickstart-run">.venv/bin/python scripts/demo_mode_aware_association.py \
+  --query-task cybench/back_to_the_past</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
+<p class="quickstart-plan"><span data-en="Current source API. PyPI is planned for 2027.">当前源码接口，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
+<figure class="api-pane"><div class="api-file"><code>demo_mode_aware_association.py</code><span data-en="Actual output · back_to_the_past">实际输出 · back_to_the_past</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
+<pre id="quickstart-usage"><code>{
+  <span class="syntax-keyword">"training_task_count"</span>: 39,
+  <span class="syntax-keyword">"heldout_task"</span>: <span class="syntax-string">"cybench/back_to_the_past"</span>,
+  <span class="syntax-keyword">"query_mode_score"</span>: {
+    <span class="syntax-keyword">"trace_id"</span>: <span class="syntax-string">"2db5e951adcbba08"</span>,
+    <span class="syntax-keyword">"agent_like_score"</span>: <span class="syntax-type">0.2502</span>,
+    <span class="api-highlight"><span class="syntax-keyword">"supported_prediction"</span>: <span class="syntax-string">"human-like"</span>,</span>
+    <span class="syntax-keyword">"confidence"</span>: <span class="syntax-type">0.7498</span>,
+    <span class="syntax-keyword">"script_class_supported"</span>: <span class="syntax-keyword">false</span>
+  },
+  <span class="syntax-keyword">"candidate_ranking"</span>: [
+    { <span class="syntax-keyword">"rank"</span>: 1, <span class="syntax-keyword">"task_id"</span>: <span class="syntax-string">"cybench/back_to_the_past"</span>,
+      <span class="syntax-keyword">"mean_match_score"</span>: <span class="syntax-type">0.5824</span> },
+    { <span class="syntax-keyword">"rank"</span>: 2, <span class="syntax-keyword">"task_id"</span>: <span class="syntax-string">"cybench/locktalk"</span>,
+      <span class="syntax-keyword">"mean_match_score"</span>: <span class="syntax-type">0.4161</span> }
+  ]
+}</code></pre>
+<figcaption class="api-note" data-en="Excerpt of actual output from scripts/demo_mode_aware_association.py: train on 39 task groups, query one CyBench human trace, rank same-benchmark tasks. Match scores rank candidates; they are not calibrated probabilities.">scripts/demo_mode_aware_association.py 的实际输出节选：在 39 个任务组上训练，查询一条 CyBench 人类轨迹，并对同基准任务排序。匹配分数用于排序，不是校准概率。</figcaption></figure>
 </section>
 <section aria-labelledby="demo-title" class="section product-demo" id="demo">
-<div class="demo-heading"><h2 data-en="One trace. More than one way to act." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching. Interactive preview with simulated logs.">从执行方式、行为信号到轨迹关联。交互演示使用模拟日志。</p></div>
+<div class="demo-heading"><h2 data-en="One trace. More than one way to act." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching with commands from public traces. The examples use CyBench's back_to_the_past task.">从执行方式、行为信号到轨迹关联。示例使用 CyBench <code>back_to_the_past</code> 公开轨迹中的真实命令。</p></div>
 <div aria-label="产品演示" class="demo-tabs" data-en-aria-label="Product demo" role="tablist">
 <button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><span aria-hidden="true">1</span><b data-en="Detect">执行识别</b></button>
 <button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><span aria-hidden="true">2</span><b data-en="Signals">行为信号</b></button>
@@ -69,43 +80,41 @@ result = detector.analyze(<span class="syntax-string">"session.jsonl"</span>)
 <button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><span aria-hidden="true">4</span><b data-en="Sources">日志来源</b></button>
 </div>
 <div aria-labelledby="demo-tab-detect" class="demo-panel" id="demo-detect" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="The same task can leave different traces. Switch the executor and inspect the evidence.">同样的任务，不同的执行痕迹。切换执行者，查看判断线索。</p>
-<div aria-label="执行方式示例" class="demo-mode-picks" data-en-aria-label="Execution mode examples" role="group"><button aria-pressed="false" data-demo-mode="human" type="button">🥷 Human</button><button aria-pressed="false" data-demo-mode="script" type="button">⚙️ Script</button><button aria-pressed="true" data-demo-mode="agent" type="button">🤖 AI agent</button></div>
-<figure class="demo-inspector"><figcaption><code>session.jsonl</code><span data-en="Simulated input">模拟输入</span><span data-en="Execution signals">执行线索</span></figcaption><div class="demo-inspector-grid">
+<p class="demo-say" data-en="The same CyBench task, two real traces. Switch the executor and compare the submitted commands.">同一个 CyBench 任务，两条真实轨迹。切换执行者，比较实际提交的命令。</p>
+<div aria-label="执行方式示例" class="demo-mode-picks" data-en-aria-label="Execution mode examples" role="group"><button aria-pressed="false" data-demo-mode="human" type="button">🥷 Human</button><button aria-pressed="true" data-demo-mode="agent" type="button">🤖 AI agent</button></div>
+<figure class="demo-inspector"><figcaption><code data-demo-source="">back_to_the_past · agent</code><span data-en="Public trace commands">公开轨迹命令</span><span data-en="Extracted evidence">提取线索</span></figcaption><div class="demo-inspector-grid">
 <pre class="demo-log" data-demo-log=""></pre><div class="demo-verdict">
-<div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Interactive terminal input, pauses between commands, and manual corrections.">交互式终端输入、命令间停顿与手动修正。</p><code>tty=pts/0<br/>interactive=true<br/>correction=manual</code></div>
-<div data-mode-case="script" hidden=""><strong>⚙️ Script</strong><p data-en="Scheduled starts, repeated command sequences, and fixed retry intervals.">定时启动、重复命令序列与固定重试间隔。</p><code>parent=cron<br/>batch=true<br/>retry=fixed_interval</code></div>
-<div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Assistant plans, structured tool calls, and feedback-driven retries.">助手规划、结构化工具调用与基于反馈的重试。</p><code>role=assistant<br/>finish_reason=tool_calls<br/>retry=feedback_driven</code></div>
-</div></div><div class="demo-inspector-note" data-en="Illustrative signals, not a live model verdict. The published benchmark currently covers human and model-agent traces.">信号示意，并非在线模型判定。公开基准当前仅覆盖人类与模型 Agent 轨迹。</div></figure>
+<div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Expert terminal session. The parser reconstructs submitted commands from keystrokes and drops interrupted lines.">专家终端会话。解析器从键盘输入重建提交的命令，并丢弃中断的行。</p><code>source=expert terminal<br/>session=332 · trace=e308264f<br/>input=keystrokes</code></div>
+<div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Claude Opus 4.6 on the same task. Bash tool calls expose structured commands and feedback-driven retries.">同一任务上的 Claude Opus 4.6。bash 工具调用提供结构化命令与基于反馈的重试。</p><code>source=claude-opus-4.6<br/>trace=a18eeb89<br/>tool=bash</code></div>
+</div></div><div class="demo-inspector-note" data-en="Commands are sanitized excerpts from public CyBench traces; prompts, outputs, timestamps, and paths are omitted. The public data contain no matched script traces, so Script is not shown.">命令截取自公开 CyBench 轨迹并做清洗；省略提示词、输出、时间戳和路径。公开数据没有匹配的脚本轨迹，因此不展示 Script。</div></figure>
 </div>
 <div aria-labelledby="demo-tab-signals" class="demo-panel" hidden="" id="demo-signals" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="The cross-benchmark study pins public trace releases, extracts comparable shell-command features, and evaluates on task groups held out from training.">跨基准研究固定公开轨迹版本，提取可比较的 Shell 命令特征，再按任务组留出评估。</p>
+<p class="demo-say" data-en="The cross-benchmark study pins public trace releases, audits every record, extracts comparable command and action features, and evaluates on task groups held out from training.">跨基准研究固定公开轨迹版本，逐条审计记录，提取可比较的命令与动作特征，再按任务组留出评估。</p>
 <div class="demo-timeline"><ol>
-<li data-signal-step="0"><strong data-en="Pin">固定版本</strong><span data-en="InterCode-CTF · CyBench · NYUCTF">InterCode-CTF · CyBench · NYUCTF</span><code>revision=178c0da</code></li>
-<li data-signal-step="1"><strong data-en="Audit">审计轨迹</strong><span data-en="57 human / 120 Agent traces">57 条人类 / 120 条 Agent 轨迹</span><code>matched_task_groups=40</code></li>
-<li data-signal-step="2"><strong data-en="Extract">提取特征</strong><span data-en="Command n-grams and ordered action bigrams">命令 n-gram 与有序动作 bigram</span><code>python_tool_calls=excluded</code></li>
-<li data-signal-step="3"><strong data-en="Evaluate">留出任务评估</strong><span data-en="Five task-group folds · 5,000 bootstrap replicates">五折按任务组留出 · 5,000 次 bootstrap</span><code>BA=.863 / H→A_R@1=.414 / Δmode=+.068</code></li>
-</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Preview of the published analysis pipeline." data-sequence-status="" role="status">公开分析流程示意</span></div><p class="demo-timeline-note" data-en="The timeline animates the workflow; run the source scripts to recompute results.">时间轴用于演示流程；重新计算结果请运行源码脚本。</p></div>
+<li data-signal-step="0"><strong data-en="Pin data">固定版本</strong><span data-en="Cyber Task Horizons public release: InterCode-CTF, CyBench, and NYUCTF CTF traces, all at one pinned revision.">Cyber Task Horizons 公开发布：InterCode-CTF、CyBench、NYUCTF 三套 CTF 轨迹，统一固定到一个版本。</span><code>revision=178c0da · CC BY 4.0</code></li>
+<li data-signal-step="1"><strong data-en="Audit and match">审计与配对</strong><span data-en="177 non-empty traces: 57 human terminal records and 120 Agent bash records. 40 matched task groups: InterCode 27, CyBench 6, NYUCTF 7.">177 条非空轨迹：57 条人类终端记录、120 条 Agent bash 记录。40 个同题任务组：InterCode 27、CyBench 6、NYUCTF 7。</span><code>matched_task_groups=40</code></li>
+<li data-signal-step="2"><strong data-en="Extract features">提取特征</strong><span data-en="Only command names and coarse action sequences are used. The 300 Python tool calls are excluded; prompts, task text, outputs, and model names are never read.">只用命令名与粗粒度动作序列；300 次 Python 工具调用不进入主特征，提示词、任务文字、输出与模型名都不读取。</span><code>cmd uni/bi · action bi</code></li>
+<li data-signal-step="3"><strong data-en="Task-held-out evaluation">留出任务评估</strong><span data-en="Five GroupKFold folds by benchmark/task_id keep every task's records in one fold. Candidates are same-benchmark hard negatives; intervals use 5,000 task-cluster bootstrap samples.">按 benchmark/task_id 做五折 GroupKFold，同一题目的记录不跨折；候选为同基准困难负例，区间用 5,000 次任务簇 bootstrap。</span><code>5 folds · 5,000 bootstrap</code></li>
+<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="BA 86.3%, Human→Agent Recall@1 41.4%, mode-aware Δ +6.8 pp. The delta interval crosses zero; Human→Human falls 9.8 pp. Capture pathway, missing script class, and task IDs limit attribution.">BA 86.3%，Human→Agent Recall@1 41.4%，模式感知增量 +6.8 pp；增量区间跨零，Human→Human 下降 9.8 pp。采集路径、缺少脚本类和题目 ID 限制了归因。</span><code>CI −1.2…+19.1 · no script class</code></li>
+</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Task-held-out evaluation with 5,000 bootstrap replicates." data-sequence-status="" role="status">按任务留出评估 · 5,000 次 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow is transcribed from the repository scripts and result JSON. Recompute the five-fold results with scripts/run_crossbenchmark_experiments.py and scripts/run_mode_aware_association.py; playback shows step order only, not runtime latency.">流程按仓库脚本与结果 JSON 整理；运行 scripts/run_crossbenchmark_experiments.py 与 scripts/run_mode_aware_association.py 可重算五折结果。播放只表示步骤顺序，不代表运行时延。</p></div>
 </div>
 <div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="Compare behavior across execution modes. A similar trace is a lead to inspect, not proof of a shared attacker.">跨执行方式比较行为。轨迹相似提供检查线索，不等于同一攻击者。</p>
+<p class="demo-say" data-en="Compare actual command sequences. A similar trace is a lead to inspect, not proof of a shared attacker.">比较真实命令序列。轨迹相似提供检查线索，不等于同一攻击者。</p>
 <div class="demo-compare">
-<div class="demo-compare-head"><strong data-en="Compare execution rhythms">比较执行节奏</strong><div aria-label="对比场景" class="demo-mode-picks" data-en-aria-label="Comparison scenario" role="group"><button aria-pressed="true" data-compare-case="shared" data-en="Shared task" type="button">同题示意</button><button aria-pressed="false" data-compare-case="different" data-en="Different task" type="button">异题示意</button></div></div>
-<div class="tempo-summary"><p data-en="Three illustrative runs on a shared time axis. Human pauses vary, scripts repeat at a fixed interval, and agent tool calls arrive in short bursts.">同一条时间轴展示三种模拟执行：人工停顿不均、脚本按固定间隔运行，Agent 工具调用呈短时突发。</p><span aria-label="5 倍速模拟" class="tempo-speed" data-en-aria-label="Five-times simulated playback" data-en="5× playback">5× 回放</span></div>
-<div class="tempo-method-note" data-en="Illustrative timing only. The published benchmark has no script traces or cross-mode timing measurements; its primary features are command names and action groups.">时间间隔仅为模拟。公开基准没有脚本轨迹或跨模式时延测量；主实验特征是命令名与动作类别。</div>
-<div aria-label="执行模式时间轴" class="tempo-board" data-en-aria-label="Execution-mode timeline">
-<div class="tempo-axis"><span data-en="Mode / cadence">模式 / 节奏</span><div class="tempo-axis-ticks" aria-hidden="true"><span>0 s</span><span>3 s</span><span>6 s</span><span>9 s</span><span>12 s</span></div></div>
-<section class="tempo-lane" data-mode-lane="human"><div class="tempo-mode"><strong>🥷 Human</strong><span data-en="Manual input · uneven pauses">手动输入 · 停顿不均</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""><i class="tempo-marker" style="--at:0%"></i><i class="tempo-marker" style="--at:20%"></i><i class="tempo-marker" style="--at:48%"></i><i class="tempo-marker" style="--at:90%"></i></span></div><ol aria-label="人类轨迹事件" data-en-aria-label="Human trace events" class="tempo-events" data-compare-events="human"><li data-at="0"><time>00.0s</time><code>tty · pwd</code></li><li data-at="2.4"><time>02.4s</time><code>bash · find config</code></li><li data-at="5.8"><time>05.8s</time><code>grep · config.yml</code></li><li data-at="10.8"><time>10.8s</time><code>cat · result</code></li></ol></section>
-<section class="tempo-lane" data-mode-lane="script"><div class="tempo-mode"><strong>⚙️ Script</strong><span data-en="Scheduled run · fixed interval">定时任务 · 固定间隔</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""><i class="tempo-marker" style="--at:0%"></i><i class="tempo-marker" style="--at:10%"></i><i class="tempo-marker" style="--at:20%"></i><i class="tempo-marker" style="--at:30%"></i></span></div><ol aria-label="脚本轨迹事件" data-en-aria-label="Script trace events" class="tempo-events" data-compare-events="script"><li data-at="0"><time>00.0s</time><code>cron · job start</code></li><li data-at="1.2"><time>01.2s</time><code>bash · pwd</code></li><li data-at="2.4"><time>02.4s</time><code>find · config</code></li><li data-at="3.6"><time>03.6s</time><code>grep · config.yml</code></li></ol></section>
-<section class="tempo-lane" data-mode-lane="agent"><div class="tempo-mode"><strong>🤖 AI agent</strong><span data-en="Tool calls · feedback and retry">工具调用 · 反馈与重试</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""><i class="tempo-marker" style="--at:0%"></i><i class="tempo-marker" style="--at:4%"></i><i class="tempo-marker" style="--at:13%"></i><i class="tempo-marker" style="--at:17%"></i><i class="tempo-marker" style="--at:27%"></i><i class="tempo-marker" style="--at:31%"></i><i class="tempo-marker" style="--at:38%"></i><i class="tempo-marker" style="--at:42%"></i></span></div><ol aria-label="Agent 轨迹事件" data-en-aria-label="Agent trace events" class="tempo-events" data-compare-events="agent"><li data-at="0"><time>00.0s</time><code>tool_call · bash pwd</code></li><li data-at="0.5"><time>00.5s</time><code>tool_result · exit=0</code></li><li data-at="1.6"><time>01.6s</time><code>tool_call · find</code></li><li data-at="2"><time>02.0s</time><code>tool_result · exit=0</code></li><li data-at="3.2"><time>03.2s</time><code>tool_call · grep</code></li><li data-at="3.7"><time>03.7s</time><code>tool_result · exit=1</code></li><li data-at="4.5"><time>04.5s</time><code>agent.retry · attempt=2</code></li><li data-at="5"><time>05.0s</time><code>tool_call · cat</code></li></ol></section>
+<div class="demo-compare-head"><strong data-en="Compare command sequences">比较命令序列</strong><div aria-label="对比场景" class="demo-mode-picks" data-en-aria-label="Comparison scenario" role="group"><button aria-pressed="true" data-compare-case="shared" data-en="Same task" type="button">同题</button><button aria-pressed="false" data-compare-case="different" data-en="Different task" type="button">异题</button></div></div>
+<div class="tempo-summary"><p data-en="Two public CyBench traces aligned by command step. The same-task pair converges on .git discovery and git-dumper; the different-task pair contrasts web recon with binary exploitation.">两条公开 CyBench 轨迹按命令步骤对齐。同题轨迹都走向 .git 发现与 git-dumper；异题轨迹对比 Web 侦察与二进制利用。</p><span aria-label="8 steps" class="tempo-speed" data-en-aria-label="Eight steps" data-en="8 steps">8 步</span></div>
+<div class="tempo-method-note" data-en="Commands are real excerpts. The benchmark uses command names and action groups, not inter-command timing; this replay is not a latency measurement.">命令为真实摘录。基准使用命令名与动作类别，不使用命令间时延；回放不代表时延测量。</div>
+<div aria-label="执行模式命令序列" class="tempo-board" data-en-aria-label="Execution-mode command sequences">
+<div class="tempo-axis"><span data-en="Mode / step">模式 / 步骤</span><div class="tempo-axis-ticks" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span></div></div>
+<section class="tempo-lane" data-mode-lane="human"><div class="tempo-mode"><strong>🥷 Human</strong><span data-lane-detail="">终端 · back_to_the_past</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""></span></div><ol aria-label="人类轨迹命令" data-en-aria-label="Human trace commands" class="tempo-events" data-compare-events="human"></ol></section>
+<section class="tempo-lane" data-mode-lane="agent"><div class="tempo-mode"><strong>🤖 AI agent</strong><span data-lane-detail="">bash · claude-opus-4.6</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""></span></div><ol aria-label="Agent 轨迹命令" data-en-aria-label="Agent trace commands" class="tempo-events" data-compare-events="agent"></ol></section>
 </div>
-<div class="tempo-controls"><div class="tempo-clock"><code data-compare-clock="">t+00.0s / 12.0s</code><span data-en="Virtual elapsed time">模拟时间</span></div><button class="button primary" data-compare-play="" data-en="Play at 5×" type="button">播放 5× 回放</button><p data-compare-result="" role="status"><span data-en="Choose a scenario and play the 12-second timeline at 5×.">选择场景，以 5× 速度回放 12 秒时间轴。</span></p></div>
+<div class="tempo-controls"><div class="tempo-clock"><code data-compare-clock="">step 01 / 08</code><span data-en="Command step">命令步骤</span></div><button class="button primary" data-compare-play="" data-en="Play command sequence" type="button">播放命令序列</button><p data-compare-result="" role="status"><span data-en="Choose a scenario and step through the 8 commands.">选择场景，逐步回放 8 条命令。</span></p></div>
 </div></div>
-</div>
 <div aria-labelledby="demo-tab-sources" class="demo-panel" hidden="" id="demo-sources" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="Different sources, one trace format. Preview how terminal, scheduled, audit, and agent records could be normalized.">不同日志来源，统一轨迹格式。预览终端、调度、审计与 Agent 记录的接入方式。</p>
-<div class="demo-source-table"><table><thead><tr><th data-en="Source">来源</th><th data-en="Observable fields">可观测字段</th><th data-en="Execution context">执行上下文</th><th data-en="Preview">预览</th></tr></thead><tbody><tr><th>Shell history</th><td><code>command, tty, timestamp</code></td><td>🥷 Human</td><td><button data-en="Inspect" data-source-preview="human" type="button">查看</button></td></tr><tr><th>Cron / batch</th><td><code>schedule, pid, exit_code</code></td><td>⚙️ Script</td><td><button data-en="Inspect" data-source-preview="script" type="button">查看</button></td></tr><tr><th>Agent tool calls</th><td><code>role, tool_call_id, result</code></td><td>🤖 AI agent</td><td><button data-en="Inspect" data-source-preview="agent" type="button">查看</button></td></tr><tr><th>Audit events</th><td><code>EXECVE, ppid, uid</code></td><td data-en="Requires context">需结合上下文</td><td><button data-en="Inspect" data-source-preview="audit" type="button">查看</button></td></tr></tbody></table><pre data-source-log=""></pre></div>
-<p class="demo-footnote" data-en="Adapter concept only. Current reproduction reads the pinned InterCode-CTF archives; arbitrary log ingestion is not yet available.">接入方式为产品规划示意。当前复现流程只读取固定版本 InterCode-CTF 归档，尚未开放任意日志接入。</p>
+<p class="demo-say" data-en="Two adapters cover the public experiments: terminal keystrokes and Agent bash calls. Cron and audit logs are not parsed yet.">公开实验使用两种适配器：终端键盘输入与 Agent bash 调用。定时任务与审计日志尚未解析。</p>
+<div class="demo-source-table"><table><thead><tr><th data-en="Source">来源</th><th data-en="Observable fields">可观测字段</th><th data-en="Execution context">执行上下文</th><th data-en="Preview">预览</th></tr></thead><tbody><tr><th>Terminal transcript</th><td><code>command, raw keystrokes</code></td><td>🥷 Human</td><td><button data-en="Inspect" data-source-preview="human" type="button">查看</button></td></tr><tr><th>Cron / batch</th><td><code>schedule, pid, exit_code</code></td><td>⚙️ Script</td><td><button data-en="No public samples" disabled="" type="button">暂无样本</button></td></tr><tr><th>Agent bash calls</th><td><code>cmd, tool_call_id</code></td><td>🤖 AI agent</td><td><button data-en="Inspect" data-source-preview="agent" type="button">查看</button></td></tr><tr><th>Audit events</th><td><code>EXECVE, ppid, uid</code></td><td data-en="Requires context">需结合上下文</td><td><button data-en="Not parsed" disabled="" type="button">尚未解析</button></td></tr></tbody></table><pre data-source-log=""></pre></div>
+<p class="demo-footnote" data-en="Only the two adapters used by the published experiments are reproducible. Arbitrary log ingestion, script traces, and auditd/Sysmon parsing are not available.">仅公开实验使用的两种适配器可复现。任意日志接入、脚本轨迹与 auditd/Sysmon 解析尚未开放。</p>
 </div>
 </section>
 <section class="section question" id="question">
@@ -123,7 +132,7 @@ result = detector.analyze(<span class="syntax-string">"session.jsonl"</span>)
 <section class="section results" id="results">
 <div class="result-intro">
 <h2 data-en-html="Trace retrieval is measurable.&lt;br&gt;&lt;span&gt;Mode effects depend on direction.&lt;/span&gt;">行为轨迹可以检索同题。<br/><span>模式信息的作用取决于方向。</span></h2>
-<p data-en="Across three public CTF suites, Human-to-Agent Recall@1 is 0.414 versus 0.116 random. Predicted mode scores shift it by +0.068 (95% task CI −0.012 to +0.191), while Human-to-Human retrieval declines.">三项公开 CTF 基准中，Human→Agent 的 Recall@1 为 0.414，随机基线为 0.116。加入模式分数后增量为 +0.068（95% 任务区间 −0.012 至 +0.191），Human→Human 检索则下降。</p>
+<p data-en="Across three public CTF suites, Human-to-Agent Recall@1 is 41.4% versus 11.6% random. Predicted mode scores add 6.8 percentage points (95% task CI −1.2 to +19.1 pp), though the interval crosses zero; Human-to-Human retrieval drops 9.8 pp.">三项公开 CTF 基准中，Human→Agent 的 Recall@1 为 41.4%，随机基线为 11.6%。加入模式分数后提升 6.8 个百分点（95% 任务区间 −1.2 至 +19.1 个百分点），但区间跨零；Human→Human 检索下降 9.8 个百分点。</p>
 </div>
 <div class="result-figures">
 <figure class="diagnostic-figure">
@@ -142,21 +151,44 @@ result = detector.analyze(<span class="syntax-string">"session.jsonl"</span>)
 <div class="result-metrics">
 <article class="metric-card blue-card">
 <span data-en="Recorded-trace mode classification">记录轨迹模式分类</span>
-<strong>0.863</strong>
-<small data-en="Balanced accuracy · 95% task CI 0.804–0.915">平衡准确率 · 95% 任务区间 0.804–0.915</small>
+<strong>86.3%</strong>
+<small data-en="Balanced accuracy · 95% task CI 80.4–91.5%">平衡准确率 · 95% 任务区间 80.4%–91.5%</small>
 </article>
 <article class="metric-card orange-card">
 <span data-en="Human → Agent task retrieval">Human → Agent 同题检索</span>
-<strong>0.414</strong>
-<small data-en="Recall@1 · random 0.116 · 95% CI 0.245–0.576">Recall@1 · 随机基线 0.116 · 95% 区间 0.245–0.576</small>
+<strong>41.4%</strong>
+<small data-en="Recall@1 · mode-aware · random 11.6% · 95% CI 23.1–59.7%">Recall@1 · 模式感知 · 随机基线 11.6% · 95% 区间 23.1%–59.7%</small>
 </article>
 <article class="metric-card mint-card">
 <span data-en="Mode-aware Δ Recall@1">模式感知 Δ Recall@1</span>
-<strong>+0.068</strong>
-<small data-en="Paired 95% task CI −0.012 to +0.191">配对 95% 任务区间 −0.012 至 +0.191</small>
+<strong>+6.8 pp</strong>
+<small data-en="Paired 95% task CI −1.2 to +19.1 pp">配对 95% 任务区间 −1.2 至 +19.1 个百分点</small>
 </article>
 </div>
-<p class="caveat"><span>!</span><span class="i18n-text" data-en="Human and Agent traces use different capture paths; task IDs are CTF proxies, and script traces are absent. These results establish trace-level task retrieval, not real-world actor attribution.">人类与 Agent 轨迹来自不同采集路径；题目 ID 只是 CTF 代理标签，且缺少脚本轨迹。结果说明的是轨迹级任务检索，不是现实主体归因。</span></p>
+<div class="metric-explain">
+<article>
+<h3 data-en="How to read 86.3%">如何读出 86.3%</h3>
+<p data-en="The score comes from 177 parseable, non-empty public traces: 57 human terminal records and 120 Agent bash tool-call records, covering 40 matched task groups (27 InterCode-CTF, 6 CyBench, 7 NYUCTF).">这个数字来自 177 条可解析的非空公开轨迹：57 条人类终端记录、120 条 Agent bash 工具调用记录，覆盖 40 个同题任务组（InterCode-CTF 27、CyBench 6、NYUCTF 7）。</p>
+<p data-en="Features use command names and their unigrams/bigrams only; prompts, task text, tool outputs, and model names are not read. Evaluation uses five benchmark/task_id GroupKFold folds: every record from one task stays in one fold, the classifier is fit on the other tasks, and intervals come from 5,000 task-cluster bootstrap samples.">特征只用命令名及其 unigram/bigram，不读提示词、任务文字、工具输出或模型名。评估按 benchmark/task_id 五折分组：同一题目的所有记录只落在一折，分类器在其余任务上拟合，再做 5,000 次任务簇 bootstrap。</p>
+<p data-en="Balanced accuracy is 86.3% (95% task-cluster CI 80.4–91.5%), with 84.2% human recall, 88.3% Agent recall, and 94.5% ROC-AUC. A command-count/action-mix control reaches only 65.0% balanced accuracy; a benchmark-name-only control has 50.1% AUC, so the score is not driven by suite identity alone.">平衡准确率 86.3%，95% 区间 80.4–91.5%；人类召回 84.2%，Agent 召回 88.3%，ROC-AUC 94.5%。命令数量与动作比例的对照只有 65.0%，仅用基准名的对照 AUC 为 50.1%，说明分数不是只由基准来源驱动。</p>
+<p data-en="But human traces are terminal recordings and Agent traces are tool-call logs; the capture pathway is bound to the label. The score measures separability of the two record types, not a real-world attacker or decision-maker identification rate, and it is not a deployable identity threshold.">但人类是终端录制、Agent 是工具调用日志，采集路径与标签完全绑定。因此它衡量两类记录的可分性，不是现实攻击者或决策主体的识别率，也不是可部署的身份判定阈值。</p>
+</article>
+<article>
+<h3 data-en="How to read 41.4%">如何读出 41.4%</h3>
+<p data-en="Candidates come only from the same benchmark: the positive is the exact benchmark/task_id, and negatives are other tasks in that benchmark. Random Recall@1 is therefore the inverse number of candidate tasks, with a three-benchmark macro average of 11.6%.">候选只来自同一基准：正例是同一 benchmark/task_id，负例是同基准其他题目，所以随机基线是候选题目数的倒数，三基准宏平均为 11.6%。</p>
+<p data-en="The predicted-mode prototype reaches 41.4% Recall@1 (95% task-cluster CI 23.1–59.7%). The similarity-only ranker reaches 34.6% (17.5–52.1%), and the ordered-action-bigram baseline also reaches 41.4% (24.5–57.6%).">模式感知原型的 Recall@1 为 41.4%，95% 任务簇区间 23.1–59.7%；仅用相似度的排序器为 34.6%（17.5–52.1%），有序动作 bigram 也是 41.4%（24.5–57.6%）。</p>
+<p data-en="By benchmark, CyBench reaches 50.0%, InterCode-CTF 24.1%, and NYUCTF 50.0%, against random baselines of 16.7%, 3.7%, and 14.3%. The macro average weights the three benchmarks equally so that InterCode's 27 tasks do not dominate.">分基准看，CyBench 50.0%、InterCode-CTF 24.1%、NYUCTF 50.0%，对应随机基线 16.7%、3.7%、14.3%。三个基准等权宏平均，避免 InterCode 的 27 个题目压过另外两个基准。</p>
+<p data-en="Intervals over 40 task groups are wide, and a task ID is only a same-task proxy, not ground truth for a shared attacker or campaign. 41.4% shows that same-task retrieval beats random; it is not a same-activity probability.">40 个题目组的区间很宽；题目 ID 只是同题代理标签，不是同一攻击者或同一 campaign 的真值。41.4% 说明同题检索高于随机，不能当作活动同源概率。</p>
+</article>
+<article>
+<h3 data-en="How to read +6.8 pp">如何读出 +6.8 pp</h3>
+<p data-en="This is a paired difference on the same query–candidate pairs: the mode-aware ranker minus a similarity-only ranker built from command cosine and ordered-action-bigram cosine. Mode probabilities are predicted out of fold inside each outer training set; no true mode label is used at inference.">这是同一批查询—候选对上的配对差：模式感知排序器减去只用命令余弦和动作 bigram 余弦的相似度排序器。模式概率在外层训练折内再做按题目折外预测，推理时不使用真实模式标签。</p>
+<p data-en="For Human→Agent, Recall@1 rises by 6.8 percentage points in point estimate, but the 95% task interval is −1.2 to +19.1 and crosses zero. MRR changes by +0.039 (−0.006 to +0.100) and query AUC by +0.015 (−0.005 to +0.040); neither establishes a stable gain.">Human→Agent 的 Recall@1 点估计提高 6.8 个百分点，但 95% 任务区间 −1.2 至 +19.1 跨零；MRR 增量 +0.039（−0.006 至 +0.100），查询 AUC +0.015（−0.005 至 +0.040），都没有形成稳定增益。</p>
+<p data-en="The direction is inconsistent: Agent→Agent +1.2 (−1.6 to +5.1), Agent→Human +2.4 (−1.2 to +6.8), and Human→Human −9.8 (−18.9 to −0.7, 17 tasks). An oracle-mode diagnostic also fails to improve Human→Agent (34.6%) and is not deployable.">方向也不一致：Agent→Agent +1.2（−1.6 至 +5.1），Agent→Human +2.4（−1.2 至 +6.8），Human→Human −9.8（−18.9 至 −0.7，17 个题目）。真实模式标签的诊断对照没有改善 Human→Agent（34.6%），且该对照不可部署。</p>
+<p data-en="The evidence therefore supports further controlled testing of mode conditioning, not a claim that identifying an Agent restores activity correlation. It also cannot rule out harm to same-mode retrieval; shared telemetry, script controls, and independent activity labels are still required.">因此当前证据支持“模式条件化值得继续检验”，不足以声称识别 Agent 后就能恢复活动关联，也不能排除同模式检索受损。需要统一遥测、脚本对照和独立活动真值的受控实验。</p>
+</article>
+</div>
+<p class="caveat"><span>!</span><span class="i18n-text" data-en="Human and Agent traces use different capture paths; task IDs are CTF proxies, and script traces are absent. These results establish trace-level task retrieval and record separability, not real-world actor attribution.">人类与 Agent 轨迹来自不同采集路径；题目 ID 只是 CTF 代理标签，且缺少脚本轨迹。以上结果说明的是轨迹级任务检索与记录可分性，不是现实主体归因。</span></p>
 <div class="result-links">
 <a data-en="Prototype and results" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/06-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E8%B7%A8%E5%9F%BA%E5%87%86%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md">原型与结果</a>
 <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/notebooks/02_mode_aware_association.ipynb">Notebook</a>
@@ -219,7 +251,7 @@ python3 -m venv .venv
   "human_to_agent": { "recall_at_1": <b>0.414</b>, "random": 0.116 },
   "mode_aware_delta": { "recall_at_1": 0.068, "ci95": [-0.012, 0.191] }
 }</code></pre>
-<small data-en="Aggregate outputs from the reproducible scripts. Shared CTF tasks are retrieval labels, not shared-actor ground truth.">脚本输出的聚合结果。同一 CTF 题目是检索标签，不代表同一攻击者或活动。</small>
+<small data-en="Aggregate outputs from the reproducible scripts. JSON keeps the source ratios as decimals; the page reports them as percentages. Shared CTF tasks are retrieval labels, not shared-actor ground truth.">脚本输出的聚合结果；JSON 保留原始小数比例，正文按百分比展示。同一 CTF 题目是检索标签，不代表同一攻击者或活动。</small>
 </div>
 </div></details>
 </section>
@@ -331,8 +363,10 @@ python3 -m venv .venv
 <div aria-label="AttackAgent Detect" class="footer-signature">
 <strong class="signature-art">AttackAgent<br/>Detect</strong>
 </div>
+<div class="footer-meta">
 <div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed from">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/gh-pages" title="GitHub Pages source branch"><code>gh-pages</code></a></span></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed from">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commit/70b41227b89a45f66b7584c72e8de184645ac8c1" title="70b41227b89a45f66b7584c72e8de184645ac8c1"><code>70b4122</code></a></span></div>
+</div>
 </footer>
 </main>
 </div>
