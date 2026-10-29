@@ -221,6 +221,18 @@ scripts/demo_mode_aware_association.py \
 <article><strong>40</strong><span data-en="Matched task groups">匹配任务组</span><small data-en="6 CyBench · 27 InterCode · 7 NYUCTF">CyBench 6 · InterCode 27 · NYUCTF 7</small></article>
 <article><strong>3</strong><span data-en="Benchmark suites">三套基准</span><small data-en="Sonnet 4.6 · Opus 4.6 · GPT-5.5 agents">Agent 使用 Sonnet 4.6 · Opus 4.6 · GPT-5.5</small></article>
 </div>
+<details class="related-details dataset-sources">
+<summary><b data-en="Where the tasks and traces come from">题目与轨迹来源</b><span data-en="Three public CTF suites · pinned data release">三套公开 CTF 基准 · 固定数据版本</span></summary>
+<div class="dataset-source-body">
+<p data-en="Cyber Task Horizons publishes model-evaluation traces across seven offensive-cyber benchmarks and expert recordings from a study of 10 professionals working on 291 tasks. Its human and model runs use the same task containers, but the released records come through different interfaces.">Cyber Task Horizons 发布了七套攻击性网络安全基准的模型评测轨迹，也包含 10 位专业人员完成 291 个任务的人类研究记录。人类与模型在相同任务容器中操作，但发布的记录来自不同接口。</p>
+<ul class="dataset-source-list">
+<li><a href="https://papers.nips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf">InterCode-CTF</a><span data-en="100 interactive objectives adapted from PicoCTF; our subset has 27 matched tasks, 40 human traces, and 81 Agent traces.">以 PicoCTF 为来源的 100 个交互式任务；本实验保留 27 个同题组、40 条人类轨迹和 81 条 Agent 轨迹。</span></li>
+<li><a href="https://arxiv.org/abs/2408.08926">CyBench</a><span data-en="40 professional-level challenges from four competitions; our subset has 6 matched tasks, 8 human traces, and 18 Agent traces.">来自四项竞赛的 40 个专业级挑战；本实验保留 6 个同题组、8 条人类轨迹和 18 条 Agent 轨迹。</span></li>
+<li><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/69d97a6493fbf016fff0a751f253ad18-Abstract-Datasets_and_Benchmarks_Track.html">NYU CTF Bench</a><span data-en="A collection of challenges from established competitions; our subset has 7 matched tasks, 9 human traces, and 21 Agent traces.">汇集多项知名竞赛的挑战题；本实验保留 7 个同题组、9 条人类轨迹和 21 条 Agent 轨迹。</span></li>
+</ul>
+<p data-en="Human traces are terminal input records; Agent traces are structured bash tool calls. We extract command names and coarse action categories. The shared task ID is a same-challenge retrieval label, not an intrusion or actor identity. Exact source-file hashes and task IDs are in the repository manifests and results.">人类轨迹来自终端输入记录，Agent 轨迹来自结构化 bash 工具调用；我们提取命令名及粗粒度动作类别。同一题目 ID 是同题检索标签，不是同一入侵或攻击者身份。来源文件哈希与任务 ID 见仓库数据清单和结果文件。</p>
+</div>
+</details>
 <div aria-label="实验流程" class="workflow" data-en-aria-label="Experiment workflow">
 <article><span>01</span><b data-en="Trace sources">日志来源</b><small data-en="Three public suites · human and Agent records">三个公开基准 · 人类与 Agent 记录</small></article>
 <article><span>02</span><b data-en="Behavioral features">行为特征</b><small data-en="Command n-grams · ordered action bigrams">命令 n-gram · 有序动作 bigram</small></article>
@@ -379,7 +391,7 @@ python3 -m venv .venv
 </div>
 <div class="footer-meta">
 <div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed version">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commit/330aba8f38e032d7ee0e45407e1174a6f6978202" title="330aba8f38e032d7ee0e45407e1174a6f6978202"><code>330aba8</code></a></span></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed version">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Deployed site revision"><code>main</code></a></span></div>
 </div>
 </footer>
 </main>
