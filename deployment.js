@@ -9,8 +9,8 @@
     const short = sha.slice(0, 7);
     const deployedAt = metadata.deployedAt ? String(metadata.deployedAt).slice(0, 10) : '';
     link.href = `${repository}/commit/${sha}`;
-    link.title = deployedAt ? `${sha} · deployed ${deployedAt}` : sha;
-    link.setAttribute('aria-label', `Deployed site revision ${sha}${deployedAt ? ` on ${deployedAt}` : ''}`);
+    link.title = deployedAt ? `${sha} · source ${deployedAt}` : sha;
+    link.setAttribute('aria-label', `Source revision ${sha}${deployedAt ? ` updated on ${deployedAt}` : ''}`);
     const code = document.createElement('code');
     code.textContent = short;
     link.replaceChildren(code);
