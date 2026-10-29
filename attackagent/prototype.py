@@ -272,15 +272,20 @@ class ModeAwareAssociationPrototype:
         result = []
         for row, prob, feature_count in zip(records, probabilities, feature_counts):
             reason = None
-            if not row.commands:
+            if row.mode == "script":
+                reason = "unsupported_mode_class"
+            elif not row.commands:
                 reason = "empty_commands"
             elif not feature_count:
                 reason = "out_of_vocabulary"
             result.append({
                 "trace_id": row.trace_id,
                 "agent_like_score": float(prob) if reason is None else None,
+                "score_calibrated": False,
+                "score_semantics": "uncalibrated logistic-regression score",
                 "supported_prediction": ("agent-like" if prob >= 0.5 else "human-like") if reason is None else "unknown",
                 "confidence": float(max(prob, 1 - prob)) if reason is None else None,
+                "confidence_calibrated": False,
                 "abstention_reason": reason,
                 "command_count": len(row.commands),
                 "recognized_feature_count": int(feature_count),

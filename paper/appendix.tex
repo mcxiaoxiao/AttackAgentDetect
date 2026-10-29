@@ -168,7 +168,7 @@ NYUCTF & 7 & 0.143 & 0.429 & 0.286 & 0.714 & 0.286 \\
 
 \begin{table}[tb]
 \centering
-\caption{Task-held-out classification of recorded trace labels. Confusion matrices use rows as true classes (human, Agent) and columns as predicted classes (human, Agent).}
+\caption{Pooled-record-weighted, task-held-out classification of recorded trace labels. Confusion matrices use rows as true classes (human, Agent) and columns as predicted classes (human, Agent). These pooled-record estimates differ from the task-macro estimates in Table~\ref{tab:local-model-comparison}.}
 \label{tab:classifier-controls}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -200,6 +200,41 @@ The pooled out-of-fold confusion matrices are \(\begin{bmatrix}48&9\\14&106\end{
   \caption{Confusion matrices for task-held-out classification of the recorded trace labels. Each tile's color and percentage show the within-class prediction rate; the parenthetical value gives the raw count. Human terminal capture and Agent tool-call capture are confounded with the target label.}
   \label{fig:mode-confusions}
 \end{figure}
+
+\section{Transfer to a withheld Agent model source}
+\label{app:unseen-model}
+
+We ran a model-source holdout stress test with the same five task-grouped folds. For each of the three Agent sources in turn, every trace from that source was excluded from training; evaluation used the target source's Agent record and all available human records on each held-out task. Model names were used only to define the holdout and were not input features. The all-source reference used the same held-out tasks and evaluation records but retained all Agent sources in training. Each model-specific estimate covers 40 benchmark--task groups; the macro estimate gives the three benchmarks equal weight. Intervals resample task groups within benchmark and retain the three model-specific results for a sampled task as one cluster.
+
+\begin{table}[tb]
+\centering
+\caption{Command-derived Human/Agent trace classification with each Agent source either available or withheld during training. Values are benchmark-macro estimates; intervals use 5,000 task-cluster bootstrap samples.}
+\label{tab:unseen-model-overall}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\rowcolors{2}{TableStripe}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xccc}
+\toprule
+\rowcolor{TableInk}
+\textcolor{white}{Features} & \textcolor{white}{All-source BAcc} & \textcolor{white}{Withheld-source BAcc (95\% CI)} & \textcolor{white}{$\Delta$ BAcc (95\% CI)} \\
+\midrule
+Command-name TF--IDF (1--2 grams) & 0.844 & 0.862 [0.805, 0.912] & +0.018 [--0.034, +0.072] \\
+Action-category TF--IDF (1--2 grams) & 0.777 & 0.734 [0.666, 0.803] & --0.042 [--0.099, +0.017] \\
+Command count + action mix & 0.622 & 0.617 [0.558, 0.683] & --0.005 [--0.054, +0.046] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For the command-name model, withheld-source balanced accuracy was 0.820 [0.728, 0.907] for Claude Opus 4.6, 0.918 [0.841, 0.978] for Claude Sonnet 4.6, and 0.847 [0.757, 0.933] for GPT-5.5. Paired changes against the all-source reference were respectively +0.026 [--0.053, +0.101], +0.052 [0.000, +0.127], and --0.025 [--0.107, +0.051]. The macro difference was +0.018 [--0.034, +0.072]. Withholding a model source did not materially change the aggregate estimate in this corpus; the model-specific direction varied. This is evidence of transfer across these three recorded Agent sources, not across independent Agent frameworks or collection systems.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{figureA6_unseen_model_generalization.pdf}
+  \caption{Task- and Agent-source-held-out classification. Panel A reports command n-gram balanced accuracy by withheld Agent source and benchmark; each cell includes the number of task groups. Panel B shows paired change against training with all Agent sources. Points and intervals use a task-cluster bootstrap; zero marks no change.}
+  \label{fig:unseen-model-generalization}
+\end{figure}
+
+The label-provenance audit found zero mismatches in 177 records: all 57 human labels originate from terminal-input capture files, and all 120 Agent labels originate from structured model tool-call files. This collection pathway is not supplied as a classifier feature, but it is perfectly aligned with the target label in the release. Therefore the model-source holdout does not separate execution behavior from the terminal-versus-tool-call instrumentation difference. The result supports a reproducible trace-label transfer baseline and a concrete need for common-sensor collection; it does not validate a general-purpose Agent detector.
 
 \begin{table}[tb]
 \centering
@@ -235,6 +270,47 @@ The positive retrieval target is a shared CTF task ID. It is not an independentl
 
 The next decisive experiment should replay matched defensive sandbox tasks under four conditions: human operation, fixed scripts, human-supervised Agent execution, and goal-directed Agent execution. All conditions should use the same host and network telemetry, task snapshots, and logging stack. Independent run IDs should define within-activity positive fragments; distinct runs with similar tools and objectives should provide hard negatives. Activity-grouped splits should hold out operators, task templates, and runs. This design would estimate whether execution-mode features alter association errors when behavior logs are collected under equivalent conditions.
 
+\section{Local model comparison}
+\label{app:local-model-comparison}
+
+The additional CPU comparison uses the same 177 records and five task-grouped folds, but reports a different aggregation from the pooled-record classifier in Table~\ref{tab:classifier-controls}: each task receives equal weight within its benchmark, then the three benchmarks receive equal weight. The 5,000 task-cluster bootstrap resamples fixed out-of-fold predictions within benchmark; it does not refit models. The feature sets are command-name TF--IDF 1--2 grams, coarse-action TF--IDF 1--2 grams, log command count plus action proportions, and the latter features with ExtraTrees. No prompt, task text, time, path, model ID, capture filename, or outcome text is used.
+
+\begin{table}[tb]
+\centering
+\caption{Task-macro local model comparison for recorded trace labels. Brackets show 95\% task-cluster intervals. Brier and ECE use uncalibrated raw scores; lower is better.}
+\label{tab:local-model-comparison}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\rowcolors{2}{TableStripe}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xccccc}
+\toprule
+\rowcolor{TableInk}
+\textcolor{white}{Model} & \textcolor{white}{BAcc} & \textcolor{white}{Macro-F1} & \textcolor{white}{ROC-AUC} & \textcolor{white}{Brier} & \textcolor{white}{ECE-10} \\
+\midrule
+Command TF--IDF + logistic regression & 0.844 [0.766, 0.915] & 0.804 [0.709, 0.892] & 0.957 [0.914, 0.992] & 0.125 [0.107, 0.144] & 0.161 [0.132, 0.218] \\
+Action TF--IDF + logistic regression & 0.777 [0.692, 0.855] & 0.729 [0.638, 0.820] & 0.835 [0.757, 0.911] & 0.166 [0.149, 0.183] & 0.150 [0.108, 0.231] \\
+Count/action + logistic regression & 0.622 [0.569, 0.683] & 0.537 [0.477, 0.609] & 0.819 [0.734, 0.900] & 0.203 [0.181, 0.225] & 0.138 [0.103, 0.202] \\
+Count/action + ExtraTrees & 0.723 [0.654, 0.797] & 0.668 [0.593, 0.751] & 0.819 [0.738, 0.895] & 0.169 [0.145, 0.194] & 0.073 [0.070, 0.163] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+OpenAI Decisions and Jev Choice were not called because no API credential or verifiable free allowance was available; no external or paid API result is reported. Both document categorical predictions with per-option probabilities and a separate confidence value. Future API comparisons should use identical inputs, task-level test folds, label options, and request budgets; probabilities and confidence must be evaluated separately. A local pretrained semantic encoder was also not run because no model weights or inference runtime were cached.
+
+\section{Conditional mode-label permutation diagnostic}
+\label{app:permutation}
+
+The post-hoc diagnostic used 999 permutations. For each outer fold, only training labels were shuffled within each benchmark--task group; task-group folds, per-task training label counts, held-out labels, pair ground truth, candidate sets, and sampled association pairs remained fixed. The nested task-OOF mode head and association ranker were refit for every permutation. Fixed evaluation reproduced the observed result with zero metric difference before permutations were run. This setup asks whether the observed increment is unusual relative to label assignments preserving task-level class composition within the present release. It does not randomize instrumentation, operator behavior, or model involvement and does not create exchangeability by design.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{figureA5_mode_label_permutation.pdf}
+  \caption{Conditional label-permutation distributions for mode-aware minus similarity-only Recall@1. Historical-gallery observation: +6.8 points; 5/999 shuffled results are at least as large. Held-out-only observation: −0.6 points; 323/999 are at least as large. The shaded range is the central 95\% of the conditional reference distribution. Because the diagnostic is post hoc and within-task exchangeability is not established, tail fractions are descriptive and are not causal $p$-values.}
+  \label{fig:mode-label-permutation}
+\end{figure}
+
+The tail fractions are conditional descriptive diagnostics, not conventional significance tests. Perfect label--capture-path confounding and the lack of independent activity labels remain unresolved. Complete permutations, seeds, fold assignments, task-level metrics, and implementation digest are stored in \texttt{results/mode\_label\_permutation.json} and \texttt{results/mode\_label\_permutation\_task\_metrics.csv}.
+
 \section{Reproduction}
 \label{app:reproduction}
 
@@ -245,7 +321,10 @@ From the repository root, install the pinned requirements and run:
 .venv/bin/python scripts/run_crossbenchmark_experiments.py
 .venv/bin/python scripts/run_mode_aware_association.py
 .venv/bin/python scripts/run_specificity_controls.py
+.venv/bin/python scripts/compare_trace_mode_models.py
+.venv/bin/python scripts/run_mode_label_permutation.py --permutations 999 --seed 20262701
 .venv/bin/python scripts/generate_paper_figures.py
+.venv/bin/python scripts/plot_local_model_comparison.py
 .venv/bin/python -m unittest discover -s tests -v
 \end{verbatim}
 

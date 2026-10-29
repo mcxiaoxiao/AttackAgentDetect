@@ -1,0 +1,1 @@
+{"schema_version": 1, "trace_id": "query-demo", "benchmark": "demo-benchmark", "mode": "unknown", "commands": ["pwd", "ls", "grep"], "actions": ["inspect", "enumerate", "inspect"]}

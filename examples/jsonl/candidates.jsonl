@@ -1,0 +1,3 @@
+{"schema_version": 1, "trace_id": "candidate-demo-1", "benchmark": "demo-benchmark", "mode": "unknown", "commands": ["pwd", "find", "strings"], "actions": ["inspect", "enumerate", "inspect"]}
+{"schema_version": 1, "trace_id": "candidate-demo-2", "benchmark": "demo-benchmark", "mode": "unknown", "commands": ["id", "ps", "grep", "cat"], "actions": ["inspect", "enumerate", "inspect", "read"]}
+{"schema_version": 1, "trace_id": "candidate-demo-3", "benchmark": "demo-benchmark", "mode": "unknown", "commands": ["uname", "find", "file"], "actions": ["inspect", "enumerate", "inspect"]}

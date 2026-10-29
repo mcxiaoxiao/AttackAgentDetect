@@ -180,6 +180,10 @@ code { padding: 2px 5px; background: var(--existing-10); color: var(--existing-1
 .copy-button { min-height: 25px; padding: 3px 10px; border: 1px solid var(--existing-26); border-radius: 3px; background: var(--existing-27); color: var(--existing-28); font: 600 9px var(--font-body); cursor: pointer; transition: background .16s ease, border-color .16s ease; }
 .copy-button:hover { border-color: var(--sky); background: var(--existing-29); }
 .copy-button:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
+.copy-source { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: pre-wrap; }
+.copy-toast:not([hidden]) { position: fixed; z-index: 1000; right: 24px; bottom: 24px; max-width: min(420px, calc(100vw - 48px)); padding: 13px 17px; border: 1px solid var(--cobalt); border-radius: 4px; background: var(--ink); color: #fff; box-shadow: 0 8px 24px #14223324; font: 500 13px/1.45 var(--font-body); animation: toast-in .18s ease-out both; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .copy-toast:not([hidden]) { animation: none; } }
 .quickstart-output { grid-column: 2; }
 .quickstart-output .terminal-head span:last-child { color: var(--existing-30); }
 .quickstart-output em { color: var(--sky); font-style: normal; }
@@ -394,6 +398,8 @@ h2, .related h2 { font-size: clamp(32px, 3.3vw, 44px); font-weight: 600; line-he
 .related-details .related-table-wrap { margin-top: 0; }
 .dataset-source-body { padding: 0 0 20px; }
 .dataset-source-body > p { max-width: 82ch; margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.jsonl-preview { margin: 0 0 10px; padding: 12px 14px; overflow-x: auto; border: 1px solid var(--line); background: var(--existing-21); color: var(--existing-22); font: 11px/1.7 var(--mono); }
+.jsonl-preview code { padding: 0; background: var(--transparent); color: inherit; font: inherit; }
 .dataset-source-list { display: grid; gap: 10px; margin: 0 0 16px; padding: 0; list-style: none; }
 .dataset-source-list li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .dataset-source-list a { color: var(--ink); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }

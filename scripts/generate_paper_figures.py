@@ -28,17 +28,18 @@ LINE = "#D8E1EA"
 PAPER = "#F7F9FC"
 BLUE = "#2585D8"
 BLUE_LIGHT = "#99CDFC"
-GREEN = "#4E9D78"
-ORANGE = "#D89442"
+GREEN = "#74A8D7"
+ORANGE = "#1769A8"
 GRAY = "#8A96A3"
-PURPLE = "#8063A9"
+PURPLE = "#6B8FB5"
 
 
 def load_results():
     cross = json.loads((RESULTS / "crossbenchmark_exploration.json").read_text())
     mode = json.loads((RESULTS / "mode_aware_association.json").read_text())
     controls = json.loads((RESULTS / "specificity_controls.json").read_text())
-    return cross, mode, controls
+    permutation = json.loads((RESULTS / "mode_label_permutation.json").read_text())
+    return cross, mode, controls, permutation
 
 
 def setup_style():
@@ -421,9 +422,78 @@ def draw_figure_a4_confusions(cross):
     export(fig, "figureA4_mode_confusions")
 
 
+def draw_figure_a5_label_permutation(permutation):
+    """Plot the train-label null distributions against observed paired gains."""
+    if permutation["fixed_evaluation_reproduction"]["status"] != "passed":
+        raise AssertionError("Permutation figure requires a verified fixed evaluation")
+    if permutation["protocol"]["permutations"] < 199:
+        raise AssertionError("Permutation figure requires at least 199 completed runs")
+
+    protocols = [
+        ("full_gallery", "A", "Historical gallery · primary"),
+        ("heldout_gallery", "B", "Held-out-only gallery · secondary"),
+    ]
+    all_values = [
+        replicate[protocol]["delta_recall_at_1"]
+        for replicate in permutation["replicates"]
+        for protocol, _, _ in protocols
+    ]
+    observed_values = [
+        permutation["permutation_summary"][protocol]["observed_mode_minus_similarity_delta"]
+        for protocol, _, _ in protocols
+    ]
+    low = min(all_values + observed_values)
+    high = max(all_values + observed_values)
+    padding = max(.012, (high - low) * .08)
+    bin_edges = np.arange(
+        np.floor((low - padding) / .005) * .005,
+        np.ceil((high + padding) / .005) * .005 + .005,
+        .005,
+    )
+
+    fig, axes = plt.subplots(1, 2, figsize=(7.18, 2.85), sharey=True)
+    for ax, (protocol, panel, title) in zip(axes, protocols):
+        values = np.asarray([
+            row[protocol]["delta_recall_at_1"] for row in permutation["replicates"]
+        ])
+        observed = permutation["permutation_summary"][protocol][
+            "observed_mode_minus_similarity_delta"
+        ]
+        interval = permutation["permutation_summary"][protocol][
+            "permuted_delta_95_reference_interval"
+        ]
+        ax.hist(values, bins=bin_edges, weights=np.ones(len(values)) / len(values),
+                color=BLUE, edgecolor="white", linewidth=.4, zorder=2)
+        ax.axvspan(interval[0], interval[1], color=BLUE_LIGHT, alpha=.18, zorder=1)
+        ax.axvline(0, color=INK, linestyle=(0, (3, 2)), linewidth=.9, zorder=3)
+        ax.axvline(observed, color=BLUE, linewidth=1.6, zorder=4)
+        add_panel_label(ax, panel, title)
+        ax.text(.03, .93, f"Observed {observed * 100:+.1f} pp",
+                transform=ax.transAxes, ha="left", va="top", color=BLUE,
+                fontsize=7.3, fontweight="semibold")
+        ax.set_xlabel("Paired Δ Recall@1 (pp)")
+        ax.set_xlim(bin_edges[0], bin_edges[-1])
+        ax.set_xticks(np.arange(np.ceil(bin_edges[0] * 100 / 5) * 5,
+                                np.floor(bin_edges[-1] * 100 / 5) * 5 + 1, 5) / 100)
+        ax.set_xticklabels([f"{tick * 100:.0f}" for tick in ax.get_xticks()])
+        ax.grid(axis="y", color=LINE, linewidth=.45)
+        ax.tick_params(axis="both", length=0, pad=3)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    axes[0].set_ylabel("Fraction of permutations")
+    fig.text(.10, .075,
+             f"{permutation['protocol']['permutations']} training-label shuffles within task. Blue band: central 95% reference interval; solid: observed; dashed: zero.",
+             fontsize=6.2, color=MUTED, va="bottom")
+    fig.text(.10, .035,
+             "Post-hoc diagnostic; within-task exchangeability is unverified, so tail fractions are not causal p-values.",
+             fontsize=6.2, color=MUTED, va="bottom")
+    fig.subplots_adjust(left=.10, right=.99, top=.82, bottom=.32, wspace=.20)
+    export(fig, "figureA5_mode_label_permutation")
+
+
 def main():
     setup_style()
-    cross, mode, controls = load_results()
+    cross, mode, controls, permutation = load_results()
     assert cross["audit"]["rows"] == 177
     assert cross["audit"]["matched_task_groups"] == 40
     draw_figure1(cross, mode)
@@ -433,7 +503,8 @@ def main():
     draw_figure_a3(cross)
     draw_figure3_specificity(controls)
     draw_figure_a4_confusions(cross)
-    print("Rendered 7 figures (PDF vector masters + 300-dpi PNG) from aggregate JSON.")
+    draw_figure_a5_label_permutation(permutation)
+    print("Rendered 8 figures (PDF vector masters + 300-dpi PNG) from aggregate JSON.")
 
 
 if __name__ == "__main__":

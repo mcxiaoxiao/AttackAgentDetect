@@ -47,15 +47,18 @@ class PrototypeSmokeTest(unittest.TestCase):
         records = [
             TraceRecord("empty", "new", "new", "unknown", (), ()),
             TraceRecord("unseen", "new", "new", "unknown", ("unseencommandxyz",), ("read",)),
+            TraceRecord("script", "new", "new", "script", ("ls",), ("discover",)),
         ]
         predictions = self.model.predict_mode(iter(records))
-        self.assertEqual([r["abstention_reason"] for r in predictions], ["empty_commands", "out_of_vocabulary"])
-        self.assertEqual([r["command_count"] for r in predictions], [0, 1])
+        self.assertEqual([r["abstention_reason"] for r in predictions], [
+            "empty_commands", "out_of_vocabulary", "unsupported_mode_class",
+        ])
+        self.assertEqual([r["command_count"] for r in predictions], [0, 1, 1])
         for prediction in predictions:
             self.assertEqual(prediction["supported_prediction"], "unknown")
             self.assertIsNone(prediction["agent_like_score"])
             self.assertIsNone(prediction["confidence"])
-            self.assertEqual(prediction["recognized_feature_count"], 0)
+        self.assertEqual([r["recognized_feature_count"] for r in predictions], [0, 0, 1])
         self.assertEqual(self.model.predict_mode([]), [])
 
     def test_evidence_gate_preserves_known_input_scores(self):

@@ -16,6 +16,8 @@
 
 数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：InterCode-CTF 的 PicoCTF 衍生任务、来自四项竞赛的 CyBench 题目，以及 NYU CTF Bench 汇集的竞赛挑战。研究仅保留三套基准中同时有人类专家和 Agent 记录的 40 个题目组。任务来源、记录采集方式、样本筛选和逐文件哈希见[实验结果与数据说明](06-原型与跨基准实验结果.md)。
 
+补充的等任务、等基准权重模型比较中，命令名 TF-IDF + 逻辑回归在四个 CPU 基线里平衡准确率最高（0.844；95% 任务簇区间 0.766–0.915）。999 次条件置换显示，历史候选库的模式增量为正，但严格留出候选库仍为 −0.006。两项结果都没有消除类别与采集方式的完全混杂，也没有证明真实攻击活动关联受到影响。数据筛选、未运行的 API 比较、完整指标和图表见[公开数据与模型对比](08-公开数据与模型对比.md)。
+
 **PyPI 计划于 2027 年发布。** 软件包目前尚不可安装；页面中的安装与 API 调用为规划示意，当前请按下文从源码复现。
 
 ## 研究与结果
@@ -25,9 +27,12 @@
 - [相关工作与初步实验](04-相关工作与初步实验.md)
 - [后续受控实验推进计划](07-后续实验推进计划.md)
 - [跨基准原型结果与特异性对照](06-原型与跨基准实验结果.md)、[机器可读对照结果](results/specificity_controls.json)
+- [公开数据审计与本地模型比较](08-公开数据与模型对比.md)、[模型结果 JSON](results/local_model_comparison.json)、[逐任务 CSV](results/local_model_comparison_task_metrics.csv)
+- [模式标签条件置换诊断](results/mode_label_permutation.json)、[本地模型比较 Notebook](notebooks/06_local_model_comparison.ipynb)
 - [论文实验正文](paper/experiment-results.tex)、[附录](paper/appendix.tex)与[图形生成代码](scripts/generate_paper_figures.py)
 - [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
 - [可执行的特异性对照 Notebook](notebooks/03_specificity_controls.ipynb)
+- [置换诊断 Notebook](notebooks/04_mode_label_permutation.ipynb)、[未见模型来源 Notebook](notebooks/05_unseen_agent_model.ipynb)
 - [数据审计](results/data-audit.json)、[主要基线](results/preliminary.json)、[事后诊断](results/sensitivity.json)与 [Trace 风格迁移检查](results/trace-baseline.json)
 - [重复划分敏感性检查](results/split-diagnostics.json)
 - [精简汇总结果](results/quick-summary.json)
@@ -59,12 +64,25 @@ python3 -m venv .venv
 .venv/bin/python scripts/run_crossbenchmark_experiments.py
 .venv/bin/python scripts/run_mode_aware_association.py
 .venv/bin/python scripts/run_specificity_controls.py
+.venv/bin/python scripts/run_unseen_agent_model.py
+.venv/bin/python scripts/run_mode_label_permutation.py --permutations 999 --seed 20262701
+.venv/bin/python scripts/compare_trace_mode_models.py
+.venv/bin/python scripts/plot_local_model_comparison.py
 .venv/bin/python scripts/generate_paper_figures.py
 ```
 
-该命令写入包括 `results/quick-summary.json` 在内的汇总 JSON。这是一套可复现的基准实验流程；当前尚未提供逐条记录预测的 API。脚本接受指定的 InterCode-CTF 归档结构，暂不支持任意 auditd、Sysmon 或上传的日志文件。
+脚本会写入包括 `results/quick-summary.json` 在内的汇总 JSON。仓库也提供一个接收规范化 JSONL 的研究 CLI，可输出 human/Agent 轨迹得分、证据计数、拒判原因和同基准候选排序：
 
-运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/01_preliminary.ipynb` 重建并审计初步结果；`notebooks/03_specificity_controls.ipynb` 重跑固定折特异性对照，并展示配对结果表和论文图。后一项对应的命令行为 `.venv/bin/python scripts/run_specificity_controls.py`。
+```bash
+PYTHONPATH=. .venv/bin/python -m attackagent.jsonl_cli \
+  --train examples/jsonl/train.jsonl \
+  --queries examples/jsonl/queries.jsonl \
+  --candidates examples/jsonl/candidates.jsonl
+```
+
+随仓库提供的 JSONL 是手工编写的接口演示，不是实验数据。训练标签目前只支持 `human` 和 `agent`；`script` 明确拒判。得分未校准，排序不代表攻击者或 APT 归因。CLI 要求输入已规范化的命令名和动作类别，尚未解析任意 auditd、Sysmon 或原始上传日志。输入格式与边界见 [`examples/jsonl/README.md`](examples/jsonl/README.md)。
+
+运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/01_preliminary.ipynb` 重建初步结果；`notebooks/03_specificity_controls.ipynb` 检查关联特异性对照；`notebooks/04_mode_label_permutation.ipynb` 和 `notebooks/05_unseen_agent_model.ipynb` 展示稳健性诊断；`notebooks/06_local_model_comparison.ipynb` 重跑 CPU 分类模型比较并展示论文图。
 
 数据下载器会校验公开源文件的哈希。原始轨迹与本地环境不纳入 Git；仓库中的数据审计与汇总指标不含原始命令内容。数据版本与已知局限记录在研究报告中。
 

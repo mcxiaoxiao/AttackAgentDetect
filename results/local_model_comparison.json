@@ -1,0 +1,431 @@
+{
+  "status": "completed; exploratory trace-label comparison",
+  "data": {
+    "dataset": "Cyber Task Horizons public traces",
+    "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+    "records": 177,
+    "task_groups": 40,
+    "labels": {
+      "human": 57,
+      "agent": 120
+    },
+    "source_label_mismatch_count": 0
+  },
+  "protocol": {
+    "outer_split": "five-fold GroupKFold by benchmark/task_id; all records for one task remain in one fold",
+    "unit": "benchmark/task_id; each task metric is weighted equally within benchmark, then benchmarks are equally weighted",
+    "metrics": [
+      "balanced accuracy",
+      "macro-F1",
+      "ROC-AUC",
+      "Brier score",
+      "10-bin expected calibration error"
+    ],
+    "threshold": 0.5,
+    "calibration": "No calibration method fitted; Brier and ECE assess raw model probabilities and do not imply calibrated confidence.",
+    "features": "command names, coarse action categories, and fixed counts/proportions only; no task text, prompts, timestamps, paths, collection file name, or model source",
+    "uncertainty": "5000 benchmark-stratified task-cluster bootstrap resamples on fixed out-of-fold predictions; excludes retraining uncertainty",
+    "seed": 20261029
+  },
+  "models": {
+    "command_tfidf_logistic": {
+      "balanced_accuracy": 0.8439153439153438,
+      "macro_f1": 0.804050138573948,
+      "roc_auc": 0.9573780129335684,
+      "brier": 0.12502822355817986,
+      "ece_10_bin": 0.16117484311311203,
+      "task_count": 40,
+      "95_task_cluster_ci": {
+        "balanced_accuracy": [
+          0.7655790711346265,
+          0.9154908877131098
+        ],
+        "macro_f1": [
+          0.7094605589149239,
+          0.8920355673133451
+        ],
+        "roc_auc": [
+          0.9144620811287477,
+          0.9917695473251028
+        ],
+        "brier": [
+          0.10693042895544053,
+          0.14421833054997765
+        ],
+        "ece_10_bin": [
+          0.13239289960357667,
+          0.21797546021009512
+        ]
+      }
+    },
+    "action_tfidf_logistic": {
+      "balanced_accuracy": 0.7766754850088183,
+      "macro_f1": 0.729381876207273,
+      "roc_auc": 0.8350970017636682,
+      "brier": 0.1663436436283002,
+      "ece_10_bin": 0.14968095517762361,
+      "task_count": 40,
+      "95_task_cluster_ci": {
+        "balanced_accuracy": [
+          0.6924566431510875,
+          0.8553791887125218
+        ],
+        "macro_f1": [
+          0.6375513878390863,
+          0.8195230746619634
+        ],
+        "roc_auc": [
+          0.7571942974720752,
+          0.9109347442680775
+        ],
+        "brier": [
+          0.14926656827023255,
+          0.1834571441685248
+        ],
+        "ece_10_bin": [
+          0.10830347674058736,
+          0.23122274834985138
+        ]
+      }
+    },
+    "count_action_logistic": {
+      "balanced_accuracy": 0.6223544973544972,
+      "macro_f1": 0.537136768287562,
+      "roc_auc": 0.8190770135214579,
+      "brier": 0.20278644639687457,
+      "ece_10_bin": 0.13805427997571856,
+      "task_count": 40,
+      "95_task_cluster_ci": {
+        "balanced_accuracy": [
+          0.5694444444444444,
+          0.6825451940035272
+        ],
+        "macro_f1": [
+          0.47700942722768114,
+          0.609070032333921
+        ],
+        "roc_auc": [
+          0.7342739564961787,
+          0.8997648442092886
+        ],
+        "brier": [
+          0.18122818291508447,
+          0.22466323247996653
+        ],
+        "ece_10_bin": [
+          0.10297975527013846,
+          0.20230253355779268
+        ]
+      }
+    },
+    "count_action_extra_trees": {
+      "balanced_accuracy": 0.7228101116990006,
+      "macro_f1": 0.6681531872008062,
+      "roc_auc": 0.8187830687830687,
+      "brier": 0.16946547427963357,
+      "ece_10_bin": 0.07325298841332416,
+      "task_count": 40,
+      "95_task_cluster_ci": {
+        "balanced_accuracy": [
+          0.6538010728982951,
+          0.796957671957672
+        ],
+        "macro_f1": [
+          0.5927467561098514,
+          0.751008912824389
+        ],
+        "roc_auc": [
+          0.737797619047619,
+          0.8950617283950617
+        ],
+        "brier": [
+          0.1446392649176051,
+          0.1935346414623186
+        ],
+        "ece_10_bin": [
+          0.06985092639644672,
+          0.16267396811243748
+        ]
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_tasks": [
+        "cybench/cybench/back_to_the_past",
+        "cybench/cybench/flag_command",
+        "cybench/cybench/glacier-exchange",
+        "cybench/cybench/locktalk",
+        "cybench/cybench/lootstash",
+        "cybench/cybench/packedaway",
+        "intercode-ctf/intercode-ctf_general_skills/task_21",
+        "intercode-ctf/intercode-ctf_general_skills/task_23",
+        "intercode-ctf/intercode-ctf_general_skills/task_24",
+        "intercode-ctf/intercode-ctf_general_skills/task_36",
+        "intercode-ctf/intercode-ctf_general_skills/task_4",
+        "intercode-ctf/intercode-ctf_reverse/task_10",
+        "intercode-ctf/intercode-ctf_reverse/task_13",
+        "intercode-ctf/intercode-ctf_reverse/task_2",
+        "intercode-ctf/intercode-ctf_reverse/task_44",
+        "intercode-ctf/intercode-ctf_reverse/task_45",
+        "intercode-ctf/intercode-ctf_reverse/task_46",
+        "intercode-ctf/intercode-ctf_reverse/task_47",
+        "intercode-ctf/intercode-ctf_reverse/task_48",
+        "intercode-ctf/intercode-ctf_reverse/task_50",
+        "intercode-ctf/intercode-ctf_reverse/task_68",
+        "intercode-ctf/intercode-ctf_reverse/task_77",
+        "intercode-ctf/intercode-ctf_reverse/task_8",
+        "intercode-ctf/intercode-ctf_reverse/task_81",
+        "intercode-ctf/intercode-ctf_reverse/task_83",
+        "intercode-ctf/intercode-ctf_reverse/task_85",
+        "nyuctf/nyuctf/2013q-msc-networking_1",
+        "nyuctf/nyuctf/2016q-for-kill",
+        "nyuctf/nyuctf/2016q-rev-rock",
+        "nyuctf/nyuctf/2017q-web-orange",
+        "nyuctf/nyuctf/2018q-msc-short_circuit",
+        "nyuctf/nyuctf/2021q-rev-checker"
+      ],
+      "test_tasks": [
+        "intercode-ctf/intercode-ctf_general_skills/task_11",
+        "intercode-ctf/intercode-ctf_reverse/task_14",
+        "intercode-ctf/intercode-ctf_reverse/task_3",
+        "intercode-ctf/intercode-ctf_reverse/task_49",
+        "intercode-ctf/intercode-ctf_reverse/task_51",
+        "intercode-ctf/intercode-ctf_reverse/task_76",
+        "intercode-ctf/intercode-ctf_reverse/task_82",
+        "nyuctf/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "train_records": 141,
+      "test_records": 36
+    },
+    {
+      "fold": 2,
+      "train_tasks": [
+        "cybench/cybench/back_to_the_past",
+        "cybench/cybench/flag_command",
+        "cybench/cybench/glacier-exchange",
+        "cybench/cybench/locktalk",
+        "cybench/cybench/lootstash",
+        "cybench/cybench/packedaway",
+        "intercode-ctf/intercode-ctf_general_skills/task_11",
+        "intercode-ctf/intercode-ctf_general_skills/task_23",
+        "intercode-ctf/intercode-ctf_general_skills/task_24",
+        "intercode-ctf/intercode-ctf_general_skills/task_36",
+        "intercode-ctf/intercode-ctf_general_skills/task_4",
+        "intercode-ctf/intercode-ctf_reverse/task_10",
+        "intercode-ctf/intercode-ctf_reverse/task_13",
+        "intercode-ctf/intercode-ctf_reverse/task_14",
+        "intercode-ctf/intercode-ctf_reverse/task_3",
+        "intercode-ctf/intercode-ctf_reverse/task_45",
+        "intercode-ctf/intercode-ctf_reverse/task_47",
+        "intercode-ctf/intercode-ctf_reverse/task_48",
+        "intercode-ctf/intercode-ctf_reverse/task_49",
+        "intercode-ctf/intercode-ctf_reverse/task_50",
+        "intercode-ctf/intercode-ctf_reverse/task_51",
+        "intercode-ctf/intercode-ctf_reverse/task_76",
+        "intercode-ctf/intercode-ctf_reverse/task_8",
+        "intercode-ctf/intercode-ctf_reverse/task_81",
+        "intercode-ctf/intercode-ctf_reverse/task_82",
+        "intercode-ctf/intercode-ctf_reverse/task_85",
+        "nyuctf/nyuctf/2013q-msc-networking_1",
+        "nyuctf/nyuctf/2016q-for-kill",
+        "nyuctf/nyuctf/2016q-rev-rock",
+        "nyuctf/nyuctf/2018q-msc-short_circuit",
+        "nyuctf/nyuctf/2021q-rev-checker",
+        "nyuctf/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "intercode-ctf/intercode-ctf_general_skills/task_21",
+        "intercode-ctf/intercode-ctf_reverse/task_2",
+        "intercode-ctf/intercode-ctf_reverse/task_44",
+        "intercode-ctf/intercode-ctf_reverse/task_46",
+        "intercode-ctf/intercode-ctf_reverse/task_68",
+        "intercode-ctf/intercode-ctf_reverse/task_77",
+        "intercode-ctf/intercode-ctf_reverse/task_83",
+        "nyuctf/nyuctf/2017q-web-orange"
+      ],
+      "train_records": 141,
+      "test_records": 36
+    },
+    {
+      "fold": 3,
+      "train_tasks": [
+        "cybench/cybench/flag_command",
+        "cybench/cybench/glacier-exchange",
+        "cybench/cybench/packedaway",
+        "intercode-ctf/intercode-ctf_general_skills/task_11",
+        "intercode-ctf/intercode-ctf_general_skills/task_21",
+        "intercode-ctf/intercode-ctf_general_skills/task_24",
+        "intercode-ctf/intercode-ctf_general_skills/task_36",
+        "intercode-ctf/intercode-ctf_reverse/task_10",
+        "intercode-ctf/intercode-ctf_reverse/task_13",
+        "intercode-ctf/intercode-ctf_reverse/task_14",
+        "intercode-ctf/intercode-ctf_reverse/task_2",
+        "intercode-ctf/intercode-ctf_reverse/task_3",
+        "intercode-ctf/intercode-ctf_reverse/task_44",
+        "intercode-ctf/intercode-ctf_reverse/task_46",
+        "intercode-ctf/intercode-ctf_reverse/task_47",
+        "intercode-ctf/intercode-ctf_reverse/task_48",
+        "intercode-ctf/intercode-ctf_reverse/task_49",
+        "intercode-ctf/intercode-ctf_reverse/task_50",
+        "intercode-ctf/intercode-ctf_reverse/task_51",
+        "intercode-ctf/intercode-ctf_reverse/task_68",
+        "intercode-ctf/intercode-ctf_reverse/task_76",
+        "intercode-ctf/intercode-ctf_reverse/task_77",
+        "intercode-ctf/intercode-ctf_reverse/task_81",
+        "intercode-ctf/intercode-ctf_reverse/task_82",
+        "intercode-ctf/intercode-ctf_reverse/task_83",
+        "nyuctf/nyuctf/2013q-msc-networking_1",
+        "nyuctf/nyuctf/2016q-for-kill",
+        "nyuctf/nyuctf/2016q-rev-rock",
+        "nyuctf/nyuctf/2017q-web-orange",
+        "nyuctf/nyuctf/2018q-msc-short_circuit",
+        "nyuctf/nyuctf/2021q-rev-checker",
+        "nyuctf/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "cybench/cybench/back_to_the_past",
+        "cybench/cybench/locktalk",
+        "cybench/cybench/lootstash",
+        "intercode-ctf/intercode-ctf_general_skills/task_23",
+        "intercode-ctf/intercode-ctf_general_skills/task_4",
+        "intercode-ctf/intercode-ctf_reverse/task_45",
+        "intercode-ctf/intercode-ctf_reverse/task_8",
+        "intercode-ctf/intercode-ctf_reverse/task_85"
+      ],
+      "train_records": 142,
+      "test_records": 35
+    },
+    {
+      "fold": 4,
+      "train_tasks": [
+        "cybench/cybench/back_to_the_past",
+        "cybench/cybench/glacier-exchange",
+        "cybench/cybench/locktalk",
+        "cybench/cybench/lootstash",
+        "cybench/cybench/packedaway",
+        "intercode-ctf/intercode-ctf_general_skills/task_11",
+        "intercode-ctf/intercode-ctf_general_skills/task_21",
+        "intercode-ctf/intercode-ctf_general_skills/task_23",
+        "intercode-ctf/intercode-ctf_general_skills/task_36",
+        "intercode-ctf/intercode-ctf_general_skills/task_4",
+        "intercode-ctf/intercode-ctf_reverse/task_13",
+        "intercode-ctf/intercode-ctf_reverse/task_14",
+        "intercode-ctf/intercode-ctf_reverse/task_2",
+        "intercode-ctf/intercode-ctf_reverse/task_3",
+        "intercode-ctf/intercode-ctf_reverse/task_44",
+        "intercode-ctf/intercode-ctf_reverse/task_45",
+        "intercode-ctf/intercode-ctf_reverse/task_46",
+        "intercode-ctf/intercode-ctf_reverse/task_47",
+        "intercode-ctf/intercode-ctf_reverse/task_49",
+        "intercode-ctf/intercode-ctf_reverse/task_50",
+        "intercode-ctf/intercode-ctf_reverse/task_51",
+        "intercode-ctf/intercode-ctf_reverse/task_68",
+        "intercode-ctf/intercode-ctf_reverse/task_76",
+        "intercode-ctf/intercode-ctf_reverse/task_77",
+        "intercode-ctf/intercode-ctf_reverse/task_8",
+        "intercode-ctf/intercode-ctf_reverse/task_81",
+        "intercode-ctf/intercode-ctf_reverse/task_82",
+        "intercode-ctf/intercode-ctf_reverse/task_83",
+        "intercode-ctf/intercode-ctf_reverse/task_85",
+        "nyuctf/nyuctf/2013q-msc-networking_1",
+        "nyuctf/nyuctf/2017q-web-orange",
+        "nyuctf/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "cybench/cybench/flag_command",
+        "intercode-ctf/intercode-ctf_general_skills/task_24",
+        "intercode-ctf/intercode-ctf_reverse/task_10",
+        "intercode-ctf/intercode-ctf_reverse/task_48",
+        "nyuctf/nyuctf/2016q-for-kill",
+        "nyuctf/nyuctf/2016q-rev-rock",
+        "nyuctf/nyuctf/2018q-msc-short_circuit",
+        "nyuctf/nyuctf/2021q-rev-checker"
+      ],
+      "train_records": 142,
+      "test_records": 35
+    },
+    {
+      "fold": 5,
+      "train_tasks": [
+        "cybench/cybench/back_to_the_past",
+        "cybench/cybench/flag_command",
+        "cybench/cybench/locktalk",
+        "cybench/cybench/lootstash",
+        "intercode-ctf/intercode-ctf_general_skills/task_11",
+        "intercode-ctf/intercode-ctf_general_skills/task_21",
+        "intercode-ctf/intercode-ctf_general_skills/task_23",
+        "intercode-ctf/intercode-ctf_general_skills/task_24",
+        "intercode-ctf/intercode-ctf_general_skills/task_4",
+        "intercode-ctf/intercode-ctf_reverse/task_10",
+        "intercode-ctf/intercode-ctf_reverse/task_14",
+        "intercode-ctf/intercode-ctf_reverse/task_2",
+        "intercode-ctf/intercode-ctf_reverse/task_3",
+        "intercode-ctf/intercode-ctf_reverse/task_44",
+        "intercode-ctf/intercode-ctf_reverse/task_45",
+        "intercode-ctf/intercode-ctf_reverse/task_46",
+        "intercode-ctf/intercode-ctf_reverse/task_48",
+        "intercode-ctf/intercode-ctf_reverse/task_49",
+        "intercode-ctf/intercode-ctf_reverse/task_51",
+        "intercode-ctf/intercode-ctf_reverse/task_68",
+        "intercode-ctf/intercode-ctf_reverse/task_76",
+        "intercode-ctf/intercode-ctf_reverse/task_77",
+        "intercode-ctf/intercode-ctf_reverse/task_8",
+        "intercode-ctf/intercode-ctf_reverse/task_82",
+        "intercode-ctf/intercode-ctf_reverse/task_83",
+        "intercode-ctf/intercode-ctf_reverse/task_85",
+        "nyuctf/nyuctf/2016q-for-kill",
+        "nyuctf/nyuctf/2016q-rev-rock",
+        "nyuctf/nyuctf/2017q-web-orange",
+        "nyuctf/nyuctf/2018q-msc-short_circuit",
+        "nyuctf/nyuctf/2021q-rev-checker",
+        "nyuctf/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "cybench/cybench/glacier-exchange",
+        "cybench/cybench/packedaway",
+        "intercode-ctf/intercode-ctf_general_skills/task_36",
+        "intercode-ctf/intercode-ctf_reverse/task_13",
+        "intercode-ctf/intercode-ctf_reverse/task_47",
+        "intercode-ctf/intercode-ctf_reverse/task_50",
+        "intercode-ctf/intercode-ctf_reverse/task_81",
+        "nyuctf/nyuctf/2013q-msc-networking_1"
+      ],
+      "train_records": 142,
+      "test_records": 35
+    }
+  ],
+  "interpretation_limits": [
+    "The labels are perfectly aligned with collection interface/source in this release, so the experiment compares published trace-label predictability and not isolated actor identity.",
+    "Task-held-out evaluation does not remove the terminal-input versus structured-tool-call acquisition difference.",
+    "No pretrained semantic encoder was present in the local CPU environment; this run uses transparent lexical and fixed-statistic baselines, not a semantic model.",
+    "Jev and OpenAI Decisions were not called because no API credential or verifiable free allowance was available; no paid calls were made.",
+    "The 40 task groups were already used in exploratory work; all results remain exploratory, not independent confirmation."
+  ],
+  "api_comparators": {
+    "Jev": {
+      "status": "not_run",
+      "reason": "No credential or verifiable free allowance in this environment."
+    },
+    "OpenAI Decisions": {
+      "status": "not_run",
+      "reason": "No API credential or verifiable free allowance in this environment."
+    },
+    "local_pretrained_semantic_model": {
+      "status": "not_run",
+      "reason": "No local encoder/runtime or cached model weights; this CPU run uses explicit command/action features."
+    }
+  },
+  "software": {
+    "python": "3.10.16",
+    "numpy": "2.2.6",
+    "scikit-learn": "1.7.2"
+  },
+  "source_script_sha256": "6e9c09b36e5be17b196d5a8259a241ba73ebdb0a546bfdcb26f4bd5f79b568f8",
+  "task_metrics_csv": {
+    "path": "results/local_model_comparison_task_metrics.csv",
+    "rows": 160,
+    "sha256": "e5d3fa1b7911c47345baf19bd18fca3d3a309d39abc524911300f08e7c13fe6a"
+  }
+}
