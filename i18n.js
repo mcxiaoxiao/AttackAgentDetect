@@ -15,6 +15,7 @@
   }
   function choose(language) {
     const english = language === 'en';
+    try { sessionStorage.setItem('attackagent-language', english ? 'en' : 'zh'); } catch {}
     root.lang = english ? 'en' : 'zh-CN';
     root.dataset.language = english ? 'en' : 'zh';
     for (const item of copy) {
@@ -31,7 +32,9 @@
     button.addEventListener('click', () => choose(button.dataset.language));
   }
   const requested = new URL(location.href).searchParams.get('lang');
+  let saved = null;
+  try { saved = sessionStorage.getItem('attackagent-language'); } catch {}
   const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
   const preferred = browserLanguage.startsWith('zh') ? 'zh' : 'en';
-  choose(requested === 'en' || requested === 'zh' ? requested : preferred);
+  choose(requested === 'en' || requested === 'zh' ? requested : (saved || preferred));
 })();

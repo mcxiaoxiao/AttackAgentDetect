@@ -1,3 +1,10 @@
+/* Preserve previously published section links after splitting the documentation. */
+if (/\/(?:index\.html)?$/.test(location.pathname)) {
+  const legacyPages = { '#question': 'research.html', '#results': 'research.html', '#related': 'research.html', '#source-reproduction': 'research.html' };
+  const destination = legacyPages[location.hash];
+  if (destination) location.replace(destination + location.search + location.hash);
+}
+
 /* Lightweight navigation state; all content remains usable without JavaScript. */
 const links = [...document.querySelectorAll(".rail nav a")];
 if ("IntersectionObserver" in window) {
@@ -35,7 +42,7 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       const original = button.textContent;
       const english = () => document.documentElement.lang === "en";
       const toast = document.getElementById("copy-toast");
-      if (toast) {
+      if (toast && button.dataset.copy !== "ai-brief-markdown") {
         toast.textContent = english()
           ? (button.dataset.copySuccessEn || "Copied")
           : (button.dataset.copySuccess || "已复制");
@@ -43,12 +50,14 @@ for (const button of document.querySelectorAll("[data-copy]")) {
         window.clearTimeout(toast.hideTimer);
         toast.hideTimer = window.setTimeout(() => { toast.hidden = true; }, 2400);
       }
-      button.textContent = english() ? "Copied" : "已复制";
+      button.textContent = button.dataset.copy === "ai-brief-markdown"
+        ? (english() ? button.dataset.copySuccessEn : button.dataset.copySuccess)
+        : (english() ? "Copied" : "已复制");
       window.setTimeout(() => { button.textContent = original; }, 1400);
     } catch {
       const english = document.documentElement.lang === "en";
       const toast = document.getElementById("copy-toast");
-      if (toast) {
+      if (toast && button.dataset.copy !== "ai-brief-markdown") {
         toast.textContent = english ? "Copy failed — select the text manually" : "复制失败，请手动选择文本";
         toast.hidden = false;
         window.clearTimeout(toast.hideTimer);
@@ -356,4 +365,8 @@ for (const link of document.querySelectorAll('a[href="#source-reproduction"]')) 
     const details = document.getElementById('source-reproduction')?.closest('details');
     if (details) details.open = true;
   });
+}
+
+if (location.hash === "#source-reproduction") {
+  document.getElementById("source-reproduction")?.closest("details")?.setAttribute("open", "");
 }
