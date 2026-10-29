@@ -68,7 +68,7 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
 <div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.<br/>Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>
 <p class="quickstart-band-lead" data-en="The source CLI joins Linux audit SYSCALL and EXECVE records, extracts commands, and preserves event references and parse quality.">源码命令行工具合并 Linux audit 的 SYSCALL 与 EXECVE 记录，提取命令，并保留事件引用和解析质量。</p>
-<div class="api-install"><code id="quickstart-run">python -m attackagent.jsonl_cli normalize --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
+<div class="api-install"><code id="quickstart-run">python -m attackagent.jsonl_cli normalize --input examples/auditd/minimal.audit</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
 <p class="quickstart-plan"><span data-en="Source package today; PyPI planned for 2027.">当前可从源码运行，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="See the input and output example" href="#sources">查看输入与输出示例</a></p></div>
 <figure class="api-pane"><div class="api-file"><code>normalize</code><span data-en="Fixture output · minimal.audit">格式样例输出 · minimal.audit</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
 <pre id="quickstart-usage"><code>{
