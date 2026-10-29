@@ -32,8 +32,8 @@
 <section aria-labelledby="hero-title" class="hero" id="top">
 <canvas aria-hidden="true" class="field"></canvas>
 <div class="hero-copy">
-<h1 data-en-html="Human or AI agent? Read the attack logs." id="hero-title">从日志判断攻击者是人还是智能体。</h1>
-<p class="hero-desc" data-en="AttackAgent Detect is open research into agent participation signals and their impact on attack activity correlation.">AttackAgent Detect 是一项开放研究，探索智能体参与识别及其对攻击活动关联的影响。</p>
+<h1 data-en-html="Human or AI agent? The attack logs can tell." id="hero-title">从日志判断执行者是人还是智能体。</h1>
+<p class="hero-desc" data-en="AttackAgent Detect is open research on distinguishing human from AI-agent execution in public attack traces, and on whether that signal improves attack-activity correlation.">AttackAgent Detect 是一项开放研究：从公开攻击轨迹判断执行者是人还是 AI Agent，并检验这一信号能否改善攻击活动关联。</p>
 <div class="hero-links">
 <a class="button primary" data-en="Quick start (pip)" href="#quickstart">快速接入（pip）</a>
 <a class="button secondary" data-en="Research details" href="#question">研究细节</a>
@@ -46,11 +46,12 @@
 </div>
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
-<div class="quickstart-band-copy"><h2 data-en="Your logs reveal execution mode." id="quickstart-title">载入日志，判断执行方式。</h2>
-<p class="quickstart-band-lead" data-en="Run from source on pinned public traces. Reproduce a held-out task lookup with human and Agent commands.">从源码运行固定版本公开轨迹，复现一次按任务留出的检索。</p>
-<div class="api-install"><code id="quickstart-run">.venv/bin/python scripts/demo_mode_aware_association.py \
-  --query-task cybench/back_to_the_past</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
-<p class="quickstart-plan"><span data-en="Current source API. PyPI is planned for 2027.">当前源码接口，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
+<div class="quickstart-band-copy"><h2 data-en-html="Load a trace. Identify the execution mode." id="quickstart-title">载入日志，<br/>判断执行方式。</h2>
+<p class="quickstart-band-lead" data-en="Run the pinned public traces from source and reproduce a task-held-out retrieval with human and Agent commands.">从源码运行固定版本的公开轨迹，用人类与 Agent 命令复现一次按任务留出的检索。</p>
+<div class="api-install"><code id="quickstart-run">.venv/bin/python \
+scripts/demo_mode_aware_association.py \
+--query-task cybench/back_to_the_past</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
+<p class="quickstart-plan"><span data-en="Source API today; PyPI planned for 2027.">当前提供源码接口，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
 <figure class="api-pane"><div class="api-file"><code>demo_mode_aware_association.py</code><span data-en="Actual output · back_to_the_past">实际输出 · back_to_the_past</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
 <pre id="quickstart-usage"><code>{
   <span class="syntax-keyword">"training_task_count"</span>: 39,
@@ -69,41 +70,41 @@
       <span class="syntax-keyword">"mean_match_score"</span>: <span class="syntax-type">0.4161</span> }
   ]
 }</code></pre>
-<figcaption class="api-note" data-en="Excerpt of actual output from scripts/demo_mode_aware_association.py: train on 39 task groups, query one CyBench human trace, rank same-benchmark tasks. Match scores rank candidates; they are not calibrated probabilities.">scripts/demo_mode_aware_association.py 的实际输出节选：在 39 个任务组上训练，查询一条 CyBench 人类轨迹，并对同基准任务排序。匹配分数用于排序，不是校准概率。</figcaption></figure>
+<figcaption class="api-note" data-en="Excerpt of actual output from scripts/demo_mode_aware_association.py: train on 39 task groups, query one CyBench human trace, rank same-benchmark tasks. Match scores rank candidates; they are not calibrated probabilities.">scripts/demo_mode_aware_association.py 的实际输出节选：在 39 个任务组上训练，查询一条 CyBench 人类轨迹，对同基准任务排序。匹配分数只用于排序，不是校准后的概率。</figcaption></figure>
 </section>
 <section aria-labelledby="demo-title" class="section product-demo" id="demo">
-<div class="demo-heading"><h2 data-en="One trace. More than one way to act." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching with commands from public traces. The examples use CyBench's back_to_the_past task.">从执行方式、行为信号到轨迹关联。示例使用 CyBench <code>back_to_the_past</code> 公开轨迹中的真实命令。</p></div>
+<div class="demo-heading"><h2 data-en="One trace. More than one execution mode." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching. The examples use real commands from CyBench's back_to_the_past public traces.">从执行方式、行为信号到轨迹关联。示例命令来自 CyBench <code>back_to_the_past</code> 的公开轨迹。</p></div>
 <div aria-label="产品演示" class="demo-tabs" data-en-aria-label="Product demo" role="tablist">
-<button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><span aria-hidden="true">1</span><b data-en="Detect">执行识别</b></button>
-<button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><span aria-hidden="true">2</span><b data-en="Signals">行为信号</b></button>
-<button aria-controls="demo-match" aria-selected="false" id="demo-tab-match" role="tab" tabindex="-1" type="button"><span aria-hidden="true">3</span><b data-en="Compare">轨迹关联</b></button>
-<button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><span aria-hidden="true">4</span><b data-en="Sources">日志来源</b></button>
+<button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><span aria-hidden="true">1</span><b data-en="Mode detection">执行识别</b></button>
+<button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><span aria-hidden="true">2</span><b data-en="Behavioral signals">行为信号</b></button>
+<button aria-controls="demo-match" aria-selected="false" id="demo-tab-match" role="tab" tabindex="-1" type="button"><span aria-hidden="true">3</span><b data-en="Trace correlation">轨迹关联</b></button>
+<button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><span aria-hidden="true">4</span><b data-en="Log sources">日志来源</b></button>
 </div>
 <div aria-labelledby="demo-tab-detect" class="demo-panel" id="demo-detect" role="tabpanel" tabindex="0">
 <p class="demo-say" data-en="The same CyBench task, two real traces. Switch the executor and compare the submitted commands.">同一个 CyBench 任务，两条真实轨迹。切换执行者，比较实际提交的命令。</p>
 <div aria-label="执行方式示例" class="demo-mode-picks" data-en-aria-label="Execution mode examples" role="group"><button aria-pressed="false" data-demo-mode="human" type="button">🥷 Human</button><button aria-pressed="true" data-demo-mode="agent" type="button">🤖 AI agent</button></div>
 <figure class="demo-inspector"><figcaption><code data-demo-source="">back_to_the_past · agent</code><span data-en="Public trace commands">公开轨迹命令</span><span data-en="Extracted evidence">提取线索</span></figcaption><div class="demo-inspector-grid">
 <pre class="demo-log" data-demo-log=""></pre><div class="demo-verdict">
-<div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Expert terminal session. The parser reconstructs submitted commands from keystrokes and drops interrupted lines.">专家终端会话。解析器从键盘输入重建提交的命令，并丢弃中断的行。</p><code>source=expert terminal<br/>session=332 · trace=e308264f<br/>input=keystrokes</code></div>
-<div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Claude Opus 4.6 on the same task. Bash tool calls expose structured commands and feedback-driven retries.">同一任务上的 Claude Opus 4.6。bash 工具调用提供结构化命令与基于反馈的重试。</p><code>source=claude-opus-4.6<br/>trace=a18eeb89<br/>tool=bash</code></div>
-</div></div><div class="demo-inspector-note" data-en="Commands are sanitized excerpts from public CyBench traces; prompts, outputs, timestamps, and paths are omitted. The public data contain no matched script traces, so Script is not shown.">命令截取自公开 CyBench 轨迹并做清洗；省略提示词、输出、时间戳和路径。公开数据没有匹配的脚本轨迹，因此不展示 Script。</div></figure>
+<div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Expert terminal session. The parser reconstructs submitted commands from keystrokes and drops interrupted lines.">专家终端会话。解析器从键盘输入还原提交的命令，并丢弃中断的行。</p><code>source=expert terminal<br/>session=332 · trace=e308264f<br/>input=keystrokes</code></div>
+<div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Claude Opus 4.6 on the same task. Bash tool calls expose structured commands and feedback-driven retries.">同一任务上的 Claude Opus 4.6。bash 工具调用给出结构化命令，并带有基于反馈的重试。</p><code>source=claude-opus-4.6<br/>trace=a18eeb89<br/>tool=bash</code></div>
+</div></div><div class="demo-inspector-note" data-en="Commands are sanitized excerpts from public CyBench traces; prompts, outputs, timestamps, and paths are omitted. The public data contain no matched script traces, so Script is not shown.">命令截取自公开 CyBench 轨迹并做过清洗；提示词、输出、时间戳和路径均已省略。公开数据没有匹配的脚本轨迹，因此不展示 Script。</div></figure>
 </div>
 <div aria-labelledby="demo-tab-signals" class="demo-panel" hidden="" id="demo-signals" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="The cross-benchmark study pins public trace releases, audits every record, extracts comparable command and action features, and evaluates on task groups held out from training.">跨基准研究固定公开轨迹版本，逐条审计记录，提取可比较的命令与动作特征，再按任务组留出评估。</p>
+<p class="demo-say" data-en="The cross-benchmark study pins public trace releases, audits every record, extracts comparable command and action features, and evaluates on task groups held out from training.">跨基准研究锁定公开轨迹版本，逐条审计记录，提取可比较的命令与动作特征，再按任务组留出评估。</p>
 <div class="demo-timeline"><ol>
-<li data-signal-step="0"><strong data-en="Pin data">固定版本</strong><span data-en="Cyber Task Horizons public release: InterCode-CTF, CyBench, and NYUCTF CTF traces, all at one pinned revision.">Cyber Task Horizons 公开发布：InterCode-CTF、CyBench、NYUCTF 三套 CTF 轨迹，统一固定到一个版本。</span><code>revision=178c0da · CC BY 4.0</code></li>
+<li data-signal-step="0"><strong data-en="Pinned release">固定版本</strong><span data-en="Cyber Task Horizons public release: InterCode-CTF, CyBench, and NYUCTF CTF traces, all at one pinned revision.">Cyber Task Horizons 公开发布：InterCode-CTF、CyBench、NYUCTF 三套 CTF 轨迹，统一固定到同一版本。</span><code>revision=178c0da · CC BY 4.0</code></li>
 <li data-signal-step="1"><strong data-en="Audit and match">审计与配对</strong><span data-en="177 non-empty traces: 57 human terminal records and 120 Agent bash records. 40 matched task groups: InterCode 27, CyBench 6, NYUCTF 7.">177 条非空轨迹：57 条人类终端记录、120 条 Agent bash 记录。40 个同题任务组：InterCode 27、CyBench 6、NYUCTF 7。</span><code>matched_task_groups=40</code></li>
-<li data-signal-step="2"><strong data-en="Extract features">提取特征</strong><span data-en="Only command names and coarse action sequences are used. The 300 Python tool calls are excluded; prompts, task text, outputs, and model names are never read.">只用命令名与粗粒度动作序列；300 次 Python 工具调用不进入主特征，提示词、任务文字、输出与模型名都不读取。</span><code>cmd uni/bi · action bi</code></li>
-<li data-signal-step="3"><strong data-en="Task-held-out evaluation">留出任务评估</strong><span data-en="Five GroupKFold folds by benchmark/task_id keep every task's records in one fold. Candidates are same-benchmark hard negatives; intervals use 5,000 task-cluster bootstrap samples.">按 benchmark/task_id 做五折 GroupKFold，同一题目的记录不跨折；候选为同基准困难负例，区间用 5,000 次任务簇 bootstrap。</span><code>5 folds · 5,000 bootstrap</code></li>
-<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="BA 86.3%, Human→Agent Recall@1 41.4%, mode-aware Δ +6.8 pp. The delta interval crosses zero; Human→Human falls 9.8 pp. Capture pathway, missing script class, and task IDs limit attribution.">BA 86.3%，Human→Agent Recall@1 41.4%，模式感知增量 +6.8 pp；增量区间跨零，Human→Human 下降 9.8 pp。采集路径、缺少脚本类和题目 ID 限制了归因。</span><code>CI −1.2…+19.1 · no script class</code></li>
-</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Task-held-out evaluation with 5,000 bootstrap replicates." data-sequence-status="" role="status">按任务留出评估 · 5,000 次 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow is transcribed from the repository scripts and result JSON. Recompute the five-fold results with scripts/run_crossbenchmark_experiments.py and scripts/run_mode_aware_association.py; playback shows step order only, not runtime latency.">流程按仓库脚本与结果 JSON 整理；运行 scripts/run_crossbenchmark_experiments.py 与 scripts/run_mode_aware_association.py 可重算五折结果。播放只表示步骤顺序，不代表运行时延。</p></div>
+<li data-signal-step="2"><strong data-en="Extract features">提取特征</strong><span data-en="Only command names and coarse action sequences feed the features. The 300 Python tool calls do not enter the primary features; prompts, task text, outputs, and model names are never used.">特征只使用命令名和粗粒度动作序列；300 次 Python 工具调用不进入主特征，提示词、任务文字、输出和模型名也不参与。</span><code>cmd uni/bi · action bi</code></li>
+<li data-signal-step="3"><strong data-en="Task-held-out evaluation">留出任务评估</strong><span data-en="Five GroupKFold folds by benchmark/task_id keep every task's records in one fold. Candidates are same-benchmark hard negatives; intervals come from 5,000 task-cluster bootstrap samples.">按 benchmark/task_id 做五折 GroupKFold，同一题目的记录不跨折；候选为同基准困难负例，区间来自 5,000 次任务簇 bootstrap。</span><code>5 folds · 5,000 bootstrap</code></li>
+<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="Mode-aware retrieval does not beat a command-length control, and it does not improve on the similarity baseline in the held-out gallery. Task IDs only indicate a shared task; capture pathway remains confounded with the label.">模式感知检索没有胜过命令数量对照；在严格留出的候选库中，也没有超过相似度基线。题目 ID 只能代表同题，采集方式仍与类别绑定。</span><code>mode − length: −1.8 pp · held-out mode Δ: −0.6 pp</code></li>
+</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Task-held-out evaluation with 5,000 bootstrap replicates." data-sequence-status="" role="status">按任务留出评估 · 5,000 次 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow follows the repository scripts and result JSON. Recompute the five-fold results with scripts/run_crossbenchmark_experiments.py and scripts/run_mode_aware_association.py; playback shows step order only, not runtime latency.">流程依据仓库脚本和结果 JSON 整理；运行 scripts/run_crossbenchmark_experiments.py 与 scripts/run_mode_aware_association.py 可重算五折结果。播放只展示步骤顺序，不代表运行耗时。</p></div>
 </div>
 <div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="Compare actual command sequences. A similar trace is a lead to inspect, not proof of a shared attacker.">比较真实命令序列。轨迹相似提供检查线索，不等于同一攻击者。</p>
+<p class="demo-say" data-en="Compare actual command sequences. A similar trace is a lead to inspect, not proof of a shared attacker.">比较真实命令序列。轨迹相似只是检查线索，不能证明是同一攻击者。</p>
 <div class="demo-compare">
 <div class="demo-compare-head"><strong data-en="Compare command sequences">比较命令序列</strong><div aria-label="对比场景" class="demo-mode-picks" data-en-aria-label="Comparison scenario" role="group"><button aria-pressed="true" data-compare-case="shared" data-en="Same task" type="button">同题</button><button aria-pressed="false" data-compare-case="different" data-en="Different task" type="button">异题</button></div></div>
-<div class="tempo-summary"><p data-en="Two public CyBench traces aligned by command step. The same-task pair converges on .git discovery and git-dumper; the different-task pair contrasts web recon with binary exploitation.">两条公开 CyBench 轨迹按命令步骤对齐。同题轨迹都走向 .git 发现与 git-dumper；异题轨迹对比 Web 侦察与二进制利用。</p><span aria-label="8 steps" class="tempo-speed" data-en-aria-label="Eight steps" data-en="8 steps">8 步</span></div>
-<div class="tempo-method-note" data-en="Commands are real excerpts. The benchmark uses command names and action groups, not inter-command timing; this replay is not a latency measurement.">命令为真实摘录。基准使用命令名与动作类别，不使用命令间时延；回放不代表时延测量。</div>
+<div class="tempo-summary"><p data-en="Two public CyBench traces aligned by command step. The same-task pair converges on .git discovery and git-dumper; the different-task pair contrasts web reconnaissance with binary exploitation.">两条公开 CyBench 轨迹按命令步骤对齐。同题轨迹都先发现 .git，再用 git-dumper 导出仓库；异题轨迹一边是 Web 侦察，一边是二进制利用。</p><span aria-label="8 步" class="tempo-speed" data-en-aria-label="Eight steps" data-en="8 steps">8 步</span></div>
+<div class="tempo-method-note" data-en="Commands are real excerpts. The benchmark uses command names and action groups, not inter-command timing; this replay is not a latency measurement.">命令为真实摘录。基准使用命令名和动作类别，不使用命令间时延；回放不代表时延测量。</div>
 <div aria-label="执行模式命令序列" class="tempo-board" data-en-aria-label="Execution-mode command sequences">
 <div class="tempo-axis"><span data-en="Mode / step">模式 / 步骤</span><div class="tempo-axis-ticks" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span></div></div>
 <section class="tempo-lane" data-mode-lane="human"><div class="tempo-mode"><strong>🥷 Human</strong><span data-lane-detail="">终端 · back_to_the_past</span></div><div aria-hidden="true" class="tempo-track"><i class="tempo-progress" data-tempo-progress=""></i><span class="tempo-markers" data-tempo-markers=""></span></div><ol aria-label="人类轨迹命令" data-en-aria-label="Human trace commands" class="tempo-events" data-compare-events="human"></ol></section>
@@ -112,86 +113,94 @@
 <div class="tempo-controls"><div class="tempo-clock"><code data-compare-clock="">step 01 / 08</code><span data-en="Command step">命令步骤</span></div><button class="button primary" data-compare-play="" data-en="Play command sequence" type="button">播放命令序列</button><p data-compare-result="" role="status"><span data-en="Choose a scenario and step through the 8 commands.">选择场景，逐步回放 8 条命令。</span></p></div>
 </div></div>
 <div aria-labelledby="demo-tab-sources" class="demo-panel" hidden="" id="demo-sources" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="Two adapters cover the public experiments: terminal keystrokes and Agent bash calls. Cron and audit logs are not parsed yet.">公开实验使用两种适配器：终端键盘输入与 Agent bash 调用。定时任务与审计日志尚未解析。</p>
-<div class="demo-source-table"><table><thead><tr><th data-en="Source">来源</th><th data-en="Observable fields">可观测字段</th><th data-en="Execution context">执行上下文</th><th data-en="Preview">预览</th></tr></thead><tbody><tr><th>Terminal transcript</th><td><code>command, raw keystrokes</code></td><td>🥷 Human</td><td><button data-en="Inspect" data-source-preview="human" type="button">查看</button></td></tr><tr><th>Cron / batch</th><td><code>schedule, pid, exit_code</code></td><td>⚙️ Script</td><td><button data-en="No public samples" disabled="" type="button">暂无样本</button></td></tr><tr><th>Agent bash calls</th><td><code>cmd, tool_call_id</code></td><td>🤖 AI agent</td><td><button data-en="Inspect" data-source-preview="agent" type="button">查看</button></td></tr><tr><th>Audit events</th><td><code>EXECVE, ppid, uid</code></td><td data-en="Requires context">需结合上下文</td><td><button data-en="Not parsed" disabled="" type="button">尚未解析</button></td></tr></tbody></table><pre data-source-log=""></pre></div>
-<p class="demo-footnote" data-en="Only the two adapters used by the published experiments are reproducible. Arbitrary log ingestion, script traces, and auditd/Sysmon parsing are not available.">仅公开实验使用的两种适配器可复现。任意日志接入、脚本轨迹与 auditd/Sysmon 解析尚未开放。</p>
+<p class="demo-say" data-en="Two adapters cover the public experiments: terminal keystrokes and Agent bash calls. Cron and audit logs are not parsed yet.">公开实验使用两种适配器：终端键盘输入和 Agent bash 调用。定时任务和审计日志尚未解析。</p>
+<div class="demo-source-table"><table><thead><tr><th data-en="Source">来源</th><th data-en="Observable fields">可观测字段</th><th data-en="Execution context">执行上下文</th><th data-en="Preview">预览</th></tr></thead><tbody><tr><th data-en="Terminal transcript">终端记录</th><td><code>command, raw keystrokes</code></td><td>🥷 Human</td><td><button data-en="Inspect" data-source-preview="human" type="button">查看</button></td></tr><tr><th data-en="Cron / batch">定时任务 / 批处理</th><td><code>schedule, pid, exit_code</code></td><td>⚙️ Script</td><td><button data-en="No public samples" disabled="" type="button">暂无样本</button></td></tr><tr><th data-en="Agent bash calls">Agent bash 调用</th><td><code>cmd, tool_call_id</code></td><td>🤖 AI agent</td><td><button data-en="Inspect" data-source-preview="agent" type="button">查看</button></td></tr><tr><th data-en="Audit events">审计事件</th><td><code>EXECVE, ppid, uid</code></td><td data-en="Requires context">需结合上下文</td><td><button data-en="Not parsed" disabled="" type="button">尚未解析</button></td></tr></tbody></table><pre data-source-log=""></pre></div>
+<p class="demo-footnote" data-en="Only the two adapters used in the published experiments are available. Arbitrary log ingestion, script traces, and auditd/Sysmon parsing are not supported yet.">目前只提供公开实验用到的两种适配器。任意日志接入、脚本轨迹和 auditd/Sysmon 解析尚不支持。</p>
 </div>
 </section>
 <section class="section question" id="question">
 <div class="split">
 <div>
 <h2 data-en="Research">研究目标</h2>
-<p data-en="Measure how human, scripted, and agent execution affects attack activity correlation. Current public experiments contain human records and model-agent tool calls, with no matched script-execution samples.">测量人工、脚本与 Agent 执行对攻击活动关联的影响。当前公开实验只有人类操作记录与模型 Agent 工具调用，暂无匹配的脚本执行样本。</p>
+<p data-en="Measure how human, scripted, and agent execution affects attack activity correlation. Public experiments so far contain human records and model-agent tool calls, with no matched script-execution samples.">评估人类、脚本与 Agent 执行如何影响攻击活动关联。当前公开实验只有人类操作记录和模型 Agent 工具调用，没有匹配的脚本执行样本。</p>
 </div>
 <aside class="margin-note">
 <b data-en="Scope">范围</b>
-<p data-en="Activity correlation, rather than attribution to an organization. The public data has no shared-actor or campaign ground truth.">研究活动关联，不做组织归因。公开数据没有攻击者或 campaign 同源标签。</p>
+<p data-en="This is about activity correlation, not attacker attribution. The public data has no ground truth for shared actors or campaigns.">研究活动关联，不判断攻击者归属。公开数据没有“同一攻击者”或“同一攻击行动”的真值标签。</p>
 </aside>
 </div>
 </section>
 <section class="section results" id="results">
 <div class="result-intro">
-<h2 data-en-html="Trace retrieval is measurable.&lt;br&gt;&lt;span&gt;Mode effects depend on direction.&lt;/span&gt;">行为轨迹可以检索同题。<br/><span>模式信息的作用取决于方向。</span></h2>
-<p data-en="Across three public CTF suites, Human-to-Agent Recall@1 is 41.4% versus 11.6% random. Predicted mode scores add 6.8 percentage points (95% task CI −1.2 to +19.1 pp), though the interval crosses zero; Human-to-Human retrieval drops 9.8 pp.">三项公开 CTF 基准中，Human→Agent 的 Recall@1 为 41.4%，随机基线为 11.6%。加入模式分数后提升 6.8 个百分点（95% 任务区间 −1.2 至 +19.1 个百分点），但区间跨零；Human→Human 检索下降 9.8 个百分点。</p>
+<h2 data-en-html="Same-task retrieval carries signal.&lt;br&gt;&lt;span&gt;Mode information adds no stable gain.&lt;/span&gt;">同题检索有信号。<br/><span>模式信息没有<span class="title-break"></span>带来稳定增益。</span></h2>
+<p data-en="Across three public CTF suites, Human-to-Agent Recall@1 is 41.4% in the historical gallery, while a command-length control reaches 43.1%; the paired difference is −1.8 pp (95% task CI −7.1 to +2.5). In a gallery built only from held-out tasks, mode-aware retrieval reaches 63.2% versus 63.8% for the similarity baseline (−0.6 pp; 36 eligible tasks).">在三套公开 CTF 基准的历史候选库中，Human→Agent Recall@1 为 41.4%，命令数量对照为 43.1%，配对差 −1.8 个百分点（95% 任务区间 −7.1 至 +2.5）。在只用留出题目构建的候选库中，模式感知为 63.2%，相似度基线为 63.8%（−0.6 个百分点，36 个有效题目）。</p>
 </div>
 <div class="result-figures">
 <figure class="diagnostic-figure">
-<img alt="Human到Agent同题检索的七种表示结果，含任务簇95%区间和随机基线。" data-en-alt="Seven Human-to-Agent retrieval methods with task-cluster 95% intervals and a random-ranking baseline." src="assets/crossbenchmark-human-agent-retrieval.png"/>
-<figcaption data-en="Same-benchmark hard negatives; 40 task groups. Ordered action bigrams and the predicted-mode prototype reach the highest Recall@1 point estimates.">同基准困难负例，共 40 个任务组。动作 bigram 与模式感知原型的 Recall@1 点估计最高。</figcaption>
+<img alt="Human→Agent 同题检索的七种表示，含任务簇 95% 区间和随机基线。" data-en-alt="Seven Human-to-Agent same-task retrieval methods with task-cluster 95% intervals and a random baseline." src="assets/crossbenchmark-human-agent-retrieval.png"/>
+<figcaption data-en="Same-benchmark hard negatives; 40 task groups. Ordered action bigrams and the predicted-mode prototype have the highest Recall@1 point estimates.">同基准困难负例，共 40 个任务组。有序动作 bigram 和预测模式原型的 Recall@1 点估计最高。</figcaption>
 </figure>
 <figure class="diagnostic-figure">
-<img alt="按查询方向显示模式感知关联排序器相对相似度基线的Recall@1配对变化和95%区间。" data-en-alt="Paired Recall@1 changes for the mode-aware ranker versus similarity-only by query direction, with 95% intervals." src="assets/mode-aware-association-delta.png"/>
-<figcaption data-en="The paired change is positive but uncertain for Human-to-Agent and negative for Human-to-Human. Intervals resample independent task groups.">Human→Agent 增量为正但区间跨零；Human→Human 为负。区间按独立任务组重采样。</figcaption>
+<img alt="按查询方向显示模式感知排序器相对相似度基线的 Recall@1 配对变化和 95% 区间。" data-en-alt="Paired Recall@1 changes for the mode-aware ranker versus similarity-only by query direction, with 95% intervals." src="assets/mode-aware-association-delta.png"/>
+<figcaption data-en="The paired change is positive but crosses zero for Human-to-Agent, and negative for Human-to-Human. Intervals resample independent task groups.">Human→Agent 的配对增量为正，但区间跨零；Human→Human 为负。区间按独立任务组重采样。</figcaption>
 </figure>
 <figure class="diagnostic-figure">
-<img alt="命令 n-gram、命令数量和动作比例、以及基准身份三个特征集的人类与Agent记录分类结果，展示平衡准确率和ROC AUC区间。" data-en-alt="Balanced accuracy and ROC AUC for command n-grams, command-count/action-mix, and benchmark-only classification controls." src="assets/mode-classifier-controls.png"/>
-<figcaption data-en="These scores separate expert terminal records from Agent tool-call logs; the capture pathway is confounded with the trace label.">分类器区分的是专家终端记录与 Agent 工具调用日志；记录方式与标签相互混杂。</figcaption>
+<img alt="命令数量和非线性相似度对照显示，模式分数的收益并不特异；右栏把查询和候选都限制在留出折内。" data-en-alt="Command-length and nonlinear controls show that mode gains are not specific; the right panel restricts queries and candidates to held-out folds." src="assets/mode-specificity-controls.png"/>
+<figcaption data-en="The command-length control matches or exceeds the mode ranker. Restricting the gallery to held-out tasks removes its positive point estimate; candidate counts differ, so absolute scores are not comparable across panels.">命令数量对照的点估计不低于模式模型。把候选库限制在留出题目后，模式模型的点估计不再为正。两栏的候选数不同，绝对分数不能直接比较。</figcaption>
+</figure>
+<figure class="diagnostic-figure">
+<img alt="三个 Human/Agent 轨迹分类器的归一化混淆矩阵。每格颜色表示真实类别内的预测比例，并标注原始数量。" data-en-alt="Row-normalized confusion matrices for three human-versus-Agent trace classifiers. Tiles encode within-class prediction rates and show raw counts." src="assets/mode-classifier-confusion.png"/>
+<figcaption data-en="Rows are normalized within each actual class. Darker tiles mean a larger correctly or incorrectly assigned share; labels include raw counts. Capture modality is still bound to the class label.">每行按真实类别归一化；颜色越深，判对或误判的比例越高，格内同时标出原始数量。采集方式仍与类别标签绑定。</figcaption>
 </figure>
 </div>
 <div class="result-metrics">
 <article class="metric-card blue-card">
-<span data-en="Recorded-trace mode classification">记录轨迹模式分类</span>
+<span data-en="Execution-mode classification">轨迹执行方式分类</span>
 <strong>86.3%</strong>
 <small data-en="Balanced accuracy · 95% task CI 80.4–91.5%">平衡准确率 · 95% 任务区间 80.4%–91.5%</small>
 </article>
 <article class="metric-card orange-card">
-<span data-en="Human → Agent task retrieval">Human → Agent 同题检索</span>
+<span data-en="Human → Agent same-task retrieval">Human → Agent 同题检索</span>
 <strong>41.4%</strong>
 <small data-en="Recall@1 · mode-aware · random 11.6% · 95% CI 23.1–59.7%">Recall@1 · 模式感知 · 随机基线 11.6% · 95% 区间 23.1%–59.7%</small>
 </article>
 <article class="metric-card mint-card">
 <span data-en="Mode-aware Δ Recall@1">模式感知 Δ Recall@1</span>
-<strong>+6.8 pp</strong>
-<small data-en="Paired 95% task CI −1.2 to +19.1 pp">配对 95% 任务区间 −1.2 至 +19.1 个百分点</small>
+<strong>−0.6 pp</strong>
+<small data-en="Held-out-task gallery · 95% task CI −1.9 to 0.0 pp">仅留出题目候选库 · 95% 任务区间 −1.9 至 0.0 个百分点</small>
 </article>
 </div>
 <div class="metric-explain">
 <article>
 <h3 data-en="How to read 86.3%">如何读出 86.3%</h3>
-<p data-en="The score comes from 177 parseable, non-empty public traces: 57 human terminal records and 120 Agent bash tool-call records, covering 40 matched task groups (27 InterCode-CTF, 6 CyBench, 7 NYUCTF).">这个数字来自 177 条可解析的非空公开轨迹：57 条人类终端记录、120 条 Agent bash 工具调用记录，覆盖 40 个同题任务组（InterCode-CTF 27、CyBench 6、NYUCTF 7）。</p>
-<p data-en="Features use command names and their unigrams/bigrams only; prompts, task text, tool outputs, and model names are not read. Evaluation uses five benchmark/task_id GroupKFold folds: every record from one task stays in one fold, the classifier is fit on the other tasks, and intervals come from 5,000 task-cluster bootstrap samples.">特征只用命令名及其 unigram/bigram，不读提示词、任务文字、工具输出或模型名。评估按 benchmark/task_id 五折分组：同一题目的所有记录只落在一折，分类器在其余任务上拟合，再做 5,000 次任务簇 bootstrap。</p>
-<p data-en="Balanced accuracy is 86.3% (95% task-cluster CI 80.4–91.5%), with 84.2% human recall, 88.3% Agent recall, and 94.5% ROC-AUC. A command-count/action-mix control reaches only 65.0% balanced accuracy; a benchmark-name-only control has 50.1% AUC, so the score is not driven by suite identity alone.">平衡准确率 86.3%，95% 区间 80.4–91.5%；人类召回 84.2%，Agent 召回 88.3%，ROC-AUC 94.5%。命令数量与动作比例的对照只有 65.0%，仅用基准名的对照 AUC 为 50.1%，说明分数不是只由基准来源驱动。</p>
-<p data-en="But human traces are terminal recordings and Agent traces are tool-call logs; the capture pathway is bound to the label. The score measures separability of the two record types, not a real-world attacker or decision-maker identification rate, and it is not a deployable identity threshold.">但人类是终端录制、Agent 是工具调用日志，采集路径与标签完全绑定。因此它衡量两类记录的可分性，不是现实攻击者或决策主体的识别率，也不是可部署的身份判定阈值。</p>
+<p data-en="The score comes from 177 parseable, non-empty public traces: 57 human terminal records and 120 Agent bash tool-call records across 40 matched task groups (27 InterCode-CTF, 6 CyBench, 7 NYUCTF).">86.3% 来自 177 条可解析的非空公开轨迹：57 条人类终端记录、120 条 Agent bash 工具调用记录，覆盖 40 个同题任务组（InterCode-CTF 27、CyBench 6、NYUCTF 7）。</p>
+<p data-en="Features use only command names and their unigrams/bigrams; prompts, task text, tool outputs, and model names are excluded. Evaluation uses five benchmark/task_id GroupKFold folds: all records from one task stay in one fold, the classifier is fit on the other tasks, and intervals come from 5,000 task-cluster bootstrap samples.">特征只使用命令名及其 unigram/bigram，不使用提示词、任务文字、工具输出或模型名。评估按 benchmark/task_id 做五折分组：同一题目的所有记录只落在一折，分类器在其余任务上拟合，区间来自 5,000 次任务簇 bootstrap。</p>
+<p data-en="Balanced accuracy is 86.3% (95% task-cluster CI 80.4–91.5%), with 84.2% human recall, 88.3% Agent recall, and 94.5% ROC-AUC. A command-count/action-mix control reaches 65.0%, and a benchmark-name-only control has 50.1% AUC, so suite identity alone does not drive the score.">平衡准确率为 86.3%（95% 任务簇区间 80.4–91.5%），人类召回 84.2%，Agent 召回 88.3%，ROC-AUC 94.5%。命令数量与动作比例的对照为 65.0%，仅用基准名的对照 AUC 为 50.1%，说明分数不是只由基准来源驱动。</p>
+<p data-en="But human traces are terminal recordings and Agent traces are tool-call logs, so capture pathway is bound to the label. The score shows only that the two record types are separable; it is neither a real-world attacker identification rate nor a deployable identity test.">但人类轨迹来自终端录制，Agent 轨迹来自工具调用日志，采集方式与标签绑定。这个分数只说明两类记录可以区分；它既不是现实攻击者的识别率，也不能直接用来判定身份。</p>
 </article>
 <article>
 <h3 data-en="How to read 41.4%">如何读出 41.4%</h3>
-<p data-en="Candidates come only from the same benchmark: the positive is the exact benchmark/task_id, and negatives are other tasks in that benchmark. Random Recall@1 is therefore the inverse number of candidate tasks, with a three-benchmark macro average of 11.6%.">候选只来自同一基准：正例是同一 benchmark/task_id，负例是同基准其他题目，所以随机基线是候选题目数的倒数，三基准宏平均为 11.6%。</p>
-<p data-en="The predicted-mode prototype reaches 41.4% Recall@1 (95% task-cluster CI 23.1–59.7%). The similarity-only ranker reaches 34.6% (17.5–52.1%), and the ordered-action-bigram baseline also reaches 41.4% (24.5–57.6%).">模式感知原型的 Recall@1 为 41.4%，95% 任务簇区间 23.1–59.7%；仅用相似度的排序器为 34.6%（17.5–52.1%），有序动作 bigram 也是 41.4%（24.5–57.6%）。</p>
-<p data-en="By benchmark, CyBench reaches 50.0%, InterCode-CTF 24.1%, and NYUCTF 50.0%, against random baselines of 16.7%, 3.7%, and 14.3%. The macro average weights the three benchmarks equally so that InterCode's 27 tasks do not dominate.">分基准看，CyBench 50.0%、InterCode-CTF 24.1%、NYUCTF 50.0%，对应随机基线 16.7%、3.7%、14.3%。三个基准等权宏平均，避免 InterCode 的 27 个题目压过另外两个基准。</p>
-<p data-en="Intervals over 40 task groups are wide, and a task ID is only a same-task proxy, not ground truth for a shared attacker or campaign. 41.4% shows that same-task retrieval beats random; it is not a same-activity probability.">40 个题目组的区间很宽；题目 ID 只是同题代理标签，不是同一攻击者或同一 campaign 的真值。41.4% 说明同题检索高于随机，不能当作活动同源概率。</p>
+<p data-en="Candidates come only from the same benchmark: the positive is the exact benchmark/task_id, and negatives are other tasks in that benchmark. Random Recall@1 is therefore the inverse of the candidate-task count, with a three-benchmark macro average of 11.6%.">候选只来自同一基准：正例是同一 benchmark/task_id，负例是同基准的其他题目。因此随机基线等于候选题目数的倒数，三基准宏平均为 11.6%。</p>
+<p data-en="The predicted-mode prototype reaches 41.4% Recall@1 (95% task-cluster CI 23.1–59.7%). The similarity-only ranker reaches 34.6% (17.5–52.1%), and the ordered-action-bigram baseline also reaches 41.4% (24.5–57.6%).">模式感知原型的 Recall@1 为 41.4%（95% 任务簇区间 23.1–59.7%）；仅用相似度的排序器为 34.6%（17.5–52.1%），有序动作 bigram 也是 41.4%（24.5–57.6%）。</p>
+<p data-en="By benchmark, CyBench reaches 50.0%, InterCode-CTF 24.1%, and NYUCTF 50.0%, against random baselines of 16.7%, 3.7%, and 14.3%. The macro average weights the three benchmarks equally, so InterCode's 27 tasks do not dominate.">分基准看，CyBench 为 50.0%，InterCode-CTF 为 24.1%，NYUCTF 为 50.0%；随机基线分别为 16.7%、3.7%、14.3%。宏平均对三个基准等权，避免 InterCode 的 27 个题目主导结果。</p>
+<p data-en="Intervals over 40 task groups are wide. A task ID only shows that two traces solve the same task; it is not ground truth for a shared attacker or campaign. 41.4% means same-task retrieval beats random; it is not a probability of shared activity.">40 个题目组的区间很宽。题目 ID 只能说明题目相同，不能说明攻击者或 campaign 同源；41.4% 说明同题检索高于随机，不是活动同源的概率。</p>
 </article>
 <article>
 <h3 data-en="How to read +6.8 pp">如何读出 +6.8 pp</h3>
-<p data-en="This is a paired difference on the same query–candidate pairs: the mode-aware ranker minus a similarity-only ranker built from command cosine and ordered-action-bigram cosine. Mode probabilities are predicted out of fold inside each outer training set; no true mode label is used at inference.">这是同一批查询—候选对上的配对差：模式感知排序器减去只用命令余弦和动作 bigram 余弦的相似度排序器。模式概率在外层训练折内再做按题目折外预测，推理时不使用真实模式标签。</p>
-<p data-en="For Human→Agent, Recall@1 rises by 6.8 percentage points in point estimate, but the 95% task interval is −1.2 to +19.1 and crosses zero. MRR changes by +0.039 (−0.006 to +0.100) and query AUC by +0.015 (−0.005 to +0.040); neither establishes a stable gain.">Human→Agent 的 Recall@1 点估计提高 6.8 个百分点，但 95% 任务区间 −1.2 至 +19.1 跨零；MRR 增量 +0.039（−0.006 至 +0.100），查询 AUC +0.015（−0.005 至 +0.040），都没有形成稳定增益。</p>
-<p data-en="The direction is inconsistent: Agent→Agent +1.2 (−1.6 to +5.1), Agent→Human +2.4 (−1.2 to +6.8), and Human→Human −9.8 (−18.9 to −0.7, 17 tasks). An oracle-mode diagnostic also fails to improve Human→Agent (34.6%) and is not deployable.">方向也不一致：Agent→Agent +1.2（−1.6 至 +5.1），Agent→Human +2.4（−1.2 至 +6.8），Human→Human −9.8（−18.9 至 −0.7，17 个题目）。真实模式标签的诊断对照没有改善 Human→Agent（34.6%），且该对照不可部署。</p>
-<p data-en="The evidence therefore supports further controlled testing of mode conditioning, not a claim that identifying an Agent restores activity correlation. It also cannot rule out harm to same-mode retrieval; shared telemetry, script controls, and independent activity labels are still required.">因此当前证据支持“模式条件化值得继续检验”，不足以声称识别 Agent 后就能恢复活动关联，也不能排除同模式检索受损。需要统一遥测、脚本对照和独立活动真值的受控实验。</p>
+<p data-en="This is a paired difference on the same query–candidate pairs: the mode-aware ranker minus a similarity-only ranker built from command cosine and ordered-action-bigram cosine. Mode probabilities are predicted out of fold within each training set; no true mode label is used at inference.">这是同一批查询—候选对上的配对差：模式感知排序器减去只用命令余弦和动作 bigram 余弦的相似度排序器。模式概率在每折训练集内做折外预测，推理时不使用真实模式标签。</p>
+<p data-en="For Human→Agent, Recall@1 rises by 6.8 percentage points in point estimate, but the 95% task interval is −1.2 to +19.1 and crosses zero. MRR changes by +0.039 (−0.006 to +0.100) and query AUC by +0.015 (−0.005 to +0.040); both intervals also cross zero.">Human→Agent 的 Recall@1 点估计提高 6.8 个百分点，但 95% 任务区间为 −1.2 至 +19.1，跨零；MRR 变化 +0.039（−0.006 至 +0.100），查询 AUC 变化 +0.015（−0.005 至 +0.040），区间同样跨零。</p>
+<p data-en="The direction is inconsistent: Agent→Agent +1.2 (−1.6 to +5.1), Agent→Human +2.4 (−1.2 to +6.8), and Human→Human −9.8 (−18.9 to −0.7, 17 tasks). Replacing predicted scores with true mode labels still yields only 34.6% for Human→Agent, and that setting is not deployable.">方向也不一致：Agent→Agent +1.2（−1.6 至 +5.1），Agent→Human +2.4（−1.2 至 +6.8），Human→Human −9.8（−18.9 至 −0.7，17 个题目）。即使用真实模式标签替换预测分数，Human→Agent 也只有 34.6%，而且这种设置无法部署。</p>
+<p data-en="A later length-conditioned control helps explain the gain: the command-length control reaches 43.1%, 1.8 pp above mode-aware retrieval (95% CI −7.1 to +2.5). In the held-out-task gallery, mode-aware retrieval is 0.6 pp below the similarity baseline (−1.9 to 0.0). The +6.8 pp gain is therefore better explained by trace length and other confounds than by mode supervision itself.">后续的长度条件化对照有助于解释这部分增量：命令数量对照达到 43.1%，比模式感知高 1.8 个百分点（95% 区间 −7.1 至 +2.5）。在只用留出题目的候选库中，模式感知比相似度基线低 0.6 个百分点（−1.9 至 0.0）。+6.8 个百分点更可能来自轨迹长度等混杂因素，而不是模式监督本身。</p>
+<p data-en="The results show no stable benefit from mode conditioning, and possible harm to Human→Human retrieval. Testing it properly requires shared telemetry, script controls, and independent activity labels.">这些结果说明：模式条件化还没有稳定收益，Human→Human 甚至可能受损。要判断它是否有效，需要统一遥测、脚本对照组和独立的活动标签。</p>
 </article>
 </div>
-<p class="caveat"><span>!</span><span class="i18n-text" data-en="Human and Agent traces use different capture paths; task IDs are CTF proxies, and script traces are absent. These results establish trace-level task retrieval and record separability, not real-world actor attribution.">人类与 Agent 轨迹来自不同采集路径；题目 ID 只是 CTF 代理标签，且缺少脚本轨迹。以上结果说明的是轨迹级任务检索与记录可分性，不是现实主体归因。</span></p>
+<p class="caveat"><span>!</span><span class="i18n-text" data-en="Human traces come from terminal recordings and Agent traces from tool-call logs, so capture pathways differ. Task IDs are CTF same-task proxies, and script traces are absent. These results cover trace-level task retrieval and record separability only, not real-world attacker attribution.">人类轨迹来自终端录制，Agent 轨迹来自工具调用日志，采集方式不同；题目 ID 只是 CTF 的同题代理，而且没有脚本轨迹。这里的结果只覆盖轨迹级任务检索和记录可分性，不涉及现实攻击者归因。</span></p>
 <div class="result-links">
 <a data-en="Prototype and results" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/06-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E8%B7%A8%E5%9F%BA%E5%87%86%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md">原型与结果</a>
 <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/notebooks/02_mode_aware_association.ipynb">Notebook</a>
+<a data-en="Specificity controls JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/specificity_controls.json">特异性对照 JSON</a>
+<a data-en="Control experiment scripts" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/run_specificity_controls.py">对照实验脚本</a>
+<a data-en="Paper TeX and figures" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/paper">论文 TeX 与图表</a>
 <a data-en="Results JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/results">结果 JSON</a>
 </div>
 </section>
@@ -203,21 +212,21 @@
 </div>
 <aside class="margin-note blue-note">
 <b data-en="Fixed task split">固定任务划分</b>
-<p data-en="All 40 benchmark-task groups stay within one of five folds. Intervals use 5,000 task-cluster bootstrap samples.">40 个基准—题目组整体留在五折中的一折。区间按任务聚类 bootstrap 5,000 次。</p>
+<p data-en="All 40 benchmark-task groups stay within one of five folds. Intervals come from 5,000 task-cluster bootstrap samples.">40 个基准下的题目组整体落在五折中的一折。区间来自 5,000 次按任务聚类的 bootstrap。</p>
 </aside>
 </div>
 <div class="data-grid">
-<article><strong>177</strong><span data-en="Non-empty traces">非空轨迹</span><small data-en="57 human terminal · 120 Agent tool-call">57 条人类终端 · 120 条 Agent 工具调用</small></article>
-<article><strong>40</strong><span data-en="Paired task groups">配对任务组</span><small data-en="6 CyBench · 27 InterCode · 7 NYUCTF">CyBench 6 · InterCode 27 · NYUCTF 7</small></article>
-<article><strong>3</strong><span data-en="Benchmark suites">基准套件</span><small data-en="Sonnet 4.6 · Opus 4.6 · GPT-5.5 agents">Agent 使用 Sonnet 4.6 · Opus 4.6 · GPT-5.5</small></article>
+<article><strong>177</strong><span data-en="Non-empty traces">非空轨迹</span><small data-en="57 human terminal · 120 Agent tool calls">57 条人类终端 · 120 条 Agent 工具调用</small></article>
+<article><strong>40</strong><span data-en="Matched task groups">匹配任务组</span><small data-en="6 CyBench · 27 InterCode · 7 NYUCTF">CyBench 6 · InterCode 27 · NYUCTF 7</small></article>
+<article><strong>3</strong><span data-en="Benchmark suites">三套基准</span><small data-en="Sonnet 4.6 · Opus 4.6 · GPT-5.5 agents">Agent 使用 Sonnet 4.6 · Opus 4.6 · GPT-5.5</small></article>
 </div>
 <div aria-label="实验流程" class="workflow" data-en-aria-label="Experiment workflow">
 <article><span>01</span><b data-en="Trace sources">日志来源</b><small data-en="Three public suites · human and Agent records">三个公开基准 · 人类与 Agent 记录</small></article>
 <article><span>02</span><b data-en="Behavioral features">行为特征</b><small data-en="Command n-grams · ordered action bigrams">命令 n-gram · 有序动作 bigram</small></article>
-<article><span>03</span><b data-en="Mode head">执行模式头</b><small data-en="Five-fold task holdout · capture path is confounded">五折按任务留出 · 采集方式存在混杂</small></article>
-<article><span>04</span><b data-en="Association ranker">关联排序器</b><small data-en="Same-suite positives · cross-task hard negatives">同基准同题正例 · 异题困难负例</small></article>
+<article><span>03</span><b data-en="Mode head">执行模式头</b><small data-en="Five-fold task holdout · capture pathway is bound to the label">五折按任务留出 · 采集方式与标签绑定</small></article>
+<article><span>04</span><b data-en="Association ranker">关联排序器</b><small data-en="Same-benchmark positives · cross-task hard negatives">同基准同题正例 · 异题困难负例</small></article>
 </div>
-<p class="caption" data-en="Features come from human terminal input and Agent bash tool calls; prompts, task text, outputs, model names, timestamps, and paths are excluded. The 300 Python calls are omitted from primary features. This prototype evaluates the selected trace format and does not yet parse arbitrary auditd or Sysmon logs. A shared CTF task ID is a retrieval proxy, not an activity label.">特征来自人类终端输入和 Agent bash 工具调用；排除提示词、题目文本、输出、模型名、时间戳和路径。300 次 Python 调用不纳入主特征。原型评估的是所选轨迹格式，尚不解析任意 auditd 或 Sysmon 日志。同一 CTF 题目 ID 是检索代理标签，不是攻击活动标签。</p>
+<p class="caption" data-en="Features come from human terminal input and Agent bash tool calls; prompts, task text, outputs, model names, timestamps, and paths are excluded. The 300 Python calls are omitted from primary features. The prototype handles only the selected trace format and does not yet parse arbitrary auditd or Sysmon logs. A shared CTF task ID is used only for retrieval, not as an activity label.">特征来自人类终端输入和 Agent bash 工具调用；提示词、题目文本、输出、模型名、时间戳和路径都不使用。300 次 Python 调用不纳入主特征。原型只处理这里选定的轨迹格式，尚不解析任意 auditd 或 Sysmon 日志。同一 CTF 题目 ID 只用于检索，不是攻击活动标签。</p>
 <div class="candidate-data">
 <b data-en="Candidate datasets for follow-up">后续可用的数据底座</b>
 <a href="https://github.com/FiveDirections/OpTC-data">OpTC <span data-en="Real red-team telemetry; large, with no execution-mode labels">真实红队遥测；体量大，缺执行方式标签</span></a>
@@ -227,7 +236,7 @@
 <details class="source-details"><summary data-en="Reproduce the experiment from source">从源码复现实验</summary><div class="quickstart" id="source-reproduction">
 <div class="quickstart-copy">
 <h3 data-en="Available now: reproduce from source">当前可用：从源码复现</h3>
-<p data-en="Python 3.10+; no Conda required. Fetch the pinned traces, run the task-held-out baselines and prototype, then regenerate paper figures. PyPI release is planned for 2027.">Python 3.10+，无需 Conda。下载固定版本轨迹后运行任务留出基线、原型并重生成论文图。PyPI 计划于 2027 年上线。</p>
+<p data-en="Python 3.10+; no Conda required. Fetch the pinned traces, run the task-held-out baselines and prototype, then regenerate the paper figures. PyPI release is planned for 2027.">Python 3.10+，无需 Conda。下载固定版本轨迹，运行任务留出基线、原型，再重新生成论文图。PyPI 计划于 2027 年上线。</p>
 </div>
 <div class="quickstart-terminal">
 <div class="terminal-head"><span data-en="Source reproduction">源码复现</span><button class="copy-button" data-copy="quickstart-command" data-en="Copy" type="button">复制</button></div>
@@ -239,42 +248,46 @@ python3 -m venv .venv
 .venv/bin/python scripts/download_crossbenchmark_traces.py
 .venv/bin/python scripts/run_crossbenchmark_experiments.py
 .venv/bin/python scripts/run_mode_aware_association.py
+.venv/bin/python scripts/run_specificity_controls.py
 .venv/bin/python scripts/generate_paper_figures.py
 .venv/bin/python -m unittest discover -s tests -v</code></pre>
 </div>
 <div class="quickstart-output">
-<div class="terminal-head"><span data-en="Result excerpt / crossbenchmark_exploration.json">结果摘录 / crossbenchmark_exploration.json</span><span data-en="5 task-grouped folds">五折按任务组留出</span></div>
+<div class="terminal-head"><span data-en="Result excerpt / results/*.json">结果摘录 / results/*.json</span><span data-en="5 task-grouped folds">五折按任务组留出</span></div>
 <pre><code>{
   "traces": { "human": 57, "agent": 120 },
   "matched_task_groups": 40,
   "mode_classifier": { "balanced_accuracy": <em>0.863</em> },
   "human_to_agent": { "recall_at_1": <b>0.414</b>, "random": 0.116 },
-  "mode_aware_delta": { "recall_at_1": 0.068, "ci95": [-0.012, 0.191] }
+  "mode_aware_delta": { "recall_at_1": 0.068, "ci95": [-0.012, 0.191] },
+  "length_control": { "recall_at_1": 0.431 },
+  "mode_minus_length": { "recall_at_1": -0.018, "ci95": [-0.071, 0.025] },
+  "heldout_mode_minus_similarity": { "recall_at_1": -0.006, "ci95": [-0.019, 0.000] }
 }</code></pre>
-<small data-en="Aggregate outputs from the reproducible scripts. JSON keeps the source ratios as decimals; the page reports them as percentages. Shared CTF tasks are retrieval labels, not shared-actor ground truth.">脚本输出的聚合结果；JSON 保留原始小数比例，正文按百分比展示。同一 CTF 题目是检索标签，不代表同一攻击者或活动。</small>
+<small data-en="Aggregate outputs from the reproducible scripts. JSON keeps the source decimals; the page reports percentages. Shared CTF tasks serve only as retrieval labels.">脚本输出的聚合结果；JSON 保留原始小数，正文按百分比展示。同一 CTF 题目只作检索标签。</small>
 </div>
 </div></details>
 </section>
 <section class="section related" id="related">
 <h2 data-en="Related work">相关工作</h2>
-<p class="related-scope" data-en="Scoping search, October 2026: behavior identification, attack-log correlation, and methodological analogies. Generated-text studies analyze text, not system logs.">范围性检索，2026-10：行为识别、攻击日志关联与检测方法类比。AIGC 工作输入是文本，不是系统日志。</p>
+<p class="related-scope" data-en="Literature search, October 2026: behavior identification, attack-log correlation, and methodological analogies. Generated-text studies analyze text, not system logs.">文献检索（2026 年 10 月）：行为识别、攻击日志关联和方法类比。生成内容检测研究的输入是文本，不是系统日志。</p>
 <div class="related-drawers">
 <details class="related-details related-category">
 <summary><span class="related-category-title" data-en="Activity and alert correlation">活动与告警关联</span><span class="related-category-note" data-en="Behavior similarity, attack stages, and causal relationships">行为相似、攻击步骤、因果关系</span><span class="related-count" data-en="8 studies">8 项</span></summary>
 <div class="related-category-content">
-<p class="related-category-intro" data-en="These methods combine events, alerts, or host traces into activity or campaign candidates. Their targets and labels differ.">这类方法将事件、告警或主机轨迹组合为活动或 campaign 候选；目标和标签并不完全相同。</p>
+<p class="related-category-intro" data-en="These methods combine events, alerts, or host traces into activity or campaign candidates. Their targets and labels differ.">这类方法把事件、告警或主机轨迹组合成活动或 campaign 候选；各自的目标和标签各不相同。</p>
 <div class="related-table-wrap">
 <table class="related-table">
 <thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
 <tbody>
-<tr class="direct-work"><td data-en="Log correlation survey">日志关联综述</td><td><a href="https://doi.org/10.1016/j.jisa.2025.104096">System log correlation (JISA 2025)</a><small data-en="62 papers, 26 tools">62 篇论文，26 种工具</small></td><td data-en="Reviews log correlation for cyberattack detection and prediction, highlighting reliability issues involving spurious correlations, missing data, and threshold choices.">回顾用于网络攻击检测和预测的日志关联方法，并指出虚假相关、缺失数据与阈值设置等可靠性问题。</td></tr>
-<tr class="direct-work"><td data-en="Correlation survey">关联综述</td><td><a href="https://doi.org/10.1109/ACCESS.2022.3168976">Security event correlation (IEEE Access 2022)</a><small data-en="Systematic review, 127 papers">系统综述，127 篇</small></td><td data-en="Reviews security event correlation systems, grouping similarity-based, step-based, and hybrid methods, alongside datasets and evaluation metrics. Event correlation is an established research area.">覆盖安全事件关联系统，归纳相似度、步骤式和混合方法，并整理数据集与评估指标；说明事件关联是成熟研究方向。</td></tr>
-<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://arxiv.org/abs/2312.09321">Ostinato (2023)</a><small data-en="Behavioral graph similarity">行为图相似度</small></td><td data-en="Compares host provenance graphs annotated with TTPs to extend attack activities in a 500-host red-team setting. Results are not stratified by human, scripted, or agent execution.">比较带 TTP 标签的主机溯源图，在 500 台主机的红队场景中扩展攻击活动；未按人、脚本或 Agent 执行方式分层。</td></tr>
-<tr class="direct-work"><td data-en="Causal correlation">因果关联</td><td><a href="https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf">HOLMES · IEEE S&amp;P 2019</a><small data-en="Audit logs and information flow">审计日志与信息流</small></td><td data-en="Combines multi-host audit behavior and information flow into campaign signals. Public evaluations do not report execution-mode labels.">将多主机审计行为与信息流组合为 campaign 信号；公开评估未报告执行方式标签。</td></tr>
-<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://doi.org/10.1145/3488932.3523261">SteinerLog · ASIA CCS 2022</a><small data-en="Causal alert graphs">告警因果图</small></td><td data-en="Uses causal analysis and hierarchical graph traversal to correlate enterprise attack activities. The abstract does not provide an execution-mode comparison.">用因果分析和层级图遍历关联企业内的攻击活动；摘要未提供执行方式对照。</td></tr>
-<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · arXiv 2024</a><small data-en="Logs to ATT&amp;CK / campaigns">日志到 ATT&amp;CK / campaign</small></td><td data-en="Maps audit logs to techniques and known campaigns. Adjacent to activity correlation, without execution-mode labels.">从审计日志映射技术并关联已知 campaign；邻近活动关联问题，但没有参与方式标签。</td></tr>
-<tr><td data-en="APT behavior survey">APT 行为综述</td><td><a href="https://academic.oup.com/cybersecurity/article/10/1/tyad023/7504935">APT detection review · Journal of Cybersecurity 2024</a><small data-en="45 studies on behavioral similarity and causal correlation">45 项研究，行为相似与因果关联</small></td><td data-en="Surveys similarity, causality, structure, and case-based methods for APT detection. Some address tasks other than identity correlation across activities.">归纳 APT 检测中的相似度、因果、结构和案例方法；覆盖的不全是跨活动身份关联。</td></tr>
-<tr><td data-en="Alert sequences">告警序列</td><td><a href="https://doi.org/10.1109/ACCESS.2019.2930200">HMM alert correlation · IEEE Access 2019</a><small data-en="IP addresses, hosts, time windows, and synthetic alerts">IP、主机、时间窗与合成告警</small></td><td data-en="Clusters alerts by attributes and time windows, then infers APT stages with an HMM. Results use synthetic data, rather than a fine-grained host-behavior similarity benchmark.">先按告警属性和时间窗聚类，再用 HMM 推断 APT 阶段；结果来自合成数据，不是细粒度主机行为相似度评估。</td></tr>
+<tr class="direct-work"><td data-en="Log correlation survey">日志关联综述</td><td><a href="https://doi.org/10.1016/j.jisa.2025.104096">System log correlation (JISA 2025)</a><small data-en="62 papers, 26 tools">62 篇论文，26 种工具</small></td><td data-en="Reviews log correlation for cyberattack detection and prediction, highlighting reliability issues involving spurious correlations, missing data, and threshold choices.">综述用于网络攻击检测和预测的日志关联方法，并指出虚假相关、缺失数据和阈值设置等可靠性问题。</td></tr>
+<tr class="direct-work"><td data-en="Correlation survey">关联综述</td><td><a href="https://doi.org/10.1109/ACCESS.2022.3168976">Security event correlation (IEEE Access 2022)</a><small data-en="Systematic review, 127 papers">系统综述，127 篇</small></td><td data-en="Reviews security event correlation systems, grouping similarity-based, step-based, and hybrid methods, alongside datasets and evaluation metrics. Event correlation is an established research area.">综述安全事件关联系统，归纳基于相似度、攻击步骤和混合策略的方法，并整理数据集与评估指标。事件关联已是成熟研究方向。</td></tr>
+<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://arxiv.org/abs/2312.09321">Ostinato (2023)</a><small data-en="Behavioral graph similarity">行为图相似度</small></td><td data-en="Compares host provenance graphs annotated with TTPs to extend attack activities in a 500-host red-team setting. Results are not stratified by human, scripted, or agent execution.">比较带 TTP 标签的主机溯源图，在 500 台主机的红队场景中扩展攻击活动范围；结果没有按人、脚本或 Agent 执行方式分层。</td></tr>
+<tr class="direct-work"><td data-en="Causal correlation">因果关联</td><td><a href="https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf">HOLMES · IEEE S&amp;P 2019</a><small data-en="Audit logs and information flow">审计日志与信息流</small></td><td data-en="Combines multi-host audit behavior and information flow into campaign signals. Public evaluations do not report execution-mode labels.">把多主机审计行为和信息流组合成 campaign 信号；公开评估没有报告执行方式标签。</td></tr>
+<tr class="direct-work"><td data-en="Cross-host correlation">跨主机关联</td><td><a href="https://doi.org/10.1145/3488932.3523261">SteinerLog · ASIA CCS 2022</a><small data-en="Causal alert graphs">告警因果图</small></td><td data-en="Uses causal analysis and hierarchical graph traversal to correlate enterprise attack activities. The abstract does not provide an execution-mode comparison.">用因果分析和层级图遍历关联企业内的攻击活动；摘要没有提供执行方式对照。</td></tr>
+<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/2410.22602">SFM · arXiv 2024</a><small data-en="Logs to ATT&amp;CK / campaigns">日志到 ATT&amp;CK / campaign</small></td><td data-en="Maps audit logs to techniques and known campaigns. Close to activity correlation, without execution-mode labels.">从审计日志映射攻击技术并关联已知 campaign；与活动关联相近，但没有执行方式标签。</td></tr>
+<tr><td data-en="APT behavior survey">APT 行为综述</td><td><a href="https://academic.oup.com/cybersecurity/article/10/1/tyad023/7504935">APT detection review · Journal of Cybersecurity 2024</a><small data-en="45 studies on behavioral similarity and causal correlation">45 项研究，行为相似与因果关联</small></td><td data-en="Surveys similarity, causality, structure, and case-based methods for APT detection. Not all of them study identity correlation across activities.">归纳 APT 检测中的相似度、因果、结构和案例方法；并非所有方法都研究跨活动的身份关联。</td></tr>
+<tr><td data-en="Alert sequences">告警序列</td><td><a href="https://doi.org/10.1109/ACCESS.2019.2930200">HMM alert correlation · IEEE Access 2019</a><small data-en="IP addresses, hosts, time windows, and synthetic alerts">IP、主机、时间窗与合成告警</small></td><td data-en="Clusters alerts by attributes and time windows, then infers APT stages with an HMM. Evaluation uses synthetic data, not a fine-grained host-behavior similarity benchmark.">先按告警属性和时间窗聚类，再用 HMM 推断 APT 阶段；评估基于合成数据，没有使用细粒度主机行为相似度基准。</td></tr>
 </tbody>
 </table>
 </div>
@@ -283,15 +296,15 @@ python3 -m venv .venv
 <details class="related-details related-category">
 <summary><span class="related-category-title" data-en="Attack stories and intelligence matching">攻击故事与情报匹配</span><span class="related-category-note" data-en="Single-attack path reconstruction and CTI-to-log matching">单次攻击路径重建、CTI 到日志匹配</span><span class="related-count" data-en="4 studies">4 项</span></summary>
 <div class="related-category-content">
-<p class="related-category-intro" data-en="These studies reconstruct paths within an attack or match threat-intelligence graphs to audit records. They are adjacent to activity correlation, without identifying the operator.">这些工作重建一次攻击内部的路径，或将威胁情报图匹配到审计记录；与活动关联相邻，但不判断操作者。</p>
+<p class="related-category-intro" data-en="These studies reconstruct paths within an attack or match threat-intelligence graphs to audit records. They are close to activity correlation but do not identify the operator.">这些工作重建一次攻击内部的路径，或把威胁情报图匹配到审计记录；与活动关联相近，但不判断操作者。</p>
 <div class="related-table-wrap">
 <table class="related-table">
 <thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
 <tbody>
-<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/hossain">SLEUTH · USENIX Security 2017</a><small data-en="Provenance graph compression">溯源图压缩</small></td><td data-en="Compresses audit-event dependency graphs to reconstruct attack activities. Reconstructs a story within a graph, without identifying its operator.">从审计事件依赖图压缩并重建攻击活动；解决图内攻击故事重建，不标识操作者。</td></tr>
-<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE · ACSAC 2016</a><small data-en="Weighted log graphs">加权日志图</small></td><td data-en="Uses community detection to reconstruct multistage attacks from heterogeneous logs. Demonstrates a practical use for behavioral correlation, without execution-mode labels.">以社区发现从异构日志中重建多阶段攻击；展示行为关联的实际用途，不含执行方式标签。</td></tr>
-<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/1910.00056">POIROT · ACM CCS 2019</a><small data-en="CTI graphs ↔ provenance graphs">CTI 图 ↔ 来源图</small></td><td data-en="Aligns attack graphs from threat intelligence with audit-log provenance graphs to hunt known attack activities. Does not compare human and agent execution.">将威胁情报中的攻击图与审计日志来源图对齐，用于已知攻击活动搜寻；不比较人类与 Agent 执行。</td></tr>
-<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS · USENIX Security 2021</a><small data-en="Causal and semantic sequences">因果与语义序列</small></td><td data-en="Recovers attack stories from system audit logs. Focuses on causal reconstruction within an activity, without classifying the operator.">从系统审计日志恢复攻击故事；关注活动内部的因果重建，不判断操作者类别。</td></tr>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/hossain">SLEUTH · USENIX Security 2017</a><small data-en="Provenance graph compression">溯源图压缩</small></td><td data-en="Compresses audit-event dependency graphs to reconstruct attack activities. It reconstructs a story within a graph without identifying the operator.">压缩审计事件依赖图并重建攻击活动；重建的是图内部的攻击故事，不标识操作者。</td></tr>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE · ACSAC 2016</a><small data-en="Weighted log graphs">加权日志图</small></td><td data-en="Uses community detection to reconstruct multistage attacks from heterogeneous logs. Demonstrates a practical use for behavioral correlation, without execution-mode labels.">用社区发现从异构日志中重建多阶段攻击；展示了行为关联的实际用途，但不含执行方式标签。</td></tr>
+<tr><td data-en="Log correlation">日志关联</td><td><a href="https://arxiv.org/abs/1910.00056">POIROT · ACM CCS 2019</a><small data-en="CTI graphs ↔ provenance graphs">CTI 图 ↔ 溯源图</small></td><td data-en="Aligns attack graphs from threat intelligence with audit-log provenance graphs to hunt known attack activities. Does not compare human and agent execution.">把威胁情报中的攻击图与审计日志溯源图对齐，用于搜寻已知攻击活动；不比较人类与 Agent 执行。</td></tr>
+<tr><td data-en="Attack stories">攻击故事</td><td><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS · USENIX Security 2021</a><small data-en="Causal and semantic sequences">因果与语义序列</small></td><td data-en="Recovers attack stories from system audit logs. Focuses on causal reconstruction within an activity, without classifying the operator.">从系统审计日志恢复攻击故事；侧重活动内部的因果重建，不判断操作者类别。</td></tr>
 </tbody>
 </table>
 </div>
@@ -300,19 +313,19 @@ python3 -m venv .venv
 <details class="related-details related-category">
 <summary><span class="related-category-title" data-en="Executor identification and trace representation">执行者识别与轨迹表示</span><span class="related-category-note" data-en="Humans, agents, model fingerprints, and operation traces">Human、Agent、模型指纹与操作轨迹</span><span class="related-count" data-en="8 studies">8 项</span></summary>
 <div class="related-category-content">
-<p class="related-category-intro" data-en="Includes distinguishing humans from agents, identifying an agent's underlying model, and comparing operation traces. Collection pipelines and research targets vary substantially.">包含直接区分人类与 Agent、推断 Agent 模型身份或比较操作轨迹；采集方式和研究目标差异较大。</p>
+<p class="related-category-intro" data-en="Includes distinguishing humans from agents, identifying an agent's underlying model, and comparing operation traces. Collection pipelines and research targets vary substantially.">包括区分人类与 Agent、推断 Agent 的底层模型，以及比较操作轨迹；采集方式和研究目标差异很大。</p>
 <div class="related-table-wrap">
 <table class="related-table">
 <thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
 <tbody>
-<tr class="direct-work"><td data-en="Log-based identification">日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small data-en="Preprint / under review">预印研究 / 论文审稿中</small></td><td data-en="Distinguishes human and LLM operations agents using Linux audit, syslog, and application logs. Closely related to identifying execution mode from logs, but outside attack scenarios, without a script group or activity-correlation evaluation.">用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别参与方式”最直接相邻，但不是攻击场景，无脚本组或活动关联评测。</td></tr>
-<tr class="direct-work"><td data-en="Behavioral identification">行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small data-en="Human versus shopping-agent sessions">人类与购物 Agent 会话区分</small></td><td data-en="Aggregates weak behavioral signals into session features. Strong classifiers perform similarly; the contribution is primarily the behavioral perspective. It does not study attack-host telemetry or activity correlation.">把多类弱行为信号汇总为 session 特征；同类强分类器表现相近，贡献主要在行为视角。不同于攻击主机遥测，也不测攻击活动关联。</td></tr>
-<tr><td data-en="Browser identification">浏览器识别</td><td><a href="https://arxiv.org/abs/2607.26935">Agent detection · 2026</a><small data-en="Browser automation traces">浏览器自动化轨迹</small></td><td data-en="Distinguishes humans, bots, and agents, relying mainly on missing Playwright input events. Supports three-way evaluation, while exposing a dependency on browser telemetry.">区分 Human / Bot / Agent；主要判别信号来自 Playwright 输入事件缺失。说明三分类很重要，但该指纹依赖浏览器遥测。</td></tr>
-<tr><td data-en="Threat analysis">威胁分析</td><td><a href="https://www.sei.cmu.edu/library/observational-humanai-ohai-a-defender-attribution-framework-for-distinguishing-human-vs-ai-threats/">OHAI · CMU SEI 2025</a><small data-en="Framework and public cases">框架与公开案例</small></td><td data-en="Proposes an analytical workflow for human / AI threat attribution. Existing precedents mean distinguishing humans from AI is insufficient as a standalone novelty claim.">提出人类 / AI 威胁归因的分析流程；已有工作先例意味着不能把“区分人和 AI”单独作为新颖性。</td></tr>
-<tr><td data-en="Attack trace fingerprints">攻击轨迹指纹</td><td><a href="https://arxiv.org/abs/2605.01186">Trace · 2026</a><small data-en="Terminal command sequences">终端命令序列</small></td><td data-en="Identifies attack-agent model families and explores defensive prompt injection. Identifies which model, rather than human / script / agent execution.">识别攻击 Agent 的模型家族，并探索防御性提示注入；识别的是“哪个模型”，不是“人 / 脚本 / Agent”。</td></tr>
-<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2609.28559">LIDAR · 2026</a><small data-en="Active probes + probabilistic identification">主动探针 + 概率识别器</small></td><td data-en="Identifies underlying models through agent verification and failure-recovery behavior. Requires active probes and clean references; the target differs.">利用 Agent 的验证、失败恢复等行为识别底层模型；需要主动探针与干净参考，问题目标不同。</td></tr>
-<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2610.32092">AgentTrace · 2026</a><small data-en="Execution-level sequences">执行级序列</small></td><td data-en="Induces tool-interface failures and analyzes repair sequences to identify the model. It is not passive classification of defender-side logs.">诱发工具接口失败，分析后续修复序列识别模型；不是被动防守侧日志分类。</td></tr>
-<tr><td data-en="Trace representation">轨迹表示</td><td><a href="https://arxiv.org/abs/2606.16988">ProcGrep · 2026</a><small data-en="Programmatic behavior representations">程序化行为表示</small></td><td data-en="Encodes action sequences as program-frequency distributions and compares them using JSD. A useful trace-comparison idea; the paper studies coding-agent workflows, not shared attack origins.">将动作序列编码为程序频率分布并计算 JSD；可借鉴轨迹比较，论文任务是编码 Agent 工作流，不是攻击同源性。</td></tr>
+<tr class="direct-work"><td data-en="Log-based identification">日志识别</td><td><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT / AECID · 2026</a><small data-en="Preprint / under review">预印研究 / 论文审稿中</small></td><td data-en="Distinguishes human and LLM operations agents using Linux audit, syslog, and application logs. Closest to identifying execution mode from logs, but outside attack scenarios and without a script control group or activity-correlation evaluation.">用 Linux audit、syslog 和应用日志区分人类与 LLM 运维 Agent；与“从日志识别执行方式”最接近，但不是攻击场景，也没有脚本对照组或活动关联评估。</td></tr>
+<tr class="direct-work"><td data-en="Behavioral identification">行为识别</td><td><a href="https://aclanthology.org/2026.realm-1.64/">HABITS · REALM 2026</a><small data-en="Human versus shopping-agent sessions">人类与购物 Agent 会话区分</small></td><td data-en="Aggregates weak behavioral signals into session features. Strong classifiers perform similarly; the contribution is mainly the behavioral perspective. It does not study attack-host telemetry or activity correlation.">把多类弱行为信号汇总为 session 特征；强分类器之间的表现接近，贡献主要是行为视角。它不研究攻击主机遥测，也不评估攻击活动关联。</td></tr>
+<tr><td data-en="Browser identification">浏览器识别</td><td><a href="https://arxiv.org/abs/2607.26935">Agent detection · 2026</a><small data-en="Browser automation traces">浏览器自动化轨迹</small></td><td data-en="Distinguishes humans, bots, and agents, relying mainly on missing Playwright input events. Supports three-way evaluation, while exposing a dependency on browser telemetry.">区分 Human / Bot / Agent；主要判别信号来自 Playwright 输入事件缺失。支持三分类评估，但该指纹依赖浏览器遥测。</td></tr>
+<tr><td data-en="Threat analysis">威胁分析</td><td><a href="https://www.sei.cmu.edu/library/observational-humanai-ohai-a-defender-attribution-framework-for-distinguishing-human-vs-ai-threats/">OHAI · CMU SEI 2025</a><small data-en="Framework and public cases">框架与公开案例</small></td><td data-en="Proposes an analytical workflow for human / AI threat attribution. Existing precedents mean distinguishing humans from AI is not novel on its own.">提出人类 / AI 威胁归因的分析流程；已有先例表明，仅“区分人和 AI”已不足以构成新颖性。</td></tr>
+<tr><td data-en="Attack trace fingerprints">攻击轨迹指纹</td><td><a href="https://arxiv.org/abs/2605.01186">Trace · 2026</a><small data-en="Terminal command sequences">终端命令序列</small></td><td data-en="Identifies attack-agent model families and explores defensive prompt injection. Identifies which model, rather than human / script / agent execution.">识别攻击 Agent 的模型家族，并探索防御性提示注入；它识别的是“哪个模型”，不是“人 / 脚本 / Agent”。</td></tr>
+<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2609.28559">LIDAR · 2026</a><small data-en="Active probes + probabilistic identification">主动探针 + 概率识别器</small></td><td data-en="Identifies underlying models through agent verification and failure-recovery behavior. Requires active probes and clean references; the research target differs.">利用 Agent 的验证、失败恢复等行为识别底层模型；需要主动探针和干净参考，研究目标不同。</td></tr>
+<tr><td data-en="Active model fingerprints">主动模型指纹</td><td><a href="https://arxiv.org/abs/2610.32092">AgentTrace · 2026</a><small data-en="Execution-level sequences">执行级序列</small></td><td data-en="Induces tool-interface failures and analyzes repair sequences to identify the model. It is not passive classification of defender-side logs.">诱发工具接口失败，分析后续修复序列来识别模型；不是被动防守侧日志分类。</td></tr>
+<tr><td data-en="Trace representation">轨迹表示</td><td><a href="https://arxiv.org/abs/2606.16988">ProcGrep · 2026</a><small data-en="Programmatic behavior representations">程序化行为表示</small></td><td data-en="Encodes action sequences as program-frequency distributions and compares them using JSD. The trace-comparison idea is useful, but the paper studies coding-agent workflows, not shared attack origins.">把动作序列编码为程序频率分布，并用 JSD 比较；轨迹比较的思路可以借鉴，但论文研究的是编码 Agent 的工作流，不涉及攻击同源判断。</td></tr>
 </tbody>
 </table>
 </div>
@@ -321,17 +334,17 @@ python3 -m venv .venv
 <details class="related-details related-category">
 <summary><span class="related-category-title" data-en="Analogies from generated-content detection">生成内容检测方法类比</span><span class="related-category-note" data-en="Probability features, classifiers, and cross-domain evaluation">概率特征、分类器与跨域评估</span><span class="related-count" data-en="6 studies">6 项</span></summary>
 <div class="related-category-content">
-<p class="related-category-intro" data-en="Useful references for probability scoring, lightweight classification, and out-of-domain evaluation. Their inputs are text, rather than host audit events.">可参考概率评分、轻量分类和域外测试设计；这些研究输入是文本，不是主机审计事件。</p>
+<p class="related-category-intro" data-en="Useful references for probability scoring, lightweight classification, and out-of-domain evaluation. Their inputs are text, not host audit events.">其中的概率评分、轻量分类和域外测试设计可以借鉴；这些研究的输入是文本，不是主机审计事件。</p>
 <div class="related-table-wrap">
 <table class="related-table">
 <thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
 <tbody>
-<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v202/mitchell23a.html">DetectGPT · ICML 2023</a><small data-en="Model log probabilities">模型 log-prob</small></td><td data-en="Compares language-model probabilities for original and perturbed text. Inspires scoring methods, but logs are not natural-language generations.">比较原文与扰动文本在语言模型概率下的差异；启发评分设计，但日志不是自然语言生成文本。</td></tr>
-<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6b8c6f846c3575e1d1ad496abea28826-Abstract-Conference.html">Fast-DetectGPT · ICLR 2024</a><small data-en="Conditional probability curvature">条件概率曲率</small></td><td data-en="Uses surrogate-model probability scores for efficient zero-shot text detection. Probability features may be useful, but structured system events lack natural-language token probabilities.">以代理模型概率评分做高效零样本文本检测；可借鉴概率特征，但结构化系统事件没有自然语言 token 概率。</td></tr>
-<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://aclanthology.org/2024.naacl-long.95/">Ghostbuster · NAACL 2024</a><small data-en="Auxiliary-model features + classifier">辅助模型特征 + 分类器</small></td><td data-en="Builds fixed features from weaker language models' token probabilities for supervised classification. Inspires fixed features and linear baselines, while still requiring labeled training data.">从弱语言模型的 token 概率构造固定特征后监督分类；可借鉴固定特征和线性基线，仍需有标签训练数据。</td></tr>
-<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v235/hans24a.html">Binoculars · ICML 2024</a><small data-en="Two-model perplexity">双模型困惑度</small></td><td data-en="Detects generated text with perplexity and cross-perplexity from two pretrained models. Does not require the generating model's logits, but still depends on language-model probabilities.">用两个预训练模型的困惑度与交叉困惑度检出生成文本；不依赖生成模型 logits，但仍需语言模型概率。</td></tr>
-<tr><td data-en="Generalization evaluation">泛化评估</td><td><a href="https://aclanthology.org/2024.acl-long.3/">MAGE · ACL 2024</a><small data-en="Across tasks / models / prompts">跨任务 / 模型 / 提示</small></td><td data-en="Evaluates out-of-domain generalization across tasks and models in text detection. A reference for grouped holdouts; its data is not commands or host logs.">用多任务、多模型文本检测设置评估域外泛化；可借鉴分组留出，数据不是命令或主机日志。</td></tr>
-<tr><td data-en="Robustness evaluation">鲁棒性评估</td><td><a href="https://aclanthology.org/2024.acl-long.674/">RAID · ACL 2024</a><small data-en="Multi-model text benchmark">多模型文本基准</small></td><td data-en="Tests text-detection robustness across generating models, domains, and rewriting attacks. A reference for grouped holdouts and stress tests, with execution logs outside its scope.">跨生成模型、领域和改写攻击测文本检测鲁棒性；借鉴分组留出与压力测试，数据不是执行日志。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v202/mitchell23a.html">DetectGPT · ICML 2023</a><small data-en="Model log probabilities">模型 log-prob</small></td><td data-en="Compares language-model probabilities for original and perturbed text. Inspires scoring methods, but logs are not natural-language generations.">比较原文与扰动文本在语言模型概率下的差异；可以启发评分设计，但日志不是自然语言生成的文本。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/6b8c6f846c3575e1d1ad496abea28826-Abstract-Conference.html">Fast-DetectGPT · ICLR 2024</a><small data-en="Conditional probability curvature">条件概率曲率</small></td><td data-en="Uses surrogate-model probability scores for efficient zero-shot text detection. Probability features may be useful, but structured system events lack natural-language token probabilities.">用代理模型的概率评分做高效零样本文本检测；概率特征可以借鉴，但结构化系统事件没有自然语言 token 概率。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://aclanthology.org/2024.naacl-long.95/">Ghostbuster · NAACL 2024</a><small data-en="Auxiliary-model features + classifier">辅助模型特征 + 分类器</small></td><td data-en="Builds fixed features from weaker language models' token probabilities for supervised classification. Inspires fixed features and linear baselines, while still requiring labeled training data.">从弱语言模型的 token 概率构造固定特征，再做监督分类；固定特征和线性基线可以借鉴，但仍需要有标签的训练数据。</td></tr>
+<tr><td data-en="Text-detection analogy">文本检测类比</td><td><a href="https://proceedings.mlr.press/v235/hans24a.html">Binoculars · ICML 2024</a><small data-en="Two-model perplexity">双模型困惑度</small></td><td data-en="Detects generated text with perplexity and cross-perplexity from two pretrained models. Does not require the generating model's logits, but still depends on language-model probabilities.">用两个预训练模型的困惑度和交叉困惑度检出生成文本；不依赖生成模型的 logits，但仍需要语言模型概率。</td></tr>
+<tr><td data-en="Generalization evaluation">泛化评估</td><td><a href="https://aclanthology.org/2024.acl-long.3/">MAGE · ACL 2024</a><small data-en="Across tasks / models / prompts">跨任务 / 模型 / 提示</small></td><td data-en="Evaluates out-of-domain generalization across tasks and models in text detection. A reference for grouped holdouts; its data is not commands or host logs.">在多任务、多模型文本检测设置中评估域外泛化；分组留出的设计可以借鉴，但其数据不是命令或主机日志。</td></tr>
+<tr><td data-en="Robustness evaluation">鲁棒性评估</td><td><a href="https://aclanthology.org/2024.acl-long.674/">RAID · ACL 2024</a><small data-en="Multi-model text benchmark">多模型文本基准</small></td><td data-en="Tests text-detection robustness across generating models, domains, and rewriting attacks. A reference for grouped holdouts and stress tests, with execution logs outside its scope.">在跨生成模型、领域和改写攻击的条件下测试文本检测的鲁棒性；分组留出和压力测试可以借鉴，但其数据不是执行日志。</td></tr>
 </tbody>
 </table>
 </div>
@@ -340,19 +353,19 @@ python3 -m venv .venv
 <details class="related-details related-category">
 <summary><span class="related-category-title" data-en="APT organization-level relationships">APT 组织级关联</span><span class="related-category-note" data-en="Threat intelligence and malware behavior patterns">威胁情报与恶意软件行为模式</span><span class="related-count" data-en="1 study">1 项</span></summary>
 <div class="related-category-content">
-<p class="related-category-intro" data-en="Infers relationships between organizations. Labels and units of analysis are organizational, rather than log-level activity correlation.">该工作推断组织之间的关系，标签和分析对象在组织层，不等同于日志级活动关联。</p>
+<p class="related-category-intro" data-en="Infers relationships between organizations. Labels and units of analysis are organizational, not log-level activity correlation.">这项工作推断组织之间的关系，标签和分析对象都在组织层，不等同于日志级活动关联。</p>
 <div class="related-table-wrap">
 <table class="related-table">
 <thead><tr><th data-en="Approach">方法</th><th data-en="Work">工作</th><th data-en="Evidence and limits">证据与边界</th></tr></thead>
 <tbody>
-<tr><td data-en="Organization relationships">组织关联</td><td><a href="https://doi.org/10.3390/electronics13061106">APT group behavior patterns · Electronics 2024</a><small data-en="Rough sets + threat intelligence">粗糙集 + 威胁情报</small></td><td data-en="Models relationships between groups using malware and threat-intelligence behavior features. Inputs and targets are group-level intelligence, rather than activity-log matching under a shared sensor pipeline. Public relationship labels lack independently adjudicated ground truth.">用恶意软件和威胁情报中的行为特征建模组织间关联；输入与目标是组级情报，不是统一传感器下的活动日志匹配，公开关系标签也未经独立真值裁定。</td></tr>
+<tr><td data-en="Organization relationships">组织关联</td><td><a href="https://doi.org/10.3390/electronics13061106">APT group behavior patterns · Electronics 2024</a><small data-en="Rough sets + threat intelligence">粗糙集 + 威胁情报</small></td><td data-en="Models relationships between groups using malware and threat-intelligence behavior features. Inputs and targets are group-level intelligence, not activity-log matching under shared telemetry. Public relationship labels lack independently adjudicated ground truth.">用恶意软件和威胁情报中的行为特征建模组织间关联；输入和目标都是组级情报，不是在同一套遥测下匹配活动日志，公开的关系标签也缺少独立裁定的真值。</td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </details>
 </div>
-<p class="related-conclusion" data-en="Related work connects logs and activities through behavioral similarity, attack stages, and causality. Existing public evaluations do not compare correlation errors across human, scripted, and agent execution. The next step is to test these differences with shared telemetry and activity labels, without presupposing that existing methods have failed.">相关研究会用行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估未按人、脚本、Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这类差异，而不是预设方法已经失效。</p>
+<p class="related-conclusion" data-en="Related work connects logs and activities through behavioral similarity, attack stages, and causality. Existing public evaluations do not compare correlation errors across human, scripted, and agent execution. The next step is to test these differences under shared telemetry and activity labels.">相关研究通过行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估还没有按人、脚本和 Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这些差异。</p>
 </section>
 <footer>
 <div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
@@ -365,7 +378,7 @@ python3 -m venv .venv
 </div>
 <div class="footer-meta">
 <div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed from">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Deployed site revision"><code>main</code></a></span></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed version">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Deployed site revision"><code>main</code></a></span></div>
 </div>
 </footer>
 </main>

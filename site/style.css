@@ -604,3 +604,14 @@ a[href^="https://"]:not(.footer-owl):not(.footer-hit):hover { text-decoration-co
   .split, .result-intro { max-width: 1180px; margin-inline: auto; }
   .quickstart-band { padding-block: 136px; }
 }
+
+/* Chinese display headings and the install command need extra care on narrow screens. */
+.result-intro h2 { text-wrap: pretty; }
+@media (max-width: 600px) {
+  .api-install code { font-size: 11px; }
+}
+
+.title-break { display: none; }
+@media (max-width: 480px) {
+  .title-break { display: block; }
+}

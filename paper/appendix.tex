@@ -37,7 +37,7 @@ Total / macro & 40 & 57 & 120 & 0.116 \\
 
 \begin{table}[tb]
 \centering
-\caption{Human-to-Agent retrieval over all same-benchmark candidate galleries. Values are benchmark-macro estimates; parenthetical ranges are 95\% task-cluster bootstrap intervals.}
+\caption{Human-to-Agent retrieval in the historical-gallery protocol. Queries are outer-fold held out; the gallery contains all same-benchmark tasks, including training-fold negative candidates. Values are benchmark-macro estimates with 95\% task-cluster intervals.}
 \label{tab:retrieval-complete}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -60,6 +60,80 @@ Random rank & 0.116 & --- & --- \\
 $^{\dagger}$ Ground-truth mode labels are supplied at inference; this diagnostic does not represent a usable detector.
 \end{minipage}
 \end{table}
+
+\section{Specificity controls and candidate-gallery sensitivity}
+\label{app:specificity-controls}
+
+We tested whether the apparent Human-to-Agent gain from the mode-aware ranker was specific to execution-mode supervision. On the identical outer folds and sampled training pairs, we compared the original two-feature similarity ranker with (i) the 11-feature mode ranker, (ii) an 11-feature length-conditioned ranker that replaces each mode score with a training-only empirical CDF transform of command count, and (iii) a six-feature nonlinear similarity ranker using the two base similarities, their squares, their product, and their absolute difference. All rankers use class-balanced logistic regression with $C=0.5$; no hyperparameter selection was performed. The original mode-aware and similarity-only metrics reproduced the checked-in analysis exactly (274 task--direction--method rows; maximum absolute difference 0).
+
+\begin{table}[tb]
+\centering
+\caption{Human-to-Agent task retrieval under the two candidate-gallery protocols. Values are benchmark-macro Recall@1 with 95\% task-cluster bootstrap intervals. Random is the benchmark-macro chance level.}
+\label{tab:specificity-retrieval}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\rowcolors{2}{TableStripe}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xlcc}
+\toprule
+\rowcolor{TableInk}
+\textcolor{white}{Candidate gallery} & \textcolor{white}{Ranker} & \textcolor{white}{Tasks} & \textcolor{white}{Recall@1 (95\% CI)} \\
+\midrule
+All same-benchmark tasks (random 0.116) & Similarity only & 40 & 0.346 [0.175, 0.528] \\
+\rowcolor{TableMode}
+ & Mode score & 40 & 0.414 [0.232, 0.596] \\
+\rowcolor{TableControl}
+ & Command-length control & 40 & 0.431 [0.243, 0.615] \\
+ & Nonlinear-similarity control & 40 & 0.369 [0.188, 0.551] \\
+\midrule
+Held-out-fold tasks only (random 0.278) & Similarity only & 36 & 0.638 [0.473, 0.787] \\
+\rowcolor{TableMode}
+ & Mode score & 36 & 0.632 [0.470, 0.781] \\
+\rowcolor{TableControl}
+ & Command-length control & 36 & 0.680 [0.507, 0.821] \\
+ & Nonlinear-similarity control & 36 & 0.680 [0.502, 0.819] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The historical gallery averages 13.3 candidate tasks per query; the held-out-only gallery averages 4.1 and ranges from two to seven. The corresponding random baselines are 0.116 and 0.278. Absolute retrieval values therefore must not be compared across gallery settings. Within each setting, each estimator is evaluated on the same eligible query tasks and candidates.
+
+\begin{table}[tb]
+\centering
+\caption{Paired Human-to-Agent Recall@1 differences between estimators, in percentage points. Intervals resample the same task clusters within each benchmark.}
+\label{tab:specificity-deltas}
+\small
+\rowcolors{2}{TableStripe}{white}
+\begin{tabular}{llrc}
+\toprule
+\rowcolor{TableInk}
+\textcolor{white}{Gallery} & \textcolor{white}{Contrast} & \textcolor{white}{Tasks} & \textcolor{white}{$\Delta$ Recall@1 (95\% CI)} \\
+\midrule
+All tasks & Mode $-$ similarity & 40 & $+6.8\;[-1.2, +19.1]$ \\
+\rowcolor{TableControl}
+ & Length $-$ similarity & 40 & $+8.6\;[-0.6, +21.3]$ \\
+ & Nonlinear $-$ similarity & 40 & $+2.4\;[0.0, +7.1]$ \\
+\rowcolor{TableMode}
+ & Mode $-$ length & 40 & $-1.8\;[-7.1, +2.5]$ \\
+\midrule
+\rowcolor{TableMode}
+Held-out tasks & Mode $-$ similarity & 36 & $-0.6\;[-1.9, 0.0]$ \\
+\rowcolor{TableControl}
+ & Length $-$ similarity & 36 & $+4.2\;[-2.5, +12.7]$ \\
+ & Nonlinear $-$ similarity & 36 & $+4.2\;[0.0, +12.5]$ \\
+\rowcolor{TableMode}
+ & Mode $-$ length & 36 & $-4.8\;[-13.1, +2.5]$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The length control matches the mode ranker's historical-gallery result without mode labels and exceeds it by 1.8 points on the point estimate; this paired interval spans zero. On the held-out-only gallery, adding mode scores changes Recall@1 by $-0.6$ points relative to similarity alone, with the interval ending at zero. These post-hoc checks do not show an incremental association benefit specific to mode supervision. The controls were fit using mode-stratified sampled training pairs, so they isolate prediction-time feature specificity within this prototype rather than testing a complete mode-free training pipeline. Intervals are conditional on the fixed folds and candidate sets; they do not include fold refitting or candidate-sampling uncertainty.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{figure3_specificity_controls.pdf}
+  \caption{Representation controls across the historical and held-out-only gallery settings. Top panels show absolute task-macro Recall@1 with random baselines; bottom panels show paired changes on the same queries within each gallery. Error bars are 95\% task-cluster intervals. Gallery protocols have different candidate counts and their absolute scores are not directly comparable.}
+  \label{fig:specificity-controls}
+\end{figure}
 
 \begin{table}[tb]
 \centering
@@ -113,6 +187,15 @@ The full command n-gram classifier yields the confusion matrix \(\begin{bmatrix}
   \label{fig:classifier-controls}
 \end{figure}
 
+The pooled out-of-fold confusion matrices are \(\begin{bmatrix}48&9\\14&106\end{bmatrix}\) for command n-grams, \(\begin{bmatrix}37&20\\42&78\end{bmatrix}\) for command count/action mix, and \(\begin{bmatrix}40&17\\81&39\end{bmatrix}\) for benchmark identity. Figure~\ref{fig:mode-confusions} displays the per-class proportions and raw cell counts; each row is normalized within its actual class.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{figureA4_mode_confusions.pdf}
+  \caption{Confusion matrices for task-held-out classification of the recorded trace labels. Each tile's color and percentage show the within-class prediction rate; the parenthetical value gives the raw count. Human terminal capture and Agent tool-call capture are confounded with the target label.}
+  \label{fig:mode-confusions}
+\end{figure}
+
 \begin{table}[tb]
 \centering
 \caption{Paired change in ranking metrics from the similarity-only to the mode-aware prototype. Entries are mean differences with 95\% task-cluster bootstrap intervals.}
@@ -145,7 +228,7 @@ Human $\rightarrow$ Human & 17 & $-0.098\;[-0.189,-0.007]$ & $-0.078\;[-0.139,-0
 
 The positive retrieval target is a shared CTF task ID. It is not an independently verified shared intrusion, activity, campaign, or organization. The mode-classification labels identify expert terminal records and selected Agent tool-call records, and are therefore inseparable from the logging path in this release. The current evidence supports a reproducible benchmark question about mode-conditioned trace association; it does not estimate real-world APT attribution accuracy.
 
-The next decisive experiment should replay matched red-team activities under four conditions: manual operation, fixed scripts, human-supervised Agent execution, and goal-directed Agent execution. All conditions should use the same host and network telemetry, task snapshots, and logging stack. Independent activity IDs should define same-source positives; distinct activity IDs should define hard negatives. Splits should hold out operators, tasks, and activities together. This design would directly estimate whether mode-aware association reduces false splits and false merges when the behavior logs are collected under equivalent conditions.
+The next decisive experiment should replay matched defensive sandbox tasks under four conditions: human operation, fixed scripts, human-supervised Agent execution, and goal-directed Agent execution. All conditions should use the same host and network telemetry, task snapshots, and logging stack. Independent run IDs should define within-activity positive fragments; distinct runs with similar tools and objectives should provide hard negatives. Activity-grouped splits should hold out operators, task templates, and runs. This design would estimate whether execution-mode features alter association errors when behavior logs are collected under equivalent conditions.
 
 \section{Reproduction}
 \label{app:reproduction}
@@ -156,8 +239,9 @@ From the repository root, install the pinned requirements and run:
 .venv/bin/python scripts/download_crossbenchmark_traces.py
 .venv/bin/python scripts/run_crossbenchmark_experiments.py
 .venv/bin/python scripts/run_mode_aware_association.py
+.venv/bin/python scripts/run_specificity_controls.py
 .venv/bin/python scripts/generate_paper_figures.py
 .venv/bin/python -m unittest discover -s tests -v
 \end{verbatim}
 
-The figure-generation script reads only the versioned aggregate JSON results and writes vector PDF masters plus 300-dpi PNG previews to \texttt{results/figures/} and \texttt{paper/figures/}. The raw public traces are downloaded locally, verified by the manifest hashes, and excluded from Git. Primary machine-readable outputs are \texttt{results/crossbenchmark\_exploration.json}, \texttt{results/mode\_aware\_association.json}, and the corresponding task-level CSV files.
+The figure-generation script reads only the versioned aggregate JSON results and writes vector PDF masters plus 300-dpi PNG previews to \texttt{results/figures/} and \texttt{paper/figures/}. The raw public traces are downloaded locally, verified by the manifest hashes, and excluded from Git. Primary machine-readable outputs are \texttt{results/crossbenchmark\_exploration.json}, \texttt{results/mode\_aware\_association.json}, \texttt{results/specificity\_controls.json}, and the corresponding task-level CSV files. The figure source is retained at \texttt{scripts/generate\_paper\_figures.py}.

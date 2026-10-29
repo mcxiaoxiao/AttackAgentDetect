@@ -37,7 +37,8 @@ PURPLE = "#8063A9"
 def load_results():
     cross = json.loads((RESULTS / "crossbenchmark_exploration.json").read_text())
     mode = json.loads((RESULTS / "mode_aware_association.json").read_text())
-    return cross, mode
+    controls = json.loads((RESULTS / "specificity_controls.json").read_text())
+    return cross, mode, controls
 
 
 def setup_style():
@@ -304,9 +305,125 @@ def draw_figure_a3(cross):
     export(fig, "figureA3_benchmark_retrieval")
 
 
+def draw_figure3_specificity(controls):
+    """Show point estimates and paired controls under both gallery protocols."""
+    methods = [
+        ("Behavior similarity", "similarity_only", GRAY),
+        ("Mode score", "mode_aware", BLUE),
+        ("Command length", "length_conditioned", ORANGE),
+        ("Nonlinear similarity", "nonlinear_similarity", GREEN),
+    ]
+    panels = [
+        ("full_gallery", "All same-benchmark tasks", "40 held-out query tasks"),
+        ("heldout_gallery", "Held-out-task gallery", "36 queries · 2–7 candidates"),
+    ]
+    fig, axes = plt.subplots(2, 2, figsize=(7.18, 5.15), gridspec_kw={"height_ratios": [1, 1]})
+    for col, (protocol, title, subtitle) in enumerate(panels):
+        point_ax, delta_ax = axes[0, col], axes[1, col]
+        estimates = [controls["retrieval"][f"{protocol}|human_agent|{key}"] for _, key, _ in methods]
+        ys = np.arange(len(methods))[::-1]
+        for y, ((label, _, color), item) in zip(ys, zip(methods, estimates)):
+            value = item["benchmark_macro"]["recall_at_1"]
+            lo, hi = item["task_stratified_95_ci"]["recall_at_1"]
+            point_ax.errorbar(value, y, xerr=[[value - lo], [hi - value]], fmt="o",
+                              color=color, ecolor=color, markersize=4.2,
+                              elinewidth=1.1, capsize=2.2, markeredgecolor="white",
+                              markeredgewidth=.55, zorder=3)
+        base_key = f"{protocol}|human_agent|similarity_only"
+        chance = controls["retrieval"][base_key]["benchmark_macro"]["random_recall_at_1"]
+        point_ax.axvline(chance, color=MUTED, linestyle=(0, (3, 2)), linewidth=.8)
+        point_ax.set_yticks(ys, [label for label, _, _ in methods])
+        point_ax.set_xlim(0, 1 if protocol == "heldout_gallery" else .72)
+        point_ax.set_xlabel("Recall@1")
+        point_ax.grid(axis="x", color=LINE, linewidth=.5)
+        point_ax.tick_params(axis="y", length=0, pad=4)
+        panel = "A" if col == 0 else "B"
+        point_ax.set_title(f"{panel}  {title}\n{subtitle}", loc="left", fontsize=7.8,
+                           fontweight="semibold", pad=9, color=INK)
+
+        contrasts = [
+            ("Mode − similarity", "mode_aware_minus_similarity_only", BLUE),
+            ("Length − similarity", "length_conditioned_minus_similarity_only", ORANGE),
+            ("Nonlinear − similarity", "nonlinear_similarity_minus_similarity_only", GREEN),
+            ("Mode − length", "mode_aware_minus_length_conditioned", PURPLE),
+        ]
+        dys = np.arange(len(contrasts))[::-1]
+        for y, (label, contrast, color) in zip(dys, contrasts):
+            item = controls["paired_deltas"][f"{protocol}|human_agent|{contrast}"]
+            value = item["mean_delta"]["recall_at_1"]
+            lo, hi = item["task_stratified_95_ci"]["recall_at_1"]
+            delta_ax.errorbar(value, y, xerr=[[value - lo], [hi - value]], fmt="o",
+                              color=color, ecolor=color, markersize=4.2,
+                              elinewidth=1.1, capsize=2.2, markeredgecolor="white",
+                              markeredgewidth=.55, zorder=3)
+        delta_ax.axvline(0, color=INK, linewidth=.8)
+        delta_ax.set_yticks(dys, [label for label, _, _ in contrasts])
+        delta_ax.set_xlim(-.24, .24)
+        delta_ax.set_xticks([-.2, -.1, 0, .1, .2], ["−20", "−10", "0", "+10", "+20"])
+        delta_ax.set_xlabel("Paired Δ Recall@1 (pp)")
+        delta_ax.grid(axis="x", color=LINE, linewidth=.5)
+        delta_ax.tick_params(axis="y", length=0, pad=4)
+        panel = "C" if col == 0 else "D"
+        delta_ax.set_title(f"{panel}  Paired change from baseline\n{subtitle}", loc="left",
+                           fontsize=7.8, fontweight="semibold", pad=9, color=INK)
+    fig.text(.08, .015,
+             "Points: benchmark-macro estimates; bars: 95% task-cluster intervals. Dashed chance: A 0.116, B 0.278. CTF task IDs are proxy labels.",
+             fontsize=6.2, color=MUTED, va="bottom")
+    fig.subplots_adjust(left=.30, right=.985, top=.88, bottom=.12, hspace=.52, wspace=.58)
+    export(fig, "figure3_specificity_controls")
+
+
+def draw_figure_a4_confusions(cross):
+    """Row-normalized confusion-matrix heatmaps with auditable cell counts."""
+    methods = [
+        ("Command n-grams", "tfidf_command_unigram_bigram"),
+        ("Count + action mix", "command_count_and_action_mix"),
+        ("Benchmark only", "benchmark_only_negative_control"),
+    ]
+    fig, axes = plt.subplots(1, 3, figsize=(7.18, 2.8), sharey=True)
+    image = None
+    for ax, (title, key) in zip(axes, methods):
+        item = cross["classifier"][key]
+        counts = np.asarray(item["confusion_matrix_human_agent"], dtype=int)
+        row_totals = counts.sum(axis=1, keepdims=True)
+        rates = counts / row_totals
+        image = ax.imshow(rates, cmap="Blues", vmin=0, vmax=1, aspect="equal")
+        for i in range(2):
+            for j in range(2):
+                rate = rates[i, j]
+                color = "white" if rate >= .58 else INK
+                ax.text(j, i, f"{rate:.0%}\n(n={counts[i, j]})", ha="center", va="center",
+                        fontsize=7.4, color=color, fontweight="semibold" if i == j else "normal",
+                        linespacing=1.2)
+        ax.set_title(title, fontsize=8.1, fontweight="semibold", color=INK, pad=8)
+        ax.set_xticks([0, 1], ["Human", "Agent"])
+        ax.set_yticks([0, 1], ["Human", "Agent"])
+        ax.set_xlabel("Predicted label", fontsize=7.5, labelpad=5)
+        ax.tick_params(axis="both", labelsize=7.1, length=0, pad=4)
+        ax.set_xticks(np.arange(-.5, 2, 1), minor=True)
+        ax.set_yticks(np.arange(-.5, 2, 1), minor=True)
+        ax.grid(which="minor", color="white", linewidth=2)
+        ax.tick_params(which="minor", bottom=False, left=False)
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+    axes[0].set_ylabel("Actual label", fontsize=7.5, labelpad=6)
+    cbar = fig.colorbar(image, ax=axes, fraction=.027, pad=.045, ticks=[0, .25, .5, .75, 1])
+    cbar.ax.set_yticklabels(["0", "25", "50", "75", "100"])
+    cbar.set_label("Within-class share (%)", fontsize=7.1, color=MUTED, labelpad=5)
+    cbar.ax.tick_params(labelsize=6.6, colors=MUTED, length=0, pad=2)
+    cbar.outline.set_visible(False)
+    fig.text(.09, .965, "HELD-OUT TRACE LABEL CLASSIFICATION  ·  177 RECORDS PER PANEL",
+             color=BLUE, fontsize=7.1, fontweight="bold", va="top")
+    fig.text(.09, .045,
+             "Rows are normalized within the actual class; each cell shows row share and raw count. Labels are confounded with capture modality.",
+             color=MUTED, fontsize=6.2, va="bottom")
+    fig.subplots_adjust(left=.10, right=.90, top=.77, bottom=.27, wspace=.50)
+    export(fig, "figureA4_mode_confusions")
+
+
 def main():
     setup_style()
-    cross, mode = load_results()
+    cross, mode, controls = load_results()
     assert cross["audit"]["rows"] == 177
     assert cross["audit"]["matched_task_groups"] == 40
     draw_figure1(cross, mode)
@@ -314,7 +431,9 @@ def main():
     draw_figure_a1(cross)
     draw_figure_a2(mode)
     draw_figure_a3(cross)
-    print("Rendered 5 figures (PDF vector masters + 300-dpi PNG) from aggregate JSON.")
+    draw_figure3_specificity(controls)
+    draw_figure_a4_confusions(cross)
+    print("Rendered 7 figures (PDF vector masters + 300-dpi PNG) from aggregate JSON.")
 
 
 if __name__ == "__main__":

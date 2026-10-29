@@ -12,7 +12,7 @@
 
 项目研究可观测轨迹能否区分人工、脚本与 AI Agent 执行，以及执行方式是否影响攻击活动关联。当前可复现实验仅包含人类操作记录与模型 Agent 工具调用，没有匹配的脚本执行样本。研究方案、分析代码、固定版本的数据清单、Notebook、汇总结果与局限均已公开，供检查和扩展。
 
-当前可行性研究使用 InterCode-CTF 的公开人类与模型 Agent 会话。命令 n-gram 分类器在 6 个留出任务上的平衡准确率为 0.889；跨来源同题检索接近随机（AUC 0.511，按任务聚类的 95% 区间为 0.396–0.667）。这些是探索性基准结果，不能作为识别真实攻击者或关联 APT 攻击活动的证据：人类与模型会话采用不同的日志采集流程，缺少脚本样本，相同任务 ID 也不代表相同攻击者或攻击活动。
+当前可复现实验使用三个公开 CTF 基准，共 177 条人类和 Agent 轨迹、40 个同题组。留出任务检索中，Human→Agent Recall@1 为 0.414，随机基线 0.116；加入模式分数的点估计增量为 +0.068，但命令数量对照为 +0.086，严格留出候选库中的模式分数增量为 −0.006。现有数据未证明参与识别能改善关联：人类终端记录与 Agent 工具调用日志采集方式不同，缺少脚本组，同题标签也不代表攻击活动同源。细节见[跨基准结果](06-原型与跨基准实验结果.md)及[模式特异性对照](results/specificity_controls.json)。
 
 **PyPI 计划于 2027 年发布。** 软件包目前尚不可安装；页面中的安装与 API 调用为规划示意，当前请按下文从源码复现。
 
@@ -21,6 +21,9 @@
 - [研究框架与八小时探索计划](00-研究计划.md)
 - [主要实验预设](01-实验预设.md)
 - [相关工作与初步实验](04-相关工作与初步实验.md)
+- [后续受控实验推进计划](07-后续实验推进计划.md)
+- [跨基准原型结果与特异性对照](06-原型与跨基准实验结果.md)、[机器可读对照结果](results/specificity_controls.json)
+- [论文实验正文](paper/experiment-results.tex)、[附录](paper/appendix.tex)与[图形生成代码](scripts/generate_paper_figures.py)
 - [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
 - [数据审计](results/data-audit.json)、[主要基线](results/preliminary.json)、[事后诊断](results/sensitivity.json)与 [Trace 风格迁移检查](results/trace-baseline.json)
 - [重复划分敏感性检查](results/split-diagnostics.json)
@@ -44,6 +47,16 @@ python3 -m venv .venv
 
 ```bash
 .venv/bin/python scripts/run_all.py
+```
+
+跨基准关联与新增的模式特异性对照按以下命令复现；它们输出任务级 CSV、汇总 JSON 与论文图形所需数据：
+
+```bash
+.venv/bin/python scripts/download_crossbenchmark_traces.py
+.venv/bin/python scripts/run_crossbenchmark_experiments.py
+.venv/bin/python scripts/run_mode_aware_association.py
+.venv/bin/python scripts/run_specificity_controls.py
+.venv/bin/python scripts/generate_paper_figures.py
 ```
 
 该命令写入包括 `results/quick-summary.json` 在内的汇总 JSON。这是一套可复现的基准实验流程；当前尚未提供逐条记录预测的 API。脚本接受指定的 InterCode-CTF 归档结构，暂不支持任意 auditd、Sysmon 或上传的日志文件。

@@ -1,10 +1,13 @@
 import unittest
 
+import numpy as np
+
 from attackagent.prototype import ModeAwareAssociationPrototype, TraceRecord
 
 
 class PrototypeSmokeTest(unittest.TestCase):
-    def test_fit_and_score_with_grouped_trace_records(self):
+    @classmethod
+    def setUpClass(cls):
         records = []
         for task in range(5):
             for n in range(2):
@@ -20,7 +23,11 @@ class PrototypeSmokeTest(unittest.TestCase):
                     actions=("environment", "discover", "read"), source=f"model-{n}",
                 ))
 
-        model = ModeAwareAssociationPrototype(seed=7).fit(records)
+        cls.records = records
+        cls.model = ModeAwareAssociationPrototype(seed=7).fit(records)
+
+    def test_fit_and_score_with_grouped_trace_records(self):
+        model, records = self.model, self.records
         modes = model.predict_mode(records[:2])
         self.assertEqual(len(modes), 2)
         self.assertTrue(all(0 <= row["agent_like_score"] <= 1 for row in modes))
@@ -35,6 +42,59 @@ class PrototypeSmokeTest(unittest.TestCase):
         record = TraceRecord("x", "b", "t", "script", ("ls",), ("discover",))
         with self.assertRaisesRegex(ValueError, "human or agent"):
             ModeAwareAssociationPrototype().fit([record] * 8)
+
+    def test_empty_and_unseen_commands_abstain_without_a_numeric_score(self):
+        records = [
+            TraceRecord("empty", "new", "new", "unknown", (), ()),
+            TraceRecord("unseen", "new", "new", "unknown", ("unseencommandxyz",), ("read",)),
+        ]
+        predictions = self.model.predict_mode(iter(records))
+        self.assertEqual([r["abstention_reason"] for r in predictions], ["empty_commands", "out_of_vocabulary"])
+        self.assertEqual([r["command_count"] for r in predictions], [0, 1])
+        for prediction in predictions:
+            self.assertEqual(prediction["supported_prediction"], "unknown")
+            self.assertIsNone(prediction["agent_like_score"])
+            self.assertIsNone(prediction["confidence"])
+            self.assertEqual(prediction["recognized_feature_count"], 0)
+        self.assertEqual(self.model.predict_mode([]), [])
+
+    def test_evidence_gate_preserves_known_input_scores(self):
+        predictions = self.model.predict_mode(self.records)
+        raw_scores = self.model.mode_classifier_.predict_proba(
+            self.model.mode_vectorizer_.transform([" ".join(r.commands) for r in self.records])
+        )[:, 1]
+        np.testing.assert_array_equal([r["agent_like_score"] for r in predictions], raw_scores)
+        self.assertTrue(all(r["abstention_reason"] is None for r in predictions))
+
+    def test_pair_scoring_rejects_missing_evidence_even_with_supplied_probabilities(self):
+        records = self.records[:2] + [TraceRecord("empty", "new", "new", "unknown", (), ())]
+        for probabilities in (None, [0.2, 0.3, 0.5]):
+            with self.subTest(probabilities=probabilities):
+                with self.assertRaisesRegex(ValueError, "insufficient command evidence at record indices 2"):
+                    self.model.predict_pair_scores(records, [(0, 2)], agent_probabilities=probabilities)
+        # An unused empty record must not disrupt supported pairs.
+        with_empty = self.model.predict_pair_scores(records, [(0, 1)])
+        reference = self.model.predict_pair_scores(records[:2], [(0, 1)])
+        for method in reference:
+            np.testing.assert_array_equal(with_empty[method], reference[method])
+
+    def test_probability_vectors_must_match_records_and_be_finite(self):
+        invalid = ([0.1], [[0.1], [0.2]], [float("nan"), 0.1], [float("inf"), 0.1],
+                   [-0.1, 0.2], [0.2, 1.1], [None, 0.2])
+        for argument in ("agent_probabilities", "oracle_probabilities"):
+            for values in invalid:
+                with self.subTest(argument=argument, values=values):
+                    with self.assertRaisesRegex(ValueError, argument):
+                        self.model.predict_pair_scores(self.records[:2], [(0, 1)], **{argument: values})
+
+    def test_empty_pair_lists_and_invalid_indices(self):
+        result = self.model.predict_pair_scores([], [], oracle_probabilities=[])
+        self.assertEqual(set(result), {"similarity_only", "mode_aware", "oracle_mode_upper_bound"})
+        self.assertTrue(all(len(values) == 0 for values in result.values()))
+        for pair in ((-1, 0), (0, 2), (0,), (0, 1.0), (False, 1)):
+            with self.subTest(pair=pair):
+                with self.assertRaisesRegex(ValueError, "valid non-negative record indices"):
+                    self.model.predict_pair_scores(self.records[:2], [pair])
 
 
 if __name__ == "__main__":

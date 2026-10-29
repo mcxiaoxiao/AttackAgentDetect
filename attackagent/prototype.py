@@ -254,20 +254,51 @@ class ModeAwareAssociationPrototype:
         return self
 
     def predict_mode(self, records):
+        """Score supported evidence; empty or entirely unseen input abstains.
+
+        This is an evidence-availability gate, not a validated out-of-distribution
+        or script detector. A nonempty known vocabulary does not establish that
+        the input follows the training distribution. ``confidence`` retains the
+        uncalibrated classifier score for compatibility.
+        """
         self._check_fitted()
+        records = list(records)
+        if not records:
+            return []
         text = [" ".join(row.commands) for row in records]
         X = self.mode_vectorizer_.transform(text)
         probabilities = self.mode_classifier_.predict_proba(X)[:, 1]
-        return [
-            {
+        feature_counts = np.asarray(X.getnnz(axis=1)).ravel()
+        result = []
+        for row, prob, feature_count in zip(records, probabilities, feature_counts):
+            reason = None
+            if not row.commands:
+                reason = "empty_commands"
+            elif not feature_count:
+                reason = "out_of_vocabulary"
+            result.append({
                 "trace_id": row.trace_id,
-                "agent_like_score": float(prob),
-                "supported_prediction": "agent-like" if prob >= 0.5 else "human-like",
-                "confidence": float(max(prob, 1 - prob)),
+                "agent_like_score": float(prob) if reason is None else None,
+                "supported_prediction": ("agent-like" if prob >= 0.5 else "human-like") if reason is None else "unknown",
+                "confidence": float(max(prob, 1 - prob)) if reason is None else None,
+                "abstention_reason": reason,
+                "command_count": len(row.commands),
+                "recognized_feature_count": int(feature_count),
                 "script_class_supported": False,
-            }
-            for row, prob in zip(records, probabilities)
-        ]
+            })
+        return result
+
+    @staticmethod
+    def _validate_probabilities(values, n_records, name):
+        try:
+            array = np.asarray(values, dtype=float)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{name} must be a numeric vector with one value per record") from exc
+        if array.shape != (n_records,):
+            raise ValueError(f"{name} must have exactly one value per record ({n_records})")
+        if not np.all(np.isfinite(array)) or np.any((array < 0) | (array > 1)):
+            raise ValueError(f"{name} must contain finite values in [0, 1]")
+        return array
 
     def predict_pair_scores(self, records, pairs, agent_probabilities=None, oracle_probabilities=None):
         """Return baseline and mode-aware ranking scores for index pairs.
@@ -277,10 +308,37 @@ class ModeAwareAssociationPrototype:
         """
         self._check_fitted()
         records = list(records)
+        pairs = list(pairs)
+        for pair in pairs:
+            if (not isinstance(pair, (tuple, list, np.ndarray)) or len(pair) != 2
+                    or any(not isinstance(i, (int, np.integer)) or isinstance(i, (bool, np.bool_))
+                           or i < 0 or i >= len(records) for i in pair)):
+                raise ValueError("Each pair must contain two valid non-negative record indices")
+        if agent_probabilities is not None:
+            agent_probabilities = self._validate_probabilities(agent_probabilities, len(records), "agent_probabilities")
+        if oracle_probabilities is not None:
+            oracle_probabilities = self._validate_probabilities(oracle_probabilities, len(records), "oracle_probabilities")
+        if not pairs:
+            result = {"similarity_only": np.empty(0), "mode_aware": np.empty(0)}
+            if oracle_probabilities is not None:
+                result["oracle_mode_upper_bound"] = np.empty(0)
+            return result
+
+        mode_results = self.predict_mode(records)
+        used_indices = sorted({int(i) for pair in pairs for i in pair})
+        unsupported = [i for i in used_indices if mode_results[i]["abstention_reason"] is not None]
+        if unsupported:
+            raise ValueError(
+                "Cannot score pairs with insufficient command evidence at record indices "
+                + ", ".join(map(str, unsupported))
+                + "; inspect predict_mode abstention_reason before matching"
+            )
         if agent_probabilities is None:
-            agent_probabilities = np.asarray([r["agent_like_score"] for r in self.predict_mode(records)])
-        else:
-            agent_probabilities = np.asarray(agent_probabilities, dtype=float)
+            # Unused unsupported records never enter a pair; the placeholder
+            # only keeps the index-aligned vector numeric.
+            agent_probabilities = np.asarray([
+                r["agent_like_score"] if r["agent_like_score"] is not None else 0.5 for r in mode_results
+            ])
         command_text = self._text(records, "commands")
         action_text = self._text(records, "actions")
         cm = self.command_vectorizer_.transform(command_text)
@@ -293,7 +351,6 @@ class ModeAwareAssociationPrototype:
             "mode_aware": self.match_mode_aware_.predict_proba(x_mode)[:, 1],
         }
         if oracle_probabilities is not None:
-            oracle_probabilities = np.asarray(oracle_probabilities, dtype=float)
             x_oracle = self._pair_features(records, pair_rows, oracle_probabilities, cm, am, True)
             result["oracle_mode_upper_bound"] = self.match_oracle_.predict_proba(x_oracle)[:, 1]
         return result
