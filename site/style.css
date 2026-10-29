@@ -529,6 +529,7 @@ html[lang="zh-CN"] .hero h1 { max-width: 9em; font-size: clamp(48px, 4.4vw + 9.6
 .footer-credits a, .footer-legal a { color: inherit; font: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .footer-credits a:hover, .footer-legal a:hover { color: var(--cobalt); }
 .footer-credits { margin-top: 32px; }
+.footer-credits .credit-join { margin-inline: -10px; }
 .footer-legal { margin-top: 0; }
 @media (max-width: 760px) { .footer-credits { margin-top: 24px; } }
 
