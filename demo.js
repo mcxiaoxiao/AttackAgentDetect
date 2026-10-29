@@ -93,17 +93,23 @@
   const sequenceSteps = [...section.querySelectorAll('[data-signal-step]')];
   const progress = section.querySelector('.demo-time-rule');
   const sequenceCopy = {
-    zh: ['研究流程待播放', '固定公开数据版本与许可…', '审计 177 条轨迹，配对 40 个任务组…', '提取命令名与有序动作特征，排除 Python 调用…', '按任务五折评估，生成折外模式分数…', '核对 5,000 次 bootstrap 结果与边界…', '研究流程演示完成'],
-    en: ['Research workflow ready', 'Pinning the public release and license…', 'Auditing 177 traces and matching 40 task groups…', 'Extracting command and ordered-action features; excluding Python calls…', 'Running five task-held-out folds with out-of-fold mode scores…', 'Checking 5,000 bootstrap replicates and limitations…', 'Workflow preview complete'],
+    zh: ['按任务留出评估 · 5,000 次 bootstrap', '固定公开数据版本与许可…', '审计 177 条轨迹，配对 40 个任务组…', '提取命令名与有序动作特征，排除 Python 调用…', '按任务五折评估，生成折外模式分数…', '核对长度对照与留出候选库结果…', '研究流程演示完成'],
+    en: ['Task-held-out evaluation with 5,000 bootstrap replicates.', 'Pinning the public release and license…', 'Auditing 177 traces and matching 40 task groups…', 'Extracting command and ordered-action features; excluding Python calls…', 'Running five task-held-out folds with out-of-fold mode scores…', 'Checking the length control and held-out-gallery results…', 'Workflow preview complete'],
   };
   let sequenceTimers = [];
+  let sequenceStatusIndex = 0;
+  function renderSequenceStatus() {
+    if (!sequenceStatus) return;
+    const language = document.documentElement.lang === 'en' ? 'en' : 'zh';
+    sequenceStatus.textContent = sequenceCopy[language][sequenceStatusIndex];
+  }
   function stopSequence() {
     sequenceTimers.forEach(clearTimeout); sequenceTimers = [];
     sequenceSteps.forEach(step => step.classList.remove('is-current', 'is-done'));
     progress?.style.setProperty('--demo-progress', '0');
     sequenceButton?.removeAttribute('aria-busy');
-    const language = document.documentElement.lang === 'en' ? 'en' : 'zh';
-    if (sequenceStatus) sequenceStatus.textContent = sequenceCopy[language][0];
+    sequenceStatusIndex = 0;
+    renderSequenceStatus();
   }
   sequenceButton?.addEventListener('click', () => {
     stopSequence(); sequenceButton.setAttribute('aria-busy', 'true');
@@ -112,7 +118,8 @@
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       sequenceSteps.forEach(step => step.classList.add('is-done'));
       progress?.style.setProperty('--demo-progress', '1');
-      sequenceStatus.textContent = words.at(-1);
+      sequenceStatusIndex = words.length - 1;
+      renderSequenceStatus();
       sequenceButton.removeAttribute('aria-busy');
       return;
     }
@@ -120,10 +127,12 @@
       sequenceSteps.forEach((item, n) => item.classList.toggle('is-current', n === index));
       if (index > 0) sequenceSteps[index - 1].classList.add('is-done');
       progress?.style.setProperty('--demo-progress', String((index + 1) / sequenceSteps.length));
-      sequenceStatus.textContent = words[index + 1];
+      sequenceStatusIndex = index + 1;
+      renderSequenceStatus();
       if (index === sequenceSteps.length - 1) {
         step.classList.add('is-done'); step.classList.remove('is-current');
-        sequenceStatus.textContent = words.at(-1); sequenceButton.removeAttribute('aria-busy');
+        sequenceStatusIndex = words.length - 1;
+        renderSequenceStatus(); sequenceButton.removeAttribute('aria-busy');
         sequenceTimers = [];
       }
     }, index * 700)));
@@ -158,14 +167,14 @@
         ? 'Same task: both traces discover .git and dump the repository.'
         : 'Different tasks: web reconnaissance versus binary exploitation.',
       complete: '8 command steps shown. Timing is not measured.',
-      reduced: 'All 8 command steps shown; reduced-motion settings respected.',
+      reduced: 'All 8 command steps shown; reduced-motion setting respected.',
     } : {
       play: '播放命令序列', replay: '再次播放', playing: '正在逐步回放…',
       ready: currentComparison === 'shared'
         ? '同题：两条轨迹都发现 .git 并导出仓库。'
         : '异题：Web 侦察对比二进制利用。',
-      complete: '已展示 8 条命令步骤；不测量时延。',
-      reduced: '已展示全部 8 条命令步骤，并遵循减少动态效果设置。',
+      complete: '已显示 8 条命令；不测量时延。',
+      reduced: '已显示全部 8 条命令，并遵循“减少动态效果”设置。',
     };
   }
   function updateCompareCopy() {
@@ -278,7 +287,10 @@
   compareButtons.forEach(button => button.addEventListener('click', () => renderComparison(button.dataset.compareCase)));
   comparePlay?.addEventListener('click', playComparison);
   renderComparison('shared');
-  document.addEventListener('pagelanguagechange', updateCompareCopy);
+  document.addEventListener('pagelanguagechange', () => {
+    updateCompareCopy();
+    renderSequenceStatus();
+  });
 
   const sourceExamples = {
     human: () => [
