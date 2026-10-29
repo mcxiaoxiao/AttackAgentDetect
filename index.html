@@ -23,16 +23,15 @@
 <img alt="" height="42" src="assets/openmoji-owl.png" width="42"/>
 <span>AttackAgent<br/>Detect</span>
 </a>
-<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a></nav>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a data-en="Research" href="research.html">研究</a></nav>
 <div class="rail-bottom">
 <a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
 <a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a><div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div></div>
 </aside>
 <main id="main">
 <section aria-labelledby="hero-title" class="hero" id="top">
-<canvas aria-hidden="true" class="field"></canvas>
 <div class="hero-copy">
-<h1 data-en-html="Security traces and behavior correlation" id="hero-title">安全轨迹与行为关联</h1>
+<h1 data-en-html="From security logs to trace evidence" id="hero-title">从安全日志<br/>到可关联轨迹</h1>
 <p class="hero-desc" data-en="AttackAgent Detect is an open research library for normalizing security traces, comparing behavior-ranking methods, and testing execution-mode signals in activity correlation.">AttackAgent Detect 是一个开放研究库：标准化安全轨迹、比较行为关联方法，并检验执行方式信息能否改善活动关联。</p>
 <div class="hero-links">
 <a class="button primary" href="#quickstart"><span data-en="Quick start">快速接入</span><span class="pip-tag">pip</span></a>
@@ -64,6 +63,24 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 </div>
 <p class="hero-terms" data-en="PyPI release planned for 2027. Run from source today.">PyPI 计划于 2027 年发布；当前请从源码运行。</p>
 </div>
+<figure aria-labelledby="trace-flow-title" class="trace-flow">
+<figcaption class="flow-heading" id="trace-flow-title"><span>examples/auditd/minimal.audit</span><span data-en="4 audit records">4 条 audit 记录</span></figcaption>
+<div class="flow-grid">
+<div aria-label="auditd 输入记录" class="flow-records" data-en-aria-label="auditd input records">
+<div class="flow-record"><b>EXECVE</b><code>audit(…:410)</code><span>curl · argc=2</span></div>
+<div class="flow-record"><b>SYSCALL</b><code>audit(…:410)</code><span>/usr/bin/curl</span></div>
+<div class="flow-record"><b>SYSCALL</b><code>audit(…:411)</code><span>/usr/bin/grep</span></div>
+<div class="flow-record"><b>EXECVE</b><code>audit(…:411)</code><span>grep · argc=2</span></div>
+</div>
+<div aria-hidden="true" class="flow-join"><span data-en="join by event ID">按事件编号合并</span><i></i><span data-en="2 executions">2 次执行</span></div>
+<div class="flow-output">
+<div class="flow-output-head"><code>TraceEvidence · v1</code><span data-en="normalized">已标准化</span></div>
+<dl><dt>commands</dt><dd>["curl", "grep"]</dd><dt>actions</dt><dd>["network", "search"]</dd><dt>event_refs</dt><dd>2 preserved</dd></dl>
+</div>
+<svg aria-hidden="true" class="flow-wires" viewBox="0 0 1000 360" preserveAspectRatio="none"><path d="M405 91 C450 91 451 115 496 115 S544 132 590 132 H690"/><path d="M405 270 C450 270 451 245 496 245 S544 224 590 224 H690"/><path d="M405 180 H690"/></svg>
+</div>
+<div class="flow-footer"><code>load_auditd(...)</code><span data-en="Format fixture · parsed, never executed">格式样例 · 只解析，不执行</span></div>
+</figure>
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
 <div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.&lt;br/&gt;Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>
