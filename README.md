@@ -14,6 +14,8 @@ The project studies whether observable traces can distinguish human, scripted, a
 
 The current reproducible experiment covers three public CTF benchmarks, with 177 human and Agent traces across 40 matched task groups. On held-out task retrieval, Human-to-Agent Recall@1 is 0.414 against a 0.116 random baseline. Adding a mode score gives a +0.068 point-estimate change, while a command-length control gives +0.086; in the held-out-only candidate gallery, the mode-score change is −0.006. Current data therefore do not establish an association benefit from execution-mode identification: human terminal recordings and Agent tool-call logs use different capture paths, scripts are absent, and a shared task ID does not mean a shared attack activity. See the [cross-benchmark results](06-原型与跨基准实验结果.md) and [specificity controls](results/specificity_controls.json).
 
+The traces come from a pinned [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data) release: PicoCTF-derived InterCode-CTF tasks, CyBench challenges from four competitions, and competition tasks in NYU CTF Bench. We retain 40 task groups with both expert and Agent records. The [experiment report](06-原型与跨基准实验结果.md) describes the benchmark origins, trace collection, filtering, and file hashes.
+
 **PyPI release planned for 2027.** The package is not available to install yet; use the source checkout and reproduction steps below.
 
 ## Research and results

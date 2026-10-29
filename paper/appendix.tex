@@ -1,25 +1,30 @@
 \section{Dataset composition and task groups}
 \label{app:data}
 
-The evaluated subset is drawn from the public Cyber Task Horizons release at commit \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae} (CC BY 4.0). A group is the pair \texttt{benchmark/task\_id}; identical task strings from different benchmarks are distinct groups. The selected agent runs are Claude Sonnet 4.6, Claude Opus 4.6, and GPT-5.5. The selected human traces are expert terminal recordings. Raw logs remain local and are not included in the repository.
+The evaluated subset is drawn from the public \href{https://github.com/lyptus-research/cyber-task-horizons-data/tree/178c0da1800f9c07311e1b8d6c61dd8104e7b4ae}{Cyber Task Horizons release} at commit \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae} (CC BY 4.0). The release packages model-evaluation trajectories across seven offensive-cyber benchmarks together with a human study of ten professionals and 291 tasks. Our analysis selects three CTF suites with overlapping human and Agent task IDs. A group is the pair \texttt{benchmark/task\_id}; identically named challenges in different suites remain separate groups. Exact selected IDs and per-file SHA-256 digests are retained in the checked-in manifests and aggregate result. Raw traces are fetched locally and are not redistributed in this repository.
 
 \begin{table}[tb]
 \centering
-\caption{Paired task groups and trace counts in the evaluated subset.}
+\caption{Origin and composition of the paired CTF subset. Benchmark descriptions follow their primary publications; counts are the non-empty records retained by our parser.}
 \label{tab:dataset-counts}
-\small
-\begin{tabular}{lrrrr}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.0cm}Xrrr}
 \toprule
-Benchmark & Task groups & Human traces & Agent traces & Random \RecallAtOne \\
+Benchmark & Task source and selected task family & Task groups & Human & Agent \\
 \midrule
-CyBench & 6 & 8 & 18 & 0.167 \\
-InterCode-CTF & 27 & 40 & 81 & 0.037 \\
-NYUCTF & 7 & 9 & 21 & 0.143 \\
+\href{https://papers.nips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf}{InterCode-CTF} & 100 interactive objectives adapted from PicoCTF, represented by an instruction, assets, and hidden flag; our matched subset covers general-skills and reverse-engineering tasks. & 27 & 40 & 81 \\
+\href{https://arxiv.org/abs/2408.08926}{CyBench} & 40 professional-level CTF tasks drawn from four competitions; six have both human and Agent records in the release. & 6 & 8 & 18 \\
+\href{https://proceedings.neurips.cc/paper_files/paper/2024/hash/69d97a6493fbf016fff0a751f253ad18-Abstract-Datasets_and_Benchmarks_Track.html}{NYU CTF Bench} & Diverse challenges collected from established competitions; seven matched task groups are present in the release. & 7 & 9 & 21 \\
 \midrule
-Total / macro & 40 & 57 & 120 & 0.116 \\
+Total & Three CTF suites; 40 distinct benchmark--task groups. & 40 & 57 & 120 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
+
+The three selected Agent sources are Claude Sonnet 4.6, Claude Opus 4.6, and GPT-5.5, with 40 retained traces per model. For dated model-evaluation files, the latest available attempt per benchmark, model, and task is retained; otherwise the release's complete evaluation file is used. A human trace is recovered from recorded terminal `.input` events. An Agent trace is recovered from structured `bash` tool-call arguments. The Cyber Task Horizons collection launches human and Agent work in the same task containers, but the released trace interfaces differ; this subset is not common-schema host telemetry. Human participants were instructed not to use AI, although the remote study could not independently verify every session. Accordingly, the experimental labels identify the release's record source rather than a ground-truth human decision process.
+
+After parsing, the analysis contains 57 human and 120 Agent records. The 300 Python tool calls in the selected Agent traces are excluded from the primary representation. We retain only allowlisted command names and their coarse action categories; prompts, task descriptions, outputs, answers, model identifiers, timestamps, and paths are removed before feature construction. The dataset measures whether trace representations retrieve another record of the same benchmark task. It does not provide labels for a common operator, intrusion, activity, or campaign.
 
 \section{Feature construction and evaluation protocol}
 \label{app:protocol}

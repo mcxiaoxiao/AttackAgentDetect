@@ -392,6 +392,12 @@ h2, .related h2 { font-size: clamp(32px, 3.3vw, 44px); font-weight: 600; line-he
 .related-details summary:hover { color: var(--cobalt); }
 .related-details summary:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 4px; }
 .related-details .related-table-wrap { margin-top: 0; }
+.dataset-source-body { padding: 0 0 20px; }
+.dataset-source-body > p { max-width: 82ch; margin: 0 0 14px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.dataset-source-list { display: grid; gap: 10px; margin: 0 0 16px; padding: 0; list-style: none; }
+.dataset-source-list li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.dataset-source-list a { color: var(--ink); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.dataset-source-list a:hover { color: var(--cobalt); }
 .related-drawers { margin-top: 24px; border-top: 1px solid var(--line); }
 .related-category { margin-top: 0; border-bottom: 1px solid var(--line); }
 .related-category summary { display: grid; grid-template-columns: minmax(180px, .78fr) minmax(0, 1.22fr) auto 16px; gap: 12px; padding: 18px 0; }
@@ -445,6 +451,7 @@ footer::before { display: none; }
   .related-table td:nth-child(3) { font-size: 13px; }
   .related-table td:nth-child(2) small { margin-top: 4px; }
   .related-details summary { gap: 8px; font-size: 13px; }
+  .dataset-source-list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .related-category summary { grid-template-columns: minmax(0, 1fr) auto 16px; gap: 4px 8px; padding: 16px 0; }
   .related-category-title { grid-column: 1; grid-row: 1; }
   .related-category-note { grid-column: 1; grid-row: 2; font-size: 11px !important; }
