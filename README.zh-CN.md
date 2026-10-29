@@ -10,15 +10,15 @@
 
 **AttackAgent Detect 是一项开放研究，探索智能体参与识别及其对攻击活动关联的影响。**
 
-项目研究可观测轨迹能否区分人工、脚本与 AI Agent 执行，以及执行方式是否影响攻击活动关联。当前可复现实验仅包含人类操作记录与模型 Agent 工具调用，没有匹配的脚本执行样本。研究方案、分析代码、固定版本的数据清单、Notebook、汇总结果与局限均已公开，供检查和扩展。
+项目提供安全日志标准化、行为比较与候选活动排序等可复用接口，并开放实验协议、代码和结果，供研究者检查和扩展。选题依据来自两类证据：HOLMES、OSTINATO、POIROT、ATLAS、ActMiner 等工作使用审计行为、序列、TTP、实体或因果图连接攻击证据；公开威胁报告也开始记录人类操作员通过 Agent 执行多阶段操作。库中会区分外部方法、项目适配与本项目实验基线。
 
-当前可复现实验使用三个公开 CTF 基准，共 177 条人类和 Agent 轨迹、40 个同题组。留出任务检索中，Human→Agent Recall@1 为 0.414，随机基线 0.116；加入模式分数的点估计增量为 +0.068，但命令数量对照为 +0.086，严格留出候选库中的模式分数增量为 −0.006。现有数据未证明参与识别能改善关联：人类终端记录与 Agent 工具调用日志采集方式不同，缺少脚本组，同题标签也不代表攻击活动同源。细节见[跨基准结果](06-原型与跨基准实验结果.md)及[模式特异性对照](results/specificity_controls.json)。
+当前可复现实验使用三个公开 CTF 基准，共 177 条人类与 Agent 轨迹、40 个题目组。混合候选库中，模式感知排序 Hit@1 为 0.607，任务监督行为排序为 0.571，配对增量 +0.036（95% 任务簇区间 `[+0.006, +0.069]`）；相对命令余弦的增量仅 +0.008（95% `[−0.046, +0.059]`）。五个替代任务划分的平均增量为 −0.007（95% `[−0.026, +0.012]`）。因此当前结果对划分敏感，尚不能建立稳定关联收益。同一题目 ID 只是同题代理标签；人类终端记录与 Agent 工具调用采集路径和标签共线，也没有脚本组。详见[关联分析文献与混合候选实验](09-关联分析文献与混合候选实验.md)。
 
-数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：InterCode-CTF 的 PicoCTF 衍生任务、来自四项竞赛的 CyBench 题目，以及 NYU CTF Bench 汇集的竞赛挑战。研究仅保留三套基准中同时有人类专家和 Agent 记录的 40 个题目组。任务来源、记录采集方式、样本筛选和逐文件哈希见[实验结果与数据说明](06-原型与跨基准实验结果.md)。
+数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：PicoCTF 衍生的 InterCode-CTF、来自四项竞赛的 CyBench，以及 NYU CTF Bench。保留三套基准中同时有人类专家和 Agent 记录的 40 个 benchmark-qualified 题目组。来源、过滤、哈希、标签和切分协议见当前[研究报告](09-关联分析文献与混合候选实验.md)。
 
-补充的等任务、等基准权重模型比较中，命令名 TF-IDF + 逻辑回归在四个 CPU 基线里平衡准确率最高（0.844；95% 任务簇区间 0.766–0.915）。999 次条件置换显示，历史候选库的模式增量为正，但严格留出候选库仍为 −0.006。两项结果都没有消除类别与采集方式的完全混杂，也没有证明真实攻击活动关联受到影响。数据筛选、未运行的 API 比较、完整指标和图表见[公开数据与模型对比](08-公开数据与模型对比.md)。
+执行方式分类头在当前三折任务留出诊断中的记录级混淆矩阵为 `[[43, 14], [8, 112]]`（Human/Agent 行），平衡准确率 0.844。由于类别与采集路径一致，这只能说明该发布中的两类记录可区分，不能说明模型已识别真实操作者。此前实验保留为历史协议，不能与当前混合候选结果合并。
 
-**PyPI 计划于 2027 年发布。** 软件包目前尚不可安装；页面中的安装与 API 调用为规划示意，当前请按下文从源码复现。
+**PyPI 计划于 2027 年发布。** 当前已可从源码构建 wheel 并通过隔离安装目录的 CLI 冒烟检查，但尚未上传 PyPI。
 
 ## 研究与结果
 
@@ -26,10 +26,12 @@
 - [主要实验预设](01-实验预设.md)
 - [相关工作与初步实验](04-相关工作与初步实验.md)
 - [后续受控实验推进计划](07-后续实验推进计划.md)
+- [当前关联文献与混合候选实验](09-关联分析文献与混合候选实验.md)
 - [跨基准原型结果与特异性对照](06-原型与跨基准实验结果.md)、[机器可读对照结果](results/specificity_controls.json)
 - [公开数据审计与本地模型比较](08-公开数据与模型对比.md)、[模型结果 JSON](results/local_model_comparison.json)、[逐任务 CSV](results/local_model_comparison_task_metrics.csv)
 - [模式标签条件置换诊断](results/mode_label_permutation.json)、[本地模型比较 Notebook](notebooks/06_local_model_comparison.ipynb)
 - [论文实验正文](paper/experiment-results.tex)、[附录](paper/appendix.tex)与[图形生成代码](scripts/generate_paper_figures.py)
+- [当前混合候选 Notebook](notebooks/07_mixed_gallery.ipynb)、[结果 JSON](results/mixed_gallery.json)与[绘图及实验脚本](scripts/run_mixed_gallery.py)
 - [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
 - [可执行的特异性对照 Notebook](notebooks/03_specificity_controls.ipynb)
 - [置换诊断 Notebook](notebooks/04_mode_label_permutation.ipynb)、[未见模型来源 Notebook](notebooks/05_unseen_agent_model.ipynb)
@@ -57,32 +59,27 @@ python3 -m venv .venv
 .venv/bin/python scripts/run_all.py
 ```
 
-跨基准关联与新增的模式特异性对照按以下命令复现；它们输出任务级 CSV、汇总 JSON 与论文图形所需数据：
+当前混合候选实验和绘图按以下命令复现：
 
 ```bash
-.venv/bin/python scripts/download_crossbenchmark_traces.py
-.venv/bin/python scripts/run_crossbenchmark_experiments.py
-.venv/bin/python scripts/run_mode_aware_association.py
-.venv/bin/python scripts/run_specificity_controls.py
-.venv/bin/python scripts/run_unseen_agent_model.py
-.venv/bin/python scripts/run_mode_label_permutation.py --permutations 999 --seed 20262701
-.venv/bin/python scripts/compare_trace_mode_models.py
-.venv/bin/python scripts/plot_local_model_comparison.py
-.venv/bin/python scripts/generate_paper_figures.py
+.venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
-脚本会写入包括 `results/quick-summary.json` 在内的汇总 JSON。仓库也提供一个接收规范化 JSONL 的研究 CLI，可输出 human/Agent 轨迹得分、证据计数、拒判原因和同基准候选排序：
+研究库可把 Linux auditd `SYSCALL`/`EXECVE` 原始记录规范化为版本化 JSONL，并按行为为候选轨迹排序；不会执行日志中的命令：
 
 ```bash
-PYTHONPATH=. .venv/bin/python -m attackagent.jsonl_cli \
-  --train examples/jsonl/train.jsonl \
-  --queries examples/jsonl/queries.jsonl \
-  --candidates examples/jsonl/candidates.jsonl
+.venv/bin/python -m attackagent.jsonl_cli normalize \
+  --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl
+.venv/bin/python -m attackagent.jsonl_cli rank \
+  --query examples/jsonl/queries.jsonl \
+  --candidates examples/jsonl/candidates.jsonl --method command_cosine
+.venv/bin/python -m attackagent.jsonl_cli methods
 ```
 
-随仓库提供的 JSONL 是手工编写的接口演示，不是实验数据。训练标签目前只支持 `human` 和 `agent`；`script` 明确拒判。得分未校准，排序不代表攻击者或 APT 归因。CLI 要求输入已规范化的命令名和动作类别，尚未解析任意 auditd、Sysmon 或原始上传日志。输入格式与边界见 [`examples/jsonl/README.md`](examples/jsonl/README.md)。
+Human/Agent 检测需要调用者提供与输入格式匹配的标注训练数据，当前仍为实验性功能；Script 类尚无支持检测器。格式不匹配时拒判或保留纯行为排序，得分和排序都不代表攻击者或 APT 归因。auditd 和 JSONL 样例均为手工接口演示，不是实验数据；格式见 [`examples/auditd/`](examples/auditd/) 与 [`examples/jsonl/README.md`](examples/jsonl/README.md)。
 
-运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/01_preliminary.ipynb` 重建初步结果；`notebooks/03_specificity_controls.ipynb` 检查关联特异性对照；`notebooks/04_mode_label_permutation.ipynb` 和 `notebooks/05_unseen_agent_model.ipynb` 展示稳健性诊断；`notebooks/06_local_model_comparison.ipynb` 重跑 CPU 分类模型比较并展示论文图。
+运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/07_mixed_gallery.ipynb` 重跑当前实验并展示论文图；较早的 Notebook 与报告保留先前探索协议，供对照追溯。
 
 数据下载器会校验公开源文件的哈希。原始轨迹与本地环境不纳入 Git；仓库中的数据审计与汇总指标不含原始命令内容。数据版本与已知局限记录在研究报告中。
 

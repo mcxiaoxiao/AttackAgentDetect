@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "attackagent-detect"
+version = "0.2.0.dev0"
+description = "Open research tools for security trace normalization and behavior-based association"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "vendor/procgrep/LICENSE"]
+authors = [{ name = "AttackAgentDetect contributors" }]
+keywords = ["security", "auditd", "threat-hunting", "behavior-analysis", "research"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Information Technology",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = ["numpy>=1.24", "scikit-learn>=1.3", "scipy>=1.10"]
+
+[project.scripts]
+attackagent = "attackagent.jsonl_cli:main"
+
+[project.urls]
+Homepage = "https://mcxiaoxiao.github.io/AttackAgentDetect/"
+Repository = "https://github.com/mcxiaoxiao/AttackAgentDetect"
+Issues = "https://github.com/mcxiaoxiao/AttackAgentDetect/issues"
+
+[tool.setuptools]
+packages = ["attackagent", "procgrep"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+"" = "."
+procgrep = "vendor/procgrep/src/procgrep"
+
+[tool.setuptools.data-files]
+"share/licenses/attackagent-detect" = ["LICENSE", "THIRD_PARTY_NOTICES.md", "vendor/procgrep/LICENSE"]

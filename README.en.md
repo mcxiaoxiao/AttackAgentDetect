@@ -10,15 +10,15 @@
 
 **An open-source research project and experimental toolkit for studying execution-mode signals in attack traces.**
 
-The project studies whether observable traces can distinguish human, scripted, and AI-agent execution, and whether execution mode affects attack activity correlation. The current reproducible experiment contains human operation records and model-agent tool calls only; it has no matched script-execution samples. The research protocol, analysis code, pinned data manifest, notebook, aggregate results, and limitations are published for checking and extension.
+The project is an open research library for normalizing security traces, comparing behavior, and testing whether execution-mode evidence helps link attack activity. Its motivating question is grounded in prior work: systems such as HOLMES, OSTINATO, POIROT, ATLAS, and ActMiner link audit behavior, sequences, TTPs, entities, or causal graphs; public threat records now also describe human operators coordinating AI agents. The library keeps external methods, local adaptations, and project baselines distinct.
 
-The current reproducible experiment covers three public CTF benchmarks, with 177 human and Agent traces across 40 matched task groups. On held-out task retrieval, Human-to-Agent Recall@1 is 0.414 against a 0.116 random baseline. Adding a mode score gives a +0.068 point-estimate change, while a command-length control gives +0.086; in the held-out-only candidate gallery, the mode-score change is −0.006. Current data therefore do not establish an association benefit from execution-mode identification: human terminal recordings and Agent tool-call logs use different capture paths, scripts are absent, and a shared task ID does not mean a shared attack activity. See the [cross-benchmark results](06-原型与跨基准实验结果.md) and [specificity controls](results/specificity_controls.json).
+The current reproducible study uses 177 human and Agent traces across 40 task groups from three public CTF benchmarks. In a mixed candidate gallery, mode-aware ranking reaches Hit@1 0.607 versus 0.571 for a task-supervised behavior ranker (paired change +0.036, 95% task-cluster CI [+0.006, +0.069]); versus command cosine, the change is only +0.008 (95% CI [−0.046, +0.059]). Across five alternate task splits, the mean change versus the task-supervised ranker is −0.007 (95% CI [−0.026, +0.012]). The result is split-sensitive and does not establish a stable association gain. The task ID is only a same-challenge proxy; human terminal capture and Agent tool-call capture are confounded with the labels, and scripts are absent. See the [current literature and experiment report](09-关联分析文献与混合候选实验.md).
 
-The traces come from a pinned [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data) release: PicoCTF-derived InterCode-CTF tasks, CyBench challenges from four competitions, and competition tasks in NYU CTF Bench. We retain 40 task groups with both expert and Agent records. The [experiment report](06-原型与跨基准实验结果.md) describes the benchmark origins, trace collection, filtering, and file hashes.
+The traces come from a pinned [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data) release: PicoCTF-derived InterCode-CTF tasks, CyBench challenges from four competitions, and NYU CTF Bench tasks. The evaluated subset contains 40 benchmark-qualified task groups with both expert and Agent records. The current report documents provenance, filtering, hashes, labels, and the exact retrieval protocol.
 
-The additional task-macro comparison puts command-name TF-IDF + logistic regression first on balanced accuracy (0.844; 95% task-cluster CI 0.766–0.915) among four CPU baselines. A 999-run conditional label-permutation diagnostic shows a positive point estimate only in the historical candidate gallery; the held-out-only gallery remains at −0.006 Recall@1. Neither result removes the label/capture-path confound or establishes an effect on real attack activity. Full model metrics, dataset-source decisions, unrun API comparisons, and the paper-ready figure are in [the data and model audit](08-公开数据与模型对比.md).
+For the current task-held-out mode-label diagnostic, the record-level confusion matrix is `[[43, 14], [8, 112]]` (Human/Agent rows); balanced accuracy is 0.844. Since capture path and label coincide, this is trace-label separability, not general operator identification. Older analyses remain in the repository as historical protocols and should not be pooled with the current mixed-gallery results.
 
-**PyPI release planned for 2027.** The package is not available to install yet; use the source checkout and reproduction steps below.
+**PyPI release planned for 2027.** A wheel can already be built and smoke-tested from this repository; the package has not been published to PyPI.
 
 ## Research and results
 
@@ -26,10 +26,12 @@ The additional task-macro comparison puts command-name TF-IDF + logistic regress
 - [Primary experiment protocol](01-实验预设.md)
 - [Related work and initial results](04-相关工作与初步实验.md)
 - [Follow-up controlled-experiment plan](07-后续实验推进计划.md)
+- [Current related-work audit and mixed-gallery experiment](09-关联分析文献与混合候选实验.md)
 - [Cross-benchmark prototype and specificity controls](06-原型与跨基准实验结果.md), [machine-readable control results](results/specificity_controls.json)
 - [Public dataset audit and local model comparison](08-公开数据与模型对比.md), [model results JSON](results/local_model_comparison.json), [task-level metrics CSV](results/local_model_comparison_task_metrics.csv)
 - [Conditional mode-label permutation diagnostic](results/mode_label_permutation.json) and [model comparison notebook](notebooks/06_local_model_comparison.ipynb)
 - [Paper results section](paper/experiment-results.tex), [appendix](paper/appendix.tex), and [figure-generation source](scripts/generate_paper_figures.py)
+- [Current mixed-gallery notebook](notebooks/07_mixed_gallery.ipynb), [result JSON](results/mixed_gallery.json), and [figure-generation source](scripts/run_mixed_gallery.py)
 - [Executable preliminary-analysis notebook](notebooks/01_preliminary.ipynb)
 - [Executable specificity-controls notebook](notebooks/03_specificity_controls.ipynb)
 - [Executable permutation notebook](notebooks/04_mode_label_permutation.ipynb), [unseen-model notebook](notebooks/05_unseen_agent_model.ipynb)
@@ -71,18 +73,27 @@ Reproduce the cross-benchmark association and the new mode-specificity controls 
 .venv/bin/python scripts/generate_paper_figures.py
 ```
 
-The scripts write aggregate JSON outputs, including `results/quick-summary.json`. A small research CLI now accepts normalized JSONL and emits a human/Agent trace score, evidence counts, abstention reason, and same-benchmark candidate ranking:
+The current mixed-gallery protocol and figures are reproduced with:
 
 ```bash
-PYTHONPATH=. .venv/bin/python -m attackagent.jsonl_cli \
-  --train examples/jsonl/train.jsonl \
-  --queries examples/jsonl/queries.jsonl \
-  --candidates examples/jsonl/candidates.jsonl
+.venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
-The bundled JSONL rows are interface-only examples, not experiment data. Training labels currently support `human` and `agent`; `script` is unsupported and is explicitly abstained. Scores are uncalibrated and rankings are not actor or APT attribution. The CLI expects normalized command names and coarse action categories; the project does not yet parse arbitrary auditd, Sysmon, or uploaded raw logs. See [`examples/jsonl/README.md`](examples/jsonl/README.md) for the schema and scope.
+The library accepts raw Linux auditd `SYSCALL`/`EXECVE` lines and normalizes them to versioned JSONL; it never executes recorded commands. It also ranks normalized traces using command cosine, action bigrams, or the vendored ProcGrep adapter:
 
-To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/01_preliminary.ipynb` rebuilds and audits the preliminary results; `notebooks/03_specificity_controls.ipynb` checks the fixed-fold controls; `notebooks/04_mode_label_permutation.ipynb` and `notebooks/05_unseen_agent_model.ipynb` audit the post-hoc robustness results; and `notebooks/06_local_model_comparison.ipynb` reruns the CPU classifier comparison and displays its publication figure.
+```bash
+.venv/bin/python -m attackagent.jsonl_cli normalize \
+  --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl
+.venv/bin/python -m attackagent.jsonl_cli rank \
+  --query examples/jsonl/queries.jsonl \
+  --candidates examples/jsonl/candidates.jsonl --method command_cosine
+.venv/bin/python -m attackagent.jsonl_cli methods
+```
+
+Human/Agent mode detection requires caller-provided, format-matched labels and remains experimental. Script has no supported detector yet; incompatible inputs abstain or keep the behavior-only ranking. Scores are not actor or APT attribution. The auditd fixture and JSONL rows are hand-written interface examples, not experimental data. See [`examples/auditd/`](examples/auditd/) and [`examples/jsonl/README.md`](examples/jsonl/README.md).
+
+To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/07_mixed_gallery.ipynb` reproduces the current study and figures; earlier notebooks and reports preserve exploratory protocols for comparison.
 
 The data downloader verifies the public source's file hashes. Raw trajectories and local environments are excluded from Git; the checked-in audit and aggregate metrics contain no raw command content. The dataset revision and known limitations are documented in the report.
 

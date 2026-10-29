@@ -1,0 +1,36 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{booktabs,tabularx,array}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+\definecolor{InkBlue}{HTML}{17324D}
+\definecolor{PaleBlue}{HTML}{E8F2FB}
+\definecolor{PaleGray}{HTML}{F3F6F9}
+\newcommand{\Hit}{\textsc{Hit@1}}
+\title{Execution Mode as Context for Behavior-Based Attack Activity Association}
+\author{}
+\date{Open research draft · 30 October 2026}
+
+\begin{document}
+\maketitle
+\input{mixed-gallery-results}
+\appendix
+\input{mixed-gallery-appendix}
+\begin{thebibliography}{99}
+\bibitem{holmes} S. M. Milajerdi, R. Gjomemo, B. Eshete, R. Sekar, and V. N. Venkatakrishnan, ``HOLMES: Real-Time APT Detection through Correlation of Suspicious Information Flows,'' in \emph{2019 IEEE Symposium on Security and Privacy}, pp. 1137--1152, 2019. \href{https://doi.org/10.1109/SP.2019.00026}{doi:10.1109/SP.2019.00026}.
+\bibitem{ostinato} S. K. Ghosh, K. Satvat, R. Gjomemo, and V. N. Venkatakrishnan, ``Ostinato: Cross-host Attack Correlation through Attack Activity Similarity Detection,'' in \emph{18th International Conference on Information Systems Security}, 2022. \href{https://arxiv.org/abs/2312.09321}{arXiv:2312.09321}.
+\bibitem{poirot} S. M. Milajerdi, B. Eshete, R. Gjomemo, and V. N. Venkatakrishnan, ``POIROT: Aligning Attack Behavior with Kernel Audit Records for Cyber Threat Hunting,'' in \emph{Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security}, pp. 1813--1830, 2019. \href{https://doi.org/10.1145/3319535.3363217}{doi:10.1145/3319535.3363217}.
+\bibitem{hercule} K. Pei, Z. Gu, B. Saltaformaggio, S. Ma, F. Wang, Z. Zhang, L. Si, X. Zhang, and D. Xu, ``HERCULE: Attack Story Reconstruction via Community Discovery on Correlated Log Graph,'' in \emph{Proceedings of the 32nd Annual Conference on Computer Security Applications}, 2016. \href{https://doi.org/10.1145/2991079.2991122}{doi:10.1145/2991079.2991122}.
+\bibitem{atlas} A. Alsaheel, Y. Nan, S. Ma, L. Yu, G. Walkup, Z. B. Celik, X. Zhang, and D. Xu, ``ATLAS: A Sequence-based Learning Approach for Attack Investigation,'' in \emph{30th USENIX Security Symposium}, 2021. \href{https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel}{USENIX Security 21}.
+\bibitem{actminer} M. Ma et al., ``ActMiner: Applying Causality Tracking and Increment Aligning for Graph-based Cyber Threat Hunting,'' \emph{Knowledge-Based Systems}, vol. 327, 2025. \href{https://doi.org/10.1016/j.knosys.2025.114169}{doi:10.1016/j.knosys.2025.114169}.
+\bibitem{falcon} J. Tang, Y. Gao, X. Li, J. Li, S. Yu, and B. Fang, ``FALCON: Adaptive Cross-Domain APT Attack Investigation with Federated Causal Learning,'' in \emph{Proceedings of the Forty-first Conference on Uncertainty in Artificial Intelligence}, vol. 286, pp. 4113--4131, 2025. \href{https://proceedings.mlr.press/v286/tang25a.html}{PMLR 286}.
+\bibitem{anthropic} Anthropic Threat Intelligence, ``Disrupting the First Reported AI-Orchestrated Cyber Espionage Campaign,'' 2025. \href{https://www.anthropic.com/news/disrupting-AI-espionage}{Report}.
+\bibitem{mitrec0062} MITRE ATT\&CK, ``Anthropic AI-orchestrated Campaign (C0062),'' 2025. \href{https://attack.mitre.org/campaigns/C0062/}{Campaign record}.
+\bibitem{unit42} Unit 42, ``Introducing Unit 42's Attribution Framework,'' 2025. \href{https://unit42.paloaltonetworks.com/unit-42-attribution-framework/}{Framework}.
+\bibitem{cth} Lyptus Research, ``Cyber Task Horizons: Public Cyber Task Traces,'' dataset release, CC BY 4.0. \href{https://github.com/lyptus-research/cyber-task-horizons-data}{Repository}.
+\end{thebibliography}
+\end{document}

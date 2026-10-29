@@ -1,0 +1,5 @@
+# Hand-written Linux auditd format fixture for parser usage. Not an experimental trace.
+type=EXECVE msg=audit(1700000000.125:410): argc=2 a0=6375726c a1=68747470733a2f2f6578616d706c652e696e76616c6964
+type=SYSCALL msg=audit(1700000000.125:410): arch=c000003e syscall=59 success=yes exit=0 a0=0x7fff1000 a1=0x7fff2000 items=0 ppid=3000 pid=3010 auid=1000 uid=0 gid=0 ses=7 comm="curl" exe="/usr/bin/curl" key="exec"
+type=SYSCALL msg=audit(1700000002.250:411): arch=c000003e syscall=59 success=yes exit=0 a0=0x7fff3000 a1=0x7fff4000 items=0 ppid=3000 pid=3020 auid=1000 uid=0 gid=0 ses=7 comm="grep" exe="/usr/bin/grep" key="exec"
+type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e

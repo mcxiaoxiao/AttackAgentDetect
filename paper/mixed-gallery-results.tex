@@ -1,0 +1,78 @@
+\section{Motivation and research question}
+
+Attack investigation links dispersed events into activity candidates before analysts make higher-level judgments about campaigns or organizations. This is an established computational task: HOLMES correlates suspicious information flows in host-audit traces to produce campaign evidence; OSTINATO compares behavior and TTPs across hosts; POIROT and ActMiner align CTI-derived attack graphs with provenance graphs; HERCULE, ATLAS, and FALCON reconstruct multi-stage attack stories from correlated logs \cite{holmes,ostinato,poirot,actminer,hercule,atlas,falcon}. These methods use command or event sequences, TTPs, entity relations, and causal structure as evidence. Their evaluation targets differ, but each demonstrates a concrete role for behavioral association in investigation. Practitioner frameworks likewise track activity clusters before assigning named actors \cite{unit42}.
+
+Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. This motivates a testable extension to behavior-based correlation: execution mode may contextualize the behavior evidence used to connect activity fragments. If mode changes the representation of a shared activity, a ranker may split related traces; if separate activities share an execution template, it may over-link them. We test whether a mode score adds retrieval information beyond behavioral similarity. The study does not assume either error mechanism in advance.
+
+\section{Data and protocol}
+
+We use the pinned CC BY 4.0 release of Cyber Task Horizons (revision \texttt{178c0da1800f9\allowbreak c07311e1b8d\allowbreak 6c61dd8104e7b\allowbreak 4e7b4ae}) \cite{cth}. It contains task-based CTF evaluations and expert terminal recordings. We select InterCode-CTF, CyBench, and NYU CTF Bench, the three suites with overlapping human and Agent task records. The resulting corpus has 177 non-empty traces in 40 benchmark-qualified task groups: 57 expert terminal records and 120 Agent tool-call records. InterCode-CTF contributes 27 groups (40 human, 81 Agent), CyBench 6 (8 human, 18 Agent), and NYU CTF Bench 7 (9 human, 21 Agent).
+
+\begin{table}[t]
+\centering
+\caption{Trace sources in the evaluated intersection.}
+\label{tab:data}
+\small
+\rowcolors{2}{PaleGray}{white}
+\begin{tabularx}{0.84\linewidth}{>{\raggedright\arraybackslash}Xrrr}
+\toprule
+\rowcolor{InkBlue}\textcolor{white}{Benchmark} & \textcolor{white}{Task groups} & \textcolor{white}{Human} & \textcolor{white}{Agent} \\
+\midrule
+InterCode-CTF & 27 & 40 & 81 \\
+CyBench & 6 & 8 & 18 \\
+NYU CTF Bench & 7 & 9 & 21 \\
+\rowcolor{PaleBlue}\textbf{Total} & \textbf{40} & \textbf{57} & \textbf{120} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Human records are terminal-input transcripts; Agent records are structured bash tool calls. For both, we extract allowlisted command names and coarse action categories. Prompts, task descriptions, outputs, model names, timestamps, and paths are excluded; 300 Python calls are omitted from primary features. The release instructs human experts not to use AI, but remote collection cannot independently verify this. The labels therefore describe released trace sources, not independently adjudicated decision-maker identity.
+
+The primary protocol uses three benchmark-stratified outer folds grouped by benchmark/task, with seed \texttt{20261030}. Every query is ranked against all other held-out traces from the same benchmark and fold, with no mode filtering; the mean gallery contains 29.325 candidates. Same benchmark/task denotes a same-challenge retrieval proxy. It is not a shared intrusion, activity, campaign, or actor label. Five additional seeds estimate split sensitivity. Task groups are the unit of metric aggregation and bootstrap resampling. We report task-macro \Hit, mean reciprocal rank (MRR), Recall@5, and nDCG@5. Intervals use 5,000 paired benchmark-stratified task-cluster bootstrap draws conditional on fitted folds.
+
+The behavior ranker combines command cosine, ordered action-bigram cosine, ProcGrep BPE/Jensen--Shannon similarity, and command-length similarity. A task-supervised ranker learns from same-task versus different-task pairs. The mode-aware ranker adds execution-mode scores generated out of fold within each training partition. Pair labels depend only on task identity; test labels and source metadata are excluded from inference. ProcGrep is a pinned third-party adaptation, not a method introduced by this project.
+
+\section{Results}
+
+The mixed gallery gives a random-ranking \Hit{} of 0.189. Command cosine reaches 0.600; ProcGrep reaches 0.594; the task-supervised behavior ranker reaches 0.571. Mode-aware ranking is highest on the fixed primary split at 0.607, a +0.036 paired change over the task-supervised ranker (95\% CI [+0.006, +0.069]). Against command cosine, the change is +0.008 (95\% CI [−0.046, +0.059]). Across the five alternate splits, the mode-aware minus task-supervised change averages −0.007 (95\% CI [−0.026, +0.012]). The positive primary-split estimate therefore does not persist across the split-sensitivity check.
+
+\begin{table}[t]
+\centering
+\caption{Mixed-gallery task retrieval on the primary split. Higher is better.}
+\label{tab:retrieval}
+\small
+\rowcolors{2}{PaleGray}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrr}
+\toprule
+\rowcolor{InkBlue}\textcolor{white}{Method} & \textcolor{white}{\Hit} & \textcolor{white}{MRR} & \textcolor{white}{Recall@5} & \textcolor{white}{nDCG@5} \\
+\midrule
+Command TF--IDF cosine & 0.600 & 0.695 & 0.648 & 0.618 \\
+Action bigram cosine & 0.565 & 0.657 & 0.591 & 0.567 \\
+ProcGrep BPE/JSD & 0.594 & 0.676 & 0.551 & 0.544 \\
+Length only & 0.514 & 0.636 & 0.543 & 0.514 \\
+Task-supervised behavior & 0.571 & 0.669 & 0.600 & 0.576 \\
+\rowcolor{PaleBlue}\textbf{Mode-aware behavior} & \textbf{0.607} & \textbf{0.693} & \textbf{0.619} & \textbf{0.604} \\
+Mode only & 0.281 & 0.483 & 0.433 & 0.366 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{mixed_gallery_retrieval.pdf}
+\caption{Benchmark-level task retrieval and paired mode-score changes. The right panel shows the primary estimate and the average across five alternate task splits; the dashed line marks no change.}
+\label{fig:retrieval}
+\end{figure}
+
+The mode classifier's pooled confusion matrix is $[[43,14],[8,112]]$ for Human/Agent rows, corresponding to record-level balanced accuracy 0.844. Fold scores are 0.912, 0.883, and 0.738. Inner-fold Platt calibration reduces Brier score from 0.110 to 0.089. These measurements show that the two released record types are separable in this corpus. Because label and capture interface coincide, they do not establish recognition of an unknown operator.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.63\linewidth]{mixed_gallery_confusion.pdf}
+\caption{Task-held-out Human/Agent trace-label confusion matrix. Cells show counts and within-class proportions.}
+\label{fig:confusion}
+\end{figure}
+
+\section{Conclusion}
+
+Prior attack-investigation systems establish behavioral association as a real stage of operational analysis: logs and host traces are connected through event sequences, TTP patterns, entity relations, and causal provenance. We extend this line by testing execution mode as an additional context signal. In the available public CTF proxy task, mode-aware ranking leads the fixed-split table but does not outperform command cosine with a clear paired difference, and its average incremental gain reverses across alternate splits. The evidence motivates a controlled next experiment with repeated human, script, and Agent executions under one sensor pipeline and independently assigned activity identifiers. That experiment can directly measure false merges and false splits at the activity level.

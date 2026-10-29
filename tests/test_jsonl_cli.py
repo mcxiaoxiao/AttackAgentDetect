@@ -27,9 +27,9 @@ class JsonlCliSmokeTest(unittest.TestCase):
         row = result["results"][0]
         self.assertFalse(row["query"]["score_calibrated"])
         self.assertEqual(len(row["candidate_ranking"]), 2)
-        self.assertEqual(row["scope"], "same-benchmark trace ranking under the training distribution; not actor attribution")
+        self.assertEqual(row["scope"], "same-benchmark, label-free trace ranking; task labels are not consumed at inference")
 
-    def test_script_query_is_explicitly_abstained(self):
+    def test_inference_ignores_script_annotation_in_input_jsonl(self):
         with tempfile.TemporaryDirectory() as directory:
             query_path = pathlib.Path(directory) / "script.jsonl"
             query = {
@@ -50,9 +50,10 @@ class JsonlCliSmokeTest(unittest.TestCase):
             with contextlib.redirect_stdout(stdout):
                 self.assertEqual(main(args), 0)
             row = json.loads(stdout.getvalue())["results"][0]
-            self.assertEqual(row["query"]["prediction"], "unknown")
-            self.assertEqual(row["query"]["abstention_reason"], "unsupported_mode_class")
-            self.assertEqual(row["candidate_ranking"], [])
+            self.assertIn(row["query"]["prediction"], {"human", "agent"})
+            self.assertIsNone(row["query"]["abstention_reason"])
+            self.assertTrue(row["candidate_ids_preserved"])
+            self.assertTrue(row["candidate_ranking"])
 
     def test_training_requires_independent_activity_label(self):
         with tempfile.TemporaryDirectory() as directory:
