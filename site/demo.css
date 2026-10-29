@@ -190,3 +190,8 @@
   .pypi-link img { width: 18px; height: 16px; }
   .demo-source-table th, .demo-source-table td { padding-right: 6px; }
 }
+
+/* On narrow phones, four columns are too tight for the English tab labels. */
+@media (max-width: 560px) {
+  .demo-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
