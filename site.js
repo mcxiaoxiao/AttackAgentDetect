@@ -16,7 +16,7 @@ if ("IntersectionObserver" in window) {
 for (const button of document.querySelectorAll("[data-copy]")) {
   button.addEventListener("click", async () => {
     const target = document.getElementById(button.dataset.copy);
-    const text = target?.innerText?.trim().replace(/^\$\s*/, "");
+    const text = target?.textContent?.trim().replace(/^\$\s*/, "");
     if (!text) return;
     try {
       if (navigator.clipboard?.writeText) {
@@ -34,11 +34,28 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       }
       const original = button.textContent;
       const english = () => document.documentElement.lang === "en";
+      const toast = document.getElementById("copy-toast");
+      if (toast) {
+        toast.textContent = english()
+          ? (button.dataset.copySuccessEn || "Copied")
+          : (button.dataset.copySuccess || "已复制");
+        toast.hidden = false;
+        window.clearTimeout(toast.hideTimer);
+        toast.hideTimer = window.setTimeout(() => { toast.hidden = true; }, 2400);
+      }
       button.textContent = english() ? "Copied" : "已复制";
-      window.setTimeout(() => { button.textContent = button.dataset.en ? (english() ? button.dataset.en : "复制") : original; }, 1400);
+      window.setTimeout(() => { button.textContent = original; }, 1400);
     } catch {
-      button.textContent = document.documentElement.lang === "en" ? "Select and copy" : "请手动复制";
-      window.setTimeout(() => { button.textContent = document.documentElement.lang === "en" ? "Copy" : "复制"; }, 1600);
+      const english = document.documentElement.lang === "en";
+      const toast = document.getElementById("copy-toast");
+      if (toast) {
+        toast.textContent = english ? "Copy failed — select the text manually" : "复制失败，请手动选择文本";
+        toast.hidden = false;
+        window.clearTimeout(toast.hideTimer);
+        toast.hideTimer = window.setTimeout(() => { toast.hidden = true; }, 3000);
+      }
+      button.textContent = english ? "Select and copy" : "请手动复制";
+      window.setTimeout(() => { button.textContent = button.dataset.en || (english ? "Copy" : "复制"); }, 1600);
     }
   });
 }

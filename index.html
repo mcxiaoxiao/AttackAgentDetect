@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Open research on telling human from AI-agent execution in public attack traces, and on whether execution mode improves task-level trace matching." name="description"/>
+<meta content="Open research on execution-mode signals in public attack traces and whether they help behavior-based trace association." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
-<title data-en="Human or AI agent? Attack logs can tell | AttackAgent Detect">从攻击日志判断人类还是 AI Agent | AttackAgent Detect</title>
+<title data-en="Execution-mode research in attack traces | AttackAgent Detect">攻击轨迹中的执行方式研究 | AttackAgent Detect</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -32,12 +32,32 @@
 <section aria-labelledby="hero-title" class="hero" id="top">
 <canvas aria-hidden="true" class="field"></canvas>
 <div class="hero-copy">
-<h1 data-en-html="Human or AI agent? The attack logs can tell." id="hero-title">从日志判断执行者是人还是智能体。</h1>
-<p class="hero-desc" data-en="AttackAgent Detect is open research on distinguishing human from AI-agent execution in public attack traces, and on whether that signal improves attack-activity correlation.">AttackAgent Detect 是一项开放研究：从公开攻击轨迹判断执行者是人还是 AI Agent，并检验这一信号能否改善攻击活动关联。</p>
+<h1 data-en-html="Execution-mode signals in attack traces." id="hero-title">研究攻击轨迹中的执行方式线索。</h1>
+<p class="hero-desc" data-en="AttackAgent Detect is an open research project studying human and AI-agent execution patterns in public traces, and testing whether execution-mode signals help behavior-based activity correlation.">AttackAgent Detect 是一项开放研究：分析公开轨迹中的人类与 AI Agent 执行特征，并检验执行方式信息能否改善行为关联。</p>
 <div class="hero-links">
 <a class="button primary" href="#quickstart"><span data-en="Quick start">快速接入</span><span class="pip-tag">pip</span></a>
-<a class="button secondary" data-en="Research details" href="#question">研究细节</a>
+<button class="button secondary" data-copy="ai-brief-markdown" data-en="Copy Markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" type="button">复制 Markdown</button>
 </div>
+<pre class="copy-source" hidden id="ai-brief-markdown"># AttackAgent Detect
+
+Open research prototype for analyzing whether execution mode is visible in command and action traces, and whether that signal improves behavior-based trace association.
+
+## Input
+- JSONL records with `trace_id`, `benchmark`, ordered `commands`, and coarse `actions`.
+- Training records also need labeled `activity_id` and `mode` (`human` or `agent`).
+- The current prototype does not parse raw auditd/Sysmon logs and does not support `script` classification.
+
+## Output
+- Human-like / Agent-like score with observed command evidence and an abstention reason.
+- Candidate trace ranking by baseline similarity and mode-aware score.
+- Scores are uncalibrated ranking/classification outputs, not probabilities of actor identity, common activity, or APT attribution.
+
+## Current evidence
+- 177 public CTF traces from 40 matched task groups; task identity is only a same-challenge proxy label.
+- Mode prediction is confounded with capture pathway (human terminal input vs Agent tool-call records).
+- The mode-aware ranker has no stable improvement over similarity and length controls in current exploratory results.
+
+Run the source examples and inspect the JSONL schema in the repository before applying this prototype to other data.</pre>
 <div aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行" class="install-preview" data-en-aria-label="PyPI release planned for 2027. Run the current version from source.">
 <code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
 <button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
@@ -59,8 +79,10 @@ scripts/demo_mode_aware_association.py \
   <span class="syntax-keyword">"query_mode_score"</span>: {
     <span class="syntax-keyword">"trace_id"</span>: <span class="syntax-string">"2db5e951adcbba08"</span>,
     <span class="syntax-keyword">"agent_like_score"</span>: <span class="syntax-type">0.2502</span>,
+    <span class="syntax-keyword">"score_calibrated"</span>: <span class="syntax-keyword">false</span>,
     <span class="api-highlight"><span class="syntax-keyword">"supported_prediction"</span>: <span class="syntax-string">"human-like"</span>,</span>
     <span class="syntax-keyword">"confidence"</span>: <span class="syntax-type">0.7498</span>,
+    <span class="syntax-keyword">"confidence_calibrated"</span>: <span class="syntax-keyword">false</span>,
     <span class="syntax-keyword">"script_class_supported"</span>: <span class="syntax-keyword">false</span>
   },
   <span class="syntax-keyword">"candidate_ranking"</span>: [
@@ -201,9 +223,20 @@ scripts/demo_mode_aware_association.py \
 <a data-en="Specificity controls notebook" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/notebooks/03_specificity_controls.ipynb">特异性对照 Notebook</a>
 <a data-en="Specificity controls JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/specificity_controls.json">特异性对照 JSON</a>
 <a data-en="Control experiment scripts" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/run_specificity_controls.py">对照实验脚本</a>
+<a data-en="Dataset and model audit" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/08-%E5%85%AC%E5%BC%80%E6%95%B0%E6%8D%AE%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94.md">数据与模型审计</a>
 <a data-en="Paper TeX and figures" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/paper">论文 TeX 与图表</a>
 <a data-en="Results JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/results">结果 JSON</a>
 </div>
+<details class="related-details dataset-sources supplemental-results">
+<summary><b data-en="Grouped model and permutation checks">分组模型与置换复核</b><span data-en="40 task groups · 999 conditional shuffles">40 个任务组 · 999 次条件置换</span></summary>
+<p data-en="The task-macro command TF–IDF baseline reaches 0.844 balanced accuracy (95% task-cluster interval 0.766–0.915). The held-out-only association delta remains −0.6 points. The historical-gallery permutation tail fraction is descriptive, post hoc, and not a causal p-value. All scores still distinguish record labels collected through different interfaces.">命令 TF-IDF 的任务宏平均平衡准确率为 0.844（95% 任务簇区间 0.766–0.915）。严格留出候选库的关联增量仍为 −0.6 个百分点。历史候选库的置换上尾比例是事后描述值，不是因果检验或常规 p 值；现有类别仍与不同采集接口重合。</p>
+<div class="result-figures">
+<figure class="diagnostic-figure"><img alt="四种本地分类基线的平衡准确率、Macro-F1、ROC-AUC 热图，以及原始概率的 Brier 和 ECE 区间。" data-en-alt="Heatmap of balanced accuracy, macro-F1, and ROC-AUC for four local baselines, with Brier and ECE intervals for raw scores." src="assets/local-model-comparison.png"/><figcaption data-en="40 task groups; equal benchmark macro. Raw probabilities were not calibrated. Human/Agent labels remain confounded with capture path.">40 个任务组，三个基准等权。原始概率未校准，人类/Agent 标签仍与采集路径混杂。</figcaption></figure>
+<figure class="diagnostic-figure"><img alt="按 Agent 模型来源留出训练的分类泛化结果。" data-en-alt="Trace-label classification with each Agent model source held out from training." src="assets/unseen-agent-model.png"/><figcaption data-en="Command TF–IDF: all-source balanced accuracy 0.844; model-source-held-out 0.862 [0.805, 0.912], paired change +0.018 [−0.034, +0.072]. Only three sources in one release; capture-path confounding remains.">命令 TF-IDF：全来源训练平衡准确率 0.844；留出模型来源为 0.862 [0.805, 0.912]，配对增量 +0.018 [−0.034, +0.072]。仅覆盖一个发布中的三种来源，采集路径混杂仍在。</figcaption></figure>
+<figure class="diagnostic-figure"><img alt="历史候选库和严格留出候选库的关联增量与 999 次任务内标签置换分布。" data-en-alt="Association deltas against 999 within-task label permutations in historical and held-out-only galleries." src="assets/mode-label-permutation.png"/><figcaption data-en="Historical gallery: observed +6.8 points; held-out-only gallery: −0.6 points. The permutation is a conditional post-hoc diagnostic, not a causal test.">历史候选库观察值 +6.8 个百分点，严格留出候选库 −0.6 个百分点。置换仅是条件事后诊断，不是因果检验。</figcaption></figure>
+</div>
+<p class="result-links"><a data-en="Model metrics and sources" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/08-%E5%85%AC%E5%BC%80%E6%95%B0%E6%8D%AE%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%AF%B9%E6%AF%94.md">模型指标与数据来源</a><a data-en="Permutation JSON" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/mode_label_permutation.json">置换结果 JSON</a><a data-en="Figure source" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/generate_paper_figures.py">绘图源代码</a></p>
+</details>
 </section>
 <section class="section method" id="method">
 <div class="split">
@@ -246,6 +279,25 @@ scripts/demo_mode_aware_association.py \
 <a href="https://saga-tw.github.io/dataset/v2">SAGA v2 <span data-en="Clear attack activity labels; no execution-mode labels">攻击活动标签明确；无执行方式标签</span></a>
 <a href="https://cyberclear-bench.github.io/cyberclear/">CyberClear <span data-en="Paired logs and attack provenance graphs; evaluates defender agents">日志与攻击溯源图配对；评估防守侧 Agent</span></a>
 </div>
+<details class="related-details dataset-sources">
+<summary><b data-en="Other public data audited">其他已审计的公开数据</b><span data-en="Candidate only · no new results claimed">候选数据 · 未报告新增实验</span></summary>
+<div class="dataset-source-body"><ul class="dataset-source-list">
+<li><a href="https://zenodo.org/records/18861762">CAM-LDS v2</a><span data-en="Seven synthetic attack scenarios with ATT&CK step labels; CC BY 4.0. Metadata only in this project; not downloaded or tested.">7 个合成攻击场景并含 ATT&CK 步骤标签，CC BY 4.0。本项目只核查元数据，未下载或测试。</span></li>
+<li><a href="https://zenodo.org/records/19810174">AttackMate Evaluation Data</a><span data-en="Three scenarios across AttackMate, Caldera, and Atomic Red Team; its Caldera implant is not an LLM agent label. Not tested here.">AttackMate、Caldera、Atomic Red Team 的三个场景；Caldera 植入式 agent 不等于 LLM Agent 标签。本项目未测试。</span></li>
+<li><a href="https://zenodo.org/records/20818246">Honey for the Agent</a><span data-en="About 16,200 autonomous LLM SSH sessions, without human or script controls. Not tested here.">约 16,200 个自主 LLM SSH 会话，无人类或脚本对照。本项目未测试。</span></li>
+<li><a href="https://github.com/ait-aecid/llm-user-shell-sim">AIT/AECID shell-sim</a><span data-en="Paired human/AI troubleshooting logs are relevant, but this repository found no explicit dataset reuse license and excludes the data.">人类/AI 配对运维日志与问题相关，但未找到明确的数据再利用许可，因此不纳入。</span></li>
+</ul><p data-en="These sources have different labels and units. They are not merged into the CTF trace experiment.">这些来源的标签和分析单位不同，不与 CTF 轨迹实验合并。</p></div>
+</details>
+<details class="related-details dataset-sources">
+<summary><b data-en="Normalized JSONL input and result">规范化 JSONL 输入与输出</b><span data-en="Interface example · not a benchmark record">接口示例 · 非实验样本</span></summary>
+<div class="dataset-source-body">
+<p data-en="The research CLI accepts command names and coarse action categories. Training rows add an independently assigned activity_id and a human or agent mode label. The bundled example below is hand-written and only checks the interface.">研究 CLI 接收命令名和粗粒度动作类别；训练记录需额外提供独立标注的 activity_id 与 human/agent 标签。下方是手工编写的接口样例，只用于检查输入输出。</p>
+<pre class="jsonl-preview"><code>{"schema_version":1,"trace_id":"query-demo","benchmark":"demo-benchmark","mode":"unknown","commands":["pwd","ls","grep"],"actions":["inspect","enumerate","inspect"]}</code></pre>
+<pre class="jsonl-preview"><code>{"prediction":"human-like","agent_like_score":0.3432,"score_calibrated":false,"candidate_ranking":[{"candidate_trace_id":"candidate-demo-1","similarity_rank":1,"mode_aware_rank":1}]}</code></pre>
+<p data-en="The excerpt above is actual output on the repository's synthetic interface example, not experimental evidence. Scores are uncalibrated; script inputs abstain because no script-labeled training data are available.">以上是仓库合成接口样例的实际输出，不是实验结果。得分未校准；当前没有脚本标签训练数据，因此 script 输入会拒判。</p>
+<a data-en="Run the JSONL example" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/examples/jsonl">运行 JSONL 样例</a>
+</div>
+</details>
 <details class="source-details"><summary data-en="Reproduce the experiment from source">从源码复现实验</summary><div class="quickstart" id="source-reproduction">
 <div class="quickstart-copy">
 <h3 data-en="Available now: reproduce from source">当前可用：从源码复现</h3>
@@ -377,6 +429,17 @@ python3 -m venv .venv
 </div>
 </div>
 </details>
+<details class="related-details related-category">
+<summary><span class="related-category-title" data-en="Probability-returning classifiers">返回类别概率的分类工具</span><span class="related-category-note" data-en="API options reviewed; not benchmarked">已核查接口，未做基准比较</span><span class="related-count" data-en="2 APIs + local baselines">2 个 API + 本地基线</span></summary>
+<div class="related-category-content">
+<p class="related-category-intro" data-en="These interfaces can return a category distribution. Their probability outputs still need calibration and task-held-out evaluation on this dataset.">这些接口可返回类别概率分布；概率仍需在本数据的任务留出评估中单独检验校准。</p>
+<div class="related-table-wrap"><table class="related-table"><thead><tr><th data-en="Method">方法</th><th data-en="Work">接口</th><th data-en="Status and boundary">状态与边界</th></tr></thead><tbody>
+<tr><td>API 分类</td><td><a href="https://developers.openai.com/api/docs/guides/decisions">OpenAI Decisions</a><small>choice · probabilities · confidence</small></td><td data-en="Official docs expose a fixed-choice response with per-option probabilities and a separate confidence value. Not called: no credential or verified free allowance; no paid request was made.">官方接口文档说明返回固定选项、各选项概率和单独的 confidence。本轮未调用：没有凭证或可核验免费额度，也未产生付费请求。</td></tr>
+<tr><td>API 分类</td><td><a href="https://docs.typesafe.ai/primitives/choice">Jev / TypeSafe Choice</a><small>choice · probabilities · confidence</small></td><td data-en="The documented output separates option probabilities from confidence. Not called because account credits were not available for verification.">文档将选项概率与 confidence 分开。本轮未调用，无法核实账户可用额度。</td></tr>
+<tr><td data-en="Local baselines">本地基线</td><td><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/local_model_comparison.json">TF–IDF, logistic regression, ExtraTrees</a></td><td data-en="Task-macro command TF–IDF balanced accuracy is 0.844 (95% CI 0.766–0.915); capture-path confounding remains. These are trace-label comparisons, not actor identification performance.">命令 TF-IDF 的任务宏平均平衡准确率为 0.844（95% 区间 0.766–0.915）；采集方式混杂仍存在。这是轨迹标签比较，不是识别真实执行者的性能。</td></tr>
+</tbody></table></div>
+</div>
+</details>
 </div>
 <p class="related-conclusion" data-en="Related work connects logs and activities through behavioral similarity, attack stages, and causality. Existing public evaluations do not compare correlation errors across human, scripted, and agent execution. The next step is to test these differences under shared telemetry and activity labels.">相关研究通过行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估还没有按人、脚本和 Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这些差异。</p>
 </section>
@@ -391,10 +454,11 @@ python3 -m venv .venv
 </div>
 <div class="footer-meta">
 <div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed version">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Deployed site revision"><code>965c87b</code></a></span></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Deployed version">部署版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Deployed site revision"><code>main</code></a></span></div>
 </div>
 </footer>
 </main>
 </div>
+<div aria-atomic="true" aria-live="polite" class="copy-toast" hidden id="copy-toast" role="status"></div>
 </body>
 </html>
