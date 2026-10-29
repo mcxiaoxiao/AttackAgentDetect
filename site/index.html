@@ -66,33 +66,42 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 </div>
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
-<div class="quickstart-band-copy"><h2 data-en-html="Load a trace. Identify the execution mode." id="quickstart-title">载入日志，<br/>判断执行方式。</h2>
-<p class="quickstart-band-lead" data-en="Run the pinned public traces from source and reproduce a task-held-out retrieval with human and Agent commands.">从源码运行固定版本的公开轨迹，用人类与 Agent 命令复现一次按任务留出的检索。</p>
-<div class="api-install"><code id="quickstart-run">.venv/bin/python \
-scripts/demo_mode_aware_association.py \
---query-task cybench/back_to_the_past</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
-<p class="quickstart-plan"><span data-en="Source API today; PyPI planned for 2027.">当前提供源码接口，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="Reproduce from source today" href="#source-reproduction">现在从源码复现</a></p></div>
-<figure class="api-pane"><div class="api-file"><code>demo_mode_aware_association.py</code><span data-en="Actual output · back_to_the_past">实际输出 · back_to_the_past</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
+<div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.<br/>Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>
+<p class="quickstart-band-lead" data-en="The source CLI joins Linux audit SYSCALL and EXECVE records, extracts commands, and preserves event references and parse quality.">源码命令行工具合并 Linux audit 的 SYSCALL 与 EXECVE 记录，提取命令，并保留事件引用和解析质量。</p>
+<div class="api-install"><code id="quickstart-run">python -m attackagent.jsonl_cli normalize --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
+<p class="quickstart-plan"><span data-en="Source package today; PyPI planned for 2027.">当前可从源码运行，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="See the input and output example" href="#sources">查看输入与输出示例</a></p></div>
+<figure class="api-pane"><div class="api-file"><code>normalize</code><span data-en="Fixture output · minimal.audit">格式样例输出 · minimal.audit</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
 <pre id="quickstart-usage"><code>{
-  <span class="syntax-keyword">"training_task_count"</span>: 39,
-  <span class="syntax-keyword">"heldout_task"</span>: <span class="syntax-string">"cybench/back_to_the_past"</span>,
-  <span class="syntax-keyword">"query_mode_score"</span>: {
-    <span class="syntax-keyword">"trace_id"</span>: <span class="syntax-string">"2db5e951adcbba08"</span>,
-    <span class="syntax-keyword">"agent_like_score"</span>: <span class="syntax-type">0.2502</span>,
-    <span class="syntax-keyword">"score_calibrated"</span>: <span class="syntax-keyword">false</span>,
-    <span class="api-highlight"><span class="syntax-keyword">"supported_prediction"</span>: <span class="syntax-string">"human-like"</span>,</span>
-    <span class="syntax-keyword">"confidence"</span>: <span class="syntax-type">0.7498</span>,
-    <span class="syntax-keyword">"confidence_calibrated"</span>: <span class="syntax-keyword">false</span>,
-    <span class="syntax-keyword">"script_class_supported"</span>: <span class="syntax-keyword">false</span>
+  <span class="syntax-keyword">"schema_version"</span>: 1,
+  <span class="syntax-keyword">"stats"</span>: {
+    <span class="syntax-keyword">"lines"</span>: 5,
+    <span class="syntax-keyword">"malformed_lines"</span>: 0,
+    <span class="syntax-keyword">"duplicate_lines"</span>: 0,
+    <span class="syntax-keyword">"parsed_records"</span>: 4,
+    <span class="syntax-keyword">"joined_events"</span>: 2,
+    <span class="syntax-keyword">"normalized_traces"</span>: 1
   },
-  <span class="syntax-keyword">"candidate_ranking"</span>: [
-    { <span class="syntax-keyword">"rank"</span>: 1, <span class="syntax-keyword">"task_id"</span>: <span class="syntax-string">"cybench/back_to_the_past"</span>,
-      <span class="syntax-keyword">"mean_match_score"</span>: <span class="syntax-type">0.5824</span> },
-    { <span class="syntax-keyword">"rank"</span>: 2, <span class="syntax-keyword">"task_id"</span>: <span class="syntax-string">"cybench/locktalk"</span>,
-      <span class="syntax-keyword">"mean_match_score"</span>: <span class="syntax-type">0.4161</span> }
-  ]
+  <span class="syntax-keyword">"traces"</span>: [{
+    <span class="syntax-keyword">"schema_version"</span>: 1,
+    <span class="syntax-keyword">"trace_id"</span>: <span class="syntax-string">"auditd-42daa052e385a843"</span>,
+    <span class="syntax-keyword">"source_format"</span>: <span class="syntax-string">"linux-auditd-v1"</span>,
+    <span class="syntax-keyword">"benchmark"</span>: <span class="syntax-string">"auditd"</span>,
+    <span class="syntax-keyword">"commands"</span>: [<span class="syntax-string">"curl"</span>, <span class="syntax-string">"grep"</span>],
+    <span class="syntax-keyword">"actions"</span>: [<span class="syntax-string">"network"</span>, <span class="syntax-string">"search"</span>],
+    <span class="syntax-keyword">"event_refs"</span>: [
+      <span class="syntax-string">"host-unknown/audit(1700000000.125:410)"</span>,
+      <span class="syntax-string">"host-unknown/audit(1700000002.250:411)"</span>
+    ],
+    <span class="syntax-keyword">"quality"</span>: {
+      <span class="syntax-keyword">"events"</span>: 2,
+      <span class="syntax-keyword">"exec_events"</span>: 2,
+      <span class="syntax-keyword">"missing_syscall"</span>: 0,
+      <span class="syntax-keyword">"duplicate_lines"</span>: 0,
+      <span class="syntax-keyword">"incomplete_events"</span>: 0
+    }
+  }]
 }</code></pre>
-<figcaption class="api-note" data-en="Excerpt of actual output from scripts/demo_mode_aware_association.py: train on 39 task groups, query one CyBench human trace, rank same-benchmark tasks. Match scores rank candidates; they are not calibrated probabilities.">scripts/demo_mode_aware_association.py 的实际输出节选：在 39 个任务组上训练，查询一条 CyBench 人类轨迹，对同基准任务排序。匹配分数只用于排序，不是校准后的概率。</figcaption></figure>
+<figcaption class="api-note" data-en="A hand-written format fixture, not research data. The example commands are parsed as text and never executed; see examples/auditd/minimal.audit.">手写的格式 fixture，不是研究数据。示例命令只作为文本解析，不会执行；输入见 examples/auditd/minimal.audit。</figcaption></figure>
 </section>
 <section aria-labelledby="demo-title" class="section product-demo" id="demo">
 <div class="demo-heading"><h2 data-en="One trace. More than one execution mode." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching. The examples use real commands from CyBench's back_to_the_past public traces.">从执行方式、行为信号到轨迹关联。示例命令来自 CyBench <code>back_to_the_past</code> 的公开轨迹。</p></div>
@@ -117,8 +126,8 @@ scripts/demo_mode_aware_association.py \
 <li data-signal-step="0"><strong data-en="Pinned release">固定版本</strong><span data-en="Cyber Task Horizons public release: InterCode-CTF, CyBench, and NYUCTF CTF traces, all at one pinned revision.">Cyber Task Horizons 公开发布：InterCode-CTF、CyBench、NYUCTF 三套 CTF 轨迹，统一固定到同一版本。</span><code>revision=178c0da · CC BY 4.0</code></li>
 <li data-signal-step="1"><strong data-en="Audit and match">审计与配对</strong><span data-en="177 non-empty traces: 57 human terminal records and 120 Agent bash records. 40 matched task groups: InterCode 27, CyBench 6, NYUCTF 7.">177 条非空轨迹：57 条人类终端记录、120 条 Agent bash 记录。40 个同题任务组：InterCode 27、CyBench 6、NYUCTF 7。</span><code>matched_task_groups=40</code></li>
 <li data-signal-step="2"><strong data-en="Extract features">提取特征</strong><span data-en="Only command names and coarse action sequences feed the features. The 300 Python tool calls do not enter the primary features; prompts, task text, outputs, and model names are never used.">特征只使用命令名和粗粒度动作序列；300 次 Python 工具调用不进入主特征，提示词、任务文字、输出和模型名也不参与。</span><code>cmd uni/bi · action bi</code></li>
-<li data-signal-step="3"><strong data-en="Task-held-out evaluation">留出任务评估</strong><span data-en="Five GroupKFold folds by benchmark/task_id keep every task's records in one fold. Candidates are same-benchmark hard negatives; intervals come from 5,000 task-cluster bootstrap samples.">按 benchmark/task_id 做五折 GroupKFold，同一题目的记录不跨折；候选为同基准困难负例，区间来自 5,000 次任务簇 bootstrap。</span><code>5 folds · 5,000 bootstrap</code></li>
-<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="Mode-aware retrieval does not beat a command-length control, and it does not improve on the similarity baseline in the held-out gallery. Task IDs only indicate a shared task; capture pathway remains confounded with the label.">模式感知检索没有胜过命令数量对照；在严格留出的候选库中，也没有超过相似度基线。题目 ID 只能代表同题，采集方式仍与类别绑定。</span><code>mode − length: −1.8 pp · held-out mode Δ: −0.6 pp</code></li>
+<li data-signal-step="3"><strong data-en="Mixed-gallery evaluation">混合候选评估</strong><span data-en="Benchmark-stratified three-fold task holdout; each query ranks every other Human and Agent trace in the same benchmark and fold. Intervals use 5,000 task-cluster bootstrap samples; five alternate seeds check split sensitivity.">按基准分层做三折任务留出；每条查询都在同基准、同留出折的所有其他 Human 与 Agent 轨迹中排序。区间来自 5,000 次任务簇 bootstrap；另用五个随机种子检查划分敏感性。</span><code>3 folds · 5 seeds · 5,000 bootstrap</code></li>
+<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="On the primary split, mode-aware Hit@1 is 0.607, a +3.6 pp change over one task-supervised ranker. The five-split mean change is −0.7 pp with an interval crossing zero. Same-task relevance is only a CTF challenge proxy; capture pathway remains confounded with mode.">主划分的模式感知 Hit@1 为 0.607，相对一个任务监督排序器增加 3.6 个百分点；五个替代划分均值为 −0.7 个百分点，区间跨零。同题相关性只是 CTF 题目代理标签，采集方式仍与执行模式混杂。</span><code>primary +3.6 pp · split mean −0.7 pp</code></li>
 </ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Three task-grouped folds · 5,000 task-cluster bootstrap replicates." data-sequence-status="" role="status">三折按任务留出 · 5,000 次任务簇 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow follows the repository scripts and result JSON. Recompute the current mixed-gallery study with scripts/run_mixed_gallery.py; playback shows research steps only, not runtime latency.">流程依据仓库脚本和结果 JSON 整理；运行 scripts/run_mixed_gallery.py 可重算当前混合候选实验。播放只展示步骤顺序，不代表运行耗时。</p></div>
 </div>
 <div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
