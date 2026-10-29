@@ -25,6 +25,7 @@ The current reproducible experiment covers three public CTF benchmarks, with 177
 - [Cross-benchmark prototype and specificity controls](06-原型与跨基准实验结果.md), [machine-readable control results](results/specificity_controls.json)
 - [Paper results section](paper/experiment-results.tex), [appendix](paper/appendix.tex), and [figure-generation source](scripts/generate_paper_figures.py)
 - [Executable preliminary-analysis notebook](notebooks/01_preliminary.ipynb)
+- [Executable specificity-controls notebook](notebooks/03_specificity_controls.ipynb)
 - [Data audit](results/data-audit.json), [primary baselines](results/preliminary.json), [post-hoc diagnostics](results/sensitivity.json), and [Trace-style transfer check](results/trace-baseline.json)
 - [Repeated split sensitivity check](results/split-diagnostics.json)
 - [Compact aggregate output](results/quick-summary.json)
@@ -61,7 +62,7 @@ Reproduce the cross-benchmark association and the new mode-specificity controls 
 
 The command writes aggregate JSON outputs, including `results/quick-summary.json`. It is a reproducible benchmark workflow, not a per-record prediction API. Current scripts accept the pinned InterCode-CTF archive layout; they do not yet accept arbitrary auditd, Sysmon, or uploaded log files.
 
-To open the notebook, run `.venv/bin/jupyter lab` and open `notebooks/01_preliminary.ipynb`. After the result files are generated, the notebook verifies them, presents the diagnostic tables, and exports desktop and mobile charts. Set `REBUILD_RESULTS = True` in its first analysis cell for a full rebuild; the equivalent terminal command is `.venv/bin/python scripts/run_all.py`.
+To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/01_preliminary.ipynb` rebuilds and audits the preliminary results; `notebooks/03_specificity_controls.ipynb` reruns the fixed-fold specificity controls and displays the paired tables and paper figures. The equivalent command for the latter is `.venv/bin/python scripts/run_specificity_controls.py`.
 
 The data downloader verifies the public source's file hashes. Raw trajectories and local environments are excluded from Git; the checked-in audit and aggregate metrics contain no raw command content. The dataset revision and known limitations are documented in the report.
 

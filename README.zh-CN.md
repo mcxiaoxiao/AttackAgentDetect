@@ -25,6 +25,7 @@
 - [跨基准原型结果与特异性对照](06-原型与跨基准实验结果.md)、[机器可读对照结果](results/specificity_controls.json)
 - [论文实验正文](paper/experiment-results.tex)、[附录](paper/appendix.tex)与[图形生成代码](scripts/generate_paper_figures.py)
 - [可执行的初步分析 Notebook](notebooks/01_preliminary.ipynb)
+- [可执行的特异性对照 Notebook](notebooks/03_specificity_controls.ipynb)
 - [数据审计](results/data-audit.json)、[主要基线](results/preliminary.json)、[事后诊断](results/sensitivity.json)与 [Trace 风格迁移检查](results/trace-baseline.json)
 - [重复划分敏感性检查](results/split-diagnostics.json)
 - [精简汇总结果](results/quick-summary.json)
@@ -61,7 +62,7 @@ python3 -m venv .venv
 
 该命令写入包括 `results/quick-summary.json` 在内的汇总 JSON。这是一套可复现的基准实验流程；当前尚未提供逐条记录预测的 API。脚本接受指定的 InterCode-CTF 归档结构，暂不支持任意 auditd、Sysmon 或上传的日志文件。
 
-运行 `.venv/bin/jupyter lab` 并打开 `notebooks/01_preliminary.ipynb` 可查看 Notebook。生成结果文件后，Notebook 会验证这些文件、展示诊断表格，并导出桌面与移动端图表。若需完整重建，将第一个分析单元中的 `REBUILD_RESULTS` 设为 `True`；对应的终端命令为 `.venv/bin/python scripts/run_all.py`。
+运行 `.venv/bin/jupyter lab` 可打开 Notebook。`notebooks/01_preliminary.ipynb` 重建并审计初步结果；`notebooks/03_specificity_controls.ipynb` 重跑固定折特异性对照，并展示配对结果表和论文图。后一项对应的命令行为 `.venv/bin/python scripts/run_specificity_controls.py`。
 
 数据下载器会校验公开源文件的哈希。原始轨迹与本地环境不纳入 Git；仓库中的数据审计与汇总指标不含原始命令内容。数据版本与已知局限记录在研究报告中。
 
