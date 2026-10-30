@@ -335,7 +335,7 @@ code { padding: 2px 5px; border-radius: 3px; background: #e5eef7; color: #315776
 .supplemental-results > summary > span { color: var(--soft); font-size: 12px; }
 
 /* Footer */
-footer { position: relative; display: flex; min-height: 390px; max-width: none; flex-direction: column; align-items: center; justify-content: center; gap: 20px; margin: 0 auto; padding: 64px max(var(--gutter), calc((100vw - 1920px) / 2)) 30px; background: var(--paper); }
+footer { position: relative; display: flex; min-height: 390px; max-width: none; flex-direction: column; align-items: center; justify-content: center; gap: 28px; margin: 0 auto; padding: 64px max(var(--gutter), calc((100vw - 1920px) / 2)) 30px; background: var(--paper); }
 .footer-legal a, .footer-credits a { color: var(--blue-deep); }
 .footer-logos { display: flex; align-items: center; justify-content: center; gap: 24px; }
 .footer-owl, .footer-hit { display: grid; width: 80px; height: 80px; place-items: center; }
