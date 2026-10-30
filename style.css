@@ -70,7 +70,7 @@ h1, h2 { letter-spacing: -.035em; line-height: 1.06; }
 .rail nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--sky); text-decoration-thickness: 2px; text-underline-offset: 7px; }
 .rail-bottom { display: flex; align-items: center; justify-self: end; gap: 20px; }
 .rail-bottom > a { display: inline-flex; min-height: 38px; align-items: center; gap: 7px; }
-.github-icon { display: block; }
+.github-icon { display: block; flex-shrink: 0; width: 18px; height: 18px; }
 .pypi-link img { display: block; width: 20px; height: 19px; object-fit: contain; }
 .language-switch { display: inline-flex; align-items: center; gap: 7px; color: var(--soft); font-size: 12px; }
 .language-switch button { padding: 4px 0; border: 0; background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
