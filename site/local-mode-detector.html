@@ -41,14 +41,14 @@
 <h2><code>local_mode_detector</code></h2>
 <p data-en="Train the detector with labeled traces, then score unlabeled traces from the same source format. It uses command and coarse-action unigram/bigram TF–IDF with class-balanced logistic regression.">用带标签的轨迹训练，再为同一采集格式的无标签轨迹评分。当前实现使用命令与粗粒度动作的 unigram/bigram TF‑IDF，并训练类别平衡的逻辑回归。</p>
 <h3 data-en="Python API">Python API</h3>
-<pre><code><span class="kn">from</span> <span class="nn">attackagent</span> <span class="kn">import</span> <span class="n">fit_detector</span><span class="p">,</span> <span class="n">predict_modes</span>
+<div class="docs-code-window"><div class="api-file"><code>Python API</code><span data-en="Train and score">训练与识别</span><button aria-label="复制识别器示例" data-copy="detector-api-example" data-en="Copy" data-en-aria-label="Copy detector example" type="button">复制</button></div><pre id="detector-api-example"><code><span class="kn">from</span> <span class="nn">attackagent</span> <span class="kn">import</span> <span class="n">fit_detector</span><span class="p">,</span> <span class="n">predict_modes</span>
 
 <span class="c1"># training_records: labeled Human/Agent traces in one source format</span>
 <span class="n">detector</span> <span class="o">=</span> <span class="n">fit_detector</span><span class="p">(</span><span class="n">training_records</span><span class="p">)</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="n">predict_modes</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">unlabeled_traces</span><span class="p">)</span>
 
 <span class="kn">for</span> <span class="n">score</span> <span class="kn">in</span> <span class="n">scores</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">prediction</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">agent_like_score</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">available</span><span class="p">)</span></code></pre>
+    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">prediction</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">agent_like_score</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">available</span><span class="p">)</span></code></pre></div>
 <p class="mode-api-note" data-en="Training requires at least eight labeled traces, both Human and Agent examples, and one shared source_format. Predictions contain a class label and a raw agent_like_score; the score is not calibrated. A format mismatch or evidence with no learned tokens returns unknown.">训练集至少需要 8 条轨迹，包含 Human 与 Agent 两类，且 `source_format` 必须一致。预测返回类别标签和原始 `agent_like_score`；该分数未经校准。格式不匹配或没有已学习词项时返回 `unknown`。</p>
 </div>
 </section>
