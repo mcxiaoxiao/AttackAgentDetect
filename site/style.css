@@ -132,6 +132,7 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .docs-prose > h2 { font-size: clamp(38px, 4vw, 56px); }
 .docs-prose > p { max-width: 66ch; margin-top: 15px; color: var(--muted); font-size: 17px; }
 .docs-prose h3 { margin: 46px 0 12px; font-size: 24px; font-weight: 600; }
+.docs-prose h3[id] { scroll-margin-top: 94px; }
 .docs-prose pre, .jsonl-preview { max-width: 100%; margin: 16px 0; padding: 19px 20px; overflow-x: auto; border: 1px solid var(--graphite-rule); border-radius: 0; background: var(--graphite); color: var(--graphite-ink); font: 12px/1.8 var(--mono); tab-size: 2; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
 .docs-prose pre code, .jsonl-preview code { display: block; padding: 0; background: transparent; color: inherit; font: inherit; white-space: pre; }
 .docs-prose pre .k, .docs-prose pre .kn, .docs-prose pre .kc { color: #91c5ff; }
