@@ -1515,8 +1515,8 @@ def make_plots(results: dict, rate_rows: list[dict], rank_rows: list[dict]) -> N
         )
         fig.tight_layout(rect=(0, .12, 1, .92), w_pad=3.2)
         suffix = "en" if english else "zh"
-        fig.savefig(OUT / f"balanced-innovation-v15-{suffix}.png", dpi=260, bbox_inches="tight", facecolor="white")
-        fig.savefig(OUT / "balanced-innovation-v15.pdf", bbox_inches="tight", facecolor="white")
+        fig.savefig(OUT / f"balanced-innovation-v16-{suffix}.png", dpi=260, bbox_inches="tight", facecolor="white")
+        fig.savefig(OUT / "balanced-innovation-v16.pdf", bbox_inches="tight", facecolor="white")
         plt.close(fig)
 
     recalls = results["candidate_generation"]["by_top_k"]

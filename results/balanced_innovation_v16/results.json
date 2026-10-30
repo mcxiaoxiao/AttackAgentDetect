@@ -1158,7 +1158,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "idf_lcs_coverage": {
-          "threshold": 0.08143647872593592,
+          "threshold": 0.08143647872593593,
           "training_metrics": {
             "false_split_rate": 0.0,
             "false_merge_rate": 0.6644112060778727,
@@ -1182,7 +1182,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "phase_gated_lcs": {
-          "threshold": 0.11438457412142251,
+          "threshold": 0.11438457412142253,
           "training_metrics": {
             "false_split_rate": 0.012345679012345678,
             "false_merge_rate": 0.6425868370312814,
@@ -1230,7 +1230,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "operand_jaccard": {
-          "threshold": 0.025855389785228344,
+          "threshold": 0.025855389785228354,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.2625866931422487,
@@ -1350,7 +1350,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k12": {
-          "threshold": 0.3871961017602204,
+          "threshold": 0.38719610176022096,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1374,7 +1374,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k16": {
-          "threshold": 0.3871961017602204,
+          "threshold": 0.38719610176022096,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1398,7 +1398,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k20": {
-          "threshold": 0.3871961017602204,
+          "threshold": 0.38719610176022096,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1422,7 +1422,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.39649311717456526,
+          "threshold": 0.39656610346056953,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1446,7 +1446,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.39649311717456526,
+          "threshold": 0.39656610346056953,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1470,7 +1470,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.39649311717456526,
+          "threshold": 0.39656610346056953,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1494,7 +1494,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.3984434853468466,
+          "threshold": 0.3984363531233533,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1518,7 +1518,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.3984434853468466,
+          "threshold": 0.3984363531233533,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1542,7 +1542,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.3984434853468466,
+          "threshold": 0.3984363531233533,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1566,7 +1566,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.3963857104812316,
+          "threshold": 0.39638571048123034,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1590,7 +1590,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.3963857104812316,
+          "threshold": 0.39638571048123034,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1614,7 +1614,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.3963857104812316,
+          "threshold": 0.39638571048123034,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1638,7 +1638,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.4312088721387332,
+          "threshold": 0.4312088721387334,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1662,7 +1662,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.4312088721387332,
+          "threshold": 0.4312088721387334,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1686,7 +1686,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.4312088721387332,
+          "threshold": 0.4312088721387334,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1710,7 +1710,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.30447738545235326,
+          "threshold": 0.3044868531330552,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.023622981956315292,
@@ -1734,7 +1734,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.2921887730992666,
+          "threshold": 0.2921887730992662,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.0283785144896256,
@@ -1758,7 +1758,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.2921887730992666,
+          "threshold": 0.2921887730992662,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.0283785144896256,
@@ -1826,7 +1826,7 @@
             "balanced_utility": 0.7610924156743124,
             "fsr_adjusted_utility": 0.7610924156743124
           },
-          "candidate_threshold_count": 87,
+          "candidate_threshold_count": 88,
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "action_edit_distance": {
@@ -1943,7 +1943,7 @@
           "inner_best_adjusted_utility": 0.7586733955369523
         },
         "length_aware_containment": {
-          "candidate_thresholds": 87,
+          "candidate_thresholds": 88,
           "inner_best_standard_utility": 0.7610924156743124,
           "inner_best_adjusted_utility": 0.7610924156743124
         },
@@ -2341,17 +2341,17 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "neighborhood_verified": {
-          "threshold": 0.22189311987834714,
+          "threshold": 0.22238992562536863,
           "training_metrics": {
             "false_split_rate": 0.0654320987654321,
             "false_merge_rate": 0.7284559576226243,
             "balanced_accuracy": 0.6002781940281942,
             "query_coverage": 0.9814814814814815,
-            "false_merge_human_human": 0.8363095238095237,
+            "false_merge_human_human": 0.833994708994709,
             "false_split_human_human": 0.0,
             "false_merge_human_agent": 0.5896384479717812,
             "false_split_human_agent": 0.09814814814814815,
-            "false_merge_agent_agent": 0.9555555555555556,
+            "false_merge_agent_agent": 0.9629629629629629,
             "false_split_agent_agent": null,
             "hit_at_1": 0.41203703703703703,
             "mrr": 0.6115177346658828,
@@ -2365,7 +2365,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k12": {
-          "threshold": 0.5132788403104639,
+          "threshold": 0.513798420128316,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.040582103082103076,
@@ -2389,7 +2389,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k16": {
-          "threshold": 0.5151263960864603,
+          "threshold": 0.5153270749573253,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.012804325304325301,
@@ -2413,7 +2413,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k20": {
-          "threshold": 0.5151263960864603,
+          "threshold": 0.5153270749573253,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.012804325304325301,
@@ -2437,7 +2437,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.412449124917688,
+          "threshold": 0.41400569839244317,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.10167918501251834,
@@ -2461,7 +2461,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.42438028192713073,
+          "threshold": 0.4258860569922382,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10111801778468445,
@@ -2485,7 +2485,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.42438028192713073,
+          "threshold": 0.4258860569922382,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10111801778468445,
@@ -2509,7 +2509,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.44941334088144863,
+          "threshold": 0.44944079345069754,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.10099930933264267,
@@ -2533,7 +2533,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.4073959881988894,
+          "threshold": 0.4073905533309151,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10530827197493864,
@@ -2557,7 +2557,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.4073959881988894,
+          "threshold": 0.4073905533309151,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10530827197493864,
@@ -2581,7 +2581,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.4975965305072607,
+          "threshold": 0.4975838137042391,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.040020935854269184,
@@ -2605,7 +2605,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.46667479463749567,
+          "threshold": 0.4677920079306681,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.07025382025382025,
@@ -2629,7 +2629,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.46667479463749567,
+          "threshold": 0.4677920079306681,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.07025382025382025,
@@ -2653,7 +2653,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.33533047675063854,
+          "threshold": 0.3353259988193356,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.1147617814284481,
@@ -2677,7 +2677,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.34687138128438116,
+          "threshold": 0.3474807345749472,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.11409038492371826,
@@ -2701,7 +2701,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.34687138128438116,
+          "threshold": 0.3474807345749472,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.11409038492371826,
@@ -2725,7 +2725,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.5570708890074683,
+          "threshold": 0.5594130453865128,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.0672699214365881,
@@ -2749,7 +2749,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.5685789025726388,
+          "threshold": 0.570607624167057,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.053381032547699214,
@@ -2773,7 +2773,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.5685789025726388,
+          "threshold": 0.570607624167057,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.053381032547699214,
@@ -3140,7 +3140,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "partial_sequence": {
-          "threshold": 0.030478167314753606,
+          "threshold": 0.03047816731475361,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.7721735055068389,
@@ -3164,7 +3164,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "learned_fusion": {
-          "threshold": 0.4399561115565129,
+          "threshold": 0.43995611155651276,
           "training_metrics": {
             "false_split_rate": 0.0,
             "false_merge_rate": 0.9938271604938271,
@@ -3260,7 +3260,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "operand_jaccard": {
-          "threshold": 0.02618597037087361,
+          "threshold": 0.026185970370873612,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.6692964442964443,
@@ -3380,7 +3380,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k12": {
-          "threshold": 0.2232242174489257,
+          "threshold": 0.22256949522179872,
           "training_metrics": {
             "false_split_rate": 0.024691358024691357,
             "false_merge_rate": 0.3482724066057399,
@@ -3404,7 +3404,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k16": {
-          "threshold": 0.2224620136499924,
+          "threshold": 0.2221790724981417,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.350036075036075,
@@ -3428,7 +3428,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_generic_k20": {
-          "threshold": 0.2224620136499924,
+          "threshold": 0.2221790724981417,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.350036075036075,
@@ -3452,7 +3452,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.2378659268836076,
+          "threshold": 0.23788694925382917,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
             "false_merge_rate": 0.3377967711301045,
@@ -3476,7 +3476,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.23725772512136747,
+          "threshold": 0.23725297593513017,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3404021904021904,
@@ -3500,7 +3500,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.23725772512136747,
+          "threshold": 0.23725297593513017,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3404021904021904,
@@ -3524,7 +3524,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.2559135222882158,
+          "threshold": 0.2558965519887628,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
             "false_merge_rate": 0.32872837039503705,
@@ -3548,7 +3548,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.2526308507835521,
+          "threshold": 0.25264849032059855,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3309329559329559,
@@ -3572,7 +3572,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.2526308507835521,
+          "threshold": 0.25264849032059855,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3309329559329559,
@@ -3596,7 +3596,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.20700427577588065,
+          "threshold": 0.20700360794080386,
           "training_metrics": {
             "false_split_rate": 0.024691358024691357,
             "false_merge_rate": 0.36492303992303987,
@@ -3620,7 +3620,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.2078874475612653,
+          "threshold": 0.20755028886773705,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.36632595799262463,
@@ -3644,7 +3644,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.2078874475612653,
+          "threshold": 0.20755028886773705,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.36632595799262463,
@@ -3668,7 +3668,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.16351562946826315,
+          "threshold": 0.16351311016059195,
           "training_metrics": {
             "false_split_rate": 0.024691358024691357,
             "false_merge_rate": 0.540319248652582,
@@ -3692,7 +3692,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.1660449481290802,
+          "threshold": 0.166046227981278,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.545650337317004,
@@ -3716,7 +3716,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.1660449481290802,
+          "threshold": 0.166046227981278,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.545650337317004,
@@ -3740,7 +3740,7 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.29374344311002354,
+          "threshold": 0.293899436991805,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
             "false_merge_rate": 0.3009783426450093,
@@ -3764,15 +3764,15 @@
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.2865379136939263,
+          "threshold": 0.2858768352377983,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
-            "false_merge_rate": 0.3172861089527756,
-            "balanced_accuracy": 0.8228384270050938,
+            "false_merge_rate": 0.3176530259863593,
+            "balanced_accuracy": 0.8226549684883017,
             "query_coverage": 0.9629629629629629,
             "false_merge_human_human": 0.2792181069958848,
             "false_split_human_human": 0.0,
-            "false_merge_human_agent": 0.2759087791495199,
+            "false_merge_human_agent": 0.2769890260631001,
             "false_split_human_agent": 0.037037037037037035,
             "false_merge_agent_agent": 0.4518518518518519,
             "false_split_agent_agent": null,
@@ -3781,22 +3781,22 @@
             "recall_at_5": 0.9814814814814815,
             "ndcg_at_5": 0.892037727475187,
             "rank_quality": 0.8820547461224444,
-            "balanced_utility": 0.8892853786968337,
-            "fsr_adjusted_utility": 0.8843471070918953
+            "balanced_utility": 0.889224225857903,
+            "fsr_adjusted_utility": 0.8842859542529646
           },
           "candidate_threshold_count": 103,
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.2865379136939263,
+          "threshold": 0.2858768352377983,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
-            "false_merge_rate": 0.3172861089527756,
-            "balanced_accuracy": 0.8228384270050938,
+            "false_merge_rate": 0.3176530259863593,
+            "balanced_accuracy": 0.8226549684883017,
             "query_coverage": 0.9629629629629629,
             "false_merge_human_human": 0.2792181069958848,
             "false_split_human_human": 0.0,
-            "false_merge_human_agent": 0.2759087791495199,
+            "false_merge_human_agent": 0.2769890260631001,
             "false_split_human_agent": 0.037037037037037035,
             "false_merge_agent_agent": 0.4518518518518519,
             "false_split_agent_agent": null,
@@ -3805,8 +3805,8 @@
             "recall_at_5": 0.9814814814814815,
             "ndcg_at_5": 0.892037727475187,
             "rank_quality": 0.8820547461224444,
-            "balanced_utility": 0.8892853786968337,
-            "fsr_adjusted_utility": 0.8843471070918953
+            "balanced_utility": 0.889224225857903,
+            "fsr_adjusted_utility": 0.8842859542529646
           },
           "candidate_threshold_count": 103,
           "selection_rule": "maximum FSR-adjusted utility (balanced utility minus FSR penalty)"
@@ -5617,10 +5617,10 @@
         "bootstrap_draws": 5000
       },
       "mrr": {
-        "estimate": 0.5627213578602468,
+        "estimate": 0.5628193394397099,
         "ci95": [
-          0.4681525035035837,
-          0.6535389647503845
+          0.4683435675835367,
+          0.653634496790361
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -5741,10 +5741,10 @@
         "bootstrap_draws": 5000
       },
       "mrr": {
-        "estimate": 0.5745352212944805,
+        "estimate": 0.5745040453373788,
         "ci95": [
           0.4732252297742267,
-          0.6680062946170199
+          0.6679661908307741
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -9024,7 +9024,7 @@
   },
   "all_estimable_metrics_pointwise_nonworse": true,
   "provenance": {
-    "runner_sha256": "877212ab5c5f5def30634673918932281028e805842bc6bdf954c9cea826155d",
+    "runner_sha256": "773efda907d135c0ebe3e541af45d573b8752b745a842e1ab6c54f92dc06c6f9",
     "human_command_parser": "terminal output prompt reconstruction with backspace and CSI cursor/insert/delete handling",
     "base_runner_sha256": "6f05bb0d0332f84a537b708bea1833bafd55151ec59efeb0d7cda4d58fe24b33",
     "source_manifest_sha256": "051b4dcdab4b63a6cc3343e0f3a6f8e19e3dee0081d9fdfe84e97a2b0fcacefe",
