@@ -101,27 +101,35 @@ h1, h2 { letter-spacing: -.035em; line-height: 1.06; }
 .flow-grid { position: relative; display: grid; grid-template-columns: minmax(0, .95fr) 64px minmax(0, 1.05fr); align-items: center; gap: 9px; min-height: 345px; padding: 26px 20px; }
 .flow-records, .flow-output { position: relative; z-index: 1; min-width: 0; }
 .flow-records { display: grid; gap: 10px; }
-.flow-record { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 5px 11px; padding: 13px 14px; border: 1px solid #d6e1eb; border-radius: 4px; background: #fbfdff; box-shadow: 0 2px 6px rgb(40 71 104 / 4%); }
+.flow-record { position: relative; display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 5px 11px; padding: 13px 14px; border: 1px solid #d6e1eb; border-radius: 4px; background: #fbfdff; box-shadow: 0 2px 6px rgb(40 71 104 / 4%); animation: record-event 5.6s ease-in-out infinite; }
+.flow-record:nth-child(2) { animation-delay: -1.2s; }
+.flow-record:nth-child(3) { animation-delay: -2.8s; }
+.flow-record:nth-child(4) { animation-delay: -4s; }
 .flow-record b { grid-row: 1 / span 2; align-self: center; color: var(--blue-deep); font: 600 11px var(--mono); }
 .flow-record code { overflow: hidden; color: #4f6073; font: 11px/1.45 var(--mono); text-overflow: ellipsis; white-space: nowrap; }
 .flow-record span { color: var(--ink); font: 500 13px var(--font-body); }
 .flow-join { position: relative; z-index: 2; display: grid; justify-items: center; gap: 9px; color: var(--blue-deep); text-align: center; }
 .flow-join span { font: 10px/1.4 var(--mono); }
-.flow-join i { position: relative; display: block; width: 38px; height: 38px; border: 1px solid #9cc7ef; border-radius: 50%; background: #f7fbff; }
+.flow-join i { position: relative; display: block; width: 38px; height: 38px; border: 1px solid #9cc7ef; border-radius: 50%; background: #f7fbff; box-shadow: 0 0 0 0 rgb(36 120 212 / 18%); animation: merge-pulse 2.8s ease-out infinite; }
 .flow-join i::before, .flow-join i::after { position: absolute; left: 50%; display: block; width: 20px; height: 1px; background: var(--blue); content: ""; transform: translateX(-50%); }
 .flow-join i::before { top: 13px; }
 .flow-join i::after { top: 22px; }
 .flow-output { padding: 17px 17px 16px; border: 1px solid #b6cce1; border-radius: 5px; background: #fff; box-shadow: 0 7px 22px rgb(40 71 104 / 8%); }
 .flow-output-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #e1e9f0; color: var(--ink); font: 600 13px var(--mono); }
-.flow-output-head span { color: var(--blue-deep); font: 500 10px var(--mono); }
+.flow-output-head span { display: inline-flex; align-items: center; gap: 6px; color: var(--blue-deep); font: 500 10px var(--mono); }
+.flow-output-head span::before { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgb(116 191 150 / 35%); content: ""; animation: ready-pulse 2.8s ease-out infinite; }
 .flow-output dl { display: grid; grid-template-columns: 83px minmax(0, 1fr); gap: 10px 6px; margin: 14px 0 0; font: 11px/1.45 var(--mono); }
 .flow-output dt { color: var(--soft); }
 .flow-output dd { min-width: 0; margin: 0; color: #1769b2; overflow-wrap: anywhere; }
 .flow-wires { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.flow-wires path { fill: none; stroke: #7eb5eb; stroke-width: 1.4; stroke-dasharray: 5 7; animation: trace-flow 3.5s linear infinite; }
-.flow-wires path:nth-child(2) { animation-delay: -1.15s; }
-.flow-wires path:nth-child(3) { animation-delay: -2.2s; opacity: .48; }
-@keyframes trace-flow { to { stroke-dashoffset: -48; } }
+.flow-wires path { fill: none; stroke: #7eb5eb; stroke-width: 1.5; stroke-dasharray: 5 8; animation: trace-flow 2.8s linear infinite; }
+.flow-wires path:nth-child(2) { animation-delay: -1.05s; }
+.flow-wires path:nth-child(3) { animation-delay: -1.9s; opacity: .58; }
+.flow-wires .flow-packet { fill: #2478d4; stroke: #f7fbff; stroke-width: 2; filter: drop-shadow(0 0 3px rgb(36 120 212 / 55%)); }
+@keyframes trace-flow { to { stroke-dashoffset: -52; } }
+@keyframes record-event { 0%, 100% { border-color: #d6e1eb; box-shadow: 0 2px 6px rgb(40 71 104 / 4%); } 22%, 38% { border-color: #8abbe8; box-shadow: 0 0 0 2px rgb(69 166 252 / 10%), 0 5px 14px rgb(40 92 143 / 9%); } }
+@keyframes merge-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgb(36 120 212 / 0%); } 45% { box-shadow: 0 0 0 8px rgb(36 120 212 / 9%); } }
+@keyframes ready-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgb(116 191 150 / 0%); } 45% { box-shadow: 0 0 0 5px rgb(116 191 150 / 16%); } }
 .flow-footer { min-height: 42px; border-top: 1px solid #d3e0ed; background: rgb(255 255 255 / 56%); font-family: var(--font-body); }
 .flow-footer code { color: var(--ink); font: 12px var(--mono); }
 .flow-footer span { color: var(--soft); }
@@ -309,7 +317,7 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
 .footer-hit img { display: block; width: 72px; height: 72px; object-fit: contain; }
 .footer-signature { display: grid; width: 100%; justify-items: center; text-align: center; }
 .signature-art { color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 clamp(84px, calc(25vw - 116px), 216px)/.86 var(--font-display); letter-spacing: -.065em; }
-.footer-meta { display: grid; width: 100%; gap: 16px; justify-items: center; margin-top: 12px; padding-top: 24px; border-top: 1px solid var(--line); }
+.footer-meta { display: grid; width: 100%; gap: 16px; justify-items: center; margin-top: 12px; padding-top: 24px; }
 .footer-credits, .footer-legal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 17px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.6; text-align: center; }
 .footer-legal a, .footer-credits a { color: inherit; }
 .footer-legal a { text-decoration-color: var(--line-strong); }
@@ -435,4 +443,5 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .flow-wires .flow-packet { display: none; }
 }
