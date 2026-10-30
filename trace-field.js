@@ -45,7 +45,10 @@
     const stamp = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
     const id = Math.floor(Math.random() * 65536).toString(16).padStart(4, '0');
     const body = template.body.replace('{id}', 'sim_' + id).replace('{pid}', String(1000 + Math.floor(Math.random() * 8000))).replace('{ms}', String(30 + Math.floor(Math.random() * 1500)));
-    return {...template, raw: `[${stamp}] [${template.level}] [${template.channel}] ${body}`};
+    const raw = `[${stamp}] [${template.level}] [${template.channel}] ${body}`;
+    let matrixSeed = 2166136261;
+    for (const character of raw) matrixSeed = Math.imul(matrixSeed ^ character.charCodeAt(0), 16777619);
+    return {...template, raw, matrixSeed: matrixSeed >>> 0};
   }
   const ambientLogs = Array.from({length: 24}, (_, index) => sampleLog(index));
   const cw = 8, ch = 16;
@@ -141,8 +144,8 @@
     const wide = width >= 900;
     gate = Math.round(width * (wide ? .585 : .55) / cw);
     const count = wide ? 5 : 4;
-    const top = wide ? height * .245 : textBottom + 90;
     const spacing = wide ? Math.min(80, height * .105) : 48;
+    const top = wide ? Math.max(36, (height - (count - 1) * spacing) / 2) : textBottom + 90;
     laneY = Array.from({length: count}, (_, i) => Math.round((top + spacing * i) / ch) * ch + ch / 2);
     origins = Array.from({length: count}, (_, i) => height * .1 + height * .8 * (i + .5) / count);
     if (!wide) origins = laneY.map((y, i) => y + Math.sin(i * 2) * 36);
@@ -171,8 +174,34 @@
   }
   function label(text, x, y, color = colors.ink) {
     context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
-    context.fillStyle = colors.paper; context.fillRect(x - 6, y - 9, text.length * cw + 12, ch + 2);
+    const width = context.measureText(text).width;
+    context.fillStyle = colors.paper; context.fillRect(x - 6, y - 9, width + 12, ch + 2);
     context.fillStyle = color; context.fillText(text, x, y + 1);
+  }
+  function labelWidth(text) {
+    context.font = `500 13.333px ${mono}`;
+    return context.measureText(text).width;
+  }
+  function matrixIcon(x, y, seed, alpha = 1) {
+    const cell = 2.4, gap = 1.15, side = 4, size = cell * side + gap * (side - 1);
+    context.save();
+    context.globalAlpha = alpha;
+    context.fillStyle = colors.paper;
+    context.fillRect(x - 3, y - 8, size + 6, 16);
+    context.strokeStyle = colors.glyphs[2];
+    context.lineWidth = 1;
+    context.strokeRect(x - 1.5, y - 6.5, size + 3, 13);
+    let state = seed >>> 0;
+    const palette = [null, colors.glyphs[3], colors.blue, colors.deep];
+    for (let index = 0; index < side * side; index++) {
+      state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+      const level = state >>> 30;
+      if (!level) continue;
+      const row = Math.floor(index / side), column = index % side;
+      context.fillStyle = palette[level];
+      context.fillRect(x + column * (cell + gap), y - size / 2 + row * (cell + gap), cell, cell);
+    }
+    context.restore();
   }
   function draw() {
     context.clearRect(0, 0, width, height);
@@ -216,15 +245,19 @@
       const sourceHead = Math.max(0, Math.min(gate - 1, col + example.raw.length - 1));
       const inputY = Math.round((band(packet.lane, sourceHead * cw).y - ch / 2) / ch) * ch + ch / 2;
       context.font = `500 13.333px ${mono}`; context.textBaseline = 'middle';
-      const outputStart = Math.max(2, Math.floor((example.raw.length - example.mode.length) / 2));
+      const resultMode = example.mode === 'AI agent' ? 'AI Agent' : example.mode;
+      const resultText = `≈ ${resultMode}`;
+      const matrixSlots = 3;
+      const outputStart = Math.max(2, Math.floor((example.raw.length - matrixSlots - resultText.length) / 2));
       const modeVisible = col + outputStart >= gate;
       for (let i = 0; i < example.raw.length; i++) {
         const x = (col + i) * cw;
         let char = example.raw[i], color = colors.muted;
         if (col + i >= gate) {
-          if (!modeVisible || i < outputStart || i >= outputStart + example.mode.length + 2) continue;
-          char = modeVisible ? (' ' + example.mode + ' ')[i - outputStart] || ' ' : ' ';
-          color = colors.ink;
+          if (!modeVisible || i < outputStart || i >= outputStart + matrixSlots + resultText.length) continue;
+          const resultIndex = i - outputStart - matrixSlots;
+          char = resultIndex >= 0 ? (resultText[resultIndex] || ' ') : ' ';
+          color = colors.deep;
         }
         const y = col + i >= gate ? laneY[packet.lane] : inputY;
         const row = Math.max(0, Math.min(rows - 1, Math.floor(y / ch)));
@@ -236,13 +269,25 @@
       context.fillStyle = colors.blue;
       const trailY = col >= gate ? laneY[packet.lane] : inputY;
       context.fillText('────', (col + (col >= gate ? outputStart : 0) - 4) * cw, trailY + 1);
+      if (modeVisible) {
+        const iconX = (col + outputStart) * cw;
+        const outputRow = Math.max(0, Math.min(rows - 1, Math.floor(laneY[packet.lane] / ch)));
+        const outputCol = Math.max(0, Math.min(columns - 1, Math.floor(iconX / cw)));
+        matrixIcon(iconX, laneY[packet.lane], example.matrixSeed, 1 - quiet[outputRow * columns + outputCol]);
+      }
     }
     context.globalAlpha = 1;
     const captionY = laneY[0] - 48;
     const english = document.documentElement.lang === 'en';
-    label(width >= 900 ? (english ? 'Session traces' : '会话日志') : (english ? 'Traces' : '日志轨迹'), gate * cw - (width >= 900 ? 56 : 24), captionY, colors.muted);
-    const caption = width >= 900 ? (english ? 'Execution mode' : '执行方式') : (english ? 'Mode' : '方式');
-    label(caption, width - caption.length * cw - 24, captionY, colors.muted);
+    const inputCaption = width >= 900
+      ? (english ? 'AttackAgent Detect · Session logs' : 'AttackAgent Detect · 会话日志')
+      : (english ? 'AttackAgent · Session logs' : 'AttackAgent · 会话日志');
+    const inputX = width >= 900 ? gate * cw - labelWidth(inputCaption) - 16 : 8;
+    label(inputCaption, inputX, captionY, colors.muted);
+    const outputCaption = width >= 900
+      ? (english ? 'AI-era defense · Execution mode' : 'AI时代安防 · 执行方式')
+      : (english ? 'AI-era security · Mode' : 'AI时代安防 · 模式');
+    label(outputCaption, width - labelWidth(outputCaption) - 12, captionY, colors.muted);
   }
   function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
   function start() {
@@ -264,11 +309,21 @@
     }
     draw(); frameId = requestAnimationFrame(frame);
   }
+  function syncToggle() {
+    if (!toggle) return;
+    const english = document.documentElement.lang === 'en';
+    const title = paused
+      ? (english ? 'Resume animation' : '播放动效')
+      : (english ? 'Pause animation' : '暂停动效');
+    toggle.textContent = title;
+    toggle.setAttribute('aria-label', paused
+      ? (english ? 'Resume hero animation' : '播放首屏动效')
+      : (english ? 'Pause hero animation' : '暂停首屏动效'));
+    toggle.setAttribute('aria-pressed', String(paused));
+  }
   toggle?.addEventListener('click', () => {
     paused = !paused;
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.setAttribute('aria-label', paused ? '继续首屏动效' : '暂停首屏动效');
-    toggle.textContent = paused ? '继续动效' : '暂停动效';
+    syncToggle();
     if (paused) stop(); else start();
   });
   hero.addEventListener('pointermove', event => {
@@ -279,7 +334,7 @@
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) start(); else stop(); }).observe(hero);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
   reduce.addEventListener('change', () => { if (reduce.matches) { stop(); seed(); draw(); } else start(); });
-  document.addEventListener('pagelanguagechange', draw);
+  document.addEventListener('pagelanguagechange', () => { draw(); syncToggle(); });
   new ResizeObserver(() => { if (ready) resize(); }).observe(hero);
   const fonts = document.fonts ? Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1500))]) : Promise.resolve();
   fonts.then(() => { resize(); ready = true; document.documentElement.classList.add('has-field'); start(); });
