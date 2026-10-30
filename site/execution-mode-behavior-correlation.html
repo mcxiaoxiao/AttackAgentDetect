@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261030-syntax-highlight-v3" rel="stylesheet"/>
 <script defer="True" src="i18n.js?v=20261030-case-study"></script><script defer="" src="site.js"></script>
-<link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261030-study-results" rel="stylesheet"/></head>
+<link href="demo.css" rel="stylesheet"/><link href="tensor-demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="tensor-demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261030-study-results" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
@@ -236,15 +236,15 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </section><section aria-labelledby="demo-title" class="section product-demo" id="demo">
 <div class="demo-heading"><h2 data-en="One trace. More than one execution mode." id="demo-title">一份日志，不止一种执行方式。</h2><p data-en="Explore execution modes, behavioral signals, and trace matching. The examples use real commands from CyBench's back_to_the_past public traces.">从执行方式、行为信号到轨迹关联。示例命令来自 CyBench <code>back_to_the_past</code> 的公开轨迹。</p></div>
 <div aria-label="产品演示" class="demo-tabs" data-en-aria-label="Product demo" role="tablist">
-<button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><span aria-hidden="true">1</span><b data-en="Mode detection">执行识别</b></button>
-<button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><span aria-hidden="true">2</span><b data-en="Behavioral signals">行为信号</b></button>
-<button aria-controls="demo-match" aria-selected="false" id="demo-tab-match" role="tab" tabindex="-1" type="button"><span aria-hidden="true">3</span><b data-en="Trace correlation">轨迹关联</b></button>
-<button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><span aria-hidden="true">4</span><b data-en="Log sources">日志来源</b></button>
+<button aria-controls="demo-detect" aria-selected="true" id="demo-tab-detect" role="tab" type="button"><b data-en="Mode detection">执行识别</b></button>
+<button aria-controls="demo-signals" aria-selected="false" id="demo-tab-signals" role="tab" tabindex="-1" type="button"><b data-en="Behavioral signals">行为信号</b></button>
+<button aria-controls="demo-match" aria-selected="false" id="demo-tab-match" role="tab" tabindex="-1" type="button"><b data-en="Trace correlation">轨迹关联</b></button>
+<button aria-controls="demo-sources" aria-selected="false" id="demo-tab-sources" role="tab" tabindex="-1" type="button"><b data-en="Log sources">日志来源</b></button>
 </div>
 <div aria-labelledby="demo-tab-detect" class="demo-panel" id="demo-detect" role="tabpanel" tabindex="0">
-<p class="demo-say" data-en="The same CyBench task, two real traces. Switch the executor and compare the submitted commands.">同一个 CyBench 任务，两条真实轨迹。切换执行者，比较实际提交的命令。</p>
+<p class="demo-say" data-en="Two public traces from the same CyBench task. Switch between the Human and Agent records to inspect their commands.">同一道 CyBench 题目对应两条公开记录。切换人类和 Agent，查看各自执行的命令。</p>
 <div aria-label="执行方式示例" class="demo-mode-picks" data-en-aria-label="Execution mode examples" role="group"><button aria-pressed="false" data-demo-mode="human" type="button">🥷 Human</button><button aria-pressed="true" data-demo-mode="agent" type="button">🤖 AI agent</button></div>
-<figure class="demo-inspector"><figcaption><code data-demo-source="">back_to_the_past · agent</code><span data-en="Public trace commands">公开轨迹命令</span><span data-en="Extracted evidence">提取线索</span></figcaption><div class="demo-inspector-grid">
+<figure class="demo-inspector"><figcaption><code data-demo-source="">trace a18eeb89</code><span data-demo-received="">采自 Agent bash 工具调用</span><span data-demo-label="">数据集标注：Agent</span></figcaption><div class="demo-inspector-grid">
 <pre class="demo-log" data-demo-log=""></pre><div class="demo-verdict">
 <div data-mode-case="human" hidden=""><strong>🥷 Human</strong><p data-en="Expert terminal session. The parser reconstructs submitted commands from keystrokes and drops interrupted lines.">专家终端会话。解析器从键盘输入还原提交的命令，并丢弃中断的行。</p><code>source=expert terminal<br/>session=332 · trace=e308264f<br/>input=keystrokes</code></div>
 <div data-mode-case="agent"><strong>🤖 AI agent</strong><p data-en="Claude Opus 4.6 on the same task. Bash tool calls expose structured commands and feedback-driven retries.">同一任务上的 Claude Opus 4.6。bash 工具调用给出结构化命令，并带有基于反馈的重试。</p><code>source=claude-opus-4.6<br/>trace=a18eeb89<br/>tool=bash</code></div>
@@ -259,6 +259,11 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <li data-signal-step="3"><strong data-en="Compare rankings">比较排名</strong><span data-en="A same-task trace counts as a hit. We compare the behavior ranker with the same ranker plus predicted execution-mode scores.">同题轨迹算命中。我们比较只看行为的排序器和加入执行方式分数的排序器。</span><code>behavior · behavior + mode</code></li>
 <li data-signal-step="4"><strong data-en="Read the result">看结果</strong><span data-en="Mode scores recover more same-task Human–Agent links and also create more links between different tasks. The source records use different capture interfaces.">模式分数找回更多同题 Human–Agent 配对，也引入更多异题错误关联。Human 与 Agent 记录来自不同采集接口。</span><code>漏关联 −12.7 · 错误关联 +11.9 个百分点</code></li>
 </ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Nested task-held-out thresholds · 5,000 task-cluster bootstrap replicates." data-sequence-status="" role="status">嵌套任务留出阈值 · 5,000 次任务簇 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow follows the repository scripts and result JSON. Recompute the current fixed-operating-point study with scripts/run_association_operating_points.py; playback shows research steps only, not runtime latency.">流程依据仓库脚本和结果 JSON 整理；运行 scripts/run_association_operating_points.py 可重算当前固定工作点实验。播放只展示步骤顺序，不代表运行耗时。</p></div>
+<div aria-label="多维行为画像张量示意" class="tensor-demo" data-en-aria-label="Multidimensional behavior-profile tensor illustration" data-profile-tensor="">
+<div class="tensor-demo-copy"><span class="tensor-kicker" data-en="MULTI-DIMENSIONAL PROFILE">多维行为画像</span><h3 data-en="One trace, three axes">一条轨迹，三个维度</h3><p data-en="Each command contributes to a stage, an action family, and three separate behavior channels. The panels are slices of one 4 × 8 × 3 tensor, not one personality score.">每条命令都会映射到一个阶段、一个操作类别和三个独立行为通道。三个面板是同一个 4 × 8 × 3 张量的切片，不是单一人格分数。</p></div>
+<figure class="tensor-demo-figure"><div class="tensor-demo-toolbar"><code>T[阶段, 操作类别, 通道]</code><button class="button secondary" data-en="Play phase sequence" data-tensor-play="" type="button">播放阶段流转</button></div><div class="tensor-demo-viewport"><img alt="177 条公开轨迹的阶段—动作—通道张量平均值热图。" class="tensor-demo-fallback" data-en-alt="Heatmaps of the mean phase–action–channel tensor across 177 public traces." src="assets/profile-tensor-means-v1.svg"/><div class="tensor-demo-chart" data-tensor-chart="" hidden=""></div></div><figcaption data-en="Each heatmap is one channel; columns are four ordered stages and rows are eight action families. Cell colors show mean values across all 177 traces, without separating Human and Agent records.">每张热图对应一个通道；列为四个有序阶段，行为八类操作。色块表示 177 条轨迹的总体平均，不区分 Human 和 Agent。</figcaption></figure>
+<p aria-live="polite" class="tensor-demo-status" data-en="Click play to follow the phase axis. Values are descriptive cohort means, not a Human/Agent classifier or an association result." data-tensor-status="" role="status">点击播放，沿阶段轴查看张量切片。数值是队列描述性均值，不是 Human/Agent 分类器或关联实验结果。</p>
+<noscript><p>页面需要启用 JavaScript 才能播放阶段动画；静态张量图仍可查看。</p></noscript>
 </div>
 <div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
 <p class="demo-say" data-en="Compare actual command sequences. A similar trace is a lead to inspect, not proof of a shared attacker.">比较真实命令序列。轨迹相似只是检查线索，不能证明是同一攻击者。</p>
