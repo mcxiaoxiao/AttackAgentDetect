@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Open research on execution-mode signals in public attack traces and whether they help behavior-based trace association." name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<title data-en="AttackAgent Detect | Home">AttackAgent Detect | 安全轨迹与行为关联</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
+<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v4"></script>
+<link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
+<body>
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top">
+<img alt="" height="42" src="assets/openmoji-owl.png" width="42"/>
+<span>AttackAgent<br/>Detect</span>
+</a>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a data-en="Research" href="research.html">研究</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a><div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div></div>
+</aside>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero" id="top">
+<canvas aria-hidden="true" class="field"></canvas>
+<button aria-label="暂停首屏动效" aria-pressed="false" class="field-toggle" data-en="Pause animation" data-en-aria-label="Pause hero animation" type="button">暂停动效</button>
+<div class="hero-copy">
+<h1 data-en-html="Unmask<br/>Attacks in the AI Era" id="hero-title">让 AI 时代的攻击，<br/>显露行为指纹</h1>
+<p class="hero-desc" data-en="AttackAgent Detect turns attack logs into multidimensional behavioral profiles, characterizes operational traces, and evaluates Human, Script, and AI Agent execution modes as evidence for behavior-based correlation. The open-source library provides Linux auditd normalization, candidate trace ranking, and a local Human/Agent detector.">AttackAgent Detect 将攻击日志转化为多维行为画像，刻画操作轨迹，并评估 Human、Script 与 AI Agent 等执行模式对行为关联的价值。开源库提供 Linux auditd 标准化、候选轨迹排序和本地 Human/Agent 识别器。</p>
+<div class="hero-links">
+<a class="button primary" href="#quickstart"><span data-en="Quick start">快速开始</span></a>
+<button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
+</div>
+<pre class="copy-source" hidden="" id="ai-brief-markdown"># AttackAgent Detect
+
+Open research prototype for analyzing whether execution mode is visible in command and action traces, and whether that signal improves behavior-based trace association.
+
+## Input
+- JSONL records with `trace_id`, `benchmark`, ordered `commands`, and coarse `actions`.
+- Training records also need labeled `activity_id` and `mode` (`human` or `agent`).
+- Linux auditd `SYSCALL`/`EXECVE` logs can be normalized from source. Sysmon is not supported; `script` classification has no labeled data yet.
+
+## Output
+- Human-like / Agent-like score with observed command evidence and an abstention reason.
+- Candidate trace ranking by baseline similarity and mode-aware score.
+- Scores are uncalibrated ranking/classification outputs, not probabilities of actor identity, common activity, or APT attribution.
+
+## Current evidence
+- 177 public CTF traces from 40 matched task groups; task identity is only a same-challenge proxy label.
+- Mode prediction is confounded with capture pathway (human terminal input vs Agent tool-call records).
+- A fixed split shows a small gain over one task-supervised ranker; five alternate splits average to no stable gain.
+
+Run the source examples and inspect the JSONL schema in the repository before applying this prototype to other data.</pre>
+<div aria-label="计划于 2027 年发布到 PyPI，当前请从源码运行" class="install-preview" data-en-aria-label="PyPI release planned for 2027. Run the current version from source.">
+<code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
+<button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
+</div>
+<p class="hero-terms" data-en="PyPI release planned for 2027; install from source today. The animated field illustrates the path from log streams to multidimensional behavior profiles.">PyPI 计划于 2027 年发布；当前支持从源码安装。动态背景展示日志流到多维行为画像的分析路径。</p>
+</div>
+</section>
+<section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
+<div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.&lt;br/&gt;Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>
+<p class="quickstart-band-lead" data-en="The source CLI joins Linux audit SYSCALL and EXECVE records, extracts commands, and preserves event references and parse quality.">源码命令行工具合并 Linux audit 的 SYSCALL 与 EXECVE 记录，提取命令，并保留事件引用和解析质量。</p>
+<div class="api-install"><code id="quickstart-run">.venv/bin/python -m attackagent.jsonl_cli normalize --input examples/auditd/minimal.audit</code><button data-copy="quickstart-run" data-en="Copy" type="button">复制</button></div>
+<p class="quickstart-plan"><span data-en="Source package today; PyPI planned for 2027.">当前可从源码运行，PyPI 计划于 2027 年发布。</span><br/><a class="source-link" data-en="See the input and output example" href="index.html#method">查看输入与输出示例</a></p></div>
+<figure class="api-pane"><div class="api-file"><code>normalize</code><span data-en="Fixture output · minimal.audit">格式样例输出 · minimal.audit</span><button data-copy="quickstart-usage" data-en="Copy" type="button">复制</button></div>
+<pre id="quickstart-usage"><code>{
+  <span class="syntax-keyword">"schema_version"</span>: 1,
+  <span class="syntax-keyword">"stats"</span>: {
+    <span class="syntax-keyword">"lines"</span>: 5,
+    <span class="syntax-keyword">"malformed_lines"</span>: 0,
+    <span class="syntax-keyword">"duplicate_lines"</span>: 0,
+    <span class="syntax-keyword">"parsed_records"</span>: 4,
+    <span class="syntax-keyword">"joined_events"</span>: 2,
+    <span class="syntax-keyword">"normalized_traces"</span>: 1
+  },
+  <span class="syntax-keyword">"traces"</span>: [{
+    <span class="syntax-keyword">"schema_version"</span>: 1,
+    <span class="syntax-keyword">"trace_id"</span>: <span class="syntax-string">"auditd-42daa052e385a843"</span>,
+    <span class="syntax-keyword">"source_format"</span>: <span class="syntax-string">"linux-auditd-v1"</span>,
+    <span class="syntax-keyword">"benchmark"</span>: <span class="syntax-string">"auditd"</span>,
+    <span class="syntax-keyword">"commands"</span>: [<span class="syntax-string">"curl"</span>, <span class="syntax-string">"grep"</span>],
+    <span class="syntax-keyword">"actions"</span>: [<span class="syntax-string">"network"</span>, <span class="syntax-string">"search"</span>],
+    <span class="syntax-keyword">"event_refs"</span>: [
+      <span class="syntax-string">"host-unknown/audit(1700000000.125:410)"</span>,
+      <span class="syntax-string">"host-unknown/audit(1700000002.250:411)"</span>
+    ],
+    <span class="syntax-keyword">"quality"</span>: {
+      <span class="syntax-keyword">"events"</span>: 2,
+      <span class="syntax-keyword">"exec_events"</span>: 2,
+      <span class="syntax-keyword">"missing_syscall"</span>: 0,
+      <span class="syntax-keyword">"duplicate_lines"</span>: 0,
+      <span class="syntax-keyword">"incomplete_events"</span>: 0
+    }
+  }]
+}</code></pre>
+<figcaption class="api-note" data-en="A hand-written format fixture, not research data. The example commands are parsed as text and never executed; see examples/auditd/minimal.audit.">手写的格式 fixture，不是研究数据。示例命令只作为文本解析，不会执行；输入见 examples/auditd/minimal.audit。</figcaption></figure>
+</section>
+<section class="section docs-content" id="method"><div class="docs-prose"><h2 data-en="Work with traces">从轨迹开始</h2><p data-en="Normalize auditd execution records, rank candidate traces, and optionally score execution mode using compatible labeled training data.">标准化 auditd 执行记录，对候选轨迹排序，并可使用采集格式匹配的标注数据评分执行方式。</p><h3 data-en="Install from source">从源码安装</h3><div class="quickstart-terminal docs-command-window"><div class="terminal-head"><span data-en="Install from source">从源码安装</span><span class="terminal-language">bash</span><button class="copy-button" data-copy="source-install-command" data-en="Copy" data-en-aria-label="Copy source installation commands" aria-label="复制源码安装命令" type="button">复制</button></div><pre id="source-install-command"><code><span class="code-line"><span class="shell-command">git clone</span> <span class="shell-url">https://github.com/mcxiaoxiao/AttackAgentDetect.git</span></span>
+<span class="code-line"><span class="shell-command">cd</span> <span class="shell-path">AttackAgentDetect</span></span>
+<span class="code-line"><span class="shell-command">python3 -m venv</span> <span class="shell-path">.venv</span></span>
+<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m pip install</span> <span class="shell-path">.</span></span></code></pre></div><p data-en="The package is available from source. PyPI publication is planned for 2027.">当前可从源码安装；计划于 2027 年发布至 PyPI。</p><h3 data-en="Command line">命令行</h3><div class="quickstart-terminal docs-command-window"><div class="terminal-head"><span data-en="Normalize, rank, inspect">标准化、排序、查看方法</span><span class="terminal-language">bash</span><button class="copy-button" data-copy="source-cli-command" data-en="Copy" data-en-aria-label="Copy command-line examples" aria-label="复制命令行示例" type="button">复制</button></div><pre id="source-cli-command"><code><span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m attackagent.jsonl_cli normalize</span> <span class="shell-flag">--input</span> <span class="shell-path">examples/auditd/minimal.audit</span></span>
+<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m attackagent.jsonl_cli rank</span> <span class="shell-flag">--query</span> <span class="shell-path">examples/jsonl/queries.jsonl</span> <span class="shell-flag">--candidates</span> <span class="shell-path">examples/jsonl/candidates.jsonl</span> <span class="shell-flag">--method</span> <span class="shell-value">command_cosine</span></span>
+<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m attackagent.jsonl_cli methods</span></span></code></pre></div><p data-en="Normalization parses commands as evidence and preserves event references. Ranking does not require Human or Agent labels.">标准化提取命令并保留事件引用；行为排序无需人类或 Agent 标签。</p><h3 data-en="Methods">方法目录</h3><div class="docs-table"><table><thead><tr><th data-en="Method">方法</th><th data-en="Role">用途</th><th data-en="Status">状态</th></tr></thead><tbody><tr><td><code>command_cosine</code></td><td data-en="Compare command-token vectors">比较命令词向量</td><td data-en="Available">可用</td></tr><tr><td><code>action_bigram</code></td><td data-en="Compare adjacent action pairs">比较相邻动作</td><td data-en="Available">可用</td></tr><tr><td><code>procgrep_jsd</code></td><td data-en="ProcGrep procedure-frequency adaptation">ProcGrep 过程频率方法适配</td><td data-en="Available">可用</td></tr><tr><td><a href="local-mode-detector.html"><code>local_mode_detector</code></a></td><td data-en="Human / Agent scoring with format-matched training labels">使用匹配格式标注数据进行 Human / Agent 评分</td><td><a data-en="Experimental · method and results" href="local-mode-detector.html#results">实验性 · 方法与结果</a></td></tr><tr><td><code>mode_aware_pair_ranker</code></td><td data-en="Explore mode-aware candidate ranking">探索模式感知候选排序</td><td data-en="Research prototype">研究原型</td></tr></tbody></table></div><div class="docs-extension">
+<div class="docs-extension-copy">
+<h3 data-en="Extend the library">扩展这个库</h3>
+<p data-en="Add log adapters, behavior-ranking methods, and execution-mode detectors for studying behavioral evidence in Agent-enabled attacks. Contributions can include implementations, datasets, or reproducible cases.">围绕 Agent 参与攻击的行为证据，补充日志适配、行为排序与执行方式识别方法。欢迎贡献实现、数据集或可复现案例。</p>
+<p class="docs-extension-note" data-en="New methods currently require source changes and registration in the method catalog; a third-party plugin interface is not yet available.">目前新增方法需修改源码并登记到方法目录；第三方插件接口尚未实现。</p>
+</div>
+<div class="docs-extension-actions">
+<a data-en="Method catalog" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/attackagent/methods.py">方法目录源码</a>
+<a data-en="Suggest a method" href="https://github.com/mcxiaoxiao/AttackAgentDetect/issues">提出方法建议</a>
+<a data-en="Contribute code" href="https://github.com/mcxiaoxiao/AttackAgentDetect/pulls">贡献代码</a>
+</div>
+</div><h3 data-en="Python API" id="python-api">Python API</h3><div class="docs-code-window"><div class="api-file"><code>Python API</code><span data-en="Parse and rank">解析与排序</span><button aria-label="复制 Python API 示例" data-copy="python-api-example" data-en="Copy" data-en-aria-label="Copy Python API example" type="button">复制</button></div><pre id="python-api-example"><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">attackagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">TraceEvidence</span><span class="p">,</span> <span class="n">load_auditd</span><span class="p">,</span> <span class="n">rank_candidates</span>
+
+<span class="c1"># 读取 auditd 日志（仓库中的格式示例）</span>
+<span class="n">traces</span> <span class="o">=</span> <span class="n">load_auditd</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"examples/auditd/minimal.audit"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">commands</span><span class="p">)</span>  <span class="c1"># ("curl", "grep")</span>
+
+<span class="c1"># 对候选轨迹按命令相似度排序</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">TraceEvidence</span><span class="p">(</span><span class="s2">"query"</span><span class="p">,</span> <span class="s2">"example-v1"</span><span class="p">,</span> <span class="s2">"demo"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"grep"</span><span class="p">),</span> <span class="p">())</span>
+<span class="n">candidate</span> <span class="o">=</span> <span class="n">TraceEvidence</span><span class="p">(</span><span class="s2">"candidate"</span><span class="p">,</span> <span class="s2">"example-v1"</span><span class="p">,</span> <span class="s2">"demo"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"ls"</span><span class="p">),</span> <span class="p">())</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">rank_candidates</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">[</span><span class="n">candidate</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"command_cosine"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+</code></pre></div><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="The local detector scores Human/Agent traces from format-matched labeled training data; behavior ranking can be called independently.">本地识别器使用采集格式匹配的 Human/Agent 标注数据生成执行模式评分；行为排序可以独立调用。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer><div aria-label="AttackAgent Detect" class="footer-signature">
+<strong class="signature-art">AttackAgent<br/>Detect</strong>
+</div>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
+<a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
+<span aria-hidden="true" class="footer-cross">×</span>
+<a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>
+</div>
+<div class="footer-meta">
+<div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
+<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div>
+</div>
+</footer>
+</main>
+</div>
+<div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
+</body>
+</html>

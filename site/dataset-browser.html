@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="V16 dataset: 1558 test pairs, 97 traces, 40 task groups" name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-en="AttackAgent Detect | Dataset">AttackAgent Detect | 数据集</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
+<script defer="" src="i18n.js?v=20261030-case-study"></script>
+<script defer="" src="site.js"></script>
+<style>
+.dataset-page { max-width: 900px; margin: 0 auto; padding: 80px var(--gutter); }
+.dataset-hero { margin-bottom: 80px; }
+.dataset-hero h1 { font-size: clamp(48px, 5vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+.dataset-hero p { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 640px; }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 60px 0; }
+.stat-item { text-align: center; }
+.stat-item strong { display: block; font-size: 56px; font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: 8px; }
+.stat-item span { font-size: 15px; color: var(--muted); font-weight: 500; }
+.download-section { margin: 80px 0; }
+.download-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 32px; }
+.download-list { display: flex; flex-direction: column; gap: 16px; }
+.download-item { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
+.download-item:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(0, 114, 178, 0.08); }
+.download-item-info { flex: 1; }
+.download-item-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+.download-item-info p { font-size: 14px; color: var(--muted); margin: 0; }
+.download-item a.button { display: inline-flex; align-items: center; gap: 8px; padding: 0 24px; min-height: 44px; border: 1px solid var(--blue-deep); border-radius: 5px; background: var(--blue); color: #fff; font: 600 15px var(--font-display); text-decoration: none; cursor: pointer; transition: all 0.16s ease; box-shadow: 0 2px 0 var(--blue-deep); }
+.download-item a.button:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
+.citation-section { margin: 80px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.citation-section h2 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
+.citation-section pre { margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--graphite); color: var(--graphite-ink); font: 13px/1.7 var(--mono); overflow-x: auto; }
+@media (max-width: 768px) {
+  .stats-row { grid-template-columns: 1fr; gap: 24px; }
+  .download-item { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .download-item a.button { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a aria-current="page" data-en="Research" href="research.html">研究</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.114 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a>
+<div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
+</div>
+</aside>
+<main id="main">
+<div class="dataset-page">
+<section class="dataset-hero">
+<h1 data-en="V16 Dataset">V16 数据集</h1>
+<p data-en="1558 test pairs from 97 traces across 40 CTF task groups. 81.1% accuracy, 0% false split rate.">97条轨迹、40个CTF任务组、1558个测试对。准确率81.1%，误拆分率0%。</p>
+</section>
+
+<section class="stats-row">
+<div class="stat-item">
+<strong>1558</strong>
+<span data-en="Test Pairs">测试对</span>
+</div>
+<div class="stat-item">
+<strong>97</strong>
+<span data-en="Traces">轨迹</span>
+</div>
+<div class="stat-item">
+<strong>40</strong>
+<span data-en="Task Groups">任务组</span>
+</div>
+</section>
+
+<section class="download-section">
+<h2 data-en="Download">下载</h2>
+<div class="download-list">
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Test Pair Scores">测试对分数</h3>
+<p data-en="Complete CSV with all 1558 test pairs">包含所有1558个测试对的完整CSV</p>
+</div>
+<a class="button" href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<span data-en="CSV">CSV</span>
+</a>
+</div>
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Aggregated Results">聚合结果</h3>
+<p data-en="JSON file with task-level metrics">包含任务级指标的JSON文件</p>
+</div>
+<a class="button" href="../results/balanced_innovation_v16/results.json" download>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<span data-en="JSON">JSON</span>
+</a>
+</div>
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Reproduction Script">复现脚本</h3>
+<p data-en="Python script to reproduce all results">复现所有结果的Python脚本</p>
+</div>
+<a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+<span data-en="GitHub">GitHub</span>
+</a>
+</div>
+</div>
+</section>
+
+<section class="citation-section">
+<h2 data-en="Citation">引用</h2>
+<pre><code>@misc{attackagent-detect-2026,
+  title={AttackAgent Detect: Behavioral Trace Association for AI-Executed Attacks},
+  author={OrlosZiming and sunyinggang},
+  year={2026},
+  howpublished={\url{https://github.com/mcxiaoxiao/AttackAgentDetect}}
+}</code></pre>
+</section>
+</div>
+</main>
+</div>
+<div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
+</body>
+</html>

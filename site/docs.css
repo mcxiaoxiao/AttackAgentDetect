@@ -1,0 +1,36 @@
+/* Syntax colors for the copyable, source-highlighted Python examples. */
+.docs-prose pre .kn, .docs-prose pre .k, .docs-prose pre .kc { color: #91c5ff; }
+.docs-prose pre .nn, .docs-prose pre .n { color: #e4edf7; }
+.docs-prose pre .s, .docs-prose pre .s1, .docs-prose pre .s2 { color: #94d5b2; }
+.docs-prose pre .c, .docs-prose pre .c1 { color: #9cacbe; }
+.docs-prose pre .nb, .docs-prose pre .nf { color: #b5d5fb; }
+
+/* Compact result table for the reproducible feature study. */
+.study-table-wrap { max-width: var(--content); margin: 30px auto 0; overflow-x: auto; }
+.study-results { width: 100%; border-collapse: collapse; background: #fff; color: var(--ink); font-size: 13px; font-variant-numeric: tabular-nums; }
+.study-results th, .study-results td { padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.study-results thead th { background: var(--ink); color: #fff; font-weight: 600; }
+.study-results tbody tr:nth-child(even) { background: #f5f9fd; }
+.study-results tbody tr.focus-row { background: #e6f1fb; font-weight: 600; }
+.study-table-wrap > .caption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+/* Dedicated method page for the local mode detector. */
+.mode-detector-doc .docs-prose > h2 { font-size: clamp(32px, 3.4vw, 44px); }
+.mode-detector-doc .mode-api-note { color: var(--soft); font-size: 13px; }
+.mode-data { max-width: var(--content); grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 22px auto 0; }
+.mode-data article { min-height: 116px; }
+.mode-results .result-intro { max-width: var(--content); grid-template-columns: minmax(0, .8fr) minmax(280px, 1fr); }
+.mode-results .result-intro h2 { font-size: clamp(32px, 3.6vw, 46px); }
+.mode-figure { max-width: min(1080px, var(--content)); margin: 32px auto 0; }
+.mode-result-note { max-width: var(--content); margin: 16px auto 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.mode-caveat { max-width: var(--content); margin: 20px auto 0 !important; }
+.mode-result-links { display: flex; max-width: var(--content); flex-wrap: wrap; gap: 10px 22px; margin: 23px auto 0; }
+.mode-result-links a { color: var(--blue-deep); font-size: 13px; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+@media (max-width: 850px) {
+  .mode-results .result-intro { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .mode-data { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .mode-data { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mode-data article { min-height: 100px; }
+}
