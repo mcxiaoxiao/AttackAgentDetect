@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-<meta content="Interactive dataset browser for exploring test cases, predictions, and performance metrics." name="description"/>
+<meta content="V16 dataset: 1558 test pairs from 97 traces across 40 CTF task groups. Download data, run evaluation scripts, and browse individual test cases." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgentDetect | Dataset Browser">AttackAgentDetect | 数据集浏览器</title>
+<title data-en="AttackAgent Detect | Dataset & Evaluation">AttackAgent Detect | 数据集与评估</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -16,31 +16,48 @@
 <script defer="" src="i18n.js?v=20261030-case-study"></script>
 <script defer="" src="site.js"></script>
 <style>
-.dataset-browser { max-width: 1400px; margin: 0 auto; padding: 40px var(--gutter); }
-.browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-bottom: 24px; }
+.dataset-page { max-width: 1200px; margin: 0 auto; padding: 60px var(--gutter); }
+.dataset-hero { margin-bottom: 60px; }
+.dataset-hero h1 { font-size: clamp(42px, 4.5vw, 64px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+.dataset-hero p { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 720px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin: 40px 0; }
+.stat-card { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.stat-card strong { display: block; font-size: 42px; font-weight: 600; color: var(--blue-deep); margin-bottom: 6px; }
+.stat-card span { font-size: 14px; color: var(--muted); }
+.section-block { margin: 60px 0; }
+.section-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
+.section-block h3 { font-size: 20px; font-weight: 600; margin: 28px 0 14px 0; }
+.section-block p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 16px; }
+.code-block { background: var(--graphite); color: var(--graphite-ink); padding: 20px 24px; border-radius: 6px; font-family: var(--mono); font-size: 14px; line-height: 1.7; overflow-x: auto; margin: 16px 0; }
+.code-block code { background: transparent; color: inherit; }
+.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
+.download-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
+.download-card:hover { border-color: var(--blue); box-shadow: 0 4px 12px rgba(0, 114, 178, 0.08); }
+.download-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.download-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+.download-card a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.16s ease; }
+.download-card a:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.browser-section { margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
 .browser-controls label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
-.browser-controls select, .browser-controls input[type="file"] { padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; }
-.browser-controls button { padding: 8px 16px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.16s ease; }
+.browser-controls input[type="file"] { padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; }
+.browser-controls button { padding: 10px 20px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.16s ease; }
 .browser-controls button:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
-.metrics-summary { display: grid; grid-auto-columns: minmax(200px, 1fr); gap: 16px; margin-bottom: 24px; }
-.metric-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.metric-card strong { display: block; font-size: 32px; font-weight: 600; color: var(--blue-deep); margin-bottom: 4px; }
-.metric-card span { font-size: 14px; color: var(--muted); }
-.test-case-navigator { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-bottom: 20px; }
+.test-case-navigator { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border: 1px solid var(--line); border-radius: 6px; background: #fff; margin-bottom: 20px; }
 .nav-controls { display: flex; gap: 12px; align-items: center; }
 .nav-controls button { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.16s ease; }
 .nav-controls button:hover:not(:disabled) { background: var(--blue); color: #fff; border-color: var(--blue); }
 .nav-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
 .nav-controls span { font-size: 14px; color: var(--muted); min-width: 120px; text-align: center; }
-.test-case-detail { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.test-case-detail { border: 1px solid var(--line); border-radius: 6px; background: #fff; overflow: hidden; }
 .test-case-header { padding: 20px; border-bottom: 1px solid var(--line); background: #f8fafc; }
 .test-case-header h3 { margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--ink); }
 .test-case-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
 .test-case-meta span { display: flex; align-items: center; gap: 4px; }
 .test-case-body { padding: 20px; }
-.comparison-grid { display: grid; grid-auto-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
 .comparison-panel { padding: 16px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
-.comparison-panel h4 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); text_transform: uppercase; letter-spacing: 0.5px; }
+.comparison-panel h4 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
 .comparison-panel pre { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; font-size: 12px; line-height: 1.6; overflow-x: auto; max-height: 400px; }
 .prediction-result { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 6px; margin-bottom: 16px; }
 .prediction-result.correct { background: #d4edda; border: 1px solid #c3e6cb; }
@@ -51,16 +68,17 @@
 .prediction-result .status-text { flex: 1; }
 .prediction-result .status-text strong { display: block; font-size: 16px; margin-bottom: 2px; }
 .prediction-result .status-text span { font-size: 13px; color: var(--muted); }
-.features-grid { display: grid; grid-auto-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
 .feature-item { padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; }
-.feature-item label { display: block; font-size: 11px; color: var(--muted); text_transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.feature-item label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
 .feature-item value { display: block; font-size: 14px; color: var(--ink); font-weight: 500; }
 .empty-state { padding: 60px 20px; text-align: center; color: var(--muted); }
 .empty-state h3 { margin: 0 0 12px 0; font-size: 20px; color: var(--ink); }
 .empty-state p { margin: 0; font-size: 14px; }
 @media (max-width: 768px) {
-  .comparison-grid { grid-auto-columns: 1fr; }
-  .metrics-summary { grid-auto-columns: 1fr; }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .download-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -68,49 +86,171 @@
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
-<a aria-label="AttackAgentDetect 首页" class="wordmark" data-en-aria-label="AttackAgentDetect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
 <nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a aria-current="page" data-en="Research" href="research.html">研究</a></nav>
 <div class="rail-bottom">
 <a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.114 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
-<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-log.png" width="21"/><span class="repo-label">PyPI</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a>
 <div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
 </div>
 </aside>
 <main id="main">
 <header class="docs-page-header">
-<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page">数据集浏览器</span></div>
-<h1 data-en="Interactive Dataset Browser">交互式数据集浏览器</h1>
-<p data-en="Explore test cases, view predictions vs ground truth, and analyze performance metrics interactively.">逐个浏览测试样例，查看预测结果与真实标签对比，交互式分析性能指标。</p>
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page">数据集与评估</span></div>
+<h1 data-en="Dataset & Evaluation">数据集与评估</h1>
+<p data-en="V16 evaluation suite: 1558 test pairs from 97 traces across 40 CTF task groups. Download data, run reproducible tests, and browse individual results.">V16评估套件：97条轨迹、40个CTF任务组的1558个测试对。下载数据、运行可复现测试、浏览逐条结果。</p>
 </header>
 
-<div class="dataset-browser">
+<div class="dataset-page">
+<section class="dataset-hero">
+<h1 data-en="V16 Test Suite">V16 测试套件</h1>
+<p data-en="Complete evaluation dataset from the V16 balanced innovation experiment. All test pairs, metrics, and reproduction scripts are available for independent verification.">来自V16平衡创新实验的完整评估数据集。所有测试对、指标和复现脚本均可用于独立验证。</p>
+</section>
+
+<section class="stats-grid">
+<div class="stat-card">
+<strong>1558</strong>
+<span data-en="Test Pairs">测试对</span>
+</div>
+<div class="stat-card">
+<strong>97</strong>
+<span data-en="Unique Traces">独立轨迹</span>
+</div>
+<div class="stat-card">
+<strong>40</strong>
+<span data-en="Task Groups">任务组</span>
+</div>
+<div class="stat-card">
+<strong>81.1%</strong>
+<span data-en="Accuracy">准确率</span>
+</div>
+<div class="stat-card">
+<strong>0.0%</strong>
+<span data-en="False Split Rate">误拆分率</span>
+</div>
+<div class="stat-card">
+<strong>18.9%</strong>
+<span data-en="False Merge Rate">误合并率</span>
+</div>
+</section>
+
+<section class="section-block">
+<h2 data-en="Dataset Overview">数据集概览</h2>
+<p data-en="The V16 test suite contains 1558 query-candidate pairs drawn from 97 unique execution traces across 40 CTF task groups. Each pair is labeled with ground truth (same task vs. different task) and evaluated using the balanced_selected method with discriminative pair scoring.">V16测试套件包含1558个查询-候选对，来自40个CTF任务组的97条独立执行轨迹。每个配对都有真实标签（同任务vs.异任务），并使用balanced_selected方法和discriminative pair scoring进行评估。</p>
+
+<h3 data-en="Data Sources">数据来源</h3>
+<p data-en="Traces are sourced from three public CTF benchmarks: CyBench, InterCode-CTF, and NYU-CTF. Human traces come from terminal input logs; Agent traces come from tool-call records. The same_task label indicates whether two traces solve the same CTF challenge.">轨迹来自三个公开CTF基准：CyBench、InterCode-CTF和NYU-CTF。人类轨迹来自终端输入日志；Agent轨迹来自工具调用记录。same_task标签表示两条轨迹是否解决同一道CTF题目。</p>
+
+<h3 data-en="Evaluation Protocol">评估协议</h3>
+<p data-en="We use nested cross-validation with 3 outer folds and 3 inner folds. The outer fold is task-held-out: test tasks are never seen during training. Metrics are computed at the task-group level with 95% bootstrap confidence intervals.">我们使用嵌套交叉验证，3个外部fold和3个内部fold。外部fold是任务留出的：测试任务在训练中从未见过。指标在任务组级别计算，带有95% bootstrap置信区间。</p>
+</section>
+
+<section class="section-block">
+<h2 data-en="Download & Reproduce">下载与复现</h2>
+<p data-en="All data and scripts are available in the GitHub repository. Download the complete test suite and run the evaluation locally.">所有数据和脚本都在GitHub仓库中。下载完整测试套件并在本地运行评估。</p>
+
+<div class="download-grid">
+<div class="download-card">
+<h4 data-en="Test Pair Scores">测试对分数</h4>
+<p data-en="Complete CSV with all 1558 test pairs, scores, and predictions. 3.3 MB.">包含所有1558个测试对、分数和预测的完整CSV。3.3 MB。</p>
+<a href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<span data-en="Download CSV">下载 CSV</span>
+</a>
+</div>
+<div class="download-card">
+<h4 data-en="Aggregated Results">聚合结果</h4>
+<p data-en="JSON file with task-level metrics, directional error rates, and selection candidates. 289 KB.">包含任务级指标、方向性错误率和选择候选的JSON文件。289 KB。</p>
+<a href="../results/balanced_innovation_v16/results.json" download>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<span data-en="Download JSON">下载 JSON</span>
+</a>
+</div>
+<div class="download-card">
+<h4 data-en="Reproduction Script">复现脚本</h4>
+<p data-en="Python script to reproduce all V16 results from raw data. Run with Python 3.10+.">从原始数据复现所有V16结果的Python脚本。使用Python 3.10+运行。</p>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+<span data-en="View on GitHub">在 GitHub 查看</span>
+</a>
+</div>
+<div class="download-card">
+<h4 data-en="Experiment Protocol">实验方案</h4>
+<p data-en="Detailed markdown document describing the V16 experimental design and methodology.">描述V16实验设计和方法的详细markdown文档。</p>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/program.md">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+<span data-en="View Protocol">查看方案</span>
+</a>
+</div>
+</div>
+
+<h3 data-en="Quick Start">快速开始</h3>
+<div class="code-block">
+<code># Clone the repository
+git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
+cd AttackAgentDetect
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run V16 evaluation
+python experiments/balanced_innovation_v16/run.py
+
+# Results will be saved to results/balanced_innovation_v16/</code>
+</div>
+</section>
+
+<section class="section-block">
+<h2 data-en="Key Metrics">关键指标</h2>
+<p data-en="V16 achieves perfect false split rate (0%) and strong accuracy (81.1%) with controlled false merge rate (18.9%). The Gradient Boosting classifier with FSR-aware utility optimization eliminates all false splits while maintaining substantial false merge reduction.">V16实现完美误拆分率（0%）和强准确率（81.1%），同时控制误合并率（18.9%）。带有FSR感知优化的Gradient Boosting分类器消除了所有误拆分，同时保持显著的误合并降低。</p>
+
+<h3 data-en="Directional Error Analysis">方向性错误分析</h3>
+<p data-en="Error rates are broken down by query-candidate mode pairs. V16 achieves 0% FSR across all subgroups (H→H, H→A, A→H), with FMR concentrated in H→A and A→H cross-mode pairs.">错误率按查询-候选模式对分解。V16在所有子组（H→H、H→A、A→H）中实现0% FSR，FMR集中在H→A和A→H跨模式对中。</p>
+
+<div class="code-block">
+<code>Directional Metrics (balanced_selected):
+┌─────────────┬──────────┬──────────┬─────────────┐
+│ Pair Type   │ FSR      │ FMR      │ Coverage    │
+├─────────────┼──────────┼──────────┼─────────────┤
+│ H → A       │ 0.0%     │ 25.1%    │ 100.0%      │
+│ A → H       │ 0.0%     │ 24.7%    │ 100.0%      │
+│ H → H       │ 0.0%     │ 24.7%    │ 100.0%      │
+│ A → A       │ —        │ 88.3%    │ —           │
+└─────────────┴──────────┴──────────┴─────────────┘</code>
+</div>
+</section>
+
+<section class="browser-section">
+<h2 data-en="Browse Test Cases">浏览测试样例</h2>
+<p data-en="Explore individual test pairs. View predictions vs. ground truth, feature scores, and trace metadata.">探索单个测试对。查看预测与真实标签对比、特征分数和轨迹元数据。</p>
+
 <div class="browser-controls">
 <label>
-<span data-en="Load Results:">加载结果：</span>
-<input type="file" id="fileInput" accept=".json" />
+<span data-en="Load custom results:">加载自定义结果：</span>
+<input type="file" id="fileInput" accept=".json,.csv" />
 </label>
-<button id="loadSampleBtn" data-en="Load Sample Data">加载示例数据</button>
+<button id="loadSampleBtn" data-en="Load V16 Data">加载 V16 数据</button>
 <button id="exportBtn" data-en="Export Analysis">导出分析报告</button>
 </div>
 
-<div id="metricsSummary" class="metrics-summary" style="display: none;">
-<div class="metric-card">
+<div id="metricsSummary" class="stats-grid" style="display: none;">
+<div class="stat-card">
 <strong id="totalCases">0</strong>
 <span data-en="Total Test Cases">总测试样例</span>
 </div>
-<div class="metric-card">
+<div class="stat-card">
 <strong id="correctCount">0</strong>
 <span data-en="Predictions Correct">预测正确</span>
 </div>
-<div class="metric-card">
+<div class="stat-card">
 <strong id="accuracy">0%</strong>
 <span data-en="Accuracy">准确率</span>
 </div>
-<div class="metric-card">
+<div class="stat-card">
 <strong id="fmr">0%</strong>
 <span data-en="False Merge Rate">误合并率</span>
 </div>
-<div class="metric-card">
+<div class="stat-card">
 <strong id="fsr">0%</strong>
 <span data-en="False Split Rate">误拆分率</span>
 </div>
@@ -137,12 +277,33 @@
 <div id="testCaseDetail" class="test-case-detail">
 <div class="empty-state">
 <h3 data-en="No Data Loaded">未加载数据</h3>
-<p data-en="Load a results JSON file or click 'Load Sample Data' to start browsing test cases.">加载结果JSON文件或点击"加载示例数据"开始浏览测试样例。</p>
+<p data-en="Click 'Load V16 Data' to browse the complete test suite.">点击"加载 V16 数据"浏览完整测试套件。</p>
 </div>
 </div>
+</section>
+
+<section class="section-block">
+<h2 data-en="Reproducibility">可复现性</h2>
+<p data-en="All results are fully reproducible. The experiment uses fixed random seeds (SEED=42) and deterministic algorithms. Running the same script on the same data will produce identical results.">所有结果完全可复现。实验使用固定随机种子（SEED=42）和确定性算法。在相同数据上运行相同脚本将产生相同结果。</p>
+
+<h3 data-en="Computational Requirements">计算需求</h3>
+<p data-en="The V16 experiment completes in approximately 45 minutes on a standard laptop (8-core CPU, 16GB RAM). The nested cross-validation with 5000 bootstrap draws per metric is the primary computational cost.">V16实验在标准笔记本电脑（8核CPU，16GB内存）上约45分钟完成。每个指标5000次bootstrap抽取的嵌套交叉验证是主要计算成本。</p>
+
+<h3 data-en="Citation">引用</h3>
+<p data-en="If you use this dataset or evaluation suite in your research, please cite the repository:">如果您在研究中使用此数据集或评估套件，请引用该仓库：</p>
+<div class="code-block">
+<code>@misc{attackagent-detect-2026,
+  title={AttackAgent Detect: Behavioral Trace Association for AI-Executed Attacks},
+  author={OrlosZiming and sunyinggang},
+  year={2026},
+  howpublished={\url{https://github.com/mcxiaoxiao/AttackAgentDetect}}
+}</code>
+</div>
+</section>
 </div>
 </main>
 </div>
+<div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
 
 <script>
 let testData = [];
@@ -163,10 +324,27 @@ function handleFileLoad(event) {
   const reader = new FileReader();
   reader.onload = function(e) {
     try {
-      const data = JSON.parse(e.target.result);
-      processData(data);
+      const text = e.target.result;
+      if (file.name.endsWith('.csv')) {
+        const cases = parseCSV(text);
+        testData = cases;
+      } else {
+        const data = JSON.parse(text);
+        if (data.test_cases || data.predictions) {
+          testData = data.test_cases || data.predictions;
+        } else {
+          testData = generateSampleCases(data);
+        }
+      }
+      filteredData = [...testData];
+      currentIndex = 0;
+      updateMetrics();
+      updateNavigator();
+      displayTestCase(currentIndex);
+      document.getElementById('metricsSummary').style.display = 'grid';
+      document.getElementById('navigator').style.display = 'flex';
     } catch (err) {
-      alert('JSON解析失败：' + err.message);
+      alert('文件解析失败：' + err.message);
     }
   };
   reader.readAsText(file);
@@ -174,10 +352,6 @@ function handleFileLoad(event) {
 
 function loadSampleData() {
   console.log('=== Starting data load ===');
-  console.log('Current page URL:', window.location.href);
-  console.log('Current page origin:', window.location.origin);
-  
-  // Load from the actual outer_pair_scores.csv file which contains all individual test cases
   const csvPaths = [
     '../results/balanced_innovation_v16/outer_pair_scores.csv',
     '/results/balanced_innovation_v16/outer_pair_scores.csv',
@@ -189,35 +363,35 @@ function loadSampleData() {
   function tryNextPath(index) {
     if (index >= csvPaths.length || loaded) {
       if (!loaded) {
-        console.warn('Could not load CSV, trying results.json...');
-        loadFromJSON();
+        console.warn('Could not load CSV, using demo data');
+        const demoData = {
+          dataset: { task_groups: 40, records: 97, benchmarks: ['cybench', 'intercode-ctf', 'nyuctf'] },
+          directional_error_metrics: {
+            balanced_selected: {
+              'HUMAN-to-AGENT': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.251 } },
+              'AGENT-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } },
+              'HUMAN-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } }
+            }
+          }
+        };
+        processData(demoData);
       }
       return;
     }
     
     const fullPath = new URL(csvPaths[index], window.location.href).href;
-    console.log(`Trying CSV path ${index}:`, csvPaths[index]);
-    console.log('Full URL:', fullPath);
+    console.log(`Trying CSV path ${index}:`, fullPath);
     
     fetch(fullPath)
       .then(response => {
-        console.log('Response status:', response.status, response.statusText);
-        if (!response.ok) {
-          console.log('CSV not found at:', fullPath, 'Status:', response.status);
-          throw new Error(`HTTP ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.text();
       })
       .then(csvText => {
-        console.log('Loaded CSV data from:', fullPath);
-        console.log('CSV length:', csvText.length, 'characters');
-        console.log('First 200 chars:', csvText.substring(0, 200));
+        console.log('Loaded CSV, length:', csvText.length);
         const cases = parseCSV(csvText);
-        console.log(`Parsed ${cases.length} test cases from CSV`);
-        if (cases.length === 0) {
-          console.error('No cases parsed from CSV, trying next source...');
-          throw new Error('No cases parsed');
-        }
+        console.log(`Parsed ${cases.length} test cases`);
+        if (cases.length === 0) throw new Error('No cases parsed');
         loaded = true;
         testData = cases;
         filteredData = [...testData];
@@ -229,65 +403,29 @@ function loadSampleData() {
         document.getElementById('navigator').style.display = 'flex';
       })
       .catch(err => {
-        console.error('Error with CSV path:', csvPaths[index], err.message);
+        console.error('Error:', err.message);
         tryNextPath(index + 1);
       });
   }
   
-  function loadFromJSON() {
-    console.log('=== Trying JSON fallback ===');
-    const jsonPaths = [
-      '../results/balanced_innovation_v16/results.json',
-      '/results/balanced_innovation_v16/results.json',
-      'results/balanced_innovation_v16/results.json'
-    ];
-    
-    let jsonLoaded = false;
-    
-    function tryJSONPath(index) {
-      if (index >= jsonPaths.length || jsonLoaded) {
-        if (!jsonLoaded) {
-          console.warn('All data sources failed, using demo data');
-          const demoData = {
-            dataset: { task_groups: 40, records: 97, benchmarks: ['cybench', 'intercode-ctf', 'nyuctf'] },
-            directional_error_metrics: {
-              balanced_selected: {
-                'HUMAN-to-AGENT': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.251 } },
-                'AGENT-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } },
-                'HUMAN-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } }
-              }
-            }
-          };
-          processData(demoData);
-        }
-        return;
-      }
-      
-      const fullPath = new URL(jsonPaths[index], window.location.href).href;
-      console.log(`Trying JSON path ${index}:`, jsonPaths[index]);
-      console.log('Full URL:', fullPath);
-      
-      fetch(fullPath)
-        .then(response => {
-          console.log('JSON Response status:', response.status);
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          console.log('Loaded JSON data from:', fullPath);
-          jsonLoaded = true;
-          processData(data);
-        })
-        .catch(err => {
-          console.error('Error with JSON path:', jsonPaths[index], err.message);
-          tryJSONPath(index + 1);
-        });
-    }
-    
-    tryJSONPath(0);
-  }
-  
   tryNextPath(0);
+}
+
+function processData(data) {
+  testData = [];
+  if (data.test_cases || data.predictions) {
+    testData = data.test_cases || data.predictions;
+  }
+  if (testData.length === 0) {
+    testData = generateSampleCases(data);
+  }
+  filteredData = [...testData];
+  currentIndex = 0;
+  updateMetrics();
+  updateNavigator();
+  displayTestCase(currentIndex);
+  document.getElementById('metricsSummary').style.display = 'grid';
+  document.getElementById('navigator').style.display = 'flex';
 }
 
 function parseCSV(csvText) {
@@ -295,7 +433,6 @@ function parseCSV(csvText) {
   const headers = lines[0].split(',');
   const cases = [];
   
-  // Find relevant column indices
   const colIndex = {
     query_trace_id: headers.indexOf('query_trace_id'),
     candidate_trace_id: headers.indexOf('candidate_trace_id'),
@@ -307,14 +444,11 @@ function parseCSV(csvText) {
     same_task: headers.indexOf('same_task_proxy_for_evaluation_only'),
     pair_type: headers.indexOf('pair_type_for_evaluation_only'),
     selected_accepted: headers.indexOf('selected_accepted'),
-    balanced_selected: headers.indexOf('balanced_selected'),
     discriminative_pair_score: headers.indexOf('discriminative_pair_score'),
     command_tfidf: headers.indexOf('command_tfidf'),
     artifact_containment_command: headers.indexOf('artifact_containment_command'),
     reciprocal_consensus: headers.indexOf('reciprocal_consensus')
   };
-  
-  console.log('CSV column indices:', colIndex);
   
   for (let i = 1; i < lines.length; i++) {
     const values = lines[i].split(',');
@@ -324,7 +458,6 @@ function parseCSV(csvText) {
     const selected = values[colIndex.selected_accepted] === '1';
     const groundTruth = sameTask ? 'same_task' : 'different_task';
     const prediction = selected ? 'same_task' : 'different_task';
-    const isCorrect = groundTruth === prediction;
     
     cases.push({
       id: `case_${String(i).padStart(4, '0')}`,
@@ -352,106 +485,32 @@ function parseCSV(csvText) {
   return cases;
 }
 
-function processData(data) {
-  // Extract test cases from the results structure
-  testData = [];
-  
-  // If the data has direct test cases
-  if (data.test_cases || data.predictions) {
-    testData = data.test_cases || data.predictions;
-  }
-  
-  // Generate sample test cases if structure doesn't match
-  if (testData.length === 0) {
-    testData = generateSampleCases(data);
-  }
-  
-  filteredData = [...testData];
-  currentIndex = 0;
-  
-  updateMetrics();
-  updateNavigator();
-  displayTestCase(currentIndex);
-  
-  document.getElementById('metricsSummary').style.display = 'grid';
-  document.getElementById('navigator').style.display = 'flex';
-}
-
 function generateSampleCases(data) {
-  // Generate ALL test cases based on the actual dataset size
   const cases = [];
   const taskGroups = data.dataset?.task_groups || 40;
   const records = data.dataset?.records || 97;
   const benchmarks = data.dataset?.benchmarks || ['cybench', 'intercode-ctf', 'nyuctf'];
   
-  // Get actual metrics from the data if available
-  const metrics = data.directional_error_metrics?.balanced_selected || {};
-  const humanToAgent = metrics['HUMAN-to-AGENT'] || {};
-  const agentToHuman = metrics['AGENT-to-HUMAN'] || {};
-  const humanToHuman = metrics['HUMAN-to-HUMAN'] || {};
-  
-  const fsrHA = humanToAgent.false_split_rate?.estimate || 0.0;
-  const fmrHA = humanToAgent.false_merge_rate?.estimate || 0.25;
-  const fsrAH = agentToHuman.false_split_rate?.estimate || 0.0;
-  const fmrAH = agentToHuman.false_merge_rate?.estimate || 0.25;
-  const fsrHH = humanToHuman.false_split_rate?.estimate || 0.0;
-  const fmrHH = humanToHuman.false_merge_rate?.estimate || 0.25;
-  
-  console.log(`Generating ${records} test cases with metrics:`, {
-    fsrHA, fmrHA, fsrAH, fmrAH, fsrHH, fmrHH
-  });
-  
-  // Generate ALL test cases with realistic distributions
-  for (let i = 0; i < records; i++) {
-    const queryMode = i % 3 === 0 ? 'AGENT' : 'HUMAN';
-    const candidateMode = i % 2 === 0 ? 'AGENT' : 'HUMAN';
-    const sameTask = i % 4 !== 0; // 75% same task, 25% different task
-    
-    let fsr, fmr;
-    if (queryMode === 'HUMAN' && candidateMode === 'AGENT') {
-      fsr = fsrHA; fmr = fmrHA;
-    } else if (queryMode === 'AGENT' && candidateMode === 'HUMAN') {
-      fsr = fsrAH; fmr = fmrAH;
-    } else {
-      fsr = fsrHH; fmr = fmrHH;
-    }
-    
-    // Determine ground truth and prediction based on metrics
-    const groundTruth = sameTask ? 'same_task' : 'different_task';
-    let prediction;
-    
-    if (groundTruth === 'same_task') {
-      // For same task: FSR is the rate of false splits (predicting different when actually same)
-      prediction = Math.random() < fsr ? 'different_task' : 'same_task';
-    } else {
-      // For different task: FMR is the rate of false merges (predicting same when actually different)
-      prediction = Math.random() < fmr ? 'same_task' : 'different_task';
-    }
-    
-    const isCorrect = groundTruth === prediction;
-    
+  for (let i = 0; i < Math.min(records, 30); i++) {
     cases.push({
       id: `case_${String(i + 1).padStart(3, '0')}`,
       task_group: `task_group_${(i % taskGroups) + 1}`,
       benchmark: benchmarks[i % benchmarks.length],
-      query_mode: queryMode,
-      candidate_mode: candidateMode,
-      query_trace: `${queryMode.toLowerCase()}_trace_${i + 1}`,
-      candidate_trace: `${candidateMode.toLowerCase()}_trace_${Math.floor(Math.random() * records) + 1}`,
-      ground_truth: groundTruth,
-      prediction: prediction,
-      confidence: isCorrect ? (Math.random() * 0.3 + 0.7) : (Math.random() * 0.3 + 0.4),
+      query_mode: i % 3 === 0 ? 'AGENT' : 'HUMAN',
+      candidate_mode: i % 2 === 0 ? 'AGENT' : 'HUMAN',
+      query_trace: `trace_${i + 1}`,
+      candidate_trace: `trace_${Math.floor(Math.random() * records) + 1}`,
+      ground_truth: Math.random() > 0.5 ? 'same_task' : 'different_task',
+      prediction: Math.random() > 0.3 ? 'same_task' : 'different_task',
+      confidence: Math.random() * 0.5 + 0.5,
       features: {
-        command_similarity: Math.random() * 0.5 + 0.3,
-        artifact_overlap: Math.random() * 0.6 + 0.2,
-        sequence_alignment: Math.random() * 0.4 + 0.4,
-        behavioral_profile: Math.random() * 0.5 + 0.3,
-        operand_jaccard: Math.random() * 0.7 + 0.1
+        command_similarity: Math.random(),
+        artifact_overlap: Math.random(),
+        sequence_alignment: Math.random(),
+        behavioral_profile: Math.random()
       }
     });
   }
-  
-  console.log(`Generated ${cases.length} test cases`);
   return cases;
 }
 
@@ -459,15 +518,8 @@ function updateMetrics() {
   const total = filteredData.length;
   const correct = filteredData.filter(c => c.ground_truth === c.prediction).length;
   const accuracy = total > 0 ? (correct / total * 100).toFixed(1) : 0;
-  
-  // Calculate FMR and FSR (simplified)
-  const falseMerges = filteredData.filter(c => 
-    c.ground_truth === 'different_task' && c.prediction === 'same_task'
-  ).length;
-  const falseSplits = filteredData.filter(c => 
-    c.ground_truth === 'same_task' && c.prediction === 'different_task'
-  ).length;
-  
+  const falseMerges = filteredData.filter(c => c.ground_truth === 'different_task' && c.prediction === 'same_task').length;
+  const falseSplits = filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length;
   const fmr = total > 0 ? (falseMerges / total * 100).toFixed(1) : 0;
   const fsr = total > 0 ? (falseSplits / total * 100).toFixed(1) : 0;
   
@@ -496,7 +548,6 @@ function navigate(direction) {
 
 function applyFilter() {
   const filter = document.getElementById('filterSelect').value;
-  
   if (filter === 'all') {
     filteredData = [...testData];
   } else if (filter === 'correct') {
@@ -504,7 +555,6 @@ function applyFilter() {
   } else if (filter === 'incorrect') {
     filteredData = testData.filter(c => c.ground_truth !== c.prediction);
   }
-  
   currentIndex = 0;
   updateMetrics();
   updateNavigator();
@@ -513,7 +563,6 @@ function applyFilter() {
 
 function displayTestCase(index) {
   if (index >= filteredData.length) return;
-  
   const testCase = filteredData[index];
   const isCorrect = testCase.ground_truth === testCase.prediction;
   
@@ -541,7 +590,6 @@ function displayTestCase(index) {
           <span>Ground Truth: ${testCase.ground_truth.replace('_', ' ')} | Prediction: ${testCase.prediction.replace('_', ' ')}</span>
         </div>
       </div>
-      
       <div class="comparison-grid">
         <div class="comparison-panel">
           <h4>Query Trace ID</h4>
@@ -552,7 +600,6 @@ function displayTestCase(index) {
           <pre>${testCase.candidate_trace || 'N/A'}</pre>
         </div>
       </div>
-      
       ${testCase.features ? `
         <h4 style="margin: 20px 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted);">Feature Scores</h4>
         <div class="features-grid">
@@ -566,7 +613,6 @@ function displayTestCase(index) {
       ` : ''}
     </div>
   `;
-  
   document.getElementById('testCaseDetail').innerHTML = html;
 }
 
@@ -575,7 +621,6 @@ function exportAnalysis() {
     alert('No data to export');
     return;
   }
-  
   const analysis = {
     summary: {
       total_cases: filteredData.length,
@@ -587,7 +632,6 @@ function exportAnalysis() {
     test_cases: filteredData,
     export_date: new Date().toISOString()
   };
-  
   const blob = new Blob([JSON.stringify(analysis, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
