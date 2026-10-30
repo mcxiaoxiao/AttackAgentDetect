@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-30T17:07:17.147352</dc:date>
+    <dc:date>2026-10-30T17:26:53.106021</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 22.015296 29.3112 22.015296 32.57145
 L 22.015296 70.82505
 Q 22.015296 74.0853 29.687616 74.0853
 z
-" clip-path="url(#p7d9af4090b)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p50da98c43e)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 403.073856 74.0853
@@ -53,7 +53,7 @@ Q 395.401536 29.3112 395.401536 32.57145
 L 395.401536 70.82505
 Q 395.401536 74.0853 403.073856 74.0853
 z
-" clip-path="url(#p7d9af4090b)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p50da98c43e)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 29.687616 189.2808
@@ -66,7 +66,7 @@ Q 22.015296 90.1692 22.015296 93.42945
 L 22.015296 186.02055
 Q 22.015296 189.2808 29.687616 189.2808
 z
-" clip-path="url(#p7d9af4090b)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p50da98c43e)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 280.316736 189.2808
@@ -79,7 +79,7 @@ Q 272.644416 90.1692 272.644416 93.42945
 L 272.644416 186.02055
 Q 272.644416 189.2808 280.316736 189.2808
 z
-" clip-path="url(#p7d9af4090b)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
+" clip-path="url(#p50da98c43e)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="26.1072" y="14.74875" transform="rotate(-0 26.1072 14.74875)">One Human query in the mixed candidate gallery</text>
@@ -132,7 +132,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p7d9af4090b">
+  <clipPath id="p50da98c43e">
    <rect x="13.32" y="4.968" width="511.488" height="217.35"/>
   </clipPath>
  </defs>

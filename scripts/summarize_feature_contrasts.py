@@ -120,7 +120,7 @@ def draw(contrasts):
         ("minimum_4", "At least 4 commands", "#99CDFC", "#173F68"),
     ):
         for feature, label, color in (("F1_command_tfidf", "F1 · command TF-IDF", color_f1),
-                                      ("F3_command_plus_structure", "F3 · command + structure", color_f3)):
+                                      ("F3_command_plus_structure", "F3 · command TF-IDF + sequence stats", color_f3)):
             item = contrasts["observation_budget"][cohort]["features"][feature]["full_minus_prefix"]
             budget_labels.append(f"{title} · {label}")
             budget_values.append(item["estimate"]); budget_intervals.append(item["ci_95"]); budget_colors.append(color)
@@ -139,7 +139,7 @@ def draw(contrasts):
         axes[0].text(0.195, yi, f"{value:+.3f}", ha="left", va="center", fontsize=7.5, color="#142A3B")
 
     methods = [("F1_command_tfidf", "F1 · command TF-IDF", "#45A6FC"),
-               ("F3_command_plus_structure", "F3 · command + structure", "#173F68")]
+               ("F3_command_plus_structure", "F3 · command TF-IDF + sequence stats", "#173F68")]
     for yi, (feature, label, color) in enumerate(methods):
         item = contrasts["order_randomization"][feature]["ordered_minus_shuffle"]
         value = item["estimate"]; ci = item["ci_95"]

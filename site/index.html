@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261030-codefield-v1" rel="stylesheet"/>
+<link href="style.css?v=20261030-syntax-highlight-v3" rel="stylesheet"/>
 <script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-codefield-v1"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
@@ -35,7 +35,7 @@
 <h1 data-en-html="Identify attack<br/>execution modes" id="hero-title">从日志识别<br/>攻击执行方式</h1>
 <p class="hero-desc" data-en="AttackAgent Detect explores log-based distinction among 🥷 human, ⚙️ script, and 🤖 AI-agent execution, and whether execution mode changes behavior correlation. The library currently normalizes Linux auditd traces and provides correlation methods; mode detection is an experimental Human/Agent baseline, and Script detection is not yet supported.">AttackAgent Detect 探索根据日志区分攻击操作由 🥷 Human、⚙️ Script 还是 🤖 AI Agent 执行，并研究执行方式信息对行为关联的影响。当前库支持 Linux auditd 轨迹标准化与行为关联；识别功能仍为实验性 Human/Agent 基线，尚不支持 Script。</p>
 <div class="hero-links">
-<a class="button primary" href="#quickstart"><span data-en="Source quick start">源码快速开始</span></a>
+<a class="button primary" href="#quickstart"><span data-en="Quick start">快速开始</span></a>
 <button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
 </div>
 <pre class="copy-source" hidden="" id="ai-brief-markdown"># AttackAgent Detect
@@ -121,7 +121,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <a data-en="Suggest a method" href="https://github.com/mcxiaoxiao/AttackAgentDetect/issues">提出方法建议</a>
 <a data-en="Contribute code" href="https://github.com/mcxiaoxiao/AttackAgentDetect/pulls">贡献代码</a>
 </div>
-</div><p><a data-en="Research: execution mode and behavior correlation" href="execution-mode-behavior-correlation.html">研究：执行方式对行为关联的影响</a></p><h3 data-en="Python API" id="python-api">Python API</h3><pre><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</div><div class="research-index"><h3 data-en="Research">研究</h3><ol class="research-list"><li><a href="execution-mode-behavior-correlation.html"><strong data-en="How execution mode shapes behavior correlation">执行方式如何影响行为关联</strong><span data-en="Does execution-mode evidence improve trace linking?">执行方式证据能否改善轨迹关联？</span><small data-en="Public CTF traces · 177 records · 40 task groups">公开 CTF 轨迹 · 177 条记录 · 40 个题目组</small></a></li></ol></div><h3 data-en="Python API" id="python-api">Python API</h3><pre><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">attackagent</span><span class="w"> </span><span class="kn">import</span> <span class="n">TraceEvidence</span><span class="p">,</span> <span class="n">load_auditd</span><span class="p">,</span> <span class="n">rank_candidates</span>
 
 <span class="c1"># 读取 auditd 日志（仓库中的格式示例）</span>
@@ -133,7 +133,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <span class="n">candidate</span> <span class="o">=</span> <span class="n">TraceEvidence</span><span class="p">(</span><span class="s2">"candidate"</span><span class="p">,</span> <span class="s2">"example-v1"</span><span class="p">,</span> <span class="s2">"demo"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"ls"</span><span class="p">),</span> <span class="p">())</span>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">rank_candidates</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">[</span><span class="n">candidate</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"command_cosine"</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
-</code></pre><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="Script mode has no supported detector yet. A compatible detector is required for mode scores; behavior-only ranking remains available independently.">Script 类别尚无可用识别器。执行方式评分需要兼容的检测器；行为排序可以独立运行。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a> · <a data-en="Study attached to rank_candidates: execution mode and behavior correlation" href="execution-mode-behavior-correlation.html#results">rank_candidates 研究：执行方式对行为关联的影响</a></p></div></section><footer><div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
+</code></pre><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="Script mode has no supported detector yet. A compatible detector is required for mode scores; behavior-only ranking remains available independently.">Script 类别尚无可用识别器。执行方式评分需要兼容的检测器；行为排序可以独立运行。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer><div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
 <a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
 <span aria-hidden="true" class="footer-cross">×</span>
 <a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>

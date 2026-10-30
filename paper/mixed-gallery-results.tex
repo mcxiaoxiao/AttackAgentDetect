@@ -1,10 +1,10 @@
 \section{Motivation and research question}
 
-Security analysts use logs to connect scattered operations that may belong to the same attack. Human operators and AI agents may follow different operational patterns, making execution mode a potentially useful context for interpreting behavioral evidence. We study whether predicting execution mode from logs helps activity correlation recover missed links while controlling spurious links.
+AI agents are changing how cyber operations are carried out. AttackAgentDetect brings execution mode into attack-behavior analysis as a new evidence dimension and develops reproducible methods to study how human, scripted, and Agent execution reshapes trace association and AI-era threat characterization.
 
 Behavioral association is an established computational task: HOLMES correlates suspicious information flows in host-audit traces to produce campaign evidence; OSTINATO compares behavior and TTPs across hosts; POIROT and ActMiner align CTI-derived attack graphs with provenance graphs; HERCULE, ATLAS, and FALCON reconstruct multi-stage attack stories from correlated logs \cite{holmes,ostinato,poirot,actminer,hercule,atlas,falcon}. These methods use command or event sequences, TTPs, entity relations, and causal structure as evidence. Their evaluation targets differ, but each demonstrates a concrete role for behavioral association in investigation. Practitioner frameworks likewise track activity clusters before assigning named actors \cite{unit42}.
 
-Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. These developments motivate execution mode as a new dimension of behavioral analysis: helping analysts interpret operational differences, connect scattered evidence, and enrich threat characterization as human, scripted, and Agent execution coexist. AIT/AECID provides adjacent log-based Human/LLM classification for IT troubleshooting \cite{ait}. We explore the next question: how can predicted execution-mode information contribute to activity association?
+Execution mode is already part of documented cyber operations. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. Alongside association systems that connect audit behavior, operation sequences, and causal relations, these reports establish execution mode as a timely behavioral dimension for investigation and threat profiling. AIT/AECID provides adjacent log-based Human/LLM classification for IT troubleshooting \cite{ait}. We extend this line of work by evaluating how log-derived mode scores change activity association.
 
 \section{Data and protocol}
 
@@ -112,7 +112,7 @@ Length-only control & 0.195 [0.122, 0.277] & 0.600 [0.506, 0.689] & 0.602 [0.531
 
 \subsection{Feature signal and fixed-operating-point association}
 
-We test whether execution-mode labels can be separated from three observable input groups: trace size and coarse action mix, command vocabulary, and fixed sequence statistics. F0–F2 are single-group baselines; F3 combines command vocabulary with sequence statistics. This is a feature ablation for the broader question of whether execution mode can inform behavior-based activity association; it does not define separate dimensions of the research question. The primary ablation is F3 versus F1, which isolates the added value of sequence statistics given command vocabulary. On task-held-out traces, command TF--IDF reaches balanced accuracy (BA) 0.849 with logistic regression and 0.866 with ExtraTrees. Fixed sequence statistics alone reach 0.648 and 0.642. Adding these statistics changes BA by $-2.0$ points for logistic regression (95\% task-cluster CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]); their contribution is classifier-dependent.
+We test whether execution-mode labels can be separated from three observable input groups: trace size and coarse action mix, command vocabulary, and operation-sequence statistics. F0--F2 are single-group baselines. F1 is command-name TF--IDF over unigrams and bigrams; F2 contains nine fixed statistics: adjacent-command and adjacent-action repetition, action-switch rate, unique-command ratio, normalized mean and maximum action-run lengths, command/action bigram repetition, and a short-trace flag. F3 concatenates F1 with F2. This ablation supports the broader question of whether execution mode can inform behavior-based activity association. F3 versus F1 isolates the added value of sequence statistics given command vocabulary. On task-held-out traces, command TF--IDF reaches balanced accuracy (BA) 0.849 with logistic regression and 0.866 with ExtraTrees. Fixed sequence statistics alone reach 0.648 and 0.642. Adding these statistics changes BA by $-2.0$ points for logistic regression (95\% task-cluster CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]); their contribution is classifier-dependent.
 
 \begin{table}[t]
 \centering
@@ -127,7 +127,7 @@ We test whether execution-mode labels can be separated from three observable inp
 F0: Coarse baseline & $\bullet$ & -- & -- & 0.643 & 0.635 \\
 F1: Command vocabulary & -- & $\bullet$ & -- & 0.849 & 0.866 \\
 F2: Sequence structure & -- & -- & $\bullet$ & 0.648 & 0.642 \\
-\rowcolor{PaleBlue}\textbf{F3: F1 + structure} & -- & $\bullet$ & $\bullet$ & \textbf{0.828} & \textbf{0.880} \\
+\rowcolor{PaleBlue}\textbf{F3: Command TF--IDF + operation-sequence statistics} & -- & $\bullet$ & $\bullet$ & \textbf{0.828} & \textbf{0.880} \\
 \bottomrule
 \end{tabularx}
 \smallskip

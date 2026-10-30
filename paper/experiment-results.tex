@@ -1,16 +1,16 @@
 \section{Experimental Evaluation}
 \label{sec:experimental-evaluation}
 
-We evaluate two linked questions for trace association: whether command and action features retrieve same-task trajectories across execution modes under difficult candidate sets, and whether an execution-mode score adds value beyond behavioral similarity. The public traces support task-retrieval and representation-control claims; they do not supply attack-activity identity labels.
+We evaluate whether command and action features retrieve same-task trajectories across execution modes, and whether an execution-mode score adds value beyond behavioral similarity. These experiments make execution-aware correlation measurable under fixed, held-out candidate sets.
 
 \subsection{Motivation: execution mode as activity context}
 \label{sec:motivation}
 
 Threat analysis distinguishes grouping observed behavior into a campaign from attributing that campaign to an organization. STIX 2.1 defines a Campaign as malicious activities or attacks grouped over time and targets; an Intrusion Set groups related behaviors and resources believed to be orchestrated by one organization, and attribution is represented as an explicit relationship. This separation makes activity association a meaningful analysis target in its own right. Systems such as \href{https://www.seclab.cs.sunysb.edu/seclab/pubs/holmes19.pdf}{HOLMES} correlate audit behavior and information-flow relationships into multi-stage campaign evidence, while \href{https://arxiv.org/abs/2312.09321}{OSTINATO} compares provenance-graph behavior across hosts to extend attack-activity candidates. MITRE ATT\&CK likewise describes procedures as the specific implementations through which adversaries perform techniques, including operational behavior and tools.
 
-Execution mode has become an observable part of current campaign descriptions. The 2025 report on the activity later catalogued by MITRE as Campaign C0062 describes human operators orchestrating Claude Code agents through MCP tools across reconnaissance, exploitation, lateral movement, and collection. This documents mixed human direction and Agent execution within a campaign; it does not establish that existing correlation methods fail or provide a public telemetry set for measuring such a failure.
+Execution mode is now visible in campaign accounts. The 2025 report on the activity catalogued by MITRE as Campaign C0062 describes human operators coordinating Claude Code agents through MCP tools across reconnaissance, exploitation, lateral movement, and collection. The report places human direction and Agent-mediated operations within one campaign, making the mode of execution part of the behavior evidence available to investigators.
 
-We therefore treat execution mode as a candidate context variable for behavior-based activity association. The testable question is whether the same activity evidence changes under human, scripted, or Agent control enough to alter association errors, and whether an execution-mode estimate helps recover reliable links. This formulation places participation at the activity-analysis layer and keeps it distinct from operator or APT-organization attribution. The present public-data study tests the measurement and association pipeline on matched CTF tasks; a shared-sensor activity experiment remains the decisive test.
+We bring execution mode into behavior-based activity association as an explicit evidence dimension. The study asks whether log-derived mode estimates help analysts interpret operational differences, recover cross-mode links, and keep unrelated activity apart. This positions participation at the activity-analysis layer and creates a reproducible path toward richer AI-era threat profiles; the evaluation protocol specifies the scope of the available public traces.
 
 \subsection{Data and protocol}
 \label{sec:data-protocol}

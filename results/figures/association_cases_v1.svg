@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-30T17:07:05.931707</dc:date>
+    <dc:date>2026-10-30T17:26:51.291703</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 21.1788 32.808414 21.1788 34.944926
 L 21.1788 76.820545
 Q 21.1788 78.957057 28.7712 78.957057
 z
-" clip-path="url(#peca4818e24)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p70582b1b7f)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 28.7712 140.203711
@@ -53,7 +53,7 @@ Q 21.1788 94.055069 21.1788 96.19158
 L 21.1788 138.0672
 Q 21.1788 140.203711 28.7712 140.203711
 z
-" clip-path="url(#peca4818e24)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p70582b1b7f)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 326.39328 78.957057
@@ -66,7 +66,7 @@ Q 318.80088 29.959733 318.80088 32.096244
 L 318.80088 76.820545
 Q 318.80088 78.957057 326.39328 78.957057
 z
-" clip-path="url(#peca4818e24)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p70582b1b7f)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 326.39328 140.203711
@@ -79,7 +79,7 @@ Q 318.80088 91.206387 318.80088 93.342899
 L 318.80088 138.0672
 Q 318.80088 140.203711 326.39328 140.203711
 z
-" clip-path="url(#peca4818e24)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p70582b1b7f)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="20.16648" y="16.001193" transform="rotate(-0 20.16648 16.001193)">A  Same-challenge link recovered</text>
@@ -146,7 +146,7 @@ Q 21.1788 208.002334 21.1788 210.138845
 L 21.1788 252.014465
 Q 21.1788 254.150976 28.7712 254.150976
 z
-" clip-path="url(#pc39b112f01)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p06f88b44d8)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 28.7712 315.39763
@@ -159,7 +159,7 @@ Q 21.1788 269.248988 21.1788 271.3855
 L 21.1788 313.261119
 Q 21.1788 315.39763 28.7712 315.39763
 z
-" clip-path="url(#pc39b112f01)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p06f88b44d8)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 326.39328 254.150976
@@ -172,7 +172,7 @@ Q 318.80088 205.153652 318.80088 207.290163
 L 318.80088 252.014465
 Q 318.80088 254.150976 326.39328 254.150976
 z
-" clip-path="url(#pc39b112f01)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p06f88b44d8)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 326.39328 315.39763
@@ -185,7 +185,7 @@ Q 318.80088 266.400307 318.80088 268.536818
 L 318.80088 313.261119
 Q 318.80088 315.39763 326.39328 315.39763
 z
-" clip-path="url(#pc39b112f01)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p06f88b44d8)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="text_15">
     <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="20.16648" y="191.195112" transform="rotate(-0 20.16648 191.195112)">B  Different-challenge link introduced</text>
@@ -246,10 +246,10 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="peca4818e24">
+  <clipPath id="p70582b1b7f">
    <rect x="18.648" y="11.016" width="506.16" height="142.434081"/>
   </clipPath>
-  <clipPath id="pc39b112f01">
+  <clipPath id="p06f88b44d8">
    <rect x="18.648" y="186.209919" width="506.16" height="142.434081"/>
   </clipPath>
  </defs>

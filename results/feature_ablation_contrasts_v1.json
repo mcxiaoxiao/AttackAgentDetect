@@ -1,7 +1,7 @@
 {
   "status": "derived paired contrasts from task-held-out predictions; no model refit",
   "protocol_version": "feature-contrasts-v1",
-  "created_utc": "2026-10-30T05:40:43+00:00",
+  "created_utc": "2026-10-30T09:09:20+00:00",
   "source": "results/feature_ablation_task_metrics_v1.csv; task groups matched across conditions",
   "metric": "task-macro balanced accuracy, then equal benchmark weighting",
   "contrasts": {
@@ -165,9 +165,9 @@
     }
   },
   "provenance": {
-    "git_head_at_run": "45488a10f2d1d8bca86b09fefa17079a01b0b6a1",
-    "input_sha256": "d661f58044c4e9cb760c81470a54e18e66c16e2a8a0b96aa6b30d035014a9070",
-    "script_sha256": "bb74da696d85afce490730fbfc977bf0bb8ec32c8b9358f8b480771e7c35d88b",
+    "git_head_at_run": "c190b8ad8fd61b8660490fcfa5cb23c6597fd1b2",
+    "input_sha256": "fce88643a06f19e72458eeba6c8898c42fb061d95b138d3383449806b1e2131a",
+    "script_sha256": "16cbe909b58c8cb712d773de049715905847e9f0dcb4155cc7a580199b315785",
     "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
     "draws": 5000
   }

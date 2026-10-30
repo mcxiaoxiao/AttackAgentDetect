@@ -17,7 +17,7 @@ CSV = ROOT / "results" / "feature_ablation_task_metrics_v1.csv"
 OUT = ROOT / "results" / "figures" / "feature_ablation_v1"
 SITE = ROOT / "site" / "assets" / "feature_ablation_v1.png"
 FEATURES = ["F0_count_action", "F1_command_tfidf", "F2_sequence_structure", "F3_command_plus_structure"]
-SHORT = ["Count + action", "Command TF-IDF", "Sequence structure", "Command + structure"]
+SHORT = ["Log count + action mix", "Command-name TF-IDF", "Operation-sequence stats", "Command TF-IDF + sequence stats"]
 BLUE = ["#F5FAFE", "#D9EAF8", "#9BC9EB", "#4B98D1", "#173F68"]
 
 
@@ -110,7 +110,7 @@ def main():
     axes[1].set_yticks(y, labels)
     axes[1].invert_yaxis()
     axes[1].set_xlabel("Balanced-accuracy change (F3 − F1)")
-    axes[1].set_title("Structure increment · Logistic", loc="left", fontweight="semibold")
+    axes[1].set_title("Sequence-statistics increment · Logistic", loc="left", fontweight="semibold")
     axes[1].set_xlim(-0.16, 0.16)
     axes[1].grid(axis="x", color="#E1EAF2", linewidth=0.7)
     axes[1].set_axisbelow(True)
