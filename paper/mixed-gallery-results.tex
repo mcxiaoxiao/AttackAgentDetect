@@ -64,7 +64,7 @@ Mode only & 0.281 & 0.483 & 0.433 & 0.366 \\
 \label{fig:retrieval}
 \end{figure}
 
-The mode classifier's pooled confusion matrix is $[[43,14],[8,112]]$ for Human/Agent rows, corresponding to record-level balanced accuracy 0.844. Fold scores are 0.912, 0.883, and 0.738. Inner-fold Platt calibration reduces Brier score from 0.110 to 0.089. These measurements show that the two released record types are separable in this corpus. Because label and capture interface coincide, they do not establish recognition of an unknown operator.
+At a 0.5 threshold on Platt-calibrated held-out scores, the mode classifier's pooled confusion matrix is $[[43,14],[8,112]]$ for Human/Agent rows, corresponding to record-level balanced accuracy 0.844. Fold scores are 0.912, 0.883, and 0.738. Platt calibration is fit on training-task out-of-fold predictions and reduces test Brier score from 0.110 to 0.089. These measurements show that the two released record types are separable in this corpus. Because label and capture interface coincide, they do not establish recognition of an unknown operator.
 
 \begin{figure}[t]
 \centering
