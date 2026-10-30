@@ -1,0 +1,267 @@
+{
+  "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "model": "claude-sonnet-4.6",
+  "task_key_rules": {
+    "all": "remove path prefix after the final slash and pair within benchmark only",
+    "cvebench": "also remove the public task suffix -one_day"
+  },
+  "development": {
+    "by_benchmark": {
+      "intercode-ctf": {
+        "records": 67,
+        "human_records": 40,
+        "agent_records": 27,
+        "matched_task_groups": 27
+      },
+      "cybench": {
+        "records": 14,
+        "human_records": 8,
+        "agent_records": 6,
+        "matched_task_groups": 6
+      },
+      "nyuctf": {
+        "records": 16,
+        "human_records": 9,
+        "agent_records": 7,
+        "matched_task_groups": 7
+      }
+    },
+    "unmatched_tasks_before_pairing": {
+      "intercode-ctf": {
+        "unmatched_task_groups": 0,
+        "unmatched_records": 0
+      },
+      "cybench": {
+        "unmatched_task_groups": 0,
+        "unmatched_records": 0
+      },
+      "nyuctf": {
+        "unmatched_task_groups": 0,
+        "unmatched_records": 0
+      }
+    }
+  },
+  "external": {
+    "human_sample_records_seen": {
+      "cvebench": 12,
+      "cybashbench": 2,
+      "cybergym": 5,
+      "nl2bash": 3
+    },
+    "agent_sample_records_seen": {
+      "nl2bash": 129,
+      "cybashbench": 200,
+      "cvebench": 42,
+      "cybergym": 200
+    },
+    "agent_command_observation_records": {
+      "cvebench": 21,
+      "cybergym": 100
+    },
+    "samples_without_task_key": {},
+    "samples_without_observed_commands": {
+      "cybergym": 1,
+      "nl2bash": 131,
+      "cybashbench": 200
+    },
+    "unmatched_tasks_before_pairing": {
+      "cvebench": {
+        "unmatched_task_groups": 11,
+        "unmatched_records": 11
+      },
+      "cybashbench": {
+        "unmatched_task_groups": 2,
+        "unmatched_records": 2
+      },
+      "cybergym": {
+        "unmatched_task_groups": 96,
+        "unmatched_records": 96
+      },
+      "nl2bash": {
+        "unmatched_task_groups": 1,
+        "unmatched_records": 1
+      }
+    },
+    "source_files": [
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybashbench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybashbench",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "human",
+        "sample_count": 0
+      },
+      {
+        "benchmark": "nl2bash",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "nl2bash",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "nl2bash",
+        "kind": "human",
+        "sample_count": 1
+      },
+      {
+        "benchmark": "nl2bash",
+        "kind": "agent",
+        "sample_count": 129
+      },
+      {
+        "benchmark": "cybashbench",
+        "kind": "agent",
+        "sample_count": 200
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "agent",
+        "sample_count": 21
+      },
+      {
+        "benchmark": "cvebench",
+        "kind": "agent",
+        "sample_count": 21
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "agent",
+        "sample_count": 100
+      },
+      {
+        "benchmark": "cybergym",
+        "kind": "agent",
+        "sample_count": 100
+      }
+    ],
+    "by_benchmark": {
+      "cvebench": {
+        "records": 22,
+        "human_records": 12,
+        "agent_records": 10,
+        "matched_task_groups": 10,
+        "primary_external_eligible": true,
+        "exclusion_reason": null
+      },
+      "cybashbench": {
+        "records": 0,
+        "human_records": 0,
+        "agent_records": 0,
+        "matched_task_groups": 0,
+        "primary_external_eligible": false,
+        "exclusion_reason": "selected model set has no observed execution commands"
+      },
+      "cybergym": {
+        "records": 8,
+        "human_records": 4,
+        "agent_records": 4,
+        "matched_task_groups": 4,
+        "primary_external_eligible": true,
+        "exclusion_reason": null
+      },
+      "nl2bash": {
+        "records": 0,
+        "human_records": 0,
+        "agent_records": 0,
+        "matched_task_groups": 0,
+        "primary_external_eligible": false,
+        "exclusion_reason": "selected model set has no observed execution commands"
+      }
+    }
+  }
+}

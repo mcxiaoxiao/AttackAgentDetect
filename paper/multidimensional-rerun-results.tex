@@ -1,0 +1,47 @@
+\section{Joint-metric selection on locked external tasks}
+\label{sec:multidimensional-rerun}
+
+We extended the label-free trajectory record with a 24-dimensional behavioral profile and a phase $\times$ action-family $\times$ channel tensor of shape $4\times8\times3$. The profile measures command and action diversity, repetition, local transitions, run structure, and within-trace distribution shift. The tensor preserves the phase, action-family, and channel axes; training-fold HOSVD provides a lower-rank comparison. We also evaluated IDF-weighted command and ordered-bigram overlap. The link score uses observed behavior only: Human/Agent labels are stored separately and used for evaluation, never as pair features. A prior development error-case catalog showed 208 introduced cross-task Human--Agent links versus 7 removed links when predicted execution-mode similarity was added; this motivated excluding mode similarity from the association score.
+
+Before scoring, a schema audit found that the selected CyBashBench and NL2Bash Claude Sonnet sets contain prompt/final-answer records without bash execution events. We therefore exclude them from the primary comparison rather than treating generated answers as executed trajectories. The locked external primary set contains 10 CVEBench and 4 CyberGym benchmark-qualified task groups from Cyber Task Horizons, revision \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae} (\href{https://github.com/lyptus-research/cyber-task-horizons-data/tree/178c0da1800f9c07311e1b8d6c61dd8104e7b4ae}{CC BY 4.0 source}). Thus the external inference covers two benchmarks and 14 tasks. Same-task labels are retrieval proxies, not actor or organization identity labels.
+
+Development selection used task-grouped nested folds and a joint direction-adjusted objective over the observable error, coverage, and ranking metrics. The final development-set selector chose IDF partial sequence. The nested outer-fold selectors chose command TF--IDF in all three folds, indicating selection instability. On the locked external tasks, the selected method improved 8 of 13 estimable metric point estimates, tied 5, and worsened none; Agent--Agent false-split rate was not estimable because no task had multiple Agent trajectories. The task-level mean direction-adjusted change was $+5.1$ percentage points (paired 95\% task-cluster interval $[+0.7,+8.2]$).
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\linewidth}{l r X r}
+\toprule
+Metric & Baseline & IDF partial sequence & Paired $\Delta$ (95\% CI), pp \\
+\midrule
+False-merge rate & 100.0 & 95.3 & $-4.7\;[-7.2,-2.2]$ \\
+False-split rate & 0.0 & 0.0 & $0.0\;[0.0,0.0]$ \\
+Human--Agent false merges & 100.0 & 97.2 & $-2.8\;[-4.9,-0.8]$ \\
+Human--Agent false splits & 0.0 & 0.0 & $0.0\;[0.0,0.0]$ \\
+Human--Human false merges & 100.0 & 87.3 & $-12.7\;[-21.5,-3.9]$ \\
+Human--Human false splits & 0.0 & 0.0 & $0.0\;[0.0,0.0]$ \\
+Agent--Agent false merges & 100.0 & 100.0 & $0.0\;[0.0,0.0]$ \\
+Agent--Agent false splits & -- & -- & Not estimable \\
+Balanced accuracy & 50.0 & 52.3 & $+2.3\;[+1.1,+3.6]$ \\
+Query coverage & 100.0 & 100.0 & $0.0\;[0.0,0.0]$ \\
+Hit@1 & 0.0 & 10.4 & $+10.4\;[0.0,+23.3]$ \\
+MRR & 18.3 & 27.9 & $+9.6\;[+1.1,+19.0]$ \\
+Recall@5 & 40.4 & 50.0 & $+9.6\;[-12.5,+29.2]$ \\
+NDCG@5 & 18.7 & 28.7 & $+10.1\;[-3.5,+19.4]$ \\
+\bottomrule
+\end{tabularx}
+\caption{External task-macro rates and ranking scores are percentages. Paired changes are method minus command TF--IDF; negative changes improve error rates, while positive changes improve accuracy, coverage, and ranking. Confidence intervals resample paired benchmark-qualified tasks within benchmark (5,000 draws).}
+\label{tab:multidimensional-rerun}
+\end{table}
+
+The relative error reduction does not yield an operationally useful threshold: false-merge rate remains 95.3\% and balanced accuracy is 52.3\%. Coverage is 100\% because the operating point accepts at least one candidate for every query; it must not be read as evidence of reliable attribution. Several ranking intervals include zero. These results meet the preregistered relative FMR, FSR, joint-utility, and ranking guard criteria, but do not support automatic identity linking.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{multidimensional-rerun-v1.pdf}
+  \caption{Direction-adjusted external changes for five candidate methods relative to command TF--IDF. Positive values improve the metric; error rates are sign-reversed. The selected IDF partial-sequence row is bold. An asterisk marks a paired 95\% task-cluster interval supporting improvement.}
+  \label{fig:multidimensional-rerun}
+\end{figure}
+
+The per-trace 24-dimensional profiles and $4\times8\times3$ tensors were retained as separate feature records, with evaluation labels in a separate file. Neither profile distance nor tensor projection was selected by the joint objective; local command and ordered-bigram overlap was selected. This does not show that a tensor profile is an identity signature. Human terminal inputs and Agent tool calls use different capture interfaces, and the matched tasks do not establish common operators, attackers, or organizations.
