@@ -21,33 +21,31 @@
 .dataset-hero h1 { font-size: clamp(42px, 4.5vw, 64px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
 .dataset-hero p { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 720px; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin: 40px 0; }
-.stat-card { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.stat-card { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface}
 .stat-card strong { display: block; font-size: 42px; font-weight: 600; color: var(--blue-deep); margin-bottom: 6px; }
 .stat-card span { font-size: 14px; color: var(--muted); }
 .section-block { margin: 60px 0; }
 .section-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
 .section-block h3 { font-size: 20px; font-weight: 600; margin: 28px 0 14px 0; }
 .section-block p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 16px; }
-.code-block { background: var(--graphite); color: var(--graphite-ink); padding: 20px 24px; border-radius: 6px; font-family: var(--mono); font-size: 14px; line-height: 1.7; overflow-x: auto; margin: 16px 0; }
-.code-block code { background: transparent; color: inherit; }
 .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
 .download-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
 .download-card:hover { border-color: var(--blue); box-shadow: 0 4px 12px rgba(0, 114, 178, 0.08); }
-.download-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.download-card h4 { font-size:6px; font-weight: 600; margin-bottom: 8px; }
 .download-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
-.download-card a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.16s ease; }
-.download-card a:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.download-card a.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; min-height: 42px; border: 1px solid var(--blue-deep); border-radius: 5px; background: var(--blue); color: #fff; font: 600 14px var(--font-display); text-decoration: none; cursor: pointer; transition: transform .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease; box-shadow: 0 2px 0 var(--blue-deep); }
+.download-card a.button:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
+.download-card a.button:active { transform: translateY(1px); }
 .browser-section { margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
 .browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
 .browser-controls label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
-.browser-controls input[type="file"] { padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; }
-.browser-controls button { padding: 10px 20px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.16s ease; }
-.browser-controls button:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
-.test-case-navigator { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border: 1px solid var(--line); border-radius: 6px; background: #fff; margin-bottom: 20px; }
-.nav-controls { display: flex; gap: 12px; align-items: center; }
-.nav-controls button { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.16s ease; }
-.nav-controls button:hover:not(:disabled) { background: var(--blue); color: #fff; border-color: var(--blue); }
+.browser-controls input[type="file"] { padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 5px; background: #fff; font-size: 14px; }
+.browser-controls button, .nav-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; min-height: 42px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); color: var(--ink); font: 600 14px var(--font-display); cursor: pointer; transition: transform .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.browser-controls button:hover, .nav-controls button:hover:not(:disabled) { transform: translateY(-1px); border-color: #8aadd0; box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
+.browser-controls button:active, .nav-controls button:active { transform: translateY(1px); }
 .nav-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+.browser-controls button.primary, #loadSampleBtn { border-color: var(--blue-deep); background: var(--blue); color: #fff; box-shadow: 0 2px 0 var(--blue-deep); }
+.browser-controls button.primary:hover, #loadSampleBtn:hover { background: var(--blue-deep); }
 .nav-controls span { font-size: 14px; color: var(--muted); min-width: 120px; text-align: center; }
 .test-case-detail { border: 1px solid var(--line); border-radius: 6px; background: #fff; overflow: hidden; }
 .test-case-header { padding: 20px; border-bottom: 1px solid var(--line); background: #f8fafc; }
@@ -153,7 +151,7 @@
 <div class="download-card">
 <h4 data-en="Test Pair Scores">测试对分数</h4>
 <p data-en="Complete CSV with all 1558 test pairs, scores, and predictions. 3.3 MB.">包含所有1558个测试对、分数和预测的完整CSV。3.3 MB。</p>
-<a href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
+<a class="button" href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 <span data-en="Download CSV">下载 CSV</span>
 </a>
@@ -161,7 +159,7 @@
 <div class="download-card">
 <h4 data-en="Aggregated Results">聚合结果</h4>
 <p data-en="JSON file with task-level metrics, directional error rates, and selection candidates. 289 KB.">包含任务级指标、方向性错误率和选择候选的JSON文件。289 KB。</p>
-<a href="../results/balanced_innovation_v16/results.json" download>
+<a class="button" href="../results/balanced_innovation_v16/results.json" download>
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 <span data-en="Download JSON">下载 JSON</span>
 </a>
@@ -169,7 +167,7 @@
 <div class="download-card">
 <h4 data-en="Reproduction Script">复现脚本</h4>
 <p data-en="Python script to reproduce all V16 results from raw data. Run with Python 3.10+.">从原始数据复现所有V16结果的Python脚本。使用Python 3.10+运行。</p>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
+<a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
 <span data-en="View on GitHub">在 GitHub 查看</span>
 </a>
@@ -177,26 +175,31 @@
 <div class="download-card">
 <h4 data-en="Experiment Protocol">实验方案</h4>
 <p data-en="Detailed markdown document describing the V16 experimental design and methodology.">描述V16实验设计和方法的详细markdown文档。</p>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/program.md">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+<a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/program.md">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 8"/></svg>
 <span data-en="View Protocol">查看方案</span>
 </a>
 </div>
 </div>
 
 <h3 data-en="Quick Start">快速开始</h3>
-<div class="code-block">
-<code># Clone the repository
-git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
-cd AttackAgentDetect
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run V16 evaluation
-python experiments/balanced_innovation_v16/run.py
-
-# Results will be saved to results/balanced_innovation_v16/</code>
+<div class="quickstart-terminal docs-command-window">
+<div class="terminal-head">
+<span data-en="Clone, install, run">克隆、安装、运行</span>
+<span class="terminal-language">bash</span>
+<button class="copy-button" data-copy="dataset-quickstart" data-en="Copy" type="button">复制</button>
+</div>
+<pre id="dataset-quickstart"><code><span class="code-line"><span class="shell-comment"># Clone the repository</span></span>
+<span class="code-line"><span class="shell-command">git clone</span> <span class="shell-url">https://github.com/mcxiaoxiao/AttackAgentDetect.git</span></span>
+<span class="code-line"><span class="shell-command">cd</span> <span class="shell-path">AttackAgentDetect</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="shell-comment"># Install dependencies</span></span>
+<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m pip install</span> <span class="shell-flag">-r</span> <span class="shell-path">requirements.txt</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="shell-comment"># Run V16 evaluation</span></span>
+<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">experiments/balanced_innovation_v16/run.py</span></span>
+<span class="code-line"></span>
+<span class="code-line"><span class="shell-comment"># Results will be saved to results/balanced_innovation_v16/</span></span></code></pre>
 </div>
 </section>
 
@@ -207,8 +210,13 @@ python experiments/balanced_innovation_v16/run.py
 <h3 data-en="Directional Error Analysis">方向性错误分析</h3>
 <p data-en="Error rates are broken down by query-candidate mode pairs. V16 achieves 0% FSR across all subgroups (H→H, H→A, A→H), with FMR concentrated in H→A and A→H cross-mode pairs.">错误率按查询-候选模式对分解。V16在所有子组（H→H、H→A、A→H）中实现0% FSR，FMR集中在H→A和A→H跨模式对中。</p>
 
-<div class="code-block">
-<code>Directional Metrics (balanced_selected):
+<div class="quickstart-terminal docs-command-window">
+<div class="terminal-head">
+<span data-en="Directional Metrics">方向性指标</span>
+<span class="terminal-language">text</span>
+<button class="copy-button" data-copy="directional-metrics" data-en="Copy" type="button">复制</button>
+</div>
+<pre id="directional-metrics"><code>Directional Metrics (balanced_selected):
 ┌─────────────┬──────────┬──────────┬─────────────┐
 │ Pair Type   │ FSR      │ FMR      │ Coverage    │
 ├─────────────┼──────────┼──────────┼─────────────┤
@@ -216,7 +224,7 @@ python experiments/balanced_innovation_v16/run.py
 │ A → H       │ 0.0%     │ 24.7%    │ 100.0%      │
 │ H → H       │ 0.0%     │ 24.7%    │ 100.0%      │
 │ A → A       │ —        │ 88.3%    │ —           │
-└─────────────┴──────────┴──────────┴─────────────┘</code>
+└─────────────┴──────────┴──────────┴─────────────┘</code></pre>
 </div>
 </section>
 
@@ -229,7 +237,7 @@ python experiments/balanced_innovation_v16/run.py
 <span data-en="Load custom results:">加载自定义结果：</span>
 <input type="file" id="fileInput" accept=".json,.csv" />
 </label>
-<button id="loadSampleBtn" data-en="Load V16 Data">加载 V16 数据</button>
+<button class="primary" id="loadSampleBtn" data-en="Load V16 Data">加载 V16 数据</button>
 <button id="exportBtn" data-en="Export Analysis">导出分析报告</button>
 </div>
 
@@ -283,21 +291,16 @@ python experiments/balanced_innovation_v16/run.py
 </section>
 
 <section class="section-block">
-<h2 data-en="Reproducibility">可复现性</h2>
-<p data-en="All results are fully reproducible. The experiment uses fixed random seeds (SEED=42) and deterministic algorithms. Running the same script on the same data will produce identical results.">所有结果完全可复现。实验使用固定随机种子（SEED=42）和确定性算法。在相同数据上运行相同脚本将产生相同结果。</p>
-
-<h3 data-en="Computational Requirements">计算需求</h3>
-<p data-en="The V16 experiment completes in approximately 45 minutes on a standard laptop (8-core CPU, 16GB RAM). The nested cross-validation with 5000 bootstrap draws per metric is the primary computational cost.">V16实验在标准笔记本电脑（8核CPU，16GB内存）上约45分钟完成。每个指标5000次bootstrap抽取的嵌套交叉验证是主要计算成本。</p>
-
-<h3 data-en="Citation">引用</h3>
-<p data-en="If you use this dataset or evaluation suite in your research, please cite the repository:">如果您在研究中使用此数据集或评估套件，请引用该仓库：</p>
-<div class="code-block">
-<code>@misc{attackagent-detect-2026,
+<h2 data-en="Citation">引用</h2>
+<p data-en="If you use this dataset in your research, please cite:">如果您在研究中使用此数据集，请引用：</p>
+<div class="docs-code-window">
+<div class="api-file"><code>BibTeX</code><button data-copy="citation-bibtex" data-en="Copy" type="button">复制</button></div>
+<pre id="copyright-bibtex"><code>@misc{attackagent-detect-2026,
   title={AttackAgent Detect: Behavioral Trace Association for AI-Executed Attacks},
   author={OrlosZiming and sunyinggang},
   year={2026},
   howpublished={\url{https://github.com/mcxiaoxiao/AttackAgentDetect}}
-}</code>
+}</code></pre>
 </div>
 </section>
 </div>
