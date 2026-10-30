@@ -2,8 +2,8 @@
   "protocol": "association-cases-v1",
   "analysis_type": "post-hoc worked examples, no new performance estimate",
   "selection": {
-    "scope": "human-query to Agent-candidate pairs only; reverse directions excluded",
-    "rule": "lexicographically first pair in each category",
+    "threshold_cases_scope": "human-query to Agent-candidate pairs only; reverse directions excluded",
+    "threshold_cases_rule": "lexicographically first pair in each decision category",
     "order": [
       "benchmark",
       "query_task",
@@ -17,7 +17,18 @@
       "persistent_same_task_miss"
     ],
     "threshold_target": 0.2,
-    "representativeness": "Illustrative cases; not random samples or evidence of prevalence."
+    "ranking_case_scope": "all candidates in the same held-out benchmark/fold gallery for Human queries",
+    "ranking_flip": {
+      "rule": "first Human query whose behavior top tie is entirely different-task and whose mode-aware Hit@1 is 1.0 with a same-task Agent at the top",
+      "qualifying_query_count": 2,
+      "selected_query_id": "d209c425ee9ce2bf",
+      "candidate_gallery_size": 39,
+      "cases": [
+        "ranking_correct_agent",
+        "ranking_previous_top"
+      ]
+    },
+    "representativeness": "Illustrative post-hoc examples; not random samples or evidence of prevalence."
   },
   "pair_counts": {
     "human_query_agent_candidate": 1191,
@@ -632,13 +643,175 @@
           "query_hit_at_1": 1.0
         }
       }
+    },
+    {
+      "case_id": "C4",
+      "category": "ranking_correct_agent",
+      "outer_fold": 1,
+      "source_csv_line": 1366,
+      "query": {
+        "trace_id": "d209c425ee9ce2bf",
+        "benchmark": "intercode-ctf",
+        "task_for_evaluation_only": "intercode-ctf_general_skills/task_11",
+        "mode_for_evaluation_only": "human",
+        "model_source_for_evaluation_only": "expert",
+        "command_count": 7,
+        "command_names": [
+          "ls",
+          "file",
+          "file",
+          "chmod",
+          "cat",
+          "ls",
+          "cat"
+        ],
+        "action_categories": [
+          "discover",
+          "discover",
+          "discover",
+          "modify",
+          "read",
+          "discover",
+          "read"
+        ],
+        "predicted_agent_score_raw": 0.22444288215589855,
+        "prediction_at_0_5": "human"
+      },
+      "candidate": {
+        "trace_id": "1d9f0d5a2f0a520d",
+        "benchmark": "intercode-ctf",
+        "task_for_evaluation_only": "intercode-ctf_general_skills/task_11",
+        "mode_for_evaluation_only": "agent",
+        "model_source_for_evaluation_only": "gpt-5.5",
+        "command_count": 8,
+        "command_names": [
+          "ls",
+          "find",
+          "file",
+          "chmod",
+          "file",
+          "sed",
+          "strings",
+          "head"
+        ],
+        "action_categories": [
+          "discover",
+          "discover",
+          "discover",
+          "modify",
+          "discover",
+          "modify",
+          "read",
+          "read"
+        ],
+        "predicted_agent_score_raw": 0.7735600864819063,
+        "prediction_at_0_5": "agent"
+      },
+      "decisions": {
+        "behavior": {
+          "score": 0.5800273498282,
+          "threshold": 0.5131011492875324,
+          "score_minus_threshold": 0.06692620054066767,
+          "linked": true,
+          "candidate_rank_low": 5,
+          "candidate_rank_high": 5,
+          "query_hit_at_1": 0.0
+        },
+        "mode_aware": {
+          "score": 0.6674923717465419,
+          "threshold": 0.5126776172327323,
+          "score_minus_threshold": 0.15481475451380955,
+          "linked": true,
+          "candidate_rank_low": 1,
+          "candidate_rank_high": 1,
+          "query_hit_at_1": 1.0
+        }
+      }
+    },
+    {
+      "case_id": "C5",
+      "category": "ranking_previous_top",
+      "outer_fold": 1,
+      "source_csv_line": 1372,
+      "query": {
+        "trace_id": "d209c425ee9ce2bf",
+        "benchmark": "intercode-ctf",
+        "task_for_evaluation_only": "intercode-ctf_general_skills/task_11",
+        "mode_for_evaluation_only": "human",
+        "model_source_for_evaluation_only": "expert",
+        "command_count": 7,
+        "command_names": [
+          "ls",
+          "file",
+          "file",
+          "chmod",
+          "cat",
+          "ls",
+          "cat"
+        ],
+        "action_categories": [
+          "discover",
+          "discover",
+          "discover",
+          "modify",
+          "read",
+          "discover",
+          "read"
+        ],
+        "predicted_agent_score_raw": 0.22444288215589855,
+        "prediction_at_0_5": "human"
+      },
+      "candidate": {
+        "trace_id": "4cdc4644c4f559d9",
+        "benchmark": "intercode-ctf",
+        "task_for_evaluation_only": "intercode-ctf_reverse/task_44",
+        "mode_for_evaluation_only": "human",
+        "model_source_for_evaluation_only": "expert",
+        "command_count": 5,
+        "command_names": [
+          "cat",
+          "ls",
+          "find",
+          "ls",
+          "cat"
+        ],
+        "action_categories": [
+          "read",
+          "discover",
+          "discover",
+          "discover",
+          "read"
+        ],
+        "predicted_agent_score_raw": 0.5453814703144778,
+        "prediction_at_0_5": "agent"
+      },
+      "decisions": {
+        "behavior": {
+          "score": 0.628053021521815,
+          "threshold": 0.5131011492875324,
+          "score_minus_threshold": 0.1149518722342826,
+          "linked": true,
+          "candidate_rank_low": 1,
+          "candidate_rank_high": 1,
+          "query_hit_at_1": 0.0
+        },
+        "mode_aware": {
+          "score": 0.6605143302717736,
+          "threshold": 0.5126776172327323,
+          "score_minus_threshold": 0.14783671303904133,
+          "linked": true,
+          "candidate_rank_low": 2,
+          "candidate_rank_high": 2,
+          "query_hit_at_1": 1.0
+        }
+      }
     }
   ],
   "refit_audit": [
     {
       "outer_fold": 1,
       "seed": 20261031,
-      "selected_pairs": 2,
+      "selected_pairs": 4,
       "train_test_task_overlap": 0,
       "max_absolute_score_error": 0.0,
       "frozen_thresholds_match": true
@@ -657,8 +830,8 @@
     "data_license": "CC BY 4.0",
     "input_pair_csv_sha256": "f399b4b2920d7ab0d96ef19231fc0a9f9dbd689383d646459d08641fc10129bf",
     "input_summary_sha256": "81b70cc56f8bda2f86b2cb13fdca06642bcc69deb2075d8fe574dccfdd62f91f",
-    "script_sha256": "13cdfb6676b23152bb18b5e701875dda4189c416a275d9750b16b11b0e894281",
-    "git_head_at_run": "27ab4c22610d06ed06aa832474cf5391462eb0b1"
+    "script_sha256": "555d724d684ef76982a7432f23dddd7eea2b1949ecaedb3775a4e92ea423b6c3",
+    "git_head_at_run": "c190b8ad8fd61b8660490fcfa5cb23c6597fd1b2"
   },
   "interpretation": "The before/after contrast changes the representation and refits the ranker. It does not identify a causal effect of Agent execution or reproduce a published APT correlation system. Mode scores are raw detector outputs, not calibrated probabilities of actor identity."
 }

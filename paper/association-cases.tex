@@ -11,3 +11,14 @@ The same representation also introduces a cross-challenge link: a Human \texttt{
 \caption{Audited Human--Agent pairs from held-out CTF tasks. Each numeric comparison shows an association score against its training-selected threshold. The common 20\% training false-merge target permits method-specific thresholds. Only command-name previews are displayed; scoring uses complete normalized trajectories. Source labels are shown for interpretation, while the ranker uses predicted mode scores. These examples explain a recovered same-challenge link and a new cross-challenge error.}
 \label{fig:association-cases}
 \end{figure}
+
+One held-out Human query gives a direct view of Hit@1. Its gallery contains 39 traces. The behavior-only ranker places a different-challenge Human trace first (score 0.6281) and the same-challenge Agent at rank 5. With predicted execution-mode scores, the Agent trace moves to rank 1 and the previous top result moves to rank 2; query Hit@1 changes from 0 to 1. This selected example illustrates the retrieval metric; the aggregate estimate uses every held-out query.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{association_rank_case_v1.pdf}
+\caption{A held-out Human query whose top-ranked candidate changes from a different-challenge Human trace to a same-challenge Agent trace after adding predicted execution-mode scores. Two candidates are shown from a fixed gallery of 39. Challenge relevance is an evaluation label, not an attack-activity label.}
+\label{fig:association-ranking-case}
+\end{figure}
+
+The Human query uses \texttt{ls, file, file, chmod, cat, ls, cat}; the relevant Agent uses \texttt{ls, find, file, chmod, file, sed, strings, head}. The former top result uses \texttt{cat, ls, find, ls, cat}. This contrast suggests that surface tool overlap can obscure relevant cross-mode traces. However, a style-compensation mechanism remains unverified: adding features also refits all ranker coefficients, the previous top Human is itself assigned an Agent-like score of 0.5454, and the final top-two margin is only 0.0070. The example supports an observed ranking change, not a causal effect or a standalone significance claim. Further feature development targets the false-link cost of mode enhancement, with false merges and false splits reported jointly.

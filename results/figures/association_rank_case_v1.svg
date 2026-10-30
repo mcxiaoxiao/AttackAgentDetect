@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="532.8pt" height="248.4pt" viewBox="0 0 532.8 248.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T17:07:17.147352</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 248.4
+L 532.8 248.4
+L 532.8 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 29.687616 74.0853
+L 380.568384 74.0853
+Q 388.240704 74.0853 388.240704 70.82505
+L 388.240704 32.57145
+Q 388.240704 29.3112 380.568384 29.3112
+L 29.687616 29.3112
+Q 22.015296 29.3112 22.015296 32.57145
+L 22.015296 70.82505
+Q 22.015296 74.0853 29.687616 74.0853
+z
+" clip-path="url(#p7d9af4090b)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 403.073856 74.0853
+L 508.440384 74.0853
+Q 516.112704 74.0853 516.112704 70.82505
+L 516.112704 32.57145
+Q 516.112704 29.3112 508.440384 29.3112
+L 403.073856 29.3112
+Q 395.401536 29.3112 395.401536 32.57145
+L 395.401536 70.82505
+Q 395.401536 74.0853 403.073856 74.0853
+z
+" clip-path="url(#p7d9af4090b)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 29.687616 189.2808
+L 257.811264 189.2808
+Q 265.483584 189.2808 265.483584 186.02055
+L 265.483584 93.42945
+Q 265.483584 90.1692 257.811264 90.1692
+L 29.687616 90.1692
+Q 22.015296 90.1692 22.015296 93.42945
+L 22.015296 186.02055
+Q 22.015296 189.2808 29.687616 189.2808
+z
+" clip-path="url(#p7d9af4090b)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 280.316736 189.2808
+L 508.440384 189.2808
+Q 516.112704 189.2808 516.112704 186.02055
+L 516.112704 93.42945
+Q 516.112704 90.1692 508.440384 90.1692
+L 280.316736 90.1692
+Q 272.644416 90.1692 272.644416 93.42945
+L 272.644416 186.02055
+Q 272.644416 189.2808 280.316736 189.2808
+z
+" clip-path="url(#p7d9af4090b)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="26.1072" y="14.74875" transform="rotate(-0 26.1072 14.74875)">One Human query in the mixed candidate gallery</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="36.33696" y="47.35125" transform="rotate(-0 36.33696 47.35125)">Human · task_11</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.4px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="36.33696" y="62.56575" transform="rotate(-0 36.33696 62.56575)">ls → file → file → chmod → cat → ls → cat  ·  7 commands</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="407.16576" y="49.52475" transform="rotate(-0 407.16576 49.52475)">Hit@1</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial'; text-anchor: start; fill: #287bc1" x="407.16576" y="64.73925" transform="rotate(-0 407.16576 64.73925)">0  →  1</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="36.33696" y="106.03575" transform="rotate(-0 36.33696 106.03575)">Behavior features only</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="286.96608" y="106.03575" transform="rotate(-0 286.96608 106.03575)">Behavior + predicted mode scores</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Arial'; text-anchor: start; fill: #287bc1" x="36.33696" y="129.94425" transform="rotate(-0 36.33696 129.94425)">#1  Human · task_44 · 0.6281</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="45.543744" y="144.072" transform="rotate(-0 45.543744 144.072)">cross-challenge top result</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.3px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="36.33696" y="162.54675" transform="rotate(-0 36.33696 162.54675)">#5  Agent · task_11 · 0.5800</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="45.543744" y="176.6745" transform="rotate(-0 45.543744 176.6745)">same-challenge candidate</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 7.3px; font-family: 'Arial'; text-anchor: start; fill: #287bc1" x="286.96608" y="129.94425" transform="rotate(-0 286.96608 129.94425)">#1  Agent · task_11 · 0.6675</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="296.172864" y="144.072" transform="rotate(-0 296.172864 144.072)">same-challenge top result</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.3px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="286.96608" y="162.54675" transform="rotate(-0 286.96608 162.54675)">#2  Human · task_44 · 0.6605</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="296.172864" y="176.6745" transform="rotate(-0 296.172864 176.6745)">cross-challenge candidate</text>
+   </g>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 6.9px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="13.32" y="239.706" transform="rotate(-0 13.32 239.706)">Two of 39 fixed candidates are shown. Relevance means the same challenge, not the same attack.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7d9af4090b">
+   <rect x="13.32" y="4.968" width="511.488" height="217.35"/>
+  </clipPath>
+ </defs>
+</svg>
