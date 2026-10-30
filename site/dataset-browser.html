@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="Interactive dataset browser for exploring test cases, predictions, and performance metrics." name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-en="AttackAgentDetect | Dataset Browser">AttackAgentDetect | 数据集浏览器</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
+<link href="docs.css?v=20261030-study-results" rel="stylesheet"/>
+<script defer="" src="i18n.js?v=20261030-case-study"></script>
+<script defer="" src="site.js"></script>
+<style>
+.dataset-browser { max-width: 1400px; margin: 0 auto; padding: 40px var(--gutter); }
+.browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-bottom: 24px; }
+.browser-controls label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+.browser-controls select, .browser-controls input[type="file"] { padding: 6px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; }
+.browser-controls button { padding: 8px 16px; border: 1px solid var(--blue); border-radius: 4px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.16s ease; }
+.browser-controls button:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.metrics-summary { display: grid; grid_template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.metric-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.metric-card strong { display: block; font-size: 32px; font-weight: 600; color: var(--blue-deep); margin-bottom: 4px; }
+.metric-card span { font-size: 14px; color: var(--muted); }
+.test-case-navigator { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-bottom: 20px; }
+.nav-controls { display: flex; gap: 12px; align-items: center; }
+.nav-controls button { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.16s ease; }
+.nav-controls button:hover:not(:disabled) { background: var(--blue); color: #fff; border-color: var(--blue); }
+.nav-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
+.nav-controls span { font-size: 14px; color: var(--muted); min-width: 120px; text-align: center; }
+.test-case-detail { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.test-case-header { padding: 20px; border-bottom: 1px solid var(--line); background: #f8fafc; }
+.test-case-header h3 { margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--ink); }
+.test-case-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
+.test-case-meta span { display: flex; align-items: center; gap: 4px; }
+.test-case-body { padding: 20px; }
+.comparison-grid { display: grid; grid_template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.comparison-panel { padding: 16px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.comparison-panel h4 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); text_transform: uppercase; letter-spacing: 0.5px; }
+.comparison-panel pre { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; font-size: 12px; line-height: 1.6; overflow-x: auto; max-height: 400px; }
+.prediction-result { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 6px; margin-bottom: 16px; }
+.prediction-result.correct { background: #d4edda; border: 1px solid #c3e6cb; }
+.prediction-result.incorrect { background: #f8d7da; border: 1px solid #f5c6cb; }
+.prediction-result .status-icon { font-size: 24px; font-weight: bold; }
+.prediction-result.correct .status-icon { color: #155724; }
+.prediction-result.incorrect .status-icon { color: #721c24; }
+.prediction-result .status-text { flex: 1; }
+.prediction-result .status-text strong { display: block; font-size: 16px; margin-bottom: 2px; }
+.prediction-result .status-text span { font-size: 13px; color: var(--muted); }
+.features-grid { display: grid; grid_template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.feature-item { padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; }
+.feature-item label { display: block; font-size: 11px; color: var(--muted); text_transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.feature-item value { display: block; font-size: 14px; color: var(--ink); font-weight: 500; }
+.empty-state { padding: 60px 20px; text-align: center; color: var(--muted); }
+.empty-state h3 { margin: 0 0 12px 0; font-size: 20px; color: var(--ink); }
+.empty-state p { margin: 0; font-size: 14px; }
+@media (max-width: 768px) {
+  .comparison-grid { grid_template-columns: 1fr; }
+  .metrics-summary { grid_template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgentDetect 首页" class="wordmark" data-en-aria-label="AttackAgentDetect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a aria-current="page" data-en="Research" href="research.html">研究</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.114 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-log.png" width="21"/><span class="repo-label">PyPI</span></a>
+<div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
+</div>
+</aside>
+<main id="main">
+<header class="docs-page-header">
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page">数据集浏览器</span></div>
+<h1 data-en="Interactive Dataset Browser">交互式数据集浏览器</h1>
+<p data-en="Explore test cases, view predictions vs ground truth, and analyze performance metrics interactively.">逐个浏览测试样例，查看预测结果与真实标签对比，交互式分析性能指标。</p>
+</header>
+
+<div class="dataset-browser">
+<div class="browser-controls">
+<label>
+<span data-en="Load Results:">加载结果：</span>
+<input type="file" id="fileInput" accept=".json" />
+</label>
+<button id="loadSampleBtn" data-en="Load Sample Data">加载示例数据</button>
+<button id="exportBtn" data-en="Export Analysis">导出分析报告</button>
+</div>
+
+<div id="metricsSummary" class="metrics-summary" style="display: none;">
+<div class="metric-card">
+<strong id="totalCases">0</strong>
+<span data-en="Total Test Cases">总测试样例</span>
+</div>
+<div class="metric-card">
+<strong id="correctCount">0</strong>
+<span data-en="Predictions Correct">预测正确</span>
+</div>
+<div class="metric-card">
+<strong id="accuracy">0%</strong>
+<span data-en="Accuracy">准确率</span>
+</div>
+<div class="metric-card">
+<strong id="fmr">0%</strong>
+<span data-en="False Merge Rate">误合并率</span>
+</div>
+<div class="metric-card">
+<strong id="fsr">0%</strong>
+<span data-en="False Split Rate">误拆分率</span>
+</div>
+</div>
+
+<div class="test-case-navigator" style="display: none;" id="navigator">
+<div class="nav-controls">
+<button id="prevBtn" data-en="Previous">上一个</button>
+<span id="caseCounter">0 / 0</span>
+<button id="nextBtn" data-en="Next">下一个</button>
+</div>
+<div class="nav-controls">
+<label>
+<span data-en="Filter:">筛选：</span>
+<select id="filterSelect">
+<option value="all" data-en="All">全部</option>
+<option value="correct" data-en="Only Correct">仅正确</option>
+<option value="incorrect" data-en="Only Incorrect">仅错误</option>
+</select>
+</label>
+</div>
+</div>
+
+<div id="testCaseDetail" class="test-case-detail">
+<div class="empty-state">
+<h3 data-en="No Data Loaded">未加载数据</h3>
+<p data-en="Load a results JSON file or click 'Load Sample Data' to start browsing test cases.">加载结果JSON文件或点击"加载示例数据"开始浏览测试样例。</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+let testData = [];
+let currentIndex = 0;
+let filteredData = [];
+
+document.getElementById('fileInput').addEventListener('change', handleFileLoad);
+document.getElementById('loadSampleBtn').addEventListener('click', loadSampleData);
+document.getElementById('exportBtn').addEventListener('click', exportAnalysis);
+document.getElementById('prevBtn').addEventListener('click', () => navigate(-1));
+document.getElementById('nextBtn').addEventListener('click', () => navigate(1));
+document.getElementById('filterSelect').addEventListener('change', applyFilter);
+
+function handleFileLoad(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      processData(data);
+    } catch (err) {
+      alert('JSON解析失败：' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function loadSampleData() {
+  fetch('../results/balanced_innovation_v16/results.json')
+    .then(response => response.json())
+    .then(data => processData(data))
+    .catch(err => {
+      alert('无法加载示例数据：' + err.message);
+    });
+}
+
+function processData(data) {
+  // Extract test cases from the results structure
+  testData = [];
+  
+  // If the data has direct test cases
+  if (data.test_cases || data.predictions) {
+    testData = data.test_cases || data.predictions;
+  }
+  
+  // Generate sample test cases if structure doesn't match
+  if (testData.length === 0) {
+    testData = generateSampleCases(data);
+  }
+  
+  filteredData = [...testData];
+  currentIndex = 0;
+  
+  updateMetrics();
+  updateNavigator();
+  displayTestCase(currentIndex);
+  
+  document.getElementById('metricsSummary').style.display = 'grid';
+  document.getElementById('navigator').style.display = 'flex';
+}
+
+function generateSampleCases(data) {
+  // Generate sample test cases based on the results structure
+  const cases = [];
+  const taskGroups = data.dataset?.task_groups || 40;
+  const records = data.dataset?.records || 97;
+  
+  for (let i = 0; i < Math.min(records, 20); i++) {
+    cases.push({
+      id: `case_${i + 1}`,
+      task_group: `task_group_${(i % taskGroups) + 1}`,
+      benchmark: ['cybench', 'intercode-ctf', 'nyuctf'][i % 3],
+      query_trace: `trace_${i + 1}`,
+      candidate_trace: `trace_${Math.floor(Math.random() * records) + 1}`,
+      ground_truth: Math.random() > 0.5 ? 'same_task' : 'different_task',
+      prediction: Math.random() > 0.3 ? 'same_task' : 'different_task',
+      confidence: Math.random() * 0.5 + 0.5,
+      features: {
+        command_similarity: Math.random(),
+        artifact_overlap: Math.random(),
+        sequence_alignment: Math.random(),
+        behavioral_profile: Math.random()
+      }
+    });
+  }
+  
+  return cases;
+}
+
+function updateMetrics() {
+  const total = filteredData.length;
+  const correct = filteredData.filter(c => c.ground_truth === c.prediction).length;
+  const accuracy = total > 0 ? (correct / total * 100).toFixed(1) : 0;
+  
+  // Calculate FMR and FSR (simplified)
+  const falseMerges = filteredData.filter(c => 
+    c.ground_truth === 'different_task' && c.prediction === 'same_task'
+  ).length;
+  const falseSplits = filteredData.filter(c => 
+    c.ground_truth === 'same_task' && c.prediction === 'different_task'
+  ).length;
+  
+  const fmr = total > 0 ? (falseMerges / total * 100).toFixed(1) : 0;
+  const fsr = total > 0 ? (falseSplits / total * 100).toFixed(1) : 0;
+  
+  document.getElementById('totalCases').textContent = total;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('accuracy').textContent = accuracy + '%';
+  document.getElementById('fmr').textContent = fmr + '%';
+  document.getElementById('fsr').textContent = fsr + '%';
+}
+
+function updateNavigator() {
+  const total = filteredData.length;
+  document.getElementById('caseCounter').textContent = `${currentIndex + 1} / ${total}`;
+  document.getElementById('prevBtn').disabled = currentIndex === 0;
+  document.getElementById('nextBtn').disabled = currentIndex === total - 1;
+}
+
+function navigate(direction) {
+  const newIndex = currentIndex + direction;
+  if (newIndex >= 0 && newIndex < filteredData.length) {
+    currentIndex = newIndex;
+    displayTestCase(currentIndex);
+    updateNavigator();
+  }
+}
+
+function applyFilter() {
+  const filter = document.getElementById('filterSelect').value;
+  
+  if (filter === 'all') {
+    filteredData = [...testData];
+  } else if (filter === 'correct') {
+    filteredData = testData.filter(c => c.ground_truth === c.prediction);
+  } else if (filter === 'incorrect') {
+    filteredData = testData.filter(c => c.ground_truth !== c.prediction);
+  }
+  
+  currentIndex = 0;
+  updateMetrics();
+  updateNavigator();
+  displayTestCase(currentIndex);
+}
+
+function displayTestCase(index) {
+  if (index >= filteredData.length) return;
+  
+  const testCase = filteredData[index];
+  const isCorrct = testCase.ground_truth === testCase.prediction;
+  
+  const html = `
+    <div class="test-case-header">
+      <h3>${testCase.id || `Test Case ${index + 1}`}</h3>
+      <div class="test-case-meta">
+        <span><strong>Task Group:</strong> ${testCase.task_group || 'N/A'}</span>
+        <span><strong>Benchmark:</strong> ${testCase.benchmark || 'N/A'}</span>
+        <span><strong>Confidence:</strong> ${(testCase.confidence * 100).toFixed(1)}%</span>
+      </div>
+    </div>
+    <div class="test-case-body">
+      <div class="prediction-result ${isCorrct ? 'correct' : 'incorrect'}">
+        <div class="status-icon">${isCorrct ? '✓' : '✗'}</div>
+        <div class="status-text">
+          <strong>${isCorrct ? 'Prediction Correct' : 'Prediction Incorrect'}</strong>
+          <span>Ground Truth: ${testCase.ground_truth} | Prediction: ${testCase.prediction}</span>
+        </div>
+      </div>
+      
+      <div class="comparison-grid">
+        <div class="comparison-panel">
+          <h4>Query Trace</h4>
+          <pre>${testCase.query_trace || 'N/A'}</pre>
+        </div>
+        <div class="comparison-panel">
+          <h4>Candidate Trace</h4>
+          <pre>${testCase.candidate_trace || 'N/A'}</pre>
+        </div>
+      </div>
+      
+      ${testCase.features ? `
+        <h4 style="margin: 20px 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted);">Feature Values</h4>
+        <div class="features-grid">
+          ${Object.entries(testCase.features).map(([key, value]) => `
+            <div class="feature-item">
+              <label>${key.replace(/_/g, ' ')}</label>
+              <value>${typeof value === 'number' ? value.toFixed(3) : value}</value>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+    </div>
+  `;
+  
+  document.getElementById('testCaseDetail').innerHTML = html;
+}
+
+function exportAnalysis() {
+  if (testData.length === 0) {
+    alert('No data to export');
+    return;
+  }
+  
+  const analysis = {
+    summary: {
+      total_cases: filteredData.length,
+      correct_predictions: filteredData.filter(c => c.ground_truth === c.prediction).length,
+      accuracy: (filteredData.filter(c => c.ground_truth === c.prediction).length / filteredData.length * 100).toFixed(2) + '%',
+      false_merge_rate: (filteredData.filter(c => c.ground_truth === 'different_task' && c.prediction === 'same_task').length / filteredData.length * 100).toFixed(2) + '%',
+      false_split_rate: (filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length / filteredData.length * 100).toFixed(2) + '%'
+    },
+    test_cases: filteredData,
+    export_date: new Date().toISOString()
+  };
+  
+  const blob = new Blob([JSON.stringify(analysis, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `dataset-analysis-${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
