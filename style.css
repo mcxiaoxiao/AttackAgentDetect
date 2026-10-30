@@ -165,6 +165,18 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .terminal-head { display: flex; min-height: 40px; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 13px; border-bottom: 1px solid #33445a; background: #202b3e; color: #bac7d5; font: 11px/1.4 var(--mono); }
 .quickstart-terminal pre, .quickstart-output pre { margin: 0; padding: 14px; overflow-x: auto; color: #e5edf5; font: 11px/1.7 var(--mono); tab-size: 2; }
 .quickstart-terminal pre code, .quickstart-output pre code { display: block; min-width: max-content; padding: 0; background: transparent; color: inherit; font: inherit; white-space: pre; }
+.docs-command-window { margin: 16px 0; }
+.docs-command-window .terminal-head .terminal-language { margin-left: auto; color: #aebdca; }
+.docs-command-window pre { counter-reset: terminal-line; }
+.docs-command-window .code-line { position: relative; display: block; min-height: 1.7em; padding-left: 3.2em; border-radius: 2px; }
+.docs-command-window .code-line::before { position: absolute; left: 0; width: 2.4em; color: #74849a; text-align: right; counter-increment: terminal-line; content: counter(terminal-line, decimal-leading-zero); user-select: none; }
+.docs-command-window .code-line:hover { background: rgb(255 255 255 / 4%); }
+.docs-command-window .shell-command { color: var(--sky); }
+.docs-command-window .shell-url { color: var(--mint); }
+.docs-command-window .shell-path { color: var(--graphite-ink); }
+.docs-command-window .shell-flag { color: var(--orange); }
+.docs-command-window .shell-value { color: var(--mint); }
+.docs-command-window .copy-button:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
 .source-details .quickstart-terminal pre, .source-details .quickstart-output pre { counter-reset: terminal-line; }
 .source-details .code-line, .source-details .json-line { position: relative; display: block; min-height: 1.7em; padding-left: 3.2em; border-radius: 2px; }
 .source-details .code-line::before, .source-details .json-line::before { position: absolute; left: 0; width: 2.4em; color: #74849a; text-align: right; counter-increment: terminal-line; content: counter(terminal-line, decimal-leading-zero); user-select: none; }

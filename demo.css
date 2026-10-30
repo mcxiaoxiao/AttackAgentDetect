@@ -2,12 +2,12 @@
 :root { --demo-tray: oklch(94% 0.012 252); --demo-ink: var(--ink); --demo-rule: var(--line); --demo-muted: var(--muted); }
 .demo-heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: end; gap: 64px; margin-bottom: 40px; }
 .demo-heading p { max-width: 54ch; margin: 0; color: var(--muted); }
-.demo-tabs { display: flex; width: max-content; max-width: 100%; gap: 8px; padding: 8px; border: 1px solid var(--key-edge); background: var(--demo-tray); }
-.demo-tabs button { position: relative; display: inline-flex; min-width: 136px; min-height: 64px; align-items: end; gap: 10px; padding: 0 16px 12px; border: 1px solid var(--key-edge); background: var(--paper); color: var(--muted); box-shadow: 0 3px 0 var(--key-edge); font: 600 18px/1.15 var(--font-display); text-align: left; cursor: pointer; transition: transform .16s ease, background-color .16s ease, box-shadow .16s ease, color .16s ease; }
-.demo-tabs button span { align-self: start; padding-top: 8px; color: var(--soft); font: 500 11px/1 var(--font-body); }
-.demo-tabs button:hover { color: var(--ink); transform: translateY(-1px); }
-.demo-tabs button:active, .demo-tabs button[aria-selected="true"] { transform: translateY(3px); box-shadow: none; background: var(--surface); color: var(--ink); }
-.demo-tabs button[aria-selected="true"] span { color: var(--cobalt); }
+.demo-tabs { display: flex; width: max-content; max-width: 100%; gap: 4px; padding: 5px; border: 1px solid var(--line); border-radius: 5px; background: var(--demo-tray); }
+.demo-tabs button { display: inline-flex; min-width: 118px; min-height: 42px; align-items: center; justify-content: center; padding: 0 14px; border: 1px solid transparent; border-radius: 3px; background: transparent; color: var(--muted); box-shadow: none; font: 500 14px/1.2 var(--font-body); text-align: center; cursor: pointer; transition: background-color .16s ease, border-color .16s ease, color .16s ease; }
+.demo-tabs button > span { display: none; }
+.demo-tabs button b { font-weight: 500; }
+.demo-tabs button:hover { background: rgb(255 255 255 / 55%); color: var(--ink); }
+.demo-tabs button[aria-selected="true"] { border-color: var(--line-strong); background: var(--surface); color: var(--cobalt-deep); box-shadow: 0 1px 2px rgb(17 38 63 / 8%); }
 .demo-tabs button:focus-visible, .demo-mode-picks button:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
 .demo-panel { display: grid; align-content: start; gap: 24px; min-height: 540px; padding-top: 40px; }
 .demo-panel[hidden] { display: none; }
@@ -20,6 +20,7 @@
 .demo-inspector > figcaption { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 12px; min-height: 48px; padding: 8px 20px; border-bottom: 1px solid var(--existing-23); background: var(--existing-27); color: var(--existing-24); font: 500 13px/1.4 var(--font-body); }
 .demo-inspector > figcaption :last-child { text-align: right; }
 .demo-inspector > figcaption code { padding: 0; background: transparent; color: var(--existing-22); font: 500 13px/1.4 var(--mono); }
+.demo-inspector > figcaption [data-demo-label] { color: var(--sky); text-align: right; }
 .demo-inspector-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
 .demo-log, .demo-verdict { min-width: 0; margin: 0; padding: 28px 24px; font: 13px/1.95 var(--mono); }
 .demo-log { overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; border-right: 1px solid var(--existing-23); color: var(--existing-22); }
@@ -107,8 +108,7 @@
 @media (max-width: 760px) {
   .demo-heading { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .demo-tabs { width: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 4px; }
-  .demo-tabs button { min-width: 0; min-height: 56px; gap: 4px; padding: 0 6px 8px; font-size: 14px; }
-  .demo-tabs button span { padding-top: 6px; font-size: 10px; }
+  .demo-tabs button { min-width: 0; min-height: 42px; padding: 0 6px; font-size: 13px; }
   .demo-inspector-grid { grid-template-columns: minmax(0, 1fr); }
   .demo-log { border-right: 0; border-bottom: 1px solid var(--existing-23); }
   .demo-verdict { padding: 20px; }
@@ -134,7 +134,8 @@
   .demo-panel { min-height: 0; padding-top: 28px; }
   .demo-say { font-size: 16px; }
   .demo-inspector > figcaption { grid-template-columns: 1fr auto; padding-inline: 12px; font-size: 11px; }
-  .demo-inspector > figcaption :last-child { display: none; }
+  .demo-inspector > figcaption :nth-child(2) { display: none; }
+  .demo-inspector > figcaption [data-demo-label] { display: block; text-align: right; }
   .demo-inspector > figcaption code { font-size: 11px; }
   .demo-log { padding: 18px 12px; font-size: 10px; }
   .demo-verdict { gap: 8px; padding: 16px 12px; }
@@ -172,13 +173,13 @@
 
 /* Wide screens: keep the demo heading, switcher and evidence in one workspace instead of stretching a single row. */
 @media (min-width: 1200px) {
-  .product-demo { display: grid; grid-template-columns: clamp(260px, 20vw, 320px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; align-items: start; column-gap: clamp(40px, 4vw, 72px); }
+  .product-demo { display: grid; grid-template-columns: clamp(260px, 20vw, 320px) minmax(0, 1fr); grid-template-rows: auto auto; align-items: start; column-gap: clamp(40px, 4vw, 72px); }
   .demo-heading { display: block; grid-column: 1; grid-row: 1; margin: 0; }
   .demo-heading h2 { font-size: clamp(32px, 2.4vw, 40px); line-height: 1.15; }
   .demo-heading p { max-width: none; margin-top: 16px; font-size: 15px; line-height: 1.7; }
-  .demo-tabs { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 32px; padding: 8px; }
-  .demo-tabs button { width: 100%; min-width: 0; min-height: 56px; }
-  .demo-panel { grid-column: 2; grid-row: 1 / span 3; min-height: 0; padding-top: 0; }
+  .demo-tabs { grid-column: 2; grid-row: 1; display: flex; width: 100%; max-width: none; gap: 4px; margin: 0; padding: 4px; }
+  .demo-tabs button { flex: 1; width: auto; min-width: 0; min-height: 42px; }
+  .demo-panel { grid-column: 2; grid-row: 2; min-height: 0; padding-top: 18px; }
   .demo-say { max-width: 70ch; }
 }
 .deploy-meta { display: inline-flex; align-items: baseline; gap: 5px; white-space: nowrap; }

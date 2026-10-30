@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="A local Human/Agent trace classifier, its API, public-data comparison, and evaluation limits." name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-en="AttackAgent Detect | Local mode detector">AttackAgent Detect | 本地执行方式识别</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261030-syntax-highlight-v3" rel="stylesheet"/>
+<link href="docs.css?v=20261030-study-results" rel="stylesheet"/>
+<script defer="" src="i18n.js?v=20261030-case-study"></script>
+<script defer="" src="site.js"></script>
+<script defer="" src="deployment.js"></script>
+</head>
+<body>
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a aria-current="page" data-en="Methods" href="index.html#method">方法与接口</a><a data-en="Research" href="execution-mode-behavior-correlation.html">研究</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.114 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a>
+<div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
+</div>
+</aside>
+<main id="main">
+<header class="docs-page-header">
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Methods &amp; API" href="index.html#method">方法与接口</a><span>/</span><span aria-current="page">local_mode_detector</span></div>
+<h1 data-en="Local Human / Agent detector">本地 Human / Agent 识别</h1>
+<p data-en="A format-matched, supervised baseline that reads command and action traces.">使用采集格式匹配的标注轨迹，从命令和动作中识别执行方式。</p>
+</header>
+
+<section class="section docs-content mode-detector-doc" id="method">
+<div class="docs-prose">
+<h2><code>local_mode_detector</code></h2>
+<p data-en="Train the detector with labeled traces, then score unlabeled traces from the same source format. It uses command and coarse-action unigram/bigram TF–IDF with class-balanced logistic regression.">用带标签的轨迹训练，再为同一采集格式的无标签轨迹评分。当前实现使用命令与粗粒度动作的 unigram/bigram TF‑IDF，并训练类别平衡的逻辑回归。</p>
+<h3 data-en="Python API">Python API</h3>
+<pre><code><span class="kn">from</span> <span class="nn">attackagent</span> <span class="kn">import</span> <span class="n">fit_detector</span><span class="p">,</span> <span class="n">predict_modes</span>
+
+<span class="c1"># training_records: labeled Human/Agent traces in one source format</span>
+<span class="n">detector</span> <span class="o">=</span> <span class="n">fit_detector</span><span class="p">(</span><span class="n">training_records</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">predict_modes</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">unlabeled_traces</span><span class="p">)</span>
+
+<span class="kn">for</span> <span class="n">score</span> <span class="kn">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">prediction</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">agent_like_score</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">available</span><span class="p">)</span></code></pre>
+<p class="mode-api-note" data-en="Training requires at least eight labeled traces, both Human and Agent examples, and one shared source_format. Predictions contain a class label and a raw agent_like_score; the score is not calibrated. A format mismatch or evidence with no learned tokens returns unknown.">训练集至少需要 8 条轨迹，包含 Human 与 Agent 两类，且 `source_format` 必须一致。预测返回类别标签和原始 `agent_like_score`；该分数未经校准。格式不匹配或没有已学习词项时返回 `unknown`。</p>
+</div>
+</section>
+
+<section class="section results mode-results" id="results">
+<div class="result-intro">
+<h2 data-en="What the local baselines found">本地基线测到了什么</h2>
+<p data-en="On the pinned public trace set, command-name TF–IDF with logistic regression reached 84.4% task-macro balanced accuracy (95% task-cluster CI 76.6%–91.5%) and 95.7% ROC-AUC. The figure compares it with three local alternatives.">在固定公开轨迹集上，仅用命令名称的 TF‑IDF + Logistic Regression 达到 84.4% 任务宏平均平衡准确率（95% 任务簇区间 76.6%–91.5%），ROC-AUC 为 95.7%。图中另列三种本地基线。</p>
+</div>
+<div class="data-grid mode-data" aria-label="实验数据规模" data-en-aria-label="Evaluation data">
+<article><strong>177</strong><span data-en="Traces">条轨迹</span><small data-en="Cyber Task Horizons">Cyber Task Horizons</small></article>
+<article><strong>40</strong><span data-en="Task groups">个题目组</span><small data-en="Grouped across all folds">按题目分组留出</small></article>
+<article><strong>57</strong><span data-en="Human traces">条 Human 轨迹</span><small data-en="Terminal input">终端输入</small></article>
+<article><strong>120</strong><span data-en="Agent traces">条 Agent 轨迹</span><small data-en="Structured tool calls">结构化工具调用</small></article>
+</div>
+<figure class="diagnostic-figure mode-figure">
+<img alt="四种本地 Human/Agent 轨迹分类基线的任务留出平衡准确率、Macro-F1、ROC-AUC、Brier 与 ECE，对照任务簇区间。" data-en-alt="Task-held-out balanced accuracy, Macro-F1, ROC-AUC, Brier, and ECE with task-cluster intervals for four local Human/Agent trace-classification baselines." src="assets/local-model-comparison.png"/>
+<figcaption data-en="Five-fold task-grouped evaluation; 5,000 benchmark-stratified task-cluster bootstrap samples on fixed out-of-fold predictions. Lower Brier/ECE is better. No calibration was fitted.">五折按题目分组评估；固定折外预测上的 5,000 次基准分层任务簇 bootstrap。Brier 与 ECE 越低越好；未拟合校准器。</figcaption>
+</figure>
+<p class="mode-result-note" data-en="The 84.4% result belongs to the command-only comparison model. It is not a direct performance estimate for the package API implementation, which combines command and action tokens.">84.4% 对应的是“仅命令”对照模型，不是库 API 当前“命令 + 动作”实现的直接性能估计。</p>
+<p class="caveat mode-caveat"><span aria-hidden="true">i</span><span data-en="Human labels in this release come from terminal capture; Agent labels come from structured tool-call capture. Since label and capture pathway are perfectly aligned, these results measure prediction of this release's trace labels, not isolated actor identity. The corpus has no Script traces or real attack-campaign labels.">该版本中的 Human 标签来自终端采集，Agent 标签来自结构化工具调用；标签与采集方式完全绑定。因此结果衡量的是对这批轨迹标签的预测，不是排除了接口影响后的执行者识别。数据也没有 Script 轨迹或真实攻击活动标签。</span></p>
+<div class="mode-result-links">
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/attackagent/api.py">API 源码</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/compare_trace_mode_models.py">实验脚本</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/local_model_comparison.json">完整指标 JSON</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/local_model_comparison_task_metrics.csv">逐题指标 CSV</a>
+<a data-en="Behavior-correlation study" href="execution-mode-behavior-correlation.html">执行方式与行为关联研究</a>
+</div>
+</section>
+
+<footer>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks"><a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a><span aria-hidden="true" class="footer-cross">×</span><a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a></div>
+<div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
+<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
+</footer>
+</main>
+</div>
+</body>
+</html>

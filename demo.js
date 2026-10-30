@@ -35,32 +35,52 @@
 
   const modeMeta = {
     human: {
-      label: 'back_to_the_past · human',
+      trace: 'trace e308264f',
+      receivedZh: '采集自专家终端',
+      receivedEn: 'Received from expert terminal',
+      datasetLabelZh: '数据集标注：人类',
+      datasetLabelEn: 'Dataset label · Human',
       prefix: '$',
       commands: humanCommands,
     },
     agent: {
-      label: 'back_to_the_past · agent',
+      trace: 'trace a18eeb89',
+      receivedZh: '采集自 Agent bash 工具调用',
+      receivedEn: 'Received from Agent bash tool calls',
+      datasetLabelZh: '数据集标注：Agent',
+      datasetLabelEn: 'Dataset label · Agent',
       prefix: 'bash>',
       commands: agentCommands,
     },
   };
   const logOutput = section.querySelector('[data-demo-log]');
   const sourceLabel = section.querySelector('[data-demo-source]');
+  const receivedLabel = section.querySelector('[data-demo-received]');
+  const datasetLabel = section.querySelector('[data-demo-label]');
   const verdicts = [...section.querySelectorAll('[data-mode-case]')];
   const modeButtons = [...section.querySelectorAll('[data-demo-mode]')];
+  let selectedMode = 'agent';
   const formatCommands = (commands, prefix) => commands
     .map((command, index) => `${String(index + 1).padStart(2, '0')}  ${prefix} ${command}`)
     .join('\n');
+  function renderSourceHeader(name) {
+    const meta = modeMeta[name];
+    const english = document.documentElement.lang === 'en';
+    if (sourceLabel) sourceLabel.textContent = meta.trace;
+    if (receivedLabel) receivedLabel.textContent = english ? meta.receivedEn : meta.receivedZh;
+    if (datasetLabel) datasetLabel.textContent = english ? meta.datasetLabelEn : meta.datasetLabelZh;
+  }
   function selectMode(name) {
     const meta = modeMeta[name];
     if (!meta) return;
+    selectedMode = name;
     logOutput.textContent = formatCommands(meta.commands, meta.prefix);
-    if (sourceLabel) sourceLabel.textContent = meta.label;
+    renderSourceHeader(name);
     for (const button of modeButtons) button.setAttribute('aria-pressed', String(button.dataset.demoMode === name));
     for (const verdict of verdicts) verdict.hidden = verdict.dataset.modeCase !== name;
   }
   modeButtons.forEach(button => button.addEventListener('click', () => selectMode(button.dataset.demoMode)));
+  document.addEventListener('pagelanguagechange', () => renderSourceHeader(selectedMode));
   selectMode('agent');
 
   const tabs = [...section.querySelectorAll('[role="tab"]')];
