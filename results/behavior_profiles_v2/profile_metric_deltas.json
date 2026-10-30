@@ -1,0 +1,75 @@
+{
+  "status": "exploratory reuse of the previously inspected cohort",
+  "records": 177,
+  "task_groups": 40,
+  "split_seeds": 6,
+  "outer_fold_count": 18,
+  "outer_folds_with_nonzero_profile_weight": 5,
+  "methods": {
+    "baseline": "command_tfidf",
+    "comparison": "inner_selected",
+    "description": "Inner-fold selection among command baseline and profile weights 0.1, 0.3, 1.0."
+  },
+  "baseline_metrics": {
+    "balanced_accuracy": 0.848593964334705,
+    "macro_f1": 0.8218103496542649,
+    "auroc": 0.9469184793258868,
+    "human_recall": 0.7889476778365667,
+    "agent_recall": 0.9082402508328434,
+    "brier": 0.1278075337617154
+  },
+  "profile_metrics": {
+    "balanced_accuracy": 0.83858759553204,
+    "macro_f1": 0.8079393074102069,
+    "auroc": 0.9474328826180679,
+    "human_recall": 0.7737360376249264,
+    "agent_recall": 0.9034391534391534,
+    "brier": 0.12746962459573755
+  },
+  "direction_adjusted_paired_task_cluster_deltas": {
+    "balanced_accuracy": {
+      "delta_percentage_points_direction_adjusted": -1.00063688026651,
+      "ci95_percentage_points": [
+        -3.124601949833431,
+        0.9529320987654325
+      ]
+    },
+    "macro_f1": {
+      "delta_percentage_points_direction_adjusted": -1.3871042244058112,
+      "ci95_percentage_points": [
+        -3.771139525769155,
+        0.678500566893423
+      ]
+    },
+    "auroc": {
+      "delta_percentage_points_direction_adjusted": 0.051440329218106255,
+      "ci95_percentage_points": [
+        -1.183127572016463,
+        1.611796982167353
+      ]
+    },
+    "human_recall": {
+      "delta_percentage_points_direction_adjusted": -1.5211640211640212,
+      "ci95_percentage_points": [
+        -5.584950029394474,
+        2.182723398001173
+      ]
+    },
+    "agent_recall": {
+      "delta_percentage_points_direction_adjusted": -0.48010973936899903,
+      "ci95_percentage_points": [
+        -1.2345679012345672,
+        0.2057613168724278
+      ]
+    },
+    "brier": {
+      "delta_percentage_points_direction_adjusted": 0.03379091659778222,
+      "ci95_percentage_points": [
+        -0.09985930209802023,
+        0.1789173550981962
+      ]
+    }
+  },
+  "uncertainty": "5,000 paired task-cluster bootstrap draws, stratified by benchmark",
+  "note": "All intervals are exploratory; no independent confirmation was performed."
+}

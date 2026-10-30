@@ -30,13 +30,7 @@ NDCG@5 & $0.00$ & $-0.30\;[-1.44,+0.70]$ & $-0.01\;[-0.53,+0.45]$ \\
 \label{tab:recall-optimization-metrics}
 \end{table}
 
-The closest threshold-only compromise was to calibrate separate thresholds for H--A and same-mode pairs. It reduced three error-rate point estimates and increased balanced accuracy, but increased H--A FMR by 0.65 points (95\% interval $[+0.33,+1.04]$). Overall FSR and FMR intervals crossed zero. Because the method uses known pair type, its thresholds are not directly deployable when execution-mode labels are unavailable.
-
-The third round searched a prespecified global and mode-stratified threshold grid and selected only candidates that did not regress any of the ten training-fold metrics. A new method was selected in one of three outer folds; the other two used the baseline. On held-out tasks, overall FMR increased by 1.20 points and H--A FMR by 0.78 points, with intervals above zero. All four ranking point estimates declined slightly, though their intervals crossed zero. The inner-fold Pareto candidates did not generalize to the outer folds.
-
-The fourth round fused query-normalized percentiles from the behavior score and command-cosine score. It selected a 50:50 blend in one outer fold and fell back to baseline in the other two. Held-out FSR improved by 1.05 points and H--A FMR by 0.20 points, while overall FMR worsened by 0.64 points. Balanced accuracy rose by 0.21 points with an interval crossing zero; ranking changes were close to zero and all intervals crossed zero. This candidate therefore does not improve all ten metrics, despite improving several error-rate estimates without using execution-mode labels for scoring.
-
-In the first round, sequence alignment lowered overall FSR by 3.38 points and H--A FSR by 4.60 points, while increasing overall FMR by 3.21 points and H--A FMR by 6.32 points; all four ranking point estimates increased. Multiscale features were near neutral. Hard-negative training and 24-dimensional profile fusion substantially increased missed links. No tested method improved all ten metrics.
+Across the four rounds, every candidate traded one error type against another. Mode-stratified thresholds improved several error-rate estimates but increased Human--Agent FMR; query-rank fusion reduced FSR and Human--Agent FMR but raised overall FMR. Threshold-only policies left ranking unchanged, while learned fusion produced near-zero ranking shifts. No candidate improved all ten metrics on the held-out development tasks. The table retains the complete prespecified metric comparison; the per-round search details are in the experiment log.
 
 \begin{figure}[tb]
   \centering
@@ -48,3 +42,47 @@ In the first round, sequence alignment lowered overall FSR by 3.38 points and H-
 Error analysis suggests two unresolved representation problems. The median shorter-to-longer trace-length ratio was 0.40 among positive pairs missed by both the baseline and the 24D-profile ranker, compared with 0.75 among positive pairs found by both. Separately, 12 groups of cross-task traces shared an identical normalized command sequence; the largest group contained 18 traces from 13 tasks. These observations motivate partial-coverage matching and evidence beyond generic command names, but do not establish that either feature will improve generalization.
 
 The available traces also confound execution mode with collection interface: 300 Python tool calls appear in 70 Agent traces and none are represented on the Human side. These fields are excluded from shared behavior features. Same-task labels denote a CTF retrieval proxy, not a common operator, attacker, or organization. A confirmatory test requires new task groups with Human, Agent, and Script behavior collected through comparable telemetry and frozen evaluation splits.
+
+\section{Follow-up development: recall-first artifact containment}
+\label{sec:balanced-innovation-v11}
+
+After correcting Human terminal-command reconstruction, we tested whether a distinctive artifact shared by a short and a long trace could avoid the length dilution of ordinary Jaccard similarity. The v11 score combines command TF--IDF with IDF-weighted containment of artifact-name tokens in the shorter trace. Among thresholds passing every inner-fold hard gate, the selector chose the lowest cutoff. The cohort contains 97 matched traces in the same 40 task groups, with one Claude Sonnet Agent trace per task. This is a reused development cohort; it is not independent confirmation.
+
+\begin{table}[tb]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{l r r X}
+\toprule
+Metric & Command baseline & v11 selected & Paired change (95\% CI), pp \\
+\midrule
+Overall FSR & 7.23 & 0.00 & $-7.23\;[-17.58,-0.82]$ \\
+Overall FMR & 78.07 & 75.87 & $-2.20\;[-3.47,-1.09]$ \\
+Human--Human FSR & 0.00 & 0.00 & $0.00\;[0.00,0.00]$ \\
+Human--Agent FSR & 8.47 & 0.00 & $-8.47\;[-18.61,-1.23]$ \\
+Agent--Agent FSR & -- & -- & Not estimable \\
+Human--Human FMR & 91.20 & 90.26 & $-0.94\;[-1.84,-0.26]$ \\
+Human--Agent FMR & 67.73 & 64.21 & $-3.52\;[-5.65,-1.59]$ \\
+Agent--Agent FMR & 88.32 & 88.01 & $-0.31\;[-0.77,0.00]$ \\
+Balanced accuracy & 57.35 & 62.06 & $+4.71\;[+1.57,+9.68]$ \\
+Query coverage & 94.83 & 100.00 & $+5.17\;[0.00,+14.70]$ \\
+Hit@1 & 29.60 & 79.31 & $+49.71\;[+34.63,+65.93]$ \\
+MRR & 49.80 & 86.50 & $+36.71\;[+27.32,+46.35]$ \\
+Recall@5 & 73.26 & 97.12 & $+23.86\;[+19.37,+28.11]$ \\
+NDCG@5 & 53.34 & 88.45 & $+35.11\;[+27.53,+43.23]$ \\
+\bottomrule
+\end{tabularx}
+\caption{Outer-fold task-macro rates and ranking scores are percentages. Changes are v11 minus the same-fold command baseline; negative values improve error rates, while positive values improve other metrics. Intervals use 5,000 paired task-cluster bootstrap draws stratified by benchmark.}
+\label{tab:balanced-innovation-v11}
+\end{table}
+
+The selected policy accepted all 148 observed directed same-task candidate pairs and had no missed-link event in the 40 positive task groups. The ordinary bootstrap interval for absolute FSR is degenerate at zero. As a sensitivity check, if task groups are treated as independent clusters, 0 events in 40 clusters gives a one-sided exact 95\% upper bound of 7.2\% on the share of task groups with any miss; this is not a confidence interval for task-macro FSR. The paired FSR change is reported above. Although both error-rate point estimates fell and no outer fold had a higher FSR than its same-fold baseline, absolute FMR remains 75.87\%, so the method is not suitable for attribution.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{balanced-innovation-v11.pdf}
+  \caption{v11 task-held-out development results. Left: FMR--FSR tradeoff with 95\% task-cluster intervals. Right: direction-adjusted paired changes; positive values favor the selected policy.}
+  \label{fig:balanced-innovation-v11}
+\end{figure}
+
+Hard-negative verifier diagnostics expose a different tradeoff: the generic verifier reached 19.1\% FMR at its inner utility threshold but had 16.9\% FSR. Human/Agent conditioning yielded 23.2\% FMR and 18.2\% FSR. Removing the Human profile raised FMR to 24.5\%, while removing the Agent profile lowered it to 21.6\%. These mixed ablations do not establish a stable source-specific profile benefit. Exhaustive scanning of every observed verifier-score threshold in v13 still found no inner-fold point satisfying all hard gates; the selector fell back to the command baseline. The results therefore support further study of artifact and neighborhood evidence, but not a claim that Human/Agent profiling has solved association.

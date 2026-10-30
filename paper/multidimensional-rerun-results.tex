@@ -5,7 +5,7 @@ We extended the label-free trajectory record with a 24-dimensional behavioral pr
 
 Before scoring, a schema audit found that the selected CyBashBench and NL2Bash Claude Sonnet sets contain prompt/final-answer records without bash execution events. We therefore exclude them from the primary comparison rather than treating generated answers as executed trajectories. The locked external primary set contains 10 CVEBench and 4 CyberGym benchmark-qualified task groups from Cyber Task Horizons, revision \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae} (\href{https://github.com/lyptus-research/cyber-task-horizons-data/tree/178c0da1800f9c07311e1b8d6c61dd8104e7b4ae}{CC BY 4.0 source}). Thus the external inference covers two benchmarks and 14 tasks. Same-task labels are retrieval proxies, not actor or organization identity labels.
 
-Development selection used task-grouped nested folds and a joint direction-adjusted objective over the observable error, coverage, and ranking metrics. The final development-set selector chose IDF partial sequence. The nested outer-fold selectors chose command TF--IDF in all three folds, indicating selection instability. On the locked external tasks, the selected method improved 8 of 13 estimable metric point estimates, tied 5, and worsened none; Agent--Agent false-split rate was not estimable because no task had multiple Agent trajectories. The task-level mean direction-adjusted change was $+5.1$ percentage points (paired 95\% task-cluster interval $[+0.7,+8.2]$).
+Development selection used task-grouped nested folds and a joint direction-adjusted objective over the observable error, coverage, and ranking metrics. The final development-set selector chose IDF partial sequence, while all three nested outer-fold selectors chose command TF--IDF, indicating unstable method selection. The locked external set covers 10 CVEBench and 4 CyberGym task groups; Agent--Agent false-split rate was not estimable because no task had multiple Agent trajectories.
 
 \begin{table}[t]
 \centering
@@ -35,7 +35,7 @@ NDCG@5 & 18.7 & 28.7 & $+10.1\;[-3.5,+19.4]$ \\
 \label{tab:multidimensional-rerun}
 \end{table}
 
-The relative error reduction does not yield an operationally useful threshold: false-merge rate remains 95.3\% and balanced accuracy is 52.3\%. Coverage is 100\% because the operating point accepts at least one candidate for every query; it must not be read as evidence of reliable attribution. Several ranking intervals include zero. These results meet the preregistered relative FMR, FSR, joint-utility, and ranking guard criteria, but do not support automatic identity linking.
+The zero FSR is real for this frozen operating point, but it does not indicate useful discrimination. The external set contains 36 same-task positive pairs and 482 different-task negative pairs: the selected threshold accepted all 36 positives and 458 negatives (95.0\% micro, 95.3\% task-macro FMR). The command baseline accepted all 518 pairs. Threshold selection constrained development FSR to 20\% but imposed no hard FMR ceiling, so the external result is close to linking every candidate. Balanced accuracy is 52.3\%, near chance. FSR is the fraction of positive pairs rejected; FMR is the fraction of negative pairs accepted. Both are averaged over queries and tasks. The relative FMR and joint-utility criteria pass, but the absolute error rate makes this operating point unusable for attribution.
 
 \begin{figure}[tb]
   \centering
@@ -45,3 +45,12 @@ The relative error reduction does not yield an operationally useful threshold: f
 \end{figure}
 
 The per-trace 24-dimensional profiles and $4\times8\times3$ tensors were retained as separate feature records, with evaluation labels in a separate file. Neither profile distance nor tensor projection was selected by the joint objective; local command and ordered-bigram overlap was selected. This does not show that a tensor profile is an identity signature. Human terminal inputs and Agent tool calls use different capture interfaces, and the matched tasks do not establish common operators, attackers, or organizations.
+
+A separate exploratory check tested whether the 24 scalar features add Human/Agent source-label signal on the same 177 traces. Command TF--IDF reached 84.9\% balanced accuracy; the numeric profile alone reached 65.6\%, and inner-selected profile fusion reached 83.9\%. Its paired change was $-1.0$ percentage point (95\% task-cluster CI $[-3.1,+1.0]$); all six metric intervals included zero. The profile received nonzero weight in 5 of 18 outer folds. This reused cohort provides no evidence of a reliable incremental classification gain.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.9\linewidth]{behavior-profile-v2.pdf}
+  \caption{Direction-adjusted change in six Human/Agent source-label metrics for inner-selected profile fusion versus command TF--IDF. Positive values favor profile fusion; Brier change is sign-reversed so positive indicates lower error. Error bars are paired, benchmark-stratified task-cluster 95\% intervals. All intervals include zero. The 40 task groups had been inspected previously, so this is exploratory reuse.}
+  \label{fig:behavior-profile-v2}
+\end{figure}

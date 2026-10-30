@@ -1,0 +1,218 @@
+[
+  {
+    "id": "P01",
+    "name": "log_command_count",
+    "label_zh": "命令数量对数",
+    "selection_reason": "控制可见操作规模，并检验长度捷径",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P02",
+    "name": "command_ttr",
+    "label_zh": "唯一命令比例",
+    "selection_reason": "测量工具词汇复用程度",
+    "origin": "AIT-C-adapted/project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P03",
+    "name": "command_entropy_bits",
+    "label_zh": "命令分布熵",
+    "selection_reason": "测量工具使用是否集中，补充只计种类的TTR",
+    "origin": "AIT-H-adapted/ProcGrep",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P04",
+    "name": "command_top1_share",
+    "label_zh": "最高频命令占比",
+    "selection_reason": "直接定位单一工具依赖程度",
+    "origin": "ProcGrep-concentration-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P05",
+    "name": "adjacent_command_repeat",
+    "label_zh": "相邻命令重复率",
+    "selection_reason": "测量局部重复，但不把重复等同于失败重试",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P06",
+    "name": "command_bigram_repeat",
+    "label_zh": "命令二元组重复率",
+    "selection_reason": "测量重复的两步操作组合",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P07",
+    "name": "command_bigram_entropy_bits",
+    "label_zh": "命令二元组熵",
+    "selection_reason": "区分多种组合与固定组合的频率分布",
+    "origin": "AIT-E-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P08",
+    "name": "command_singleton_bigram_rate",
+    "label_zh": "单次命令二元组占比",
+    "selection_reason": "测量一次性组合占全部二元组出现次数的比例",
+    "origin": "AIT-E-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P09",
+    "name": "command_trigram_repeat",
+    "label_zh": "命令三元组重复率",
+    "selection_reason": "检验两步以上的短程模式是否有增量",
+    "origin": "project-extension",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P10",
+    "name": "command_gzip_ratio",
+    "label_zh": "命令序列压缩比",
+    "selection_reason": "低成本概括可重复性；显式检查长度和gzip头开销",
+    "origin": "AIT-E-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P11",
+    "name": "action_coverage",
+    "label_zh": "动作类别覆盖率",
+    "selection_reason": "在固定8类动作表上测量行为广度",
+    "origin": "project-extension",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P12",
+    "name": "action_entropy_bits",
+    "label_zh": "动作分布熵",
+    "selection_reason": "保留粗动作分布，降低对具体工具词汇的依赖",
+    "origin": "AIT-H-adapted/ProcGrep",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P13",
+    "name": "action_top1_share",
+    "label_zh": "最高频动作占比",
+    "selection_reason": "测量单一行为类别的集中程度",
+    "origin": "ProcGrep-concentration-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P14",
+    "name": "adjacent_action_repeat",
+    "label_zh": "相邻动作重复率",
+    "selection_reason": "测量行为类别的局部连续性",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P15",
+    "name": "action_bigram_repeat",
+    "label_zh": "动作二元组重复率",
+    "selection_reason": "测量跨工具的重复动作组合",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P16",
+    "name": "action_bigram_entropy_bits",
+    "label_zh": "动作二元组熵",
+    "selection_reason": "测量行为转移分布的多样性",
+    "origin": "AIT-E-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P17",
+    "name": "action_singleton_bigram_rate",
+    "label_zh": "单次动作二元组占比",
+    "selection_reason": "测量粗动作组合的新颖程度",
+    "origin": "AIT-E-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P18",
+    "name": "mean_action_run_share",
+    "label_zh": "平均动作连续段占比",
+    "selection_reason": "区分集中连续操作与频繁切换",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P19",
+    "name": "max_action_run_share",
+    "label_zh": "最长动作连续段占比",
+    "selection_reason": "识别轨迹是否被一段连续操作主导",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P20",
+    "name": "action_run_cv",
+    "label_zh": "动作连续段长度变异系数",
+    "selection_reason": "补充平均值，测量连续段是否均匀",
+    "origin": "project-extension",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P21",
+    "name": "max_command_run_share",
+    "label_zh": "最长同命令连续段占比",
+    "selection_reason": "区分同工具连续使用与仅同类动作连续使用",
+    "origin": "project-extension",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P22",
+    "name": "command_half_jsd",
+    "label_zh": "前后半段命令分布差异",
+    "selection_reason": "检验工具使用是否随执行阶段变化",
+    "origin": "ProcGrep-JSD-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P23",
+    "name": "action_half_jsd",
+    "label_zh": "前后半段动作分布差异",
+    "selection_reason": "检验较少依赖命令名的阶段变化",
+    "origin": "ProcGrep-JSD-adapted",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  },
+  {
+    "id": "P24",
+    "name": "short_trace_flag",
+    "label_zh": "短轨迹标记",
+    "selection_reason": "记录不足两条命令，避免把缺少转移当成真实零值",
+    "origin": "project-v1",
+    "status": "implemented_evaluated",
+    "used_for_training": true
+  }
+]
