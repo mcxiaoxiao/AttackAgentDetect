@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261030-hero-flow-v2" rel="stylesheet"/>
-<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script>
+<link href="style.css?v=20261030-codefield-v1" rel="stylesheet"/>
+<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-codefield-v1"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
@@ -30,6 +30,7 @@
 </aside>
 <main id="main">
 <section aria-labelledby="hero-title" class="hero" id="top">
+<canvas aria-hidden="true" class="field"></canvas>
 <div class="hero-copy">
 <h1 data-en-html="Identify attack<br/>execution modes" id="hero-title">从日志识别<br/>攻击执行方式</h1>
 <p class="hero-desc" data-en="AttackAgent Detect explores log-based distinction among 🥷 human, ⚙️ script, and 🤖 AI-agent execution, and whether execution mode changes behavior correlation. The library currently normalizes Linux auditd traces and provides correlation methods; mode detection is an experimental Human/Agent baseline, and Script detection is not yet supported.">AttackAgent Detect 探索根据日志区分攻击操作由 🥷 Human、⚙️ Script 还是 🤖 AI Agent 执行，并研究执行方式信息对行为关联的影响。当前库支持 Linux auditd 轨迹标准化与行为关联；识别功能仍为实验性 Human/Agent 基线，尚不支持 Script。</p>
@@ -61,26 +62,8 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
 <button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
 </div>
-<p class="hero-terms" data-en="PyPI release planned for 2027. Run from source today.">PyPI 计划于 2027 年发布；当前请从源码运行。</p>
+<p class="hero-terms" data-en="PyPI release planned for 2027. Run from source today. The animated log field is schematic, not a live classification.">PyPI 计划于 2027 年发布；当前请从源码运行。背景代码流为示意，不代表实时分类结果。</p>
 </div>
-<figure aria-labelledby="trace-flow-title" class="trace-flow">
-<figcaption class="flow-heading" id="trace-flow-title"><span>examples/auditd/minimal.audit</span><span data-en="4 audit records">4 条 audit 记录</span></figcaption>
-<div class="flow-grid">
-<div aria-label="auditd 输入记录" class="flow-records" data-en-aria-label="auditd input records">
-<div class="flow-record"><b>EXECVE</b><code>audit(…:410)</code><span>curl · argc=2</span></div>
-<div class="flow-record"><b>SYSCALL</b><code>audit(…:410)</code><span>/usr/bin/curl</span></div>
-<div class="flow-record"><b>SYSCALL</b><code>audit(…:411)</code><span>/usr/bin/grep</span></div>
-<div class="flow-record"><b>EXECVE</b><code>audit(…:411)</code><span>grep · argc=2</span></div>
-</div>
-<div aria-hidden="true" class="flow-join"><span data-en="join by event ID">按事件编号合并</span><i></i><span data-en="2 executions">2 次执行</span></div>
-<div class="flow-output">
-<div class="flow-output-head"><code>TraceEvidence · v1</code><span data-en="normalized">已标准化</span></div>
-<dl><dt>commands</dt><dd>["curl", "grep"]</dd><dt>actions</dt><dd>["network", "search"]</dd><dt>event_refs</dt><dd>2 preserved</dd></dl>
-</div>
-<svg aria-hidden="true" class="flow-wires" viewBox="0 0 1000 360" preserveAspectRatio="none"><path id="flow-lane-1" d="M405 91 C450 91 451 115 496 115 S544 132 590 132 H690"/><path id="flow-lane-2" d="M405 270 C450 270 451 245 496 245 S544 224 590 224 H690"/><path id="flow-lane-3" d="M405 180 H690"/><circle class="flow-packet" r="4"><animateMotion dur="2.8s" begin="-0.2s" repeatCount="indefinite"><mpath href="#flow-lane-1"/></animateMotion></circle><circle class="flow-packet" r="4"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite"><mpath href="#flow-lane-2"/></animateMotion></circle><circle class="flow-packet" r="3.5"><animateMotion dur="3.1s" begin="-2.2s" repeatCount="indefinite"><mpath href="#flow-lane-3"/></animateMotion></circle></svg>
-</div>
-<div class="flow-footer"><code>load_auditd(...)</code><span data-en="Format fixture · parsed, never executed">格式样例 · 只解析，不执行</span></div>
-</figure>
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
 <div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.&lt;br/&gt;Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>

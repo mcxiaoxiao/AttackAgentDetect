@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="532.8pt" height="388.8pt" viewBox="0 0 532.8 388.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T15:54:36.762893</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 388.8 
+L 532.8 388.8 
+L 532.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 19.934712 101.985494 
+L 271.293768 101.985494 
+Q 278.926128 101.985494 278.926128 99.878781 
+L 278.926128 55.778241 
+Q 278.926128 53.671528 271.293768 53.671528 
+L 19.934712 53.671528 
+Q 12.302352 53.671528 12.302352 55.778241 
+L 12.302352 99.878781 
+Q 12.302352 101.985494 19.934712 101.985494 
+z
+" clip-path="url(#p81bd082068)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 19.934712 162.377952 
+L 271.293768 162.377952 
+Q 278.926128 162.377952 278.926128 160.271239 
+L 278.926128 116.1707 
+Q 278.926128 114.063986 271.293768 114.063986 
+L 19.934712 114.063986 
+Q 12.302352 114.063986 12.302352 116.1707 
+L 12.302352 160.271239 
+Q 12.302352 162.377952 19.934712 162.377952 
+z
+" clip-path="url(#p81bd082068)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 322.684992 101.985494 
+L 510.441048 101.985494 
+Q 518.073408 101.985494 518.073408 99.878781 
+L 518.073408 55.778241 
+Q 518.073408 53.671528 510.441048 53.671528 
+L 322.684992 53.671528 
+Q 315.052632 53.671528 315.052632 55.778241 
+L 315.052632 99.878781 
+Q 315.052632 101.985494 322.684992 101.985494 
+z
+" clip-path="url(#p81bd082068)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 322.684992 162.377952 
+L 510.441048 162.377952 
+Q 518.073408 162.377952 518.073408 160.271239 
+L 518.073408 116.1707 
+Q 518.073408 114.063986 510.441048 114.063986 
+L 322.684992 114.063986 
+Q 315.052632 114.063986 315.052632 116.1707 
+L 315.052632 160.271239 
+Q 315.052632 162.377952 322.684992 162.377952 
+z
+" clip-path="url(#p81bd082068)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="13.32" y="29.374097" transform="rotate(-0 13.32 29.374097)">A  Same-challenge link recovered</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 8.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="65.890467" transform="rotate(-0 23.49648 65.890467)">Human · back_to_the_past</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="81.3397" transform="rotate(-0 23.49648 81.3397)">pwd → ls → cat → ls → cd → ls → cd → ls …</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="23.49648" y="95.384458" transform="rotate(-0 23.49648 95.384458)">48 commands · detector Agent score 0.3683</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 8.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="126.282925" transform="rotate(-0 23.49648 126.282925)">Agent · back_to_the_past</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="141.732159" transform="rotate(-0 23.49648 141.732159)">curl → sed → curl → sed → which → nmap → sed → echo …</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="23.49648" y="155.776916" transform="rotate(-0 23.49648 155.776916)">47 commands · detector Agent score 0.7221</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 284.995183 106.620264 
+Q 296.987775 106.620264 307.862333 106.620264 
+" style="fill: none; stroke: #287bc1; stroke-linecap: round"/>
+    <path d="M 304.662333 105.020264 
+L 307.862333 106.620264 
+L 304.662333 108.220264 
+z
+" style="fill: #287bc1; stroke: #287bc1; stroke-linecap: round"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #53697c" x="295.208496" y="89.766555" transform="rotate(-0 295.208496 89.766555)">Score</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="65.890467" transform="rotate(-0 328.79088 65.890467)">Behavior features only</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="82.744176" transform="rotate(-0 328.79088 82.744176)">0.5088 &lt; 0.5131</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="96.086696" transform="rotate(-0 328.79088 96.086696)">No link · missed link</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="126.282925" transform="rotate(-0 328.79088 126.282925)">Behavior + mode scores</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="143.136634" transform="rotate(-0 328.79088 143.136634)">0.5482 ≥ 0.5127</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="156.479154" transform="rotate(-0 328.79088 156.479154)">Link · recovered</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_7">
+    <path d="M 19.934712 280.353917 
+L 271.293768 280.353917 
+Q 278.926128 280.353917 278.926128 278.247204 
+L 278.926128 234.146664 
+Q 278.926128 232.039951 271.293768 232.039951 
+L 19.934712 232.039951 
+Q 12.302352 232.039951 12.302352 234.146664 
+L 12.302352 278.247204 
+Q 12.302352 280.353917 19.934712 280.353917 
+z
+" clip-path="url(#pa3cf206963)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 19.934712 340.746375 
+L 271.293768 340.746375 
+Q 278.926128 340.746375 278.926128 338.639662 
+L 278.926128 294.539122 
+Q 278.926128 292.432409 271.293768 292.432409 
+L 19.934712 292.432409 
+Q 12.302352 292.432409 12.302352 294.539122 
+L 12.302352 338.639662 
+Q 12.302352 340.746375 19.934712 340.746375 
+z
+" clip-path="url(#pa3cf206963)" style="fill: #f8fbfe; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 322.684992 280.353917 
+L 510.441048 280.353917 
+Q 518.073408 280.353917 518.073408 278.247204 
+L 518.073408 234.146664 
+Q 518.073408 232.039951 510.441048 232.039951 
+L 322.684992 232.039951 
+Q 315.052632 232.039951 315.052632 234.146664 
+L 315.052632 278.247204 
+Q 315.052632 280.353917 322.684992 280.353917 
+z
+" clip-path="url(#pa3cf206963)" style="fill: #ffffff; stroke: #b7cfe3; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 322.684992 340.746375 
+L 510.441048 340.746375 
+Q 518.073408 340.746375 518.073408 338.639662 
+L 518.073408 294.539122 
+Q 518.073408 292.432409 510.441048 292.432409 
+L 322.684992 292.432409 
+Q 315.052632 292.432409 315.052632 294.539122 
+L 315.052632 338.639662 
+Q 315.052632 340.746375 322.684992 340.746375 
+z
+" clip-path="url(#pa3cf206963)" style="fill: #edf5fc; stroke: #287bc1; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="13.32" y="207.74252" transform="rotate(-0 13.32 207.74252)">B  Different-challenge link introduced</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 8.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="244.25889" transform="rotate(-0 23.49648 244.25889)">Human · back_to_the_past</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="259.708123" transform="rotate(-0 23.49648 259.708123)">curl → curl → curl → curl → mkdir → cd → ls → cat …</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="23.49648" y="273.752881" transform="rotate(-0 23.49648 273.752881)">15 commands · detector Agent score 0.3411</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 8.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="304.651348" transform="rotate(-0 23.49648 304.651348)">Agent · glacier-exchange</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="23.49648" y="320.100581" transform="rotate(-0 23.49648 320.100581)">curl → sed → nmap → curl → sed → mkdir → curl → sed …</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.2px; font-family: 'Arial'; text-anchor: start; fill: #53697c" x="23.49648" y="334.145339" transform="rotate(-0 23.49648 334.145339)">72 commands · detector Agent score 0.7763</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 284.995183 284.988687 
+Q 296.987775 284.988687 307.862333 284.988687 
+" style="fill: none; stroke: #287bc1; stroke-linecap: round"/>
+    <path d="M 304.662333 283.388687 
+L 307.862333 284.988687 
+L 304.662333 286.588687 
+z
+" style="fill: #287bc1; stroke: #287bc1; stroke-linecap: round"/>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: middle; fill: #53697c" x="295.208496" y="268.134978" transform="rotate(-0 295.208496 268.134978)">Score</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="244.25889" transform="rotate(-0 328.79088 244.25889)">Behavior features only</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="261.112599" transform="rotate(-0 328.79088 261.112599)">0.4738 &lt; 0.5131</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 7.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="274.455119" transform="rotate(-0 328.79088 274.455119)">No link · correct rejection</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 8.2px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="304.651348" transform="rotate(-0 328.79088 304.651348)">Behavior + mode scores</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="321.505057" transform="rotate(-0 328.79088 321.505057)">0.5161 ≥ 0.5127</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 7.5px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="328.79088" y="334.847577" transform="rotate(-0 328.79088 334.847577)">Link · spurious link</text>
+   </g>
+  </g>
+  <g id="text_29">
+   <text style="font-weight: 700; font-size: 11px; font-family: 'Arial'; text-anchor: start; fill: #17324d" x="13.32" y="17.982394" transform="rotate(-0 13.32 17.982394)">How execution-mode scores change same-challenge matching</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 6.8px; font-family: 'Arial'; fill: #53697c" transform="translate(13.32 369.445931)">Each comparison: association score vs training-selected threshold. Command previews show the first 8 names; scoring uses full traces.</text>
+   <text style="font-size: 6.8px; font-family: 'Arial'; fill: #53697c" transform="translate(13.32 378.3024)">Two decisions from held-out public CTF tasks; same-challenge labels and fixed models. Aggregate effects are reported separately.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p81bd082068">
+   <rect x="13.32" y="34.992" width="508.824" height="140.447577"/>
+  </clipPath>
+  <clipPath id="pa3cf206963">
+   <rect x="13.32" y="213.360423" width="508.824" height="140.447577"/>
+  </clipPath>
+ </defs>
+</svg>

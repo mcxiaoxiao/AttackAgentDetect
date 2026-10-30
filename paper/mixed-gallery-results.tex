@@ -4,7 +4,7 @@ Security analysts use logs to connect scattered operations that may belong to th
 
 Behavioral association is an established computational task: HOLMES correlates suspicious information flows in host-audit traces to produce campaign evidence; OSTINATO compares behavior and TTPs across hosts; POIROT and ActMiner align CTI-derived attack graphs with provenance graphs; HERCULE, ATLAS, and FALCON reconstruct multi-stage attack stories from correlated logs \cite{holmes,ostinato,poirot,actminer,hercule,atlas,falcon}. These methods use command or event sequences, TTPs, entity relations, and causal structure as evidence. Their evaluation targets differ, but each demonstrates a concrete role for behavioral association in investigation. Practitioner frameworks likewise track activity clusters before assigning named actors \cite{unit42}.
 
-Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. AIT/AECID also provides adjacent log-based Human/LLM classification for IT troubleshooting, but does not evaluate attack activity association \cite{ait}. We therefore test a narrower extension: whether execution mode changes the behavior evidence used to connect activity traces.
+Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. These developments motivate execution mode as a new dimension of behavioral analysis: helping analysts interpret operational differences, connect scattered evidence, and enrich threat characterization as human, scripted, and Agent execution coexist. AIT/AECID provides adjacent log-based Human/LLM classification for IT troubleshooting \cite{ait}. We explore the next question: how can predicted execution-mode information contribute to activity association?
 
 \section{Data and protocol}
 
@@ -30,7 +30,7 @@ NYU CTF Bench & 7 & 9 & 21 \\
 
 Human records are terminal-input transcripts; Agent records are structured bash tool calls. For both, we extract allowlisted command names and coarse action categories. Prompts, task descriptions, outputs, model names, timestamps, and paths are excluded; 300 Python calls are omitted from primary features. The release instructs human experts not to use AI, but remote collection cannot independently verify this. The labels therefore describe released trace sources, not independently adjudicated decision-maker identity.
 
-The primary protocol uses three benchmark-stratified outer folds grouped by benchmark/task, with seed \texttt{20261030}. Every query is ranked against all other held-out traces from the same benchmark and fold, with no mode filtering; the mean gallery contains 29.325 candidates. Same benchmark/task denotes a same-challenge retrieval proxy. It is not a shared intrusion, activity, campaign, or actor label. Five additional seeds estimate split sensitivity. Task groups are the unit of metric aggregation and bootstrap resampling. We report task-macro \Hit, mean reciprocal rank (MRR), Recall@5, and nDCG@5. Intervals use 5,000 paired benchmark-stratified task-cluster bootstrap draws conditional on fitted folds.
+The primary protocol uses three benchmark-stratified outer folds grouped by benchmark/task, with seed \texttt{20261030}. Every query is ranked against all other held-out traces from the same benchmark and fold, with no mode filtering; the mean gallery contains 29.325 candidates. The evaluation label records whether two traces solve the same benchmark-qualified challenge. It is not a shared intrusion, activity, campaign, or actor label. Five additional seeds estimate split sensitivity. Task groups are the unit of metric aggregation and bootstrap resampling. We report task-macro \Hit, mean reciprocal rank (MRR), Recall@5, and nDCG@5. Intervals use 5,000 paired benchmark-stratified task-cluster bootstrap draws conditional on fitted folds.
 
 The behavior ranker combines command cosine, ordered action-bigram cosine, ProcGrep BPE/Jensen--Shannon similarity, and command-length similarity. A task-supervised ranker learns from same-task versus different-task pairs. The mode-aware ranker adds execution-mode scores generated out of fold within each training partition. Pair labels depend only on task identity; test labels and source metadata are excluded from inference. ProcGrep is a pinned third-party adaptation, not a method introduced by this project.
 
@@ -83,11 +83,11 @@ Retrieval metrics do not show the errors made when the system decides whether to
 
 The mode-aware ranker reaches task-macro balanced accuracy 0.669 (95\% task-cluster CI [0.611, 0.722]), compared with 0.612 [0.568, 0.657] for the behavior-only ranker. The paired increase is 5.7 percentage points [3.4, 8.1]. Against command cosine, however, the increase is 0.6 points [−4.1, 4.8], leaving no clear gain over this simpler baseline.
 
-The pair-type breakdown shows where the mode score changes decisions. Relative to behavior-only ranking, it lowers the false-split rate for same-task H--Agent pairs from 0.317 to 0.191 (−12.6 points, 95\% CI [−17.7, −7.6]) while raising the false-merge rate for different-task H--Agent pairs from 0.387 to 0.472 (+8.4 points, [3.4, 13.2]). Execution-mode context therefore reduces one cross-mode proxy error while increasing another; the result supports conditional use of this signal, not a universal correction.
+The pair-type breakdown shows where the mode score changes decisions. Relative to behavior-only ranking, it lowers the false-split rate for same-task H--Agent pairs from 0.317 to 0.191 (−12.6 points, 95\% CI [−17.7, −7.6]) while raising the false-merge rate for different-task H--Agent pairs from 0.387 to 0.472 (+8.4 points, [3.4, 13.2]). Execution-mode context therefore reduces one cross-mode matching error while increasing another; the result supports conditional use of this signal, not a universal correction.
 
 \begin{table}[t]
 \centering
-\caption{Task-held-out pairwise association errors. Each method's decision threshold is selected on inner training-task out-of-fold pairs. Entries are task-macro rates with 95\% task-cluster bootstrap intervals. A shared CTF task is only a same-challenge proxy.}
+\caption{Task-held-out pairwise association errors. Each method's decision threshold is selected on inner training-task out-of-fold pairs. Entries are task-macro rates with 95\% task-cluster bootstrap intervals. Relevance labels denote the same CTF challenge.}
 \label{tab:association-errors}
 \small
 \rowcolors{2}{PaleGray}{white}
@@ -112,7 +112,7 @@ Length-only control & 0.195 [0.122, 0.277] & 0.600 [0.506, 0.689] & 0.602 [0.531
 
 \subsection{Feature signal and fixed-operating-point association}
 
-We next isolate the information source and evaluate association decisions at a shared training-side false-merge target. On task-held-out traces, command TF--IDF reaches balanced accuracy (BA) 0.849 with logistic regression and 0.866 with ExtraTrees. Fixed sequence statistics alone reach 0.648 and 0.642. Adding these statistics changes BA by $-2.0$ points for logistic regression (95\% task-cluster CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]); their contribution is classifier-dependent.
+We test whether execution-mode labels can be separated from three observable input groups: trace size and coarse action mix, command vocabulary, and fixed sequence statistics. F0–F2 are single-group baselines; F3 combines command vocabulary with sequence statistics. This is a feature ablation for the broader question of whether execution mode can inform behavior-based activity association; it does not define separate dimensions of the research question. The primary ablation is F3 versus F1, which isolates the added value of sequence statistics given command vocabulary. On task-held-out traces, command TF--IDF reaches balanced accuracy (BA) 0.849 with logistic regression and 0.866 with ExtraTrees. Fixed sequence statistics alone reach 0.648 and 0.642. Adding these statistics changes BA by $-2.0$ points for logistic regression (95\% task-cluster CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]); their contribution is classifier-dependent.
 
 \begin{table}[t]
 \centering
@@ -120,16 +120,18 @@ We next isolate the information source and evaluate association decisions at a s
 \label{tab:feature-ablation}
 \small
 \rowcolors{2}{PaleGray}{white}
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrr}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xccc>{\centering\arraybackslash}p{1.55cm}>{\centering\arraybackslash}p{1.55cm}}
 \toprule
-\rowcolor{InkBlue}\textcolor{white}{Features} & \textcolor{white}{Logistic regression} & \textcolor{white}{ExtraTrees} \\
+\rowcolor{InkBlue}\textcolor{white}{Feature set} & \textcolor{white}{Count + action mix} & \textcolor{white}{Command TF--IDF} & \textcolor{white}{Sequence statistics} & \textcolor{white}{Logistic BA} & \textcolor{white}{ExtraTrees BA} \\
 \midrule
-Count and action mix & 0.643 [0.593, 0.696] & 0.635 [0.565, 0.711] \\
-Command TF--IDF & 0.849 [0.774, 0.917] & 0.866 [0.796, 0.926] \\
-Sequence structure & 0.648 [0.576, 0.725] & 0.642 [0.589, 0.703] \\
-\rowcolor{PaleBlue}\textbf{Command + structure} & \textbf{0.828 [0.756, 0.897]} & \textbf{0.880 [0.809, 0.938]} \\
+F0: Coarse baseline & $\bullet$ & -- & -- & 0.643 & 0.635 \\
+F1: Command vocabulary & -- & $\bullet$ & -- & 0.849 & 0.866 \\
+F2: Sequence structure & -- & -- & $\bullet$ & 0.648 & 0.642 \\
+\rowcolor{PaleBlue}\textbf{F3: F1 + structure} & -- & $\bullet$ & $\bullet$ & \textbf{0.828} & \textbf{0.880} \\
 \bottomrule
 \end{tabularx}
+\smallskip
+\footnotesize $\bullet$ included; -- excluded. BA is task-macro balanced accuracy (higher is better). The primary ablation, F3 $-$ F1, is $-2.0$ percentage points for Logistic Regression (95\% CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]).
 \end{table}
 
 On the matched cohort with at least four commands (99 traces, 25 tasks), full command sequences outperform their first-four-command prefixes by 8.8 points for TF--IDF (95\% CI [+2.0, +15.7]); shuffling command order yields a +3.1-point change whose interval crosses zero. These results locate most measured separability in command content and observation amount, not a stable order signature.
@@ -172,10 +174,12 @@ Length control & 0.586 [0.535, 0.637] & 0.240 [0.182, 0.298] & 0.514 [0.432, 0.6
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{association_operating_points_v1.pdf}
-\caption{Held-out proxy errors and retrieval at the shared training-side 20\% false-merge target. Candidate galleries are identical across methods.}
+\caption{Held-out challenge-matching errors and retrieval at the shared training-side 20\% false-merge target. Candidate galleries are identical across methods.}
 \label{fig:operating-points}
 \end{figure}
 
+\input{association-cases}
+
 \section{Conclusion}
 
-Security investigations already use sequences, TTPs, and causal relations to associate activity evidence. These experiments show that execution-mode scores can shift this association profile: in the CTF same-challenge proxy, mode-aware ranking recovers more same-task Human--Agent pairs and also introduces more cross-task Human--Agent links. Command vocabulary supplies most of the measured classification signal; sequence statistics add no classifier-independent gain. The results support evaluating execution mode as an explicit association context. The next decisive evaluation requires human, scripted, and Agent executions under one sensor pipeline with independently labeled activities.
+Security investigations already use sequences, TTPs, and causal relations to associate activity evidence. These experiments show that execution-mode scores can shift this association profile: in CTF same-challenge retrieval, mode-aware ranking recovers more same-task Human--Agent pairs and also introduces more cross-task Human--Agent links. Command vocabulary supplies most of the measured classification signal; sequence statistics add no classifier-independent gain. The results support evaluating execution mode as an explicit association context. The next decisive evaluation requires human, scripted, and Agent executions under one sensor pipeline with independently labeled activities.

@@ -8,7 +8,7 @@
     en: element.dataset.enHtml ?? element.dataset.en,
   }));
   const attributes = [];
-  for (const name of ['aria-label', 'alt', 'title']) {
+  for (const name of ['aria-label', 'alt', 'title', 'src']) {
     for (const element of document.querySelectorAll(`[data-en-${name}]`)) {
       attributes.push({element, name, zh: element.getAttribute(name), en: element.getAttribute(`data-en-${name}`)});
     }
