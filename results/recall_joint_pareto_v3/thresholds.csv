@@ -1,0 +1,7 @@
+outer_fold,method,kind,role,target,threshold,threshold_ha,threshold_same
+1,behavior,global,baseline,0.2,0.5131011492875324,,
+1,behavior,global,selected,0.2,0.5131011492875324,,
+2,behavior,global,baseline,0.2,0.5127264276243841,,
+2,behavior_align,stratified,selected,0.2,,0.5160369182664639,0.516759131133839
+3,behavior,global,baseline,0.2,0.541446827087328,,
+3,behavior,global,selected,0.2,0.541446827087328,,
