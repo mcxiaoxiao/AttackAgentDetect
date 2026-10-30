@@ -25,6 +25,7 @@
   let activePhase = -1;
   let playbackStarted = 0;
   let playing = false;
+  let hasAutoPlayed = false;
 
   function language() {
     return document.documentElement.lang === 'en' ? 'en' : 'zh';
@@ -37,7 +38,7 @@
       complete: 'All four ordered phases are visible. Values are cohort means across 177 traces.',
       reduced: 'Reduced motion is enabled; the complete tensor is shown without playback.',
       loadError: 'The animated data could not be loaded. The static tensor figure is shown instead.',
-      alt: 'Three aligned heatmaps show the cohort-mean tensor: four ordered phases by eight action families, one heatmap per behavior channel.',
+      alt: 'Three offset data planes form the cohort-mean tensor. The same phase slice is highlighted across all three behavior channels.',
       actionAxis: 'Action family', stageAxis: 'Ordered phase',
     } : {
       play: '播放阶段流转', replay: '再次播放阶段流转',
@@ -45,7 +46,7 @@
       complete: '四个有序阶段已全部显示；数值为 177 条轨迹的队列均值。',
       reduced: '已启用“减少动态效果”，直接显示完整张量。',
       loadError: '动画数据未能加载，当前显示静态张量图。',
-      alt: '三张对齐热图展示队列平均张量：四个有序阶段乘八类操作，每张对应一个行为通道。',
+      alt: '三片错层数据板组成队列平均张量；同一阶段切片在三个行为通道中同步高亮。',
       actionAxis: '操作类别', stageAxis: '有序阶段',
     };
   }
@@ -68,7 +69,7 @@
     const copy = words();
     chart.replaceChildren();
     const svg = element('svg', {
-      class: 'tensor-svg', viewBox: '0 0 930 324', role: 'img',
+      class: 'tensor-svg tensor-svg-stack', viewBox: '0 0 930 520', role: 'img',
       'aria-labelledby': 'profile-tensor-title profile-tensor-desc',
       focusable: 'false',
     }, chart);
@@ -77,62 +78,98 @@
     element('desc', {id: 'profile-tensor-desc'}, svg, copy.alt);
 
     const actionMap = language() === 'en' ? englishActions : chineseActions;
-    const panelWidth = 310;
-    const gridX = 101;
-    const gridY = 67;
-    const cellW = 42;
-    const cellH = 23;
+    const gridX = 200;
+    const cellW = 43;
+    const cellH = 14;
     const gapX = 4;
-    const gapY = 4;
+    const gapY = 3;
+    const stepX = cellW + gapX;
+    const stepY = cellH + gapY;
+    const gridW = cellW * 4 + gapX * 3;
+    const gridH = cellH * 8 + gapY * 7;
+    const frontY = 359;
+    const channelDX = 42;
+    const channelDY = 145;
     const phaseLabels = language() === 'en' ? ['01', '02', '03', '04'] : ['一', '二', '三', '四'];
 
-    for (let channel = 0; channel < 3; channel += 1) {
-      const panelX = channel * panelWidth;
-      const group = element('g', {transform: `translate(${panelX},0)`, 'data-channel-panel': channel}, svg);
-      element('text', {x: 7, y: 21, class: 'tensor-panel-title'}, group, channelText[language()][channel]);
-      element('text', {x: gridX, y: 44, class: 'tensor-axis-label'}, group, copy.stageAxis);
-      element('text', {x: 7, y: 57, class: 'tensor-axis-label'}, group, copy.actionAxis);
-      element('line', {x1: 7, y1: 29, x2: panelWidth - 12, y2: 29, class: 'tensor-plane-rule'}, group);
+    const positions = [0, 1, 2].map(channel => ({
+      channel, x: gridX + channel * channelDX, y: frontY - channel * channelDY,
+    }));
+    const far = positions[2];
+    const front = positions[0];
+    for (const corner of [[0, 0], [gridW, 0], [0, gridH], [gridW, gridH]]) {
+      element('line', {
+        x1: front.x + corner[0], y1: front.y + corner[1],
+        x2: far.x + corner[0], y2: far.y + corner[1], class: 'tensor-channel-edge',
+      }, svg);
+    }
+    element('text', {x: 202, y: 30, class: 'tensor-stack-caption'}, svg,
+      language() === 'en' ? 'PHASE  →' : '阶段  →');
+    element('text', {x: 610, y: 40, class: 'tensor-stack-caption'}, svg,
+      language() === 'en' ? 'PROFILE TENSOR · 4 × 8 × 3' : '画像张量 · 4 × 8 × 3');
+    element('text', {x: 610, y: 62, class: 'tensor-axis-label'}, svg,
+      language() === 'en' ? 'phase × action family × channel' : '阶段 × 操作类别 × 行为通道');
 
+    for (const {channel, x, y} of [...positions].reverse()) {
+      const group = element('g', {class: 'tensor-channel-plane', 'data-channel-panel': channel}, svg);
+      element('rect', {x: x - 7, y: y - 8, width: gridW + 14, height: gridH + 16,
+        rx: 10, class: `tensor-plane-surface tensor-plane-${channel}`}, group);
+      element('text', {x, y: y - 21, class: 'tensor-plane-phase-axis'}, group,
+        language() === 'en' ? 'ORDERED PHASE' : '有序阶段');
       for (let phase = 0; phase < 4; phase += 1) {
         element('text', {
-          x: gridX + phase * (cellW + gapX) + cellW / 2,
-          y: 61, class: 'tensor-phase-label', 'text-anchor': 'middle',
+          x: x + phase * stepX + cellW / 2, y: y - 8,
+          class: 'tensor-phase-label', 'text-anchor': 'middle',
         }, group, phaseLabels[phase]);
       }
-
       for (let action = 0; action < 8; action += 1) {
-        const y = gridY + action * (cellH + gapY);
-        element('text', {x: 7, y: y + 15, class: 'tensor-axis-label'}, group,
-          actionMap[values.action_labels[action]] || values.action_labels[action]);
+        const cy = y + action * stepY;
+        if (channel === 0) {
+          element('text', {x: 102, y: cy + 11, class: 'tensor-axis-label', 'text-anchor': 'end'}, group,
+            actionMap[values.action_labels[action]] || values.action_labels[action]);
+        }
         for (let phase = 0; phase < 4; phase += 1) {
           const value = Number(values.mean_tensor[phase][action][channel]) || 0;
-          const x = gridX + phase * (cellW + gapX);
+          const cx = x + phase * stepX;
           const rect = element('rect', {
             class: 'tensor-cell', 'data-phase': phase, 'data-action': action,
-            x, y, width: cellW, height: cellH, rx: 4,
-            fill: color(value), opacity: '.76',
-            style: `--pulse-delay:${action * 24}ms`,
+            x: cx, y: cy, width: cellW, height: cellH, rx: 3,
+            fill: color(value), opacity: '.8',
+            style: `--pulse-delay:${action * 24 + channel * 72}ms`,
           }, group);
           rect.setAttribute('aria-hidden', 'true');
-          const label = `${Math.round(value * 100)}%`;
           element('text', {
-            x: x + cellW / 2, y: y + 15,
+            x: cx + cellW / 2, y: cy + 10.5,
             class: value >= .75 ? 'tensor-cell-text is-bright' : 'tensor-cell-text',
             'text-anchor': 'middle',
-          }, group, label);
+          }, group, `${Math.round(value * 100)}%`);
         }
       }
       element('rect', {
         class: 'tensor-column-focus', 'data-phase-focus': '',
-        x: gridX - 3, y: 63, width: cellW + 6,
-        height: (cellH + gapY) * 8 - gapY + 8, rx: 7,
+        x: x - 3, y: y - 4, width: cellW + 6, height: gridH + 8, rx: 6,
+        'data-origin-x': x,
       }, group);
-      if (channel < 2) {
-        element('line', {x1: panelWidth - 3, y1: 10, x2: panelWidth - 3, y2: 308,
-          class: 'tensor-plane-rule'}, svg);
-      }
+      element('text', {x: 508, y: y + 8, class: 'tensor-channel-label'}, svg,
+        channelText[language()][channel]);
+      element('line', {x1: x + gridW + 8, y1: y + 3, x2: 500, y2: y + 3,
+        class: 'tensor-channel-leader'}, svg);
     }
+    element('text', {x: 20, y: 503, class: 'tensor-axis-label'}, svg,
+      language() === 'en' ? 'action family ↓' : '操作类别 ↓');
+    const legend = element('g', {class: 'tensor-value-legend', transform: 'translate(612 116)'}, svg);
+    element('text', {x: 0, y: 0, class: 'tensor-legend-title'}, legend,
+      language() === 'en' ? 'CELL VALUE' : '格内数值');
+    const gradient = element('linearGradient', {id: 'tensor-value-gradient', x1: '0%', x2: '100%'}, svg);
+    ['#f2f6fa', '#d8e8f2', '#a8ccdf', '#6ba6c8', '#277eae'].forEach((stop, index) => {
+      element('stop', {offset: `${index * 25}%`, 'stop-color': stop}, gradient);
+    });
+    element('rect', {x: 0, y: 13, width: 190, height: 12, rx: 6,
+      fill: 'url(#tensor-value-gradient)'}, legend);
+    element('text', {x: 0, y: 41, class: 'tensor-axis-label'}, legend, '0%');
+    element('text', {x: 190, y: 41, class: 'tensor-axis-label', 'text-anchor': 'end'}, legend, '100%');
+    element('text', {x: 0, y: 78, class: 'tensor-axis-label'}, legend,
+      language() === 'en' ? 'One phase moves through all channels.' : '一个阶段切片同步穿过三个通道。');
     chart.hidden = false;
     fallback?.setAttribute('hidden', '');
     setPhase(activePhase, false);
@@ -143,20 +180,20 @@
     activePhase = phase;
     for (const panel of chart.querySelectorAll('[data-channel-panel]')) {
       panel.querySelectorAll('[data-phase-focus]').forEach(item => {
-        item.setAttribute('x', String(98 + phase * 46));
-        item.classList.toggle('is-current', animate);
+        item.setAttribute('x', String(Number(item.dataset.originX) + Math.max(phase, 0) * 47));
+        item.classList.toggle('is-current', animate && phase >= 0);
       });
       panel.querySelectorAll('.tensor-cell').forEach(cell => {
         const cellPhase = Number(cell.dataset.phase);
         cell.classList.toggle('is-current', animate && cellPhase === phase);
-        cell.classList.toggle('is-visited', animate && cellPhase < phase);
-        cell.setAttribute('opacity', animate && cellPhase > phase ? '.28' : '.88');
+        cell.classList.toggle('is-visited', animate && phase >= 0 && cellPhase < phase);
+        cell.setAttribute('opacity', animate && phase >= 0 && cellPhase > phase ? '.28' : '.88');
       });
     }
     stageTrack?.querySelectorAll('[data-stage-step]').forEach(step => {
       const stepPhase = Number(step.dataset.stageStep);
       step.classList.toggle('is-current', animate && stepPhase === phase);
-      step.classList.toggle('is-visited', animate && stepPhase < phase);
+      step.classList.toggle('is-visited', animate && phase >= 0 && stepPhase < phase);
     });
     if (stageTrack) stageTrack.style.setProperty('--phase-progress', animate ? `${phase * 25}%` : '0%');
     if (status) status.textContent = animate ? words().playing(phase) : words().complete;
@@ -230,7 +267,22 @@
     frame = requestAnimationFrame(tick);
   }
 
-  button?.addEventListener('click', play);
+  function scheduleFirstPlayback() {
+    if (hasAutoPlayed || matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .25)) return;
+      hasAutoPlayed = true;
+      observer.disconnect();
+      window.setTimeout(play, 180);
+    }, {threshold: [.25]});
+    observer.observe(host);
+  }
+
+  button?.addEventListener('click', () => {
+    hasAutoPlayed = true;
+    play();
+  });
   const panel = host.closest('.demo-panel');
   if (panel) {
     new MutationObserver(() => {
@@ -255,6 +307,7 @@
     .then(data => {
       values = data;
       render();
+      scheduleFirstPlayback();
       if (status) status.textContent = language() === 'en'
         ? `${data.trace_count} traces; click play to move through four ordered stages.`
         : `${data.trace_count} 条轨迹；点击播放，依次查看四个有序阶段。`;

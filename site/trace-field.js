@@ -279,15 +279,12 @@
     context.globalAlpha = 1;
     const captionY = laneY[0] - 48;
     const english = document.documentElement.lang === 'en';
-    const inputCaption = width >= 900
-      ? (english ? 'AttackAgent Detect · Session logs' : 'AttackAgent Detect · 会话日志')
-      : (english ? 'AttackAgent · Session logs' : 'AttackAgent · 会话日志');
-    const inputX = width >= 900 ? gate * cw - labelWidth(inputCaption) - 16 : 8;
+    const inputCaption = 'attackagent_detect';
+    const outputCaption = english ? 'Multidimensional attack profiles' : '多维攻击行为画像';
+    const inputX = gate * cw - labelWidth(inputCaption) / 2;
     label(inputCaption, inputX, captionY, colors.muted);
-    const outputCaption = width >= 900
-      ? (english ? 'AI-era defense · Execution mode' : 'AI时代安防 · 执行方式')
-      : (english ? 'AI-era security · Mode' : 'AI时代安防 · 模式');
-    label(outputCaption, width - labelWidth(outputCaption) - 12, captionY, colors.muted);
+    const outputX = gate * cw + (width - gate * cw - labelWidth(outputCaption)) / 2;
+    label(outputCaption, outputX, captionY, colors.muted);
   }
   function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
   function start() {

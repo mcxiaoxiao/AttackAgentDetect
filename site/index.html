@@ -13,7 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261030-site-polish-v2" rel="stylesheet"/>
-<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v2"></script>
+<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v4"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
@@ -23,7 +23,7 @@
 <img alt="" height="42" src="assets/openmoji-owl.png" width="42"/>
 <span>AttackAgent<br/>Detect</span>
 </a>
-<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a data-en="Research" href="execution-mode-behavior-correlation.html">研究</a></nav>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a data-en="Research" href="research.html">研究</a></nav>
 <div class="rail-bottom">
 <a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.225.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
 <a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a><div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div></div>
@@ -34,7 +34,7 @@
 <button aria-label="暂停首屏动效" aria-pressed="false" class="field-toggle" data-en="Pause animation" data-en-aria-label="Pause hero animation" type="button">暂停动效</button>
 <div class="hero-copy">
 <h1 data-en-html="Identify attack<br/>execution modes" id="hero-title">从日志识别<br/>攻击执行方式</h1>
-<p class="hero-desc" data-en="AttackAgent Detect explores structured, multidimensional behavioral profiles of attack logs to characterize operational traces, infer execution mode (Human, Script, or AI Agent), and test whether execution-mode evidence improves trace correlation. The library supports Linux auditd normalization and trace correlation; Human/Agent detection is experimental, and Script labels are not yet publicly available for evaluation.">AttackAgent Detect 探索将攻击日志结构化为多维行为画像，以刻画操作轨迹、推断执行方式（🥷 Human、⚙️ Script、🤖 AI Agent），并检验执行方式信息对行为关联的影响。当前库支持 Linux auditd 日志标准化与轨迹关联；Human/Agent 识别仍为实验基线，Script 类尚缺少可评估的公开标注数据。</p>
+<p class="hero-desc" data-en="AttackAgent Detect turns attack logs into multidimensional behavioral profiles, characterizes operational traces, and evaluates Human, Script, and AI Agent execution modes as evidence for behavior-based correlation. The open-source library provides Linux auditd normalization, candidate trace ranking, and a local Human/Agent detector.">AttackAgent Detect 将攻击日志转化为多维行为画像，刻画操作轨迹，并评估 Human、Script 与 AI Agent 等执行模式对行为关联的价值。开源库提供 Linux auditd 标准化、候选轨迹排序和本地 Human/Agent 识别器。</p>
 <div class="hero-links">
 <a class="button primary" href="#quickstart"><span data-en="Quick start">快速开始</span></a>
 <button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
@@ -63,7 +63,7 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <code id="install-command"><span aria-hidden="true">$</span> pip install attackagent-detect</code>
 <button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
 </div>
-<p class="hero-terms" data-en="PyPI release planned for 2027. Run from source today. The animated log field is schematic, not a live classification.">PyPI 计划于 2027 年发布；当前请从源码运行。背景代码流为示意，不代表实时分类结果。</p>
+<p class="hero-terms" data-en="PyPI release planned for 2027; install from source today. The animated field illustrates the path from log streams to multidimensional behavior profiles.">PyPI 计划于 2027 年发布；当前支持从源码安装。动态背景展示日志流到多维行为画像的分析路径。</p>
 </div>
 </section>
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
@@ -132,7 +132,7 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <span class="n">candidate</span> <span class="o">=</span> <span class="n">TraceEvidence</span><span class="p">(</span><span class="s2">"candidate"</span><span class="p">,</span> <span class="s2">"example-v1"</span><span class="p">,</span> <span class="s2">"demo"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"ls"</span><span class="p">),</span> <span class="p">())</span>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">rank_candidates</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">[</span><span class="n">candidate</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"command_cosine"</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
-</code></pre><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="Script mode has no supported detector yet. A compatible detector is required for mode scores; behavior-only ranking remains available independently.">Script 类别尚无可用识别器。执行方式评分需要兼容的检测器；行为排序可以独立运行。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer><div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
+</code></pre><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="The local detector scores Human/Agent traces from format-matched labeled training data; behavior ranking can be called independently.">本地识别器使用采集格式匹配的 Human/Agent 标注数据生成执行模式评分；行为排序可以独立调用。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer><div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
 <a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
 <span aria-hidden="true" class="footer-cross">×</span>
 <a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>

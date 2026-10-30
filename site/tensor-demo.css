@@ -23,19 +23,29 @@
 .tensor-stage-rail > span.is-current > i { background: var(--cobalt); box-shadow: 0 0 0 3px rgb(0 114 178 / 15%), 0 0 13px rgb(0 114 178 / 45%); transform: scale(1.1); animation: tensor-rail-pulse .75s ease-in-out infinite alternate; }
 .tensor-stage-rail > span.is-visited > i { background: var(--sky); box-shadow: 0 0 0 1px var(--sky); }
 .tensor-stage-rail b { font-weight: inherit; }
-.tensor-demo-viewport { min-height: 322px; overflow-x: auto; overscroll-behavior-inline: contain; padding: 12px 14px 6px; }
+.tensor-demo-viewport { min-height: 420px; overflow-x: auto; overscroll-behavior-inline: contain; padding: 12px 14px 6px; }
 .tensor-demo-fallback { display: block; width: 100%; min-width: 720px; height: auto; }
-.tensor-demo-chart { min-width: 720px; }
+.tensor-demo-chart { min-width: 820px; }
 .tensor-demo-chart[hidden], .tensor-demo-fallback[hidden] { display: none; }
 .tensor-svg { display: block; width: 100%; height: auto; overflow: visible; }
 .tensor-svg text { font-family: var(--font-body); }
+.tensor-svg-stack { min-height: 450px; }
 .tensor-panel-title { fill: var(--ink); font-size: 13px; font-weight: 600; }
 .tensor-axis-label { fill: var(--muted); font-size: 10px; }
 .tensor-phase-label { fill: var(--soft); font: 500 9px var(--mono); }
+.tensor-stack-caption { fill: var(--cobalt-deep); font: 600 11px var(--mono); letter-spacing: .08em; }
+.tensor-channel-edge { stroke: #88a9bd; stroke-width: 1.5; stroke-dasharray: 4 5; opacity: .7; }
+.tensor-plane-surface { fill: #f9fcfe; stroke: #c6d9e6; stroke-width: 1.2; }
+.tensor-plane-1 { fill: #f4f9fc; }
+.tensor-plane-2 { fill: #edf5fa; }
+.tensor-plane-phase-axis { fill: var(--soft); font: 500 8px var(--mono); letter-spacing: .12em; }
+.tensor-channel-label { fill: var(--cobalt-deep); font-size: 11px; font-weight: 600; }
+.tensor-channel-leader { stroke: var(--line); stroke-width: 1; }
+.tensor-legend-title { fill: var(--ink); font: 600 10px var(--mono); letter-spacing: .1em; }
 .tensor-cell { stroke: var(--paper); stroke-width: 1.5; transition: opacity .22s ease, stroke .22s ease, filter .22s ease; }
-.tensor-cell-text { fill: var(--ink); font: 500 9px var(--mono); pointer-events: none; }
+.tensor-cell-text { fill: var(--ink); font: 500 8px var(--mono); pointer-events: none; }
 .tensor-cell-text.is-bright { fill: #fff; }
-.tensor-column-focus { fill: rgb(0 114 178 / 5%); stroke: var(--cobalt); stroke-width: 2; stroke-dasharray: 5 4; opacity: 0; pointer-events: none; transition: opacity .18s ease, x .55s cubic-bezier(.2,.8,.2,1); }
+.tensor-column-focus { fill: rgb(0 114 178 / 7%); stroke: var(--cobalt); stroke-width: 2; stroke-dasharray: 5 4; opacity: 0; pointer-events: none; transition: opacity .18s ease, x .55s cubic-bezier(.2,.8,.2,1); }
 .tensor-column-focus.is-current { opacity: 1; }
 .tensor-plane-rule { stroke: var(--line); stroke-width: 1; }
 .tensor-progress-track { fill: var(--surface); }
@@ -73,7 +83,7 @@
   .tensor-stage-rail > span { gap: 4px; font-size: 9px; }
   .tensor-stage-rail > span > i { width: 12px; height: 12px; }
   .profile-result-cards { grid-template-columns: minmax(0, 1fr); }
-  .tensor-demo-viewport { min-height: 280px; padding-inline: 8px; }
+  .tensor-demo-viewport { min-height: 380px; padding-inline: 8px; }
   .tensor-demo-figure figcaption { padding-inline: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
