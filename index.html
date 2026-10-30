@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261030-footer-meta-divider" rel="stylesheet"/>
+<link href="style.css?v=20261030-hero-flow-v2" rel="stylesheet"/>
 <script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
@@ -31,10 +31,10 @@
 <main id="main">
 <section aria-labelledby="hero-title" class="hero" id="top">
 <div class="hero-copy">
-<h1 data-en-html="From security logs to trace evidence" id="hero-title">从安全日志<br/>到可关联轨迹</h1>
-<p class="hero-desc" data-en="AttackAgent Detect is an open research library for analyzing behavioral traces from Agent-enabled attacks, with methods for log normalization, behavior correlation, and execution-mode detection.">AttackAgent Detect 是面向 Agent 攻击行为特征分析的开放研究库：从安全日志提取可核查的操作轨迹，并提供标准化、行为关联与执行方式识别方法。</p>
+<h1 data-en-html="Detecting Agent activity<br/>in attack logs" id="hero-title">攻击日志中的<br/>Agent 参与识别</h1>
+<p class="hero-desc" data-en="AttackAgent Detect is an open research toolkit for analyzing Agent-enabled attacks. It normalizes Linux auditd execution records into auditable traces, provides behavior-correlation methods, and includes an experimental Human/Agent execution-mode baseline.">AttackAgent Detect 是面向 Agent 参与攻击行为分析的开放研究工具库：将 Linux auditd 执行记录标准化为可复核轨迹，提供行为关联方法，并包含实验性的 Human/Agent 执行方式识别基线。</p>
 <div class="hero-links">
-<a class="button primary" href="#quickstart"><span data-en="Quick start">快速接入</span><span class="pip-tag">pip</span></a>
+<a class="button primary" href="#quickstart"><span data-en="Source quick start">源码快速开始</span></a>
 <button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
 </div>
 <pre class="copy-source" hidden="" id="ai-brief-markdown"># AttackAgent Detect
@@ -77,7 +77,7 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <div class="flow-output-head"><code>TraceEvidence · v1</code><span data-en="normalized">已标准化</span></div>
 <dl><dt>commands</dt><dd>["curl", "grep"]</dd><dt>actions</dt><dd>["network", "search"]</dd><dt>event_refs</dt><dd>2 preserved</dd></dl>
 </div>
-<svg aria-hidden="true" class="flow-wires" viewBox="0 0 1000 360" preserveAspectRatio="none"><path d="M405 91 C450 91 451 115 496 115 S544 132 590 132 H690"/><path d="M405 270 C450 270 451 245 496 245 S544 224 590 224 H690"/><path d="M405 180 H690"/></svg>
+<svg aria-hidden="true" class="flow-wires" viewBox="0 0 1000 360" preserveAspectRatio="none"><path id="flow-lane-1" d="M405 91 C450 91 451 115 496 115 S544 132 590 132 H690"/><path id="flow-lane-2" d="M405 270 C450 270 451 245 496 245 S544 224 590 224 H690"/><path id="flow-lane-3" d="M405 180 H690"/><circle class="flow-packet" r="4"><animateMotion dur="2.8s" begin="-0.2s" repeatCount="indefinite"><mpath href="#flow-lane-1"/></animateMotion></circle><circle class="flow-packet" r="4"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite"><mpath href="#flow-lane-2"/></animateMotion></circle><circle class="flow-packet" r="3.5"><animateMotion dur="3.1s" begin="-2.2s" repeatCount="indefinite"><mpath href="#flow-lane-3"/></animateMotion></circle></svg>
 </div>
 <div class="flow-footer"><code>load_auditd(...)</code><span data-en="Format fixture · parsed, never executed">格式样例 · 只解析，不执行</span></div>
 </figure>
