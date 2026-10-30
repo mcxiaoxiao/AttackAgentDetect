@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261030-syntax-highlight-v3" rel="stylesheet"/>
-<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-codefield-v1"></script>
+<link href="style.css?v=20261030-site-polish-v2" rel="stylesheet"/>
+<script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v2"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
@@ -31,9 +31,10 @@
 <main id="main">
 <section aria-labelledby="hero-title" class="hero" id="top">
 <canvas aria-hidden="true" class="field"></canvas>
+<button aria-label="暂停首屏动效" aria-pressed="false" class="field-toggle" data-en="Pause animation" data-en-aria-label="Pause hero animation" type="button">暂停动效</button>
 <div class="hero-copy">
 <h1 data-en-html="Identify attack<br/>execution modes" id="hero-title">从日志识别<br/>攻击执行方式</h1>
-<p class="hero-desc" data-en="AttackAgent Detect explores log-based distinction among 🥷 human, ⚙️ script, and 🤖 AI-agent execution, and whether execution mode changes behavior correlation. The library currently normalizes Linux auditd traces and provides correlation methods; mode detection is an experimental Human/Agent baseline, and Script detection is not yet supported.">AttackAgent Detect 探索根据日志区分攻击操作由 🥷 Human、⚙️ Script 还是 🤖 AI Agent 执行，并研究执行方式信息对行为关联的影响。当前库支持 Linux auditd 轨迹标准化与行为关联；识别功能仍为实验性 Human/Agent 基线，尚不支持 Script。</p>
+<p class="hero-desc" data-en="AttackAgent Detect explores structured, multidimensional behavioral profiles of attack logs to characterize operational traces, infer execution mode (Human, Script, or AI Agent), and test whether execution-mode evidence improves trace correlation. The library supports Linux auditd normalization and trace correlation; Human/Agent detection is experimental, and Script labels are not yet publicly available for evaluation.">AttackAgent Detect 探索将攻击日志结构化为多维行为画像，以刻画操作轨迹、推断执行方式（🥷 Human、⚙️ Script、🤖 AI Agent），并检验执行方式信息对行为关联的影响。当前库支持 Linux auditd 日志标准化与轨迹关联；Human/Agent 识别仍为实验基线，Script 类尚缺少可评估的公开标注数据。</p>
 <div class="hero-links">
 <a class="button primary" href="#quickstart"><span data-en="Quick start">快速开始</span></a>
 <button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
