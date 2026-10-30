@@ -1,6 +1,6 @@
 /* Preserve previously published section links after splitting the documentation. */
 if (/\/(?:index\.html)?$/.test(location.pathname)) {
-  const legacyPages = { '#question': 'research.html', '#results': 'research.html', '#related': 'research.html', '#source-reproduction': 'research.html' };
+  const legacyPages = { '#question': 'execution-mode-behavior-correlation.html', '#results': 'execution-mode-behavior-correlation.html', '#related': 'execution-mode-behavior-correlation.html', '#source-reproduction': 'execution-mode-behavior-correlation.html' };
   const destination = legacyPages[location.hash];
   if (destination) location.replace(destination + location.search + location.hash);
 }
