@@ -1,38 +1,40 @@
 \section{Nested experiments to reduce missed associations}
 \label{sec:recall-optimization}
 
-We ran three fixed, nested task-held-out experiment rounds on the same 177 public traces, 40 benchmark-qualified task groups, and three CTF benchmarks. The 20\% training false-merge target remained fixed. Each outer fold held out complete tasks; all threshold and candidate selection used training-fold tasks. Intervals are paired benchmark-stratified task-cluster bootstrap intervals with 5,000 draws. The cohort had already been inspected during development, so these results are exploratory rather than independent confirmation.
+We ran four fixed, nested task-held-out experiment rounds on the same 177 public traces, 40 benchmark-qualified task groups, and three CTF benchmarks. The 20\% training false-merge target remained fixed. Each outer fold held out complete tasks; all threshold and candidate selection used training-fold tasks. Intervals are paired benchmark-stratified task-cluster bootstrap intervals with 5,000 draws. The cohort had already been inspected during development, so these results are exploratory rather than independent confirmation.
 
 We assessed ten metrics: overall false-split rate (FSR), false-merge rate (FMR), Human--Agent (H--A) FSR/FMR, balanced accuracy, query coverage, Hit@1, MRR, Recall@5, and NDCG@5. Lower error rates and higher values for the remaining metrics are preferred. Changes below are percentage points relative to the behavior-only baseline.
 
 \begin{table}[t]
 \centering
 \small
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.26\linewidth}>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.2\linewidth}>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
 \toprule
-Metric & Mode-stratified thresholds & Third-round Pareto selector \\
+Metric & Mode-stratified thresholds & Third-round Pareto selector & Query-rank fusion \\
 \midrule
-Overall FSR & $-1.50\;[-4.34,+0.86]$ & $+0.06\;[-2.77,+4.15]$ \\
-Overall FMR & $-1.23\;[-3.11,+0.53]$ & $+1.20\;[+0.51,+1.97]$ \\
-H--A FSR & $-1.95\;[-4.22,0.00]$ & $0.00\;[-3.09,+4.12]$ \\
-H--A FMR & $+0.65\;[+0.33,+1.04]$ & $+0.78\;[+0.25,+1.38]$ \\
-Balanced accuracy & $+1.37\;[+0.02,+2.88]$ & $-0.63\;[-2.64,+0.66]$ \\
-Query coverage & $0.00\;[0.00,0.00]$ & $+0.95\;[0.00,+2.86]$ \\
-Hit@1 & $0.00$ & $-0.34\;[-1.76,+0.93]$ \\
-MRR & $0.00$ & $-0.13\;[-1.36,+0.97]$ \\
-Recall@5 & $0.00$ & $-0.50\;[-2.12,+0.74]$ \\
-NDCG@5 & $0.00$ & $-0.30\;[-1.44,+0.70]$ \\
+Overall FSR & $-1.50\;[-4.34,+0.86]$ & $+0.06\;[-2.77,+4.15]$ & $-1.05\;[-2.22,-0.12]$ \\
+Overall FMR & $-1.23\;[-3.11,+0.53]$ & $+1.20\;[+0.51,+1.97]$ & $+0.64\;[+0.14,+1.26]$ \\
+H--A FSR & $-1.95\;[-4.22,0.00]$ & $0.00\;[-3.09,+4.12]$ & $-0.79\;[-1.88,0.00]$ \\
+H--A FMR & $+0.65\;[+0.33,+1.04]$ & $+0.78\;[+0.25,+1.38]$ & $-0.20\;[-0.43,-0.01]$ \\
+Balanced accuracy & $+1.37\;[+0.02,+2.88]$ & $-0.63\;[-2.64,+0.66]$ & $+0.21\;[-0.14,+0.70]$ \\
+Query coverage & $0.00\;[0.00,0.00]$ & $+0.95\;[0.00,+2.86]$ & $+0.95\;[0.00,+2.86]$ \\
+Hit@1 & $0.00$ & $-0.34\;[-1.76,+0.93]$ & $-0.03\;[-1.36,+1.08]$ \\
+MRR & $0.00$ & $-0.13\;[-1.36,+0.97]$ & $-0.03\;[-1.10,+0.79]$ \\
+Recall@5 & $0.00$ & $-0.50\;[-2.12,+0.74]$ & $-0.10\;[-0.50,+0.28]$ \\
+NDCG@5 & $0.00$ & $-0.30\;[-1.44,+0.70]$ & $-0.01\;[-0.53,+0.45]$ \\
 \bottomrule
 \end{tabularx}
 \caption{Paired percentage-point changes and 95\% intervals relative to the behavior-only baseline. Negative changes improve error rates; positive changes improve the other metrics. Threshold-only policies leave rankings unchanged.}
 \label{tab:recall-optimization-metrics}
 \end{table}
 
-The closest compromise was to calibrate separate thresholds for H--A and same-mode pairs. It reduced three error-rate point estimates and increased balanced accuracy, but increased H--A FMR by 0.65 points (95\% interval $[+0.33,+1.04]$). Overall FSR and FMR intervals crossed zero. Because the method uses known pair type, its thresholds are not directly deployable when execution-mode labels are unavailable.
+The closest threshold-only compromise was to calibrate separate thresholds for H--A and same-mode pairs. It reduced three error-rate point estimates and increased balanced accuracy, but increased H--A FMR by 0.65 points (95\% interval $[+0.33,+1.04]$). Overall FSR and FMR intervals crossed zero. Because the method uses known pair type, its thresholds are not directly deployable when execution-mode labels are unavailable.
 
 The third round searched a prespecified global and mode-stratified threshold grid and selected only candidates that did not regress any of the ten training-fold metrics. A new method was selected in one of three outer folds; the other two used the baseline. On held-out tasks, overall FMR increased by 1.20 points and H--A FMR by 0.78 points, with intervals above zero. All four ranking point estimates declined slightly, though their intervals crossed zero. The inner-fold Pareto candidates did not generalize to the outer folds.
+
+The fourth round fused query-normalized percentiles from the behavior score and command-cosine score. It selected a 50:50 blend in one outer fold and fell back to baseline in the other two. Held-out FSR improved by 1.05 points and H--A FMR by 0.20 points, while overall FMR worsened by 0.64 points. Balanced accuracy rose by 0.21 points with an interval crossing zero; ranking changes were close to zero and all intervals crossed zero. This candidate therefore does not improve all ten metrics, despite improving several error-rate estimates without using execution-mode labels for scoring.
 
 In the first round, sequence alignment lowered overall FSR by 3.38 points and H--A FSR by 4.60 points, while increasing overall FMR by 3.21 points and H--A FMR by 6.32 points; all four ranking point estimates increased. Multiscale features were near neutral. Hard-negative training and 24-dimensional profile fusion substantially increased missed links. No tested method improved all ten metrics.
 

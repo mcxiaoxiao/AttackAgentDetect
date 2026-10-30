@@ -22,11 +22,13 @@ OUT = ROOT / "results"
 R1 = json.loads((ROOT / "results/recall_optimization_v1/results.json").read_text())
 R2 = json.loads((ROOT / "results/recall_optimization_v2/results.json").read_text())
 R3 = json.loads((ROOT / "results/recall_joint_pareto_v3/results.json").read_text())
+R4 = json.loads((ROOT / "experiments/recall_hybrid_v1/output/results.json").read_text())
 
 COLORS = {
     "baseline": "#34495e", "alignment": "#0072B2", "multiscale": "#009E73",
     "profile": "#CC79A7", "taskweighted": "#E69F00", "ha_specialist": "#D55E00",
     "stratified": "#56B4E9", "v2": "#6A5ACD", "v3": "#222222",
+    "v4": "#009E9A",
 }
 
 
@@ -49,6 +51,9 @@ def rate_points():
     r3 = R3["false_split_merge"]["joint_selected"]
     p.append(("v3 Pareto selector", COLORS["v3"], r3["false_merge_rate"],
               r3["false_split_rate"], (32, 48), False))
+    r4 = R4["false_split_merge"]["selected"]
+    p.append(("query-rank fusion", COLORS["v4"], r4["false_merge_rate"],
+              r4["false_split_rate"], (-94, -39), False))
     return p
 
 
@@ -80,6 +85,7 @@ def build_effects():
     v2_weighted_rank = ranking_delta(ROOT / "results/recall_optimization_v2/task_metrics.csv", "behavior_align_taskweighted")
     v2_ha_rank = ranking_delta(ROOT / "results/recall_optimization_v2/task_metrics.csv", "behavior_align_ha")
     v3 = R3
+    v4 = R4
 
     def coverage_pair(method_name):
         if method_name == "behavior_stratified":
@@ -103,6 +109,8 @@ def build_effects():
          {m: {"estimate": 0.0, "ci_95": [0.0, 0.0]} for m in op.RANK_METRICS}),
         ("H–A specialist", r2d["behavior_align_ha"], coverage_pair("behavior_align_ha_global"), v2_ha_rank),
         ("Pareto-grid selector", v3["paired_rate_deltas"], v3["coverage"]["paired_delta"], v3_rank),
+        ("Query-rank fusion", v4["paired_rate_deltas"], v4["coverage"]["paired_delta"],
+         v4["paired_ranking_deltas"]),
     ]:
         vals = {}
         for metric in ("false_split_rate", "false_merge_rate", "false_split_human_agent",
@@ -130,10 +138,12 @@ def main():
         "mode thresholds": "分模式阈值",
         "v2 selector": "第二轮选择",
         "v3 Pareto selector": "第三轮 Pareto",
+        "query-rank fusion": "查询级分数融合",
         "Sequence alignment": "序列对齐",
         "Mode thresholds": "分模式阈值",
         "H–A specialist": "H–A 专用排序",
         "Pareto-grid selector": "Pareto 网格选择",
+        "Query-rank fusion": "查询级分数融合",
     }
     metric_labels = (("漏关联", "误合并", "H–A 漏关联", "H–A 误合并", "平衡准确率",
                       "查询覆盖率", "首位命中", "MRR", "Recall@5", "NDCG@5") if zh else

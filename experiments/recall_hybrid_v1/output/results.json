@@ -1,0 +1,474 @@
+{
+  "status": "completed exploratory nested query-normalized score-fusion evaluation",
+  "protocol": "experiments/recall_hybrid_v1/program.md",
+  "created_utc": "2026-10-30T15:48:13+00:00",
+  "dataset": {
+    "records": 177,
+    "task_groups": 40,
+    "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+    "label_scope": "same CTF task proxy; not actor or campaign attribution"
+  },
+  "runtime": {
+    "python": "3.10.16",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.7.2"
+  },
+  "selection": {
+    "weights": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "threshold_quantiles": 31,
+    "outer_seed": 20261030,
+    "inner_seed_rule": "20261730 + outer-fold index",
+    "rule": "inner-OOF all-metric dominance over nested behavior baseline; fallback otherwise",
+    "metrics": [
+      "false_split_rate",
+      "false_merge_rate",
+      "false_split_human_agent",
+      "false_merge_human_agent",
+      "balanced_accuracy",
+      "balanced_accuracy",
+      "coverage",
+      "hit_at_1",
+      "mrr",
+      "recall_at_5",
+      "ndcg_at_5"
+    ]
+  },
+  "outer_folds": [
+    {
+      "method": "behavior",
+      "alpha": null,
+      "threshold": 0.5131011492875324,
+      "baseline_threshold": 0.5131011492875324,
+      "fallback": true,
+      "eligible_policy_count": 0,
+      "minimum_oriented_gain": 0.0,
+      "sum_oriented_gain": 0.0,
+      "metric_gains_inner_oof": {
+        "false_split_rate": 0.0,
+        "false_merge_rate": 0.0,
+        "false_split_human_agent": 0.0,
+        "false_merge_human_agent": 0.0,
+        "balanced_accuracy": 0.0,
+        "coverage": 0.0,
+        "hit_at_1": 0.0,
+        "mrr": 0.0,
+        "recall_at_5": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "candidate_policy_count": 161,
+      "outer_fold": 1,
+      "train_task_groups": 26,
+      "test_task_groups": 14
+    },
+    {
+      "method": "hybrid",
+      "alpha": 0.5,
+      "threshold": 0.64,
+      "baseline_threshold": 0.5127264276243841,
+      "fallback": false,
+      "eligible_policy_count": 4,
+      "minimum_oriented_gain": 0.022891592773839148,
+      "sum_oriented_gain": 0.5755166306258945,
+      "metric_gains_inner_oof": {
+        "false_split_rate": 0.08740740740740738,
+        "false_merge_rate": 0.022891592773839148,
+        "false_split_human_agent": 0.049259259259259336,
+        "false_merge_human_agent": 0.0558619929453263,
+        "balanced_accuracy": 0.07209394453506779,
+        "coverage": 0.09703703703703714,
+        "hit_at_1": 0.032993827160493816,
+        "mrr": 0.034765274261305934,
+        "recall_at_5": 0.023065843621399185,
+        "ndcg_at_5": 0.028046507089690698
+      },
+      "candidate_policy_count": 161,
+      "outer_fold": 2,
+      "train_task_groups": 27,
+      "test_task_groups": 13
+    },
+    {
+      "method": "behavior",
+      "alpha": null,
+      "threshold": 0.541446827087328,
+      "baseline_threshold": 0.541446827087328,
+      "fallback": true,
+      "eligible_policy_count": 0,
+      "minimum_oriented_gain": 0.0,
+      "sum_oriented_gain": 0.0,
+      "metric_gains_inner_oof": {
+        "false_split_rate": 0.0,
+        "false_merge_rate": 0.0,
+        "false_split_human_agent": 0.0,
+        "false_merge_human_agent": 0.0,
+        "balanced_accuracy": 0.0,
+        "coverage": 0.0,
+        "hit_at_1": 0.0,
+        "mrr": 0.0,
+        "recall_at_5": 0.0,
+        "ndcg_at_5": 0.0
+      },
+      "candidate_policy_count": 161,
+      "outer_fold": 3,
+      "train_task_groups": 27,
+      "test_task_groups": 13
+    }
+  ],
+  "false_split_merge": {
+    "behavior": {
+      "false_split_rate": {
+        "estimate": 0.45658436213991765,
+        "ci_95": [
+          0.35465534979423874,
+          0.5660273368606702
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_merge_rate": {
+        "estimate": 0.23298503529985007,
+        "ci_95": [
+          0.16054677230140194,
+          0.3112055416858657
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_split_human_agent": {
+        "estimate": 0.5127865961199295,
+        "ci_95": [
+          0.40005144032921813,
+          0.6224279835390947
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_merge_human_agent": {
+        "estimate": 0.15541523805412694,
+        "ci_95": [
+          0.09008612465209687,
+          0.22710023708287594
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "balanced_accuracy": {
+        "estimate": 0.6552153012801161,
+        "ci_95": [
+          0.592116044781554,
+          0.7213985390814092
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      }
+    },
+    "selected": {
+      "false_split_rate": {
+        "estimate": 0.4460758377425044,
+        "ci_95": [
+          0.34314704585537925,
+          0.5604074808935919
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_merge_rate": {
+        "estimate": 0.23936072315701942,
+        "ci_95": [
+          0.16982473064996215,
+          0.31463879934829003
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_split_human_agent": {
+        "estimate": 0.5048647854203411,
+        "ci_95": [
+          0.3942037771898883,
+          0.6165839947089945
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "false_merge_human_agent": {
+        "estimate": 0.15343676385343052,
+        "ci_95": [
+          0.08679038746747078,
+          0.22315580895441994
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "balanced_accuracy": {
+        "estimate": 0.6572817195502382,
+        "ci_95": [
+          0.5932851810971023,
+          0.7239665248085388
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      }
+    }
+  },
+  "paired_rate_deltas": {
+    "false_split_rate": {
+      "estimate": -0.01050852439741329,
+      "ci_95": [
+        -0.022150940623162852,
+        -0.001234567901234569
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "false_merge_rate": {
+      "estimate": 0.00637568785716934,
+      "ci_95": [
+        0.0013862010158306477,
+        0.012633056336760038
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "false_split_human_agent": {
+      "estimate": -0.00792181069958848,
+      "ci_95": [
+        -0.018827160493827166,
+        0.0
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "false_merge_human_agent": {
+      "estimate": -0.0019784742006964226,
+      "ci_95": [
+        -0.004329049936688825,
+        -0.00013453624564735805
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "balanced_accuracy": {
+      "estimate": 0.0020664182701219786,
+      "ci_95": [
+        -0.0014301570088607104,
+        0.007039609053497946
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    }
+  },
+  "ranking": {
+    "behavior": {
+      "hit_at_1": {
+        "estimate": 0.5714844209288653,
+        "ci_95": [
+          0.48261015579071137,
+          0.649025720164609
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "mrr": {
+        "estimate": 0.6687881892962056,
+        "ci_95": [
+          0.5943528229027779,
+          0.7320807968662647
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "recall_at_5": {
+        "estimate": 0.6004115226337449,
+        "ci_95": [
+          0.5291978982951205,
+          0.6671696796002351
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "ndcg_at_5": {
+        "estimate": 0.5756119303619077,
+        "ci_95": [
+          0.5008202715252031,
+          0.6450204386255407
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      }
+    },
+    "selected": {
+      "hit_at_1": {
+        "estimate": 0.5711757789535566,
+        "ci_95": [
+          0.4804736184597295,
+          0.6517343474426808
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "mrr": {
+        "estimate": 0.6684828461201443,
+        "ci_95": [
+          0.5924097108610142,
+          0.7334004832868151
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "recall_at_5": {
+        "estimate": 0.5994341563786008,
+        "ci_95": [
+          0.5293990667254554,
+          0.6654273221634333
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "ndcg_at_5": {
+        "estimate": 0.5755169146375451,
+        "ci_95": [
+          0.499539737477896,
+          0.646891899773005
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      }
+    }
+  },
+  "paired_ranking_deltas": {
+    "hit_at_1": {
+      "estimate": -0.00030864197530864224,
+      "ci_95": [
+        -0.013580246913580249,
+        0.010802469135802469
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "mrr": {
+      "estimate": -0.00030534317606133225,
+      "ci_95": [
+        -0.011025275096642454,
+        0.007920009291841643
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "recall_at_5": {
+      "estimate": -0.0009773662551440336,
+      "ci_95": [
+        -0.004989711934156379,
+        0.0028292181069958836
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    },
+    "ndcg_at_5": {
+      "estimate": -9.501572436270209e-05,
+      "ci_95": [
+        -0.0052839913740598205,
+        0.004494776106799973
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    }
+  },
+  "coverage": {
+    "summary": {
+      "behavior": {
+        "estimate": 0.9765873015873017,
+        "ci_95": [
+          0.9436507936507935,
+          1.0
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      },
+      "selected": {
+        "estimate": 0.9861111111111112,
+        "ci_95": [
+          0.9583333333333334,
+          1.0
+        ],
+        "task_count": 40,
+        "benchmark_count": 3,
+        "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+        "bootstrap_draws": 5000
+      }
+    },
+    "paired_delta": {
+      "estimate": 0.009523809523809521,
+      "ci_95": [
+        0.0,
+        0.028571428571428567
+      ],
+      "paired_task_count": 40,
+      "direction": "selected minus behavior",
+      "bootstrap_unit": "benchmark-qualified task within benchmark"
+    }
+  },
+  "provenance": {
+    "dataset_manifest_sha256": "97b6b1364689d0d407f34129af57204aa797963f4bc0eb474a25689f554bf41c",
+    "runner_sha256": "dfb0f25199c8a92db9cbc124adb17020ef3991c2ead535edd0685ac0209e76aa",
+    "v1_runner_sha256": "4490354c8a6e81d80f72656b6fb909cfa95c19763ec5a36c81d0ba9777e7edd0",
+    "v2_runner_sha256": "134f856d629120754ca36844466603e975b0753a93c5d710e300efe04857768e"
+  },
+  "interpretation_guard": "Exploratory reuse of inspected tasks; confidence intervals condition on fitted folds and do not replace independent validation.",
+  "implementation_notes": [
+    "Attempt 1 stopped in outer fold 1 because the fallback ranking summary has no raw behavior-score field; corrected before a complete run.",
+    "Attempt 2 finished all outer folds but stopped during final coverage interval summarization because task_cluster_interval requires keyword-only bootstrap arguments; corrected before a complete recorded run."
+  ]
+}

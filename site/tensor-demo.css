@@ -72,7 +72,7 @@
 .profile-result-figure img { display: block; width: 100%; height: auto; }
 .profile-result-figure figcaption { padding: 9px 14px 11px; border-top: 1px solid var(--line); color: var(--muted); font: 400 11px/1.6 var(--font-body); }
 .profile-result-limit { padding-top: 13px; border-top: 1px solid var(--line); }
-.recall-result-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.recall-result-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .recall-result-cards dd { font-size: clamp(19px, 2vw, 25px); }
 .recall-result > details { border-top: 1px solid var(--line); padding-top: 12px; }
 .recall-result > details > summary { color: var(--blue-deep); cursor: pointer; font: 600 12px/1.5 var(--font-body); }
