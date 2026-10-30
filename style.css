@@ -223,8 +223,10 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .research-list li { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: start; gap: 0 14px; counter-increment: research-item; }
 .research-list li::before { grid-column: 1; grid-row: 1; padding-top: 1px; color: var(--blue); content: counter(research-item) "."; font: 700 28px/1 var(--font-display); letter-spacing: -.04em; }
 .research-list a { display: grid; grid-column: 2; grid-row: 1; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 6px 24px; color: inherit; text-decoration: none; }
+.research-list .research-entry { display: grid; grid-column: 2; grid-row: 1; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 6px 24px; }
 .research-list strong { color: var(--ink); font-size: 20px; font-weight: 600; }
 .research-list a > span { grid-column: 1; color: var(--muted); font-size: 14px; }
+.research-list .research-entry > span { grid-column: 1; color: var(--muted); font-size: 14px; }
 .research-list small { grid-column: 2; grid-row: 1 / span 2; color: var(--soft); font: 11px/1.5 var(--mono); text-align: right; }
 .research-list a:hover strong { color: var(--blue-deep); }
 .result-intro p { margin: 0 0 4px; color: var(--muted); font-size: 15px; line-height: 1.75; }
@@ -357,6 +359,7 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
   .research-list li { grid-template-columns: 32px minmax(0, 1fr); gap: 0 10px; }
   .research-list li::before { font-size: 23px; }
   .research-list a { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .research-list .research-entry { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .research-list small { grid-column: 1; grid-row: auto; text-align: left; }
   .related-category > summary { grid-template-columns: minmax(180px, .9fr) minmax(0, 1.3fr) auto 20px; gap: 12px; }
 }
