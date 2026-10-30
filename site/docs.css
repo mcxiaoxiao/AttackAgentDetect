@@ -4,3 +4,12 @@
 .docs-prose pre .s, .docs-prose pre .s1, .docs-prose pre .s2 { color: #94d5b2; }
 .docs-prose pre .c, .docs-prose pre .c1 { color: #9cacbe; }
 .docs-prose pre .nb, .docs-prose pre .nf { color: #b5d5fb; }
+
+/* Compact result table for the reproducible feature study. */
+.study-table-wrap { max-width: var(--content); margin: 30px auto 0; overflow-x: auto; }
+.study-results { width: 100%; border-collapse: collapse; background: #fff; color: var(--ink); font-size: 13px; font-variant-numeric: tabular-nums; }
+.study-results th, .study-results td { padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.study-results thead th { background: var(--ink); color: #fff; font-weight: 600; }
+.study-results tbody tr:nth-child(even) { background: #f5f9fd; }
+.study-results tbody tr.focus-row { background: #e6f1fb; font-weight: 600; }
+.study-table-wrap > .caption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.65; }

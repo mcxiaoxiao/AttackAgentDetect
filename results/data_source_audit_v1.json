@@ -1,0 +1,44 @@
+{
+  "audit_date": "2026-10-30",
+  "purpose": "Find public datasets that can support execution-mode identification and behavior-based activity association without mixing incompatible labels.",
+  "sources": [
+    {
+      "name": "Cyber Task Horizons",
+      "url": "https://github.com/lyptus-research/cyber-task-horizons-data",
+      "pinned_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "license": "CC BY 4.0",
+      "used_in_experiments": true,
+      "evaluated_subset": {
+        "records": 177,
+        "task_groups": 40,
+        "human_terminal_records": 57,
+        "agent_tool_call_records": 120,
+        "benchmarks": {
+          "intercode-ctf": {"records": 121, "task_groups": 27},
+          "cybench": {"records": 26, "task_groups": 6},
+          "nyuctf": {"records": 30, "task_groups": 7}
+        }
+      },
+      "labels": "Same benchmark-qualified CTF task is used only as a retrieval proxy. No shared attack, operator, or campaign ground truth is present.",
+      "confounds": "Human records are terminal recordings; Agent records are structured bash tool calls. Capture pathway is confounded with the released mode label."
+    },
+    {
+      "name": "AIT/AECID llm-user-shell-sim",
+      "url": "https://github.com/ait-aecid/llm-user-shell-sim",
+      "reported_logs": ["Linux audit.log", "syslog", "Nextcloud/WordPress application logs"],
+      "reported_tasks": "Human participants and AI agents resolve intentionally introduced faults in Nextcloud and WordPress.",
+      "relevance": "Direct adjacent work on log-based human/AI operational trace distinction; not an attack-activity association dataset.",
+      "license_audit": "Repository README requests citation of the thesis and documentation of modifications, but does not state a data reuse license. The repository LICENSE path returned 404 on 2026-10-30.",
+      "used_in_experiments": false,
+      "decision": "Excluded pending explicit dataset reuse terms. Do not redistribute or train on the logs under the current terms."
+    },
+    {
+      "name": "CAM-LDS v2",
+      "url": "https://zenodo.org/records/18861762",
+      "reported_content": "Synthetic attack logs with attack-step labels.",
+      "used_in_execution_mode_experiments": false,
+      "decision": "It has no verified Human/Script/Agent execution labels. It may support a separate parser or attack-step retrieval study, not the present source-label experiment."
+    }
+  ],
+  "provenance": "The evaluated CTH source files are locally hash-verified by data/raw/cyber-task-horizons/download_manifest.json and data/manifests/crossbenchmark_public_subset.json. Raw trace files remain ignored by Git."
+}

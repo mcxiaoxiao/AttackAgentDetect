@@ -1,0 +1,463 @@
+{
+  "status": "completed exploratory task-disjoint unseen-model transfer",
+  "protocol_version": "agent-model-transfer-v1",
+  "created_utc": "2026-10-30T05:41:08+00:00",
+  "dataset": {
+    "name": "Cyber Task Horizons public CTF traces",
+    "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+    "license": "CC BY 4.0",
+    "records": 177,
+    "task_groups": 40,
+    "mode_capture_confound": "Human terminal records and Agent tool-call records remain capture-path confounded."
+  },
+  "evaluation": {
+    "split": "three benchmark-stratified grouped folds; no benchmark-qualified task appears in both train and test",
+    "test": "held-out Agent model records plus same-task human records only; all other Agent models and training tasks form the training set",
+    "human_row_reuse": "a human record can appear in the test panel for each held-out Agent model; panels are dependent and are not pooled as independent trials",
+    "features": "command TF-IDF, fixed sequence structure, their concatenation; balanced logistic regression",
+    "metrics": "task-macro and equal benchmark weighting; 5,000 task-cluster bootstrap draws within benchmark",
+    "interpretation": "This tests transfer across the three CTH Agent model sources under task separation, but cannot separate model effects from tool-call versus terminal capture."
+  },
+  "fold_audit": [
+    {
+      "heldout_model": "claude-opus-4.6",
+      "fold": 1,
+      "status": "evaluated",
+      "n_train": 88,
+      "n_test": 35,
+      "train_task_groups": 26,
+      "test_task_groups": 14,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "claude-opus-4.6",
+      "fold": 2,
+      "status": "evaluated",
+      "n_train": 95,
+      "n_test": 29,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "claude-opus-4.6",
+      "fold": 3,
+      "status": "evaluated",
+      "n_train": 91,
+      "n_test": 33,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "fold": 1,
+      "status": "evaluated",
+      "n_train": 91,
+      "n_test": 32,
+      "train_task_groups": 26,
+      "test_task_groups": 14,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "fold": 2,
+      "status": "evaluated",
+      "n_train": 93,
+      "n_test": 31,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "fold": 3,
+      "status": "evaluated",
+      "n_train": 90,
+      "n_test": 34,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "fold": 1,
+      "status": "evaluated",
+      "n_train": 90,
+      "n_test": 33,
+      "train_task_groups": 26,
+      "test_task_groups": 14,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "fold": 2,
+      "status": "evaluated",
+      "n_train": 92,
+      "n_test": 32,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "fold": 3,
+      "status": "evaluated",
+      "n_train": 92,
+      "n_test": 32,
+      "train_task_groups": 27,
+      "test_task_groups": 13,
+      "vocabulary_train_only": true,
+      "heldout_model_excluded_from_training": true,
+      "human_test_rows_reused_across_model_panels": true
+    }
+  ],
+  "summary": [
+    {
+      "heldout_model": "claude-opus-4.6",
+      "feature": "F1_command_tfidf",
+      "metrics": {
+        "balanced_accuracy": 0.8134920634920636,
+        "macro_f1": 0.7656084656084655,
+        "auroc": 0.9215167548500882,
+        "human_recall": 0.8641975308641975,
+        "agent_recall": 0.7627865961199295
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.7186948853615521,
+          0.9043209876543209
+        ],
+        "macro_f1": [
+          0.6499103468547913,
+          0.881247795414462
+        ],
+        "auroc": [
+          0.855379188712522,
+          0.9814814814814815
+        ],
+        "human_recall": [
+          0.7345679012345679,
+          0.9876543209876543
+        ],
+        "agent_recall": [
+          0.5873015873015873,
+          0.9135802469135802
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "claude-opus-4.6",
+      "feature": "F2_sequence_structure",
+      "metrics": {
+        "balanced_accuracy": 0.6283068783068783,
+        "macro_f1": 0.5093327454438565,
+        "auroc": 0.7566137566137566,
+        "human_recall": 0.4506172839506173,
+        "agent_recall": 0.8059964726631393
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.558641975308642,
+          0.705026455026455
+        ],
+        "macro_f1": [
+          0.42188308348030573,
+          0.6163576572604347
+        ],
+        "auroc": [
+          0.6049382716049383,
+          0.8844797178130511
+        ],
+        "human_recall": [
+          0.29894179894179895,
+          0.619069664902998
+        ],
+        "agent_recall": [
+          0.673721340388007,
+          0.9153439153439153
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "claude-opus-4.6",
+      "feature": "F3_command_plus_structure",
+      "metrics": {
+        "balanced_accuracy": 0.8055555555555557,
+        "macro_f1": 0.7502939447383893,
+        "auroc": 0.8659611992945327,
+        "human_recall": 0.8051146384479718,
+        "agent_recall": 0.8059964726631393
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.7129519400352733,
+          0.8910934744268078
+        ],
+        "macro_f1": [
+          0.6300058788947678,
+          0.8645509994121103
+        ],
+        "auroc": [
+          0.736331569664903,
+          0.9691358024691358
+        ],
+        "human_recall": [
+          0.6419753086419754,
+          0.9462081128747796
+        ],
+        "agent_recall": [
+          0.673721340388007,
+          0.9259259259259259
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "feature": "F1_command_tfidf",
+      "metrics": {
+        "balanced_accuracy": 0.8820546737213405,
+        "macro_f1": 0.839594356261023,
+        "auroc": 1.0,
+        "human_recall": 0.8443562610229277,
+        "agent_recall": 0.9197530864197532
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.8020282186948853,
+          0.9521604938271605
+        ],
+        "macro_f1": [
+          0.7265138154027042,
+          0.9390946502057612
+        ],
+        "auroc": [
+          1.0,
+          1.0
+        ],
+        "human_recall": [
+          0.6979717813051147,
+          0.9691358024691358
+        ],
+        "agent_recall": [
+          0.7962962962962963,
+          1.0
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "feature": "F2_sequence_structure",
+      "metrics": {
+        "balanced_accuracy": 0.5665784832451499,
+        "macro_f1": 0.49400352733686065,
+        "auroc": 0.6992945326278659,
+        "human_recall": 0.5061728395061729,
+        "agent_recall": 0.626984126984127
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.43959435626102294,
+          0.7001873897707229
+        ],
+        "macro_f1": [
+          0.36210758377425045,
+          0.6372751322751322
+        ],
+        "auroc": [
+          0.5238095238095238,
+          0.8641975308641975
+        ],
+        "human_recall": [
+          0.3368386243386243,
+          0.6869488536155203
+        ],
+        "agent_recall": [
+          0.435626102292769,
+          0.808641975308642
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "claude-sonnet-4.6",
+      "feature": "F3_command_plus_structure",
+      "metrics": {
+        "balanced_accuracy": 0.8150352733686067,
+        "macro_f1": 0.7502351557907113,
+        "auroc": 0.8641975308641975,
+        "human_recall": 0.7702821869488536,
+        "agent_recall": 0.8597883597883599
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.72948082010582,
+          0.8996913580246914
+        ],
+        "macro_f1": [
+          0.6346266901822458,
+          0.8658436213991769
+        ],
+        "auroc": [
+          0.7345679012345679,
+          0.9876543209876543
+        ],
+        "human_recall": [
+          0.6071428571428571,
+          0.9074074074074074
+        ],
+        "agent_recall": [
+          0.7071869488536155,
+          0.9876543209876543
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "feature": "F1_command_tfidf",
+      "metrics": {
+        "balanced_accuracy": 0.871252204585538,
+        "macro_f1": 0.8280717225161669,
+        "auroc": 0.8333333333333334,
+        "human_recall": 0.8659611992945327,
+        "agent_recall": 0.8765432098765432
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.7848214285714286,
+          0.9506172839506174
+        ],
+        "macro_f1": [
+          0.7150668724279836,
+          0.9378600823045268
+        ],
+        "auroc": [
+          0.7222222222222223,
+          0.9444444444444445
+        ],
+        "human_recall": [
+          0.7195767195767195,
+          0.9876543209876543
+        ],
+        "agent_recall": [
+          0.7407407407407408,
+          1.0
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "feature": "F2_sequence_structure",
+      "metrics": {
+        "balanced_accuracy": 0.6459435626102293,
+        "macro_f1": 0.5517783656672545,
+        "auroc": 0.7548500881834216,
+        "human_recall": 0.46913580246913583,
+        "agent_recall": 0.8227513227513228
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.5471560846560847,
+          0.7491181657848326
+        ],
+        "macro_f1": [
+          0.4432866696061141,
+          0.6721641681363903
+        ],
+        "auroc": [
+          0.5899470899470899,
+          0.9135802469135803
+        ],
+        "human_recall": [
+          0.3130511463844797,
+          0.6331569664902998
+        ],
+        "agent_recall": [
+          0.6640211640211641,
+          0.9506172839506174
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    },
+    {
+      "heldout_model": "gpt-5.5",
+      "feature": "F3_command_plus_structure",
+      "metrics": {
+        "balanced_accuracy": 0.8386243386243386,
+        "macro_f1": 0.8033509700176368,
+        "auroc": 0.8888888888888888,
+        "human_recall": 0.7451499118165784,
+        "agent_recall": 0.9320987654320988
+      },
+      "ci95_task_cluster": {
+        "balanced_accuracy": [
+          0.7120701058201058,
+          0.9462081128747796
+        ],
+        "macro_f1": [
+          0.6681363903586126,
+          0.9276895943562611
+        ],
+        "auroc": [
+          0.7777777777777777,
+          1.0
+        ],
+        "human_recall": [
+          0.5705467372134039,
+          0.9082892416225748
+        ],
+        "agent_recall": [
+          0.808641975308642,
+          1.0
+        ]
+      },
+      "task_groups": 40,
+      "records": 97
+    }
+  ],
+  "provenance": {
+    "git_head_at_run": "45488a10f2d1d8bca86b09fefa17079a01b0b6a1",
+    "input_manifest_sha256": {
+      "intercode": "bbb1fc760a2be547009b32b82c52af4f3f3723cd91b49a2239a7f07cfc66a87e",
+      "crossbenchmark": "97b6b1364689d0d407f34129af57204aa797963f4bc0eb474a25689f554bf41c"
+    },
+    "code_sha256": {
+      "runner": "e5f52cc542b2a0e714f4aab53916ad1c7e76be17c82e3c0d3336d3bf72e255db",
+      "features": "d5ad0fba1b88550855701c1c5556f66151a01228a0538ea685cdcd2919dedd3a",
+      "parser": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f"
+    },
+    "python": "3.10.16",
+    "numpy": "2.2.6"
+  },
+  "interpretation_guard": "A held-out Agent model score is not an APT or actor-identification result; source-label and capture path are still confounded."
+}

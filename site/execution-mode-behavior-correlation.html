@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261030-percent-metrics2" rel="stylesheet"/>
 <script defer="True" src="i18n.js"></script><script defer="" src="site.js"></script>
-<link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
+<link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261030-study-results" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
@@ -44,8 +44,42 @@
 </section>
 <section class="section results" id="results">
 <div class="result-intro">
-<h2 data-en-html="Behavior links activity traces.&lt;br&gt;&lt;span&gt;Mode scores reshape cross-mode errors.&lt;/span&gt;">行为线索可以连接活动轨迹。<br/><span>执行方式分数改变跨模式错误剖面。</span></h2>
+<h2 data-en-html="Feature signal.&lt;br&gt;&lt;span&gt;Association trade-offs.&lt;/span&gt;">识别信号。<br/><span>关联代价。</span></h2>
+<p data-en="In 177 public traces from 40 CTF task groups, command TF-IDF separates the released Human and Agent trace labels better than the tested structure-only features. At a 20% training false-merge ceiling, adding mode scores lowers same-task Human–Agent false splits by 12.7 percentage points and raises Hit@1 by 3.6 points, while different-task Human–Agent false merges rise by 11.9 points. The held-out false-merge rate is 24.5% for mode-aware ranking and 23.3% for the behavior ranker.">三个公开 CTF 基准的 177 条轨迹、40 个题目组中，命令 TF-IDF 对发布数据 Human/Agent 标签的区分强于单独的结构统计。在训练误合并目标为 20% 时，加入模式分数使同题 Human–Agent 误拆分下降 12.7 个百分点、Hit@1 提高 3.6 个百分点；异题 Human–Agent 误合并则上升 11.9 个百分点。留出集实际误合并率分别为 24.5% 和 23.3%。</p>
+</div>
+<div class="study-table-wrap">
+<table class="study-results">
+<thead><tr><th data-en="Feature set">特征组</th><th>Logistic BA</th><th>ExtraTrees BA</th></tr></thead>
+<tbody>
+<tr><td>F0 · <span data-en="count + action mix">数量 + 动作组成</span></td><td>0.643</td><td>0.635</td></tr>
+<tr><td>F1 · <span data-en="command TF-IDF">命令 TF-IDF</span></td><td>0.849</td><td>0.866</td></tr>
+<tr><td>F2 · <span data-en="sequence structure">序列结构</span></td><td>0.648</td><td>0.642</td></tr>
+<tr class="focus-row"><td>F3 · <span data-en="command + structure">命令 + 结构</span></td><td>0.828</td><td>0.880</td></tr>
+</tbody></table>
+<p class="caption" data-en="Task-held-out balanced accuracy; intervals and paired feature contrasts are shown in the figure. Structure features add −2.0 pp with logistic regression (95% CI −8.3 to +3.3) and +1.4 pp with ExtraTrees (+0.3 to +2.5).">按题目留出的平衡准确率；图中给出区间与配对特征增量。结构特征在逻辑回归中变化 −2.0 个百分点（95% 区间 −8.3 至 +3.3），在 ExtraTrees 中增加 1.4 个百分点（+0.3 至 +2.5）。</p>
+</div>
+<div class="result-metrics">
+<article class="metric-card blue-card"><span data-en="Same-task H–Agent false split">同题 H–Agent 误拆分</span><strong>−12.7 pp</strong><small data-en="95% task-cluster CI −19.0 to −6.5">95% 任务簇区间 −19.0 至 −6.5</small></article>
+<article class="metric-card mint-card"><span data-en="Different-task H–Agent false merge">异题 H–Agent 误合并</span><strong>+11.9 pp</strong><small data-en="95% task-cluster CI +7.9 to +16.3">95% 任务簇区间 +7.9 至 +16.3</small></article>
+<article class="metric-card orange-card"><span data-en="Hit@1 vs behavior ranker">Hit@1 相对行为排序</span><strong>+3.6 pp</strong><small data-en="95% task-cluster CI +0.6 to +6.8">95% 任务簇区间 +0.6 至 +6.8</small></article>
+</div>
+<div class="result-figures">
+<figure class="diagnostic-figure"><img alt="命令词汇和序列结构特征的任务留出平衡准确率热图，右侧为逻辑回归的结构增量及配对任务区间。" data-en-alt="Task-held-out balanced-accuracy heatmap for command and sequence features, with paired task-cluster intervals for the logistic-regression structure increment." src="assets/feature_ablation_v1.png"/><figcaption data-en="Command vocabulary carries most of the measured source-label signal. The right panel shows logistic regression; the full-cohort comparison in the heatmap includes both classifiers. Sequence structure adds no consistent gain across classifiers; labels remain confounded with capture path.">当前可见的标签信号主要来自命令词汇。图右侧增量面板为逻辑回归，热图列出两种分类器完整样本的结果。序列结构未在两类分类器中带来一致增量；标签仍与采集路径混杂。</figcaption></figure>
+<figure class="diagnostic-figure"><img alt="在相同可评估任务队列中比较完整命令轨迹与前缀，以及前四条命令的顺序打乱对照。" data-en-alt="Matched-cohort comparison of full command traces and prefixes, plus order randomization on the first four commands." src="assets/feature_budget_order_v1.png"/><figcaption data-en="More observed commands help the lexical model in the four-command cohort; ordered-versus-shuffled intervals cross zero.">在四命令队列中，更多命令有利于词汇模型；原序列与打乱序列的区间跨零。</figcaption></figure>
+<figure class="diagnostic-figure"><img alt="20% 训练误合并目标下五种排序方法的留出误拆分率、误合并率和排序指标。" data-en-alt="Held-out false-split, false-merge, and retrieval metrics for five rankers at a 20% training false-merge target." src="assets/association_operating_points_v1.png"/><figcaption data-en="Thresholds are selected on inner training tasks. The target is not forced on the test fold; realized error rates are reported.">阈值仅由内层训练任务选择；测试折不强行满足训练目标，图中报告留出集实际错误率。</figcaption></figure>
+</div>
+<div class="metric-explain">
+<article><h3 data-en="What was tested">实验检验了什么</h3><p data-en="The three-fold outer split holds out whole benchmark-qualified tasks. All rankers use the same mixed Human/Agent candidate gallery; mode labels never filter candidates. Same task is a same-challenge retrieval proxy, not a shared intrusion or campaign label.">外层三折按 benchmark/task 整组留出。所有排序器使用同一个 Human/Agent 混合候选库，执行方式标签不筛候选。同题仅为同一挑战题的检索代理，不表示同一入侵或 campaign。</p></article>
+<article><h3 data-en="What changes with mode scores">加入模式分数后发生什么</h3><p data-en="At the training-selected 20% false-merge ceiling, the mode-aware ranker improves Hit@1 over the behavior ranker, chiefly by linking more same-task cross-mode pairs. It also links more different-task cross-mode pairs. Command cosine remains competitive and has a lower held-out false-merge rate.">在训练侧选择的 20% 误合并目标下，模式增强排序比行为排序有更高 Hit@1，主要体现在更多同题跨模式配对被连起；但更多异题跨模式配对也被误连。命令余弦仍有竞争力，且留出集误合并率更低。</p></article>
+<article><h3 data-en="Data and interpretation">数据与解释</h3><p data-en="Human terminal records and Agent tool-call logs come from different capture interfaces. The data contain no script execution group or independent attack-activity IDs. The measured differences therefore motivate matched-telemetry tests; they do not estimate real APT association errors.">人类终端记录与 Agent 工具调用来自不同采集接口。数据没有脚本执行组，也没有独立攻击活动 ID。当前差异为统一遥测实验提供动机，不是现实 APT 关联错误率的估计。</p></article>
+</div>
+<div class="result-links"><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/11-%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E8%A1%8C%E4%B8%BA%E5%85%B3%E8%81%94-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Full report and reproduction">完整报告与复现说明</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/notebooks/09_feature_ablation_v1.ipynb">Feature Notebook</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/notebooks/10_association_operating_points_v1.ipynb">Association Notebook</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/run_feature_ablation.py">Feature runner</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/run_association_operating_points.py">Association runner</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/plot_feature_ablation.py">Feature figure code</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/scripts/plot_association_operating_points.py">Association figure code</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/results" data-en="Machine-readable results">机器可读结果</a></div>
+</section>
+<section class="section results" id="historical-gallery">
+<div class="result-intro">
+<h2 data-en-html="Earlier mixed-gallery protocol.&lt;br&gt;&lt;span&gt;Split-sensitive retrieval results.&lt;/span&gt;">较早的混合候选协议。<br/><span>检索结果对划分敏感。</span></h2>
 <p data-en="In a mixed gallery of 177 public traces across 40 CTF task groups, mode-aware ranking reaches 60.7% Hit@1 on the pre-fixed split. Its paired gain over a task-supervised behavior ranker is +3.6 percentage points (95% task-cluster interval +0.6 to +6.9 percentage points), but only +0.8 percentage points over command cosine (interval −4.6 to +5.9 percentage points). Across five alternate task splits, the mean gain over the task-only ranker is −0.7 percentage points (−2.6 to +1.2 percentage points).">在 40 个 CTF 任务组的 177 条公开轨迹混合候选库中，预设主划分的模式感知排序 Hit@1 为 60.7%。相对任务监督行为排序器增加 3.6 个百分点（95% 任务簇区间 +0.6 至 +6.9 个百分点）；相对命令余弦只增加 0.8 个百分点（区间 −4.6 至 +5.9 个百分点）。五个替代划分相对任务监督排序器的增量均值为 −0.7 个百分点（−2.6 至 +1.2 个百分点）。</p>
+<p class="caption" data-en="This earlier retrieval protocol uses a different split summary and threshold objective. Its estimates are retained for audit and are not pooled with the current fixed-operating-point experiment.">这项早期检索协议使用不同的划分汇总方式和阈值目标。结果保留供追溯，不与当前固定工作点实验合并。</p>
 </div>
 <div class="result-figures">
 <figure class="diagnostic-figure"><img alt="各基准任务宏平均 Hit at 1 热图，以及预设主划分和五个替代划分相对行为排序的配对变化区间。" data-en-alt="Task-macro Hit@1 heatmap by benchmark and paired mode-score changes on the primary split and five alternate splits." src="assets/mixed_gallery_retrieval.png"/><figcaption data-en="All held-out queries rank every other trace in the same benchmark and fold. The primary split is positive against one supervised baseline; the repeated-split mean crosses zero.">所有留出查询都在同基准、同留出折的其他轨迹中排序。主划分相对一个监督基线为正，重复划分均值区间跨零。</figcaption></figure>
@@ -86,7 +120,7 @@
 </div>
 <aside class="margin-note blue-note">
 <b data-en="Fixed task split">固定任务划分</b>
-<p data-en="Each task group stays within one of three outer folds. Results include five alternate split seeds; intervals use 5,000 task-cluster bootstrap samples.">每个题目组只落在三折外层中的一折。另跑五个替代划分；区间来自 5,000 次任务簇 bootstrap。</p>
+<p data-en="Feature classification averages six task-grouped split seeds. Association uses a fixed three-fold outer split with nested threshold selection. Intervals use 5,000 task-cluster bootstrap samples.">特征分类汇总六个按任务分组的划分种子；关联实验使用固定三折外层留出和嵌套阈值选择。区间使用 5,000 次任务簇 bootstrap。</p>
 </aside>
 </div>
 <div class="data-grid">
@@ -197,8 +231,8 @@ python3 -m venv .venv
 <li data-signal-step="1"><strong data-en="Audit and match">审计与配对</strong><span data-en="177 non-empty traces: 57 human terminal records and 120 Agent bash records. 40 matched task groups: InterCode 27, CyBench 6, NYUCTF 7.">177 条非空轨迹：57 条人类终端记录、120 条 Agent bash 记录。40 个同题任务组：InterCode 27、CyBench 6、NYUCTF 7。</span><code>matched_task_groups=40</code></li>
 <li data-signal-step="2"><strong data-en="Extract features">提取特征</strong><span data-en="Only command names and coarse action sequences feed the features. The 300 Python tool calls do not enter the primary features; prompts, task text, outputs, and model names are never used.">特征只使用命令名和粗粒度动作序列；300 次 Python 工具调用不进入主特征，提示词、任务文字、输出和模型名也不参与。</span><code>cmd uni/bi · action bi</code></li>
 <li data-signal-step="3"><strong data-en="Mixed-gallery evaluation">混合候选评估</strong><span data-en="Benchmark-stratified three-fold task holdout; each query ranks every other Human and Agent trace in the same benchmark and fold. Intervals use 5,000 task-cluster bootstrap samples; five alternate seeds check split sensitivity.">按基准分层做三折任务留出；每条查询都在同基准、同留出折的所有其他 Human 与 Agent 轨迹中排序。区间来自 5,000 次任务簇 bootstrap；另用五个随机种子检查划分敏感性。</span><code>3 folds · 5 seeds · 5,000 bootstrap</code></li>
-<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="On the primary split, mode-aware Hit@1 is 60.7%, a +3.6 percentage-point change over one task-supervised ranker. The five-split mean change is −0.7 percentage points with an interval crossing zero. Same-task relevance is only a CTF challenge proxy; capture pathway remains confounded with mode.">主划分的模式感知 Hit@1 为 60.7%，相对一个任务监督排序器增加 3.6 个百分点；五个替代划分均值为 −0.7 个百分点，区间跨零。同题相关性只是 CTF 题目代理标签，采集方式仍与执行模式混杂。</span><code>primary +3.6 percentage points · split mean −0.7 percentage points</code></li>
-</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Three task-grouped folds · 5,000 task-cluster bootstrap replicates." data-sequence-status="" role="status">三折按任务留出 · 5,000 次任务簇 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow follows the repository scripts and result JSON. Recompute the current mixed-gallery study with scripts/run_mixed_gallery.py; playback shows research steps only, not runtime latency.">流程依据仓库脚本和结果 JSON 整理；运行 scripts/run_mixed_gallery.py 可重算当前混合候选实验。播放只展示步骤顺序，不代表运行耗时。</p></div>
+<li data-signal-step="4"><strong data-en="Results and limits">结果与边界</strong><span data-en="At a 20% training false-merge target, mode-aware ranking lowers same-task Human–Agent false splits by 12.7 percentage points and raises different-task Human–Agent false merges by 11.9 points. Same-task relevance is a CTF challenge proxy; capture path is confounded with mode.">在训练误合并目标 20% 下，模式增强排序使同题 Human–Agent 误拆分下降 12.7 个百分点，异题 Human–Agent 误合并上升 11.9 个百分点。同题相关性只是 CTF 题目代理标签，采集方式仍与执行模式混杂。</span><code>same-task H–A false split −12.7 pp · different-task false merge +11.9 pp</code></li>
+</ol><div aria-hidden="true" class="demo-time-rule"><i></i></div><div class="demo-timeline-action"><button class="button secondary" data-en="Play research workflow" data-play-sequence="" type="button">播放研究流程</button><span data-en="Nested task-held-out thresholds · 5,000 task-cluster bootstrap replicates." data-sequence-status="" role="status">嵌套任务留出阈值 · 5,000 次任务簇 bootstrap</span></div><p class="demo-timeline-note" data-en="The workflow follows the repository scripts and result JSON. Recompute the current fixed-operating-point study with scripts/run_association_operating_points.py; playback shows research steps only, not runtime latency.">流程依据仓库脚本和结果 JSON 整理；运行 scripts/run_association_operating_points.py 可重算当前固定工作点实验。播放只展示步骤顺序，不代表运行耗时。</p></div>
 </div>
 <div aria-labelledby="demo-tab-match" class="demo-panel" hidden="" id="demo-match" role="tabpanel" tabindex="0">
 <p class="demo-say" data-en="Compare actual command sequences. A similar trace is a lead to inspect, not proof of a shared attacker.">比较真实命令序列。轨迹相似只是检查线索，不能证明是同一攻击者。</p>
@@ -328,7 +362,7 @@ python3 -m venv .venv
 </div>
 </details>
 </div>
-<p class="related-conclusion" data-en="Related work connects logs and activities through behavioral similarity, attack stages, and causality. Existing public evaluations do not compare correlation errors across human, scripted, and agent execution. The next step is to test these differences under shared telemetry and activity labels.">相关研究通过行为相似、攻击步骤和因果关系连接日志与活动；现有公开评估还没有按人、脚本和 Agent 执行方式比较关联错误。下一步是在统一遥测和活动标签下检验这些差异。</p>
+<p class="related-conclusion" data-en="The activity-correlation studies reviewed here use behavior, attack stages, and causality, while the closest Human/LLM log-identification study targets IT troubleshooting. The two lines have not yet been evaluated together on matched attack telemetry with activity labels. A joint evaluation can test whether execution mode changes association decisions.">本文整理的活动关联研究使用行为、攻击步骤和因果关系；最接近的 Human/LLM 日志识别研究则针对 IT 运维故障排查。两条研究线尚未在带活动标签的统一攻击遥测上结合评估，联合实验可检验执行方式是否改变关联判断。</p>
 </section><footer><div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
 <a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
 <span aria-hidden="true" class="footer-cross">×</span>

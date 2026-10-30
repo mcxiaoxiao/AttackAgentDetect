@@ -53,3 +53,26 @@ The 95\% intervals use 5,000 paired task-cluster bootstrap samples within benchm
 \end{verbatim}
 
 The mixed-gallery run writes \texttt{results/mixed\_gallery.json}, task/query CSVs, held-out mode predictions, and three PDF/PNG figures. The association-error run writes \texttt{results/association\_error\_analysis.json}, pair-score, task-metric, and threshold CSVs, plus a PDF/PNG error-profile figure. Both result JSON files record the data revision, protocol version, evaluation definition, bootstrap method, and source hash. Figure-generation code remains in the corresponding experiment scripts.
+
+\section{Follow-up feature and association protocol}
+
+\paragraph{Feature ablation.} Four fixed inputs are compared: F0, log command count plus action proportions; F1, command-name TF--IDF unigrams and bigrams; F2, sequence transition, repetition, uniqueness, run-length, and short-trace statistics without command count; and F3, F1 concatenated with F2. Balanced logistic regression ($C=1$) and ExtraTrees (300 trees, depth 8, minimum leaf 3) are evaluated on six three-fold task-grouped splits. Vectorizers and models are fit only on training tasks. Estimates average each task across the six split seeds before a 5,000-draw benchmark-stratified task bootstrap. Repeated seeds are split-sensitivity checks, not independent replications.
+
+\paragraph{Observation and order controls.} Prefix comparisons use matched task cohorts: 175 traces in 40 tasks for the two-command comparison, and 99 traces in 25 tasks for the four-command comparison. Full traces and prefixes are re-evaluated under the same task splits. On the four-command cohort, five fixed seeds shuffle aligned command/action events while preserving their counts. Paired intervals resample tasks within benchmark.
+
+\paragraph{Model-source transfer.} Claude Opus, Claude Sonnet, and GPT-5.5 are each held out in turn. Tasks are also held out from training; test sets pair the held-out model's Agent traces with same-task Human records. Human test records recur across the three model panels, so the panels are dependent. This diagnoses model-source transfer on the current corpus rather than external validation.
+
+\paragraph{Fixed-operating-point association.} The outer split uses three benchmark-stratified task folds with seed \texttt{20261030}. Each threshold is selected from inner task-held-out training predictions to minimize false splits subject to a task-macro false-merge ceiling of 10\%, 20\%, or 30\%. The 20\% ceiling is primary. Five methods share the same held-out candidates: command cosine, a behavior ranker containing command, action-bigram, ProcGrep, and length similarities, the behavior ranker plus fixed sequence statistics, the behavior ranker plus out-of-fold mode-agreement features, and a length-only control. Candidate inclusion is not conditioned on mode. Test false-merge rates are reported as observed and may differ from the training ceiling. Same-task is a CTF challenge proxy. Results use 5,000 paired task-cluster bootstrap draws conditional on the fitted outer folds.
+
+\paragraph{Reproduction.} With the pinned traces in the ignored \texttt{data/} directory, run:
+
+\begin{verbatim}
+.venv/bin/python scripts/run_feature_ablation.py
+.venv/bin/python scripts/summarize_feature_contrasts.py
+.venv/bin/python scripts/run_agent_model_transfer.py --bootstraps 5000
+.venv/bin/python scripts/run_association_operating_points.py --bootstraps 5000 --threshold-grid 101
+.venv/bin/python scripts/plot_feature_ablation.py
+.venv/bin/python scripts/plot_association_operating_points.py
+\end{verbatim}
+
+The feature and association notebooks are \texttt{notebooks/09\_feature\_ablation\_v1.ipynb} and \texttt{notebooks/10\_association\_operating\_points\_v1.ipynb}. Derived tables, predictions, thresholds, task-level scores, and figure-generation code are retained in \texttt{results/} and \texttt{scripts/}.

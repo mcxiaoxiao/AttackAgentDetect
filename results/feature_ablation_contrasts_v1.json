@@ -1,0 +1,174 @@
+{
+  "status": "derived paired contrasts from task-held-out predictions; no model refit",
+  "protocol_version": "feature-contrasts-v1",
+  "created_utc": "2026-10-30T05:40:43+00:00",
+  "source": "results/feature_ablation_task_metrics_v1.csv; task groups matched across conditions",
+  "metric": "task-macro balanced accuracy, then equal benchmark weighting",
+  "contrasts": {
+    "feature_increment": {
+      "logistic": {
+        "F3_minus_F1": {
+          "estimate": -0.020159709974524792,
+          "ci_95": [
+            -0.08255131785224377,
+            0.03289976484420925
+          ],
+          "task_groups": 40,
+          "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+          "bootstrap_draws": 5000,
+          "direction": "left minus right"
+        },
+        "F1_balanced_accuracy": 0.848593964334705,
+        "F3_balanced_accuracy": 0.8284342543601803,
+        "task_groups": 40,
+        "split_seeds_averaged": 6
+      },
+      "extra_trees": {
+        "F3_minus_F1": {
+          "estimate": 0.013717421124828532,
+          "ci_95": [
+            0.003257887517146779,
+            0.024867112482853167
+          ],
+          "task_groups": 40,
+          "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+          "bootstrap_draws": 5000,
+          "direction": "left minus right"
+        },
+        "F1_balanced_accuracy": 0.8658387223202038,
+        "F3_balanced_accuracy": 0.8795561434450322,
+        "task_groups": 40,
+        "split_seeds_averaged": 6
+      }
+    },
+    "observation_budget": {
+      "minimum_2": {
+        "eligible_task_groups": 40,
+        "eligible_records": 175,
+        "features": {
+          "F1_command_tfidf": {
+            "full_balanced_accuracy": 0.8580246913580246,
+            "prefix_balanced_accuracy": 0.8065108759553202,
+            "full_minus_prefix": {
+              "estimate": 0.0515138154027043,
+              "ci_95": [
+                -0.01859384185773074,
+                0.1303681657848324
+              ],
+              "task_groups": 40,
+              "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+              "bootstrap_draws": 5000,
+              "direction": "left minus right"
+            }
+          },
+          "F3_command_plus_structure": {
+            "full_balanced_accuracy": 0.8422986478542033,
+            "prefix_balanced_accuracy": 0.8018812463256907,
+            "full_minus_prefix": {
+              "estimate": 0.04041740152851265,
+              "ci_95": [
+                -0.020285861258083467,
+                0.10126763668430333
+              ],
+              "task_groups": 40,
+              "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+              "bootstrap_draws": 5000,
+              "direction": "left minus right"
+            }
+          }
+        }
+      },
+      "minimum_4": {
+        "eligible_task_groups": 25,
+        "eligible_records": 99,
+        "features": {
+          "F1_command_tfidf": {
+            "full_balanced_accuracy": 0.9206349206349206,
+            "prefix_balanced_accuracy": 0.8321428571428572,
+            "full_minus_prefix": {
+              "estimate": 0.0884920634920635,
+              "ci_95": [
+                0.02037037037037036,
+                0.15714285714285714
+              ],
+              "task_groups": 25,
+              "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+              "bootstrap_draws": 5000,
+              "direction": "left minus right"
+            }
+          },
+          "F3_command_plus_structure": {
+            "full_balanced_accuracy": 0.8706349206349207,
+            "prefix_balanced_accuracy": 0.807142857142857,
+            "full_minus_prefix": {
+              "estimate": 0.06349206349206349,
+              "ci_95": [
+                -0.06006283068783069,
+                0.18532076719576715
+              ],
+              "task_groups": 25,
+              "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+              "bootstrap_draws": 5000,
+              "direction": "left minus right"
+            }
+          }
+        }
+      }
+    },
+    "order_randomization": {
+      "F1_command_tfidf": {
+        "ordered_balanced_accuracy": 0.8321428571428572,
+        "five_shuffle_mean_balanced_accuracy": 0.8007671957671958,
+        "ordered_minus_shuffle": {
+          "estimate": 0.03137566137566138,
+          "ci_95": [
+            -0.0007949735449735368,
+            0.06423280423280424
+          ],
+          "task_groups": 25,
+          "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+          "bootstrap_draws": 5000,
+          "direction": "left minus right"
+        },
+        "shuffle_seeds": [
+          17,
+          29,
+          43,
+          71,
+          101
+        ],
+        "task_groups": 25
+      },
+      "F3_command_plus_structure": {
+        "ordered_balanced_accuracy": 0.807142857142857,
+        "five_shuffle_mean_balanced_accuracy": 0.80010582010582,
+        "ordered_minus_shuffle": {
+          "estimate": 0.007037037037037057,
+          "ci_95": [
+            -0.03317592592592591,
+            0.04944576719576719
+          ],
+          "task_groups": 25,
+          "bootstrap_unit": "paired benchmark-qualified task, resampled within benchmark",
+          "bootstrap_draws": 5000,
+          "direction": "left minus right"
+        },
+        "shuffle_seeds": [
+          17,
+          29,
+          43,
+          71,
+          101
+        ],
+        "task_groups": 25
+      }
+    }
+  },
+  "provenance": {
+    "git_head_at_run": "45488a10f2d1d8bca86b09fefa17079a01b0b6a1",
+    "input_sha256": "d661f58044c4e9cb760c81470a54e18e66c16e2a8a0b96aa6b30d035014a9070",
+    "script_sha256": "bb74da696d85afce490730fbfc977bf0bb8ec32c8b9358f8b480771e7c35d88b",
+    "bootstrap_unit": "benchmark-qualified task, resampled within benchmark",
+    "draws": 5000
+  }
+}

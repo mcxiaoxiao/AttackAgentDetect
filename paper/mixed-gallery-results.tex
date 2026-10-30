@@ -2,7 +2,7 @@
 
 Attack investigation links dispersed events into activity candidates before analysts make higher-level judgments about campaigns or organizations. This is an established computational task: HOLMES correlates suspicious information flows in host-audit traces to produce campaign evidence; OSTINATO compares behavior and TTPs across hosts; POIROT and ActMiner align CTI-derived attack graphs with provenance graphs; HERCULE, ATLAS, and FALCON reconstruct multi-stage attack stories from correlated logs \cite{holmes,ostinato,poirot,actminer,hercule,atlas,falcon}. These methods use command or event sequences, TTPs, entity relations, and causal structure as evidence. Their evaluation targets differ, but each demonstrates a concrete role for behavioral association in investigation. Practitioner frameworks likewise track activity clusters before assigning named actors \cite{unit42}.
 
-Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. This motivates a testable extension to behavior-based correlation: execution mode may contextualize the behavior evidence used to connect activity fragments. If mode changes the representation of a shared activity, a ranker may split related traces; if separate activities share an execution template, it may over-link them. We test whether a mode score adds retrieval information beyond behavioral similarity. The study does not assume either error mechanism in advance.
+Execution mode is now part of the observable threat narrative. Anthropic's 2025 report describes human operators coordinating Claude Code agents and MCP tools across a multi-stage campaign; MITRE records the activity as Campaign C0062 \cite{anthropic,mitrec0062}. AIT/AECID also provides adjacent log-based Human/LLM classification for IT troubleshooting, but does not evaluate attack activity association \cite{ait}. We therefore test a narrower extension: whether execution mode changes the behavior evidence used to connect activity traces.
 
 \section{Data and protocol}
 
@@ -33,6 +33,8 @@ The primary protocol uses three benchmark-stratified outer folds grouped by benc
 The behavior ranker combines command cosine, ordered action-bigram cosine, ProcGrep BPE/Jensen--Shannon similarity, and command-length similarity. A task-supervised ranker learns from same-task versus different-task pairs. The mode-aware ranker adds execution-mode scores generated out of fold within each training partition. Pair labels depend only on task identity; test labels and source metadata are excluded from inference. ProcGrep is a pinned third-party adaptation, not a method introduced by this project.
 
 \section{Results}
+
+\subsection{Initial mixed-gallery retrieval protocol}
 
 The mixed gallery gives a random-ranking \Hit{} of 0.189. Command cosine reaches 0.600; ProcGrep reaches 0.594; the task-supervised behavior ranker reaches 0.571. Mode-aware ranking is highest on the fixed primary split at 0.607, a +0.036 paired change over the task-supervised ranker (95\% CI [+0.006, +0.069]). Against command cosine, the change is +0.008 (95\% CI [−0.046, +0.059]). Across the five alternate splits, the mode-aware minus task-supervised change averages −0.007 (95\% CI [−0.026, +0.012]). The positive primary-split estimate therefore does not persist across the split-sensitivity check.
 
@@ -106,6 +108,72 @@ Length-only control & 0.195 [0.122, 0.277] & 0.600 [0.506, 0.689] & 0.602 [0.531
 \label{fig:association-errors}
 \end{figure}
 
+\subsection{Feature signal and fixed-operating-point association}
+
+We next isolate the information source and evaluate association decisions at a shared training-side false-merge target. On task-held-out traces, command TF--IDF reaches balanced accuracy (BA) 0.849 with logistic regression and 0.866 with ExtraTrees. Fixed sequence statistics alone reach 0.648 and 0.642. Adding these statistics changes BA by $-2.0$ points for logistic regression (95\% task-cluster CI [$-8.3$, $+3.3$]) and $+1.4$ points for ExtraTrees ([$+0.3$, $+2.5$]); their contribution is classifier-dependent.
+
+\begin{table}[t]
+\centering
+\caption{Task-held-out execution-mode source-label classification. Values are task-macro BA with 95\% task-cluster intervals.}
+\label{tab:feature-ablation}
+\small
+\rowcolors{2}{PaleGray}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrr}
+\toprule
+\rowcolor{InkBlue}\textcolor{white}{Features} & \textcolor{white}{Logistic regression} & \textcolor{white}{ExtraTrees} \\
+\midrule
+Count and action mix & 0.643 [0.593, 0.696] & 0.635 [0.565, 0.711] \\
+Command TF--IDF & 0.849 [0.774, 0.917] & 0.866 [0.796, 0.926] \\
+Sequence structure & 0.648 [0.576, 0.725] & 0.642 [0.589, 0.703] \\
+\rowcolor{PaleBlue}\textbf{Command + structure} & \textbf{0.828 [0.756, 0.897]} & \textbf{0.880 [0.809, 0.938]} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+On the matched cohort with at least four commands (99 traces, 25 tasks), full command sequences outperform their first-four-command prefixes by 8.8 points for TF--IDF (95\% CI [+2.0, +15.7]); shuffling command order yields a +3.1-point change whose interval crosses zero. These results locate most measured separability in command content and observation amount, not a stable order signature.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{feature_ablation_v1.pdf}
+\caption{Source-label separability and paired feature increments. The right panel shows the logistic-regression increment across matched cohorts; the left panel reports both classifiers. Labels remain confounded with capture interface.}
+\label{fig:feature-ablation}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{feature_budget_order_v1.pdf}
+\caption{Matched-cohort changes from observing full traces instead of prefixes and from preserving versus shuffling command order.}
+\label{fig:feature-budget-order}
+\end{figure}
+
+For association, thresholds are selected within each outer training fold to keep task-macro false merges at or below 20\%, then minimize false splits. At this operating point, mode-aware ranking attains Hit@1 0.607 versus 0.571 for the behavior ranker (paired change +3.6 points, 95\% CI [+0.6, +6.8]). Same-task Human--Agent false splits fall by 12.7 points ([$-19.0$, $-6.5$]), while different-task Human--Agent false merges rise by 11.9 points ([$+7.9$, $+16.3$]). The realized test false-merge rates are 24.5\% for mode-aware and 23.3\% for behavior ranking, since the 20\% ceiling is imposed on training data. Command cosine remains competitive (Hit@1 0.600; false merges 10.1\%).
+
+\begin{table}[t]
+\centering
+\caption{Association results at a 20\% training false-merge target. Entries are task-macro test estimates with 95\% task-cluster intervals.}
+\label{tab:operating-point}
+\small
+\rowcolors{2}{PaleGray}{white}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrr}
+\toprule
+\rowcolor{InkBlue}\textcolor{white}{Ranker} & \textcolor{white}{False split} & \textcolor{white}{False merge} & \textcolor{white}{Hit@1} \\
+\midrule
+Command cosine & 0.585 [0.471, 0.696] & 0.101 [0.075, 0.126] & 0.600 [0.500, 0.688] \\
+Behavior & 0.457 [0.357, 0.563] & 0.233 [0.162, 0.307] & 0.571 [0.485, 0.653] \\
+Structure-aware & 0.483 [0.375, 0.593] & 0.218 [0.140, 0.301] & 0.584 [0.482, 0.670] \\
+\rowcolor{PaleBlue}\textbf{Mode-aware} & \textbf{0.416 [0.308, 0.528]} & \textbf{0.245 [0.169, 0.326]} & \textbf{0.607 [0.507, 0.689]} \\
+Length control & 0.586 [0.535, 0.637] & 0.240 [0.182, 0.298] & 0.514 [0.432, 0.603] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{association_operating_points_v1.pdf}
+\caption{Held-out proxy errors and retrieval at the shared training-side 20\% false-merge target. Candidate galleries are identical across methods.}
+\label{fig:operating-points}
+\end{figure}
+
 \section{Conclusion}
 
-Prior attack-investigation systems connect host behavior through event sequences, TTP patterns, entity relations, and causal provenance. We test execution mode as additional context for these associations. In the public CTF proxy evaluation, mode-aware ranking reduces same-task cross-mode false splits but increases different-task cross-mode false merges; its overall balanced accuracy is not clearly above command cosine. These outcomes identify a specific tradeoff for a controlled follow-up: repeated human, script, and Agent executions under one sensor pipeline, labeled with independent activity identifiers, so both errors can be measured at the activity level.
+Security investigations already use sequences, TTPs, and causal relations to associate activity evidence. These experiments show that execution-mode scores can shift this association profile: in the CTF same-challenge proxy, mode-aware ranking recovers more same-task Human--Agent pairs and also introduces more cross-task Human--Agent links. Command vocabulary supplies most of the measured classification signal; sequence statistics add no classifier-independent gain. The results support evaluating execution mode as an explicit association context. The next decisive evaluation requires human, scripted, and Agent executions under one sensor pipeline with independently labeled activities.

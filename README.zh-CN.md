@@ -12,13 +12,13 @@
 
 项目提供安全日志标准化、行为比较与候选活动排序等可复用接口，并开放实验协议、代码和结果，供研究者检查和扩展。选题依据来自两类证据：HOLMES、OSTINATO、POIROT、ATLAS、ActMiner 等工作使用审计行为、序列、TTP、实体或因果图连接攻击证据；公开威胁报告也开始记录人类操作员通过 Agent 执行多阶段操作。库中会区分外部方法、项目适配与本项目实验基线。
 
-当前可复现实验使用三个公开 CTF 基准，共 177 条人类与 Agent 轨迹、40 个题目组。混合候选库中，模式感知排序 Hit@1 为 0.607，任务监督行为排序为 0.571，配对增量 +0.036（95% 任务簇区间 `[+0.006, +0.069]`）；相对命令余弦的增量仅 +0.008（95% `[−0.046, +0.059]`）。五个替代任务划分的平均增量为 −0.007（95% `[−0.026, +0.012]`）。因此当前结果对划分敏感，尚不能建立稳定关联收益。同一题目 ID 只是同题代理标签；人类终端记录与 Agent 工具调用采集路径和标签共线，也没有脚本组。详见[关联分析文献与混合候选实验](09-关联分析文献与混合候选实验.md)。
+已完成的 CPU 实验使用三个公开 CTF 基准，共 177 条人类与 Agent 轨迹、40 个题目组。命令 TF-IDF 是当前最强的单组识别特征（任务留出平衡准确率 0.85–0.87）；加入固定序列统计后的变化取决于分类器。在训练误合并目标为 20% 时，模式增强排序相对行为排序器使同题 Human–Agent 误拆分下降 12.7 个百分点、Hit@1 上升 3.6 个百分点；异题 Human–Agent 误合并同时上升 11.9 个百分点。测试集实际误合并率分别为 24.5% 和 23.3%。这支持把执行方式作为关联上下文继续评估，不支持把它当作普遍有效的修正项。同题标签只是 CTF 挑战代理；人类终端记录和 Agent 工具调用的采集方式与标签共线，也没有脚本组。完整协议、结果、图片和边界见[本轮实验记录](11-执行方式特征与行为关联-实验结果.md)。
 
-新增的嵌套阈值实验直接拆分配对误差：模式增强排序的任务宏平衡准确率为 0.669，较任务监督行为排序高 5.7 个百分点（配对 95% 任务簇区间 `[+3.4, +8.1]`）；相对命令余弦只高 0.6 个百分点（`[−4.1, +4.8]`）。在同题 H–Agent 配对上，误拆分下降 12.6 个百分点；在异题 H–Agent 配对上，误合并增加 8.4 个百分点。它表明模式信息改变跨模式关联的错误取舍，但仍只是 CTF 同题代理结果。详见[逐对结果、实验协议和复现产物](09-关联分析文献与混合候选实验.md#新增实验训练侧阈值下的误拆分与误合并)。
+此前的混合候选实验作为单独历史协议保留：预设主划分的模式感知 Hit@1 为 0.607，任务监督排序为 0.571；五个替代划分上的平均增量为 −0.007。其阈值目标不同，不能与上面的固定工作点实验合并。详见[早期关联文献与实验报告](09-关联分析文献与混合候选实验.md)。
 
-数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：PicoCTF 衍生的 InterCode-CTF、来自四项竞赛的 CyBench，以及 NYU CTF Bench。保留三套基准中同时有人类专家和 Agent 记录的 40 个 benchmark-qualified 题目组。来源、过滤、哈希、标签和切分协议见当前[研究报告](09-关联分析文献与混合候选实验.md)。
+数据来自固定版本的 [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data)：PicoCTF 衍生的 InterCode-CTF、来自四项竞赛的 CyBench，以及 NYU CTF Bench。保留三套基准中同时有人类专家和 Agent 记录的 40 个 benchmark-qualified 题目组。来源、过滤、哈希、标签和切分协议见[本轮实验报告](11-执行方式特征与行为关联-实验结果.md)。
 
-执行方式分类头在当前三折任务留出诊断中的记录级混淆矩阵为 `[[43, 14], [8, 112]]`（Human/Agent 行），平衡准确率 0.844。由于类别与采集路径一致，这只能说明该发布中的两类记录可区分，不能说明模型已识别真实操作者。此前实验保留为历史协议，不能与当前混合候选结果合并。
+较早混合候选协议的主划分记录级混淆矩阵为 `[[43, 14], [8, 112]]`（Human/Agent 行，平衡准确率 0.844）。由于类别与采集路径一致，这只能说明该发布中的两类记录可区分，不能说明模型已识别真实操作者。该协议保留为历史结果，不与当前特征比较和固定工作点关联实验合并。
 
 **PyPI 计划于 2027 年发布。** 当前已可从源码构建 wheel 并通过隔离安装目录的 CLI 冒烟检查，但尚未上传 PyPI。
 
@@ -27,7 +27,8 @@
 - [研究框架与八小时探索计划](00-研究计划.md)
 - [主要实验预设](01-实验预设.md)
 - [相关工作与初步实验](04-相关工作与初步实验.md)
-- [下一轮实验：识别特征与关联效用](10-下一轮实验计划-识别特征与关联效用.md)
+- [已完成的识别特征与关联效用实验](11-执行方式特征与行为关联-实验结果.md)
+- [本轮实验预设与计划](10-下一轮实验计划-识别特征与关联效用.md)
 - [上一轮受控实验计划（历史）](07-后续实验推进计划.md)
 - [当前关联文献与混合候选实验](09-关联分析文献与混合候选实验.md)
 - [跨基准原型结果与特异性对照](06-原型与跨基准实验结果.md)、[机器可读对照结果](results/specificity_controls.json)
@@ -42,6 +43,8 @@
 - [置换诊断 Notebook](notebooks/04_mode_label_permutation.ipynb)、[未见模型来源 Notebook](notebooks/05_unseen_agent_model.ipynb)
 - [数据审计](results/data-audit.json)、[主要基线](results/preliminary.json)、[事后诊断](results/sensitivity.json)与 [Trace 风格迁移检查](results/trace-baseline.json)
 - [重复划分敏感性检查](results/split-diagnostics.json)
+- [特征消融](scripts/run_feature_ablation.py)、[配对对照](scripts/summarize_feature_contrasts.py)、[模型来源留出](scripts/run_agent_model_transfer.py)与[固定工作点关联实验](scripts/run_association_operating_points.py)
+- [特征实验 Notebook](notebooks/09_feature_ablation_v1.ipynb)、[关联实验 Notebook](notebooks/10_association_operating_points_v1.ipynb)及保留的绘图脚本
 - [精简汇总结果](results/quick-summary.json)
 
 实验脚本从公开记录中解析已知命令名称，不执行其中记录的命令。仓库在 `vendor/procgrep/` 中固定保存了 [ProcGrep](https://github.com/hamidahoderinwale/procgrep) 的一个精简 MIT 许可子集，以便在不安装未发布依赖的情况下复现其轨迹表示与 JSD 计算。猫头鹰图标与引入代码的说明见[第三方声明](THIRD_PARTY_NOTICES.md)。
@@ -64,13 +67,24 @@ python3 -m venv .venv
 .venv/bin/python scripts/run_all.py
 ```
 
-当前混合候选实验和绘图按以下命令复现：
+早期混合候选协议按以下命令复现：
 
 ```bash
 .venv/bin/python scripts/download_crossbenchmark_traces.py
 .venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
 .venv/bin/python scripts/run_association_error_analysis.py --bootstraps 5000 --threshold-grid 101
 .venv/bin/python -m unittest discover -s tests -v
+```
+
+重新运行已完成的特征比较与固定工作点关联实验：
+
+```bash
+.venv/bin/python scripts/run_feature_ablation.py
+.venv/bin/python scripts/summarize_feature_contrasts.py
+.venv/bin/python scripts/run_agent_model_transfer.py --bootstraps 5000
+.venv/bin/python scripts/run_association_operating_points.py --bootstraps 5000 --threshold-grid 101
+.venv/bin/python scripts/plot_feature_ablation.py
+.venv/bin/python scripts/plot_association_operating_points.py
 ```
 
 研究库可把 Linux auditd `SYSCALL`/`EXECVE` 原始记录规范化为版本化 JSONL，并按行为为候选轨迹排序；不会执行日志中的命令：
