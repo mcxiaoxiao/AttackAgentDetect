@@ -309,7 +309,7 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
 .footer-hit img { display: block; width: 72px; height: 72px; object-fit: contain; }
 .footer-signature { display: grid; width: 100%; justify-items: center; text-align: center; }
 .signature-art { color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 clamp(84px, calc(25vw - 116px), 216px)/.86 var(--font-display); letter-spacing: -.065em; }
-.footer-meta { display: grid; width: 100%; gap: 16px; justify-items: center; }
+.footer-meta { display: grid; width: 100%; gap: 16px; justify-items: center; margin-top: 12px; padding-top: 24px; border-top: 1px solid var(--line); }
 .footer-credits, .footer-legal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 17px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.6; text-align: center; }
 .footer-legal a, .footer-credits a { color: inherit; }
 .footer-legal a { text-decoration-color: var(--line-strong); }
