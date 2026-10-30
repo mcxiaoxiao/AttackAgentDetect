@@ -72,6 +72,11 @@
 .profile-result-figure img { display: block; width: 100%; height: auto; }
 .profile-result-figure figcaption { padding: 9px 14px 11px; border-top: 1px solid var(--line); color: var(--muted); font: 400 11px/1.6 var(--font-body); }
 .profile-result-limit { padding-top: 13px; border-top: 1px solid var(--line); }
+.recall-result-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.recall-result-cards dd { font-size: clamp(19px, 2vw, 25px); }
+.recall-result > details { border-top: 1px solid var(--line); padding-top: 12px; }
+.recall-result > details > summary { color: var(--blue-deep); cursor: pointer; font: 600 12px/1.5 var(--font-body); }
+.recall-result > details > p { margin: 12px 0 0; color: var(--muted); font: 400 12px/1.65 var(--font-body); }
 @keyframes tensor-cell-pulse { from { opacity: .8; transform: scale(.97); } to { opacity: 1; transform: scale(1.035); } }
 @keyframes tensor-rail-pulse { from { box-shadow: 0 0 0 3px rgb(0 114 178 / 12%), 0 0 6px rgb(0 114 178 / 26%); } to { box-shadow: 0 0 0 4px rgb(0 114 178 / 20%), 0 0 14px rgb(0 114 178 / 48%); } }
 @media (max-width: 600px) {
@@ -83,6 +88,7 @@
   .tensor-stage-rail > span { gap: 4px; font-size: 9px; }
   .tensor-stage-rail > span > i { width: 12px; height: 12px; }
   .profile-result-cards { grid-template-columns: minmax(0, 1fr); }
+  .recall-result-cards { grid-template-columns: minmax(0, 1fr); }
   .tensor-demo-viewport { min-height: 380px; padding-inline: 8px; }
   .tensor-demo-figure figcaption { padding-inline: 12px; }
 }
