@@ -2,81 +2,44 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-<meta content="V16 dataset: 1558 test pairs from 97 traces across 40 CTF task groups. Download data, run evaluation scripts, and browse individual test cases." name="description"/>
+<meta content="V16 dataset: 1558 test pairs, 97 traces, 40 task groups" name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgent Detect | Dataset & Evaluation">AttackAgent Detect | 数据集与评估</title>
+<title data-en="AttackAgent Detect | Dataset">AttackAgent Detect | 数据集</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
-<link href="docs.css?v=20261030-study-results" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261030-case-study"></script>
 <script defer="" src="site.js"></script>
 <style>
-.dataset-page { max-width: 1200px; margin: 0 auto; padding: 60px var(--gutter); }
-.dataset-hero { margin-bottom: 60px; }
-.dataset-hero h1 { font-size: clamp(42px, 4.5vw, 64px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
-.dataset-hero p { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 720px; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin: 40px 0; }
-.stat-card { padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface}
-.stat-card strong { display: block; font-size: 42px; font-weight: 600; color: var(--blue-deep); margin-bottom: 6px; }
-.stat-card span { font-size: 14px; color: var(--muted); }
-.section-block { margin: 60px 0; }
-.section-block h2 { font-size: 28px; font-weight: 600; margin-bottom: 20px; }
-.section-block h3 { font-size: 20px; font-weight: 600; margin: 28px 0 14px 0; }
-.section-block p { font-size: 16px; line-height: 1.7; color: var(--muted); margin-bottom: 16px; }
-.download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 24px 0; }
-.download-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
-.download-card:hover { border-color: var(--blue); box-shadow: 0 4px 12px rgba(0, 114, 178, 0.08); }
-.download-card h4 { font-size:6px; font-weight: 600; margin-bottom: 8px; }
-.download-card p { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
-.download-card a.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; min-height: 42px; border: 1px solid var(--blue-deep); border-radius: 5px; background: var(--blue); color: #fff; font: 600 14px var(--font-display); text-decoration: none; cursor: pointer; transition: transform .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease; box-shadow: 0 2px 0 var(--blue-deep); }
-.download-card a.button:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
-.download-card a.button:active { transform: translateY(1px); }
-.browser-section { margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
-.browser-controls label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
-.browser-controls input[type="file"] { padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 5px; background: #fff; font-size: 14px; }
-.browser-controls button, .nav-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; min-height: 42px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); color: var(--ink); font: 600 14px var(--font-display); cursor: pointer; transition: transform .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease; }
-.browser-controls button:hover, .nav-controls button:hover:not(:disabled) { transform: translateY(-1px); border-color: #8aadd0; box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
-.browser-controls button:active, .nav-controls button:active { transform: translateY(1px); }
-.nav-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
-.browser-controls button.primary, #loadSampleBtn { border-color: var(--blue-deep); background: var(--blue); color: #fff; box-shadow: 0 2px 0 var(--blue-deep); }
-.browser-controls button.primary:hover, #loadSampleBtn:hover { background: var(--blue-deep); }
-.nav-controls span { font-size: 14px; color: var(--muted); min-width: 120px; text-align: center; }
-.test-case-detail { border: 1px solid var(--line); border-radius: 6px; background: #fff; overflow: hidden; }
-.test-case-header { padding: 20px; border-bottom: 1px solid var(--line); background: #f8fafc; }
-.test-case-header h3 { margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--ink); }
-.test-case-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
-.test-case-meta span { display: flex; align-items: center; gap: 4px; }
-.test-case-body { padding: 20px; }
-.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.comparison-panel { padding: 16px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
-.comparison-panel h4 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.comparison-panel pre { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; font-size: 12px; line-height: 1.6; overflow-x: auto; max-height: 400px; }
-.prediction-result { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 6px; margin-bottom: 16px; }
-.prediction-result.correct { background: #d4edda; border: 1px solid #c3e6cb; }
-.prediction-result.incorrect { background: #f8d7da; border: 1px solid #f5c6cb; }
-.prediction-result .status-icon { font-size: 24px; font-weight: bold; }
-.prediction-result.correct .status-icon { color: #155724; }
-.prediction-result.incorrect .status-icon { color: #721c24; }
-.prediction-result .status-text { flex: 1; }
-.prediction-result .status-text strong { display: block; font-size: 16px; margin-bottom: 2px; }
-.prediction-result .status-text span { font-size: 13px; color: var(--muted); }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.feature-item { padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; }
-.feature-item label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-.feature-item value { display: block; font-size: 14px; color: var(--ink); font-weight: 500; }
-.empty-state { padding: 60px 20px; text-align: center; color: var(--muted); }
-.empty-state h3 { margin: 0 0 12px 0; font-size: 20px; color: var(--ink); }
-.empty-state p { margin: 0; font-size: 14px; }
+.dataset-page { max-width: 900px; margin: 0 auto; padding: 80px var(--gutter); }
+.dataset-hero { margin-bottom: 80px; }
+.dataset-hero h1 { font-size: clamp(48px, 5vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+.dataset-hero p { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 640px; }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 60px 0; }
+.stat-item { text-align: center; }
+.stat-item strong { display: block; font-size: 56px; font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: 8px; }
+.stat-item span { font-size: 15px; color: var(--muted); font-weight: 500; }
+.download-section { margin: 80px 0; }
+.download-section h2 { font-size: 32px; font-weight: 600; margin-bottom: 32px; }
+.download-list { display: flex; flex-direction: column; gap: 16px; }
+.download-item { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
+.download-item:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(0, 114, 178, 0.08); }
+.download-item-info { flex: 1; }
+.download-item-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+.download-item-info p { font-size: 14px; color: var(--muted); margin: 0; }
+.download-item a.button { display: inline-flex; align-items: center; gap: 8px; padding: 0 24px; min-height: 44px; border: 1px solid var(--blue-deep); border-radius: 5px; background: var(--blue); color: #fff; font: 600 15px var(--font-display); text-decoration: none; cursor: pointer; transition: all 0.16s ease; box-shadow: 0 2px 0 var(--blue-deep); }
+.download-item a.button:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
+.citation-section { margin: 80px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.citation-section h2 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
+.citation-section pre { margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--graphite); color: var(--graphite-ink); font: 13px/1.7 var(--mono); overflow-x: auto; }
 @media (max-width: 768px) {
-  .comparison-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .download-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; gap: 24px; }
+  .download-item { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .download-item a.button { width: 100%; justify-content: center; }
 }
 </style>
 </head>
@@ -93,556 +56,75 @@
 </div>
 </aside>
 <main id="main">
-<header class="docs-page-header">
-<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page">数据集与评估</span></div>
-<h1 data-en="Dataset & Evaluation">数据集与评估</h1>
-<p data-en="V16 evaluation suite: 1558 test pairs from 97 traces across 40 CTF task groups. Download data, run reproducible tests, and browse individual results.">V16评估套件：97条轨迹、40个CTF任务组的1558个测试对。下载数据、运行可复现测试、浏览逐条结果。</p>
-</header>
-
 <div class="dataset-page">
 <section class="dataset-hero">
-<h1 data-en="V16 Test Suite">V16 测试套件</h1>
-<p data-en="Complete evaluation dataset from the V16 balanced innovation experiment. All test pairs, metrics, and reproduction scripts are available for independent verification.">来自V16平衡创新实验的完整评估数据集。所有测试对、指标和复现脚本均可用于独立验证。</p>
+<h1 data-en="V16 Dataset">V16 数据集</h1>
+<p data-en="1558 test pairs from 97 traces across 40 CTF task groups. 81.1% accuracy, 0% false split rate.">97条轨迹、40个CTF任务组、1558个测试对。准确率81.1%，误拆分率0%。</p>
 </section>
 
-<section class="stats-grid">
-<div class="stat-card">
+<section class="stats-row">
+<div class="stat-item">
 <strong>1558</strong>
 <span data-en="Test Pairs">测试对</span>
 </div>
-<div class="stat-card">
+<div class="stat-item">
 <strong>97</strong>
-<span data-en="Unique Traces">独立轨迹</span>
+<span data-en="Traces">轨迹</span>
 </div>
-<div class="stat-card">
+<div class="stat-item">
 <strong>40</strong>
 <span data-en="Task Groups">任务组</span>
 </div>
-<div class="stat-card">
-<strong>81.1%</strong>
-<span data-en="Accuracy">准确率</span>
-</div>
-<div class="stat-card">
-<strong>0.0%</strong>
-<span data-en="False Split Rate">误拆分率</span>
-</div>
-<div class="stat-card">
-<strong>18.9%</strong>
-<span data-en="False Merge Rate">误合并率</span>
-</div>
 </section>
 
-<section class="section-block">
-<h2 data-en="Dataset Overview">数据集概览</h2>
-<p data-en="The V16 test suite contains 1558 query-candidate pairs drawn from 97 unique execution traces across 40 CTF task groups. Each pair is labeled with ground truth (same task vs. different task) and evaluated using the balanced_selected method with discriminative pair scoring.">V16测试套件包含1558个查询-候选对，来自40个CTF任务组的97条独立执行轨迹。每个配对都有真实标签（同任务vs.异任务），并使用balanced_selected方法和discriminative pair scoring进行评估。</p>
-
-<h3 data-en="Data Sources">数据来源</h3>
-<p data-en="Traces are sourced from three public CTF benchmarks: CyBench, InterCode-CTF, and NYU-CTF. Human traces come from terminal input logs; Agent traces come from tool-call records. The same_task label indicates whether two traces solve the same CTF challenge.">轨迹来自三个公开CTF基准：CyBench、InterCode-CTF和NYU-CTF。人类轨迹来自终端输入日志；Agent轨迹来自工具调用记录。same_task标签表示两条轨迹是否解决同一道CTF题目。</p>
-
-<h3 data-en="Evaluation Protocol">评估协议</h3>
-<p data-en="We use nested cross-validation with 3 outer folds and 3 inner folds. The outer fold is task-held-out: test tasks are never seen during training. Metrics are computed at the task-group level with 95% bootstrap confidence intervals.">我们使用嵌套交叉验证，3个外部fold和3个内部fold。外部fold是任务留出的：测试任务在训练中从未见过。指标在任务组级别计算，带有95% bootstrap置信区间。</p>
-</section>
-
-<section class="section-block">
-<h2 data-en="Download & Reproduce">下载与复现</h2>
-<p data-en="All data and scripts are available in the GitHub repository. Download the complete test suite and run the evaluation locally.">所有数据和脚本都在GitHub仓库中。下载完整测试套件并在本地运行评估。</p>
-
-<div class="download-grid">
-<div class="download-card">
-<h4 data-en="Test Pair Scores">测试对分数</h4>
-<p data-en="Complete CSV with all 1558 test pairs, scores, and predictions. 3.3 MB.">包含所有1558个测试对、分数和预测的完整CSV。3.3 MB。</p>
+<section class="download-section">
+<h2 data-en="Download">下载</h2>
+<div class="download-list">
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Test Pair Scores">测试对分数</h3>
+<p data-en="Complete CSV with all 1558 test pairs">包含所有1558个测试对的完整CSV</p>
+</div>
 <a class="button" href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-<span data-en="Download CSV">下载 CSV</span>
+<span data-en="CSV">CSV</span>
 </a>
 </div>
-<div class="download-card">
-<h4 data-en="Aggregated Results">聚合结果</h4>
-<p data-en="JSON file with task-level metrics, directional error rates, and selection candidates. 289 KB.">包含任务级指标、方向性错误率和选择候选的JSON文件。289 KB。</p>
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Aggregated Results">聚合结果</h3>
+<p data-en="JSON file with task-level metrics">包含任务级指标的JSON文件</p>
+</div>
 <a class="button" href="../results/balanced_innovation_v16/results.json" download>
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-<span data-en="Download JSON">下载 JSON</span>
+<span data-en="JSON">JSON</span>
 </a>
 </div>
-<div class="download-card">
-<h4 data-en="Reproduction Script">复现脚本</h4>
-<p data-en="Python script to reproduce all V16 results from raw data. Run with Python 3.10+.">从原始数据复现所有V16结果的Python脚本。使用Python 3.10+运行。</p>
+<div class="download-item">
+<div class="download-item-info">
+<h3 data-en="Reproduction Script">复现脚本</h3>
+<p data-en="Python script to reproduce all results">复现所有结果的Python脚本</p>
+</div>
 <a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-<span data-en="View on GitHub">在 GitHub 查看</span>
-</a>
-</div>
-<div class="download-card">
-<h4 data-en="Experiment Protocol">实验方案</h4>
-<p data-en="Detailed markdown document describing the V16 experimental design and methodology.">描述V16实验设计和方法的详细markdown文档。</p>
-<a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/program.md">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 8"/></svg>
-<span data-en="View Protocol">查看方案</span>
+<span data-en="GitHub">GitHub</span>
 </a>
 </div>
 </div>
-
-<h3 data-en="Quick Start">快速开始</h3>
-<div class="quickstart-terminal docs-command-window">
-<div class="terminal-head">
-<span data-en="Clone, install, run">克隆、安装、运行</span>
-<span class="terminal-language">bash</span>
-<button class="copy-button" data-copy="dataset-quickstart" data-en="Copy" type="button">复制</button>
-</div>
-<pre id="dataset-quickstart"><code><span class="code-line"><span class="shell-comment"># Clone the repository</span></span>
-<span class="code-line"><span class="shell-command">git clone</span> <span class="shell-url">https://github.com/mcxiaoxiao/AttackAgentDetect.git</span></span>
-<span class="code-line"><span class="shell-command">cd</span> <span class="shell-path">AttackAgentDetect</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="shell-comment"># Install dependencies</span></span>
-<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">-m pip install</span> <span class="shell-flag">-r</span> <span class="shell-path">requirements.txt</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="shell-comment"># Run V16 evaluation</span></span>
-<span class="code-line"><span class="shell-path">.venv/bin/python</span> <span class="shell-command">experiments/balanced_innovation_v16/run.py</span></span>
-<span class="code-line"></span>
-<span class="code-line"><span class="shell-comment"># Results will be saved to results/balanced_innovation_v16/</span></span></code></pre>
-</div>
 </section>
 
-<section class="section-block">
-<h2 data-en="Key Metrics">关键指标</h2>
-<p data-en="V16 achieves perfect false split rate (0%) and strong accuracy (81.1%) with controlled false merge rate (18.9%). The Gradient Boosting classifier with FSR-aware utility optimization eliminates all false splits while maintaining substantial false merge reduction.">V16实现完美误拆分率（0%）和强准确率（81.1%），同时控制误合并率（18.9%）。带有FSR感知优化的Gradient Boosting分类器消除了所有误拆分，同时保持显著的误合并降低。</p>
-
-<h3 data-en="Directional Error Analysis">方向性错误分析</h3>
-<p data-en="Error rates are broken down by query-candidate mode pairs. V16 achieves 0% FSR across all subgroups (H→H, H→A, A→H), with FMR concentrated in H→A and A→H cross-mode pairs.">错误率按查询-候选模式对分解。V16在所有子组（H→H、H→A、A→H）中实现0% FSR，FMR集中在H→A和A→H跨模式对中。</p>
-
-<div class="quickstart-terminal docs-command-window">
-<div class="terminal-head">
-<span data-en="Directional Metrics">方向性指标</span>
-<span class="terminal-language">text</span>
-<button class="copy-button" data-copy="directional-metrics" data-en="Copy" type="button">复制</button>
-</div>
-<pre id="directional-metrics"><code>Directional Metrics (balanced_selected):
-┌─────────────┬──────────┬──────────┬─────────────┐
-│ Pair Type   │ FSR      │ FMR      │ Coverage    │
-├─────────────┼──────────┼──────────┼─────────────┤
-│ H → A       │ 0.0%     │ 25.1%    │ 100.0%      │
-│ A → H       │ 0.0%     │ 24.7%    │ 100.0%      │
-│ H → H       │ 0.0%     │ 24.7%    │ 100.0%      │
-│ A → A       │ —        │ 88.3%    │ —           │
-└─────────────┴──────────┴──────────┴─────────────┘</code></pre>
-</div>
-</section>
-
-<section class="browser-section">
-<h2 data-en="Browse Test Cases">浏览测试样例</h2>
-<p data-en="Explore individual test pairs. View predictions vs. ground truth, feature scores, and trace metadata.">探索单个测试对。查看预测与真实标签对比、特征分数和轨迹元数据。</p>
-
-<div class="browser-controls">
-<label>
-<span data-en="Load custom results:">加载自定义结果：</span>
-<input type="file" id="fileInput" accept=".json,.csv" />
-</label>
-<button class="primary" id="loadSampleBtn" data-en="Load V16 Data">加载 V16 数据</button>
-<button id="exportBtn" data-en="Export Analysis">导出分析报告</button>
-</div>
-
-<div id="metricsSummary" class="stats-grid" style="display: none;">
-<div class="stat-card">
-<strong id="totalCases">0</strong>
-<span data-en="Total Test Cases">总测试样例</span>
-</div>
-<div class="stat-card">
-<strong id="correctCount">0</strong>
-<span data-en="Predictions Correct">预测正确</span>
-</div>
-<div class="stat-card">
-<strong id="accuracy">0%</strong>
-<span data-en="Accuracy">准确率</span>
-</div>
-<div class="stat-card">
-<strong id="fmr">0%</strong>
-<span data-en="False Merge Rate">误合并率</span>
-</div>
-<div class="stat-card">
-<strong id="fsr">0%</strong>
-<span data-en="False Split Rate">误拆分率</span>
-</div>
-</div>
-
-<div class="test-case-navigator" style="display: none;" id="navigator">
-<div class="nav-controls">
-<button id="prevBtn" data-en="Previous">上一个</button>
-<span id="caseCounter">0 / 0</span>
-<button id="nextBtn" data-en="Next">下一个</button>
-</div>
-<div class="nav-controls">
-<label>
-<span data-en="Filter:">筛选：</span>
-<select id="filterSelect">
-<option value="all" data-en="All">全部</option>
-<option value="correct" data-en="Only Correct">仅正确</option>
-<option value="incorrect" data-en="Only Incorrect">仅错误</option>
-</select>
-</label>
-</div>
-</div>
-
-<div id="testCaseDetail" class="test-case-detail">
-<div class="empty-state">
-<h3 data-en="No Data Loaded">未加载数据</h3>
-<p data-en="Click 'Load V16 Data' to browse the complete test suite.">点击"加载 V16 数据"浏览完整测试套件。</p>
-</div>
-</div>
-</section>
-
-<section class="section-block">
+<section class="citation-section">
 <h2 data-en="Citation">引用</h2>
-<p data-en="If you use this dataset in your research, please cite:">如果您在研究中使用此数据集，请引用：</p>
-<div class="docs-code-window">
-<div class="api-file"><code>BibTeX</code><button data-copy="citation-bibtex" data-en="Copy" type="button">复制</button></div>
-<pre id="copyright-bibtex"><code>@misc{attackagent-detect-2026,
+<pre><code>@misc{attackagent-detect-2026,
   title={AttackAgent Detect: Behavioral Trace Association for AI-Executed Attacks},
   author={OrlosZiming and sunyinggang},
   year={2026},
   howpublished={\url{https://github.com/mcxiaoxiao/AttackAgentDetect}}
 }</code></pre>
-</div>
 </section>
 </div>
 </main>
 </div>
 <div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
-
-<script>
-let testData = [];
-let currentIndex = 0;
-let filteredData = [];
-
-document.getElementById('fileInput').addEventListener('change', handleFileLoad);
-document.getElementById('loadSampleBtn').addEventListener('click', loadSampleData);
-document.getElementById('exportBtn').addEventListener('click', exportAnalysis);
-document.getElementById('prevBtn').addEventListener('click', () => navigate(-1));
-document.getElementById('nextBtn').addEventListener('click', () => navigate(1));
-document.getElementById('filterSelect').addEventListener('change', applyFilter);
-
-function handleFileLoad(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    try {
-      const text = e.target.result;
-      if (file.name.endsWith('.csv')) {
-        const cases = parseCSV(text);
-        testData = cases;
-      } else {
-        const data = JSON.parse(text);
-        if (data.test_cases || data.predictions) {
-          testData = data.test_cases || data.predictions;
-        } else {
-          testData = generateSampleCases(data);
-        }
-      }
-      filteredData = [...testData];
-      currentIndex = 0;
-      updateMetrics();
-      updateNavigator();
-      displayTestCase(currentIndex);
-      document.getElementById('metricsSummary').style.display = 'grid';
-      document.getElementById('navigator').style.display = 'flex';
-    } catch (err) {
-      alert('文件解析失败：' + err.message);
-    }
-  };
-  reader.readAsText(file);
-}
-
-function loadSampleData() {
-  console.log('=== Starting data load ===');
-  const csvPaths = [
-    '../results/balanced_innovation_v16/outer_pair_scores.csv',
-    '/results/balanced_innovation_v16/outer_pair_scores.csv',
-    'results/balanced_innovation_v16/outer_pair_scores.csv'
-  ];
-  
-  let loaded = false;
-  
-  function tryNextPath(index) {
-    if (index >= csvPaths.length || loaded) {
-      if (!loaded) {
-        console.warn('Could not load CSV, using demo data');
-        const demoData = {
-          dataset: { task_groups: 40, records: 97, benchmarks: ['cybench', 'intercode-ctf', 'nyuctf'] },
-          directional_error_metrics: {
-            balanced_selected: {
-              'HUMAN-to-AGENT': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.251 } },
-              'AGENT-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } },
-              'HUMAN-to-HUMAN': { false_split_rate: { estimate: 0.0 }, false_merge_rate: { estimate: 0.247 } }
-            }
-          }
-        };
-        processData(demoData);
-      }
-      return;
-    }
-    
-    const fullPath = new URL(csvPaths[index], window.location.href).href;
-    console.log(`Trying CSV path ${index}:`, fullPath);
-    
-    fetch(fullPath)
-      .then(response => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.text();
-      })
-      .then(csvText => {
-        console.log('Loaded CSV, length:', csvText.length);
-        const cases = parseCSV(csvText);
-        console.log(`Parsed ${cases.length} test cases`);
-        if (cases.length === 0) throw new Error('No cases parsed');
-        loaded = true;
-        testData = cases;
-        filteredData = [...testData];
-        currentIndex = 0;
-        updateMetrics();
-        updateNavigator();
-        displayTestCase(currentIndex);
-        document.getElementById('metricsSummary').style.display = 'grid';
-        document.getElementById('navigator').style.display = 'flex';
-      })
-      .catch(err => {
-        console.error('Error:', err.message);
-        tryNextPath(index + 1);
-      });
-  }
-  
-  tryNextPath(0);
-}
-
-function processData(data) {
-  testData = [];
-  if (data.test_cases || data.predictions) {
-    testData = data.test_cases || data.predictions;
-  }
-  if (testData.length === 0) {
-    testData = generateSampleCases(data);
-  }
-  filteredData = [...testData];
-  currentIndex = 0;
-  updateMetrics();
-  updateNavigator();
-  displayTestCase(currentIndex);
-  document.getElementById('metricsSummary').style.display = 'grid';
-  document.getElementById('navigator').style.display = 'flex';
-}
-
-function parseCSV(csvText) {
-  const lines = csvText.trim().split('\n');
-  const headers = lines[0].split(',');
-  const cases = [];
-  
-  const colIndex = {
-    query_trace_id: headers.indexOf('query_trace_id'),
-    candidate_trace_id: headers.indexOf('candidate_trace_id'),
-    query_task: headers.indexOf('query_task'),
-    candidate_task: headers.indexOf('candidate_task'),
-    benchmark: headers.indexOf('benchmark'),
-    query_mode: headers.indexOf('query_mode_for_evaluation_only'),
-    candidate_mode: headers.indexOf('candidate_mode_for_evaluation_only'),
-    same_task: headers.indexOf('same_task_proxy_for_evaluation_only'),
-    pair_type: headers.indexOf('pair_type_for_evaluation_only'),
-    selected_accepted: headers.indexOf('selected_accepted'),
-    discriminative_pair_score: headers.indexOf('discriminative_pair_score'),
-    command_tfidf: headers.indexOf('command_tfidf'),
-    artifact_containment_command: headers.indexOf('artifact_containment_command'),
-    reciprocal_consensus: headers.indexOf('reciprocal_consensus')
-  };
-  
-  for (let i = 1; i < lines.length; i++) {
-    const values = lines[i].split(',');
-    if (values.length < headers.length) continue;
-    
-    const sameTask = values[colIndex.same_task] === '1';
-    const selected = values[colIndex.selected_accepted] === '1';
-    const groundTruth = sameTask ? 'same_task' : 'different_task';
-    const prediction = selected ? 'same_task' : 'different_task';
-    
-    cases.push({
-      id: `case_${String(i).padStart(4, '0')}`,
-      fold: values[1] || '1',
-      benchmark: values[colIndex.benchmark] || 'unknown',
-      query_task: values[colIndex.query_task] || 'unknown',
-      candidate_task: values[colIndex.candidate_task] || 'unknown',
-      query_mode: values[colIndex.query_mode] || 'HUMAN',
-      candidate_mode: values[colIndex.candidate_mode] || 'HUMAN',
-      pair_type: values[colIndex.pair_type] || 'H-H',
-      query_trace: values[colIndex.query_trace_id] || 'unknown',
-      candidate_trace: values[colIndex.candidate_trace_id] || 'unknown',
-      ground_truth: groundTruth,
-      prediction: prediction,
-      confidence: parseFloat(values[colIndex.discriminative_pair_score] || 0.5),
-      features: {
-        discriminative_pair_score: parseFloat(values[colIndex.discriminative_pair_score] || 0),
-        command_tfidf: parseFloat(values[colIndex.command_tfidf] || 0),
-        artifact_containment: parseFloat(values[colIndex.artifact_containment_command] || 0),
-        reciprocal_consensus: parseFloat(values[colIndex.reciprocal_consensus] || 0)
-      }
-    });
-  }
-  
-  return cases;
-}
-
-function generateSampleCases(data) {
-  const cases = [];
-  const taskGroups = data.dataset?.task_groups || 40;
-  const records = data.dataset?.records || 97;
-  const benchmarks = data.dataset?.benchmarks || ['cybench', 'intercode-ctf', 'nyuctf'];
-  
-  for (let i = 0; i < Math.min(records, 30); i++) {
-    cases.push({
-      id: `case_${String(i + 1).padStart(3, '0')}`,
-      task_group: `task_group_${(i % taskGroups) + 1}`,
-      benchmark: benchmarks[i % benchmarks.length],
-      query_mode: i % 3 === 0 ? 'AGENT' : 'HUMAN',
-      candidate_mode: i % 2 === 0 ? 'AGENT' : 'HUMAN',
-      query_trace: `trace_${i + 1}`,
-      candidate_trace: `trace_${Math.floor(Math.random() * records) + 1}`,
-      ground_truth: Math.random() > 0.5 ? 'same_task' : 'different_task',
-      prediction: Math.random() > 0.3 ? 'same_task' : 'different_task',
-      confidence: Math.random() * 0.5 + 0.5,
-      features: {
-        command_similarity: Math.random(),
-        artifact_overlap: Math.random(),
-        sequence_alignment: Math.random(),
-        behavioral_profile: Math.random()
-      }
-    });
-  }
-  return cases;
-}
-
-function updateMetrics() {
-  const total = filteredData.length;
-  const correct = filteredData.filter(c => c.ground_truth === c.prediction).length;
-  const accuracy = total > 0 ? (correct / total * 100).toFixed(1) : 0;
-  const falseMerges = filteredData.filter(c => c.ground_truth === 'different_task' && c.prediction === 'same_task').length;
-  const falseSplits = filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length;
-  const fmr = total > 0 ? (falseMerges / total * 100).toFixed(1) : 0;
-  const fsr = total > 0 ? (falseSplits / total * 100).toFixed(1) : 0;
-  
-  document.getElementById('totalCases').textContent = total;
-  document.getElementById('correctCount').textContent = correct;
-  document.getElementById('accuracy').textContent = accuracy + '%';
-  document.getElementById('fmr').textContent = fmr + '%';
-  document.getElementById('fsr').textContent = fsr + '%';
-}
-
-function updateNavigator() {
-  const total = filteredData.length;
-  document.getElementById('caseCounter').textContent = `${currentIndex + 1} / ${total}`;
-  document.getElementById('prevBtn').disabled = currentIndex === 0;
-  document.getElementById('nextBtn').disabled = currentIndex === total - 1;
-}
-
-function navigate(direction) {
-  const newIndex = currentIndex + direction;
-  if (newIndex >= 0 && newIndex < filteredData.length) {
-    currentIndex = newIndex;
-    displayTestCase(currentIndex);
-    updateNavigator();
-  }
-}
-
-function applyFilter() {
-  const filter = document.getElementById('filterSelect').value;
-  if (filter === 'all') {
-    filteredData = [...testData];
-  } else if (filter === 'correct') {
-    filteredData = testData.filter(c => c.ground_truth === c.prediction);
-  } else if (filter === 'incorrect') {
-    filteredData = testData.filter(c => c.ground_truth !== c.prediction);
-  }
-  currentIndex = 0;
-  updateMetrics();
-  updateNavigator();
-  displayTestCase(currentIndex);
-}
-
-function displayTestCase(index) {
-  if (index >= filteredData.length) return;
-  const testCase = filteredData[index];
-  const isCorrect = testCase.ground_truth === testCase.prediction;
-  
-  const html = `
-    <div class="test-case-header">
-      <h3>${testCase.id || `Test Case ${index + 1}`}</h3>
-      <div class="test-case-meta">
-        <span><strong>Fold:</strong> ${testCase.fold || 'N/A'}</span>
-        <span><strong>Benchmark:</strong> ${testCase.benchmark || 'N/A'}</span>
-        <span><strong>Pair Type:</strong> ${testCase.pair_type || 'N/A'}</span>
-        <span><strong>Query Task:</strong> ${testCase.query_task || 'N/A'}</span>
-        <span><strong>Candidate Task:</strong> ${testCase.candidate_task || 'N/A'}</span>
-      </div>
-      <div class="test-case-meta" style="margin-top: 8px;">
-        <span><strong>Query Mode:</strong> ${testCase.query_mode || 'N/A'}</span>
-        <span><strong>Candidate Mode:</strong> ${testCase.candidate_mode || 'N/A'}</span>
-        <span><strong>Confidence:</strong> ${(testCase.confidence * 100).toFixed(1)}%</span>
-      </div>
-    </div>
-    <div class="test-case-body">
-      <div class="prediction-result ${isCorrect ? 'correct' : 'incorrect'}">
-        <div class="status-icon">${isCorrect ? '✓' : '✗'}</div>
-        <div class="status-text">
-          <strong>${isCorrect ? 'Prediction Correct' : 'Prediction Incorrect'}</strong>
-          <span>Ground Truth: ${testCase.ground_truth.replace('_', ' ')} | Prediction: ${testCase.prediction.replace('_', ' ')}</span>
-        </div>
-      </div>
-      <div class="comparison-grid">
-        <div class="comparison-panel">
-          <h4>Query Trace ID</h4>
-          <pre>${testCase.query_trace || 'N/A'}</pre>
-        </div>
-        <div class="comparison-panel">
-          <h4>Candidate Trace ID</h4>
-          <pre>${testCase.candidate_trace || 'N/A'}</pre>
-        </div>
-      </div>
-      ${testCase.features ? `
-        <h4 style="margin: 20px 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted);">Feature Scores</h4>
-        <div class="features-grid">
-          ${Object.entries(testCase.features).map(([key, value]) => `
-            <div class="feature-item">
-              <label>${key.replace(/_/g, ' ')}</label>
-              <value>${typeof value === 'number' ? value.toFixed(4) : value}</value>
-            </div>
-          `).join('')}
-        </div>
-      ` : ''}
-    </div>
-  `;
-  document.getElementById('testCaseDetail').innerHTML = html;
-}
-
-function exportAnalysis() {
-  if (testData.length === 0) {
-    alert('No data to export');
-    return;
-  }
-  const analysis = {
-    summary: {
-      total_cases: filteredData.length,
-      correct_predictions: filteredData.filter(c => c.ground_truth === c.prediction).length,
-      accuracy: (filteredData.filter(c => c.ground_truth === c.prediction).length / filteredData.length * 100).toFixed(2) + '%',
-      false_merge_rate: (filteredData.filter(c => c.ground_truth === 'different_task' && c.prediction === 'same_task').length / filteredData.length * 100).toFixed(2) + '%',
-      false_split_rate: (filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length / filteredData.length * 100).toFixed(2) + '%'
-    },
-    test_cases: filteredData,
-    export_date: new Date().toISOString()
-  };
-  const blob = new Blob([JSON.stringify(analysis, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `dataset-analysis-${Date.now()}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-</script>
 </body>
 </html>
