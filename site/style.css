@@ -342,8 +342,11 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
 .footer-owl img { display: block; width: 80px; height: 80px; object-fit: contain; }
 .footer-cross { color: var(--muted); font: 400 28px/1 var(--font-body); }
 .footer-hit img { display: block; width: 72px; height: 72px; object-fit: contain; }
-.footer-signature { display: grid; width: 100%; justify-items: center; text-align: center; }
-.signature-art { color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 clamp(104px, calc(29vw - 116px), 260px)/.86 var(--font-display); letter-spacing: -.065em; }
+.footer-signature { container-type: inline-size; display: grid; width: min(100%, 75rem); min-width: 0; justify-items: center; align-self: center; text-align: center; }
+.signature-art { display: block; max-width: 100%; min-width: 0; color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 min(18cqi, 15rem)/.9 var(--font-display); letter-spacing: -.065em; }
+@supports not (font-size: 1cqi) {
+  .signature-art { font-size: clamp(48px, 15vw, 216px); }
+}
 .footer-meta { display: grid; width: 100%; gap: 16px; justify-items: center; margin-top: 4px; padding-top: 4px; }
 .footer-credits, .footer-legal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 17px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.6; text-align: center; }
 .footer-legal a, .footer-credits a { color: inherit; }
@@ -457,7 +460,7 @@ footer { position: relative; display: flex; min-height: 390px; max-width: none; 
   .footer-owl img { width: 64px; height: 64px; }
   .footer-hit img { width: 58px; height: 58px; }
   .footer-cross { font-size: 24px; }
-  .signature-art { background-image: radial-gradient(circle, #315777 .9px, transparent 1.15px); background-size: 3px 3px; font-size: clamp(60px, 13vw, 100px); line-height: .9; }
+  .signature-art { background-image: radial-gradient(circle, #315777 .9px, transparent 1.15px); background-size: 3px 3px; }
   .footer-meta { margin-top: 4px; padding-top: 4px; }
   .footer-credits, .footer-legal { font-size: 9px; }
 }
