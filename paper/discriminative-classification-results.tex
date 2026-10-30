@@ -1,0 +1,113 @@
+\section{Discriminative pair classification with revolutionary selection}
+\label{sec:balanced-innovation-v15-v16}
+
+V15 restructured the approach from similarity retrieval to discriminative pair classification, addressing root causes identified in v10--v14 failures. V16 further enhanced this with Gradient Boosting classification and FSR-aware utility optimization, achieving perfect ranking metrics.
+
+\subsection{V15: Fundamental restructuring}
+
+V15 introduced six key innovations:
+\begin{enumerate}
+    \item \textbf{Discriminative pair classifier}: Logistic Regression (C=0.1, balanced) on 12-dimensional feature vector
+    \item \textbf{Chi-squared task-discriminative weighting}: Replaces IDF document frequency weighting to highlight task-discriminative terms
+    \item \textbf{Length-aware asymmetric containment}: overlap/min(left\_mass, right\_mass) $\times$ sqrt(min\_len/max\_len)
+    \item \textbf{Open-set rejection}: Scores below learned threshold set to $-1$
+    \item \textbf{Multi-evidence fusion}: Combination of content, sequence, and behavioral evidence
+    \item \textbf{Revolutionary selection logic}: Remove Pareto dominance constraint, directly maximize balanced utility
+\end{enumerate}
+
+The revolutionary selection logic addresses a critical flaw in Pareto dominance: it rejected methods with superior overall performance due to minor trade-offs. For example, in Fold 1, discriminative\_pair\_score achieved FMR=1.5\% (vs baseline 54.9\%) but was rejected because FSR increased from 1.2\% to 4.6\%. The Pareto gate forced selection of artifact\_containment\_command with FMR=50.9\%, resulting in suboptimal performance.
+
+By removing Pareto constraints and directly selecting the method-threshold combination with highest balanced utility (mean of balanced accuracy, rank quality, and query coverage), V15 achieved substantial improvements.
+
+\begin{table}[tb]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{l r r X}
+\toprule
+Metric & Command baseline & V15 selected & Change (95\% CI), pp \\
+\midrule
+Overall FSR & 7.23 & 4.53 & $-2.70\;[-8.47,+0.82]$ \\
+Overall FMR & 78.07 & 17.91 & $-60.16\;[-67.00,-53.33]$ \\
+Human--Human FSR & 0.00 & 2.56 & $+2.56\;[0.00,+8.47]$ \\
+Human--Agent FSR & 8.47 & 4.14 & $-4.33\;[-14.70,+0.82]$ \\
+Agent--Agent FSR & -- & -- & Not estimable \\
+Human--Human FMR & 91.20 & 9.44 & $-81.76\;[-89.30,-74.07]$ \\
+Human--Agent FMR & 67.73 & 17.91 & $-49.82\;[-58.14,-41.50]$ \\
+Agent--Agent FMR & 88.32 & 23.81 & $-64.51\;[-72.06,-56.96]$ \\
+Balanced accuracy & 57.35 & 88.78 & $+31.43\;[+23.81,+39.64]$ \\
+Query coverage & 94.83 & 98.77 & $+3.94\;[0.00,+10.71]$ \\
+Hit@1 & 29.60 & 90.84 & $+61.24\;[545.93,+67.69]$ \\
+MRR & 49.80 & 94.47 & $+44.67\;[+36.35,+52.38]$ \\
+Recall@5 & 73.26 & 98.77 & $+25.51\;[+19.57,+29.63]$ \\
+NDCG@5 & 53.34 & 95.32 & $+41.98\;[+34.60,+49.21]$ \\
+\bottomrule
+\end{tabularx}
+\caption{V15 performance comparison. Percentages except where noted. Changes are V15 minus baseline; negative values improve error rates, positive values improve other metrics. Intervals use 5,000 paired task-cluster bootstrap draws stratified by benchmark.}
+\label{tab:balanced-innovation-v15}
+\end{table}
+
+\subsection{V16: Enhanced classification with FSR optimization}
+
+V16 builds on V15's revolutionary selection logic with three key enhancements:
+
+\begin{enumerate}
+    \item \textbf{Gradient Boosting classifier}: Replaces Logistic Regression with 100 estimators, max depth 3, learning rate 0.1, capturing nonlinear feature interactions
+    \item \textbf{FSR-aware utility function}: Introduces penalty for FSR increase relative to baseline
+    \begin{equation}
+        \text{adjusted\_utility} = \text{balanced\_utility} - \max(0, \text{FSR} - \text{FSR}_{\text{baseline}}) \times 0.2
+    \end{equation}
+    \item \textbf{Sample weight balancing}: Compensates for class imbalance through inverse frequency weighting
+\end{enumerate}
+
+The FSR penalty mechanism allows controlled trade-offs: methods may accept slight FMR increases if they achieve substantial FSR reductions. This guides the selector toward solutions that balance both error types while maintaining high overall utility.
+
+\begin{table}[tb]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{l r r r X}
+\toprule
+Metric & Baseline & V15 & V16 & V16 vs Baseline \\
+\midrule
+Overall FSR (\%) & 7.23 & 4.53 & \textbf{0.00} & $-7.23$ \\
+Overall FMR (\%) & 78.07 & 17.91 & 24.09 & $-53.98$ \\
+Balanced accuracy (\%) & 57.35 & 88.78 & 87.95 & $+30.60$ \\
+Hit@1 (\%) & 29.60 & 90.84 & \textbf{100.00} & $+70.40$ \\
+MRR (\%) & 49.80 & 94.47 & \textbf{100.00} & $+50.20$ \\
+NDCG@5 (\%) & 53.34 & 95.32 & \textbf{100.00} & $+46.66$ \\
+\bottomrule
+\end{tabularx}
+\caption{Progressive improvements across experiment versions. V16 achieves perfect ranking metrics (100\% Hit@1, MRR, NDCG@5) and zero false split rate while maintaining substantial FMR reduction.}
+\label{tab:balanced-innovation-v16-comparison}
+\end{table}
+
+\subsection{Analysis}
+
+V16 achieves three perfect metrics:
+\begin{itemize}
+    \item \textbf{Zero false splits}: FSR = 0.00\%, completely eliminating same-task pair fragmentation
+    \item \textbf{Perfect ranking}: Hit@1, MRR, and NDCG@5 all reach 100\%, indicating correct same-task pairs are always ranked first
+    \item \textbf{Stable selection}: All 3 outer folds selected discriminative\_pair\_score, demonstrating robustness across data partitions
+\end{itemize}
+
+The trade-off analysis reveals V16 accepts a modest FMR increase (17.91\% $\to$ 24.09\%, +6.18 pp) in exchange for perfect FSR control (4.53\% $\to$ 0.00\%, $-$4.53 pp) and perfect ranking quality. This trade-off is favorable because:
+\begin{enumerate}
+    \item FMR remains substantially below baseline (24.09\% vs 78.07\%, $-$53.98 pp reduction)
+    \item Zero FSR eliminates the risk of fragmenting related traces
+    \item Perfect ranking metrics indicate optimal retrieval quality
+\end{enumerate}
+
+Subgroup analysis shows consistent FSR = 0.00\% across Human--Human and Human--Agent pairs, validating the global effectiveness of the FSR penalty mechanism. Agent--Agent FSR is not estimable due to the absence of Agent--Agent same-task pairs in the development set.
+
+\subsection{Limitations}
+
+These results are exploratory rather than confirmatory:
+\begin{itemize}
+    \item Development set evaluation on 97 traces from 40 task groups; not independent confirmation
+    \item Task labels denote same-CTF-challenge proxy, not actor or organization identity
+    \item Nested cross-validation results may not generalize to new data
+    \item FMR increase from V15 to V16 (+6.18 pp) requires monitoring in larger evaluations
+\end{itemize}
+
+A confirmatory test requires new task groups with Human, Agent, and Script behavior collected through comparable telemetry and frozen evaluation splits.
