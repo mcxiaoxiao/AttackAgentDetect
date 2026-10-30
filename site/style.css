@@ -309,7 +309,7 @@ footer { position: relative; display: grid; min-height: 390px; max-width: none; 
 .footer-hit { grid-column: 3; grid-row: 1; display: grid; width: 62px; height: 62px; place-items: center; justify-self: end; }
 .footer-hit img { display: block; width: 58px; height: 58px; object-fit: contain; }
 .footer-signature { grid-column: 2; grid-row: 1; display: grid; justify-items: center; text-align: center; }
-.signature-art { color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 clamp(108px, 15.3vw, 216px)/.86 var(--font-display); letter-spacing: -.065em; }
+.signature-art { color: transparent; background-image: radial-gradient(circle, #315777 1.25px, transparent 1.5px); background-position: center; background-size: 5px 5px; background-clip: text; -webkit-background-clip: text; font: 700 clamp(84px, calc(25vw - 116px), 216px)/.86 var(--font-display); letter-spacing: -.065em; }
 .footer-meta { display: grid; grid-column: 1 / -1; grid-row: 2; gap: 8px; justify-items: center; padding-top: 14px; border-top: 1px solid var(--line); }
 .footer-credits, .footer-legal { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 8px 17px; margin: 0; color: var(--soft); font-size: 11px; line-height: 1.6; text-align: center; }
 .footer-legal a, .footer-credits a { color: inherit; }
@@ -424,11 +424,11 @@ footer { position: relative; display: grid; min-height: 390px; max-width: none; 
   .related-count { grid-column: 2; grid-row: 1; }
   .related-category summary::after { grid-column: 3; grid-row: 1; }
   .related-table { min-width: 720px; }
-  footer { min-height: 290px; grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 18px 12px; padding: 56px 5% 24px; }
-  .footer-owl, .footer-hit { width: 48px; height: 48px; }
-  .footer-owl img { width: 40px; height: 40px; }
-  .footer-hit img { width: 44px; height: 44px; }
-  .signature-art { background-image: radial-gradient(circle, #315777 .9px, transparent 1.15px); background-size: 3px 3px; font-size: clamp(46.8px, 11.28vw, 84px); line-height: .88; }
+  footer { min-height: 290px; grid-template-columns: 36px minmax(0, 1fr) 36px; gap: 18px 8px; padding: 56px 3% 24px; }
+  .footer-owl, .footer-hit { width: 36px; height: 36px; }
+  .footer-owl img { width: 30px; height: 30px; }
+  .footer-hit img { width: 32px; height: 32px; }
+  .signature-art { background-image: radial-gradient(circle, #315777 .9px, transparent 1.15px); background-size: 3px 3px; font-size: clamp(32px, 11.28vw, 84px); line-height: .88; }
   .footer-credits, .footer-legal { font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) {
