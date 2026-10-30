@@ -1515,7 +1515,7 @@ def make_plots(results: dict, rate_rows: list[dict], rank_rows: list[dict]) -> N
         )
         fig.tight_layout(rect=(0, .12, 1, .92), w_pad=3.2)
         suffix = "en" if english else "zh"
-        fig.savefig(OUT / f"balanced-innovation-v16-{suffix}.png", dpi=260, bbox_inches="tight", facecolor="white")
+        fig.savefig(OUT / f"balanced-innovation-v16-{suffix}.png", dpi=120, bbox_inches="tight", facecolor="white")
         fig.savefig(OUT / "balanced-innovation-v16.pdf", bbox_inches="tight", facecolor="white")
         plt.close(fig)
 
@@ -1540,7 +1540,7 @@ def make_plots(results: dict, rate_rows: list[dict], rank_rows: list[dict]) -> N
     fig.text(.01, .01, "Outer task-held-out folds · 95% task-cluster bootstrap",
              fontsize=8, color="#526575")
     fig.tight_layout(rect=(0, .06, 1, 1))
-    fig.savefig(OUT / "balanced-innovation-v15-candidate-recall-en.png", dpi=260,
+    fig.savefig(OUT / "balanced-innovation-v15-candidate-recall-en.png", dpi=120,
                 bbox_inches="tight", facecolor="white")
     fig.savefig(OUT / "balanced-innovation-v15-candidate-recall.pdf",
                 bbox_inches="tight", facecolor="white")
