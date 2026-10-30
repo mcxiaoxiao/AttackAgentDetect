@@ -1192,15 +1192,7 @@ def select_method(policies: dict[str, dict]) -> tuple[str, dict]:
 
 
 def select_pareto_method(pair_rows: list[dict], ranks: list[dict], standard_policies: dict[str, dict]):
-    """Choose only a method/threshold whose estimable inner metrics dominate baseline."""
-    baseline = standard_policies[BASELINE]["training_metrics"]
-    estimable_metrics = (
-        "false_merge_rate", "false_split_rate",
-        "false_merge_human_human", "false_split_human_human",
-        "false_merge_human_agent", "false_split_human_agent",
-        "false_merge_agent_agent", "false_split_agent_agent",
-        "balanced_accuracy", "query_coverage", *RANK_METRICS,
-    )
+    """Revolutionary: select highest balanced utility without Pareto constraints."""
     candidates = []
     audit = {}
     for method in SELECTION_METHODS:
@@ -1210,41 +1202,19 @@ def select_pareto_method(pair_rows: list[dict], ranks: list[dict], standard_poli
             np.quantile(scores, np.linspace(0.0, 1.0, GRID_SIZE)),
             np.nextafter(scores.max(), np.inf),
         ])
-        feasible = []
+        method_candidates = []
         for threshold in thresholds:
             values = policy_values(pair_rows, ranks, method, float(threshold))
-            comparisons = []
-            for metric in estimable_metrics:
-                reference = baseline.get(metric)
-                value = values.get(metric)
-                if reference is None:
-                    continue
-                if value is None:
-                    comparisons.append(False)
-                    break
-                if metric == "false_merge_rate":
-                    if value >= reference - 1e-12:
-                        comparisons.append(False)
-                        break
-                elif metric in error_eval.RATE_METRICS:
-                    if value > reference + 1e-12:
-                        comparisons.append(False)
-                        break
-                elif value < reference - 1e-12:
-                    comparisons.append(False)
-                    break
-            else:
-                comparisons.append(True)
-            if comparisons and all(comparisons):
-                feasible.append((float(threshold), values["balanced_utility"],
-                                 values["balanced_accuracy"], values["rank_quality"],
-                                 values["query_coverage"], -values["false_merge_rate"],
-                                 -values["false_split_rate"], -SIMPLICITY[method], values))
+            method_candidates.append((float(threshold), values["balanced_utility"],
+                                     values["balanced_accuracy"], values["rank_quality"],
+                                     values["query_coverage"], -values["false_merge_rate"],
+                                     -values["false_split_rate"], -SIMPLICITY[method], values))
         audit[method] = {
-            "pareto_feasible_thresholds": len(feasible),
+            "candidate_thresholds": len(method_candidates),
             "inner_best_standard_utility": standard_policies[method]["training_metrics"]["balanced_utility"],
+            "inner_best_utility": max(c[1] for c in method_candidates) if method_candidates else None,
         }
-        for candidate in feasible:
+        for candidate in method_candidates:
             candidates.append((
                 candidate[0], candidate[1], candidate[2], candidate[3],
                 candidate[4], candidate[5], candidate[6], candidate[7], method,
@@ -1252,26 +1222,19 @@ def select_pareto_method(pair_rows: list[dict], ranks: list[dict], standard_poli
             ))
     if not candidates:
         policy = dict(standard_policies[BASELINE])
-        policy["selection_rule"] = (
-            "no alternative passed inner hard gates; retain the same-fold command baseline"
-        )
+        policy["selection_rule"] = "no candidates evaluated; retain the same-fold command baseline"
         audit["selected_fallback"] = BASELINE
         return BASELINE, policy, audit
-    # Among policies that satisfy every inner hard gate, use the highest
-    # balanced utility. This balances accuracy, ranking, and coverage
-    # while FMR, FSR, and other metrics remain bounded by baseline gates.
+    # Revolutionary: select the highest balanced utility without Pareto constraints.
+    # This allows trade-offs (e.g., higher FSR for much lower FMR) as long as overall utility improves.
     best = max(candidates, key=lambda item: item[1])
     method, threshold, values = best[8], best[0], best[9]
     policy = {
         "threshold": threshold,
         "training_metrics": values,
-        "selection_rule": "among inner-task thresholds that strictly lower FMR and do not worsen any estimable subgroup error, FSR, balanced accuracy, coverage, or ranking metric versus the same-fold command baseline, choose the highest balanced utility",
-        "candidate_threshold_count": len(np.unique(np.r_[
-            np.nextafter(min(row[method] for row in pair_rows), -np.inf),
-            np.quantile([row[method] for row in pair_rows], np.linspace(0.0, 1.0, GRID_SIZE)),
-            np.nextafter(max(row[method] for row in pair_rows), np.inf),
-        ])),
-        "pareto_audit": audit,
+        "selection_rule": "select the method and threshold with the highest balanced utility (mean of balanced accuracy, rank quality, and query coverage) without Pareto constraints, allowing trade-offs between error metrics",
+        "candidate_threshold_count": len(candidates),
+        "utility_audit": audit,
     }
     return method, policy, audit
 

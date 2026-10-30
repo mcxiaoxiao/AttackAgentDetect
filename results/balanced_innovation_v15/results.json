@@ -213,28 +213,28 @@
     "balanced_selected": {
       "HUMAN-to-AGENT": {
         "false_split_rate": {
-          "estimate": 0.012345679012345678,
+          "estimate": 0.043209876543209874,
           "ci95": [
-            0.0,
-            0.037037037037037035
+            0.006172839506172839,
+            0.08641975308641975
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
         },
         "false_merge_rate": {
-          "estimate": 0.46847442680776014,
+          "estimate": 0.2874779541446208,
           "ci95": [
-            0.28857473544973544,
-            0.6437444885361552
+            0.13580246913580246,
+            0.4406966490299824
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
         },
         "query_coverage": {
-          "estimate": 0.9876543209876543,
+          "estimate": 0.95679012345679,
           "ci95": [
-            0.9629629629629629,
-            1.0
+            0.9135802469135802,
+            0.9938271604938271
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
@@ -242,27 +242,27 @@
       },
       "AGENT-to-HUMAN": {
         "false_split_rate": {
-          "estimate": 0.012345679012345678,
+          "estimate": 0.043209876543209874,
           "ci95": [
-            0.0,
-            0.037037037037037035
+            0.006172839506172839,
+            0.08641975308641975
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
         },
         "false_merge_rate": {
-          "estimate": 0.4601519879297657,
+          "estimate": 0.2791961125294459,
           "ci95": [
-            0.29027913444580106,
-            0.6190399518177295
+            0.1309289578734023,
+            0.42618134951468284
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
         },
         "query_coverage": {
-          "estimate": 0.9876543209876543,
+          "estimate": 0.9629629629629629,
           "ci95": [
-            0.9629629629629629,
+            0.9135802469135802,
             1.0
           ],
           "task_count": 40,
@@ -271,27 +271,27 @@
       },
       "HUMAN-to-HUMAN": {
         "false_split_rate": {
-          "estimate": 0.0,
+          "estimate": 0.025641025641025644,
           "ci95": [
             0.0,
-            0.0
+            0.07692307692307693
           ],
           "task_count": 17,
           "bootstrap_draws": 5000
         },
         "false_merge_rate": {
-          "estimate": 0.3896409146409146,
+          "estimate": 0.00633759244870356,
           "ci95": [
-            0.22349592280147834,
-            0.5589979387896054
+            0.00251661918328585,
+            0.010753546864657975
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
         },
         "query_coverage": {
-          "estimate": 1.0,
+          "estimate": 0.9743589743589745,
           "ci95": [
-            1.0,
+            0.923076923076923,
             1.0
           ],
           "task_count": 17,
@@ -305,10 +305,10 @@
           "task_count": 0
         },
         "false_merge_rate": {
-          "estimate": 0.4761904761904762,
+          "estimate": 0.1419753086419753,
           "ci95": [
-            0.2943121693121693,
-            0.6578483245149912
+            0.02623456790123457,
+            0.2623456790123457
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
@@ -572,10 +572,10 @@
       },
       "AGENT-to-HUMAN": {
         "false_split_rate": {
-          "estimate": 0.1662257495590829,
+          "estimate": 0.22178130511463845,
           "ci95": [
-            0.0462962962962963,
-            0.30158730158730157
+            0.07848324514991181,
+            0.38668430335097
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
@@ -590,10 +590,10 @@
           "bootstrap_draws": 5000
         },
         "query_coverage": {
-          "estimate": 0.8677248677248678,
+          "estimate": 0.8121693121693122,
           "ci95": [
-            0.7372134038800705,
-            0.9753086419753086
+            0.6410934744268078,
+            0.9506172839506174
           ],
           "task_count": 40,
           "bootstrap_draws": 5000
@@ -982,8 +982,7 @@
     }
   },
   "selected_method_by_fold": {
-    "artifact_containment_command": 1,
-    "discriminative_pair_score": 2
+    "discriminative_pair_score": 3
   },
   "outer_folds": [
     {
@@ -992,25 +991,25 @@
       "test_task_groups": 14,
       "train_traces": 62,
       "test_traces": 35,
-      "selected_method": "artifact_containment_command",
-      "selected_threshold": 0.045128628690304415,
+      "selected_method": "discriminative_pair_score",
+      "selected_threshold": 0.3834196178498393,
       "selected_inner_metrics": {
-        "false_split_rate": 0.0,
-        "false_merge_rate": 0.5087322656767101,
-        "balanced_accuracy": 0.7456338671616449,
-        "query_coverage": 1.0,
-        "false_merge_human_human": 0.6150793650793651,
-        "false_split_human_human": 0.0,
-        "false_merge_human_agent": 0.3895686360964139,
-        "false_split_human_agent": 0.0,
-        "false_merge_agent_agent": 0.6444444444444445,
+        "false_split_rate": 0.0462962962962963,
+        "false_merge_rate": 0.015036403925292813,
+        "balanced_accuracy": 0.9693336498892055,
+        "query_coverage": 0.9629629629629629,
+        "false_merge_human_human": 0.0026455026455026454,
+        "false_split_human_human": 0.041666666666666664,
+        "false_merge_human_agent": 0.017702821869488534,
+        "false_split_human_agent": 0.04012345679012346,
+        "false_merge_agent_agent": 0.02962962962962963,
         "false_split_agent_agent": null,
-        "hit_at_1": 0.8472222222222222,
-        "mrr": 0.9055485409652076,
-        "recall_at_5": 0.9660493827160493,
-        "ndcg_at_5": 0.913498113503998,
-        "rank_quality": 0.9080795648518692,
-        "balanced_utility": 0.8845711440045047
+        "hit_at_1": 0.9753086419753085,
+        "mrr": 0.981224279835391,
+        "recall_at_5": 0.9845679012345679,
+        "ndcg_at_5": 0.9778097358305843,
+        "rank_quality": 0.9797276397189629,
+        "balanced_utility": 0.9706747508570438
       },
       "candidate_policies": {
         "command_tfidf": {
@@ -1129,7 +1128,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "learned_fusion": {
-          "threshold": 0.4780912957795539,
+          "threshold": 0.4780912957795538,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.6503874212207545,
@@ -1175,7 +1174,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "phase_gated_lcs": {
-          "threshold": 0.11438457412142253,
+          "threshold": 0.11438457412142251,
           "training_metrics": {
             "false_split_rate": 0.012345679012345678,
             "false_merge_rate": 0.6425868370312814,
@@ -1336,7 +1335,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k12": {
-          "threshold": 0.3871961017602206,
+          "threshold": 0.38719610176022085,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1359,7 +1358,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k16": {
-          "threshold": 0.3871961017602206,
+          "threshold": 0.38719610176022085,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1382,7 +1381,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k20": {
-          "threshold": 0.3871961017602206,
+          "threshold": 0.38719610176022085,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1405,7 +1404,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.3965038253866678,
+          "threshold": 0.39648702783549866,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1428,7 +1427,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.3965038253866678,
+          "threshold": 0.39648702783549866,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1451,7 +1450,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.3965038253866678,
+          "threshold": 0.39648702783549866,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1474,7 +1473,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.3984299602439909,
+          "threshold": 0.3984399371238826,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1497,7 +1496,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.3984299602439909,
+          "threshold": 0.3984399371238826,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1520,7 +1519,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.3984299602439909,
+          "threshold": 0.3984399371238826,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.012235963624852512,
@@ -1543,7 +1542,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.3963857104812313,
+          "threshold": 0.3963857104812318,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1566,7 +1565,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.3963857104812313,
+          "threshold": 0.3963857104812318,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1589,7 +1588,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.3963857104812313,
+          "threshold": 0.3963857104812318,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1612,7 +1611,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.4312088721387331,
+          "threshold": 0.4312088721387329,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1635,7 +1634,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.4312088721387331,
+          "threshold": 0.4312088721387329,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1658,7 +1657,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.4312088721387331,
+          "threshold": 0.4312088721387329,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.013218006273561829,
@@ -1681,7 +1680,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.30448341664942496,
+          "threshold": 0.30447913115848174,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.023622981956315292,
@@ -1704,7 +1703,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.2921887730992662,
+          "threshold": 0.29218877309926833,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.0283785144896256,
@@ -1727,7 +1726,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.2921887730992662,
+          "threshold": 0.29218877309926833,
           "training_metrics": {
             "false_split_rate": 0.04938271604938271,
             "false_merge_rate": 0.0283785144896256,
@@ -1750,7 +1749,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "chi2_command_tfidf": {
-          "threshold": 0.12968730214226543,
+          "threshold": 0.1296873021422654,
           "training_metrics": {
             "false_split_rate": 0.08950617283950617,
             "false_merge_rate": 0.5369507036173703,
@@ -1819,7 +1818,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "discriminative_pair_score": {
-          "threshold": 0.3834196178498394,
+          "threshold": 0.3834196178498393,
           "training_metrics": {
             "false_split_rate": 0.0462962962962963,
             "false_merge_rate": 0.015036403925292813,
@@ -1842,7 +1841,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "source_conditioned_score": {
-          "threshold": 0.3834196178498394,
+          "threshold": 0.3834196178498393,
           "training_metrics": {
             "false_split_rate": 0.0462962962962963,
             "false_merge_rate": 0.015036403925292813,
@@ -1865,7 +1864,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "open_set_rejection_score": {
-          "threshold": 0.3834196178498394,
+          "threshold": 0.3834196178498393,
           "training_metrics": {
             "false_split_rate": 0.0462962962962963,
             "false_merge_rate": 0.015036403925292813,
@@ -1890,36 +1889,44 @@
       },
       "pareto_candidate_audit": {
         "command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7963940800625168
+          "candidate_thresholds": 99,
+          "inner_best_standard_utility": 0.7963940800625168,
+          "inner_best_utility": 0.7963940800625168
         },
         "artifact_containment_command": {
-          "pareto_feasible_thresholds": 3,
-          "inner_best_standard_utility": 0.9201935719880437
+          "candidate_thresholds": 101,
+          "inner_best_standard_utility": 0.9201935719880437,
+          "inner_best_utility": 0.9201935719880437
         },
         "chi2_command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7680855368935382
+          "candidate_thresholds": 100,
+          "inner_best_standard_utility": 0.7680855368935382,
+          "inner_best_utility": 0.7680855368935382
         },
         "length_aware_containment": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7684307563459863
+          "candidate_thresholds": 88,
+          "inner_best_standard_utility": 0.7684307563459863,
+          "inner_best_utility": 0.7684307563459863
         },
         "action_edit_distance": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7434277638039867
+          "candidate_thresholds": 62,
+          "inner_best_standard_utility": 0.7434277638039867,
+          "inner_best_utility": 0.7434277638039867
         },
         "discriminative_pair_score": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.9706747508570438
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9706747508570438,
+          "inner_best_utility": 0.9706747508570438
         },
         "source_conditioned_score": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.9706747508570438
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9706747508570438,
+          "inner_best_utility": 0.9706747508570438
         },
         "open_set_rejection_score": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.9706747508570438
+          "candidate_thresholds": 93,
+          "inner_best_standard_utility": 0.9706747508570438,
+          "inner_best_utility": 0.9706747508570438
         }
       },
       "fitted_dimensions": {
@@ -1961,7 +1968,7 @@
       "train_traces": 65,
       "test_traces": 32,
       "selected_method": "discriminative_pair_score",
-      "selected_threshold": 0.3718794223004566,
+      "selected_threshold": 0.37187942230045656,
       "selected_inner_metrics": {
         "false_split_rate": 0.006172839506172839,
         "false_merge_rate": 0.04762906846240179,
@@ -2192,12 +2199,12 @@
           "threshold": 0.025579809823742795,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
-            "false_merge_rate": 0.7509458134458135,
-            "balanced_accuracy": 0.615267834017834,
+            "false_merge_rate": 0.7504709796376462,
+            "balanced_accuracy": 0.6155052509219175,
             "query_coverage": 0.9938271604938271,
             "false_merge_human_human": 0.7059082892416226,
             "false_split_human_human": 0.041666666666666664,
-            "false_merge_human_agent": 0.7132422104644327,
+            "false_merge_human_agent": 0.712007642563198,
             "false_split_human_agent": 0.018518518518518517,
             "false_merge_agent_agent": 0.9703703703703703,
             "false_split_agent_agent": null,
@@ -2206,7 +2213,7 @@
             "recall_at_5": 0.9382716049382717,
             "ndcg_at_5": 0.8448324849625548,
             "rank_quality": 0.838391328979402,
-            "balanced_utility": 0.8158287744970211
+            "balanced_utility": 0.815907913465049
           },
           "candidate_threshold_count": 99,
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
@@ -2281,7 +2288,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "neighborhood_verified": {
-          "threshold": 0.22254985449044223,
+          "threshold": 0.22238992562536863,
           "training_metrics": {
             "false_split_rate": 0.0654320987654321,
             "false_merge_rate": 0.7284559576226243,
@@ -2294,17 +2301,17 @@
             "false_merge_agent_agent": 0.9629629629629629,
             "false_split_agent_agent": null,
             "hit_at_1": 0.41203703703703703,
-            "mrr": 0.6120321379580639,
+            "mrr": 0.6115177346658828,
             "recall_at_5": 0.8364197530864197,
-            "ndcg_at_5": 0.6522019021409017,
-            "rank_quality": 0.6281727075556056,
-            "balanced_utility": 0.736644127688427
+            "ndcg_at_5": 0.6519687309245951,
+            "rank_quality": 0.6279858139284836,
+            "balanced_utility": 0.7365818298127197
           },
           "candidate_threshold_count": 102,
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k12": {
-          "threshold": 0.5132813127035207,
+          "threshold": 0.5138031813639505,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.040582103082103076,
@@ -2327,7 +2334,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k16": {
-          "threshold": 0.5151201189973325,
+          "threshold": 0.5153326586705349,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.012804325304325301,
@@ -2350,7 +2357,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k20": {
-          "threshold": 0.5151201189973325,
+          "threshold": 0.5153326586705349,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.012804325304325301,
@@ -2373,7 +2380,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.41244903351357465,
+          "threshold": 0.4140155862459087,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.10167918501251834,
@@ -2396,7 +2403,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.42438506419966654,
+          "threshold": 0.42589464215774203,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10111801778468445,
@@ -2419,7 +2426,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.42438506419966654,
+          "threshold": 0.42589464215774203,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10111801778468445,
@@ -2442,7 +2449,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.4494647973223687,
+          "threshold": 0.4494533356501867,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.10099930933264267,
@@ -2465,7 +2472,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.4073905797924041,
+          "threshold": 0.40739228131969163,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10530827197493864,
@@ -2488,7 +2495,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.4073905797924041,
+          "threshold": 0.40739228131969163,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.10530827197493864,
@@ -2511,7 +2518,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.49758401459160945,
+          "threshold": 0.49758986575021524,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.040020935854269184,
@@ -2534,7 +2541,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.46667993517124295,
+          "threshold": 0.4678026612111108,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.07025382025382025,
@@ -2557,7 +2564,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.46667993517124295,
+          "threshold": 0.4678026612111108,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.07025382025382025,
@@ -2580,7 +2587,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.33532580308986526,
+          "threshold": 0.33532566049704815,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.1147617814284481,
@@ -2603,7 +2610,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.3468669304294735,
+          "threshold": 0.3474808308893246,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.11409038492371826,
@@ -2626,7 +2633,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.3468669304294735,
+          "threshold": 0.3474808308893246,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.11409038492371826,
@@ -2649,7 +2656,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.5570781441706609,
+          "threshold": 0.5594201900424818,
           "training_metrics": {
             "false_split_rate": 0.0802469135802469,
             "false_merge_rate": 0.0672699214365881,
@@ -2672,7 +2679,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.56858462078095,
+          "threshold": 0.5706150970750843,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.053381032547699214,
@@ -2695,7 +2702,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.56858462078095,
+          "threshold": 0.5706150970750843,
           "training_metrics": {
             "false_split_rate": 0.07716049382716049,
             "false_merge_rate": 0.053381032547699214,
@@ -2718,7 +2725,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "chi2_command_tfidf": {
-          "threshold": 0.02924254565051716,
+          "threshold": 0.029242545650517163,
           "training_metrics": {
             "false_split_rate": 0.0,
             "false_merge_rate": 0.9431116722783389,
@@ -2787,7 +2794,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "discriminative_pair_score": {
-          "threshold": 0.3718794223004566,
+          "threshold": 0.37187942230045656,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.04762906846240179,
@@ -2810,7 +2817,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "source_conditioned_score": {
-          "threshold": 0.3718794223004566,
+          "threshold": 0.37187942230045656,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.04762906846240179,
@@ -2833,7 +2840,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "open_set_rejection_score": {
-          "threshold": 0.3718794223004566,
+          "threshold": 0.37187942230045656,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.04762906846240179,
@@ -2858,36 +2865,44 @@
       },
       "pareto_candidate_audit": {
         "command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7153537787438139
+          "candidate_thresholds": 101,
+          "inner_best_standard_utility": 0.7153537787438139,
+          "inner_best_utility": 0.7153537787438139
         },
         "artifact_containment_command": {
-          "pareto_feasible_thresholds": 5,
-          "inner_best_standard_utility": 0.875767339305937
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.875767339305937,
+          "inner_best_utility": 0.875767339305937
         },
         "chi2_command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.6999068274594307
+          "candidate_thresholds": 101,
+          "inner_best_standard_utility": 0.6999068274594307,
+          "inner_best_utility": 0.6999068274594307
         },
         "length_aware_containment": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7062335250540538
+          "candidate_thresholds": 90,
+          "inner_best_standard_utility": 0.7062335250540538,
+          "inner_best_utility": 0.7062335250540538
         },
         "action_edit_distance": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7370297204900661
+          "candidate_thresholds": 61,
+          "inner_best_standard_utility": 0.7370297204900661,
+          "inner_best_utility": 0.7370297204900661
         },
         "discriminative_pair_score": {
-          "pareto_feasible_thresholds": 28,
-          "inner_best_standard_utility": 0.9845470916341971
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9845470916341971,
+          "inner_best_utility": 0.9845470916341971
         },
         "source_conditioned_score": {
-          "pareto_feasible_thresholds": 28,
-          "inner_best_standard_utility": 0.9845470916341971
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9845470916341971,
+          "inner_best_utility": 0.9845470916341971
         },
         "open_set_rejection_score": {
-          "pareto_feasible_thresholds": 28,
-          "inner_best_standard_utility": 0.9845470916341971
+          "candidate_thresholds": 94,
+          "inner_best_standard_utility": 0.9845470916341971,
+          "inner_best_utility": 0.9845470916341971
         }
       },
       "fitted_dimensions": {
@@ -2929,24 +2944,24 @@
       "train_traces": 67,
       "test_traces": 30,
       "selected_method": "discriminative_pair_score",
-      "selected_threshold": 0.227671406186512,
+      "selected_threshold": 0.30509922071263246,
       "selected_inner_metrics": {
-        "false_split_rate": 0.0,
-        "false_merge_rate": 0.18480161813495147,
-        "balanced_accuracy": 0.9075991909325243,
-        "query_coverage": 1.0,
-        "false_merge_human_human": 0.19053497942386832,
+        "false_split_rate": 0.018518518518518517,
+        "false_merge_rate": 0.02430779097445764,
+        "balanced_accuracy": 0.9785868452535119,
+        "query_coverage": 0.9814814814814815,
+        "false_merge_human_human": 0.006172839506172839,
         "false_split_human_human": 0.0,
-        "false_merge_human_agent": 0.14705075445816185,
-        "false_split_human_agent": 0.0,
-        "false_merge_agent_agent": 0.24814814814814815,
+        "false_merge_human_agent": 0.02940672153635117,
+        "false_split_human_agent": 0.018518518518518517,
+        "false_merge_agent_agent": 0.04814814814814816,
         "false_split_agent_agent": null,
         "hit_at_1": 0.9722222222222222,
         "mrr": 0.98070987654321,
         "recall_at_5": 0.9907407407407408,
         "ndcg_at_5": 0.9820519102930079,
         "rank_quality": 0.9814311874497952,
-        "balanced_utility": 0.9630101261274397
+        "balanced_utility": 0.9804998380615961
       },
       "candidate_policies": {
         "command_tfidf": {
@@ -3157,7 +3172,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "operand_jaccard": {
-          "threshold": 0.02618597037087362,
+          "threshold": 0.026185970370873612,
           "training_metrics": {
             "false_split_rate": 0.006172839506172839,
             "false_merge_rate": 0.6692964442964443,
@@ -3249,7 +3264,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "neighborhood_verified": {
-          "threshold": 0.23262362282452745,
+          "threshold": 0.23242117864816267,
           "training_metrics": {
             "false_split_rate": 0.095679012345679,
             "false_merge_rate": 0.6250558083891417,
@@ -3262,17 +3277,17 @@
             "false_merge_agent_agent": 0.8111111111111112,
             "false_split_agent_agent": null,
             "hit_at_1": 0.40987654320987654,
-            "mrr": 0.6013815402704291,
+            "mrr": 0.599838330393886,
             "recall_at_5": 0.8209876543209876,
-            "ndcg_at_5": 0.6357750197821823,
-            "rank_quality": 0.6170051893958689,
-            "balanced_utility": 0.7372948975362351
+            "ndcg_at_5": 0.6350170896299481,
+            "rank_quality": 0.6164299043886745,
+            "balanced_utility": 0.7371031358671702
           },
           "candidate_threshold_count": 103,
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k12": {
-          "threshold": 0.2231465091653304,
+          "threshold": 0.2232149841476088,
           "training_metrics": {
             "false_split_rate": 0.024691358024691357,
             "false_merge_rate": 0.3482724066057399,
@@ -3295,7 +3310,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k16": {
-          "threshold": 0.22242280085382748,
+          "threshold": 0.22315490196151017,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.350036075036075,
@@ -3318,7 +3333,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_generic_k20": {
-          "threshold": 0.22242280085382748,
+          "threshold": 0.22315490196151017,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.350036075036075,
@@ -3341,7 +3356,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k12": {
-          "threshold": 0.2376821987018789,
+          "threshold": 0.23816772781340598,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
             "false_merge_rate": 0.3377967711301045,
@@ -3364,15 +3379,15 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k16": {
-          "threshold": 0.23693853230769774,
+          "threshold": 0.23773377483483224,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3404021904021904,
             "balanced_accuracy": 0.8112803862803863,
             "query_coverage": 0.9629629629629629,
-            "false_merge_human_human": 0.3022633744855967,
+            "false_merge_human_human": 0.29917695473251027,
             "false_split_human_human": 0.0,
-            "false_merge_human_agent": 0.29962277091906725,
+            "false_merge_human_agent": 0.3011659807956104,
             "false_split_human_agent": 0.037037037037037035,
             "false_merge_agent_agent": 0.48148148148148145,
             "false_split_agent_agent": null,
@@ -3387,15 +3402,15 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_mode_conditioned_k20": {
-          "threshold": 0.23693853230769774,
+          "threshold": 0.23773377483483224,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3404021904021904,
             "balanced_accuracy": 0.8112803862803863,
             "query_coverage": 0.9629629629629629,
-            "false_merge_human_human": 0.3022633744855967,
+            "false_merge_human_human": 0.29917695473251027,
             "false_split_human_human": 0.0,
-            "false_merge_human_agent": 0.29962277091906725,
+            "false_merge_human_agent": 0.3011659807956104,
             "false_split_human_agent": 0.037037037037037035,
             "false_merge_agent_agent": 0.48148148148148145,
             "false_split_agent_agent": null,
@@ -3410,7 +3425,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k12": {
-          "threshold": 0.2559427344875736,
+          "threshold": 0.2559132567576345,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
             "false_merge_rate": 0.32872837039503705,
@@ -3433,7 +3448,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k16": {
-          "threshold": 0.252633914168572,
+          "threshold": 0.2526092545429053,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3309329559329559,
@@ -3456,7 +3471,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_human_profile_k20": {
-          "threshold": 0.252633914168572,
+          "threshold": 0.2526092545429053,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3309329559329559,
@@ -3479,7 +3494,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k12": {
-          "threshold": 0.2065744674944574,
+          "threshold": 0.20737104203028645,
           "training_metrics": {
             "false_split_rate": 0.024691358024691357,
             "false_merge_rate": 0.36492303992303987,
@@ -3502,7 +3517,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k16": {
-          "threshold": 0.20775670207117694,
+          "threshold": 0.20824775306110724,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.36632595799262463,
@@ -3525,7 +3540,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_agent_profile_k20": {
-          "threshold": 0.20775670207117694,
+          "threshold": 0.20824775306110724,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.36632595799262463,
@@ -3548,7 +3563,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k12": {
-          "threshold": 0.2689737916715322,
+          "threshold": 0.27011843011460757,
           "training_metrics": {
             "false_split_rate": 0.1191358024691358,
             "false_merge_rate": 0.30156140156140154,
@@ -3571,7 +3586,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k16": {
-          "threshold": 0.2740747784664299,
+          "threshold": 0.27445131793161576,
           "training_metrics": {
             "false_split_rate": 0.11296296296296297,
             "false_merge_rate": 0.29947706614373276,
@@ -3594,7 +3609,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_phase_tensor_k20": {
-          "threshold": 0.2740747784664299,
+          "threshold": 0.27445131793161576,
           "training_metrics": {
             "false_split_rate": 0.11296296296296297,
             "false_merge_rate": 0.29947706614373276,
@@ -3617,15 +3632,15 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k12": {
-          "threshold": 0.2937345972781267,
+          "threshold": 0.2941175208918476,
           "training_metrics": {
             "false_split_rate": 0.04320987654320988,
-            "false_merge_rate": 0.3009783426450093,
-            "balanced_accuracy": 0.8279058904058904,
+            "false_merge_rate": 0.314392397725731,
+            "balanced_accuracy": 0.8211988628655295,
             "query_coverage": 0.9629629629629629,
-            "false_merge_human_human": 0.23755144032921813,
+            "false_merge_human_human": 0.2792181069958848,
             "false_split_human_human": 0.0,
-            "false_merge_human_agent": 0.2718792866941015,
+            "false_merge_human_agent": 0.27064471879286695,
             "false_split_human_agent": 0.04938271604938271,
             "false_merge_agent_agent": 0.4518518518518519,
             "false_split_agent_agent": null,
@@ -3634,13 +3649,13 @@
             "recall_at_5": 0.9753086419753086,
             "ndcg_at_5": 0.8874276336192253,
             "rank_quality": 0.8793590127819108,
-            "balanced_utility": 0.8900759553835881
+            "balanced_utility": 0.887840279536801
           },
           "candidate_threshold_count": 97,
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k16": {
-          "threshold": 0.28653673987369815,
+          "threshold": 0.28684139357133676,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3172861089527756,
@@ -3663,7 +3678,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "verifier_no_neighborhood_k20": {
-          "threshold": 0.28653673987369815,
+          "threshold": 0.28684139357133676,
           "training_metrics": {
             "false_split_rate": 0.037037037037037035,
             "false_merge_rate": 0.3172861089527756,
@@ -3686,7 +3701,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "chi2_command_tfidf": {
-          "threshold": 0.08866446720202557,
+          "threshold": 0.08866446720202556,
           "training_metrics": {
             "false_split_rate": 0.012345679012345678,
             "false_merge_rate": 0.7463721463721464,
@@ -3755,7 +3770,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "discriminative_pair_score": {
-          "threshold": 0.3050992207126324,
+          "threshold": 0.30509922071263246,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.02430779097445764,
@@ -3778,7 +3793,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "source_conditioned_score": {
-          "threshold": 0.3050992207126324,
+          "threshold": 0.30509922071263246,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.02430779097445764,
@@ -3801,7 +3816,7 @@
           "selection_rule": "maximum equal-weight mean of balanced accuracy, four-metric ranking mean, and query coverage"
         },
         "open_set_rejection_score": {
-          "threshold": 0.3050992207126324,
+          "threshold": 0.30509922071263246,
           "training_metrics": {
             "false_split_rate": 0.018518518518518517,
             "false_merge_rate": 0.02430779097445764,
@@ -3826,36 +3841,44 @@
       },
       "pareto_candidate_audit": {
         "command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7141768544595078
+          "candidate_thresholds": 94,
+          "inner_best_standard_utility": 0.7141768544595078,
+          "inner_best_utility": 0.7141768544595078
         },
         "artifact_containment_command": {
-          "pareto_feasible_thresholds": 31,
-          "inner_best_standard_utility": 0.894168354042725
+          "candidate_thresholds": 100,
+          "inner_best_standard_utility": 0.894168354042725,
+          "inner_best_utility": 0.894168354042725
         },
         "chi2_command_tfidf": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7440302338488539
+          "candidate_thresholds": 99,
+          "inner_best_standard_utility": 0.7440302338488539,
+          "inner_best_utility": 0.7440302338488539
         },
         "length_aware_containment": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7237087004001067
+          "candidate_thresholds": 80,
+          "inner_best_standard_utility": 0.7237087004001067,
+          "inner_best_utility": 0.7237087004001067
         },
         "action_edit_distance": {
-          "pareto_feasible_thresholds": 0,
-          "inner_best_standard_utility": 0.7258066811971347
+          "candidate_thresholds": 59,
+          "inner_best_standard_utility": 0.7258066811971347,
+          "inner_best_utility": 0.7258066811971347
         },
         "discriminative_pair_score": {
-          "pareto_feasible_thresholds": 29,
-          "inner_best_standard_utility": 0.9804998380615961
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9804998380615961,
+          "inner_best_utility": 0.9804998380615961
         },
         "source_conditioned_score": {
-          "pareto_feasible_thresholds": 29,
-          "inner_best_standard_utility": 0.9804998380615961
+          "candidate_thresholds": 103,
+          "inner_best_standard_utility": 0.9804998380615961,
+          "inner_best_utility": 0.9804998380615961
         },
         "open_set_rejection_score": {
-          "pareto_feasible_thresholds": 29,
-          "inner_best_standard_utility": 0.9804998380615961
+          "candidate_thresholds": 94,
+          "inner_best_standard_utility": 0.9804998380615961,
+          "inner_best_utility": 0.9804998380615961
         }
       },
       "fitted_dimensions": {
@@ -5601,10 +5624,10 @@
         "bootstrap_draws": 5000
       },
       "mrr": {
-        "estimate": 0.5745352212944805,
+        "estimate": 0.5745040453373788,
         "ci95": [
           0.4732252297742267,
-          0.6680062946170199
+          0.6679661908307741
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6498,10 +6521,10 @@
     },
     "verifier_no_human_profile_k16": {
       "false_split_rate": {
-        "estimate": 0.1796002351557907,
+        "estimate": 0.20737801293356847,
         "ci95": [
-          0.05761316872427983,
-          0.32422104644326866
+          0.07716049382716049,
+          0.3561213991769546
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6516,10 +6539,10 @@
         "bootstrap_draws": 5000
       },
       "false_split_human_agent": {
-        "estimate": 0.1662257495590829,
+        "estimate": 0.19400352733686066,
         "ci95": [
-          0.04938271604938271,
-          0.29982363315696653
+          0.07098765432098765,
+          0.33377425044091713
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6566,19 +6589,19 @@
         "bootstrap_draws": 5000
       },
       "balanced_accuracy": {
-        "estimate": 0.7882441872857727,
+        "estimate": 0.7743552983968837,
         "ci95": [
-          0.7068425006274259,
-          0.8662254444410064
+          0.6888407962636357,
+          0.858799209959054
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "query_has_accepted_match": {
-        "estimate": 0.8450911228689005,
+        "estimate": 0.8173133450911229,
         "ci95": [
-          0.7148662551440329,
-          0.95679012345679
+          0.6826866549088771,
+          0.9362139917695473
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6622,10 +6645,10 @@
     },
     "verifier_no_human_profile_k20": {
       "false_split_rate": {
-        "estimate": 0.1796002351557907,
+        "estimate": 0.20737801293356847,
         "ci95": [
-          0.059670781893004114,
-          0.3265726043503821
+          0.07950470311581422,
+          0.35846560846560843
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6640,10 +6663,10 @@
         "bootstrap_draws": 5000
       },
       "false_split_human_agent": {
-        "estimate": 0.1662257495590829,
+        "estimate": 0.19400352733686066,
         "ci95": [
-          0.04938271604938271,
-          0.30599647266313934
+          0.07098765432098765,
+          0.34171075837742504
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -6690,19 +6713,19 @@
         "bootstrap_draws": 5000
       },
       "balanced_accuracy": {
-        "estimate": 0.787511044414878,
+        "estimate": 0.773622155525989,
         "ci95": [
-          0.704863231896614,
-          0.8704970502387654
+          0.6862883868622173,
+          0.8631334509112288
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "query_has_accepted_match": {
-        "estimate": 0.8450911228689005,
+        "estimate": 0.8173133450911229,
         "ci95": [
-          0.7125220458553793,
-          0.9588477366255144
+          0.6778292181069958,
+          0.9372427983539094
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -8606,28 +8629,28 @@
     },
     "balanced_selected": {
       "false_split_rate": {
-        "estimate": 0.012345679012345678,
+        "estimate": 0.04526748971193415,
         "ci95": [
-          0.0,
-          0.037037037037037035
+          0.008230452674897118,
+          0.0905349794238683
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "false_split_human_human": {
-        "estimate": 0.0,
+        "estimate": 0.025641025641025644,
         "ci95": [
           0.0,
-          0.0
+          0.07692307692307693
         ],
         "task_count": 17,
         "bootstrap_draws": 5000
       },
       "false_split_human_agent": {
-        "estimate": 0.012345679012345678,
+        "estimate": 0.043209876543209874,
         "ci95": [
-          0.0,
-          0.037037037037037035
+          0.01219135802469141,
+          0.08641975308641975
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -8638,73 +8661,73 @@
         "task_count": 0
       },
       "false_merge_rate": {
-        "estimate": 0.4533324050867911,
+        "estimate": 0.17913508049960292,
         "ci95": [
-          0.3062648949190535,
-          0.5913268811603769
+          0.09378901213940201,
+          0.2671877352847138
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "false_merge_human_human": {
-        "estimate": 0.3896409146409146,
+        "estimate": 0.00633759244870356,
         "ci95": [
-          0.22588108393663947,
-          0.5566204268982047
+          0.00251661918328585,
+          0.010529313793202679
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "false_merge_human_agent": {
-        "estimate": 0.46628508665545704,
+        "estimate": 0.2866439116439116,
         "ci95": [
-          0.31415405796192836,
-          0.6044013591004332
+          0.1593861745250634,
+          0.4090173072811961
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "false_merge_agent_agent": {
-        "estimate": 0.4761904761904762,
+        "estimate": 0.1419753086419753,
         "ci95": [
-          0.30023699294532624,
-          0.6516809964726631
+          0.027777777777777776,
+          0.2638888888888889
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "balanced_accuracy": {
-        "estimate": 0.7671609579504316,
+        "estimate": 0.8877987148942315,
         "ci95": [
-          0.6977309045504707,
-          0.8422916430307593
+          0.8376252810524253,
+          0.9362577482801655
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "query_has_accepted_match": {
-        "estimate": 0.9876543209876543,
+        "estimate": 0.9588477366255144,
         "ci95": [
-          0.9629629629629629,
-          1.0
+          0.9176954732510287,
+          0.9958847736625515
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "hit_at_1": {
-        "estimate": 0.8702233980011758,
+        "estimate": 0.9084362139917695,
         "ci95": [
-          0.7858612580834802,
-          0.9465020576131687
+          0.8343621399176954,
+          0.9691358024691358
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
       },
       "mrr": {
-        "estimate": 0.9216563786008232,
+        "estimate": 0.9446722516166961,
         "ci95": [
-          0.8706564153439154,
-          0.9665681951793063
+          0.9008195546737213,
+          0.9818121693121693
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -8719,10 +8742,10 @@
         "bootstrap_draws": 5000
       },
       "ndcg_at_5": {
-        "estimate": 0.9340532633829873,
+        "estimate": 0.9532456859730885,
         "ci95": [
-          0.8951570581272545,
-          0.9699316625587879
+          0.9173671473380703,
+          0.9841845982851316
         ],
         "task_count": 40,
         "bootstrap_draws": 5000
@@ -8731,30 +8754,30 @@
   },
   "paired_deltas_vs_command": {
     "false_split_rate": {
-      "estimate": -0.059964726631393295,
+      "estimate": -0.027042915931804818,
       "ci_95": [
-        -0.16343327454438564,
-        0.01234567901234568
+        -0.13878600823045265,
+        0.057613168724279844
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "false_split_human_human": {
-      "estimate": 0.0,
+      "estimate": 0.025641025641025644,
       "ci_95": [
         0.0,
-        0.0
+        0.07692307692307693
       ],
       "paired_task_count": 17,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "false_split_human_agent": {
-      "estimate": -0.07231040564373897,
+      "estimate": -0.04144620811287478,
       "ci_95": [
-        -0.17548500881834214,
-        0.006172839506172839
+        -0.1490299823633157,
+        0.04938271604938271
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
@@ -8766,80 +8789,80 @@
       "paired_task_count": 0
     },
     "false_merge_rate": {
-      "estimate": -0.32735559749854753,
+      "estimate": -0.6015529220857356,
       "ci_95": [
-        -0.4633897350543712,
-        -0.20401732855802063
+        -0.71864731272626,
+        -0.4847862046233554
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "false_merge_human_human": {
-      "estimate": -0.5223187306520639,
+      "estimate": -0.905622052844275,
       "ci_95": [
-        -0.6924331789609568,
-        -0.3398116492560938
+        -0.9594828088578088,
+        -0.8432602736769405
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "false_merge_human_agent": {
-      "estimate": -0.21099697627475403,
+      "estimate": -0.3906381512862995,
       "ci_95": [
-        -0.360579713068139,
-        -0.0647874459217052
+        -0.5445785096248059,
+        -0.22697842452472092
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "false_merge_agent_agent": {
-      "estimate": -0.40696649029982357,
+      "estimate": -0.7411816578483245,
       "ci_95": [
-        -0.5903880070546738,
-        -0.24074074074074073
+        -0.89836860670194,
+        -0.5701058201058201
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "balanced_accuracy": {
-      "estimate": 0.1936601620649704,
+      "estimate": 0.31429791900877024,
       "ci_95": [
-        0.11504383923629377,
-        0.28006426818073993
+        0.24033361653447746,
+        0.38430319411354164
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "query_has_accepted_match": {
-      "estimate": 0.0393885949441505,
+      "estimate": 0.010582010582010581,
       "ci_95": [
-        -0.03292181069958847,
-        0.14285714285714285
+        -0.06995884773662552,
+        0.11816578483245149
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "hit_at_1": {
-      "estimate": 0.5742210464432687,
+      "estimate": 0.6124338624338624,
       "ci_95": [
-        0.42224059376837164,
-        0.7286963550852439
+        0.4576682833627278,
+        0.7701462375073485
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "mrr": {
-      "estimate": 0.4236885346882051,
+      "estimate": 0.44670440770407804,
       "ci_95": [
-        0.32656702667895,
-        0.5197480996871269
+        0.3444131796893928,
+        0.5463368677208821
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
@@ -8856,10 +8879,10 @@
       "bootstrap_unit": "benchmark-qualified task resampled within benchmark"
     },
     "ndcg_at_5": {
-      "estimate": 0.4006746828743933,
+      "estimate": 0.41986710546449446,
       "ci_95": [
-        0.3230661000785598,
-        0.47796321140442066
+        0.33968227069823004,
+        0.4995219847408524
       ],
       "paired_task_count": 40,
       "direction": "balanced_selected minus command_tfidf",
@@ -8867,24 +8890,24 @@
     }
   },
   "direction_adjusted_selected_changes": {
-    "false_split_rate": 0.059964726631393295,
-    "false_split_human_human": -0.0,
-    "false_split_human_agent": 0.07231040564373897,
+    "false_split_rate": 0.027042915931804818,
+    "false_split_human_human": -0.025641025641025644,
+    "false_split_human_agent": 0.04144620811287478,
     "false_split_agent_agent": null,
-    "false_merge_rate": 0.32735559749854753,
-    "false_merge_human_human": 0.5223187306520639,
-    "false_merge_human_agent": 0.21099697627475403,
-    "false_merge_agent_agent": 0.40696649029982357,
-    "balanced_accuracy": 0.1936601620649704,
-    "query_has_accepted_match": 0.0393885949441505,
-    "hit_at_1": 0.5742210464432687,
-    "mrr": 0.4236885346882051,
+    "false_merge_rate": 0.6015529220857356,
+    "false_merge_human_human": 0.905622052844275,
+    "false_merge_human_agent": 0.3906381512862995,
+    "false_merge_agent_agent": 0.7411816578483245,
+    "balanced_accuracy": 0.31429791900877024,
+    "query_has_accepted_match": 0.010582010582010581,
+    "hit_at_1": 0.6124338624338624,
+    "mrr": 0.44670440770407804,
     "recall_at_5": 0.2550215559474819,
-    "ndcg_at_5": 0.4006746828743933
+    "ndcg_at_5": 0.41986710546449446
   },
-  "all_estimable_metrics_pointwise_nonworse": true,
+  "all_estimable_metrics_pointwise_nonworse": false,
   "provenance": {
-    "runner_sha256": "785f3424cc1d9fbb2edb83bcada3d900827ba68a808417efd86c9b3c4179f74a",
+    "runner_sha256": "0a0f5a1d75b5acd48efdb7c446da1e379872c7857f324229cf72094efd64dfcf",
     "human_command_parser": "terminal output prompt reconstruction with backspace and CSI cursor/insert/delete handling",
     "base_runner_sha256": "6f05bb0d0332f84a537b708bea1833bafd55151ec59efeb0d7cda4d58fe24b33",
     "source_manifest_sha256": "051b4dcdab4b63a6cc3343e0f3a6f8e19e3dee0081d9fdfe84e97a2b0fcacefe",
