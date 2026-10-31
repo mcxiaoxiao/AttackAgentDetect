@@ -232,8 +232,8 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .research-list { margin: 0; padding: 0; list-style: none; counter-reset: research-item; }
 .research-list-page { display: grid; gap: 0; }
 .research-list-page li { padding: 24px 0; border-top: 1px solid var(--line); }
-.research-list-page li:first-child { border-top-color: var(--line-strong); }
-.research-list-page li:last-child { border-bottom: 1px solid var(--line-strong); }
+.research-list-page li:first-child { border-top: 0; }
+.research-list-page li:last-child { border-bottom: 0; }
 .research-page-header > p { max-width: 58ch; }
 .research-list li { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: start; gap: 0 14px; counter-increment: research-item; }
 .research-list li::before { grid-column: 1; grid-row: 1; padding-top: 1px; color: var(--blue); content: counter(research-item) "."; font: 700 28px/1 var(--font-display); letter-spacing: -.04em; }
