@@ -2,87 +2,20 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-<meta content="V16 dataset: 1558 test pairs, 97 traces, 40 task groups" name="description"/>
-<meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgent Detect | Dataset">AttackAgent Detect | 数据集</title>
+<meta content="CTF 行为轨迹集：来自 Cyber Task Horizons 的 97 条轨迹、40 个任务组与 1,558 条外层评估配对。" name="description"/>
+<meta content="#f5f9fd" name="theme-color"/>
+<title data-en="AttackAgent Detect | CTF Behavior Trace Set">AttackAgent Detect | CTF 行为轨迹集</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
-<script defer="" src="i18n.js?v=20261030-case-study"></script>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261101-code-style" rel="stylesheet"/>
+<link href="dataset.css?v=20261101-ctf-trace-set" rel="stylesheet"/>
+<script defer="" src="i18n.js?v=20261101-dataset"></script>
 <script defer="" src="site.js"></script>
-<style>
-.dataset-page { max-width: 1200px; margin: 0 auto; padding: 60px var(--gutter); }
-.dataset-hero { margin-bottom: 60px; }
-.dataset-hero h1 { font-size: clamp(42px, 4.5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
-.dataset-hero p { font-size: 20px; line-height: 1.6; color: var(--muted); max-width: 640px; }
-.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 40px 0; }
-.stat-item { text-align: center; }
-.stat-item strong { display: block; font-size: 48px; font-weight: 700; color: var(--blue-deep); line-height: 1; margin-bottom: 8px; }
-.stat-item span { font-size: 15px; color: var(--muted); font-weight: 500; }
-.download-section { margin: 60px 0; }
-.download-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 24px; }
-.download-list { display: flex; flex-direction: column; gap: 16px; }
-.download-item { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); transition: all 0.2s ease; }
-.download-item:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(0, 114, 178, 0.08); }
-.download-item-info { flex: 1; }
-.download-item-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-.download-item-info p { font-size: 14px; color: var(--muted); margin: 0; }
-.download-item a.button { display: inline-flex; align-items: center; gap: 8px; padding: 0 24px; min-height: 44px; border: 1px solid var(--blue-deep); border-radius: 5px; background: var(--blue); color: #fff; font: 600 15px var(--font-display); text-decoration: none; cursor: pointer; transition: all 0.16s ease; box-shadow: 0 2px 0 var(--blue-deep); }
-.download-item a.button:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
-.browser-section { margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.browser-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 16px; }
-.browser-section > p { font-size: 16px; color: var(--muted); margin-bottom: 24px; }
-.browser-controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
-.browser-controls button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 20px; min-height: 42px; border: 1px solid var(--line-strong); border-radius: 5px; background: var(--surface); color: var(--ink); font: 600 14px var(--font-display); cursor: pointer; transition: all 0.16s ease; }
-.browser-controls button:hover { transform: translateY(-1px); border-color: #8aad0; box-shadow: 0 5px 12px rgb(17 38 63 / 8%); }
-.browser-controls button.primary { border-color: var(--blue-deep); background: var(--blue); color: #fff; box-shadow: 0 2px 0 var(--blue-deep); }
-.browser-controls button.primary:hover { background: var(--blue-deep); }
-.test-case-navigator { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border: 1px solid var(--line); border-radius: 6px; background: #fff; margin-bottom: 20px; }
-.nav-controls { display: flex; gap: 12px; align-items: center; }
-.nav-controls button { padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 5px; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.16s ease; }
-.nav-controls button:hover:not(:disabled) { background: var(--blue); color: #fff; border-color: var(--blue); }
-.nav-controls button:disabled { opacity: 0.4; cursor: not-allowed; }
-.nav-controls span { font-size: 14px; color: var(--muted); min-width: 120px; text-align: center; }
-.test-case-detail { border: 1px solid var(--line); border-radius: 6px; background: #fff; overflow: hidden; }
-.test-case-header { padding: 20px; border-bottom: 1px solid var(--line); background: #f8fafc; }
-.test-case-header h3 { margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--ink); }
-.test-case-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
-.test-case-meta span { display: flex; align-items: center; gap: 4px; }
-.test-case-body { padding: 20px; }
-.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.comparison-panel { padding: 16px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
-.comparison-panel h4 { margin: 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.comparison-panel pre { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; font-size: 12px; line-height: 1.6; overflow-x: auto; max-height: 300px; }
-.prediction-result { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 6px; margin-bottom: 16px; }
-.prediction-result.correct { background: #d4edda; border: 1px solid #c3e6cb; }
-.prediction-result.incorrect { background: #f8d7da; border: 1px solid #f5c6cb; }
-.prediction-result .status-icon { font-size: 24px; font-weight: bold; }
-.prediction-result.correct .status-icon { color: #155724; }
-.prediction-result.incorrect .status-icon { color: #721c24; }
-.prediction-result .status-text { flex: 1; }
-.prediction-result .status-text strong { display: block; font-size: 16px; margin-bottom: 2px; }
-.prediction-result .status-text span { font-size: 13px; color: var(--muted); }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.feature-item { padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: #f8fafc; }
-.feature-item label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-.feature-item value { display: block; font-size: 14px; color: var(--ink); font-weight: 500 }
-.empty-state { padding: 60px 20px; text-align: center; color: var(--muted); }
-.empty-state h3 { margin: 0 0 12px 0; font-size: 20px; color: var(--ink); }
-.empty-state p { margin: 0; font-size: 14px; }
-.citation-section { margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.citation-section h2 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
-.citation-section pre { margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--graphite); color: var(--graphite-ink); font: 13px/1.7 var(--mono); overflow-x: auto; }
-@media (max-width: 768px) {
-  .stats-row { grid-template-columns: 1fr; gap: 24px; }
-  .download-item { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .download-item a.button { width: 100%; justify-content: center; }
-  .comparison-grid { grid-template-columns: 1fr; }
-}
-</style>
+<script defer="" src="dataset.js?v=20261101-ctf-trace-set"></script>
 </head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
@@ -91,387 +24,97 @@
 <a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
 <nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">方法与接口</a><a aria-current="page" data-en="Research" href="research.html">研究</a></nav>
 <div class="rail-bottom">
-<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewbox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.58 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.25.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.23 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.51.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
+<a aria-label="GitHub" data-en-aria-label="GitHub" href="https://github.com/mcxiaoxiao/AttackAgentDetect"><svg aria-hidden="true" class="github-icon" height="18" viewBox="0 0 24 24" width="18"><path d="M12 .75a11.25 11.25 0 0 0-3.58 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.913-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.7.078-.686.078-.686 1.13.08 1.724 1.16 1.724 1.16 1.005 1.722 2.638 1.225 3.28.937.102-.728.394-1.25.716-1.507-2.5-.285-5.13-1.25-5.13-5.56 0-1.228.439-2.232 1.16-3.02-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.095 1.154A10.8 10.8 0 0 1 12 6.185c.957.004 1.92.13 2.82.38 2.148-1.457 3.09-1.154 3.09-1.154.616 1.55.114 2.695.114 2.98.724.788 1.159 1.792 1.159 3.02 0 4.322-2.634 5.272-5.144 5.551.404.35.765 1.042.765 2.1 0 1.516-.014 2.739-.014 3.11 0 .3.203.65.774.54A11.25 11.25 0 0 1 12 .75Z" fill="currentColor"></path></svg><span class="repo-label" data-en="GitHub">GitHub</span></a>
 <a aria-label="PyPI 发布计划，2027 年" class="pypi-link" data-en-aria-label="PyPI release planned for 2027" data-en-title="Release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="19" src="assets/pypi-logo.png" width="21"/><span class="repo-label">PyPI</span></a>
 <div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
 </div>
 </aside>
-<main id="main">
-<header class="docs-page-header" style="margin-bottom: 40px;">
-<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Dataset">数据集</span></div>
+<main class="dataset-main" id="main">
+<div class="dataset-wrap">
+<nav aria-label="面包屑" class="dataset-breadcrumb" data-en-aria-label="Breadcrumb"><a data-en="Home" href="index.html">首页</a><span aria-hidden="true">/</span><a data-en="Research" href="research.html">研究</a><span aria-hidden="true">/</span><span aria-current="page" data-en="Dataset">数据集</span></nav>
+
+<header class="dataset-header">
+<p class="dataset-kicker" data-en="DATASET · SOURCE-LINKED SUBSET">数据集 · 来源可追溯子集</p>
+<h1 data-en="CTF Behavior Trace Set">CTF 行为轨迹集</h1>
+<p class="dataset-lead" data-en="A curated Human and Agent trace subset from Cyber Task Horizons, assembled for exploratory behavior-correlation evaluation across three public CTF benchmarks.">从 Cyber Task Horizons 整理的人类与 Agent 轨迹子集，用于三个公开 CTF 基准上的探索性行为关联评估。</p>
+<p class="dataset-origin"><span data-en="Pinned upstream source">固定版本上游来源</span><a href="https://github.com/lyptus-research/cyber-task-horizons-data/tree/178c0da1800f9c07311e1b8d6c61dd8104e7b4ae">Cyber Task Horizons ↗</a><span class="dataset-revision">178c0da1800f9c07311e1b8d6c61dd8104e7b4ae</span><a class="dataset-license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 ↗</a></p>
 </header>
-<div class="dataset-page">
-<section class="dataset-hero">
-<h1 data-en="V16 Dataset">V16 数据集</h1>
-<p data-en="Behavioral traces from 97 AI and human agents executing 40 CTF tasks. Collected using standardized audit logging pipeline.">
-来自97条AI与人类智能体的行为轨迹，执行40个CTF任务。使用标准化审计日志采集流程收集。</p>
+
+<section aria-label="样本总览" class="dataset-stats" data-en-aria-label="Sample overview">
+<article><strong>97</strong><span data-en="traces">条轨迹</span><small data-en="57 Human · 40 Agent">57 条 Human · 40 条 Agent</small></article>
+<article><strong>40</strong><span data-en="task groups">个任务组</span><small data-en="27 InterCode · 6 CyBench · 7 NYU CTF">InterCode 27 · CyBench 6 · NYU CTF 7</small></article>
+<article><strong>1,558</strong><span data-en="outer-fold evaluation pairs">条外层评估配对</span><small data-en="148 same-task · 1,410 different-task">148 条同题 · 1,410 条异题</small></article>
 </section>
 
-<section class="stats-row">
-<div class="stat-item">
-<strong>1558</strong>
-<span data-en="Test Pairs">测试对</span>
+<section class="dataset-section" id="sources">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="01 / SOURCE BREAKDOWN">01 / 来源拆分</p><h2 data-en="Where the traces come from">样本来自哪里</h2></div><p data-en="Counts refer to the curated subset used in this evaluation, not the full size of each upstream benchmark.">表内数量只统计本次评估使用的整理子集，不代表上游基准的完整规模。</p></div>
+<div class="dataset-table-scroll">
+<table class="dataset-source-table">
+<thead><tr><th scope="col" data-en="Benchmark source">基准来源</th><th scope="col" data-en="Task groups">任务组</th><th scope="col" data-en="Human traces">Human 轨迹</th><th scope="col" data-en="Agent traces">Agent 轨迹</th><th scope="col" data-en="Total traces">轨迹合计</th><th scope="col" data-en="Evaluation pairs">评估配对</th></tr></thead>
+<tbody>
+<tr><th scope="row"><a href="https://github.com/princeton-nlp/intercode">InterCode-CTF ↗</a></th><td>27</td><td>40</td><td>27</td><td>67</td><td>1,432</td></tr>
+<tr><th scope="row"><a href="https://cybench.github.io/">CyBench ↗</a></th><td>6</td><td>8</td><td>6</td><td>14</td><td>52</td></tr>
+<tr><th scope="row"><a href="https://github.com/NYU-LLM-CTF/NYU_CTF_Bench">NYU CTF Bench ↗</a></th><td>7</td><td>9</td><td>7</td><td>16</td><td>74</td></tr>
+</tbody>
+<tfoot><tr><th scope="row" data-en="Total">合计</th><td>40</td><td>57</td><td>40</td><td>97</td><td>1,558</td></tr></tfoot>
+</table>
 </div>
-<div class="stat-item">
-<strong>97</strong>
-<span data-en="Traces">轨迹</span>
-</div>
-<div class="stat-item">
-<strong>40</strong>
-<span data-en="Task Groups">任务组</span>
-</div>
+<p class="dataset-table-note" data-en="The source benchmark links identify the original task suites. The trace records were collected from the pinned Cyber Task Horizons snapshot above; the public pair file contains task IDs and evaluation scores, not raw command transcripts.">来源链接指向原始任务基准；轨迹记录来自上方固定版本的 Cyber Task Horizons。公开配对文件包含任务 ID 和评估分数，不含原始命令记录。</p>
 </section>
 
-<section class="dataset-overview" style="margin: 60px 0; padding: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface);">
-<h2 style="font-size: 28px; font-weight: 600; margin-bottom: 24px;" data-en="Dataset Overview">数据集概述</h2>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
-<div>
-<h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;" data-en="Data Source">数据来源</h3>
-<p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 16px 0;" data-en="Traces collected from public CTF challenges using standardized audit logging. Each trace captures command execution, file operations, and network activity.">
-轨迹数据来自公开CTF挑战，使用标准化审计日志记录。每条轨迹捕获命令执行、文件操作和网络活动。</p>
-<h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;" data-en="Execution Modes">执行方式</h3>
-<ul style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0; padding-left: 20px;">
-<li data-en="Human operators">人类操作者</li>
-<li data-en="Python scripts">Python脚本</li>
-<li data-en="LLM-based agents (GPT-4, Claude)">基于LLM的智能体（GPT-4、Claude）</li>
-</ul>
-</div>
-<div>
-<h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;" data-en="Dataset Split">数据集划分</h3>
-<p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 16px 0;" data-en="All 1558 pairs used for testing. No separate training set - method uses unsupervised feature extraction.">
-全部1558个测试对用于测试。无独立训练集——方法使用无监督特征提取。</p>
-<h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px;" data-en="Task Categories">任务类别</h3>
-<ul style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0; padding-left: 20px;">
-<li data-en="Web exploitation">Web渗透</li>
-<li data-en="Binary exploitation">二进制漏洞利用</li>
-<li data-en="Cryptography">密码学</li>
-<li data-en="Reverse engineering">逆向工程</li>
-</ul>
-</div>
-</div>
+<section class="dataset-boundary" aria-labelledby="dataset-boundary-title">
+<p class="dataset-kicker" data-en="READ THE LABELS CAREFULLY">标签范围</p>
+<h2 data-en="A same-task label is not an activity identity">同题标签不等于同一攻击活动</h2>
+<p data-en="A positive pair means that both traces belong to the same benchmark task. It does not identify a shared person, Agent, campaign, host, or real-world attack. Human traces come from terminal captures and Agent traces from tool-call records, so execution mode and capture pathway are confounded. These task groups were reused during method development; the outer-fold results are exploratory, not independent external confirmation.">正例只表示两条轨迹来自同一基准题目，不能据此判断它们属于同一人员、Agent、活动、主机或真实攻击。Human 记录来自终端采集，Agent 记录来自工具调用，执行方式与采集接口彼此混杂。任务组此前已用于方法开发，因此外层留出结果仍属探索性结果，不是独立外部确认。</p>
+<p class="dataset-terms"><b data-en="Metric labels">指标写法</b><span>FMR <span data-en="(false-merge rate)">(误合并率)</span></span><span>FSR <span data-en="(missed-link / false-split rate)">(漏关联率 / 误拆分率)</span></span><span>BA <span data-en="(balanced accuracy)">(平衡准确率)</span></span><span>Hit@1 <span data-en="(top-ranked hit rate)">(顶部命中率)</span></span></p>
 </section>
 
-<section class="download-section">
-<h2 data-en="Download">下载</h2>
-<div class="download-list">
-<div class="download-item">
-<div class="download-item-info">
-<h3 data-en="Test Pair Scores">测试对分数</h3>
-<p data-en="Complete CSV with all 1558 test pairs and feature scores">包含所有1558个测试对及特征分数的完整CSV</p>
-<p style="font-size: 12px; color: var(--muted); margin-top: 4px;" data-en="File size: ~245 KB">文件大小：~245 KB</p>
+<section class="dataset-section" id="downloads">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="02 / FILES">02 / 数据文件</p><h2 data-en="Download and inspect">下载与查看</h2></div><p data-en="The pair table is self-contained and loads on this page without a local project server.">配对表随站点发布，页面可直接读取，无需从仓库根目录启动服务器。</p></div>
+<div class="dataset-downloads">
+<article class="dataset-download-card"><div><p class="dataset-file-kind">CSV · 1,558 ROWS</p><h3 data-en="Outer-fold pair records">外层配对记录</h3><p data-en="Pair labels, trace IDs, selected decisions, and method scores. No raw commands.">包含配对标签、轨迹 ID、入选决策和方法分数，不含原始命令。</p></div><a class="dataset-action" download="ctf-behavior-trace-pairs.csv" href="data/ctf-behavior-trace-pairs.csv" data-en="Download CSV">下载 CSV</a></article>
+<article class="dataset-download-card"><div><p class="dataset-file-kind">JSON · SUMMARY</p><h3 data-en="Evaluation summary">评估汇总</h3><p data-en="Protocol, aggregate metrics, and source revision for the exploratory evaluation.">探索性评估的协议、汇总指标与数据来源版本。</p></div><a class="dataset-action" download="ctf-behavior-trace-summary.json" href="data/ctf-behavior-trace-summary.json" data-en="Download JSON">下载 JSON</a></article>
 </div>
-<a class="button" href="../results/balanced_innovation_v16/outer_pair_scores.csv" download>
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-<span data-en="CSV">CSV</span>
-</a>
-</div>
-<div class="download-item">
-<div class="download-item-info">
-<h3 data-en="Aggregated Results">聚合结果</h3>
-<p data-en="JSON file with task-level metrics and summary statistics">包含任务级指标与汇总统计的JSON文件</p>
-<p style="font-size: 12px; color: var(--muted); margin-top: 4px;" data-en="File size: ~18 KB">文件大小：~18 KB</p>
-</div>
-<a class="button" href="../results/balanced_innovation_v16/results.json" download>
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-<span data-en="JSON">JSON</span>
-</a>
-</div>
-<div class="download-item">
-<div class="download-item-info">
-<h3 data-en="Reproduction Script">复现脚本</h3>
-<p data-en="Python script to reproduce all V16 results">复现所有V16结果的Python脚本</p>
-<p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
-<span data-en="Location:">位置：</span> <code style="font-size: 11px; padding: 2px 6px; background: var(--graphite); color: var(--graphite-ink); border-radius: 3px;">experiments/balanced_innovation_v16/run.py</code>
-</p>
-<p style="font-size: 12px; color: var(--muted); margin-top: 4px;">
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/experiments/balanced_innovation_v16" style="color: var(--blue); text-decoration: none;" data-en="View README and documentation">查看README与文档</a>
-</p>
-</div>
-<a class="button" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/run.py">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-<span data-en="GitHub">GitHub</span>
-</a>
-</div>
-</div>
+<p class="dataset-report-link"><span data-en="Protocol and limitations">协议与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/15-%E6%BC%8F%E5%85%B3%E8%81%94%E4%BC%98%E5%8C%96%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Read the experiment report">查看实验报告 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
 </section>
 
-<section class="browser-section">
-<h2 data-en="Browse Test Cases">浏览测试样例</h2>
-<p data-en="Explore individual test pairs with V16 results loaded by default.">逐个浏览测试对，默认加载V16结果。</p>
-
-<div class="browser-controls">
-<button class="primary" id="loadDataBtn" data-en="Load V16 Data">加载 V16 数据</button>
-<button id="exportBtn" data-en="Export Analysis">导出分析报告</button>
+<section class="dataset-section dataset-browser" id="browser">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="03 / PAIR INSPECTOR">03 / 配对浏览</p><h2 data-en="Inspect evaluation pairs">逐条查看评估配对</h2></div><p data-en="Browse the published CSV by source and reference label. The page loads the file automatically.">按来源和参考标签筛选公开 CSV；页面会自动载入文件。</p></div>
+<div class="dataset-browser-tools">
+<label><span data-en="Source">来源</span><select id="sourceFilter"><option data-en="All sources" value="all">全部来源</option><option value="intercode-ctf">InterCode-CTF</option><option value="cybench">CyBench</option><option value="nyuctf">NYU CTF Bench</option></select></label>
+<label><span data-en="Reference label">参考标签</span><select id="labelFilter"><option data-en="All pairs" value="all">全部配对</option><option data-en="Same task" value="same">同题</option><option data-en="Different tasks" value="different">异题</option></select></label>
+<button class="dataset-action dataset-action-secondary" disabled="" id="exportBtn" data-en="Export filtered CSV" type="button">导出筛选 CSV</button>
 </div>
-
-<div id="metricsSummary" class="stats-row" style="display: none;">
-<div class="stat-item">
-<strong id="totalCases">0</strong>
-<span data-en="Total Cases">总样例</span>
-</div>
-<div class="stat-item">
-<strong id="accuracy">0%</strong>
-<span data-en="Accuracy">准确率</span>
-</div>
-<div class="stat-item">
-<strong id="fsr">0%</strong>
-<span data-en="False Split Rate">误拆分率</span>
-</div>
-</div>
-
-<div class="test-case-navigator" style="display: none;" id="navigator">
-<div class="nav-controls">
-<button id="prevBtn" data-en="Previous">上一个</button>
-<span id="caseCounter">0 / 0</span>
-<button id="nextBtn" data-en="Next">下一个</button>
-</div>
-<div class="nav-controls">
-<label>
-<span data-en="Filter:">筛选：</span>
-<select id="filterSelect">
-<option value="all" data-en="All">全部</option>
-<option value="correct" data-en="Correct">正确</option>
-<option value="incorrect" data-en="Incorrect">错误</option>
-</select>
-</label>
-</div>
-</div>
-
-<div id="testCaseDetail" class="test-case-detail">
-<div class="empty-state">
-<h3 data-en="No Data Loaded">未加载数据</h3>
-<p data-en="Click 'Load V16 Data' to browse the 1558 test pairs.">点击"加载 V16 数据"浏览1558个测试对。</p>
-</div>
-</div>
+<p aria-live="polite" class="dataset-status" id="dataStatus" role="status"></p>
+<article aria-live="polite" class="dataset-pair-card" id="pairDetail"><p data-en="Loading published pair records…">正在读取公开配对记录…</p></article>
+<div class="dataset-pair-navigation"><button class="dataset-action dataset-action-secondary" disabled="" id="prevBtn" data-en="Previous pair" type="button">上一条</button><span id="caseCounter">—</span><button class="dataset-action dataset-action-secondary" disabled="" id="nextBtn" data-en="Next pair" type="button">下一条</button></div>
 </section>
 
-<section class="citation-section">
-<h2 data-en="Citation">引用</h2>
-<pre><code>@misc{attackagent-detect-2026,
-  title={AttackAgent Detect: Behavioral Trace Association for AI-Executed Attacks},
-  author={OrlosZiming and sunyinggang},
-  year={2026},
-  howpublished={\url{https://github.com/mcxiaoxiao/AttackAgentDetect}}
+<section class="citation-section dataset-citation" id="citation">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="04 / CITATION">04 / 引用</p><h2 data-en="Cite the subset and its source">引用整理数据与上游来源</h2></div><button class="dataset-action dataset-action-secondary" data-copy="dataset-citation" data-en="Copy citation" type="button">复制引用</button></div>
+<pre><code id="dataset-citation">@misc{attackagent_ctf_behavior_trace_set_2026,
+  author = {{AttackAgent Detect}},
+  title = {CTF Behavior Trace Set},
+  year = {2026},
+  howpublished = {\url{https://github.com/mcxiaoxiao/AttackAgentDetect}},
+  note = {97 traces from 40 task groups and 1,558 outer-fold evaluation pairs. Curated from Cyber Task Horizons, revision 178c0da1800f9c07311e1b8d6c61dd8104e7b4ae.}
+}
+
+@article{payne2026cybertaskhorizons,
+  title = {Offensive Cyber Task Horizons: Measuring the Rate of Growth in AI Offensive Cybersecurity Capability},
+  author = {Payne, Jack and Miller, Jeremy and Peters, Sean},
+  year = {2026},
+  url = {https://github.com/lyptus-research/cyber-task-horizons-data}
 }</code></pre>
+<p class="citation-source-note" data-en="The upstream data is licensed CC BY 4.0; retain its attribution when reusing the derived subset.">上游数据采用 CC BY 4.0；复用整理子集时请保留上游署名。</p>
 </section>
 </div>
 </main>
 </div>
+<footer>
+<div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
+<div class="footer-meta"><p class="footer-credits"><span data-en="Open research · source-linked data">开放研究 · 数据来源可追溯</span><span>·</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect">GitHub</a></p><p class="footer-legal"><span>© 2026 AttackAgent Detect</span><span>·</span><span data-en="Upstream dataset terms apply">遵循上游数据许可</span></p></div>
+</footer>
 <div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
-
-<script>
-let testData = [];
-let currentIndex = 0;
-let filteredData = [];
-
-document.getElementById('loadDataBtn').addEventListener('click', loadData);
-document.getElementById('exportBtn').addEventListener('click', exportAnalysis);
-document.getElementById('prevBtn').addEventListener('click', () => navigate(-1));
-document.getElementById('nextBtn').addEventListener('click', () => navigate(1));
-document.getElementById('filterSelect').addEventListener('change', applyFilter);
-
-function loadData() {
-  const csvPath = '../results/balanced_innovation_v16/outer_pair_scores.csv';
-  fetch(csvPath)
-    .then(response => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.text();
-    })
-    .then(csvText => {
-      testData = parseCSV(csvText);
-      filteredData = [...testData];
-      currentIndex = 0;
-      updateMetrics();
-      updateNavigator();
-      displayTestCase(currentIndex);
-      document.getElementById('metricsSummary').style.display = 'grid';
-      document.getElementById('navigator').style.display = 'flex';
-    })
-    .catch(err => {
-      console.error('Error loading CSV:', err);
-      alert('无法加载数据文件，请确保从项目根目录运行服务器。');
-    });
-}
-
-function parseCSV(csvText) {
-  const lines = csvText.trim().split('\n');
-  const headers = lines[0].split(',');
-  const cases = [];
-  
-  const colIndex = {
-    query_trace_id: headers.indexOf('query_trace_id'),
-    candidate_trace_id: headers.indexOf('candidate_trace_id'),
-    query_task: headers.indexOf('query_task'),
-    candidate_task: headers.indexOf('candidate_task'),
-    benchmark: headers.indexOf('benchmark'),
-    query_mode: headers.indexOf('query_mode_for_evaluation_only'),
-    candidate_mode: headers.indexOf('candidate_mode_for_evaluation_only'),
-    same_task: headers.indexOf('same_task_proxy_for_evaluation_only'),
-    pair_type: headers.indexOf('pair_type_for_evaluation_only'),
-    selected_accepted: headers.indexOf('selected_accepted'),
-    discriminative_pair_score: headers.indexOf('discriminative_pair_score'),
-    command_tfidf: headers.indexOf('command_tfidf'),
-    artifact_containment_command: headers.indexOf('artifact_containment_command'),
-    reciprocal_consensus: headers.indexOf('reciprocal_consensus')
-  };
-  
-  for (let i = 1; i < lines.length; i++) {
-    const values = lines[i].split(',');
-    if (values.length < headers.length) continue;
-    
-    const sameTask = values[colIndex.same_task] === '1';
-    const selected = values[colIndex.selected_accepted] === '1';
-    const groundTruth = sameTask ? 'same_task' : 'different_task';
-    const prediction = selected ? 'same_task' : 'different_task';
-    
-    cases.push({
-      id: `case_${String(i).padStart(4, '0')}`,
-      benchmark: values[colIndex.benchmark] || 'unknown',
-      query_task: values[colIndex.query_task] || 'unknown',
-      candidate_task: values[colIndex.candidate_task] || 'unknown',
-      query_mode: values[colIndex.query_mode] || 'HUMAN',
-      candidate_mode: values[colIndex.candidate_mode] || 'HUMAN',
-      pair_type: values[colIndex.pair_type] || 'H-H',
-      query_trace: values[colIndex.query_trace_id] || 'unknown',
-      candidate_trace: values[colIndex.candidate_trace_id] || 'unknown',
-      ground_truth: groundTruth,
-      prediction: prediction,
-      confidence: parseFloat(values[colIndex.discriminative_pair_score] || 0.5),
-      features: {
-        discriminative_pair_score: parseFloat(values[colIndex.discriminative_pair_score] || 0),
-        command_tfidf: parseFloat(values[colIndex.command_tfidf] || 0),
-        artifact_containment: parseFloat(values[colIndex.artifact_containment_command] || 0),
-        reciprocal_consensus: parseFloat(values[colIndex.reciprocal_consensus] || 0)
-      }
-    });
-  }
-  
-  return cases;
-}
-
-function updateMetrics() {
-  const total = filteredData.length;
-  const correct = filteredData.filter(c => c.ground_truth === c.prediction).length;
-  const accuracy = total > 0 ? (correct / total * 100).toFixed(1) : 0;
-  falseSplits = filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length;
-  const fsr = total > 0 ? (falseSplits / total * 100).toFixed(1) : 0;
-  
-  document.getElementById('totalCases').textContent = total;
-  document.getElementById('accuracy').textContent = accuracy + '%';
-  document.getElementById('fsr').textContent = fsr + '%';
-}
-
-function updateNavigator() {
-  const total = filteredData.length;
-  document.getElementById('caseCounter').textContent = `${currentIndex + 1} / ${total}`;
-  document.getElementById('prevBtn').disabled = currentIndex === 0;
-  document.getElementById('nextBtn').disabled = currentIndex === total - 1;
-}
-
-function navigate(direction) {
-  const newIndex = currentIndex + direction;
-  if (newIndex >= 0 && newIndex < filteredData.length) {
-    currentIndex = newIndex;
-    displayTestCase(currentIndex);
-    updateNavigator();
-  }
-}
-
-function applyFilter() {
-  const filter = document.getElementById('filterSelect').value;
-  if (filter === 'all') {
-    filteredData = [...testData];
-  } else if (filter == 'correct') {
-    filteredData = testData.filter(c => c.ground_truth === c.prediction);
-  } else if (filter === 'incorrect') {
-    filteredData = testData.filter(c => c.ground_truth !== c.prediction);
-  }
-  currentIndex = 0;
-  updateMetrics();
-  updateNavigator();
-  displayTestCase(currentIndex);
-}
-
-function displayTestCase(index) {
-  if (index >= filteredData.length) return;
-  const testCase = filteredData[index];
-  const isCorrect = testCase.ground_truth === testCase.prediction;
-  
-  const html = `
-    <div class="test-case-header">
-      <h3>${testCase.id}</h3>
-      <div class="test-case-meta">
-        <span><strong>Benchmark:</strong> ${testCase.benchmark}</span>
-        <span><strong>Pair Type:</strong> ${testCase.pair_type}</span>
-        <span><strong>Query Task:</strong> ${testCase.query_task}</span>
-        <span><strong>Candidate Task:</strong> ${testCase.candidate_task}</span>
-      </div>
-      <div class="test-case-meta" style="margin-top: 8px;">
-        <span><strong>Query Mode:</strong> ${testCase.query_mode}</span>
-        <span><strong>Candidate Mode:</strong> ${testCase.candidate_mode}</span>
-        <span><strong>Confidence:</strong> ${(testCase.confidence * 100).toFixed(1)}%</span>
-      </div>
-    </div>
-    <div class="test-case-body">
-      <div class="prediction-result ${isCorrect ? 'correct' : 'incorrect'}">
-        <div class="status-icon">${isCorrect ? '✓' : '✗'}</div>
-        <div class="status-text">
-          <strong>${isCorrect ? 'Prediction Correct' : 'Prediction Incorrect'}</strong>
-          <span>Ground Truth: ${testCase.ground_truth.replace('_', ' ')} | Prediction: ${testCase.prediction.replace('_', ' ')}</span>
-        </div>
-      </div>
-      <div class="comparison-grid">
-        <div class="comparison-panel">
-          <h4>Query Trace ID</h4>
-          <pre>${testCase.query_trace}</pre>
-        </div>
-        <div class="comparison-panel">
-          <h4>Candidate Trace ID</h4>
-          <pre>${testCase.candidate_trace}</pre>
-        </div>
-      </div>
-      <h4 style="margin: 20px 0 12px 0; font-size: 14px; font-weight: 600; color: var(--muted);">Feature Scores</h4>
-      <div class="features-grid">
-        ${Object.entries(testCase.features).map(([key, value]) => `
-          <div class="feature-item">
-            <label>${key.replace(/_/g, ' ')}</label>
-            <value>${typeof value === 'number' ? value.toFixed(4) : value}</value>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
-  document.getElementById('testCaseDetail').innerHTML = html;
-}
-
-function exportAnalysis() {
-  if (testData.length === 0) {
-    alert('No data to export');
-    return;
-  }
-  const analysis = {
-    summary: {
-      total_cases: filteredData.length,
-      correct_predictions: filteredData.filter(c => c.ground_truth === c.prediction).length,
-      accuracy: (filteredData.filter(c => c.ground_truth === c.prediction).length / filteredData.length * 100).toFixed(2) + '%',
-      false_split_rate: (filteredData.filter(c => c.ground_truth === 'same_task' && c.prediction === 'different_task').length / filteredData.length * 100).toFixed(2) + '%'
-    },
-    test_cases: filteredData,
-    export_date: new Date().toISOString()
-  };
-  const blob = new Blob([JSON.stringify(analysis, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `dataset-analysis-${Date.now()}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-// Auto-load data on page load
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(loadData, 500);
-});
-</script>
 </body>
 </html>

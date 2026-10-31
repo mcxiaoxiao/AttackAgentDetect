@@ -310,7 +310,8 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .candidate-data > b { grid-column: 1 / -1; margin-bottom: 10px; font-size: 13px; }
 .candidate-data a { display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-top: 1px solid var(--line); color: var(--blue-deep); font-size: 14px; font-weight: 600; }
 .candidate-data a span { color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.55; }
-code { padding: 2px 5px; border-radius: 3px; background: #e5eef7; color: #315776; font: 11px var(--mono); }
+code { padding: 2px 5px; border: 1px solid var(--line); border-radius: 3px; background: #eaf2fa; color: #315776; font: 0.88em/1.45 var(--mono); }
+pre code { display: block; min-width: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: inherit; font: inherit; }
 .related { max-width: 1160px; border-bottom: 0; }
 .related > h2 { font-size: clamp(38px, 4vw, 54px); }
 .section .related-scope { max-width: 72ch; margin-top: 14px; color: var(--muted); font-size: 15px; }
