@@ -185,8 +185,9 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .quickstart-terminal pre code, .quickstart-output pre code { display: block; min-width: max-content; padding: 0; background: transparent; color: inherit; font: inherit; white-space: pre; }
 .docs-command-window { margin: 16px 0; }
 .docs-command-window .terminal-head .terminal-language { margin-left: auto; color: #aebdca; }
-.docs-command-window .code-line { position: relative; display: block; min-height: 1.7em; padding: 0 8px; border-left: 2px solid transparent; }
+.docs-command-window .code-line { position: relative; display: block; min-height: 1.7em; padding: 0 8px; border-left: 2px solid transparent; cursor: copy; }
 .docs-command-window .code-line:hover { border-left-color: var(--sky); background: rgb(153 205 252 / 8%); }
+.docs-command-window .code-line:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
 .docs-command-window .shell-command { color: var(--sky); }
 .docs-command-window .shell-url { color: var(--mint); }
 .docs-command-window .shell-path { color: var(--graphite-ink); }

@@ -69,6 +69,65 @@ for (const button of document.querySelectorAll("[data-copy]")) {
   });
 }
 
+const commandLineToast = document.getElementById("copy-toast");
+function showCommandLineToast(message, duration = 2400) {
+  if (!commandLineToast) return;
+  commandLineToast.textContent = message;
+  commandLineToast.hidden = false;
+  window.clearTimeout(commandLineToast.hideTimer);
+  commandLineToast.hideTimer = window.setTimeout(() => { commandLineToast.hidden = true; }, duration);
+}
+
+async function copyCommandLine(line) {
+  const text = line.textContent?.trim().replace(/^\$\s*/, "");
+  if (!text) return;
+  const english = document.documentElement.lang === "en";
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.append(field);
+      field.select();
+      let copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } finally {
+        field.remove();
+      }
+      if (!copied) throw new Error("Clipboard copy failed");
+    }
+    showCommandLineToast(english ? "Command line copied" : "已复制此行命令");
+  } catch {
+    showCommandLineToast(
+      english ? "Copy failed. Select the command manually." : "复制失败，请手动选择命令",
+      3000,
+    );
+  }
+}
+
+for (const line of document.querySelectorAll(".docs-command-window .code-line")) {
+  line.setAttribute("role", "button");
+  line.tabIndex = 0;
+  const updateCopyHint = () => {
+    line.title = document.documentElement.lang === "en"
+      ? "Click to copy this line"
+      : "点击复制这一行";
+  };
+  updateCopyHint();
+  document.addEventListener("pagelanguagechange", updateCopyHint);
+  line.addEventListener("click", () => copyCommandLine(line));
+  line.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    copyCommandLine(line);
+  });
+}
+
 // Reveal the runnable source workflow when its link is followed from the API preview.
 for (const link of document.querySelectorAll('a[href="#source-reproduction"]')) {
   link.addEventListener('click', () => {
