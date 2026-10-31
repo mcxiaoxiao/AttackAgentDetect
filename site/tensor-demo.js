@@ -24,8 +24,14 @@
   let frame = 0;
   let activePhase = -1;
   let playbackStarted = 0;
+  let playbackElapsed = 0;
+  let loopTimer = 0;
   let playing = false;
-  let hasAutoPlayed = false;
+  let paused = false;
+  let visible = false;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const panel = host.closest('.demo-panel');
+  const figure = host.querySelector('.tensor-demo-figure');
 
   function language() {
     return document.documentElement.lang === 'en' ? 'en' : 'zh';
@@ -33,19 +39,23 @@
 
   function words() {
     return language() === 'en' ? {
-      play: 'Play phase sequence', replay: 'Replay phase sequence',
+      play: 'Play phase sequence', pause: 'Pause animation', resume: 'Resume animation',
       playing: phase => `Filling phase ${phase + 1} of 4 across the three behavior channels.`,
-      complete: 'All four ordered phases are visible. Values are cohort means across 177 traces.',
+      complete: 'The four-stage sequence will repeat. Click the figure to pause.',
+      paused: 'Animation paused. Click the figure or resume button to continue.',
       reduced: 'Reduced motion is enabled; the complete tensor is shown without playback.',
       loadError: 'The animated data could not be loaded. The static tensor figure is shown instead.',
+      hint: 'Click the figure to pause or resume the phase sequence',
       alt: 'Three offset data planes form the cohort-mean tensor. The same phase slice is highlighted across all three behavior channels.',
       actionAxis: 'Action family', stageAxis: 'Ordered phase',
     } : {
-      play: '播放阶段流转', replay: '再次播放阶段流转',
+      play: '播放阶段流转', pause: '暂停动效', resume: '继续动效',
       playing: phase => `正在填入第 ${phase + 1}/4 阶段的三个行为通道。`,
-      complete: '四个有序阶段已全部显示；数值为 177 条轨迹的队列均值。',
+      complete: '四阶段将自动循环；点击图表可暂停。',
+      paused: '动效已暂停；点击图表或继续按钮即可恢复。',
       reduced: '已启用“减少动态效果”，直接显示完整张量。',
       loadError: '动画数据未能加载，当前显示静态张量图。',
+      hint: '点击图表可暂停或继续阶段流转',
       alt: '三片错层数据板组成队列平均张量；同一阶段切片在三个行为通道中同步高亮。',
       actionAxis: '操作类别', stageAxis: '有序阶段',
     };
@@ -197,7 +207,16 @@
     });
     if (stageTrack) stageTrack.style.setProperty('--phase-progress', animate ? `${phase * 25}%` : '0%');
     if (status) status.textContent = animate ? words().playing(phase) : words().complete;
-    if (button && animate && playing) button.textContent = words().playing(phase);
+  }
+
+  function updatePlaybackControls() {
+    if (button) {
+      const active = playing || Boolean(loopTimer);
+      button.textContent = active ? words().pause : paused ? words().resume : words().play;
+      button.setAttribute('aria-pressed', String(active));
+      button.disabled = reduceMotion.matches || !values;
+    }
+    if (figure) figure.title = words().hint;
   }
 
   function finish(reduced = false) {
@@ -218,13 +237,32 @@
     });
     if (stageTrack) stageTrack.style.setProperty('--phase-progress', '75%');
     if (status) status.textContent = reduced ? words().reduced : words().complete;
-    if (button) button.textContent = words().replay;
+    if (reduced) {
+      if (loopTimer) clearTimeout(loopTimer);
+      loopTimer = 0;
+      playbackElapsed = 0;
+      paused = false;
+      updatePlaybackControls();
+      return;
+    }
+    loopTimer = window.setTimeout(() => {
+      loopTimer = 0;
+      if (visible && !paused && !document.hidden && !panel?.hidden) {
+        playbackElapsed = 0;
+        play();
+      }
+      updatePlaybackControls();
+    }, 1200);
+    updatePlaybackControls();
   }
 
   function resetPlayback() {
     if (frame) cancelAnimationFrame(frame);
+    if (loopTimer) clearTimeout(loopTimer);
     frame = 0;
+    loopTimer = 0;
     playing = false;
+    playbackElapsed = 0;
     button?.removeAttribute('aria-busy');
     chart?.classList.remove('is-playing');
     for (const cell of chart?.querySelectorAll('.tensor-cell') || []) {
@@ -235,30 +273,30 @@
     stageTrack?.querySelectorAll('[data-stage-step]').forEach(step => step.classList.remove('is-current', 'is-visited'));
     if (stageTrack) stageTrack.style.setProperty('--phase-progress', '0%');
     activePhase = -1;
-    if (status) status.textContent = language() === 'en'
-      ? 'Click play to follow the phase axis.' : '点击播放，沿阶段轴查看张量切片。';
-    if (button) button.textContent = words().play;
+    if (status) status.textContent = paused ? words().paused : words().complete;
+    updatePlaybackControls();
   }
 
   function play() {
     if (!values || !button || !chart) return;
-    if (frame) cancelAnimationFrame(frame);
-    chart.classList.add('is-playing');
-    playing = true;
-    button.setAttribute('aria-busy', 'true');
-    button.textContent = words().playing(0);
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setPhase(3, true);
+    if (reduceMotion.matches) {
       finish(true);
       return;
     }
-    playbackStarted = 0;
+    if (frame) cancelAnimationFrame(frame);
+    if (loopTimer) clearTimeout(loopTimer);
+    loopTimer = 0;
+    chart.classList.add('is-playing');
+    playing = true;
+    paused = false;
+    playbackStarted = performance.now();
+    updatePlaybackControls();
     function tick(now) {
-      if (!playbackStarted) playbackStarted = now;
-      const elapsed = now - playbackStarted;
+      const elapsed = playbackElapsed + now - playbackStarted;
       const phase = Math.min(3, Math.floor(elapsed / 850));
-      if (phase !== activePhase || elapsed === 0) setPhase(phase, true);
+      if (phase !== activePhase) setPhase(phase, true);
       if (elapsed >= 4 * 850) {
+        playbackElapsed = 0;
         finish(false);
         return;
       }
@@ -267,36 +305,77 @@
     frame = requestAnimationFrame(tick);
   }
 
-  function scheduleFirstPlayback() {
-    if (hasAutoPlayed || matchMedia('(prefers-reduced-motion: reduce)').matches ||
-        !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .25)) return;
-      hasAutoPlayed = true;
-      observer.disconnect();
-      window.setTimeout(play, 180);
-    }, {threshold: [.25]});
-    observer.observe(host);
+  function togglePlayback() {
+    if (!values || reduceMotion.matches) return;
+    if (playing || loopTimer) {
+      if (playing) playbackElapsed = Math.min(4 * 850, playbackElapsed + performance.now() - playbackStarted);
+      if (frame) cancelAnimationFrame(frame);
+      if (loopTimer) clearTimeout(loopTimer);
+      frame = 0;
+      loopTimer = 0;
+      playing = false;
+      paused = true;
+      chart?.classList.remove('is-playing');
+      if (status) status.textContent = words().paused;
+      updatePlaybackControls();
+      return;
+    }
+    paused = false;
+    play();
   }
 
-  button?.addEventListener('click', () => {
-    hasAutoPlayed = true;
-    play();
+  function startWhenVisible() {
+    if (!visible || panel?.hidden || document.hidden || paused || !values) return;
+    if (reduceMotion.matches) finish(true);
+    else if (!playing && !loopTimer) play();
+  }
+
+  button?.addEventListener('click', togglePlayback);
+  figure?.addEventListener('click', event => {
+    if (event.target.closest('button, a')) return;
+    togglePlayback();
   });
-  const panel = host.closest('.demo-panel');
+  figure?.addEventListener('keydown', event => {
+    if (event.target !== figure || (event.key !== 'Enter' && event.key !== ' ')) return;
+    event.preventDefault();
+    togglePlayback();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      visible = entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .25);
+      if (visible) startWhenVisible();
+      else if (playing || loopTimer) resetPlayback();
+    }, {threshold: [0, .25]}).observe(host);
+  } else {
+    visible = !panel?.hidden;
+    startWhenVisible();
+  }
   if (panel) {
     new MutationObserver(() => {
-      if (panel.hidden && playing) resetPlayback();
+      if (panel.hidden) {
+        visible = false;
+        if (playing || loopTimer) resetPlayback();
+      } else {
+        const rect = host.getBoundingClientRect();
+        visible = rect.top < window.innerHeight && rect.bottom > 0;
+        startWhenVisible();
+      }
     }).observe(panel, {attributes: true, attributeFilter: ['hidden']});
   }
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden && playing) resetPlayback();
+    if (document.hidden && (playing || loopTimer)) resetPlayback();
+    else startWhenVisible();
+  });
+  reduceMotion.addEventListener('change', () => {
+    if (reduceMotion.matches && values) finish(true);
+    else if (visible && !paused) { resetPlayback(); startWhenVisible(); }
   });
   document.addEventListener('pagelanguagechange', () => {
-    if (playing) finish(false);
-    button.textContent = words().play;
     if (values) render();
-    if (status) status.textContent = words().complete;
+    if (status) status.textContent = playing && activePhase >= 0 ? words().playing(activePhase)
+      : paused ? words().paused
+      : reduceMotion.matches ? words().reduced : words().complete;
+    updatePlaybackControls();
   });
 
   fetch('assets/profile-tensor-means-v1.json')
@@ -307,10 +386,9 @@
     .then(data => {
       values = data;
       render();
-      scheduleFirstPlayback();
-      if (status) status.textContent = language() === 'en'
-        ? `${data.trace_count} traces; click play to move through four ordered stages.`
-        : `${data.trace_count} 条轨迹；点击播放，依次查看四个有序阶段。`;
+      updatePlaybackControls();
+      if (status) status.textContent = reduceMotion.matches ? words().reduced : words().complete;
+      startWhenVisible();
     })
     .catch(() => {
       if (button) button.disabled = true;

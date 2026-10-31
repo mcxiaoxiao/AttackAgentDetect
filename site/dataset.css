@@ -1,5 +1,5 @@
-.dataset-main { padding: 0 var(--gutter) 10px; }
-.dataset-wrap { width: min(100%, 1380px); margin: 0 auto; }
+.dataset-main { padding: 0 0 10px; }
+.dataset-wrap { width: min(100%, var(--content)); margin: 0 auto; padding-inline: var(--gutter); }
 .dataset-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; padding: 30px 0 0; color: var(--soft); font-size: 12px; }
 .dataset-breadcrumb a { color: var(--muted); text-decoration: none; }
 .dataset-breadcrumb a:hover { color: var(--blue-deep); }
@@ -82,7 +82,6 @@
   .dataset-boundary > .dataset-kicker, .dataset-boundary h2, .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms), .dataset-terms { grid-column: 1; }
 }
 @media (max-width: 640px) {
-  .dataset-main { padding-inline: var(--gutter); }
   .dataset-header { padding-top: 48px; }
   .dataset-origin { align-items: flex-start; }
   .dataset-revision { max-width: 100%; overflow-wrap: anywhere; }

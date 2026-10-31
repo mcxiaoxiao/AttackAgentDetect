@@ -288,7 +288,7 @@
   }
   function stop() { cancelAnimationFrame(frameId); frameId = 0; previous = 0; }
   function start() {
-    if (!ready || frameId || reduce.matches || !visible || document.hidden) return;
+    if (!ready || frameId || paused || reduce.matches || !visible || document.hidden) return;
     frameId = requestAnimationFrame(frame);
   }
   function frame(ms) {
@@ -307,21 +307,30 @@
     draw(); frameId = requestAnimationFrame(frame);
   }
   function syncToggle() {
-    if (!toggle) return;
     const english = document.documentElement.lang === 'en';
     const title = paused
       ? (english ? 'Resume animation' : '播放动效')
       : (english ? 'Pause animation' : '暂停动效');
+    hero.title = english ? 'Click the animated background to pause or resume it.' : '点击动态背景可暂停或继续。';
+    if (!toggle) return;
     toggle.textContent = title;
     toggle.setAttribute('aria-label', paused
       ? (english ? 'Resume hero animation' : '播放首屏动效')
       : (english ? 'Pause hero animation' : '暂停首屏动效'));
     toggle.setAttribute('aria-pressed', String(paused));
+    toggle.disabled = reduce.matches;
   }
-  toggle?.addEventListener('click', () => {
+  function toggleAnimation() {
+    if (reduce.matches) return;
     paused = !paused;
     syncToggle();
     if (paused) stop(); else start();
+  }
+  toggle?.addEventListener('click', toggleAnimation);
+  hero.addEventListener('click', event => {
+    if (event.target.closest('a, button') || event.defaultPrevented) return;
+    if (![hero, hero.querySelector('.hero-copy')].includes(event.target)) return;
+    toggleAnimation();
   });
   hero.addEventListener('pointermove', event => {
     const rect = hero.getBoundingClientRect();
@@ -330,10 +339,14 @@
   hero.addEventListener('pointerleave', () => { pointer.target = 0; });
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) start(); else stop(); }).observe(hero);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else start(); });
-  reduce.addEventListener('change', () => { if (reduce.matches) { stop(); seed(); draw(); } else start(); });
+  reduce.addEventListener('change', () => {
+    syncToggle();
+    if (reduce.matches) { stop(); seed(); draw(); }
+    else start();
+  });
   document.addEventListener('pagelanguagechange', () => { draw(); syncToggle(); });
   new ResizeObserver(() => { if (ready) resize(); }).observe(hero);
   const fonts = document.fonts ? Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 1500))]) : Promise.resolve();
-  fonts.then(() => { resize(); ready = true; document.documentElement.classList.add('has-field'); start(); });
+  fonts.then(() => { resize(); ready = true; document.documentElement.classList.add('has-field'); syncToggle(); start(); });
   document.fonts?.addEventListener('loadingdone', () => { if (ready) resize(); });
 })();
