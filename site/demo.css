@@ -1,15 +1,16 @@
 /* The four-job switcher translates the reference into actual research artifacts. */
 :root { --demo-tray: oklch(94% 0.012 252); --demo-ink: var(--ink); --demo-rule: var(--line); --demo-muted: var(--muted); }
-.demo-heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: end; gap: 64px; margin-bottom: 40px; }
-.demo-heading p { max-width: 54ch; margin: 0; color: var(--muted); }
-.demo-tabs { display: flex; width: max-content; max-width: 100%; gap: 4px; padding: 5px; border: 1px solid var(--line); border-radius: 5px; background: var(--demo-tray); }
+.demo-heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: end; gap: clamp(24px, 5vw, 64px); margin-bottom: 28px; }
+.demo-heading h2 { max-width: 20ch; font-size: clamp(34px, 3.5vw, 46px); line-height: 1.08; }
+.demo-heading p { max-width: 54ch; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.demo-tabs { display: grid; width: 100%; max-width: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding: 5px; border: 1px solid var(--line); border-radius: 5px; background: var(--demo-tray); }
 .demo-tabs button { display: inline-flex; min-width: 118px; min-height: 42px; align-items: center; justify-content: center; padding: 0 14px; border: 1px solid transparent; border-radius: 3px; background: transparent; color: var(--muted); box-shadow: none; font: 500 14px/1.2 var(--font-body); text-align: center; cursor: pointer; transition: background-color .16s ease, border-color .16s ease, color .16s ease; }
 .demo-tabs button > span { display: none; }
 .demo-tabs button b { font-weight: 500; }
 .demo-tabs button:hover { background: rgb(255 255 255 / 55%); color: var(--ink); }
 .demo-tabs button[aria-selected="true"] { border-color: var(--line-strong); background: var(--surface); color: var(--cobalt-deep); box-shadow: 0 1px 2px rgb(17 38 63 / 8%); }
 .demo-tabs button:focus-visible, .demo-mode-picks button:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
-.demo-panel { display: grid; align-content: start; gap: 24px; min-height: 540px; padding-top: 40px; }
+.demo-panel { display: grid; align-content: start; gap: 20px; min-height: 0; padding-top: 24px; }
 .demo-panel[hidden] { display: none; }
 .demo-say { max-width: 58ch; margin: 0; color: var(--muted); font-size: 18px; line-height: 1.65; }
 .demo-mode-picks { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -157,17 +158,6 @@
   .demo-tabs button, .tempo-marker, .tempo-events li { transition: none; }
 }
 
-/* Wide screens: keep the demo heading, switcher and evidence in one workspace instead of stretching a single row. */
-@media (min-width: 1200px) {
-  .product-demo { display: grid; grid-template-columns: clamp(260px, 20vw, 320px) minmax(0, 1fr); grid-template-rows: auto auto; align-items: start; column-gap: clamp(40px, 4vw, 72px); }
-  .demo-heading { display: block; grid-column: 1; grid-row: 1; margin: 0; }
-  .demo-heading h2 { font-size: clamp(32px, 2.4vw, 40px); line-height: 1.15; }
-  .demo-heading p { max-width: none; margin-top: 16px; font-size: 15px; line-height: 1.7; }
-  .demo-tabs { grid-column: 2; grid-row: 1; display: flex; width: 100%; max-width: none; gap: 4px; margin: 0; padding: 4px; }
-  .demo-tabs button { flex: 1; width: auto; min-width: 0; min-height: 42px; }
-  .demo-panel { grid-column: 2; grid-row: 2; min-height: 0; padding-top: 18px; }
-  .demo-say { max-width: 70ch; }
-}
 .deploy-meta { display: inline-flex; align-items: baseline; gap: 5px; white-space: nowrap; }
 .deploy-meta code { padding: 0; background: transparent; color: inherit; font: 500 12px/1.6 var(--mono); }
 @media (max-width: 420px) {

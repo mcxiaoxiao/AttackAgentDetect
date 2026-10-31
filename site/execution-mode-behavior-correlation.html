@@ -32,9 +32,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261101-readable-research-v1" rel="stylesheet"/>
+<link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <script defer="True" src="i18n.js?v=20261101-global-header-v1"></script><script defer="" src="site.js?v=20261101-global-header-v1"></script>
-<link href="demo.css?v=20261101-auto-loop-v1" rel="stylesheet"/><link href="tensor-demo.css?v=20261101-auto-loop-v1" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="tensor-demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="task-browser.js?v=20261031-pair-explorer-v2"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/></head>
+<link href="demo.css?v=20261101-readable-layout-v2" rel="stylesheet"/><link href="tensor-demo.css?v=20261101-profile-width-v2" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="tensor-demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="task-browser.js?v=20261031-pair-explorer-v2"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
@@ -68,7 +68,7 @@
 <p data-en="Compared with behavior-only ranking, adding the predicted Human/Agent score improves the top-ranked match rate by 3.6 percentage points. Missed links between same-task Human and Agent traces fall by 12.7 points. But false links between different-task Human and Agent traces rise by 11.9 points, and the overall false-link rate increases from 23.3% to 24.5%.">与只看行为相比，加入预测的“人类/Agent”分数后，首位命中率提高 3.6 个百分点；同题人类—Agent 轨迹漏关联下降 12.7 个百分点。但异题人类—Agent 轨迹错误关联增加 11.9 个百分点，整体错误关联率从 23.3% 升到 24.5%。</p>
 <p class="caption" data-en="Top-ranked match rate asks whether the first result comes from the same CTF task. Here, “same task” is only a benchmark label; it does not mean the traces came from the same attack. In plain terms, execution-mode scores recover some cross-mode matches but also connect more unrelated traces.">首位命中率看排名第一的候选是否来自同一道 CTF 题。“同题”只是基准标签，不代表来自同一次攻击。简单来说，执行方式分数找回了一些跨方式轨迹，也让更多无关轨迹被连在一起。</p><p class="caption"><a href="#balanced-development-result" data-en="See the updated task-held-out study">查看更新后的任务留出实验</a></p>
 </div>
-<details class="source-details"><summary data-en="Expand execution-mode feature details">展开：识别器使用的轨迹特征</summary><div class="study-table-wrap">
+<details class="source-details"><summary data-en="execution-mode feature details">识别器使用的轨迹特征</summary><div class="study-table-wrap">
 <p class="caption" data-en="We compare three kinds of evidence: trace size and action mix, command names, and command order. Command names carry the strongest Human/Agent label signal in this dataset. Adding sequence statistics changes balanced accuracy by −2.0 points for logistic regression and +1.4 for ExtraTrees.">我们比较三类线索：轨迹长度与动作组成、命令名称、命令顺序。在这批数据中，命令名称对 Human/Agent 标签的区分信号最强。加入序列统计后，逻辑回归平衡准确率下降 2.0 个百分点，ExtraTrees 上升 1.4 个百分点。</p>
 <table class="study-results">
 <thead><tr><th data-en="Feature set">实验组</th><th data-en="Count + action mix">数量 + 动作组成</th><th data-en="Command TF-IDF">命令 TF-IDF</th><th data-en="Sequence statistics">序列统计</th><th>Logistic BA</th><th>ExtraTrees BA</th></tr></thead>
@@ -89,7 +89,7 @@
 <article class="metric-card mint-card"><span data-en="False links between different-task Human–Agent traces">异题人类—Agent 错误关联变化</span><strong>+11.9</strong></article>
 <article class="metric-card orange-card"><span data-en="Top-ranked match rate (Hit@1) vs behavior-only">首位命中率（Hit@1），相对只看行为</span><strong>+3.6</strong></article>
 </div>
-<details class="source-details"><summary data-en="Expand the full hit-rate and error-rate comparison">展开：命中率与错误率完整对比</summary><div class="result-figures">
+<details class="source-details"><summary data-en="the full hit-rate and error-rate comparison">命中率与错误率完整对比</summary><div class="result-figures">
 <figure class="diagnostic-figure"><img alt="20% 训练误合并目标下五种排序方法的留出误拆分率、误合并率和排序指标。" data-en-alt="Held-out false-split, false-merge, and retrieval metrics for five rankers at a 20% training false-merge target." src="assets/association_operating_points_v1.png"/><figcaption data-en="The cutoff is chosen from training tasks. A score at or above it creates a link; a lower score does not. Error rates shown here are measured on held-out tasks.">门槛由训练题确定：分数达到或超过门槛就判为关联，低于门槛则不关联。图中错误率来自留出题目。</figcaption></figure>
 </div><p class="caption" data-en="95% task-cluster intervals: missed same-task links −19.0 to −6.5 points; false links between different tasks +7.9 to +16.3; top-match rate +0.6 to +6.8.">95% 任务簇区间：同题漏关联 −19.0 至 −6.5 个百分点；异题错误关联 +7.9 至 +16.3；首位命中率 +0.6 至 +6.8。</p></details>
 <!-- association-cases:start -->
@@ -97,7 +97,7 @@
 <h3 data-en="One held-out case: a trace moves to the top">一个留出案例：同题轨迹升到第一</h3>
 <p data-en="In the first example, a same-task Human–Agent pair is recovered, while a different-task pair becomes a false link. This shows both the benefit and the trade-off in the aggregate results.">第一张图展示两种变化：一对同题人类—Agent 轨迹从漏关联变为关联；另一对异题轨迹则被误连。这同时体现了总体结果中的收益和代价。</p>
 <figure class="diagnostic-figure"><img src="assets/association_cases_v1.png" data-en-src="assets/association_cases_v1.png" alt="公开 CTF 留出轨迹案例：加入执行方式分数后找回一对同题轨迹，并错误连接一对异题轨迹。" data-en-alt="Held-out public CTF traces: adding execution-mode scores recovers one same-task pair and falsely links one different-task pair."/><figcaption data-en="A link is made when a pair's score reaches its cutoff. The examples use task IDs as match labels; they are not real attack attribution.">分数达到各自门槛就会判为关联。图中用题目编号作为匹配标签，不代表真实攻击归因。</figcaption></figure>
-<details class="source-details"><summary data-en="Expand exact scores and case-selection details">展开：具体分数与案例筛选规则</summary>
+<details class="source-details"><summary data-en="exact scores and case-selection details">具体分数与案例筛选规则</summary>
 <table class="study-results"><thead><tr><th data-en="Case">案例</th><th data-en="Task relation">题目关系</th><th data-en="Behavior score / threshold">行为分数 / 门槛</th><th data-en="Mode-aware score / threshold">增强分数 / 门槛</th></tr></thead><tbody>
 <tr><td data-en="Recovered link">纠正漏关联</td><td data-en="Same challenge">同题</td><td>0.5088 &lt; 0.5131</td><td>0.5482 ≥ 0.5127</td></tr>
 <tr><td data-en="Introduced error">新增错误关联</td><td data-en="Different challenges">异题</td><td>0.4738 &lt; 0.5131</td><td>0.5161 ≥ 0.5127</td></tr>
@@ -106,7 +106,7 @@
 <p class="caption" data-en="A score at or above its threshold is linked; a lower score is not. We selected the first matching example in each category using a fixed rule. Full trace IDs and score-refit checks are in the case data.">分数达到或超过门槛即判为关联，低于门槛则不关联。每类案例按固定规则选取首个符合条件的配对。完整轨迹 ID 和评分复算记录见案例数据。</p>
 <p class="result-links"><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/association_cases_v1.json" data-en="Case data and score checks">案例数据与评分复核</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/association_case_catalog_v1.csv" data-en="Full pair catalog">全部配对目录</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/extract_association_cases.py" data-en="Case extraction code">案例提取代码</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/plot_association_cases.py" data-en="Figure source">绘图代码</a></p>
 </details>
-<details class="source-details" id="ranking-case-explanation"><summary data-en="Expand the candidate ranking example">展开：候选排序示例</summary>
+<details class="source-details" id="ranking-case-explanation"><summary data-en="the candidate ranking example">候选排序示例</summary>
 <p data-en="For one Human query, the behavior-only ranker puts a different-task trace first. With the mode score, a same-task Agent trace moves to rank 1 among 39 candidates. This is one example; the +3.6-point change is measured across all held-out queries.">在一条人类轨迹的查询中，只看行为会把异题轨迹排在第一；加入执行方式分数后，同题 Agent 轨迹在 39 条候选中升到第一。这只是一个例子；+3.6 个百分点是全部留出查询的总体变化。</p>
 <figure class="diagnostic-figure"><img src="assets/association_rank_case_v1.png" data-en-src="assets/association_rank_case_v1.png" alt="一个留出的人类轨迹查询中，候选排名由异题人类转为同题 Agent，Hit@1 从 0 变为 1。" data-en-alt="For a held-out Human query, the top candidate changes from a different-task Human trace to a same-task Agent trace; Hit@1 changes from 0 to 1."/><figcaption data-en="The figure highlights the two leading candidates from the 39-trace gallery.">图中突出显示 39 条候选中的前两名。</figcaption></figure>
 <p data-en="The two traces both inspect files but use different commands. The behavior-only score ranks a different-task Human first; adding the predicted mode score moves the same-task Agent to first place.">两条轨迹都检查了文件，但使用的命令不同。只看行为时，异题人类轨迹排在第一；加入执行方式分数后，同题 Agent 轨迹升到第一。</p>
@@ -118,7 +118,7 @@
 <!-- association-cases:end -->
 <div class="result-links"><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/11-%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E8%A1%8C%E4%B8%BA%E5%85%B3%E8%81%94-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Full report and reproduction">完整报告与复现</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/research/notebooks" data-en="Experiment notebooks">实验 Notebook</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/research/results" data-en="Data and results">数据与结果</a></div>
 </section>
-<details class="source-details supplemental-results"><summary data-en="Expand earlier study details · not the primary result">展开：早期实验记录（非当前主结果）</summary>
+<details class="source-details supplemental-results"><summary data-en="earlier study details · not the primary result">早期实验记录（非当前主结果）</summary>
 <section class="section results" id="historical-gallery">
 <div class="result-intro">
 <h2 data-en="Earlier retrieval evaluation">较早的检索评估</h2>
@@ -154,10 +154,10 @@
 </section>
 <p class="caveat"><span>!</span><span class="i18n-text" data-en="CTF task IDs define same-challenge relevance labels. Error rates measure challenge matching. The collection interface differs between Human and Agent records, and script traces are unavailable.">CTF 题目编号用于标注两条轨迹是否同题，错误率衡量的是同题匹配表现。人类与 Agent 的记录来自不同采集接口，当前没有脚本轨迹，也没有真实攻击活动标签。</span></p>
 <div class="result-links"><a data-en="Literature, data, protocol, and results" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/09-%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%E6%96%87%E7%8C%AE%E4%B8%8E%E6%B7%B7%E5%90%88%E5%80%99%E9%80%89%E5%AE%9E%E9%AA%8C.md">文献、数据、协议与结果</a><a data-en="Experiment script" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/run_mixed_gallery.py">实验脚本</a><a data-en="Reproducible notebook" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/notebooks/07_mixed_gallery.ipynb">复现 Notebook</a><a data-en="Machine-readable results" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/mixed_gallery.json">机器可读结果</a><a data-en="Figure source" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/run_mixed_gallery.py">图表代码</a></div>
-<details class="related-details dataset-sources supplemental-results"><summary><b data-en="Expand earlier exploratory protocol details">展开：前期探索协议细节</b><span data-en="Kept for audit · not the current primary result">保留以便追溯 · 不作为当前主结果</span></summary><p data-en="Earlier cross-mode galleries and specificity checks remain available in the repository for comparison. They use different candidate rules and metrics; do not combine their numbers with the current mixed-gallery protocol.">早期跨模式候选库与特异性检查仍保留在仓库中供比较。它们的候选规则和指标与当前混合候选协议不同，数字不可直接合并。</p><p class="result-links"><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/06-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E8%B7%A8%E5%9F%BA%E5%87%86%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md">前期结果记录</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/specificity_controls.json">旧协议对照 JSON</a></p></details>
+<details class="related-details dataset-sources supplemental-results"><summary><b data-en="earlier exploratory protocol details">前期探索协议细节</b><span data-en="Kept for audit · not the current primary result">保留以便追溯 · 不作为当前主结果</span></summary><p data-en="Earlier cross-mode galleries and specificity checks remain available in the repository for comparison. They use different candidate rules and metrics; do not combine their numbers with the current mixed-gallery protocol.">早期跨模式候选库与特异性检查仍保留在仓库中供比较。它们的候选规则和指标与当前混合候选协议不同，数字不可直接合并。</p><p class="result-links"><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/06-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E8%B7%A8%E5%9F%BA%E5%87%86%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md">前期结果记录</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/specificity_controls.json">旧协议对照 JSON</a></p></details>
 </section></details>
 <details class="source-details research-technical-details">
-<summary data-en="Expand dataset, method, and reproduction details">展开：数据、方法与复现细节</summary>
+<summary data-en="dataset, method, and reproduction details">数据、方法与复现细节</summary>
 <section class="section method" id="data-protocol">
 <div class="split">
 <div>
@@ -176,7 +176,7 @@
 </div>
 <div class="study-table-wrap dataset-composition"><table class="study-results"><thead><tr><th data-en="Benchmark">基准</th><th data-en="Task groups">题目组</th><th data-en="Human traces">Human 轨迹</th><th data-en="Agent traces">Agent 轨迹</th><th data-en="Total">合计</th></tr></thead><tbody><tr><td>InterCode-CTF</td><td>27</td><td>40</td><td>81</td><td>121</td></tr><tr><td>CyBench</td><td>6</td><td>8</td><td>18</td><td>26</td></tr><tr><td>NYU CTF Bench</td><td>7</td><td>9</td><td>21</td><td>30</td></tr><tr class="focus-row"><td data-en="Total">合计</td><td>40</td><td>57</td><td>120</td><td>177</td></tr></tbody></table><p class="caption" data-en="Pinned Cyber Task Horizons subset, revision 178c0da; CC BY 4.0. Human records are expert terminal inputs; Agent records are structured bash tool calls.">Cyber Task Horizons 固定版本 178c0da 的交集子集，CC BY 4.0。Human 记录为专家终端输入；Agent 记录为结构化 bash 工具调用。</p></div>
 <details class="related-details dataset-sources">
-<summary><b data-en="Expand task and trace source details">展开：题目与轨迹来源细节</b><span data-en="Three public CTF suites · pinned data release">三套公开 CTF 基准 · 固定数据版本</span></summary>
+<summary><b data-en="task and trace source details">题目与轨迹来源细节</b><span data-en="Three public CTF suites · pinned data release">三套公开 CTF 基准 · 固定数据版本</span></summary>
 <div class="dataset-source-body">
 <p data-en="Cyber Task Horizons publishes model-evaluation traces across seven offensive-cyber benchmarks and expert recordings from a study of 10 professionals working on 291 tasks. Its human and model runs use the same task containers, but the released records come through different interfaces.">Cyber Task Horizons 发布了七套攻击性网络安全基准的模型评测轨迹，也包含 10 位专业人员完成 291 个任务的人类研究记录。人类与模型在相同任务容器中操作，但发布的记录来自不同接口。</p>
 <ul class="dataset-source-list">
@@ -201,7 +201,7 @@
 <a href="https://cyberclear-bench.github.io/cyberclear/">CyberClear <span data-en="Paired logs and attack provenance graphs; evaluates defender agents">日志与攻击溯源图配对；评估防守侧 Agent</span></a>
 </div>
 <details class="related-details dataset-sources">
-<summary><b data-en="Expand details of other audited public datasets">展开：其他已审计公开数据细节</b><span data-en="Candidate only · no new results claimed">候选数据 · 未报告新增实验</span></summary>
+<summary><b data-en="details of other audited public datasets">其他已审计公开数据细节</b><span data-en="Candidate only · no new results claimed">候选数据 · 未报告新增实验</span></summary>
 <div class="dataset-source-body"><ul class="dataset-source-list">
 <li><a href="https://zenodo.org/records/18861762">CAM-LDS v2</a><span data-en="Seven synthetic attack chains with ATT&amp;CK step labels across 13 tactics and 81 techniques; CC BY 4.0. Metadata audited; archive download and log parsing are pending.">7 条合成攻击链、13 个战术与 81 个技术标签，CC BY 4.0；已核查元数据，未完成归档下载或日志实测。</span></li>
 <li><a href="https://saga-tw.github.io/dataset/v1">SAGA v1</a><span data-en="Five report-derived APT scenarios with step and ATT&amp;CK labels. Public dataset page reviewed; not used in this experiment and no execution-mode labels are provided.">五个威胁报告改编的 APT 场景，含步骤与 ATT&amp;CK 标签。已核查公开数据页，未用于本轮实验，也没有执行方式标签。</span></li>
@@ -212,7 +212,7 @@
 </ul><p data-en="These sources have different labels and units. They are not merged into the CTF trace experiment.">这些来源的标签和分析单位不同，不与 CTF 轨迹实验合并。</p></div>
 </details>
 <details class="related-details dataset-sources">
-<summary><b data-en="Expand the auditd-to-trace example">展开：auditd 原始输入到标准轨迹样例</b><span data-en="Runnable fixture · not a benchmark record">可运行样例 · 非实验样本</span></summary>
+<summary><b data-en="the auditd-to-trace example">auditd 原始输入到标准轨迹样例</b><span data-en="Runnable fixture · not a benchmark record">可运行样例 · 非实验样本</span></summary>
 <div class="dataset-source-body">
 <p data-en="Four Linux auditd records describe two process executions. SYSCALL and EXECVE records are joined by event ID, even when they arrive out of order. The fixture is hand-written for interface verification; commands are parsed, never executed.">四条 Linux auditd 记录描述两次进程执行。解析器按事件编号合并 SYSCALL 与 EXECVE，即使记录乱序到达也能合并。该手写样例只用于接口核验；命令只解析，不执行。</p>
 <pre class="jsonl-preview"><code>type=EXECVE msg=audit(1700000000.125:410): argc=2 a0=6375726c a1=68747470733a2f2f6578616d706c652e696e76616c6964
@@ -224,7 +224,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <a data-en="Run the auditd example" href="https://github.com/mcxiaoxiao/AttackAgentDetect/tree/main/examples/auditd">运行 auditd 样例</a>
 </div>
 </details>
-<details class="source-details"><summary data-en="Expand source reproduction steps">展开：源码复现步骤</summary><div class="quickstart" id="source-reproduction">
+<details class="source-details"><summary data-en="source reproduction steps">源码复现步骤</summary><div class="quickstart" id="source-reproduction">
 <div class="quickstart-copy">
 <h3 data-en="Available now: reproduce from source">当前可用：从源码复现</h3>
 <p data-en="Python 3.10+; no Conda required. Fetch the pinned traces, run the task-held-out baselines and prototype, then regenerate the paper figures. PyPI release is planned for 2027.">Python 3.10+，无需 Conda。下载固定版本轨迹，运行任务留出基线、原型，再重新生成论文图。PyPI 计划于 2027 年上线。</p>
@@ -326,15 +326,15 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <article><h4 data-en="Balanced accuracy">平衡准确率</h4><dl><div><dt data-en="Command baseline">命令基线</dt><dd>57.35%</dd></div><div><dt data-en="Selected per fold">逐折入选</dt><dd>62.06%</dd></div></dl></article>
 </div>
 <details class="related-details research-technical-details">
-<summary data-en="Expand paired estimates and interval details">展开：配对估计与区间细节</summary>
+<summary data-en="paired estimates and interval details">配对估计与区间细节</summary>
 <p class="profile-result-delta" data-en="The paired task-cluster change was −7.23 points for FSR (95% CI −17.58 to −0.82) and −2.20 points for FMR (−3.47 to −1.09). Coverage rose from 94.83% to 100%; Hit@1 from 29.6% to 79.3%; MRR from 49.8% to 86.5%; Recall@5 from 73.3% to 97.1%; and NDCG@5 from 53.3% to 88.5%. The observed 0% FSR means 148/148 directed same-task candidate pairs were accepted across 40 task groups. A zero-only bootstrap interval is degenerate; under an independent-task-cluster sensitivity assumption, 0/40 gives a 7.2% one-sided upper bound for the share of task groups with any miss. This is not an interval for FSR. The 75.87% absolute FMR still means most different-task candidates are linked, so this is not usable for attribution.">配对任务簇变化：FSR 下降 7.23 个百分点（95% 区间 −17.58 至 −0.82），FMR 下降 2.20 个百分点（−3.47 至 −1.09）。覆盖率从 94.83% 升至 100%；Hit@1 从 29.6% 升至 79.3%；MRR 从 49.8% 升至 86.5%；Recall@5 从 73.3% 升至 97.1%；NDCG@5 从 53.3% 升至 88.5%。观测到的 0% FSR 表示 40 个任务组中的 148/148 条有向同题候选配对均被接纳。因为零错，普通 Bootstrap 区间退化；若把任务组视为独立簇，0/40 对“出现任一漏关联的任务组比例”给出 7.2% 的单侧上限，但这不是 FSR 区间。绝对 FMR 仍为 75.87%，也就是大多数异题候选仍被连上，因此还不能用于归因。</p>
 
 <figure class="profile-result-figure"><img alt="第 11 轮嵌套开发集结果：逐折选择点与命令基线的误合并、漏关联权衡及多项指标变化。" data-en-alt="Round 11 nested development results: false-merge/missed-link tradeoff and metric changes for the selected policy versus command baseline." data-en-src="assets/balanced-innovation-v11-en.png" loading="lazy" src="assets/balanced-innovation-v11-en.png"/><figcaption data-en="Each point shows a frozen outer-fold prediction; intervals resample 40 task groups within benchmark. Lower-left is better. The selected point lowers both errors on this cohort, but its absolute FMR remains 75.87%.">每个点来自冻结的外层折预测；区间按基准内 40 个任务组重采样。左下方较好。此队列中入选点的两类错误均下降，但绝对 FMR 仍为 75.87%。</figcaption></figure>
 </details>
 
-<details class="source-details"><summary data-en="Expand verifier and profile ablation details">展开：验证器与画像消融结果</summary><p data-en="At their inner-selected utility thresholds, the generic hard-negative verifier reached 19.1% FMR but 16.9% FSR, so it failed the missed-link gate. The Human/Agent-conditioned verifier was 23.2% FMR and 18.2% FSR. Removing the Human profile raised FMR to 24.5%; removing the Agent profile lowered it to 21.6%. These mixed ablations do not establish a reliable Human/Agent-specific gain. Exact scanning of every verifier score still found no inner threshold satisfying all hard gates in v13; the selector correctly fell back to the command baseline.">按各自内层选出的阈值，通用困难负例验证器的 FMR 为 19.1%，但 FSR 为 16.9%，未通过漏关联门槛。Human/Agent 条件化验证器的 FMR 为 23.2%、FSR 为 18.2%。移除 Human 画像后 FMR 升至 24.5%；移除 Agent 画像后降至 21.6%。这些结果方向不一，不能证明 Human/Agent 专属画像有稳定增益。第 13 轮穷举每个验证器分数断点后，内层仍找不到同时满足全部门槛的阈值，因此按协议回退到命令基线。</p></details>
-<details class="source-details"><summary data-en="Expand why the v10 experiment added missed links">展开：v10 实验漏关联增加原因</summary><p data-en="The misses were not removed by candidate generation: both Human–Agent task-proxy pairs were scored and fell below the 0.0819 threshold. One pair had 21 versus 26 commands but no shared distinctive artifact; the other had only 3 Human commands versus 13 Agent commands and shared only a generic .s extension. Rare-artifact containment therefore helped other pairs but could not recover these sparse or disjoint views. v11 accepted these cases by lowering the inner-feasible cutoff, at the cost of retaining a 75.87% absolute FMR.">这两组错例并非候选生成阶段被删掉：两组 Human—Agent 同题代理配对都进入评分，但低于 0.0819 阈值。一组轨迹分别有 21 和 26 条命令，却没有共享的显著产物；另一组 Human 只有 3 条命令、Agent 有 13 条，只共享通用的 .s 扩展名。稀有产物包含度因此无法找回证据稀疏或视图不重合的配对。第 11 轮通过降低内层可行阈值接纳了这些案例，但绝对误合并率仍为 75.87%。</p><p data-en="These are benchmark task-proxy cases, not evidence of a shared person or attack. The full row-level audit and v13 verifier audit are preserved with the experiment records.">这些是基准任务代理错例，不代表同一人员或攻击。逐行错例和第 13 轮验证器审计保存在实验记录中。</p></details>
-<details class="source-details"><summary data-en="Expand the round 14 rank-cap results">展开：第 14 轮排名截断结果</summary><p data-en="No query-local top-k passed every inner-fold gate, so all outer folds fell back to the command baseline. In fold 1, k=1 cut FMR from 54.9% to 5.1%, while FSR rose from 1.23% to 30.40% and coverage fell to 84.10%. In fold 2, k=5 lowered FMR from 84.65% to 76.47% with unchanged FSR, but coverage fell from 99.38% to 98.15%. In fold 3, k=5 lowered overall FMR to 75.71%, but Agent–Agent FMR rose from 83.33% to 85.93% and coverage fell. This is a failed development experiment, not an improvement claim.">没有任何查询内 top-k 通过全部内层门槛，因此三折外层均回退到命令基线。第一折 k=1 将 FMR 从 54.9% 降至 5.1%，但 FSR 从 1.23% 升至 30.40%，覆盖率降到 84.10%。第二折 k=5 将 FMR 从 84.65% 降至 76.47%、FSR 不变，但覆盖率从 99.38% 降至 98.15%。第三折 k=5 将总体 FMR 降至 75.71%，但 Agent→Agent FMR 从 83.33% 升至 85.93%，覆盖率也下降。这是未通过门槛的开发实验，不是改进结论。</p></details>
+<details class="source-details"><summary data-en="verifier and profile ablation details">验证器与画像消融结果</summary><p data-en="At their inner-selected utility thresholds, the generic hard-negative verifier reached 19.1% FMR but 16.9% FSR, so it failed the missed-link gate. The Human/Agent-conditioned verifier was 23.2% FMR and 18.2% FSR. Removing the Human profile raised FMR to 24.5%; removing the Agent profile lowered it to 21.6%. These mixed ablations do not establish a reliable Human/Agent-specific gain. Exact scanning of every verifier score still found no inner threshold satisfying all hard gates in v13; the selector correctly fell back to the command baseline.">按各自内层选出的阈值，通用困难负例验证器的 FMR 为 19.1%，但 FSR 为 16.9%，未通过漏关联门槛。Human/Agent 条件化验证器的 FMR 为 23.2%、FSR 为 18.2%。移除 Human 画像后 FMR 升至 24.5%；移除 Agent 画像后降至 21.6%。这些结果方向不一，不能证明 Human/Agent 专属画像有稳定增益。第 13 轮穷举每个验证器分数断点后，内层仍找不到同时满足全部门槛的阈值，因此按协议回退到命令基线。</p></details>
+<details class="source-details"><summary data-en="why the v10 experiment added missed links">v10 实验漏关联增加原因</summary><p data-en="The misses were not removed by candidate generation: both Human–Agent task-proxy pairs were scored and fell below the 0.0819 threshold. One pair had 21 versus 26 commands but no shared distinctive artifact; the other had only 3 Human commands versus 13 Agent commands and shared only a generic .s extension. Rare-artifact containment therefore helped other pairs but could not recover these sparse or disjoint views. v11 accepted these cases by lowering the inner-feasible cutoff, at the cost of retaining a 75.87% absolute FMR.">这两组错例并非候选生成阶段被删掉：两组 Human—Agent 同题代理配对都进入评分，但低于 0.0819 阈值。一组轨迹分别有 21 和 26 条命令，却没有共享的显著产物；另一组 Human 只有 3 条命令、Agent 有 13 条，只共享通用的 .s 扩展名。稀有产物包含度因此无法找回证据稀疏或视图不重合的配对。第 11 轮通过降低内层可行阈值接纳了这些案例，但绝对误合并率仍为 75.87%。</p><p data-en="These are benchmark task-proxy cases, not evidence of a shared person or attack. The full row-level audit and v13 verifier audit are preserved with the experiment records.">这些是基准任务代理错例，不代表同一人员或攻击。逐行错例和第 13 轮验证器审计保存在实验记录中。</p></details>
+<details class="source-details"><summary data-en="the round 14 rank-cap results">第 14 轮排名截断结果</summary><p data-en="No query-local top-k passed every inner-fold gate, so all outer folds fell back to the command baseline. In fold 1, k=1 cut FMR from 54.9% to 5.1%, while FSR rose from 1.23% to 30.40% and coverage fell to 84.10%. In fold 2, k=5 lowered FMR from 84.65% to 76.47% with unchanged FSR, but coverage fell from 99.38% to 98.15%. In fold 3, k=5 lowered overall FMR to 75.71%, but Agent–Agent FMR rose from 83.33% to 85.93% and coverage fell. This is a failed development experiment, not an improvement claim.">没有任何查询内 top-k 通过全部内层门槛，因此三折外层均回退到命令基线。第一折 k=1 将 FMR 从 54.9% 降至 5.1%，但 FSR 从 1.23% 升至 30.40%，覆盖率降到 84.10%。第二折 k=5 将 FMR 从 84.65% 降至 76.47%、FSR 不变，但覆盖率从 99.38% 降至 98.15%。第三折 k=5 将总体 FMR 降至 75.71%，但 Agent→Agent FMR 从 83.33% 升至 85.93%，覆盖率也下降。这是未通过门槛的开发实验，不是改进结论。</p></details>
 <p class="profile-result-limit" data-en="Same-task labels are retrieval proxies, not common-actor labels. Each task has one Agent trace, so Agent-to-Agent missed-link performance is not estimable. The cohort was reused for method development; an untouched task set is still needed for confirmation.">“同题”标签只是检索代理，不表示同一操作者。每道题只有一条 Agent 轨迹，无法估计 Agent→Agent 漏关联。当前队列已反复用于方法开发，仍需未查看的新任务集做确认。</p>
 <div class="result-links"><a data-en="Round 11 protocol" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/experiments/balanced_innovation_v11/program.md">第 11 轮实验方案</a><a data-en="v10 missed-link case audit" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/balanced_innovation_v10/error_audit.md">v10 漏关联错例</a><a data-en="v13 verifier audit" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/balanced_innovation_v13/error_audit.md">v13 验证器审计</a><a data-en="v14 rank-cap audit" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/balanced_innovation_v14/error_audit.md">v14 排名截断审计</a><a data-en="Browse pair-level JSON below" href="#task-browser">逐对浏览下方 JSON</a></div>
 </section>
@@ -346,7 +346,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <article><h4 data-en="Balanced accuracy">平衡准确率</h4><dl><div><dt data-en="Command baseline">命令基线</dt><dd>50.0%</dd></div><div><dt data-en="24D balanced reference">24 维折中参照</dt><dd>52.3%</dd></div></dl></article>
 </div>
 <details class="related-details research-technical-details">
-<summary data-en="Expand external ranking and error-rate details">展开：外部集排序与错误率细节</summary>
+<summary data-en="external ranking and error-rate details">外部集排序与错误率细节</summary>
 <p class="profile-result-delta" data-en="The 24D profile also improves the four ranking point estimates: Hit@1 1.7% vs 0.0%, MRR 22.1% vs 18.3%, Recall@5 52.9% vs 40.4%, and NDCG@5 25.1% vs 18.7%. Query coverage is 90.0%. These gains are small and task-cluster intervals are broad; better ranking does not make the pairwise classifier reliable. For transparency, the originally development-selected IDF sequence threshold accepted all 36 same-task pairs but also 458/482 different-task pairs: 95.3% task-macro false merges. Its 0.0% missed-link rate is therefore not a useful operating point.">24 维画像的四项排序点估计也高于基线：Hit@1 为 1.7% 对 0.0%，MRR 为 22.1% 对 18.3%，Recall@5 为 52.9% 对 40.4%，NDCG@5 为 25.1% 对 18.7%；查询覆盖率为 90.0%。这些提升幅度有限，任务簇区间较宽；排序变好并不代表配对分类可靠。为完整披露，开发阶段原先选出的 IDF 序列阈值接纳了全部 36 个同题配对，也接纳了 482 个异题配对中的 458 个：任务宏平均误合并率 95.3%。因此它的 0.0% 漏关联不是有用的工作点。</p>
 
 <p class="profile-result-limit" data-en="The result is a small relative change, not an attribution method. CyBashBench and NL2Bash were excluded because the selected records have prompts and final answers but no observed bash execution events. Same-task labels measure retrieval relevance, not shared identity. The 24D profile and 4 × 8 × 3 tensor were retained as separate features; the selected method used local command and ordered-bigram overlap.">这只是小幅相对变化，不是归因方法。CyBashBench 和 NL2Bash 的所选记录只有提示词与最终答案，没有可观测 bash 执行事件，因此未纳入主评估。“同题”只表示检索相关，不表示身份相同。24 维画像和 4 × 8 × 3 张量单独保存；本轮入选方法使用局部命令与有序二元组重合。</p>
@@ -354,7 +354,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <a class="profile-result-report" data-en="Read the locked protocol and complete results" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/experiments/multidimensional_rerun_v1/program.md">查看锁定方案与完整结果</a>
 </details>
 
-<details class="source-details"><summary data-en="Expand 14 external metrics for the original IDF policy">展开：原 IDF 序列策略的 14 项外部配对指标</summary><div class="study-table-wrap"><table class="study-results"><thead><tr><th data-en="Metric">指标</th><th data-en="Baseline">基线</th><th data-en="Originally selected IDF sequence">原入选 IDF 序列</th><th data-en="Change (95% CI), pp">变化（95% 区间），百分点</th></tr></thead><tbody>
+<details class="source-details"><summary data-en="14 external metrics for the original IDF policy">原 IDF 序列策略的 14 项外部配对指标</summary><div class="study-table-wrap"><table class="study-results"><thead><tr><th data-en="Metric">指标</th><th data-en="Baseline">基线</th><th data-en="Originally selected IDF sequence">原入选 IDF 序列</th><th data-en="Change (95% CI), pp">变化（95% 区间），百分点</th></tr></thead><tbody>
 <tr><th data-en="Overall false merges">总体误合并</th><td>100.0%</td><td>95.3%</td><td>−4.7 [−7.2, −2.2]</td></tr>
 <tr><th data-en="Overall false splits">总体漏关联</th><td>0.0%</td><td>0.0%</td><td>0.0 [0.0, 0.0]</td></tr>
 <tr><th data-en="Human–Agent false merges">Human—Agent 误合并</th><td>100.0%</td><td>97.2%</td><td>−2.8 [−4.9, −0.8]</td></tr>
@@ -376,7 +376,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 
 
 <details class="task-browser source-details" data-task-browser="" id="task-browser">
-<summary data-en="Expand pair-by-pair experiment details">展开：逐对实验结果</summary>
+<summary data-en="pair-by-pair experiment details">逐对实验结果</summary>
 <div class="task-browser-content">
 <p class="task-browser-intro" data-browser-intro="" data-en="A static parser reads either result JSON stored with this page. Select the locked external reference or the nested development experiment; inspect pair decisions, per-fold thresholds, ranks, and trace features. Same-task labels are retrieval proxies, not identity.">页面解析同目录的结果 JSON。可切换锁定外部参照或嵌套开发实验，查看配对判断、逐折阈值、排名与轨迹特征。“同题”是检索代理标签，不是身份标签。</p>
 <div class="task-browser-toolbar">
@@ -401,7 +401,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 <p class="related-scope" data-en="Literature search, October 2026: behavior identification, attack-log correlation, and methodological analogies. Generated-text studies analyze text, not system logs.">文献检索（2026 年 10 月）：行为识别、攻击日志关联和方法类比。生成内容检测研究的输入是文本，不是系统日志。</p>
 <div class="related-drawers">
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand activity and alert correlation details">展开：活动与告警关联细节</span><span class="related-category-note" data-en="Behavior similarity, attack stages, and causal relationships">行为相似、攻击步骤、因果关系</span><span class="related-count" data-en="10 studies">10 项</span></summary>
+<summary><span class="related-category-title" data-en="activity and alert correlation details">活动与告警关联细节</span><span class="related-category-note" data-en="Behavior similarity, attack stages, and causal relationships">行为相似、攻击步骤、因果关系</span><span class="related-count" data-en="10 studies">10 项</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="These methods combine events, alerts, or host traces into activity or campaign candidates. Their targets and labels differ.">这类方法把事件、告警或主机轨迹组合成活动或 campaign 候选；各自的目标和标签各不相同。</p>
 <div class="related-table-wrap">
@@ -424,7 +424,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </div>
 </details>
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand attack-story and intelligence-matching details">展开：攻击故事与情报匹配细节</span><span class="related-category-note" data-en="Single-attack path reconstruction and CTI-to-log matching">单次攻击路径重建、CTI 到日志匹配</span><span class="related-count" data-en="4 studies">4 项</span></summary>
+<summary><span class="related-category-title" data-en="attack-story and intelligence-matching details">攻击故事与情报匹配细节</span><span class="related-category-note" data-en="Single-attack path reconstruction and CTI-to-log matching">单次攻击路径重建、CTI 到日志匹配</span><span class="related-count" data-en="4 studies">4 项</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="These studies reconstruct paths within an attack or match threat-intelligence graphs to audit records. They are close to activity correlation but do not identify the operator.">这些工作重建一次攻击内部的路径，或把威胁情报图匹配到审计记录；与活动关联相近，但不判断操作者。</p>
 <div class="related-table-wrap">
@@ -441,7 +441,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </div>
 </details>
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand executor and trace-representation details">展开：执行者识别与轨迹表示细节</span><span class="related-category-note" data-en="Humans, agents, model fingerprints, and operation traces">Human、Agent、模型指纹与操作轨迹</span><span class="related-count" data-en="8 studies">8 项</span></summary>
+<summary><span class="related-category-title" data-en="executor and trace-representation details">执行者识别与轨迹表示细节</span><span class="related-category-note" data-en="Humans, agents, model fingerprints, and operation traces">Human、Agent、模型指纹与操作轨迹</span><span class="related-count" data-en="8 studies">8 项</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="Includes distinguishing humans from agents, identifying an agent's underlying model, and comparing operation traces. Collection pipelines and research targets vary substantially.">包括区分人类与 Agent、推断 Agent 的底层模型，以及比较操作轨迹；采集方式和研究目标差异很大。</p>
 <div class="related-table-wrap">
@@ -462,7 +462,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </div>
 </details>
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand generated-content detection analogy details">展开：生成内容检测方法类比细节</span><span class="related-category-note" data-en="Probability features, classifiers, and cross-domain evaluation">概率特征、分类器与跨域评估</span><span class="related-count" data-en="6 studies">6 项</span></summary>
+<summary><span class="related-category-title" data-en="generated-content detection analogy details">生成内容检测方法类比细节</span><span class="related-category-note" data-en="Probability features, classifiers, and cross-domain evaluation">概率特征、分类器与跨域评估</span><span class="related-count" data-en="6 studies">6 项</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="Useful references for probability scoring, lightweight classification, and out-of-domain evaluation. Their inputs are text, not host audit events.">其中的概率评分、轻量分类和域外测试设计可以借鉴；这些研究的输入是文本，不是主机审计事件。</p>
 <div class="related-table-wrap">
@@ -481,7 +481,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </div>
 </details>
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand organization-level APT correlation details">展开：APT 组织级关联细节</span><span class="related-category-note" data-en="Threat intelligence and malware behavior patterns">威胁情报与恶意软件行为模式</span><span class="related-count" data-en="1 study">1 项</span></summary>
+<summary><span class="related-category-title" data-en="organization-level APT correlation details">APT 组织级关联细节</span><span class="related-category-note" data-en="Threat intelligence and malware behavior patterns">威胁情报与恶意软件行为模式</span><span class="related-count" data-en="1 study">1 项</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="Infers relationships between organizations. Labels and units of analysis are organizational, not log-level activity correlation.">这项工作推断组织之间的关系，标签和分析对象都在组织层，不等同于日志级活动关联。</p>
 <div class="related-table-wrap">
@@ -495,7 +495,7 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </div>
 </details>
 <details class="related-details related-category">
-<summary><span class="related-category-title" data-en="Expand probability-returning classifier details">展开：类别概率分类工具细节</span><span class="related-category-note" data-en="API options reviewed; not benchmarked">已核查接口，未做基准比较</span><span class="related-count" data-en="2 APIs + local baselines">2 个 API + 本地基线</span></summary>
+<summary><span class="related-category-title" data-en="probability-returning classifier details">类别概率分类工具细节</span><span class="related-category-note" data-en="API options reviewed; not benchmarked">已核查接口，未做基准比较</span><span class="related-count" data-en="2 APIs + local baselines">2 个 API + 本地基线</span></summary>
 <div class="related-category-content">
 <p class="related-category-intro" data-en="These interfaces can return a category distribution. Their probability outputs still need calibration and task-held-out evaluation on this dataset.">这些接口可返回类别概率分布；概率仍需在本数据的任务留出评估中单独检验校准。</p>
 <div class="related-table-wrap"><table class="related-table"><thead><tr><th data-en="Method">方法</th><th data-en="Work">接口</th><th data-en="Status and boundary">状态与边界</th></tr></thead><tbody>
@@ -507,18 +507,10 @@ type=EXECVE msg=audit(1700000002.250:411): argc=2 a0=67726570 a1=2d6e</code></pr
 </details>
 </div>
 <p class="related-conclusion" data-en="Prior work has studied log correlation and Human/Agent identification separately. This study connects the two questions and tests whether execution mode helps match behavior traces.">已有研究分别研究了日志关联和 Human/Agent 识别。本研究把两个问题接起来，检验执行方式能否帮助匹配行为轨迹。</p>
-</section><footer><div aria-label="AttackAgent Detect" class="footer-signature">
-<strong class="signature-art">AttackAgent<br/>Detect</strong>
-</div>
-<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
-<a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
-<span aria-hidden="true" class="footer-cross">×</span>
-<a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>
-</div>
-<div class="footer-meta">
-<div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div>
-</div>
+</section><footer>
+<div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks"><a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a><span aria-hidden="true" class="footer-cross">×</span><a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a></div>
+<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
 </footer>
 </main>
 </div>

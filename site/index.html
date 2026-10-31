@@ -32,9 +32,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261101-readable-research-v1" rel="stylesheet"/>
+<link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <script defer="True" src="i18n.js?v=20261101-global-header-v1"></script><script defer="" src="site.js?v=20261101-global-header-v1"></script><script defer="" src="trace-field.js?v=20261101-auto-loop-v1"></script>
-<link href="demo.css?v=20261101-auto-loop-v1" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/></head>
+<link href="demo.css?v=20261101-readable-layout-v2" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
@@ -148,18 +148,10 @@ Run the source examples and inspect the JSONL schema in the repository before ap
 <span class="n">candidate</span> <span class="o">=</span> <span class="n">TraceEvidence</span><span class="p">(</span><span class="s2">"candidate"</span><span class="p">,</span> <span class="s2">"example-v1"</span><span class="p">,</span> <span class="s2">"demo"</span><span class="p">,</span> <span class="p">(</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"ls"</span><span class="p">),</span> <span class="p">())</span>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">rank_candidates</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">[</span><span class="n">candidate</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"command_cosine"</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
-</code></pre></div><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="The local detector scores Human/Agent traces from format-matched labeled training data; behavior ranking can be called independently.">本地识别器使用采集格式匹配的 Human/Agent 标注数据生成执行模式评分；行为排序可以独立调用。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer><div aria-label="AttackAgent Detect" class="footer-signature">
-<strong class="signature-art">AttackAgent<br/>Detect</strong>
-</div>
-<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks">
-<a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a>
-<span aria-hidden="true" class="footer-cross">×</span>
-<a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a>
-</div>
-<div class="footer-meta">
-<div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div>
-<div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div>
-</div>
+</code></pre></div><p data-en="The example uses a hand-written auditd fixture and illustrative candidates. Scores represent behavior similarity.">示例使用手写的 auditd 格式样例和演示候选，输出的分数表示行为相似度。</p><p data-en="The local detector scores Human/Agent traces from format-matched labeled training data; behavior ranking can be called independently.">本地识别器使用采集格式匹配的 Human/Agent 标注数据生成执行模式评分；行为排序可以独立调用。</p><p><a data-en="Read the repository documentation" href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/README.md">查看仓库文档</a></p></div></section><footer>
+<div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks"><a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a><span aria-hidden="true" class="footer-cross">×</span><a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a></div>
+<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
 </footer>
 </main>
 </div>

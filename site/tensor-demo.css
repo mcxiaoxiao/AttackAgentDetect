@@ -56,14 +56,15 @@
 .tensor-demo-chart.is-playing .tensor-cell.is-visited { opacity: .9; }
 .tensor-demo-figure figcaption { padding: 10px 16px 13px; border-top: 1px solid var(--line); color: var(--muted); font: 400 11px/1.6 var(--font-body); }
 .tensor-demo-status { min-height: 1.65em; }
-.profile-result { display: grid; gap: 16px; padding: clamp(16px, 2.2vw, 26px); border: 1px solid var(--line); background: var(--surface); }
+.profile-result { display: grid; max-width: var(--content); gap: 16px; margin-inline: auto; padding: clamp(16px, 2.2vw, 26px); border: 1px solid var(--line); background: var(--surface); }
 .profile-result-head { display: grid; gap: 7px; }
 .profile-result-head h3 { margin: 0; color: var(--ink); font: 600 clamp(20px, 1.8vw, 25px)/1.2 var(--font-display); }
-.profile-result-head p, .profile-result-delta, .profile-result-limit { margin: 0; color: var(--muted); font: 400 12px/1.65 var(--font-body); }
+.profile-result-head p, .profile-result-delta, .profile-result-limit { margin: 0; color: var(--muted); font: 400 13px/1.7 var(--font-body); }
+.profile-result-head p, .profile-result-delta, .profile-result-limit { max-width: 88ch; }
 .profile-result-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .profile-result-cards article { padding: 14px 16px; border: 1px solid var(--line); background: var(--paper); }
 .profile-result-cards h4 { margin: 0 0 11px; color: var(--ink); font: 600 14px/1.3 var(--font-display); }
-.profile-result-cards article p { margin: 0; color: var(--muted); font: 400 11.5px/1.65 var(--font-body); }
+.profile-result-cards article p { margin: 0; color: var(--muted); font: 400 13px/1.65 var(--font-body); }
 .association-lessons-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .profile-result-summary-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .profile-result-card-emphasis { border-color: var(--sky) !important; box-shadow: inset 3px 0 0 var(--cobalt); }
@@ -83,6 +84,9 @@
 .recall-result > details > p { margin: 12px 0 0; color: var(--muted); font: 400 12px/1.65 var(--font-body); }
 @keyframes tensor-cell-pulse { from { opacity: .8; transform: scale(.97); } to { opacity: 1; transform: scale(1.035); } }
 @keyframes tensor-rail-pulse { from { box-shadow: 0 0 0 3px rgb(0 114 178 / 12%), 0 0 6px rgb(0 114 178 / 26%); } to { box-shadow: 0 0 0 4px rgb(0 114 178 / 20%), 0 0 14px rgb(0 114 178 / 48%); } }
+@media (max-width: 850px) {
+  .association-lessons-grid, .profile-result-summary-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 600px) {
   .tensor-demo { gap: 12px; padding: 14px; }
   .tensor-demo-toolbar { align-items: start; padding: 10px 12px; }
@@ -91,7 +95,7 @@
   .tensor-stage-rail { gap: 0; padding-inline: 10px; }
   .tensor-stage-rail > span { gap: 4px; font-size: 9px; }
   .tensor-stage-rail > span > i { width: 12px; height: 12px; }
-  .profile-result-cards { grid-template-columns: minmax(0, 1fr); }
+  .profile-result-cards, .association-lessons-grid, .profile-result-summary-cards { grid-template-columns: minmax(0, 1fr); }
   .recall-result-cards { grid-template-columns: minmax(0, 1fr); }
   .tensor-demo-viewport { min-height: 380px; padding-inline: 8px; }
   .tensor-demo-figure figcaption { padding-inline: 12px; }
