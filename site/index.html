@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN">
+<html lang="en" class="i18n-pending">
 <head>
 <meta charset="utf-8"/>
+<style>html.i18n-pending body{visibility:hidden}</style>
+<noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
+<script>
+(() => {
+  const root = document.documentElement;
+  const read = storeName => {
+    try { return window[storeName].getItem('attackagent-language'); } catch { return null; }
+  };
+  const requested = new URLSearchParams(location.search).get('lang');
+  const saved = read('localStorage') || read('sessionStorage');
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const language = requested === 'zh' || requested === 'en'
+    ? requested
+    : saved === 'zh' || saved === 'en'
+      ? saved
+      : browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  root.lang = language === 'zh' ? 'zh-CN' : 'en';
+  root.dataset.language = language;
+})();
+</script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Open research on execution-mode signals in public attack traces and whether they help behavior-based trace association." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
@@ -12,8 +32,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261031-click-copy-lines" rel="stylesheet"/>
-<script defer="True" src="i18n.js"></script><script defer="" src="site.js?v=20261031-click-copy-lines"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v4"></script>
+<link href="style.css?v=20261101-language-drawers" rel="stylesheet"/>
+<script defer="True" src="i18n.js?v=20261101-language-detection"></script><script defer="" src="site.js?v=20261031-click-copy-lines"></script><script defer="" src="trace-field.js?v=20261030-matrix-flow-v4"></script>
 <link href="demo.css" rel="stylesheet"/><script defer="" src="demo.js"></script><script defer="" src="deployment.js"></script><link href="docs.css" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>

@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="i18n-pending">
 <head>
 <meta charset="utf-8"/>
-<meta content="V15-V16 discriminative pair classification breakthrough: revolutionary selection logic, Gradient Boosting, and FSR optimization achieve perfect ranking metrics." name="description"/>
+<style>html.i18n-pending body{visibility:hidden}</style>
+<noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
+<script>
+(() => {
+  const root = document.documentElement;
+  const read = storeName => {
+    try { return window[storeName].getItem('attackagent-language'); } catch { return null; }
+  };
+  const requested = new URLSearchParams(location.search).get('lang');
+  const saved = read('localStorage') || read('sessionStorage');
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const language = requested === 'zh' || requested === 'en'
+    ? requested
+    : saved === 'zh' || saved === 'en'
+      ? saved
+      : browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  root.lang = language === 'zh' ? 'zh-CN' : 'en';
+  root.dataset.language = language;
+})();
+</script>
+<meta content="Exploratory discriminative pair-classification results on 97 CTF traces across 40 task groups, with methods, metrics, and evaluation limits." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgent Detect | V15-V16 Breakthrough">AttackAgent Detect | V15-V16 突破性进展</title>
+<title data-en="AttackAgent Detect | Discriminative Pair Classification">AttackAgent Detect | 判别式配对分类</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
+<link href="style.css?v=20261101-language-drawers" rel="stylesheet"/>
 <link href="docs.css?v=20261030-study-results" rel="stylesheet"/>
-<script defer="" src="i18n.js?v=20261030-case-study"></script>
+<script defer="" src="i18n.js?v=20261101-language-detection"></script>
 <script defer="" src="site.js"></script>
 <script defer="" src="deployment.js"></script>
 </head>
@@ -31,24 +51,26 @@
 </aside>
 <main id="main">
 <header class="docs-page-header">
-<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page">V15-V16 Breakthrough</span></div>
-<h1 data-en="V15-V16: Discriminative Classification Breakthrough">V15-V16：判别式分类突破</h1>
-<p data-en="From similarity retrieval to discriminative pair classification: revolutionary selection logic and Gradient Boosting achieve perfect ranking metrics.">从相似度检索到判别式配对分类：革命性选择逻辑与Gradient Boosting实现完美排序指标。</p>
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Discriminative Pair Classification">判别式配对分类</span></div>
+<h1 data-en="Discriminative Pair Classification">判别式配对分类</h1>
+<p data-en="An exploratory comparison on a reused development cohort of 97 traces across 40 task groups.">基于复用开发集的探索性比较：97 条轨迹、40 个任务组。</p>
 </header>
 
 <section class="section docs-content" id="overview">
 <div class="docs-prose">
-<h2 data-en="What changed">发生了什么变化</h2>
-<p data-en="V15 restructured the approach from similarity retrieval to discriminative pair classification, addressing root causes identified in v10-v14 failures. V16 further enhanced this with Gradient Boosting classification and FSR-aware utility optimization.">V15从相似度检索转向判别式配对分类，针对v10-v14失败的根本原因进行重构。V16进一步引入Gradient Boosting分类器和FSR感知优化，实现了完美性能。</p>
+<h2 data-en="Study summary">研究摘要</h2>
+<p data-en="On the reused development cohort (97 traces, 40 task groups), the selected pair classifier reached 87.95% balanced accuracy (BA) and 100% top-ranked hit rate (Hit@1); the false-merge rate (FMR) was 24.09% and the false-split rate (FSR) was 0%. These are exploratory estimates, not independent confirmation or real-world attack attribution.">在复用开发集（97 条轨迹、40 个任务组）上，入选配对分类器的平衡准确率（BA）为 87.95%，顶部命中率（Hit@1）为 100%；误合并率（FMR）为 24.09%，误拆分率（FSR）为 0%。这些是探索性估计，不构成独立验证或现实攻击归因。</p>
+</div>
+</section>
 
+<details class="source-details research-technical-details">
+<summary data-en="Expand classifier methods and detailed results">展开：分类器方法与详细结果</summary>
 <div class="data-grid" aria-label="核心改进" data-en-aria-label="Key improvements">
 <article><strong>6</strong><span data-en="New methods">种新方法</span><small data-en="Chi-squared, length-aware, discriminative, ...">Chi-squared、长度感知、判别式...</small></article>
 <article><strong>12</strong><span data-en="Feature dimensions">维特征</span><small data-en="Content, sequence, behavior evidence">内容、序列、行为证据</small></article>
-<article><strong>0%</strong><span data-en="False Split Rate">误拆分率</span><small data-en="V16 achieves perfect FSR control">V16实现完美FSR控制</small></article>
-<article><strong>100%</strong><span data-en="Ranking metrics">排序指标</span><small data-en="Hit@1, MRR, NDCG@5 all perfect">Hit@1、MRR、NDCG@5全部完美</small></article>
+<article><strong>0%</strong><span data-en="False Split Rate">误拆分率</span><small data-en="Observed in this development cohort">本开发集观测值</small></article>
+<article><strong>100%</strong><span data-en="Ranking metrics">排序指标</span><small data-en="Hit@1, MRR, NDCG@5">Hit@1、MRR、NDCG@5</small></article>
 </div>
-</div>
-</section>
 
 <section class="section results" id="v15-title">
 <div class="result-intro">
@@ -70,9 +92,9 @@
 </div>
 
 <div class="result-links">
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v15/program.md">V15实验方案</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/balanced_innovation_v15/results.json">完整结果JSON</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/V15-判别式配对分类.md">V15研究文档</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/experiments/balanced_innovation_v15/program.md">V15实验方案</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/balanced_innovation_v15/results.json">完整结果JSON</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/V15-%E5%88%A4%E5%88%AB%E5%BC%8F%E9%85%8D%E5%AF%B9%E5%88%86%E7%B1%BB.md">V15研究文档</a>
 </div>
 </section>
 
@@ -108,9 +130,9 @@
 </div>
 
 <div class="result-links">
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/experiments/balanced_innovation_v16/program.md">V16实验方案</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/balanced_innovation_v16/results.json">完整结果JSON</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/17-v16-增强型判别式分类与FSR优化结果.md">研究文档</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/experiments/balanced_innovation_v16/program.md">V16实验方案</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/balanced_innovation_v16/results.json">完整结果JSON</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/V16-%E5%A2%9E%E5%BC%BA%E5%9E%8B%E5%88%A4%E5%88%AB%E5%BC%8F%E5%88%86%E7%B1%BB.md">研究文档</a>
 </div>
 </section>
 
@@ -184,11 +206,14 @@
 <p data-en="This trade-off is favorable because FMR remains substantially below baseline (24.09% vs 78.07%), while zero FSR eliminates the risk of fragmenting related traces.">这个trade-off是有利的，因为FMR仍远低于基线（24.09% vs 78.07%），而零FSR消除了拆分相关轨迹的风险。</p>
 </div>
 </section>
+</details>
 
 <section class="section docs-content" id="limitations">
 <div class="docs-prose">
 <h2 data-en="Limitations">限制</h2>
-<p data-en="These results are exploratory rather than confirmatory:">这些结果是探索性的，而非确认性的：</p>
+<p data-en="The metrics come from a reused development cohort. New task groups with comparable telemetry are needed for independent confirmation.">指标来自复用开发集；独立确认需要采集方式可比的新任务组。</p>
+<details class="related-details">
+<summary data-en="Expand evaluation limits">展开：评估边界细节</summary>
 <ul>
 <li data-en="Development set evaluation on 97 traces from 40 task groups; not independent confirmation">在97条轨迹、40个任务组上的开发集评估；非独立确认</li>
 <li data-en="Task labels denote same-CTF-challenge proxy, not actor or organization identity">任务标签表示同一CTF题目代理，非演员或组织身份</li>
@@ -196,6 +221,7 @@
 <li data-en="FMR increase from V15 to V16 (+6.18 pp) requires monitoring in larger evaluations">V15到V16的FMR升高（+6.18个百分点）需要在更大规模评估中监控</li>
 </ul>
 <p data-en="A confirmatory test requires new task groups with Human, Agent, and Script behavior collected through comparable telemetry and frozen evaluation splits.">确认性测试需要新的任务组，包含通过可比遥测收集的Human、Agent和Script行为，以及冻结的评估划分。</p>
+</details>
 </div>
 </section>
 

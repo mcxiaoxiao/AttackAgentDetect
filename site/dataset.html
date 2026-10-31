@@ -1,7 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="i18n-pending">
 <head>
 <meta charset="utf-8"/>
+<style>html.i18n-pending body{visibility:hidden}</style>
+<noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
+<script>
+(() => {
+  const root = document.documentElement;
+  const read = storeName => {
+    try { return window[storeName].getItem('attackagent-language'); } catch { return null; }
+  };
+  const requested = new URLSearchParams(location.search).get('lang');
+  const saved = read('localStorage') || read('sessionStorage');
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const language = requested === 'zh' || requested === 'en'
+    ? requested
+    : saved === 'zh' || saved === 'en'
+      ? saved
+      : browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  root.lang = language === 'zh' ? 'zh-CN' : 'en';
+  root.dataset.language = language;
+})();
+</script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="CTF 行为轨迹集：来自 Cyber Task Horizons 的 97 条轨迹、40 个任务组与 1,558 条外层评估配对。" name="description"/>
 <meta content="#f5f9fd" name="theme-color"/>
@@ -75,7 +95,7 @@
 <article class="dataset-download-card"><div><p class="dataset-file-kind">CSV · 1,558 ROWS</p><h3 data-en="Outer-fold pair records">外层配对记录</h3><p data-en="Pair labels, trace IDs, selected decisions, and method scores. No raw commands.">包含配对标签、轨迹 ID、入选决策和方法分数，不含原始命令。</p></div><a class="dataset-action" download="ctf-behavior-trace-pairs.csv" href="data/ctf-behavior-trace-pairs.csv" data-en="Download CSV">下载 CSV</a></article>
 <article class="dataset-download-card"><div><p class="dataset-file-kind">JSON · SUMMARY</p><h3 data-en="Evaluation summary">评估汇总</h3><p data-en="Protocol, aggregate metrics, and source revision for the exploratory evaluation.">探索性评估的协议、汇总指标与数据来源版本。</p></div><a class="dataset-action" download="ctf-behavior-trace-summary.json" href="data/ctf-behavior-trace-summary.json" data-en="Download JSON">下载 JSON</a></article>
 </div>
-<p class="dataset-report-link"><span data-en="Protocol and limitations">协议与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/15-%E6%BC%8F%E5%85%B3%E8%81%94%E4%BC%98%E5%8C%96%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Read the experiment report">查看实验报告 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
+<p class="dataset-report-link"><span data-en="Protocol and limitations">协议与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/15-%E6%BC%8F%E5%85%B3%E8%81%94%E4%BC%98%E5%8C%96%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Read the experiment report">查看实验报告 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
 </section>
 
 <section class="dataset-section dataset-browser" id="browser">

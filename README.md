@@ -1,135 +1,59 @@
 <h1 align="center">
-  <img src="site/assets/attackagent-detect-logo.png" width="620" alt="AttackAgent Detect" />
+  <img src="site/assets/attackagent-detect-logo.png" width="500" alt="AttackAgent Detect" />
 </h1>
 
-<p align="center"><a href="README.zh-CN.md">简体中文</a> | <strong>English</strong></p>
+<p align="center"><a href="README.zh-CN.md">简体中文</a> · English</p>
 
-**[Visit the project website](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=en)** — research aims, results, data, methods, and related work.
+AttackAgent Detect is a Python toolkit for turning security logs into consistent traces and comparing their behavior. The repository also contains a separate research workspace for evaluating these methods on public CTF data.
 
-[中文主页](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=zh) · [English website](https://mcxiaoxiao.github.io/AttackAgentDetect/?lang=en)
+## Use the toolkit
 
-**An open-source research project and experimental toolkit for studying execution-mode signals in attack traces.**
+The library can:
 
-The project is an open research library for normalizing security traces, comparing behavior, and testing whether execution-mode evidence helps link attack activity. Its motivating question is grounded in prior work: systems such as HOLMES, OSTINATO, POIROT, ATLAS, and ActMiner link audit behavior, sequences, TTPs, entities, or causal graphs; public threat records now also describe human operators coordinating AI agents. The library keeps external methods, local adaptations, and project baselines distinct.
+- Normalize Linux auditd SYSCALL and EXECVE records into trace JSONL.
+- Rank candidate traces using command and action evidence.
+- Run an experimental Human / Agent detector when labeled training traces use the same source format.
 
-The completed CPU study uses 177 human and Agent traces across 40 task groups from three public CTF benchmarks. Command-name TF-IDF is the strongest single feature for separating the released trace labels (task-held-out balanced accuracy 0.85–0.87); adding fixed sequence statistics is classifier-dependent. In the same mixed candidate gallery, at a 20% training false-merge ceiling, mode-aware ranking changes the proxy error profile: same-task Human–Agent false splits fall by 12.7 percentage points and Hit@1 rises by 3.6 points over a behavior ranker, while different-task Human–Agent false merges rise by 11.9 points. The test false-merge rate is 24.5% for mode-aware ranking and 23.3% for behavior ranking. The result supports evaluating execution mode as association context, not treating it as a universal correction. Same-task labels are CTF challenge proxies; human terminal capture and Agent tool-call capture are confounded with the labels, and no script group is available. See the [full protocol, results, figures, and limitations](11-执行方式特征与行为关联-实验结果.md).
+The tools analyze records. They do not execute logged commands. Human / Agent scores are not proof of who performed an action or whether traces belong to the same attack.
 
-An earlier mixed-gallery protocol is retained separately: mode-aware Hit@1 was 0.607 versus 0.571 for the task-supervised ranker on its pre-fixed split, but the gain averaged −0.007 across five alternate splits. Its threshold experiment used a different objective and must not be pooled with the fixed-operating-point results above. See the [earlier literature and experiment report](09-关联分析文献与混合候选实验.md).
+### Install from this repository
 
-The traces come from a pinned [Cyber Task Horizons](https://github.com/lyptus-research/cyber-task-horizons-data) release: PicoCTF-derived InterCode-CTF tasks, CyBench challenges from four competitions, and NYU CTF Bench tasks. The evaluated subset contains 40 benchmark-qualified task groups with both expert and Agent records. The current report documents provenance, filtering, hashes, labels, and the exact task-held-out protocols.
+Python 3.10 or later is required. The package is not published on PyPI yet.
 
-The earlier mixed-gallery protocol's primary split has a record-level confusion matrix of `[[43, 14], [8, 112]]` (Human/Agent rows; balanced accuracy 0.844). Since capture path and label coincide, this is trace-label separability, not general operator identification. That protocol remains in the repository as a historical result and is not pooled with the current feature and fixed-operating-point study.
-
-**PyPI release planned for 2027.** A wheel can already be built and smoke-tested from this repository; the package has not been published to PyPI.
-
-## Research and results
-
-- [Research framing and eight-hour exploration plan](00-研究计划.md)
-- [Primary experiment protocol](01-实验预设.md)
-- [Related work and initial results](04-相关工作与初步实验.md)
-- [Completed feature and association study](11-执行方式特征与行为关联-实验结果.md)
-- [Frozen plan for that study](10-下一轮实验计划-识别特征与关联效用.md)
-- [Earlier controlled-experiment plan (historical)](07-后续实验推进计划.md)
-- [Current related-work audit and mixed-gallery experiment](09-关联分析文献与混合候选实验.md)
-- [Cross-benchmark prototype and specificity controls](06-原型与跨基准实验结果.md), [machine-readable control results](results/specificity_controls.json)
-- [Public dataset audit and local model comparison](08-公开数据与模型对比.md), [model results JSON](results/local_model_comparison.json), [task-level metrics CSV](results/local_model_comparison_task_metrics.csv)
-- [Conditional mode-label permutation diagnostic](results/mode_label_permutation.json) and [model comparison notebook](notebooks/06_local_model_comparison.ipynb)
-- [Current LaTeX packet](paper/mixed-gallery-main.tex), [results section](paper/mixed-gallery-results.tex), and [appendix](paper/mixed-gallery-appendix.tex)
-- [Earlier exploratory manuscript (historical)](paper/main.tex) and [its figure-generation source](scripts/generate_paper_figures.py)
-- [Current mixed-gallery notebook](notebooks/07_mixed_gallery.ipynb), [result JSON](results/mixed_gallery.json), and [figure-generation source](scripts/run_mixed_gallery.py)
-- [Nested association-error analysis](scripts/run_association_error_analysis.py), [result JSON](results/association_error_analysis.json), [pair scores](results/association_error_pair_scores.csv), and [reproducible notebook](notebooks/08_association_error_analysis.ipynb)
-- [Feature ablation](scripts/run_feature_ablation.py), [paired contrasts](scripts/summarize_feature_contrasts.py), [model-source transfer](scripts/run_agent_model_transfer.py), and [fixed-operating-point association](scripts/run_association_operating_points.py)
-- [Feature notebook](notebooks/09_feature_ablation_v1.ipynb), [association notebook](notebooks/10_association_operating_points_v1.ipynb), and the retained figure-generation scripts
-- [Executable preliminary-analysis notebook](notebooks/01_preliminary.ipynb)
-- [Executable specificity-controls notebook](notebooks/03_specificity_controls.ipynb)
-- [Executable permutation notebook](notebooks/04_mode_label_permutation.ipynb), [unseen-model notebook](notebooks/05_unseen_agent_model.ipynb)
-- [Data audit](results/data-audit.json), [primary baselines](results/preliminary.json), [post-hoc diagnostics](results/sensitivity.json), and [Trace-style transfer check](results/trace-baseline.json)
-- [Repeated split sensitivity check](results/split-diagnostics.json)
-- [Compact aggregate output](results/quick-summary.json)
-
-The experiment scripts parse known command names from public records; they never execute recorded commands. A compact, MIT-licensed subset of [ProcGrep](https://github.com/hamidahoderinwale/procgrep) is pinned in `vendor/procgrep/` so the published representation and JSD calculations can be reproduced without installing an unpublished dependency. See [third-party notices](THIRD_PARTY_NOTICES.md) for the owl icon and vendored code.
-
-## Reproduce
-
-Python 3.10 or newer is required. Conda is not needed. Create a local virtual environment, install the frozen analysis dependencies, and acquire the pinned public data:
-
-```bash
-git clone https://github.com/mcxiaoxiao/AttackAgentDetect.git
-cd AttackAgentDetect
+~~~bash
 python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.lock.txt
-.venv/bin/python scripts/download_public_traces.py
-```
+.venv/bin/python -m pip install -e .
+~~~
 
-Then run the complete audit, baselines, diagnostics, summary export, and consistency checks:
+Normalize the included auditd example:
 
-```bash
-.venv/bin/python scripts/run_all.py
-```
+~~~bash
+.venv/bin/python -m attackagent.jsonl_cli normalize --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl
+~~~
 
-Reproduce the cross-benchmark association and the new mode-specificity controls with:
+Rank candidate traces:
 
-```bash
-.venv/bin/python scripts/download_crossbenchmark_traces.py
-.venv/bin/python scripts/run_crossbenchmark_experiments.py
-.venv/bin/python scripts/run_mode_aware_association.py
-.venv/bin/python scripts/run_specificity_controls.py
-.venv/bin/python scripts/run_unseen_agent_model.py
-.venv/bin/python scripts/run_mode_label_permutation.py --permutations 999 --seed 20262701
-.venv/bin/python scripts/compare_trace_mode_models.py
-.venv/bin/python scripts/plot_local_model_comparison.py
-.venv/bin/python scripts/generate_paper_figures.py
-```
+~~~bash
+.venv/bin/python -m attackagent.jsonl_cli rank --query examples/jsonl/queries.jsonl --candidates examples/jsonl/candidates.jsonl --method command_cosine
+~~~
 
-The earlier mixed-gallery protocol is reproduced with:
+Run .venv/bin/python -m attackagent.jsonl_cli methods to see the available ranking methods. More input examples are in [examples/](examples/).
 
-```bash
-.venv/bin/python scripts/download_crossbenchmark_traces.py
-.venv/bin/python scripts/run_mixed_gallery.py --bootstraps 5000
-.venv/bin/python scripts/run_association_error_analysis.py --bootstraps 5000 --threshold-grid 101
-.venv/bin/python -m unittest discover -s tests -v
-```
+## Research, kept separate
 
-Recompute the completed feature and fixed-operating-point study with:
+The research workspace contains study plans, datasets and manifests, experiment code, notebooks, results, and paper sources. Its current evidence uses 177 traces from 40 public CTF task groups. A shared task means the same challenge; it does not establish a shared operator, campaign, or real-world attack. See the [research index](research/README.md) for the studies, data, and reproduction steps.
 
-```bash
-.venv/bin/python scripts/run_feature_ablation.py
-.venv/bin/python scripts/summarize_feature_contrasts.py
-.venv/bin/python scripts/run_agent_model_transfer.py --bootstraps 5000
-.venv/bin/python scripts/run_association_operating_points.py --bootstraps 5000 --threshold-grid 101
-.venv/bin/python scripts/plot_feature_ablation.py
-.venv/bin/python scripts/plot_association_operating_points.py
-```
+The [project website](https://mcxiaoxiao.github.io/AttackAgentDetect/) presents the main findings and dataset provenance.
 
-The library accepts raw Linux auditd `SYSCALL`/`EXECVE` lines and normalizes them to versioned JSONL; it never executes recorded commands. It also ranks normalized traces using command cosine, action bigrams, or the vendored ProcGrep adapter:
+## Repository layout
 
-```bash
-.venv/bin/python -m attackagent.jsonl_cli normalize \
-  --input examples/auditd/minimal.audit --output /tmp/normalized.jsonl
-.venv/bin/python -m attackagent.jsonl_cli rank \
-  --query examples/jsonl/queries.jsonl \
-  --candidates examples/jsonl/candidates.jsonl --method command_cosine
-.venv/bin/python -m attackagent.jsonl_cli methods
-```
-
-Human/Agent mode detection requires caller-provided, format-matched labels and remains experimental. Script has no supported detector yet; incompatible inputs abstain or keep the behavior-only ranking. Scores are not actor or APT attribution. The auditd fixture and JSONL rows are hand-written interface examples, not experimental data. See [`examples/auditd/`](examples/auditd/) and [`examples/jsonl/README.md`](examples/jsonl/README.md).
-
-To open the notebooks, run `.venv/bin/jupyter lab`. `notebooks/07_mixed_gallery.ipynb` reproduces mixed-gallery ranking; `notebooks/08_association_error_analysis.ipynb` reproduces the nested threshold analysis and error-profile figure. Earlier notebooks and reports preserve exploratory protocols for comparison.
-
-The data downloader verifies the public source's file hashes. Raw trajectories and local environments are excluded from Git; the checked-in audit and aggregate metrics contain no raw command content. The dataset revision and known limitations are documented in the report.
-
-## Open research
-
-The related-work map and current evidence are presented on the [project page](https://mcxiaoxiao.github.io/AttackAgentDetect/). The repository is intended for public review and reproducible follow-up: results that fail to support the hypothesis remain documented, and no conclusion is generalized to real-world APT activity without actor and campaign ground truth collected through a common telemetry pipeline.
-
-The research workflow also draws on the open procedural literature-review and experiment-design guidance in Kassis et al., [*Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents*](https://arxiv.org/abs/2609.00065) (2026).
-
-## Project initiators
-
-[sunyinggang](https://github.com/sunyinggang) and [OrlosZiming](https://mcxiaoxiao.github.io/).
+- **attackagent/** — Python toolkit.
+- **examples/** — small input and output examples.
+- **tests/** — toolkit checks.
+- **research/** — research plans, experiments, data manifests, results, notebooks, and papers.
+- **site/** — project website source.
+- **vendor/procgrep/** — vendored dependency and its license.
 
 ## License
 
-Project source code: [MIT](LICENSE). Dataset files remain under their upstream terms and are fetched locally rather than redistributed. The page owl and vendored ProcGrep code have separate notices in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-The owl icon is by [Selina Bauder / OpenMoji](https://openmoji.org/library/emoji-1F989/), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+The project code is MIT licensed. Upstream dataset terms and third-party notices are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

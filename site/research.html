@@ -1,7 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="i18n-pending">
 <head>
 <meta charset="utf-8"/>
+<style>html.i18n-pending body{visibility:hidden}</style>
+<noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
+<script>
+(() => {
+  const root = document.documentElement;
+  const read = storeName => {
+    try { return window[storeName].getItem('attackagent-language'); } catch { return null; }
+  };
+  const requested = new URLSearchParams(location.search).get('lang');
+  const saved = read('localStorage') || read('sessionStorage');
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const language = requested === 'zh' || requested === 'en'
+    ? requested
+    : saved === 'zh' || saved === 'en'
+      ? saved
+      : browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  root.lang = language === 'zh' ? 'zh-CN' : 'en';
+  root.dataset.language = language;
+})();
+</script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Open research on attack-log behavior profiles, execution-mode detection, and trace correlation." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
@@ -11,9 +31,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20261031-unmask-footer-v2" rel="stylesheet"/>
+<link href="style.css?v=20261101-language-drawers" rel="stylesheet"/>
 <link href="docs.css?v=20261030-study-results" rel="stylesheet"/>
-<script defer="" src="i18n.js"></script>
+<script defer="" src="i18n.js?v=20261101-language-detection"></script>
 <script defer="" src="site.js"></script>
 <script defer="" src="deployment.js"></script>
 </head>
@@ -38,14 +58,10 @@
 <section class="section docs-content" aria-label="研究分支" data-en-aria-label="Research branches">
 <div class="docs-prose">
 <ol class="research-list research-list-page">
-<li><a href="execution-mode-behavior-correlation.html"><strong data-en="How execution mode shapes behavior correlation">执行方式对轨迹匹配的影响</strong><span data-en="Test whether execution-mode evidence changes trace matching across public CTF tasks.">测试加入执行方式信息后，轨迹匹配准确率是否提升。</span><small data-en="Current study · 177 traces · Updated 2026-10-30">当前研究 · 177 条轨迹 · 更新于 2026-10-30</small></a></li>
+<li><a href="execution-mode-behavior-correlation.html"><strong data-en="Execution mode and behavior correlation">执行方式与行为关联</strong><span data-en="Compare trace matching with execution-mode signals across public CTF tasks, including a separate 14-group external check.">比较加入执行方式信号前后的轨迹匹配，并报告独立的 14 组外部检查。</span><small data-en="177 traces · external check: 14 task groups · Updated 2026-10-31">177 条轨迹 · 外部检查 14 个任务组 · 更新于 2026-10-31</small></a></li>
 <li><a href="local-mode-detector.html"><strong data-en="Log-based Human / Agent detection">基于日志的 Human / Agent 识别</strong><span data-en="Compare command and action features for execution-mode classification.">比较命令与动作特征对执行方式分类的效果。</span><small data-en="Method and results · Updated 2026-10-30">方法与结果 · 更新于 2026-10-30</small></a></li>
-<li><a href="execution-mode-behavior-correlation.html#multidimensional-rerun-title"><strong data-en="Multidimensional behavior profiles">多维行为画像与轨迹关联</strong><span data-en="Study how phase, action, and behavior channels shift false merges and missed links.">分析阶段、操作与行为通道如何影响误合并与漏关联。</span><small data-en="Locked external study · 14 task groups · Updated 2026-10-31">锁定外部实验 · 14 个任务组 · 更新于 2026-10-31</small></a></li>
-<li><div class="research-entry"><strong data-en="Discriminative pair classification (v15)">判别式配对分类（v15）</strong><span data-en="Exploratory result: false-merge rate (FMR) ↓77%, balanced accuracy (BA) ↑55%, Hit@1 ↑207%, NDCG@5 ↑79%.">探索性结果：误合并率（FMR）↓77%，平衡准确率（BA）↑55%，顶部命中率（Hit@1）↑207%，NDCG@5↑79%。</span><small data-en="Exploratory development · 97 traces · Updated 2026-10-31">探索性开发 · 97 条轨迹 · 更新于 2026-10-31</small></div></li>
-<li><a href="discriminative-classification-breakthrough.html"><strong data-en="Enhanced discriminative classification (v16)">增强型判别式分类（v16）</strong><span data-en="Gradient Boosting + FSR penalty: missed-link rate (FSR) falls to 0%; Hit@1/MRR/NDCG@5 reach 100% on this development cohort.">Gradient Boosting + FSR 惩罚：本开发队列的漏关联率（FSR）降至 0%，Hit@1、MRR、NDCG@5 均达到 100%。</span><small data-en="Exploratory result · 97 traces · Updated 2026-10-31">探索性结果 · 97 条轨迹 · 更新于 2026-10-31</small></a></li>
+<li><a href="discriminative-classification-breakthrough.html"><strong data-en="Discriminative pair classification">判别式配对分类</strong><span data-en="Explore how classifier selection changes false merges, missed links, and ranking on a reused development cohort.">查看分类器选择如何影响复用开发集上的误合并、漏关联与排序。</span><small data-en="Exploratory · 97 traces · 40 task groups · Updated 2026-10-31">探索性结果 · 97 条轨迹 · 40 个任务组 · 更新于 2026-10-31</small></a></li>
 <li><a href="dataset.html"><strong data-en="CTF Behavior Trace Set">CTF 行为轨迹集</strong><span data-en="A curated, source-linked subset: 97 traces, 40 task groups, and 1,558 outer-fold evaluation pairs.">可追溯来源的整理子集：97 条轨迹、40 个任务组、1,558 条外层评估配对。</span><small data-en="Dataset and provenance · Updated 2026-11-01">数据集与来源 · 更新于 2026-11-01</small></a></li>
-<li><div class="research-entry"><strong data-en="Matched telemetry for Human, Script, and Agent">同源遥测下的 Human、Script 与 Agent 对照</strong><span data-en="Compare execution modes under a shared task and logging pipeline.">在统一任务与日志采集条件下比较不同执行方式。</span><small data-en="Planned · Updated 2026-10-30">计划 · 更新于 2026-10-30</small></div></li>
-<li><div class="research-entry"><strong data-en="Transfer across log sources and attack scenarios">跨日志源与攻击场景的迁移验证</strong><span data-en="Evaluate behavior profiles across telemetry sources and labeled attack traces.">在不同遥测来源与带标注的攻击轨迹上评估行为画像。</span><small data-en="Planned · Updated 2026-10-30">计划 · 更新于 2026-10-30</small></div></li>
 </ol>
 </div>
 </section>

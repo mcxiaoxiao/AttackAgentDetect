@@ -13,9 +13,13 @@
       attributes.push({element, name, zh: element.getAttribute(name), en: element.getAttribute(`data-en-${name}`)});
     }
   }
-  function choose(language) {
+  function choose(language, persist = false) {
     const english = language === 'en';
-    try { sessionStorage.setItem('attackagent-language', english ? 'en' : 'zh'); } catch {}
+    if (persist) {
+      const value = english ? 'en' : 'zh';
+      try { localStorage.setItem('attackagent-language', value); } catch {}
+      try { sessionStorage.setItem('attackagent-language', value); } catch {}
+    }
     root.lang = english ? 'en' : 'zh-CN';
     root.dataset.language = english ? 'en' : 'zh';
     for (const item of copy) {
@@ -27,14 +31,12 @@
       button.setAttribute('aria-pressed', String(button.dataset.language === (english ? 'en' : 'zh')));
     }
     document.dispatchEvent(new CustomEvent('pagelanguagechange', {detail: {language: english ? 'en' : 'zh'}}));
+    root.classList.remove('i18n-pending');
   }
   for (const button of document.querySelectorAll('button[data-language]')) {
-    button.addEventListener('click', () => choose(button.dataset.language));
+    button.addEventListener('click', () => choose(button.dataset.language, true));
   }
   const requested = new URL(location.href).searchParams.get('lang');
-  let saved = null;
-  try { saved = sessionStorage.getItem('attackagent-language'); } catch {}
-  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
-  const preferred = browserLanguage.startsWith('zh') ? 'zh' : 'en';
-  choose(requested === 'en' || requested === 'zh' ? requested : (saved || preferred));
+  const initial = root.dataset.language === 'zh' ? 'zh' : 'en';
+  choose(initial, requested === 'en' || requested === 'zh');
 })();

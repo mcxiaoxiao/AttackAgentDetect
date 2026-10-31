@@ -8,6 +8,6 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-public-cyber-task-horizons/
-data/raw/
-data/external/
+research/public-cyber-task-horizons/
+research/data/raw/
+research/data/external/
