@@ -34,13 +34,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-method-map-v1" rel="stylesheet"/>
 <script defer="True" src="i18n.js?v=20261101-global-header-v1"></script><script defer="" src="site.js?v=20261101-global-header-v1"></script><script defer="" src="trace-field.js?v=20261101-auto-loop-v1"></script>
-<link href="demo.css?v=20261101-readable-layout-v2" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-contribution-two-entry-v1" rel="stylesheet"/></head>
+<link href="demo.css?v=20261101-readable-layout-v2" rel="stylesheet"/><script defer="" src="demo.js?v=20261101-auto-loop-v1"></script><script defer="" src="deployment.js"></script><link href="docs.css?v=20261101-remove-method-overview-v1" rel="stylesheet"/></head>
 <body>
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
 <a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
-<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#approach">分析方法</a><a data-en="Research" href="research.html">研究</a></nav>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">分析方法</a><a data-en="Research" href="research.html">研究</a></nav>
 <div class="rail-bottom">
 <a aria-label="GitHub" class="repo-icon" data-en-aria-label="GitHub" data-en-title="GitHub repository" href="https://github.com/mcxiaoxiao/AttackAgentDetect" title="GitHub 仓库"><svg aria-hidden="true" class="github-icon" height="20" viewBox="0 0 24 24" width="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.776.42-1.305.763-1.605-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.304-.535-1.525.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 6.005 0c2.29-1.552 3.297-1.23 3.297-1.23.653 1.651.242 2.872.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.479 5.921.43.372.814 1.102.814 2.222 0 1.604-.015 2.896-.015 3.291 0 .322.216.694.825.576A12.005 12.005 0 0 0 24 12.297c0-6.627-5.373-12-12-12z" fill="currentColor"></path></svg><span aria-hidden="true" class="repo-label">GitHub</span></a>
 <a aria-label="PyPI 发布计划，2027 年" class="pypi-link repo-icon" data-en-aria-label="PyPI release planned for 2027" data-en-title="PyPI release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="21" src="assets/pypi-logo.png" width="21"/><span aria-hidden="true" class="repo-label">PyPI</span></a>
@@ -60,7 +60,7 @@
 <button aria-label="复制计划中的安装命令" class="install-copy" data-copy="install-command" data-en="Copy" data-en-aria-label="Copy the planned installation command" type="button">复制</button>
 </div>
 <div class="hero-links">
-<a class="button primary" href="#approach"><span data-en="Explore methods">浏览方法</span></a>
+<a class="button primary" href="#method"><span data-en="Explore methods">浏览方法</span></a>
 <button class="button secondary" data-copy="ai-brief-markdown" data-copy-success="已复制，可交给任意 AI" data-copy-success-en="Copied — paste into any AI" data-en="Copy Markdown" type="button">复制 Markdown</button>
 </div>
 <pre class="copy-source" hidden="" id="ai-brief-markdown"># AttackAgent Detect
@@ -80,17 +80,7 @@ Start with the repository examples. Check each method's status and evidence limi
 <p class="hero-terms" data-en="PyPI release planned for 2027; install from source today. The animated field illustrates the path from log streams to multidimensional behavior profiles.">PyPI 计划于 2027 年发布；当前支持从源码安装。动态背景展示日志流到多维行为画像的分析路径。</p>
 </div>
 </section>
-<section aria-labelledby="approach-title" class="section home-methods" id="approach">
-<div class="home-methods-inner">
-<header class="home-methods-heading"><span class="home-methods-kicker" data-en="METHOD MAP">方法概览</span><h2 data-en="One toolkit. Different trace questions." id="approach-title">一套工具，回答不同的轨迹问题。</h2><p data-en="The repository combines usable library methods with separate exploratory studies. Each method has a defined input, purpose, and evidence boundary.">仓库把可直接使用的工具方法与独立的探索性研究放在一起。每种方法都有各自的输入、用途和证据边界。</p></header>
-<ol aria-label="分析方法概览" class="method-map" data-en-aria-label="Method overview">
-<li><span class="method-map-index">01 / RECORDS</span><span class="method-map-status" data-en="Available">已实现</span><h3 data-en="Normalize logs">日志标准化</h3><p data-en="Turn Linux auditd SYSCALL / EXECVE events into trace JSONL while keeping event references.">将 Linux auditd 的 SYSCALL / EXECVE 事件整理为轨迹 JSONL，并保留事件引用。</p><a class="method-map-link" href="#quickstart"><span data-en="See the quick start">查看快速开始</span> <span aria-hidden="true">↗</span></a></li>
-<li><span class="method-map-index">02 / BEHAVIOR</span><span class="method-map-status" data-en="Available">已实现</span><h3 data-en="Compare behavior">行为方法比较</h3><p data-en="Rank candidates with command cosine, action bigrams, or the ProcGrep procedure-frequency adapter. Labels are not required.">可用命令余弦、相邻动作对或 ProcGrep 过程频率适配方法为候选排序；无需执行方式标签。</p><a class="method-map-link" href="#method"><span data-en="Browse implemented methods">查看已实现方法</span> <span aria-hidden="true">↗</span></a></li>
-<li><span class="method-map-index">03 / ASSOCIATION</span><span class="method-map-status research" data-en="Exploratory research">探索性研究</span><h3 data-en="Study trace association">轨迹关联研究</h3><p data-en="Evaluate command and distinctive-artifact evidence on public CTF trace pairs. A same-task match is a retrieval proxy, not proof of a shared attack.">在公开 CTF 轨迹配对上评估命令与显著产物证据。“同题”只是检索代理标签，不代表同一次攻击。</p><a class="method-map-link" href="behavior-based-trace-association.html"><span data-en="Read the association study">查看关联研究</span> <span aria-hidden="true">↗</span></a></li>
-<li><span class="method-map-index">04 / EXECUTION MODE</span><span class="method-map-status experimental" data-en="Experimental">实验性</span><h3 data-en="Evaluate execution mode">执行方式评估</h3><p data-en="The local Human / AI Agent score requires labeled training data from a matching capture format. It is not an actor-identity verdict.">本地 Human / AI Agent 评分需要采集格式匹配的标注训练数据；它不判定操作者身份。</p><a class="method-map-link" href="local-mode-detector.html"><span data-en="Read the detector method and limits">查看识别方法与边界</span> <span aria-hidden="true">↗</span></a></li>
-</ol>
-</div>
-</section>
+
 <section aria-labelledby="quickstart-title" class="quickstart-band" id="quickstart">
 <div class="quickstart-band-copy"><h2 data-en-html="Load auditd logs.&lt;br/&gt;Get a normalized trace." id="quickstart-title">载入 auditd 日志，<br/>得到标准轨迹。</h2>
 <p class="quickstart-band-lead" data-en="The source CLI joins Linux audit SYSCALL and EXECVE records, extracts commands, and preserves event references and parse quality.">源码命令行工具合并 Linux audit 的 SYSCALL 与 EXECVE 记录，提取命令，并保留事件引用和解析质量。</p>
