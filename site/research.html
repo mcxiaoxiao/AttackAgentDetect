@@ -33,11 +33,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
+<link href="research.css?v=20261101-research-layout" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
 </head>
-<body>
+<body class="research-page">
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
@@ -58,10 +59,10 @@
 <section class="section docs-content research-index-section" aria-label="研究分支" data-en-aria-label="Research branches">
 <div class="docs-prose">
 <ol class="research-list research-list-page">
-<li><a href="execution-mode-behavior-correlation.html"><strong data-en="Execution mode and behavior correlation">执行方式与行为关联</strong><span data-en="Compare trace matching with execution-mode signals across public CTF tasks, including a separate 14-group external check.">比较加入执行方式信号前后的轨迹匹配，并报告独立的 14 组外部检查。</span><small data-en="177 traces · external check: 14 task groups · Updated 2026-10-31">177 条轨迹 · 外部检查 14 个任务组 · 更新于 2026-10-31</small></a></li>
-<li><a href="local-mode-detector.html"><strong data-en="Log-based Human / Agent detection">基于日志的 Human / Agent 识别</strong><span data-en="Compare command and action features for execution-mode classification.">比较命令与动作特征对执行方式分类的效果。</span><small data-en="Method and results · Updated 2026-10-30">方法与结果 · 更新于 2026-10-30</small></a></li>
-<li><a href="discriminative-classification-breakthrough.html"><strong data-en="Discriminative pair classification">判别式配对分类</strong><span data-en="Explore how classifier selection changes false merges, missed links, and ranking on a reused development cohort.">查看分类器选择如何影响复用开发集上的误合并、漏关联与排序。</span><small data-en="Exploratory · 97 traces · 40 task groups · Updated 2026-10-31">探索性结果 · 97 条轨迹 · 40 个任务组 · 更新于 2026-10-31</small></a></li>
-<li><a href="dataset.html"><strong data-en="CTF Behavior Trace Set">CTF 行为轨迹集</strong><span data-en="A curated, source-linked subset: 97 traces, 40 task groups, and 1,558 outer-fold evaluation pairs.">可追溯来源的整理子集：97 条轨迹、40 个任务组、1,558 条外层评估配对。</span><small data-en="Dataset and provenance · Updated 2026-11-01">数据集与来源 · 更新于 2026-11-01</small></a></li>
+<li><a href="execution-mode-behavior-correlation.html"><strong data-en="Execution mode and behavior correlation">执行方式与行为关联</strong><span data-en="Measure how execution-mode scores change trace ranking and pairwise association on public CTF tasks.">评估执行方式分数如何影响公开 CTF 轨迹的排序与配对关联。</span><small data-en="177 traces · 40 task groups · 14 external task groups">177 条轨迹 · 40 个任务组 · 外部检查 14 个任务组</small></a></li>
+<li><a href="local-mode-detector.html"><strong data-en="Log-based Human / Agent detection">基于日志的 Human / Agent 识别</strong><span data-en="Compare command and action evidence for execution-mode classification.">比较命令与动作证据对执行方式分类的效果。</span><small data-en="Method and evaluation">方法与评估</small></a></li>
+<li><a href="behavior-based-trace-association.html"><strong data-en="Behavior-based trace association">基于行为证据的轨迹关联</strong><span data-en="Score trace pairs using command and artifact evidence, with thresholds selected on held-out tasks.">结合命令与产物证据为轨迹配对打分，并在留出任务上选择阈值。</span><small data-en="97 traces · 40 task groups · 1,558 pairs">97 条轨迹 · 40 个任务组 · 1,558 条配对</small></a></li>
+<li><a href="dataset.html"><strong data-en="CTF Behavior Trace Set">CTF 行为轨迹集</strong><span data-en="Inspect source-linked evaluation pairs and jump to records by trace ID.">查看带来源信息的评估配对，并可按 trace ID 定位样例。</span><small data-en="97 traces · 40 task groups">97 条轨迹 · 40 个任务组</small></a></li>
 </ol>
 </div>
 </section>

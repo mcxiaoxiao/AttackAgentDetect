@@ -1,0 +1,6 @@
+\section{Pairwise trace-association method}
+\label{sec:pairwise-association-method}
+
+We represent each trace with allowlisted command and artifact-name tokens. A pair score combines command TF--IDF similarity (45\%) with IDF-weighted containment of distinctive artifact-name tokens in the shorter trace (55\%). Generic tool and path terms are excluded from the artifact signature. This weighting reduces the dilution caused by unrelated commands in a longer trace when both traces contain a distinctive artifact. We select the decision threshold using only inner task-grouped predictions from each outer training fold; the outer test tasks remain unseen during selection. The same pair-scoring method was selected in all three outer folds.
+
+The evaluation uses 97 traces from 40 benchmark-qualified task groups across InterCode-CTF, CyBench, and NYU CTF Bench. It contains 57 terminal-captured Human records and 40 Agent tool-call records, paired into 1,558 outer-fold comparisons. Same-task labels identify a shared CTF challenge and serve only as a retrieval proxy. Because Human and Agent records use different collection interfaces, the dataset does not isolate execution mode from capture format. The task groups were reused during development, so the evaluation is exploratory rather than independent confirmation.

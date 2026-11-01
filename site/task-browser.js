@@ -161,6 +161,25 @@
     });
   }
 
+  function exactTracePair(query) {
+    const value = query.trim().toLowerCase();
+    if (!value || !state.data) return null;
+    const matches = state.data.pairs.filter(pair => [pair.query_trace_id, pair.candidate_trace_id]
+      .some(traceId => traceId.toLowerCase() === value));
+    return matches.find(pair => pair.same_task_proxy_for_evaluation_only) || matches[0] || null;
+  }
+
+  function syncTraceUrl(traceId) {
+    const url = new URL(location.href);
+    if (traceId) {
+      url.searchParams.set('trace', traceId);
+      url.hash = 'task-browser';
+    } else {
+      url.searchParams.delete('trace');
+    }
+    history.replaceState(null, '', url);
+  }
+
   function renderMetrics(filteredCount) {
     const text = words();
     const method = activeMethod();
@@ -396,7 +415,10 @@
       refs.scoresLink.href = state.data.sources.github_pair_scores || refs.scoresLink.href;
       refs.summaryLink.href = state.data.sources.github_summary || refs.summaryLink.href;
       fillControls();
+      const traceMatch = exactTracePair(refs.search.value);
+      if (traceMatch) state.pairId = traceMatch.pair_id;
       renderTable();
+      if (traceMatch) requestAnimationFrame(() => refs.detail.scrollIntoView({behavior: 'smooth', block: 'start'}));
     } catch (error) {
       if (loadId === state.loadId) {
         refs.status.textContent = words().failed;
@@ -422,7 +444,18 @@
   for (const control of [refs.method, refs.task, refs.outcome, refs.pairType]) {
     control.addEventListener('change', () => { state.page = 0; renderTable(); });
   }
-  refs.search.addEventListener('input', () => { state.page = 0; renderTable(); });
+  refs.search.addEventListener('input', () => {
+    state.page = 0;
+    const match = exactTracePair(refs.search.value);
+    state.pairId = match?.pair_id || null;
+    renderTable();
+    if (match) {
+      syncTraceUrl(refs.search.value.trim());
+      refs.detail.scrollIntoView({behavior: 'smooth', block: 'start'});
+    } else {
+      syncTraceUrl('');
+    }
+  });
   refs.previous.addEventListener('click', () => { state.page = Math.max(0, state.page - 1); renderTable(); });
   refs.next.addEventListener('click', () => { state.page += 1; renderTable(); });
   refs.rows.addEventListener('click', event => {
@@ -450,4 +483,10 @@
       renderTable();
     }
   });
+
+  const initialTrace = new URL(location.href).searchParams.get('trace');
+  if (initialTrace) {
+    refs.search.value = initialTrace;
+    root.open = true;
+  }
 })();

@@ -1,0 +1,25 @@
+\subsection{Task-held-out pair-association results}
+\label{sec:pairwise-association-results}
+
+The command-plus-artifact score lowers both error-rate point estimates relative to command TF--IDF and improves task-macro balanced accuracy and Hit@1. The same score was selected in all three outer folds. However, its absolute false-merge rate remains high, so the result does not support operational attribution.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.25\linewidth}rrr}
+\toprule
+Metric & Command TF--IDF & Command + artifact score & Paired change (95\% CI), pp \\
+\midrule
+False-split rate & 7.23 & 0.00 & $-7.23\;[-17.58,-0.82]$ \\
+False-merge rate & 78.07 & 75.87 & $-2.20\;[-3.47,-1.09]$ \\
+Balanced accuracy & 57.35 & 62.06 & $+4.71\;[+1.57,+9.68]$ \\
+Hit@1 & 29.60 & 79.31 & $+49.71\;[+34.63,+65.93]$ \\
+\bottomrule
+\end{tabularx}
+\caption{Task-macro results on 40 task-held-out groups. Changes are paired benchmark-stratified task-cluster bootstrap intervals with 5,000 draws.}
+\label{tab:pairwise-association-results}
+\end{table}
+
+The selected policy accepted all 148 observed same-task pairs and had no missed-link event in the 40 positive task groups. With no observed events, the ordinary bootstrap interval for the false-split rate is degenerate at zero. Under an independent-task-cluster sensitivity assumption, zero events in 40 groups gives a one-sided exact 95\% upper bound of 7.2\% on the proportion of groups with any miss; this is not a confidence interval for the task-macro false-split rate. The false-merge rate remains 75.87\%, meaning most different-task pairs are still linked. New task groups with Human and Agent traces recorded through comparable telemetry are needed for confirmation.

@@ -33,11 +33,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="dataset.css?v=20261101-readable-research-v1" rel="stylesheet"/>
+<link href="research.css?v=20261101-research-layout" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
-<script defer="" src="dataset.js?v=20261101-ctf-trace-set"></script>
+<script defer="" src="dataset.js?v=20261101-current-association"></script>
 </head>
-<body>
+<body class="research-page">
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
@@ -92,15 +93,16 @@
 <section class="dataset-section" id="downloads">
 <div class="dataset-section-head"><div><p class="dataset-kicker" data-en="02 / FILES">02 / 数据文件</p><h2 data-en="Download and inspect">下载与查看</h2></div><p data-en="The pair table is self-contained and loads on this page without a local project server.">配对表随站点发布，页面可直接读取，无需从仓库根目录启动服务器。</p></div>
 <div class="dataset-downloads">
-<article class="dataset-download-card"><div><p class="dataset-file-kind">CSV · 1,558 ROWS</p><h3 data-en="Outer-fold pair records">外层配对记录</h3><p data-en="Pair labels, trace IDs, selected decisions, and method scores. No raw commands.">包含配对标签、轨迹 ID、入选决策和方法分数，不含原始命令。</p></div><a class="dataset-action" download="ctf-behavior-trace-pairs.csv" href="data/ctf-behavior-trace-pairs.csv" data-en="Download CSV">下载 CSV</a></article>
-<article class="dataset-download-card"><div><p class="dataset-file-kind">JSON · SUMMARY</p><h3 data-en="Evaluation summary">评估汇总</h3><p data-en="Protocol, aggregate metrics, and source revision for the exploratory evaluation.">探索性评估的协议、汇总指标与数据来源版本。</p></div><a class="dataset-action" download="ctf-behavior-trace-summary.json" href="data/ctf-behavior-trace-summary.json" data-en="Download JSON">下载 JSON</a></article>
+<article class="dataset-download-card"><div><p class="dataset-file-kind">CSV · 1,558 ROWS</p><h3 data-en="Outer-fold pair records">外层配对记录</h3><p data-en="Pair labels, trace IDs, selected decisions, and method scores. No raw commands.">包含配对标签、轨迹 ID、入选决策和方法分数，不含原始命令。</p></div><a class="dataset-action" download="ctf-behavior-trace-pairs.csv" href="data/ctf-behavior-trace-pairs.csv?revision=association-20261101" data-en="Download CSV">下载 CSV</a></article>
+<article class="dataset-download-card"><div><p class="dataset-file-kind">JSON · SUMMARY</p><h3 data-en="Evaluation summary">评估汇总</h3><p data-en="Method, aggregate metrics, and source revision for the exploratory evaluation.">探索性评估的方法、汇总指标与数据来源版本。</p></div><a class="dataset-action" download="ctf-behavior-trace-summary.json" href="data/ctf-behavior-trace-summary.json?revision=association-20261101" data-en="Download JSON">下载 JSON</a></article>
 </div>
-<p class="dataset-report-link"><span data-en="Protocol and limitations">协议与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/15-%E6%BC%8F%E5%85%B3%E8%81%94%E4%BC%98%E5%8C%96%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.md" data-en="Read the experiment report">查看实验报告 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
+<p class="dataset-report-link"><span data-en="Method and limits">方法与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/pairwise-trace-association.md" data-en="Read the method and evaluation">查看方法与评估 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
 </section>
 
 <section class="dataset-section dataset-browser" id="browser">
 <div class="dataset-section-head"><div><p class="dataset-kicker" data-en="03 / PAIR INSPECTOR">03 / 配对浏览</p><h2 data-en="Inspect evaluation pairs">逐条查看评估配对</h2></div><p data-en="Browse the published CSV by source and reference label. The page loads the file automatically.">按来源和参考标签筛选公开 CSV；页面会自动载入文件。</p></div>
 <div class="dataset-browser-tools">
+<label><span data-en="Trace ID">轨迹 ID</span><input autocomplete="off" id="traceSearch" placeholder="输入 trace ID 定位样例" type="search"/></label>
 <label><span data-en="Source">来源</span><select id="sourceFilter"><option data-en="All sources" value="all">全部来源</option><option value="intercode-ctf">InterCode-CTF</option><option value="cybench">CyBench</option><option value="nyuctf">NYU CTF Bench</option></select></label>
 <label><span data-en="Reference label">参考标签</span><select id="labelFilter"><option data-en="All pairs" value="all">全部配对</option><option data-en="Same task" value="same">同题</option><option data-en="Different tasks" value="different">异题</option></select></label>
 <button class="dataset-action dataset-action-secondary" disabled="" id="exportBtn" data-en="Export filtered CSV" type="button">导出筛选 CSV</button>

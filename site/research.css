@@ -1,0 +1,267 @@
+/* Shared, restrained layout for public research pages. */
+.research-page {
+  scroll-padding-top: 86px;
+}
+
+.research-page .docs-page-header {
+  display: block;
+  padding-block: clamp(38px, 5vw, 62px) 34px;
+}
+
+.research-page .docs-breadcrumb {
+  margin-bottom: 22px;
+}
+
+.research-page .docs-page-header h1,
+.research-page .dataset-header h1 {
+  max-width: 22ch;
+  font-size: clamp(40px, 5.4vw, 64px);
+  letter-spacing: -.045em;
+  line-height: 1.04;
+}
+
+.research-page .docs-page-header > p {
+  max-width: 68ch;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.research-page .section {
+  padding-block: clamp(40px, 5vw, 64px);
+}
+
+.research-page .section::after {
+  border-color: var(--line);
+}
+
+.research-page .results {
+  background: transparent;
+}
+
+.research-page .result-intro {
+  display: block;
+  max-width: var(--content);
+}
+
+.research-page .result-intro h2,
+.research-page .split h2,
+.research-page .docs-prose > h2,
+.research-page .related > h2,
+.research-page .dataset-section-head h2,
+.research-page .dataset-boundary h2 {
+  font-size: clamp(29px, 3.5vw, 42px);
+  line-height: 1.14;
+}
+
+.research-page .result-intro p {
+  max-width: 72ch;
+  margin: 14px 0 0;
+}
+
+.research-page .result-figures,
+.research-page .result-metrics,
+.research-page .metric-explain,
+.research-page .pair-error-result {
+  margin-top: 30px;
+}
+
+.research-page .metric-card {
+  min-height: 112px;
+  padding-block: 16px;
+  border-color: var(--line);
+  background: transparent;
+  box-shadow: none;
+}
+
+.research-page .metric-card strong {
+  font-size: clamp(31px, 3.5vw, 42px);
+}
+
+.research-page .research-list-page li::before {
+  display: none;
+}
+
+.research-page .research-list-page a,
+.research-page .research-list-page .research-entry {
+  grid-column: 1 / -1;
+}
+
+.research-page .dataset-header {
+  padding-block: clamp(38px, 5vw, 62px) 34px;
+}
+
+.research-page .dataset-header h1 {
+  margin-top: 0;
+}
+
+.research-page .dataset-lead {
+  max-width: 68ch;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.research-page .dataset-section {
+  padding-block: clamp(38px, 5vw, 64px);
+}
+
+.research-page .dataset-section-head {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.research-page .dataset-section-head h2,
+.research-page .dataset-boundary h2 {
+  margin-top: 0;
+}
+
+.research-page .dataset-section-head > p {
+  max-width: 70ch;
+  margin-top: 10px;
+}
+
+.research-page .dataset-boundary {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding-block: 28px;
+}
+
+.research-page .dataset-boundary h2,
+.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms),
+.research-page .dataset-terms {
+  grid-column: 1;
+}
+
+.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms) {
+  max-width: 75ch;
+}
+
+.research-page .dataset-kicker,
+.research-page .profile-result-head > .tensor-kicker,
+.research-page .tensor-demo-copy > .tensor-kicker,
+.research-page .docs-extension-kicker {
+  display: none;
+}
+
+.research-page .dataset-download-card,
+.research-page .dataset-pair-card,
+.research-page .source-details,
+.research-page .related-details {
+  border-color: var(--line);
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.research-page .dataset-download-card {
+  min-height: 164px;
+  padding: 18px;
+}
+
+.research-page .study-results {
+  background: var(--surface);
+  font-size: 12px;
+}
+
+.research-page .study-results th,
+.research-page .study-results td {
+  padding: 10px 12px;
+}
+
+.research-page .study-results thead th {
+  background: var(--blue-pale);
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.research-page .study-results tbody tr:nth-child(even) {
+  background: #f7fafd;
+}
+
+.research-page .dataset-browser-tools input,
+.research-page .dataset-browser-tools select {
+  min-height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 13px var(--font-body);
+}
+
+.research-page .dataset-browser-tools input {
+  min-width: min(280px, 100%);
+  padding: 8px 11px;
+}
+
+.research-page .task-browser,
+.research-page .tensor-demo,
+.research-page .profile-result {
+  border-color: var(--line);
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.research-page footer {
+  padding-block: clamp(34px, 4.5vw, 54px) 22px;
+}
+
+.research-page .signature-art {
+  font-size: clamp(40px, 6cqi, 72px);
+}
+
+.research-page .footer-logos {
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.research-page .footer-owl,
+.research-page .footer-hit {
+  width: 44px;
+  height: 44px;
+}
+
+.research-page .footer-owl img {
+  width: 44px;
+  height: 44px;
+}
+
+.research-page .footer-hit img {
+  width: 42px;
+  height: 42px;
+}
+
+.research-page .footer-cross {
+  font-size: 20px;
+}
+
+.research-page .footer-meta {
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.research-page .dataset-citation pre {
+  border-color: var(--line);
+  background: #f2f6fa;
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .research-page .docs-page-header {
+    padding-block: 38px 28px;
+  }
+
+  .research-page .docs-page-header h1,
+  .research-page .dataset-header h1 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .research-page .docs-page-header > p,
+  .research-page .dataset-lead {
+    font-size: 15px;
+  }
+
+  .research-page .section,
+  .research-page .dataset-section {
+    padding-block: 38px;
+  }
+}

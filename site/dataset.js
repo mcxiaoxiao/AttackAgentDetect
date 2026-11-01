@@ -1,6 +1,7 @@
 (() => {
   const sourceFilter = document.getElementById('sourceFilter');
   const labelFilter = document.getElementById('labelFilter');
+  const traceSearch = document.getElementById('traceSearch');
   const status = document.getElementById('dataStatus');
   const detail = document.getElementById('pairDetail');
   const counter = document.getElementById('caseCounter');
@@ -21,12 +22,15 @@
       loadError: '配对文件暂时无法读取。请从仓库运行 python3 -m http.server --directory site 8000，再打开 http://localhost:8000/dataset.html；也可直接下载上方 CSV。',
       noResults: '当前筛选没有配对记录。',
       pair: '配对', task: '参考标签', accepted: '方法判断', method: '入选方法',
+      methods: {command_tfidf: '命令 TF–IDF', artifact_containment_command: '命令 + 产物包含度'},
       score: '分数', threshold: '阈值', queryTrace: '查询轨迹', candidateTrace: '候选轨迹',
       queryTask: '查询任务', candidateTask: '候选任务', modePair: '执行方式',
       same: '同题（检索代理标签）', different: '异题', acceptedValue: '接纳', rejectedValue: '拒绝',
       filtered: (count, total) => `显示 ${count.toLocaleString('zh-CN')} / ${total.toLocaleString('zh-CN')} 条`,
       page: (current, total) => `${current.toLocaleString('zh-CN')} / ${total.toLocaleString('zh-CN')}`,
       exported: '已导出当前筛选结果。', exportError: '导出失败。',
+      searchPlaceholder: '输入 trace ID 定位样例',
+      traceMatch: id => `已定位到轨迹 ${id}，显示包含该轨迹的配对。`,
     },
     en: {
       loading: 'Loading the published pair file…',
@@ -34,12 +38,15 @@
       loadError: 'The pair file could not be read. From the repository, run python3 -m http.server --directory site 8000 and open http://localhost:8000/dataset.html, or download the CSV above.',
       noResults: 'No pairs match these filters.',
       pair: 'Pair', task: 'Reference label', accepted: 'Method decision', method: 'Selected method',
+      methods: {command_tfidf: 'Command TF–IDF', artifact_containment_command: 'Command + artifact containment'},
       score: 'Score', threshold: 'Threshold', queryTrace: 'Query trace', candidateTrace: 'Candidate trace',
       queryTask: 'Query task', candidateTask: 'Candidate task', modePair: 'Execution modes',
       same: 'Same task (retrieval proxy)', different: 'Different tasks', acceptedValue: 'Accepted', rejectedValue: 'Rejected',
       filtered: (count, total) => `Showing ${count.toLocaleString('en-US')} / ${total.toLocaleString('en-US')}`,
       page: (current, total) => `${current.toLocaleString('en-US')} / ${total.toLocaleString('en-US')}`,
       exported: 'Filtered records exported.', exportError: 'Export failed.',
+      searchPlaceholder: 'Enter a trace ID to jump to its records',
+      traceMatch: id => `Showing pairs that contain trace ${id}.`,
     },
   };
   let rows = [];
@@ -85,18 +92,31 @@
   function update() {
     const benchmark = sourceFilter.value;
     const label = labelFilter.value;
+    const query = (traceSearch?.value || '').trim().toLowerCase();
     visible = rows.filter(row =>
       (benchmark === 'all' || row.benchmark === benchmark) &&
-      (label === 'all' || (label === 'same' ? row.same_task_proxy_for_evaluation_only === '1' : row.same_task_proxy_for_evaluation_only === '0')),
+      (label === 'all' || (label === 'same' ? row.same_task_proxy_for_evaluation_only === '1' : row.same_task_proxy_for_evaluation_only === '0')) &&
+      (!query || [row.query_trace_id, row.candidate_trace_id].some(id => (id || '').toLowerCase().includes(query))),
     );
     current = Math.min(current, Math.max(visible.length - 1, 0));
     status.classList.remove('is-error');
-    status.textContent = words().filtered(visible.length, rows.length);
+    const exactMatch = query && visible.some(row => [row.query_trace_id, row.candidate_trace_id]
+      .some(id => (id || '').toLowerCase() === query));
+    status.textContent = exactMatch
+      ? words().traceMatch(traceSearch.value.trim())
+      : words().filtered(visible.length, rows.length);
     exportButton.disabled = visible.length === 0;
     previous.disabled = visible.length === 0 || current === 0;
     next.disabled = visible.length === 0 || current >= visible.length - 1;
     counter.textContent = visible.length ? words().page(current + 1, visible.length) : '—';
     renderPair();
+    if (exactMatch) {
+      const url = new URL(location.href);
+      url.searchParams.set('trace', traceSearch.value.trim());
+      url.hash = 'browser';
+      history.replaceState(null, '', url);
+      detail.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
   }
 
   function addField(grid, label, value, code = false) {
@@ -132,7 +152,7 @@
 
     const grid = document.createElement('div');
     grid.className = 'pair-card-grid';
-    const method = record.selected_method || '—';
+    const method = lang.methods[record.selected_method] || record.selected_method || '—';
     const score = Number.parseFloat(record.selected_score);
     const threshold = Number.parseFloat(record.selected_threshold);
     const format = value => Number.isFinite(value) ? value.toFixed(4) : '—';
@@ -163,15 +183,33 @@
 
   sourceFilter.addEventListener('change', () => { current = 0; update(); });
   labelFilter.addEventListener('change', () => { current = 0; update(); });
+  traceSearch?.addEventListener('input', () => {
+    current = 0;
+    update();
+    const query = traceSearch.value.trim();
+    if (!query || !visible.some(row => [row.query_trace_id, row.candidate_trace_id]
+      .some(id => (id || '').toLowerCase() === query.toLowerCase()))) {
+      const url = new URL(location.href);
+      url.searchParams.delete('trace');
+      history.replaceState(null, '', url);
+    }
+  });
   previous.addEventListener('click', () => { current = Math.max(0, current - 1); update(); });
   next.addEventListener('click', () => { current = Math.min(visible.length - 1, current + 1); update(); });
   exportButton.addEventListener('click', exportCSV);
-  document.addEventListener('pagelanguagechange', () => { if (rows.length) update(); });
+  document.addEventListener('pagelanguagechange', () => {
+    if (traceSearch) traceSearch.placeholder = words().searchPlaceholder;
+    if (rows.length) update();
+  });
 
   async function load() {
+    if (traceSearch) {
+      traceSearch.placeholder = words().searchPlaceholder;
+      traceSearch.value = new URL(location.href).searchParams.get('trace') || '';
+    }
     status.textContent = words().loading;
     try {
-      const response = await fetch(new URL('data/ctf-behavior-trace-pairs.csv', document.baseURI));
+      const response = await fetch(new URL('data/ctf-behavior-trace-pairs.csv?revision=association-20261101', document.baseURI));
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const parsed = parseCSV(await response.text());
       columns = parsed.columns;
