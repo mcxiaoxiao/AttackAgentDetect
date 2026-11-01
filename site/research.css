@@ -139,8 +139,7 @@
 
 .research-page .dataset-kicker,
 .research-page .profile-result-head > .tensor-kicker,
-.research-page .tensor-demo-copy > .tensor-kicker,
-.research-page .docs-extension-kicker {
+.research-page .tensor-demo-copy > .tensor-kicker {
   display: none;
 }
 
