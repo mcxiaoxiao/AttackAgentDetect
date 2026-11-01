@@ -33,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-layout-v3" rel="stylesheet"/>
+<link href="research.css?v=20261101-footer-layout-v1" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -57,7 +57,7 @@
 <p data-en="A format-matched, supervised baseline that reads command and action traces.">使用采集格式匹配的标注轨迹，从命令和动作中识别执行方式。</p>
 </header>
 
-<details class="source-details research-technical-details">
+<details class="source-details research-technical-details" open>
 <summary data-en="detector API and method details">识别器接口与方法细节</summary>
 <section class="section docs-content mode-detector-doc" id="method">
 <div class="docs-prose">
@@ -82,7 +82,7 @@
 <h2 data-en="What the local baselines found">本地基线测到了什么</h2>
 <p data-en="On this public CTF collection, command names alone performed best among the local baselines (84.4% balanced accuracy, the average of accuracy across both labels). Human labels come from terminal input and Agent labels from tool calls, so the result cannot separate actor differences from collection-format differences.">在这批公开 CTF 轨迹上，只看命令名称的本地基线效果最好（平衡准确率为 84.4%，即两类标签正确率的平均值）。Human 标签来自终端输入，Agent 标签来自工具调用，因此结果无法区分执行者差异与采集格式差异。</p>
 </div>
-<details class="source-details research-technical-details">
+<details class="source-details research-technical-details" open>
 <summary data-en="baseline comparison and evaluation details">基线比较与评估细节</summary>
 <div class="data-grid mode-data" aria-label="实验数据规模" data-en-aria-label="Evaluation data">
 <article><strong>177</strong><span data-en="Traces">条轨迹</span><small data-en="Cyber Task Horizons">Cyber Task Horizons</small></article>

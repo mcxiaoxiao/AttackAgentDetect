@@ -137,6 +137,17 @@
   max-width: 75ch;
 }
 
+.research-page #main > details.research-technical-details {
+  width: min(var(--content), calc(100% - var(--gutter) - var(--gutter)));
+  margin-inline: auto;
+}
+
+.research-page .results > details.research-technical-details {
+  width: 100%;
+  max-width: var(--content);
+  margin-inline: auto;
+}
+
 .research-page .dataset-kicker,
 .research-page .profile-result-head > .tensor-kicker,
 .research-page .tensor-demo-copy > .tensor-kicker {
@@ -198,44 +209,6 @@
   border-color: var(--line);
   border-radius: 5px;
   box-shadow: none;
-}
-
-.research-page footer {
-  padding-block: clamp(34px, 4.5vw, 54px) 22px;
-}
-
-.research-page .signature-art {
-  font-size: clamp(40px, 6cqi, 72px);
-}
-
-.research-page .footer-logos {
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.research-page .footer-owl,
-.research-page .footer-hit {
-  width: 44px;
-  height: 44px;
-}
-
-.research-page .footer-owl img {
-  width: 44px;
-  height: 44px;
-}
-
-.research-page .footer-hit img {
-  width: 42px;
-  height: 42px;
-}
-
-.research-page .footer-cross {
-  font-size: 20px;
-}
-
-.research-page .footer-meta {
-  gap: 10px;
-  margin-top: 8px;
 }
 
 .research-page .dataset-citation pre {
