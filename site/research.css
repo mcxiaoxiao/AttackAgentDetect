@@ -251,7 +251,25 @@
 }
 
 .research-page .docs-page-header {
-  width: min(100%, var(--content));
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--content) + 2 * var(--gutter));
+  padding-inline: var(--gutter);
+  border-bottom: 0;
+}
+
+.research-page .dataset-wrap {
+  width: 100%;
+  max-width: calc(var(--content) + 2 * var(--gutter));
+}
+
+.research-page .docs-page-header::after {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 0;
+  left: var(--gutter);
+  border-bottom: 1px solid var(--line);
+  content: "";
 }
 
 .research-page .docs-page-header > p,
