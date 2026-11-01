@@ -6,6 +6,8 @@
 
 Status: research-design/progress draft. The 21-candidate literature inventory is contracted to eight mandatory measurements; richer telemetry is optional or deferred. The completed 95-run scalar pilot is reported separately; expanded-corpus matrix and association improvements are not claimed.
 
+The [prepared overnight execution plan](../experiments/overnight_fingerprint_v1/program.md) specifies the next evidence-driven manuscript and Human/Agent-page revision. Its eligibility audit has run; the full experiment runner and the new results manuscript are not yet implemented. The future `human-agent-fingerprint-overnight.tex` becomes a new manuscript only after that execution, and is not an existing results paper.
+
 To compile from this directory with a local LaTeX installation:
 
 ```sh

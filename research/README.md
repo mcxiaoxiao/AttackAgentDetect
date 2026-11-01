@@ -6,6 +6,8 @@ The current direction is interpretable behavioral fingerprint matrices for trace
 - [Current-round complete TeX manuscript](paper/human-agent-fingerprint-main.tex)
 - [Literature, log-feasibility decisions, and completed progress](reports/human-agent-fingerprint-round1-progress.md)
 - [Expanded corpus, source contracts, and ingestion results](reports/behavior-corpus-expansion-v1.md)
+- [Prepared overnight execution plan, fixed protocol, and delivery criteria](experiments/overnight_fingerprint_v1/program.md)
+- [Actual overnight-study eligibility audit; no new model scores](results/overnight_fingerprint_v1/preflight.json)
 - [Completed exploratory common-log pilot](reports/log-fingerprint-pilot-v1.md)
 - [Public dataset availability checks and additional experimental sources](reports/public-dataset-availability-2026-11-01.md)
 

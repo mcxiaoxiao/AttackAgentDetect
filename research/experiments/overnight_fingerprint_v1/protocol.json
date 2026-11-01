@@ -1,0 +1,215 @@
+{
+  "version": "overnight-fingerprint-v1",
+  "status": "prepared_not_launched",
+  "date": "2026-11-01",
+  "baseline_commit": "11e5aa621d4cd5a6fad0995c87f2340ae8328cbf",
+  "budget": {
+    "wall_hours": 8,
+    "model_computation_hours": 3.5,
+    "max_workers": 4,
+    "paid_api_calls": 0,
+    "download_additional_data": false,
+    "reserve_final_delivery_minutes": 90
+  },
+  "seeds": {
+    "split": 20261102,
+    "resampling": 20261103,
+    "order_control": 20261104
+  },
+  "inputs": {
+    "research/results/behavior_corpus_v1/evidence.jsonl": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "research/results/behavior_corpus_v1/trace_registry.csv": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "research/results/behavior_corpus_v1/summary.json": "b6aa2f2dd4689877fdb873902aa638a4e9b9e69be73ec6cb9b78ed7746eb8eb7",
+    "research/results/log_fingerprint_pilot_v1/features.csv": "009dfbb341f68173bee2ec7dbffe016cd8c38585fb0a28c4fb0341c436959c84",
+    "research/results/log_fingerprint_pilot_v1/run_registry.csv": "95f8b4563fdcdcddf2a7dfad73b9d61dd7d8c1f14a7232ec7eda8064b786d523",
+    "research/experiments/log_fingerprint_pilot_v1/run.py": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+    "attackagent/auditd.py": "ef8ad62c6d2ddb67074dc22cb14e7152b7bc182144d01179c5a230a8bec84c23",
+    "attackagent/traces.py": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f"
+  },
+  "ait_archive": {
+    "path": "research/data/external/ait-shell-pilot-v1/data.zip",
+    "sha256": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914"
+  },
+  "matrix": {
+    "columns": [
+      "K1",
+      "K2",
+      "K3",
+      "K4",
+      "K5",
+      "K6",
+      "K7",
+      "K8"
+    ],
+    "window_events": 8,
+    "minimum_commands": 16,
+    "maximum_prefix_commands": 128,
+    "last_window_minimum": 4,
+    "missing": "explicit_mask_train_only_imputation",
+    "svd_tsa": false
+  },
+  "recognition": {
+    "source": "AIT",
+    "primary_view": "login_exec",
+    "primary_panel": "task_holdout",
+    "secondary_panels": [
+      "source_holdout",
+      "crossed_task_source_holdout",
+      "application_holdout"
+    ],
+    "primary_comparison": [
+      "window_summary_logistic",
+      "whole_session_core8_logistic"
+    ],
+    "primary_metric": "task_macro_balanced_accuracy_delta",
+    "minimum_per_class": 20,
+    "minimum_tasks": 6,
+    "models": [
+      "length_logistic",
+      "command_tfidf_logistic",
+      "whole_session_core8_logistic",
+      "window_summary_logistic",
+      "matrix_dtw_class_balanced_3nn"
+    ],
+    "logistic": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "solver": "liblinear",
+      "max_iter": 2000
+    },
+    "threshold": 0.5,
+    "hyperparameter_search": false,
+    "controls": [
+      "login_no_wrappers",
+      "fixed_first32",
+      "window_order_shuffle",
+      "command_order_shuffle"
+    ],
+    "feature_groups": {
+      "tool_selection": [
+        "K1",
+        "K2",
+        "K3"
+      ],
+      "action_organization": [
+        "K4",
+        "K5",
+        "K6",
+        "K7"
+      ],
+      "local_repetition": [
+        "K8"
+      ]
+    },
+    "source_groups": "reuse frozen base-model and human-person grouping from pilot; V2/V3 share base model",
+    "uncertainty": {
+      "task_cluster_bootstrap": 2000,
+      "paired_on_same_oof_rows": true,
+      "fixed_prediction_conditional": true
+    },
+    "window_summary": {
+      "per_column": [
+        "mean",
+        "population_standard_deviation",
+        "ols_slope_over_normalized_window_position"
+      ],
+      "missing_slope": "fewer_than_two_valid_windows",
+      "dimension": 24,
+      "missing_indicators_as_features": false
+    },
+    "ablations": [
+      "remove_entire_window_representation",
+      "remove_tool_selection",
+      "remove_action_organization",
+      "remove_local_repetition"
+    ]
+  },
+  "ctf_mixture": {
+    "source": "cyber-task-horizons",
+    "minimum_commands": 1,
+    "human_per_task": 2,
+    "agent_per_task": 2,
+    "minimum_tasks": 15,
+    "outer_folds": 3,
+    "candidates_per_query": 5,
+    "nominal_agent_fractions": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "replicates": 100,
+    "sessions_per_task": 2,
+    "relation": "same source-qualified challenge",
+    "pair_types": [
+      "HH",
+      "HA",
+      "AA"
+    ],
+    "training_fraction": 0.5,
+    "threshold_training_negative_fmr_target": 0.1,
+    "threshold_fit": "task-cross-fitted training predictions only",
+    "primary_metric": "task_macro_false_split_rate_at_training_fixed_threshold",
+    "secondary_metrics": [
+      "false_merge_rate",
+      "balanced_accuracy",
+      "hit_at_1",
+      "coverage"
+    ],
+    "models": [
+      "command_cosine",
+      "action_bigram_cosine"
+    ],
+    "matrix_increment_minimum_commands": 16,
+    "matrix_increment_minimum_tasks": 15
+  },
+  "agent_retrieval": {
+    "sources": [
+      "cyber-task-horizons",
+      "antieval/cybench-trajectories"
+    ],
+    "track": "ctf",
+    "mode": "agent",
+    "minimum_commands": 16,
+    "minimum_runs_per_task": 2,
+    "minimum_tasks": 9,
+    "outer_folds": 3,
+    "candidate_rule": {
+      "tasks_at_least_15": 5,
+      "tasks_9_to_14": 3
+    },
+    "primary_metric": "task_macro_hit_at_1_delta",
+    "models": [
+      "command_cosine",
+      "command_cosine_plus_matrix_distance"
+    ],
+    "fixed_pair_scorer": "balanced logistic C=1 on training task pairs",
+    "ablations": [
+      "remove_entire_matrix",
+      "remove_tool_selection",
+      "remove_action_organization",
+      "remove_local_repetition",
+      "window_order_shuffle"
+    ],
+    "secondary": "leave-one-agent-model-out only when training and test task coverage passes gate"
+  },
+  "invariants": [
+    "split sessions/tasks before windows or pairs",
+    "no IDs, source metadata, format strings, paths, prompts or labels as model features",
+    "same eligibility and command budget for each compared model",
+    "no score-driven cohort or window changes",
+    "no cross-source task crosswalk assumed",
+    "Agent-only sources never produce Human/Agent BA",
+    "repeated mixture draws and pair counts are not independent sample sizes",
+    "unavailable metrics stay null; no zero-filling"
+  ],
+  "delivery": {
+    "paper": "research/paper/human-agent-fingerprint-overnight.tex",
+    "page": "site/local-mode-detector.html",
+    "results": "research/results/overnight_fingerprint_v1",
+    "report": "research/reports/overnight-fingerprint-v1.md",
+    "runtime": "research/experiments/overnight_fingerprint_v1/runtime",
+    "max_hours_is_ceiling_not_required_duration": true
+  }
+}

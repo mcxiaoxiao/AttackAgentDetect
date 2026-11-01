@@ -1,0 +1,90 @@
+endpoint,group,fold
+cth_mixture,cyber-task-horizons/cybench/lootstash,0
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,1
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51,2
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45,0
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68,1
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50,2
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13,0
+cth_mixture,cyber-task-horizons/cybench/back_to_the_past,1
+cth_mixture,cyber-task-horizons/nyuctf/2023q-rev-baby_s_first,2
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81,0
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10,1
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83,2
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82,0
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77,1
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48,2
+cth_mixture,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0
+cth_mixture,cyber-task-horizons/nyuctf/2016q-rev-rock,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/failproof,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/rpgo,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/sop,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/crushing,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2023q-web-smug_dino,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/locktalk,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-msc-farmlang,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2013f-cry-stfu,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/chunky,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/emaze,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/data_siege,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/diffecient,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/labyrinth_linguist,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-pwn-roppity,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/network_tools,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-rev-rap,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,2
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,0
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,1
+agent_retrieval/cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-rev-rock,2
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),0
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:delulu (hard),1
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),2
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),0
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:sop (hard),1
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),2
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),0
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:crushing (hard),1
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),0
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1
+agent_retrieval/antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),2
+ait_leave_one_task_out,Nextcloud/exp1,0
+ait_leave_one_task_out,Nextcloud/exp2,1
+ait_leave_one_task_out,Nextcloud/exp3,2
+ait_leave_one_task_out,Nextcloud/exp4,3
+ait_leave_one_task_out,Nextcloud/exp5,4
+ait_leave_one_task_out,Nextcloud/exp6,5
+ait_leave_one_task_out,Nextcloud/exp7,6
+ait_leave_one_task_out,WordPress/exp1,7
+ait_leave_one_task_out,WordPress/exp2,8
+ait_leave_one_task_out,WordPress/exp3,9
+ait_leave_one_task_out,WordPress/exp4,10
+ait_leave_one_task_out,WordPress/exp5,11

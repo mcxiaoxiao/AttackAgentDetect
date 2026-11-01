@@ -1,0 +1,7 @@
+run_id,task,source_group,label,prefix_commands,eligible_action_pairs
+13ba215c4dc42a5d,Nextcloud/exp1,David,0,15,11
+4a861009d5aa939d,Nextcloud/exp1,Frank,0,13,5
+2471c7e0d331a194,Nextcloud/exp3,GPT4o,1,10,5
+495aa79b38899b12,WordPress/exp4,Charlie,0,12,8
+0fe4134ff87a4773,WordPress/exp4,David,0,13,12
+a93565bc6966a654,WordPress/exp3,Eve,0,11,8

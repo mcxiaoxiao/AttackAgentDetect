@@ -1,0 +1,96 @@
+{
+  "kind": "eligibility_audit_not_effectiveness_results",
+  "protocol_sha256": "32e76e2353624f6c5cf39f5b3fa6804a949bf5bc8a8420949af34c12c4e060d7",
+  "runtime": {
+    "python": "3.10.16",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2"
+  },
+  "corpus_records": 1142,
+  "ctf_records": 664,
+  "cth_ctf_records": 475,
+  "cth_command_coverage": [
+    {
+      "minimum_commands": 1,
+      "dual_class_tasks": 40,
+      "two_human_two_agent_tasks": 17,
+      "records_in_dual_class_tasks": 177
+    },
+    {
+      "minimum_commands": 4,
+      "dual_class_tasks": 25,
+      "two_human_two_agent_tasks": 4,
+      "records_in_dual_class_tasks": 99
+    },
+    {
+      "minimum_commands": 8,
+      "dual_class_tasks": 11,
+      "two_human_two_agent_tasks": 3,
+      "records_in_dual_class_tasks": 46
+    },
+    {
+      "minimum_commands": 16,
+      "dual_class_tasks": 8,
+      "two_human_two_agent_tasks": 1,
+      "records_in_dual_class_tasks": 30
+    },
+    {
+      "minimum_commands": 20,
+      "dual_class_tasks": 5,
+      "two_human_two_agent_tasks": 1,
+      "records_in_dual_class_tasks": 18
+    },
+    {
+      "minimum_commands": 32,
+      "dual_class_tasks": 3,
+      "two_human_two_agent_tasks": 0,
+      "records_in_dual_class_tasks": 8
+    },
+    {
+      "minimum_commands": 64,
+      "dual_class_tasks": 0,
+      "two_human_two_agent_tasks": 0,
+      "records_in_dual_class_tasks": 0
+    }
+  ],
+  "ait_pilot_records": 95,
+  "ait_matrix_records": 89,
+  "ait_excluded_for_matrix": 6,
+  "gates": {
+    "ait_matrix_recognition": {
+      "available": true,
+      "human": 45,
+      "agent": 44,
+      "tasks": 12
+    },
+    "ctf_baseline_mixture": {
+      "available": true,
+      "tasks": 17
+    },
+    "ctf_matrix_increment_in_mixture": {
+      "available": false,
+      "tasks": 1,
+      "minimum_tasks": 15,
+      "if_unavailable": "skip; do not claim fingerprint fixes Human/Agent mixture association"
+    }
+  },
+  "agent_only_retrieval": [
+    {
+      "source": "cyber-task-horizons",
+      "tasks": 48,
+      "records": 121,
+      "candidates_per_query": 5,
+      "available": true
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "tasks": 12,
+      "records": 31,
+      "candidates_per_query": 3,
+      "available": true
+    }
+  ],
+  "experiment_execution_started": false,
+  "score_based_selection_performed": false
+}
