@@ -1,0 +1,45 @@
+.mode-visual-section { padding-block: 76px; background: #f1f6fb; }
+.mode-visual-wrap { width: min(var(--content), calc(100% - 40px)); margin-inline: auto; }
+.mode-visual-heading { max-width: 78ch; margin: 0 auto 26px; }
+.mode-visual-heading .section-kicker { color: var(--blue-deep); font: 600 11px/1.4 var(--font-mono); letter-spacing: .12em; }
+.mode-visual-heading h2 { margin: 10px 0 12px; font-size: clamp(28px, 3vw, 38px); line-height: 1.18; }
+.mode-visual-heading p,.mode-visual-note { color: var(--muted); font-size: 14px; line-height: 1.75; }
+.mode-trace-demo { overflow: hidden; border: 1px solid #ccd9e6; border-radius: 8px; background: #fff; box-shadow: 0 16px 44px rgb(23 50 77 / 8%); }
+.mode-trace-demo-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 20px; border-bottom: 1px solid #dce5ee; background: #f9fbfd; }
+.mode-trace-demo-toolbar > span { display: grid; gap: 3px; }
+.mode-trace-demo-toolbar b { font-size: 14px; }
+.mode-trace-demo-toolbar small,.mode-trace-lane header small { color: var(--muted); font-size: 11px; }
+.mode-trace-controls { display: flex; gap: 8px; }
+.mode-trace-controls button { min-height: 35px; padding: 6px 11px; border: 1px solid #c9d7e5; border-radius: 4px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
+.mode-trace-controls button:hover { border-color: #6f9bc3; color: var(--blue-deep); }
+.mode-trace-lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px; }
+.mode-trace-lane { min-width: 0; padding: 15px; border: 1px solid #dce5ee; border-radius: 6px; background: #fff; }
+.mode-trace-lane header { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; }
+.mode-lane-mark { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; font-size: 12px; font-weight: 700; }
+.human-mark { background: #eaf1fb; color: #315f9a; }
+.agent-mark { background: #e9f6f1; color: #267558; }
+.mode-trace-lane header > span:nth-child(2) { display: grid; gap: 2px; }
+.mode-trace-lane header code { color: #67788a; font: 10px/1.4 var(--font-mono); }
+.mode-trace-lane ol { display: flex; min-height: 56px; flex-wrap: wrap; align-items: center; gap: 7px; margin: 16px 0 0; padding: 0; list-style: none; }
+.mode-trace-lane li { min-width: 44px; padding: 9px 10px; border: 1px solid #d8e2ec; border-radius: 4px; background: #f8fafc; color: #35475a; font: 12px/1.2 var(--font-mono); text-align: center; transition: transform .26s ease, background .26s ease, color .26s ease, box-shadow .26s ease; }
+.mode-trace-lane li.is-active { transform: translateY(-4px); border-color: #3477b9; background: #e7f2fd; color: #17558d; box-shadow: 0 6px 14px rgb(37 104 165 / 15%); }
+.mode-normalization-rail { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; padding: 0 20px 12px; }
+.mode-normalization-rail > span { padding: 7px 10px; border-radius: 4px; background: #edf3f8; color: #41566b; font-size: 11px; }
+.mode-normalization-rail .mode-feature-chip { background: #eaf1fb; color: #315f9a; font: 11px var(--font-mono); }
+.mode-normalization-rail .mode-output-chip { background: #e9f6f1; color: #267558; }
+.mode-normalization-rail i { width: 24px; height: 1px; background: #b3c3d2; }
+.mode-trace-status { margin: 0; padding: 0 20px 17px; color: #738295; font-size: 11px; text-align: center; }
+.mode-visual-note { margin: 12px 0 0; font-size: 12px; }
+.mode-figure-grid { display: grid; max-width: var(--content); grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px; margin: 24px auto 0; }
+.mode-figure-grid .diagnostic-figure { width: 100%; }
+.mode-figure-grid .diagnostic-figure:first-child { grid-column: auto; justify-self: stretch; }
+.mode-figure-grid .diagnostic-figure img { max-height: none; }
+@media (max-width: 700px) {
+  .mode-visual-section { padding-block: 52px; }
+  .mode-trace-lanes,.mode-figure-grid { grid-template-columns: 1fr; }
+  .mode-trace-lane header { grid-template-columns: 34px 1fr; }
+  .mode-trace-lane header code { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mode-trace-lane li { transition: none; }
+}
