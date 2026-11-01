@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <style>html.i18n-pending body{visibility:hidden}</style>
+<script>window.setTimeout(() => document.documentElement.classList.remove('i18n-pending'), 1600);</script>
 <noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
 <script>
 (() => {
@@ -34,6 +35,7 @@
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
 <link href="research.css?v=20261101-mode-detector-expanded-v1" rel="stylesheet"/>
+<link href="local-mode-demo.css?v=20261101-trace-demo-v1" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -81,6 +83,22 @@
 </div>
 </section>
 
+<section class="section mode-visual-section" id="trace-demo" aria-labelledby="trace-demo-title">
+<div class="mode-visual-wrap">
+<div class="mode-visual-heading"><span class="section-kicker" data-en="TRACE WALKTHROUGH">轨迹演示</span><h2 id="trace-demo-title" data-en="Two capture formats, one comparable command view">两种采集格式，归一成可比较的命令视图</h2><p data-en="A real same-task pair from InterCode-CTF shows what the detector receives after normalization. The animation aligns sequence positions for inspection; it does not claim that the steps are semantically equivalent.">以 InterCode-CTF 的真实同题轨迹为例，展示归一化后识别器实际接收的内容。动画按序号同步播放以便观察，不表示两条轨迹的步骤在语义上等价。</p></div>
+<div class="mode-trace-demo" data-mode-trace-demo>
+<div class="mode-trace-demo-toolbar"><span><b data-en="InterCode-CTF · task_11">InterCode-CTF · task_11</b><small data-en="Same benchmark task · different collection interfaces">同一道基准题 · 不同采集接口</small></span><div class="mode-trace-controls"><button type="button" data-trace-play data-en="▶ Play">▶ 播放</button><button type="button" data-trace-reset data-en="↺ Replay">↺ 重播</button></div></div>
+<div class="mode-trace-lanes">
+<article class="mode-trace-lane" data-lane="human"><header><span class="mode-lane-mark human-mark">H</span><span><b>Human</b><small data-en="Terminal keystroke capture">终端按键采集</small></span><code>d209c425ee9ce2bf</code></header><ol aria-label="Human normalized command sequence" data-en-aria-label="Human normalized command sequence"><li>ls</li><li>file</li><li>file</li><li>chmod</li><li>cat</li><li>ls</li><li>cat</li></ol></article>
+<article class="mode-trace-lane" data-lane="agent"><header><span class="mode-lane-mark agent-mark">A</span><span><b>Agent</b><small data-en="Structured tool-call capture">结构化工具调用采集</small></span><code>6138df9a9fd7da34</code></header><ol aria-label="Agent normalized command sequence" data-en-aria-label="Agent normalized command sequence"><li>ls</li><li>cat</li><li>file</li><li>strings</li></ol></article>
+</div>
+<div class="mode-normalization-rail"><span class="mode-raw-chip" data-en="terminal input">终端输入</span><i aria-hidden="true"></i><span class="mode-normalize-chip" data-en="normalize command heads">提取命令名称</span><i aria-hidden="true"></i><span class="mode-feature-chip">TF–IDF</span><i aria-hidden="true"></i><span class="mode-output-chip" data-en="Human / Agent score">Human / Agent 分数</span></div>
+<p class="mode-trace-status" data-trace-status aria-live="polite" data-en="Ready · 7 Human commands, 4 Agent tool calls">就绪 · Human 7 条命令，Agent 4 次工具调用</p>
+</div>
+<p class="mode-visual-note" data-en="Trace IDs and task membership are taken from the released corpus. Only normalized command names are shown; raw keystrokes, prompts, outputs, paths, and challenge answers are omitted.">轨迹 ID 与题目归属来自发布数据。这里只显示归一化后的命令名称；原始按键、提示词、输出、路径和题目答案均已省略。</p>
+</div>
+</section>
+
 <section class="section results mode-results" id="results">
 <div class="result-intro">
 <h2 data-en="Experiment design and results">实验设计与结果</h2>
@@ -113,6 +131,14 @@
 <img alt="四种本地 Human/Agent 轨迹分类基线的任务留出平衡准确率、Macro-F1、ROC-AUC、Brier 与 ECE，对照任务簇区间。" data-en-alt="Task-held-out balanced accuracy, Macro-F1, ROC-AUC, Brier, and ECE with task-cluster intervals for four local Human/Agent trace-classification baselines." src="assets/local-model-comparison.png"/>
 <figcaption data-en="Five-fold task-grouped evaluation; 5,000 benchmark-stratified task-cluster bootstrap samples on fixed out-of-fold predictions. Lower Brier/ECE is better. No calibration was fitted.">五折按题目分组评估；固定折外预测上的 5,000 次基准分层任务簇 bootstrap。Brier 与 ECE 越低越好；未拟合校准器。</figcaption>
 </figure>
+<h3 class="mode-matrix-heading" data-en="What the predictions look like">预测结果分布</h3>
+<figure class="diagnostic-figure mode-figure"><img alt="Human 和 Agent 轨迹类别预测混淆矩阵，显示每格计数和真实类别内比例。" data-en-alt="Human and Agent trace-label confusion matrix with counts and within-class proportions." loading="lazy" src="assets/mixed_gallery_confusion.png"/><figcaption data-en="The command-only comparison correctly classifies 43/57 Human records and 112/120 Agent records at the fixed threshold. The labels remain confounded with terminal-versus-tool-call capture.">固定阈值下，仅命令基线判对 57 条 Human 中的 43 条、120 条 Agent 中的 112 条。类别标签仍与终端采集 / 工具调用采集相互混杂。</figcaption></figure>
+<h3 class="mode-matrix-heading" data-en="Feature diagnostics from the companion study">配套特征研究图</h3>
+<p class="mode-result-note" data-en="These two figures summarize a separate, task-held-out feature study on the same public corpus; they are not additional runs of the four-baseline matrix above.">以下两图总结同一公开语料上的另一项按题目留出的特征研究，不是上方四基线矩阵的额外实验结果。</p>
+<div class="mode-figure-grid">
+<figure class="diagnostic-figure"><img alt="不同轨迹特征组合与分类器的按任务留出平衡准确率对比。" data-en-alt="Task-held-out balanced accuracy for trace feature combinations and classifiers." loading="lazy" src="assets/feature_ablation_v1.png"/><figcaption data-en="Command-name TF–IDF carries the strongest signal in this companion study; adding coarse sequence statistics does not improve both classifiers consistently.">在这项配套研究中，命令名称 TF‑IDF 的信号最强；加入粗粒度序列统计并未使两种分类器都稳定提升。</figcaption></figure>
+<figure class="diagnostic-figure"><img alt="完整命令与前缀观察预算、原始与打乱顺序的配对比较结果。" data-en-alt="Paired comparisons of full command traces versus prefixes and original versus shuffled order." loading="lazy" src="assets/feature_budget_order_v1.png"/><figcaption data-en="More commands can add useful vocabulary in longer traces; the order-shuffling comparison does not establish a stable benefit from coarse sequence order.">较长轨迹中的更多命令可增加有用词汇；顺序打乱对照尚不能证明粗粒度序列顺序带来稳定收益。</figcaption></figure>
+</div>
 <p class="mode-result-note" data-en="The 84.4% result belongs to the command-only comparison model. It is not a direct performance estimate for the package API implementation, which combines command and action tokens.">84.4% 对应的是“仅命令”对照模型，不是库 API 当前“命令 + 动作”实现的直接性能估计。</p>
 <p class="caveat mode-caveat"><span aria-hidden="true">i</span><span data-en="Human labels in this release come from terminal capture; Agent labels come from structured tool-call capture. Since label and capture pathway are perfectly aligned, these results measure prediction of this release's trace labels, not isolated actor identity. The corpus has no Script traces or real attack-campaign labels.">数据中的 Human 标签来自终端采集，Agent 标签来自结构化工具调用；标签与采集方式完全绑定。因此结果衡量的是对这批轨迹标签的预测，不是排除了接口影响后的执行者识别。数据也没有 Script 轨迹或真实攻击活动标签。</span></p>
 <div class="mode-result-links">
@@ -141,6 +167,7 @@
 <div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
 </footer>
 </main>
+<script defer src="local-mode-demo.js?v=20261101-trace-demo-v1"></script>
 </div>
 </body>
 </html>
