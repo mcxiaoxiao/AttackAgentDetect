@@ -41,7 +41,7 @@ Run .venv/bin/python -m attackagent.jsonl_cli methods to see the available ranki
 
 ## Research, kept separate
 
-The research workspace contains evaluation data, analysis code, and paper sources. Its public CTF studies cover 177 traces for execution-mode analysis and 97 traces with 1,558 held-out pairs for behavior-based association. A shared task means the same challenge; it does not establish a shared operator, campaign, or real-world attack. See the [research index](research/README.md) for the current methods, data, and reproduction steps.
+The research workspace evaluates behavior-based trace association on 97 public CTF traces from 40 task groups. The current score combines command similarity with distinctive artifact-name overlap. A shared task means the same challenge; it does not establish a shared operator, campaign, or real-world attack. See the [research index](research/README.md) for the method, data, and scope.
 
 The [project website](https://mcxiaoxiao.github.io/AttackAgentDetect/) presents the main findings and dataset provenance.
 

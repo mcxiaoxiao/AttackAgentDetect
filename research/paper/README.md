@@ -1,12 +1,3 @@
-# Paper sources
+# Paper
 
-`mixed-gallery-main.tex` presents the execution-mode and behavior-correlation study on 177 public CTF traces. `main.tex` combines the pairwise association method, task-held-out results for 97 traces across 40 task groups, and the execution-mode analysis.
-
-Compile either entry point from this directory with Tectonic:
-
-~~~bash
-tectonic -X compile --keep-logs --keep-intermediates mixed-gallery-main.tex
-tectonic -X compile --keep-logs --keep-intermediates main.tex
-~~~
-
-The figures are in `figures/`; their generating scripts and machine-readable results are in `../scripts/` and `../results/`.
+`main.tex` is the current manuscript. It presents the method, task-held-out evaluation, and supporting appendix for command-and-artifact trace association. The included sources are `pairwise-association-method.tex`, `pairwise-association-results.tex`, and `appendix.tex`.

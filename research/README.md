@@ -1,32 +1,10 @@
-# Research workspace
+# Research
 
-The research workspace contains the current evaluation materials for AttackAgentDetect. The Python toolkit lives in [../attackagent/](../attackagent/); installation and usage are described in the [project README](../README.md).
+The current study evaluates behavior-based association of Human and Agent traces from public CTF tasks. Each pair is scored with command TF--IDF similarity and IDF-weighted containment of distinctive artifact names.
 
-## Current studies
+- [Method and evaluation report](reports/pairwise-trace-association.md)
+- [Current paper](paper/main.tex)
+- [CTF trace set and pair browser](../site/dataset.html)
+- [Research site](https://mcxiaoxiao.github.io/AttackAgentDetect/)
 
-- [Execution mode and behavior correlation](paper/mixed-gallery-main.tex) — task-held-out evaluation on 177 public CTF traces.
-- [Pairwise trace association](reports/pairwise-trace-association.md) — current method, 97 traces, 40 task groups, and outer-fold results.
-- [CTF trace set and provenance](../site/dataset.html) — source records, evaluation pairs, and trace-ID search.
-- [Research website](https://mcxiaoxiao.github.io/AttackAgentDetect/).
-
-CTF task IDs are retrieval labels only. They do not identify a shared operator, campaign, or real-world attack. Human terminal records and Agent tool-call records use different collection interfaces, so the available data cannot isolate execution mode from capture format.
-
-## Reproduce
-
-Create the environment and install the pinned dependencies from the repository root:
-
-~~~bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -e . -r requirements.lock.txt
-~~~
-
-The current pair-association method, evaluation, and result files are described in the [study report](reports/pairwise-trace-association.md). The execution-mode analysis can be reproduced with the scripts under `scripts/` and the pinned source manifests under `data/manifests/`.
-
-## Contents
-
-- **data/** — source manifests and downloaded public traces.
-- **experiments/** — evaluation protocols and runners.
-- **reports/** — study results and limits.
-- **scripts/** and **notebooks/** — data preparation, analysis, and figures.
-- **results/** — aggregate metrics and derived artifacts.
-- **paper/** — LaTeX sources and figures.
+The evaluation covers 97 traces and 40 task groups. A same-task label means the records belong to the same CTF challenge; it does not identify a shared operator, campaign, or real-world attack. Human terminal records and Agent tool-call records use different collection interfaces, so execution mode cannot be separated from capture format in this dataset.

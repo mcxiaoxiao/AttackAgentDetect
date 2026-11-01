@@ -245,6 +245,84 @@
   color: var(--ink);
 }
 
+/* Keep research copy on one editorial measure across pages and sections. */
+.research-page {
+  --research-copy-width: 70ch;
+}
+
+.research-page .docs-page-header {
+  width: min(100%, var(--content));
+}
+
+.research-page .docs-page-header > p,
+.research-page .docs-prose > p,
+.research-page .split > div > p,
+.research-page .result-intro > p,
+.research-page .dataset-lead,
+.research-page .dataset-section-head > p,
+.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms),
+.research-page .section .caption,
+.research-page .pair-error-result > p,
+.research-page .related-details > p,
+.research-page .mode-result-note,
+.research-page .dataset-table-note,
+.research-page .citation-source-note {
+  max-width: var(--research-copy-width);
+  line-height: 1.7;
+}
+
+.research-page .docs-prose {
+  max-width: var(--content);
+}
+
+.research-page .docs-prose > p:last-child {
+  line-height: 1.7;
+}
+
+.research-page .split {
+  display: block;
+}
+
+.research-page .margin-note {
+  width: min(100%, var(--research-copy-width));
+  margin-top: 24px;
+}
+
+.research-page .result-intro,
+.research-page .mode-results .result-intro {
+  display: block;
+}
+
+.research-page .result-intro h2 {
+  max-width: 28ch;
+}
+
+.research-page .metric-explain {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.research-page .metric-explain p {
+  max-width: var(--research-copy-width);
+}
+
+.research-page .dataset-section-head {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.research-page .dataset-section-head > p {
+  margin-top: 10px;
+}
+
+.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms) {
+  max-width: var(--research-copy-width);
+}
+
+.research-page .related-details > p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media (max-width: 640px) {
   .research-page .docs-page-header {
     padding-block: 38px 28px;

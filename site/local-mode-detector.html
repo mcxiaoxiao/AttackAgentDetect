@@ -33,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-layout" rel="stylesheet"/>
+<link href="research.css?v=20261101-research-layout-v2" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -95,7 +95,7 @@
 <figcaption data-en="Five-fold task-grouped evaluation; 5,000 benchmark-stratified task-cluster bootstrap samples on fixed out-of-fold predictions. Lower Brier/ECE is better. No calibration was fitted.">五折按题目分组评估；固定折外预测上的 5,000 次基准分层任务簇 bootstrap。Brier 与 ECE 越低越好；未拟合校准器。</figcaption>
 </figure>
 <p class="mode-result-note" data-en="The 84.4% result belongs to the command-only comparison model. It is not a direct performance estimate for the package API implementation, which combines command and action tokens.">84.4% 对应的是“仅命令”对照模型，不是库 API 当前“命令 + 动作”实现的直接性能估计。</p>
-<p class="caveat mode-caveat"><span aria-hidden="true">i</span><span data-en="Human labels in this release come from terminal capture; Agent labels come from structured tool-call capture. Since label and capture pathway are perfectly aligned, these results measure prediction of this release's trace labels, not isolated actor identity. The corpus has no Script traces or real attack-campaign labels.">该版本中的 Human 标签来自终端采集，Agent 标签来自结构化工具调用；标签与采集方式完全绑定。因此结果衡量的是对这批轨迹标签的预测，不是排除了接口影响后的执行者识别。数据也没有 Script 轨迹或真实攻击活动标签。</span></p>
+<p class="caveat mode-caveat"><span aria-hidden="true">i</span><span data-en="Human labels in this release come from terminal capture; Agent labels come from structured tool-call capture. Since label and capture pathway are perfectly aligned, these results measure prediction of this release's trace labels, not isolated actor identity. The corpus has no Script traces or real attack-campaign labels.">数据中的 Human 标签来自终端采集，Agent 标签来自结构化工具调用；标签与采集方式完全绑定。因此结果衡量的是对这批轨迹标签的预测，不是排除了接口影响后的执行者识别。数据也没有 Script 轨迹或真实攻击活动标签。</span></p>
 <div class="mode-result-links">
 <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/attackagent/api.py">API 源码</a>
 <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/compare_trace_mode_models.py">实验脚本</a>

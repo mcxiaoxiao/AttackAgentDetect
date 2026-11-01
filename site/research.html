@@ -23,7 +23,7 @@
 })();
 </script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Open research on attack-log behavior profiles, execution-mode detection, and trace correlation." name="description"/>
+<meta content="Research on behavior-based association and task-held-out evaluation of public CTF traces." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <title data-en="AttackAgent Detect | Research">AttackAgent Detect | 研究</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
@@ -33,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-layout" rel="stylesheet"/>
+<link href="research.css?v=20261101-research-layout-v2" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -54,14 +54,13 @@
 <header class="docs-page-header research-page-header">
 <div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><span aria-current="page" data-en="Research">研究</span></div>
 <h1 data-en="Research">研究</h1>
-<p class="research-intro" data-en="AI is changing how cyber operations are organized and executed. We study how execution actors and behavior can be represented together, and how that evidence supports cross-event security analysis.">当 AI Agent 参与攻击时，如何判断两条日志是否属于同一任务？本研究提供可复现的评估方法，探索执行方式与行为证据的结合，支持跨事件安全分析。</p>
+<p class="research-intro" data-en="We evaluate command and artifact evidence for associating traces from public CTF tasks, with task-held-out results and clear limits on what a same-task match means.">本研究评估如何结合命令与产物证据关联公开 CTF 任务轨迹，并说明任务留出结果及“同题”标签的适用边界。</p>
 </header>
 <section class="section docs-content research-index-section" aria-label="研究分支" data-en-aria-label="Research branches">
 <div class="docs-prose">
 <ol class="research-list research-list-page">
-<li><a href="execution-mode-behavior-correlation.html"><strong data-en="Execution mode and behavior correlation">执行方式与行为关联</strong><span data-en="Measure how execution-mode scores change trace ranking and pairwise association on public CTF tasks.">评估执行方式分数如何影响公开 CTF 轨迹的排序与配对关联。</span><small data-en="177 traces · 40 task groups · 14 external task groups">177 条轨迹 · 40 个任务组 · 外部检查 14 个任务组</small></a></li>
+<li><a href="behavior-based-trace-association.html"><strong data-en="Behavior-based trace association">基于行为证据的轨迹关联</strong><span data-en="Score trace pairs with command similarity and distinctive artifact evidence.">结合命令相似度与显著产物证据为轨迹配对打分。</span><small data-en="97 traces · 40 task groups · 1,558 pairs">97 条轨迹 · 40 个任务组 · 1,558 条配对</small></a></li>
 <li><a href="local-mode-detector.html"><strong data-en="Log-based Human / Agent detection">基于日志的 Human / Agent 识别</strong><span data-en="Compare command and action evidence for execution-mode classification.">比较命令与动作证据对执行方式分类的效果。</span><small data-en="Method and evaluation">方法与评估</small></a></li>
-<li><a href="behavior-based-trace-association.html"><strong data-en="Behavior-based trace association">基于行为证据的轨迹关联</strong><span data-en="Score trace pairs using command and artifact evidence, with thresholds selected on held-out tasks.">结合命令与产物证据为轨迹配对打分，并在留出任务上选择阈值。</span><small data-en="97 traces · 40 task groups · 1,558 pairs">97 条轨迹 · 40 个任务组 · 1,558 条配对</small></a></li>
 <li><a href="dataset.html"><strong data-en="CTF Behavior Trace Set">CTF 行为轨迹集</strong><span data-en="Inspect source-linked evaluation pairs and jump to records by trace ID.">查看带来源信息的评估配对，并可按 trace ID 定位样例。</span><small data-en="97 traces · 40 task groups">97 条轨迹 · 40 个任务组</small></a></li>
 </ol>
 </div>

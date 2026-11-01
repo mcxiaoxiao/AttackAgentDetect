@@ -1,32 +1,26 @@
 \documentclass[10pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{threeparttable}
 \usepackage{tabularx}
 \usepackage{array}
-\usepackage[table]{xcolor}
 \usepackage{amsmath}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
-\graphicspath{{figures/}}
-\definecolor{TableInk}{HTML}{172331}
-\definecolor{TableStripe}{HTML}{F1F5F9}
-\definecolor{TableMode}{HTML}{E4F0FC}
-\definecolor{TableControl}{HTML}{FBF1E3}
-\newcommand{\RecallAtOne}{Recall@1}
-\title{Execution-Mode Signals in Cross-Mode Security-Trace Association}
+
+\title{Behavior-Based Association of Security Traces}
 \author{}
 \date{}
 
 \begin{document}
 \maketitle
-\input{experiment-results}
-\input{multidimensional-profile-results}
+
+\begin{abstract}
+Associating security traces across execution modes is difficult when traces share routine commands but differ in length and detail. We evaluate a pair score that combines command TF--IDF similarity with IDF-weighted containment of distinctive artifact names. In a task-held-out evaluation of 97 Human and Agent traces from 40 public CTF task groups, the command-and-artifact score improves task-macro balanced accuracy from 57.35\% to 62.06\% and Hit@1 from 29.60\% to 79.31\% relative to command TF--IDF alone. Its false-merge rate remains 75.87\%, so the results support exploratory retrieval analysis, not identity or attack attribution. The labels identify a shared CTF task only, and the trace sources use different collection interfaces.
+\end{abstract}
+
 \input{pairwise-association-method}
-\input{multidimensional-rerun-results}
 \input{pairwise-association-results}
+
 \appendix
 \input{appendix}
 \end{document}
