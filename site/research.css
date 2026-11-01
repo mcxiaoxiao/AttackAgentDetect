@@ -312,10 +312,6 @@
   margin-top: 10px;
 }
 
-.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms) {
-  max-width: var(--research-copy-width);
-}
-
 .research-page .related-details > p {
   margin-left: 0;
   margin-right: 0;
