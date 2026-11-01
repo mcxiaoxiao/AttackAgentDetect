@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="i18n-pending">
+<head>
+<meta charset="utf-8"/>
+<style>html.i18n-pending body{visibility:hidden}</style>
+<noscript><style>html.i18n-pending body{visibility:visible}</style></noscript>
+<script>
+(() => {
+  const root = document.documentElement;
+  const read = storeName => { try { return window[storeName].getItem('attackagent-language'); } catch { return null; } };
+  const requested = new URLSearchParams(location.search).get('lang');
+  const saved = read('localStorage') || read('sessionStorage');
+  const browserLanguage = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
+  const language = requested === 'zh' || requested === 'en' ? requested : saved === 'zh' || saved === 'en' ? saved : browserLanguage.startsWith('zh') ? 'zh' : 'en';
+  root.lang = language === 'zh' ? 'zh-CN' : 'en';
+  root.dataset.language = language;
+})();
+</script>
+<meta content="Zotero attack collection reading notes and source links." name="description"/>
+<meta content="#f7fafd" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-en="AttackAgent Detect | Related work">AttackAgent Detect | 相关工作</title>
+<link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
+<link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
+<link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
+<link href="research.css?v=20261101-dataset-checks-v1" rel="stylesheet"/>
+<script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
+<script defer="" src="site.js?v=20261101-global-header-v1"></script>
+<script defer="" src="deployment.js"></script>
+</head>
+<body class="research-page related-work-page">
+<a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
+<div class="layout">
+<aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
+<a aria-label="AttackAgent Detect 首页" class="wordmark" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="42" src="assets/openmoji-owl.png" width="42"/><span>AttackAgent<br/>Detect</span></a>
+<nav aria-label="文档导航" data-en-aria-label="Documentation navigation"><a data-en="Get started" href="index.html#quickstart">快速开始</a><a data-en="Methods" href="index.html#method">分析方法</a><a aria-current="page" data-en="Research" href="research.html">研究</a></nav>
+<div class="rail-bottom">
+<a aria-label="GitHub" class="repo-icon" data-en-aria-label="GitHub" data-en-title="GitHub repository" href="https://github.com/mcxiaoxiao/AttackAgentDetect" title="GitHub 仓库"><svg aria-hidden="true" class="github-icon" height="20" viewBox="0 0 24 24" width="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.776.42-1.305.763-1.605-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.304-.535-1.525.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 6.005 0c2.29-1.552 3.297-1.23 3.297-1.23.653 1.651.242 2.872.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.479 5.921.43.372.814 1.102.814 2.222 0 1.604-.015 2.896-.015 3.291 0 .322.216.694.825.576A12.005 12.005 0 0 0 24 12.297c0-6.627-5.373-12-12-12z" fill="currentColor"></path></svg><span aria-hidden="true" class="repo-label">GitHub</span></a>
+<a aria-label="PyPI 发布计划，2027 年" class="pypi-link repo-icon" data-en-aria-label="PyPI release planned for 2027" data-en-title="PyPI release planned for 2027" href="index.html#quickstart" title="计划于 2027 年发布"><img alt="" aria-hidden="true" height="21" src="assets/pypi-logo.png" width="21"/><span aria-hidden="true" class="repo-label">PyPI</span></a>
+<div aria-label="页面语言" class="language-switch" data-en-aria-label="Page language" role="group"><button aria-pressed="true" data-language="zh" lang="zh-CN" type="button">中</button><span aria-hidden="true">/</span><button aria-pressed="false" data-language="en" lang="en" type="button">ENG</button></div>
+</div></aside>
+<main id="main">
+<header class="docs-page-header research-page-header">
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Related work">相关工作</span></div>
+<h1 data-en="Related work">相关工作</h1>
+<p data-en="Reading notes from the Zotero attack collection. Notes are kept in their original wording, with each paper's source link immediately following its note.">Zotero「attack」文献笔记。保留笔记原文，每篇笔记后紧跟对应来源链接。</p>
+</header>
+<section class="section docs-content related-work-notes"><div class="docs-prose">
+<h2 id="data-checks" data-en="Public data availability checks">公开数据可用性核实</h2>
+<p class="related-work-check">核查日期：2026-11-01。本页保留Zotero原笔记，在每篇后追加核查结果；若原“未确认数据”已被后续验证更正，以追加说明为准。这是数据可用性核查，不是模型效果复现。</p>
+<div class="dataset-review-table" role="region" aria-label="公开数据可用性对照" tabindex="0"><table><caption>按实际文件、观测类型与实验用途选择数据</caption><thead><tr><th scope="col">数据</th><th scope="col">核查状态</th><th scope="col">Human对照</th><th scope="col">适合本研究的用途</th></tr></thead><tbody>
+<tr><th scope="row"><a href="#dataset-cth">Cyber Task Horizons</a></th><td>已接入615条：79 Human / 536 Agent</td><td>有</td><td>CTF代理关联与浓度预实验</td></tr>
+<tr><th scope="row"><a href="#dataset-nyu">NYU CTF提交库</a></th><td>已读会话样例</td><td>无</td><td>扩充同题Agent、模型与框架</td></tr>
+<tr><th scope="row"><a href="#dataset-honey">Honey for the Agent</a></th><td>已读归档目录与样例</td><td>无</td><td>模型/提示/环境影响</td></tr>
+<tr><th scope="row"><a href="#dataset-ait">AIT/AECID</a></th><td>已审计原始日志</td><td>有，排障</td><td>通用日志画像与混杂检查</td></tr>
+<tr><th scope="row"><a href="#check-cybias">CyBiasBench</a></th><td>已读请求表头</td><td>无</td><td>HTTP攻击画像扩展</td></tr>
+<tr><th scope="row"><a href="#dataset-hf-cybench">HF Cybench</a></th><td>已下载并接入189条</td><td>无</td><td>CTF模型/来源迁移验证</td></tr>
+<tr><th scope="row"><a href="#dataset-hf-agenttrace">HF AgentTrace</a></th><td>已下载并接入338条</td><td>无</td><td>短命令/fixture压力样本</td></tr>
+</tbody></table></div>
+<p class="related-work-check">优先扩展CTF Agent侧可看NYU提交库，模型/提示/环境对照可看Honey；Human/Agent常见日志可行性可看AIT。不同领域或采集器的数据分别评估，不能直接把一套数据当Human、另一套当Agent来制造分类结果。论文给出数据承诺但未定位下载包的，继续标为待核实。</p>
+<h2 data-en="Agent identity, behavior, and attribution">Agent 身份、行为与归因</h2>
+<h3>Synthetic APTs: the Collapse of TTP-Based Attribution</h3>
+<p class="related-work-note"><strong>🌟可做为我们的动机：论文实验显示，AI Agent 模仿不同组织时，行为趋同会让仅凭 TTP 做组织归因更难；对我们而言，关键是检验 Human 与 Agent 的执行方式会不会改变轨迹相似度和关联判断。若会，系统就不能把“行为相似”直接当作“同一执行者或战役”的证据。</strong><br/>①目标：检验 AI 代理模仿 APT 组织时，传统基于 TTP 的威胁归因是否仍可靠；<br/>②方法：用同一攻击模型与框架配置成 5 个 APT 画像，在两个网络靶场中运行攻击，并观察防守结果和行为与官方 TTP 画像的匹配程度；<br/>③结果：模拟的不同 APT 行为出现明显收敛，画像匹配精度约 55–80%；攻击表现受靶场环境影响很大，企业网实验被攻陷，军事网实验则被防住或陷入僵局；<br/>④与本研究关系：提出核心动机——<strong>Agent 可能模仿不同组织，削弱仅凭 TTP 归因的可信度；本研究可先识别 Agent 参与，再检验它是否能校准归因证据</strong>。局限：单一攻击模型/框架，受控仿真结果不能直接外推到真实组织归因。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2606.07158">arXiv</a></span></p>
+<p class="related-work-check" id="check-synthetic-apts"><strong>数据核实 · 2026-11-01：</strong>全文可核对受控实验、TTP 对照表与提示设计，但本轮未定位到20次实验的独立逐会话原始日志归档，也没有 Human 对照。用于研究动机和条件设计；暂不列为可直接训练的数据集。<a href="https://arxiv.org/html/2606.07158v1">全文与附录</a>。</p>
+<h3>Trace</h3>
+<p class="related-work-note"><strong>🌟作用：可作为命令序列分类的方法参照，说明命令及相邻命令组合能用于行为识别；它识别底层模型家族，我们关注执行方式识别与轨迹关联，标签任务不同。</strong><br/>①目标：从 AI 攻击代理的终端命令推测其模型家族，并尝试提取系统提示词；<br/>②方法：先将终端命令序列转成 TF‑IDF 一元、二元特征，用线性 SVM 初步识别模型家族；再在沙箱中投放针对该模型的提示注入载荷，尝试诱导 Agent 输出系统提示词；<br/>③实验：在 Docker Linux CTF 靶场测试 7 类模型和 3 种代理框架；<strong>基础实验是 7 类模型 × 3 种代理框架 × 每种组合计划跑 50 次</strong>，即 <strong>1,050 场</strong>；因部分会话崩溃或没有产生命令，最后保留 <strong>1,010 场干净会话</strong>。此外还跑了 <strong>1,018 场带提示注入的会话</strong>，合计 <strong>2,028 场</strong>。<br/>④开放情况：没数据，论文称代码、评估脚本和复现笔记本已提供，完整数据集计划后续发布； <span class="related-work-citations"><a href="http://arxiv.org/abs/2605.01186">arXiv</a></span></p>
+<p class="related-work-check" id="check-trace"><strong>数据核实 · 2026-11-01：</strong>论文明确写明完整数据集稍后发布；评估代码指向匿名仓库，本轮该入口未能访问。2,028场是论文实验规模，不能当作已下载的公开样本量。当前作为词汇基线与格式参考，暂不计为现成数据。<a href="https://arxiv.org/html/2605.01186v1">全文的数据开放说明</a> · <a href="https://anonymous.4open.science/r/TRACE-A66F/">论文给出的代码入口</a>。</p>
+<h3>CyBiasBench</h3>
+<p class="related-work-note"><strong>🌟作用：现有工作中最贴近我们画像测验的可复用数据，可直接测 Agent、目标和攻击类型识别；但没有 Human 样本，不能检验 Human/Agent 识别。</strong><br/>①目标：检验不同网络攻击 Agent 是否稳定偏向特定攻击家族，以及提示能否改变这种偏好；<br/>②方法：记录五个 Agent 对三个脆弱 Web 靶场的 HTTP 请求，比较自由选择与指定攻击家族条件，并标注攻击家族、目标和成功情况；<br/>③实验：630 场会话（180 场自由选择、450 场指定家族）；公开数据含会话级统计和 277,135 条去敏请求级轨迹，带 Agent、靶场、条件、攻击家族、成功与请求顺序标签；<br/>④数据复用：最适合直接做 Agent／目标／攻击类型画像识别，可按会话聚合并做留一靶场测试；无真人样本，且请求正文、请求头和精细时间已去除，不能直接测真人与 Agent 区分。数据和复现材料见 https://github.com/Harry24k/CyBiasBench。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2605.07830">arXiv</a> · <a href="https://github.com/Harry24k/CyBiasBench">数据与代码</a></span></p>
+<p class="related-work-check" id="check-cybias"><strong>数据核实 · 2026-11-01：</strong>已核对数据目录，并通过公开下载入口读取请求CSV表头：包含record_id、agent、target、request_index、HTTP方法/路径/状态及攻击家族等。可以做Agent侧画像和留一靶场验证；没有Human组，且HTTP请求不能改名成主机执行命令。<a href="https://github.com/Harry24k/CyBiasBench/tree/main/data">实际数据文件</a> · <a href="https://github.com/Harry24k/CyBiasBench/blob/main/schema/columns_traces.md">字段说明</a>。</p>
+<h3>LIDAR（Who Is Behind the Harness?）</h3>
+<p class="related-work-note"><strong>作用：</strong>展示用成对主动探针识别 Agent 底层模型的做法，可参考其配对测验设计；但任务是编码，且暂未核实有公开标注轨迹。<br/>①目标：在编码 Agent 的执行轨迹中识别底层模型，审计模型替换后行为是否变化；<br/>②方法：主动下发三组成对编码探针，观察编辑后验证、临时故障恢复、需求与测试冲突处理；用实例级和分布级轨迹特征识别模型；<br/>③实验：36 个模型、7 个模型家族、2 种编码 Agent 框架；报告 Top-1 准确率约 88–95%，并做特征和探针消融；<br/>④数据复用：论文描述的是主动探测方案，适合复刻成“同一目标成对任务”测验；目前未核实到可下载的逐会话标注轨迹，因此不计为现成数据集。论文：https://arxiv.org/abs/2609.28559。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2609.28559">arXiv</a></span></p>
+<p class="related-work-check" id="check-lidar"><strong>数据核实 · 2026-11-01：</strong>已核对全文中的探针和特征定义，未定位到作者提供的独立可下载逐会话轨迹入口。“36个模型”是实验设计规模，不是已获取的数据条数。适合作为主动探针和消融设计参考，暂不承诺直接复用训练数据。<a href="https://arxiv.org/html/2609.28559v1">论文全文</a>。</p>
+<h3>Known By Their Actions</h3>
+<p class="related-work-note"><strong>作用：</strong>提供从被动 UI 事件识别浏览器 Agent 模型的思路；但跨网站泛化较弱，任务也不同于攻击终端行为。<br/>①目标：检验网站能否只凭浏览器 Agent 的页面交互轨迹，识别背后的模型；<br/>②方法：用网页端 JavaScript 被动记录点击、滚动、按键、焦点变化及操作间隔，再从行为序列训练分类器；<br/>③实验：14 个模型、多个 Agent 运行环境与 4 类网页任务；报告最高 F1 约 96%。跨网站识别降至约 26–30%；时间延迟能扰乱原分类器，但用延迟数据重训后效果可恢复。<br/>④数据复用：公开仓库提供采集与分类代码，并称发布标注轨迹；但我检查的仓库当前主要是 src/README，未确认原始会话数据随仓库提供。它的任务/网站标签可供类似实验设计参考；在确认数据文件可下载前，不把它算作可直接训练的数据集。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2605.14786">arXiv</a> · <a href="https://github.com/KabakaWilliam/known_actions">代码仓库</a></span></p>
+<p class="related-work-check" id="check-known-actions"><strong>数据核实 · 2026-11-01：</strong><strong>更新原“未确认数据”的判断：已找到并读取归档样例。</strong>src/traces.tar.xz是Git LFS指针，对应184,239,560字节的归档；本轮通过公开媒体入口读取2份会话JSON，确认含meta、model_name/model_family及dom_trace事件。全量会话数未统计。可用于浏览器Agent指纹与跨任务验证；未发现配套Human对照，也不属于攻击终端日志。<a href="https://github.com/KabakaWilliam/known_actions/blob/main/src/traces.tar.xz">LFS归档入口</a> · <a href="https://media.githubusercontent.com/media/KabakaWilliam/known_actions/main/src/traces.tar.xz">实际归档下载</a>。</p>
+<h3>ProcGrep</h3>
+<p class="related-work-note"><strong>作用：</strong>可借鉴把操作流程表示为程序特征来识别 Agent；公开轨迹来自 SWE-bench 编码任务，不是攻击会话。<br/>①目标：从编码 Agent 的完整操作流程识别 Agent 身份，并研究模型、任务和框架如何影响解题习惯；<br/>②方法：将轨迹动作归纳为程序化词表和流程表示，比较轨迹结构，而不只看最终答案；<br/>③实验：基于 SWE-bench 代理轨迹比较 10 个 Agent，按任务控制泄漏后识别准确率为 85.7%；相近发布时间模型及蒸馏师生模型的流程更相似；<br/>④数据复用：可复用公开 SWE-bench 实验档案中的轨迹，含 Agent 身份与任务实例，适合做 Agent 分类和按任务留出验证；数据是编码任务轨迹，不是攻击行为或真人操作者数据。代码：https://github.com/hamidahoderinwale/procgrep；论文：https://arxiv.org/abs/2606.16988。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2606.16988">arXiv</a> · <a href="https://github.com/hamidahoderinwale/procgrep">代码仓库</a></span></p>
+<p class="related-work-check" id="check-procgrep"><strong>数据核实 · 2026-11-01：</strong>代码与底层公开编码轨迹来源可核对。例如SWE-rebench OpenHands数据页直接提供trajectory_id、instance_id、trajectory和tools字段。ProcGrep README所列spines入口本轮返回401，暂不承诺该预计算集可用；底层轨迹与模型/框架标签仍须逐来源核验。适合外域方法验证，没有Human攻击对照。<a href="https://github.com/hamidahoderinwale/procgrep">代码与来源</a> · <a href="https://huggingface.co/datasets/nebius/SWE-rebench-openhands-trajectories">已确认的底层轨迹</a>。</p>
+<h3>Cross-Agent Campaign Attribution</h3>
+<p class="related-work-note"><strong>作用：可借鉴结构和文本风格特征做跨会话关联；但公开数据的身份是合成 persona/campaign，不是真实操作者或 APT 组织。</strong><br/>①目标：把分散在多个 LLM Agent、彼此异步的攻击会话关联到同一潜在攻击战役；<br/>②方法：从代理可见的工具调用结构、文本风格、时间和提示残留提取特征，计算会话对的战役相似度；<br/>③实验：构造 SCD-v1 合成基准，含约 2,000 条带 persona／campaign 标签的会话，并提供合成数据与脚本；另有 OpenClaw、LangGraph 脱敏原生样例，原始原生日志未公开；合成基准 campaign linking AUC 0.82；<br/>④数据复用：可复用来测“同一合成 persona／campaign 的跨会话关联”，也可借用结构、文风特征；标签是合成身份，不是真实操作者、组织或已知模型，不能当作现实人物画像识别数据。论文：https://arxiv.org/abs/2607.18826。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2607.18826">arXiv</a></span></p>
+<p class="related-work-check" id="check-cross-agent"><strong>数据核实 · 2026-11-01：</strong>全文称补充材料包含SCD-v1与脱敏派生记录，但本轮未定位到独立可下载的补充数据包；因此“论文称发布”与“本地已拿到”分开记录，暂不按可立即训练处理。其persona/campaign为合成标签，针对Agent的攻击会话也不能直接充当Human/Agent执行来源标签。<a href="https://arxiv.org/html/2607.18826v1">全文与补充材料说明</a>。</p>
+<h3>CVE-Bench</h3>
+<p class="related-work-note"><strong>作用：提供可复用的真实漏洞靶场和目标，可据此新采集带 Agent、框架、CVE 标签的会话；论文未确认提供逐会话标注轨迹。</strong><br/>①目标：评估 AI Agent 利用真实 Web 应用高危漏洞的能力；<br/>②方法：搭建包含真实 CVE 脆弱应用的隔离沙箱，运行攻击 Agent 并按是否成功利用漏洞评分；<br/>③实验：40 个真实 Web CVE；论文评估 GPT-4o 与三种 Agent 框架，最高利用成功率约 10–13%；<br/>④数据复用：适合复用靶机和漏洞目标，自己重跑并记录 Agent、框架、目标 CVE、会话轨迹与结果；未核实到论文实验逐会话轨迹及身份标签公开，因此不能直接拿来训练画像分类器。论文/基准：https://arxiv.org/abs/2503.17332。 <span class="related-work-citations"><a href="https://arxiv.org/abs/2503.17332">arXiv</a> · <a href="https://proceedings.mlr.press/v267/zhu25i.html">会议版本</a></span></p>
+<p class="related-work-check" id="check-cve-bench"><strong>数据核实 · 2026-11-01：</strong>已核对官方仓库，提供漏洞任务、运行与评分工具，适合在统一日志条件下重采。README中的“data and code”不自动等于论文所有逐会话轨迹已公开；本轮未确认完整历史评估轨迹下载包，也没有Human对照。<a href="https://github.com/uiuc-kang-lab/cve-bench">官方仓库</a>。</p>
+<h3>Diamond Model</h3>
+<p class="related-work-note"><strong>作用：可借用攻击者、能力、基础设施、受害者及元特征来组织画像字段；它是分析框架，不是身份识别模型或数据集。</strong><br/>①目标：用统一结构记录并关联入侵事件，为事件聚合成活动线程和活动组提供方法； <span class="related-work-citations"><a href="https://www.researchgate.net/doi/10.13140/RG.2.2.31143.56481">Zotero 来源</a></span></p>
+<p class="related-work-check" id="check-diamond"><strong>数据核实 · 2026-11-01：</strong>这是组织入侵证据与关联关系的分析框架，不提供执行轨迹数据、Human/Agent标签或可直接训练的识别器。保留为字段与关系建模参考。</p>
+<h2 data-en="Behavioral evidence in attack reconstruction and correlation">攻击重建与关联中的行为证据</h2>
+<h3>ATLAS、HOLMES 与 ATLASv2</h3>
+<p class="related-work-note"><strong>作用：为系统行为建模和攻击事件重建提供先例，可参考如何把行为转成攻击阶段与关联证据；但不判断 Agent 或操作者身份。</strong><br/>ATLAS（USENIX Security 2021；未找到 arXiv 版本）从因果审计图序列恢复攻击故事；HOLMES 将溯源图信息流映射到攻击阶段，并将可疑行为关联为 campaign 信号。ATLASv2 是后续数据集扩展，不是 ATLAS 原论文。它们说明系统行为可用于攻击调查，但关注事件重建，而非 Human / Agent 识别。 <span class="related-work-citations"><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS 正式来源</a> · <a href="https://arxiv.org/abs/1810.01594">HOLMES arXiv</a> · <a href="https://arxiv.org/abs/2401.01341">ATLASv2 arXiv</a></span></p>
+<p class="related-work-check" id="check-atlas"><strong>数据核实 · 2026-11-01：</strong>ATLASv2论文明确给出公开数据与REAPr攻击进程标签入口，含Windows安全、Sysmon等日志，可支持溯源图适配和攻击重建。真人日常背景活动不等于Human攻击会话；数据没有Agent组，不能单独做浓度实验。原ATLAS与HOLMES也不提供Human/Agent执行来源对照。<a href="https://bitbucket.org/sts-lab/atlasv2">ATLASv2数据</a> · <a href="https://bitbucket.org/sts-lab/reapr-ground-truth">攻击进程标签</a> · <a href="https://arxiv.org/html/2401.01341">开放说明</a>。</p>
+<h3>HERCULE 与 OSTINATO</h3>
+<p class="related-work-note"><strong>作用：可参考用日志图社区结构关联多阶段攻击活动；但它不区分 Human/Agent，也不识别具体操作者。</strong><br/>HERCULE（ACSAC 2016；未找到 arXiv 版本）通过相关日志图上的社区发现重建多阶段攻击故事；OSTINATO 比较跨主机溯源图行为以关联相似攻击活动。它们是行为关联的先例，但都未评估人类与 AI 执行方式是否改变关联判断。 <span class="related-work-citations"><a href="https://scholarship.libraries.rutgers.edu/esploro/outputs/conferencePaper/HERCULE-attack-story-reconstruction-via-community/991031794684004646">HERCULE 正式来源</a> · <a href="https://arxiv.org/abs/2312.09321">OSTINATO arXiv</a></span></p>
+<p class="related-work-check" id="check-hercule-ostinato"><strong>数据核实 · 2026-11-01：</strong>OSTINATO使用OpTC和DARPA TC日志及红队记录构建关联评估，完整输入包含跨主机进程/对象与溯源关系。可参考关联基线，但不能仅给命令名就声称复现原算法。本轮未核实到其完整派生配对标签下载包；这类历史日志也不能默认全部标成Human攻击。<a href="https://arxiv.org/html/2312.09321">OSTINATO数据与真值说明</a> · <a href="https://github.com/darpa-i2o/Transparent-Computing">DARPA TC官方数据入口</a>。</p>
+<h3>POIROT 与 SFM</h3>
+<p class="related-work-note"><strong>作用：可参考把威胁情报中的攻击行为与系统记录对齐；但它做的是行为检索，不提供执行者身份标签。</strong><br/>POIROT（2019）将威胁情报提取的攻击行为图与内核审计日志生成的溯源图对齐；SFM（2024）把因果审计子图与已知 campaign 模式匹配。两者用于在系统记录中检索威胁行为，不提供 Human / Agent 标签，也不回答同题轨迹是否代表同一执行者。 <span class="related-work-citations"><a href="https://arxiv.org/abs/1910.00056">POIROT arXiv</a> · <a href="https://arxiv.org/abs/2410.22602">SFM arXiv</a></span></p>
+<p class="related-work-check" id="check-poirot-sfm"><strong>数据核实 · 2026-11-01：</strong>POIROT与SFM依赖事件对象、因果关系或TTP/子图，而不仅是轨迹词汇。SFM所引用的SAGA有公开模拟日志版本，可作关联方法参考；情报画像/攻击进程标签均不等于Human/Agent标签。<a href="https://arxiv.org/abs/1910.00056">POIROT</a> · <a href="https://saga-tw.github.io/dataset/">SAGA数据</a>。</p>
+<h2 id="additional-data" data-en="Additional public datasets and collection resources">补充公开数据与采集资源</h2>
+<h3 id="dataset-hf-cybench">Hugging Face：Antieval Cybench trajectories</h3>
+<p class="related-work-check"><strong>已下载6个模型文件并接入当前目录。</strong>固定版本f5696b7，190条源记录中189条有非空显式命令视图，覆盖32个来源内任务键。包含模型、任务/variant、工具调用与反馈；没有Human组。上游未声明统一许可，目录保留逐源状态。与CTH的同名题目没有自动合并为同一版本任务。<a href="https://huggingface.co/datasets/antieval/cybench-trajectories">数据与文件</a> · <a href="dataset.html#corpusBrowser">查看已接入轨迹</a>。</p>
+<h3 id="dataset-hf-agenttrace">Hugging Face：AgentTrace NL2Bash 工具轨迹</h3>
+<p class="related-work-check"><strong>已下载两份NL2Bash JSONL并接入短轨迹压力分域。</strong>固定版本4b05b2f，两种Qwen3配置共400次运行，其中338条可提取公共命令视图。字段含工具输入/输出、遥测、模型与fixture版本；不同fixture哈希保持不同任务键。适合短命令、版本变化与输入适配检查，不冒充CTF攻击或Human对照。<a href="https://huggingface.co/datasets/pagarsky/agent-trace">数据说明</a> · <a href="dataset.html#corpusBrowser">查看已接入轨迹</a>。</p>
+
+<h3 id="dataset-nyu">NYU CTF 官方提交轨迹库</h3>
+<p class="related-work-check"><strong>已读取实际会话样例，优先用于扩充CTF Agent侧。</strong>官方目录有15份提交summary.json；已读JSON包含模型配置、对话、题目、成功状态和时间字段。不同提交格式不统一，提交数不等于独立模型或会话数。可按相同题目和不同模型/框架比较指纹，或增加Agent重复记录；与CTH Human记录拼接前必须核对题目版本和采集差异。没有配套Human终端对照。 <span class="related-work-citations"><a href="https://github.com/NYU-LLM-CTF/leaderboard_submissions">数据仓库</a> · <a href="https://github.com/NYU-LLM-CTF/leaderboard_submissions/tree/main/transcripts">实际轨迹目录</a></span></p>
+<h3 id="dataset-honey">Honey for the Agent</h3>
+<p class="related-work-check"><strong>已核实公开归档目录并读取会话样例。</strong>Zenodo提供Logs_final.zip（157,739,317字节，CC BY 4.0）与inputs.json；作者说明约16,200个会话；本轮列出实际归档的16,199个JSON文件，并解析2份会话，确认初始化和逐轮交互结构。数据按模型、提示、环境与轮数上限组织，含命令、终端输出和响应耗时。适合检验模型/提示/环境如何影响Agent行为；没有Human组，环境或提示类别不等于真实活动身份。 <span class="related-work-citations"><a href="https://zenodo.org/records/20818246">数据与字段说明</a> · <a href="https://zenodo.org/records/20818246/files/Logs_final.zip?download=1">日志归档</a> · <a href="https://orbit.dtu.dk/en/publications/honey-for-the-agent-cyber-deception-and-behavioral-fingerprinting/">论文正式记录</a></span></p>
+<h3 id="dataset-cth">Cyber Task Horizons：继续扩充现有安全任务轨迹</h3>
+<p class="related-work-check"><strong>同时提供Human与Agent记录，仍是现有CTF实验入口。</strong>上游说明有90份Human终端记录和Agent评估日志，不能把完成记录或时间估计都算作可用轨迹。本轮核验全部90份Human归档，87份有样本，79条保留公共命令视图；连同536条Agent记录共615条接入目录。当前CTF分域有40个双类任务组，其中17题至少包含2条Human和2条Agent，可用于受限浓度预实验。题目一致是任务代理标签；人的script终端录制与Agent工具调用采集不同，归一化不等于消除了观测差异。 <span class="related-work-citations"><a href="https://github.com/lyptus-research/cyber-task-horizons-data">公开数据</a> · <a href="https://github.com/lyptus-research/cyber-task-horizons-data/blob/main/data/human/eval_logs/README.md">Human采集说明</a></span></p>
+<h3 id="dataset-ait">AIT/AECID：Human 与 AI 排障主机日志</h3>
+<p class="related-work-check"><strong>已下载并审计原始每次运行日志。</strong>data.zip中有109份独立路径的原始audit.log，来源标签为61份Human、48份Agent，并有聚合副本；只使用原始每次运行版本。适合验证日志解析、画像提取和采集干扰；任务是Nextcloud/WordPress排障，不是攻击。V2/V3重复需按同一基础模型分组，不能当成新模型。 <span class="related-work-citations"><a href="https://github.com/ait-aecid/llm-user-shell-sim">数据与代码</a> · <a href="https://github.com/ait-aecid/llm-user-shell-sim/blob/main/data.zip">原始日志归档</a></span></p>
+</div></section>
+<footer>
+<div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
+<div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks"><a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a><span aria-hidden="true" class="footer-cross">×</span><a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a></div>
+<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
+</footer>
+</main></div>
+</body>
+</html>

@@ -1,0 +1,3506 @@
+[
+  {
+    "view": "login_exec",
+    "panel": "task_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.3377777777777778,
+    "macro_f1": 0.3368421052631579,
+    "human_fpr": 0.68,
+    "agent_fnr": 0.6444444444444445,
+    "auroc": 0.30666666666666664,
+    "uncalibrated_brier": 0.259880468939407,
+    "confusion_matrix_human_agent": [
+      [
+        16,
+        34
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.2285465952685422,
+      0.4425089285714286
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.4257142857142857,
+        "macro_f1": 0.41650458460683526,
+        "human_fpr": 0.6285714285714286,
+        "agent_fnr": 0.52,
+        "auroc": 0.4662857142857143,
+        "uncalibrated_brier": 0.25481469252486433,
+        "confusion_matrix_human_agent": [
+          [
+            13,
+            22
+          ],
+          [
+            13,
+            12
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.2,
+        "macro_f1": 0.19934640522875818,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.8,
+        "auroc": 0.13666666666666666,
+        "uncalibrated_brier": 0.2685646570786232,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            16,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "task_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.9377777777777778,
+    "macro_f1": 0.936779059449867,
+    "human_fpr": 0.08,
+    "agent_fnr": 0.044444444444444446,
+    "auroc": 0.9946666666666667,
+    "uncalibrated_brier": 0.11006283976918468,
+    "confusion_matrix_human_agent": [
+      [
+        46,
+        4
+      ],
+      [
+        2,
+        43
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.9080877611730027,
+      0.9727334152334152
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.9228571428571428,
+        "macro_f1": 0.9155167558434244,
+        "human_fpr": 0.11428571428571428,
+        "agent_fnr": 0.04,
+        "auroc": 0.9931428571428571,
+        "uncalibrated_brier": 0.10805383964890049,
+        "confusion_matrix_human_agent": [
+          [
+            31,
+            4
+          ],
+          [
+            1,
+            24
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.975,
+        "macro_f1": 0.9710504549214227,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.05,
+        "auroc": 0.9966666666666667,
+        "uncalibrated_brier": 0.11350683997538617,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            1,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "task_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.5288888888888889,
+    "macro_f1": 0.5261057532424342,
+    "human_fpr": 0.52,
+    "agent_fnr": 0.4222222222222222,
+    "auroc": 0.5546666666666666,
+    "uncalibrated_brier": 0.2626282898268741,
+    "confusion_matrix_human_agent": [
+      [
+        24,
+        26
+      ],
+      [
+        19,
+        26
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.42106307071206867,
+      0.640288961038961
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.5314285714285714,
+        "macro_f1": 0.5286195286195287,
+        "human_fpr": 0.45714285714285713,
+        "agent_fnr": 0.48,
+        "auroc": 0.56,
+        "uncalibrated_brier": 0.2553790163882195,
+        "confusion_matrix_human_agent": [
+          [
+            19,
+            16
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.4916666666666667,
+        "macro_f1": 0.487510766580534,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.35,
+        "auroc": 0.4633333333333334,
+        "uncalibrated_brier": 0.2750556157217104,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            7,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.36777777777777776,
+    "macro_f1": 0.367790594498669,
+    "human_fpr": 0.62,
+    "agent_fnr": 0.6444444444444445,
+    "auroc": 0.34288888888888885,
+    "uncalibrated_brier": 0.2634518681900985,
+    "confusion_matrix_human_agent": [
+      [
+        19,
+        31
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.23950643058491897,
+      0.4975976403706073
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.36,
+        "macro_f1": 0.3602693602693603,
+        "human_fpr": 0.6,
+        "agent_fnr": 0.68,
+        "auroc": 0.324,
+        "uncalibrated_brier": 0.2647674298866269,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            21
+          ],
+          [
+            17,
+            8
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.3666666666666667,
+        "macro_f1": 0.3667763157894737,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.6,
+        "auroc": 0.38333333333333336,
+        "uncalibrated_brier": 0.26119661956747847,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            12,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.8433333333333333,
+    "macro_f1": 0.8420352510808115,
+    "human_fpr": 0.18,
+    "agent_fnr": 0.13333333333333333,
+    "auroc": 0.9284444444444444,
+    "uncalibrated_brier": 0.15655630335576162,
+    "confusion_matrix_human_agent": [
+      [
+        41,
+        9
+      ],
+      [
+        6,
+        39
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.7667344408469524,
+      0.91724441256418
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.8542857142857143,
+        "macro_f1": 0.847930160518164,
+        "human_fpr": 0.17142857142857143,
+        "agent_fnr": 0.12,
+        "auroc": 0.9314285714285715,
+        "uncalibrated_brier": 0.1503522550900003,
+        "confusion_matrix_human_agent": [
+          [
+            29,
+            6
+          ],
+          [
+            3,
+            22
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.825,
+        "macro_f1": 0.825,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.15,
+        "auroc": 0.9400000000000001,
+        "uncalibrated_brier": 0.1671918146684953,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            3,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.4344444444444444,
+    "macro_f1": 0.4258182232865777,
+    "human_fpr": 0.42,
+    "agent_fnr": 0.7111111111111111,
+    "auroc": 0.5031111111111111,
+    "uncalibrated_brier": 0.29083116262380665,
+    "confusion_matrix_human_agent": [
+      [
+        29,
+        21
+      ],
+      [
+        32,
+        13
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3477269013666073,
+      0.509090909090909
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.4828571428571429,
+        "macro_f1": 0.4744790093627303,
+        "human_fpr": 0.3142857142857143,
+        "agent_fnr": 0.72,
+        "auroc": 0.5531428571428572,
+        "uncalibrated_brier": 0.2645459787377364,
+        "confusion_matrix_human_agent": [
+          [
+            24,
+            11
+          ],
+          [
+            18,
+            7
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.31666666666666665,
+        "macro_f1": 0.3137254901960784,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.7,
+        "auroc": 0.34,
+        "uncalibrated_brier": 0.3358914778570701,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            14,
+            6
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.36777777777777776,
+    "macro_f1": 0.367790594498669,
+    "human_fpr": 0.62,
+    "agent_fnr": 0.6444444444444445,
+    "auroc": 0.31377777777777777,
+    "uncalibrated_brier": 0.27167242519848217,
+    "confusion_matrix_human_agent": [
+      [
+        19,
+        31
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.23950643058491897,
+      0.4975976403706073
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.36,
+        "macro_f1": 0.3602693602693603,
+        "human_fpr": 0.6,
+        "agent_fnr": 0.68,
+        "auroc": 0.3177142857142857,
+        "uncalibrated_brier": 0.27146018478581546,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            21
+          ],
+          [
+            17,
+            8
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.3666666666666667,
+        "macro_f1": 0.3667763157894737,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.6,
+        "auroc": 0.30333333333333334,
+        "uncalibrated_brier": 0.27203626590591107,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            12,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.8744444444444444,
+    "macro_f1": 0.8735581188997338,
+    "human_fpr": 0.14,
+    "agent_fnr": 0.1111111111111111,
+    "auroc": 0.9226666666666665,
+    "uncalibrated_brier": 0.16294576255455825,
+    "confusion_matrix_human_agent": [
+      [
+        43,
+        7
+      ],
+      [
+        5,
+        40
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.807593686597446,
+      0.9363636363636363
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.8828571428571428,
+        "macro_f1": 0.8806479113384484,
+        "human_fpr": 0.11428571428571428,
+        "agent_fnr": 0.12,
+        "auroc": 0.9268571428571428,
+        "uncalibrated_brier": 0.15565284852330266,
+        "confusion_matrix_human_agent": [
+          [
+            31,
+            4
+          ],
+          [
+            3,
+            22
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.8500000000000001,
+        "macro_f1": 0.8528174936921783,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.1,
+        "auroc": 0.9133333333333333,
+        "uncalibrated_brier": 0.17544790089385356,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            2,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.4688888888888889,
+    "macro_f1": 0.4665318957771788,
+    "human_fpr": 0.44,
+    "agent_fnr": 0.6222222222222222,
+    "auroc": 0.4871111111111111,
+    "uncalibrated_brier": 0.2992349241190646,
+    "confusion_matrix_human_agent": [
+      [
+        28,
+        22
+      ],
+      [
+        28,
+        17
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3735098559351277,
+      0.5535674082545711
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.5085714285714286,
+        "macro_f1": 0.5064629847238543,
+        "human_fpr": 0.34285714285714286,
+        "agent_fnr": 0.64,
+        "auroc": 0.5474285714285714,
+        "uncalibrated_brier": 0.26475820783551884,
+        "confusion_matrix_human_agent": [
+          [
+            23,
+            12
+          ],
+          [
+            16,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.3666666666666667,
+        "macro_f1": 0.3667763157894737,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.6,
+        "auroc": 0.27666666666666667,
+        "uncalibrated_brier": 0.3583378663194287,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            12,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "application_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.40444444444444444,
+    "macro_f1": 0.3975970630770942,
+    "human_fpr": 0.68,
+    "agent_fnr": 0.5111111111111111,
+    "auroc": 0.3668888888888889,
+    "uncalibrated_brier": 0.3116400734596854,
+    "confusion_matrix_human_agent": [
+      [
+        16,
+        34
+      ],
+      [
+        23,
+        22
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.2995409547603696,
+      0.5171475625823452
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.46571428571428575,
+        "macro_f1": 0.44984717977215893,
+        "human_fpr": 0.6285714285714286,
+        "agent_fnr": 0.44,
+        "auroc": 0.3902857142857143,
+        "uncalibrated_brier": 0.3300539168763523,
+        "confusion_matrix_human_agent": [
+          [
+            13,
+            22
+          ],
+          [
+            11,
+            14
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.30000000000000004,
+        "macro_f1": 0.30000000000000004,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.6,
+        "auroc": 0.2866666666666666,
+        "uncalibrated_brier": 0.2800734847453991,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            12,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "application_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.9477777777777778,
+    "macro_f1": 0.9472749472749473,
+    "human_fpr": 0.06,
+    "agent_fnr": 0.044444444444444446,
+    "auroc": 0.9906666666666666,
+    "uncalibrated_brier": 0.14238399576208083,
+    "confusion_matrix_human_agent": [
+      [
+        47,
+        3
+      ],
+      [
+        2,
+        43
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.9134453331510346,
+      0.9803921568627452
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.937142857142857,
+        "macro_f1": 0.9321266968325792,
+        "human_fpr": 0.08571428571428572,
+        "agent_fnr": 0.04,
+        "auroc": 0.9897142857142857,
+        "uncalibrated_brier": 0.1477111912185002,
+        "confusion_matrix_human_agent": [
+          [
+            32,
+            3
+          ],
+          [
+            1,
+            24
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.975,
+        "macro_f1": 0.9710504549214227,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.05,
+        "auroc": 0.9966666666666667,
+        "uncalibrated_brier": 0.13325166069393343,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            1,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_exec",
+    "panel": "application_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.4888888888888889,
+    "macro_f1": 0.48214484369785293,
+    "human_fpr": 0.6,
+    "agent_fnr": 0.4222222222222222,
+    "auroc": 0.40622222222222215,
+    "uncalibrated_brier": 0.3425754211439797,
+    "confusion_matrix_human_agent": [
+      [
+        20,
+        30
+      ],
+      [
+        19,
+        26
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.41488152804642164,
+      0.568890015308449
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.4828571428571429,
+        "macro_f1": 0.47972027972027975,
+        "human_fpr": 0.5142857142857142,
+        "agent_fnr": 0.52,
+        "auroc": 0.3817142857142858,
+        "uncalibrated_brier": 0.36944201149181743,
+        "confusion_matrix_human_agent": [
+          [
+            17,
+            18
+          ],
+          [
+            13,
+            12
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.44999999999999996,
+        "macro_f1": 0.42934782608695654,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.3,
+        "auroc": 0.35666666666666663,
+        "uncalibrated_brier": 0.29651840911911514,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            6,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "task_holdout",
+    "method": "length",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.3674857393593681,
+    "macro_f1": 0.364514378730331,
+    "human_fpr": 0.660377358490566,
+    "agent_fnr": 0.6046511627906976,
+    "auroc": 0.3056164984642387,
+    "uncalibrated_brier": 0.25964401830940176,
+    "confusion_matrix_human_agent": [
+      [
+        18,
+        35
+      ],
+      [
+        26,
+        17
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.26861173820715817,
+      0.47581487208412754
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.4582379862700229,
+        "macro_f1": 0.4412715517241379,
+        "human_fpr": 0.6052631578947368,
+        "agent_fnr": 0.4782608695652174,
+        "auroc": 0.4233409610983982,
+        "uncalibrated_brier": 0.2560619944406036,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            23
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.225,
+        "macro_f1": 0.22604422604422605,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.75,
+        "auroc": 0.18833333333333332,
+        "uncalibrated_brier": 0.26588697419502133,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            15,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "task_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.9201404124616059,
+    "macro_f1": 0.9163398692810457,
+    "human_fpr": 0.11320754716981132,
+    "agent_fnr": 0.046511627906976744,
+    "auroc": 0.9767441860465117,
+    "uncalibrated_brier": 0.1326863042577814,
+    "confusion_matrix_human_agent": [
+      [
+        47,
+        6
+      ],
+      [
+        2,
+        41
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.861944168083019,
+      0.9767385231048021
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.8993135011441648,
+        "macro_f1": 0.8820767743717206,
+        "human_fpr": 0.15789473684210525,
+        "agent_fnr": 0.043478260869565216,
+        "auroc": 0.9748283752860412,
+        "uncalibrated_brier": 0.1304206280532518,
+        "confusion_matrix_human_agent": [
+          [
+            32,
+            6
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.975,
+        "macro_f1": 0.9710504549214227,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.05,
+        "auroc": 0.99,
+        "uncalibrated_brier": 0.1366350542142473,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            1,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "task_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.5831505046072839,
+    "macro_f1": 0.5816993464052287,
+    "human_fpr": 0.41509433962264153,
+    "agent_fnr": 0.4186046511627907,
+    "auroc": 0.5528740675734972,
+    "uncalibrated_brier": 0.2649053010441845,
+    "confusion_matrix_human_agent": [
+      [
+        31,
+        22
+      ],
+      [
+        18,
+        25
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.4964902599423272,
+      0.6718287186023629
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.5549199084668193,
+        "macro_f1": 0.553490990990991,
+        "human_fpr": 0.3684210526315789,
+        "agent_fnr": 0.5217391304347826,
+        "auroc": 0.494279176201373,
+        "uncalibrated_brier": 0.27239832442368467,
+        "confusion_matrix_human_agent": [
+          [
+            24,
+            14
+          ],
+          [
+            12,
+            11
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.5833333333333333,
+        "macro_f1": 0.5833333333333333,
+        "human_fpr": 0.5333333333333333,
+        "agent_fnr": 0.3,
+        "auroc": 0.56,
+        "uncalibrated_brier": 0.2518460317256272,
+        "confusion_matrix_human_agent": [
+          [
+            7,
+            8
+          ],
+          [
+            6,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.4124616059675296,
+    "macro_f1": 0.4125874125874126,
+    "human_fpr": 0.5471698113207547,
+    "agent_fnr": 0.627906976744186,
+    "auroc": 0.38876700307152257,
+    "uncalibrated_brier": 0.2648574753714999,
+    "confusion_matrix_human_agent": [
+      [
+        24,
+        29
+      ],
+      [
+        27,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.30738964731744617,
+      0.5153168647778261
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.3146453089244851,
+        "macro_f1": 0.316106097894449,
+        "human_fpr": 0.631578947368421,
+        "agent_fnr": 0.7391304347826086,
+        "auroc": 0.31578947368421056,
+        "uncalibrated_brier": 0.2696067441808704,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            24
+          ],
+          [
+            17,
+            6
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.5833333333333333,
+        "macro_f1": 0.5714285714285714,
+        "human_fpr": 0.3333333333333333,
+        "agent_fnr": 0.5,
+        "auroc": 0.5116666666666667,
+        "uncalibrated_brier": 0.2565801783037399,
+        "confusion_matrix_human_agent": [
+          [
+            10,
+            5
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.8198771390960948,
+    "macro_f1": 0.8205607476635515,
+    "human_fpr": 0.1509433962264151,
+    "agent_fnr": 0.20930232558139536,
+    "auroc": 0.8924967090829311,
+    "uncalibrated_brier": 0.17542179036072092,
+    "confusion_matrix_human_agent": [
+      [
+        45,
+        8
+      ],
+      [
+        9,
+        34
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.7298024771081334,
+      0.9085699365024673
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.8775743707093822,
+        "macro_f1": 0.8644444444444443,
+        "human_fpr": 0.15789473684210525,
+        "agent_fnr": 0.08695652173913043,
+        "auroc": 0.9130434782608695,
+        "uncalibrated_brier": 0.16729849118725187,
+        "confusion_matrix_human_agent": [
+          [
+            32,
+            6
+          ],
+          [
+            2,
+            21
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.7583333333333333,
+        "macro_f1": 0.7428571428571429,
+        "human_fpr": 0.13333333333333333,
+        "agent_fnr": 0.35,
+        "auroc": 0.8799999999999999,
+        "uncalibrated_brier": 0.1895795403487671,
+        "confusion_matrix_human_agent": [
+          [
+            13,
+            2
+          ],
+          [
+            7,
+            13
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.4480035103115402,
+    "macro_f1": 0.4465631929046563,
+    "human_fpr": 0.4528301886792453,
+    "agent_fnr": 0.6511627906976745,
+    "auroc": 0.45019745502413344,
+    "uncalibrated_brier": 0.30230626336691385,
+    "confusion_matrix_human_agent": [
+      [
+        29,
+        24
+      ],
+      [
+        28,
+        15
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.37044195029108823,
+      0.5217509657627631
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.42448512585812354,
+        "macro_f1": 0.419047619047619,
+        "human_fpr": 0.3684210526315789,
+        "agent_fnr": 0.782608695652174,
+        "auroc": 0.42448512585812354,
+        "uncalibrated_brier": 0.3033208627003918,
+        "confusion_matrix_human_agent": [
+          [
+            24,
+            14
+          ],
+          [
+            18,
+            5
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.41666666666666663,
+        "macro_f1": 0.41666666666666663,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.5,
+        "auroc": 0.3933333333333333,
+        "uncalibrated_brier": 0.3005379616714236,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.4030276437033787,
+    "macro_f1": 0.4030762517726628,
+    "human_fpr": 0.5660377358490566,
+    "agent_fnr": 0.627906976744186,
+    "auroc": 0.3788942518648529,
+    "uncalibrated_brier": 0.2726898401530217,
+    "confusion_matrix_human_agent": [
+      [
+        23,
+        30
+      ],
+      [
+        27,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.29450853557820444,
+      0.5129506728097117
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.301487414187643,
+        "macro_f1": 0.3022875816993464,
+        "human_fpr": 0.6578947368421053,
+        "agent_fnr": 0.7391304347826086,
+        "auroc": 0.3157894736842105,
+        "uncalibrated_brier": 0.27469323645272176,
+        "confusion_matrix_human_agent": [
+          [
+            13,
+            25
+          ],
+          [
+            17,
+            6
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.5833333333333333,
+        "macro_f1": 0.5714285714285714,
+        "human_fpr": 0.3333333333333333,
+        "agent_fnr": 0.5,
+        "auroc": 0.5083333333333333,
+        "uncalibrated_brier": 0.26919820660211596,
+        "confusion_matrix_human_agent": [
+          [
+            10,
+            5
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.7988152698551997,
+    "macro_f1": 0.7994502473886751,
+    "human_fpr": 0.16981132075471697,
+    "agent_fnr": 0.23255813953488372,
+    "auroc": 0.8780166739798158,
+    "uncalibrated_brier": 0.18144908385995015,
+    "confusion_matrix_human_agent": [
+      [
+        44,
+        9
+      ],
+      [
+        10,
+        33
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.7070712369928207,
+      0.886915937323546
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.86441647597254,
+        "macro_f1": 0.848384424192212,
+        "human_fpr": 0.18421052631578946,
+        "agent_fnr": 0.08695652173913043,
+        "auroc": 0.8981693363844393,
+        "uncalibrated_brier": 0.17380462641716496,
+        "confusion_matrix_human_agent": [
+          [
+            31,
+            7
+          ],
+          [
+            2,
+            21
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.7333333333333334,
+        "macro_f1": 0.7140522875816994,
+        "human_fpr": 0.13333333333333333,
+        "agent_fnr": 0.4,
+        "auroc": 0.8633333333333334,
+        "uncalibrated_brier": 0.1947722811173758,
+        "confusion_matrix_human_agent": [
+          [
+            13,
+            2
+          ],
+          [
+            8,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "crossed_task_source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.44295743747257565,
+    "macro_f1": 0.4430213464696223,
+    "human_fpr": 0.5094339622641509,
+    "agent_fnr": 0.6046511627906976,
+    "auroc": 0.4265028521281264,
+    "uncalibrated_brier": 0.3167085943333076,
+    "confusion_matrix_human_agent": [
+      [
+        26,
+        27
+      ],
+      [
+        26,
+        17
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3729605810855811,
+      0.5164851916376306
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.40675057208237986,
+        "macro_f1": 0.40675057208237986,
+        "human_fpr": 0.4473684210526316,
+        "agent_fnr": 0.7391304347826086,
+        "auroc": 0.39816933638443935,
+        "uncalibrated_brier": 0.3163977123579707,
+        "confusion_matrix_human_agent": [
+          [
+            21,
+            17
+          ],
+          [
+            17,
+            6
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.44166666666666665,
+        "macro_f1": 0.44070647603027757,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.45,
+        "auroc": 0.35333333333333333,
+        "uncalibrated_brier": 0.31725041720460895,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            9,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "application_holdout",
+    "method": "length",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.42496709082931106,
+    "macro_f1": 0.3951586161158395,
+    "human_fpr": 0.7547169811320755,
+    "agent_fnr": 0.3953488372093023,
+    "auroc": 0.39096094778411583,
+    "uncalibrated_brier": 0.2828782147047724,
+    "confusion_matrix_human_agent": [
+      [
+        13,
+        40
+      ],
+      [
+        17,
+        26
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3340292104502073,
+      0.5295526805511561
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.4708237986270023,
+        "macro_f1": 0.42375168690958165,
+        "human_fpr": 0.7105263157894737,
+        "agent_fnr": 0.34782608695652173,
+        "auroc": 0.42848970251716245,
+        "uncalibrated_brier": 0.29372245427533433,
+        "confusion_matrix_human_agent": [
+          [
+            11,
+            27
+          ],
+          [
+            8,
+            15
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.3416666666666667,
+        "macro_f1": 0.3269230769230769,
+        "human_fpr": 0.8666666666666667,
+        "agent_fnr": 0.45,
+        "auroc": 0.35833333333333334,
+        "uncalibrated_brier": 0.2639782543103645,
+        "confusion_matrix_human_agent": [
+          [
+            2,
+            13
+          ],
+          [
+            9,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "application_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.8946906537955244,
+    "macro_f1": 0.8946906537955244,
+    "human_fpr": 0.09433962264150944,
+    "agent_fnr": 0.11627906976744186,
+    "auroc": 0.9521720052654674,
+    "uncalibrated_brier": 0.16464825547378883,
+    "confusion_matrix_human_agent": [
+      [
+        48,
+        5
+      ],
+      [
+        5,
+        38
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.8398212276283357,
+      0.9453905848494193
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.8689931350114417,
+        "macro_f1": 0.8626126126126126,
+        "human_fpr": 0.13157894736842105,
+        "agent_fnr": 0.13043478260869565,
+        "auroc": 0.937070938215103,
+        "uncalibrated_brier": 0.17012598224588277,
+        "confusion_matrix_human_agent": [
+          [
+            33,
+            5
+          ],
+          [
+            3,
+            20
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.95,
+        "macro_f1": 0.9424342105263157,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.1,
+        "auroc": 0.99,
+        "uncalibrated_brier": 0.1551013602424251,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            2,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "all_exec",
+    "panel": "application_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 96,
+    "human": 53,
+    "agent": 43,
+    "balanced_accuracy": 0.5557261956998684,
+    "macro_f1": 0.516074829169934,
+    "human_fpr": 0.6792452830188679,
+    "agent_fnr": 0.20930232558139536,
+    "auroc": 0.4927599824484423,
+    "uncalibrated_brier": 0.3157787724054849,
+    "confusion_matrix_human_agent": [
+      [
+        17,
+        36
+      ],
+      [
+        9,
+        34
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.4788315427797135,
+      0.6334752593215588
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 61,
+        "human": 38,
+        "agent": 23,
+        "balanced_accuracy": 0.5320366132723112,
+        "macro_f1": 0.4912563895614743,
+        "human_fpr": 0.631578947368421,
+        "agent_fnr": 0.30434782608695654,
+        "auroc": 0.4851258581235698,
+        "uncalibrated_brier": 0.34528704218354606,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            24
+          ],
+          [
+            7,
+            16
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.55,
+        "macro_f1": 0.51,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.1,
+        "auroc": 0.4766666666666667,
+        "uncalibrated_brier": 0.2643500736494354,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            2,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "task_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.34111111111111114,
+    "macro_f1": 0.33418622761152517,
+    "human_fpr": 0.74,
+    "agent_fnr": 0.5777777777777777,
+    "auroc": 0.24644444444444447,
+    "uncalibrated_brier": 0.2615738236464074,
+    "confusion_matrix_human_agent": [
+      [
+        13,
+        37
+      ],
+      [
+        26,
+        19
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.25526360503229534,
+      0.4215765746239542
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.4228571428571429,
+        "macro_f1": 0.3973214285714286,
+        "human_fpr": 0.7142857142857143,
+        "agent_fnr": 0.44,
+        "auroc": 0.3422857142857143,
+        "uncalibrated_brier": 0.262121968722824,
+        "confusion_matrix_human_agent": [
+          [
+            10,
+            25
+          ],
+          [
+            11,
+            14
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.225,
+        "macro_f1": 0.22604422604422605,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.75,
+        "auroc": 0.13333333333333333,
+        "uncalibrated_brier": 0.2606341463725505,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            15,
+            5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "task_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.9488888888888889,
+    "macro_f1": 0.9473450836936038,
+    "human_fpr": 0.08,
+    "agent_fnr": 0.022222222222222223,
+    "auroc": 0.996,
+    "uncalibrated_brier": 0.11563627583142817,
+    "confusion_matrix_human_agent": [
+      [
+        46,
+        4
+      ],
+      [
+        1,
+        44
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.9199915493713448,
+      0.9795918367346939
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.9428571428571428,
+        "macro_f1": 0.9326599326599327,
+        "human_fpr": 0.11428571428571428,
+        "agent_fnr": 0.0,
+        "auroc": 0.9942857142857142,
+        "uncalibrated_brier": 0.11392570996897429,
+        "confusion_matrix_human_agent": [
+          [
+            31,
+            4
+          ],
+          [
+            0,
+            25
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.975,
+        "macro_f1": 0.9710504549214227,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.05,
+        "auroc": 1.0,
+        "uncalibrated_brier": 0.11856867445277763,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            1,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "task_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.48777777777777775,
+    "macro_f1": 0.4832944832944833,
+    "human_fpr": 0.58,
+    "agent_fnr": 0.4444444444444444,
+    "auroc": 0.5306666666666666,
+    "uncalibrated_brier": 0.26714946406934814,
+    "confusion_matrix_human_agent": [
+      [
+        21,
+        29
+      ],
+      [
+        20,
+        25
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3938311195881974,
+      0.5838177487827091
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.44285714285714284,
+        "macro_f1": 0.442410588566601,
+        "human_fpr": 0.5142857142857142,
+        "agent_fnr": 0.6,
+        "auroc": 0.4902857142857143,
+        "uncalibrated_brier": 0.27223895326091657,
+        "confusion_matrix_human_agent": [
+          [
+            17,
+            18
+          ],
+          [
+            15,
+            10
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.5083333333333333,
+        "macro_f1": 0.49275362318840576,
+        "human_fpr": 0.7333333333333333,
+        "agent_fnr": 0.25,
+        "auroc": 0.5,
+        "uncalibrated_brier": 0.25842462545523087,
+        "confusion_matrix_human_agent": [
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.36777777777777776,
+    "macro_f1": 0.367790594498669,
+    "human_fpr": 0.62,
+    "agent_fnr": 0.6444444444444445,
+    "auroc": 0.33799999999999997,
+    "uncalibrated_brier": 0.2615585696388337,
+    "confusion_matrix_human_agent": [
+      [
+        19,
+        31
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.2694270833333333,
+      0.47828351449275364
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.34,
+        "macro_f1": 0.34103069557871024,
+        "human_fpr": 0.6,
+        "agent_fnr": 0.72,
+        "auroc": 0.31257142857142856,
+        "uncalibrated_brier": 0.2655158164762978,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            21
+          ],
+          [
+            18,
+            7
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.39166666666666666,
+        "macro_f1": 0.39205955334987597,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.55,
+        "auroc": 0.39,
+        "uncalibrated_brier": 0.2547747179174667,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            11,
+            9
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.8522222222222222,
+    "macro_f1": 0.8522222222222222,
+    "human_fpr": 0.14,
+    "agent_fnr": 0.15555555555555556,
+    "auroc": 0.9155555555555556,
+    "uncalibrated_brier": 0.1648874869007875,
+    "confusion_matrix_human_agent": [
+      [
+        43,
+        7
+      ],
+      [
+        7,
+        38
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.7774890749778173,
+      0.9200013550135501
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.8428571428571429,
+        "macro_f1": 0.8447829836159816,
+        "human_fpr": 0.11428571428571428,
+        "agent_fnr": 0.2,
+        "auroc": 0.9234285714285715,
+        "uncalibrated_brier": 0.1580969475550048,
+        "confusion_matrix_human_agent": [
+          [
+            31,
+            4
+          ],
+          [
+            5,
+            20
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.8500000000000001,
+        "macro_f1": 0.8528174936921783,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.1,
+        "auroc": 0.8933333333333333,
+        "uncalibrated_brier": 0.17652841149355783,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            2,
+            18
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.45666666666666667,
+    "macro_f1": 0.4512402310567448,
+    "human_fpr": 0.42,
+    "agent_fnr": 0.6666666666666666,
+    "auroc": 0.47111111111111115,
+    "uncalibrated_brier": 0.2951883282202191,
+    "confusion_matrix_human_agent": [
+      [
+        29,
+        21
+      ],
+      [
+        30,
+        15
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3943798984240161,
+      0.5104881445331756
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.44857142857142857,
+        "macro_f1": 0.43823618242222895,
+        "human_fpr": 0.34285714285714286,
+        "agent_fnr": 0.76,
+        "auroc": 0.4662857142857143,
+        "uncalibrated_brier": 0.2855480111642471,
+        "confusion_matrix_human_agent": [
+          [
+            23,
+            12
+          ],
+          [
+            19,
+            6
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.42500000000000004,
+        "macro_f1": 0.42434210526315785,
+        "human_fpr": 0.6,
+        "agent_fnr": 0.55,
+        "auroc": 0.3866666666666667,
+        "uncalibrated_brier": 0.3117145860304569,
+        "confusion_matrix_human_agent": [
+          [
+            6,
+            9
+          ],
+          [
+            11,
+            9
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "crossed_task_source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.37222222222222223,
+    "macro_f1": 0.3666666666666667,
+    "human_fpr": 0.7,
+    "agent_fnr": 0.5555555555555556,
+    "auroc": 0.2833333333333333,
+    "uncalibrated_brier": 0.27075666841771595,
+    "confusion_matrix_human_agent": [
+      [
+        15,
+        35
+      ],
+      [
+        25,
+        20
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.273196579768271,
+      0.48992450575032753
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.3628571428571429,
+        "macro_f1": 0.3498193942761878,
+        "human_fpr": 0.7142857142857143,
+        "agent_fnr": 0.56,
+        "auroc": 0.2702857142857143,
+        "uncalibrated_brier": 0.27425193333303455,
+        "confusion_matrix_human_agent": [
+          [
+            10,
+            25
+          ],
+          [
+            14,
+            11
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.39166666666666666,
+        "macro_f1": 0.39205955334987597,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.55,
+        "auroc": 0.31999999999999995,
+        "uncalibrated_brier": 0.26476478570574125,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            11,
+            9
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "crossed_task_source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.8311111111111111,
+    "macro_f1": 0.8311111111111111,
+    "human_fpr": 0.16,
+    "agent_fnr": 0.17777777777777778,
+    "auroc": 0.9026666666666667,
+    "uncalibrated_brier": 0.17150021569186305,
+    "confusion_matrix_human_agent": [
+      [
+        42,
+        8
+      ],
+      [
+        8,
+        37
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.7485853599151088,
+      0.9075204248366012
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.8285714285714285,
+        "macro_f1": 0.8285714285714285,
+        "human_fpr": 0.14285714285714285,
+        "agent_fnr": 0.2,
+        "auroc": 0.9039999999999999,
+        "uncalibrated_brier": 0.16482906959656482,
+        "confusion_matrix_human_agent": [
+          [
+            30,
+            5
+          ],
+          [
+            5,
+            20
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.825,
+        "macro_f1": 0.825,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.15,
+        "auroc": 0.8733333333333333,
+        "uncalibrated_brier": 0.18293646614094566,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            3,
+            17
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "crossed_task_source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.4377777777777778,
+    "macro_f1": 0.4358543417366947,
+    "human_fpr": 0.48,
+    "agent_fnr": 0.6444444444444445,
+    "auroc": 0.46844444444444444,
+    "uncalibrated_brier": 0.30198972097172566,
+    "confusion_matrix_human_agent": [
+      [
+        26,
+        24
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3785067898180219,
+      0.4920819475240207
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.45999999999999996,
+        "macro_f1": 0.4578839988341591,
+        "human_fpr": 0.4,
+        "agent_fnr": 0.68,
+        "auroc": 0.504,
+        "uncalibrated_brier": 0.2820878145067629,
+        "confusion_matrix_human_agent": [
+          [
+            21,
+            14
+          ],
+          [
+            17,
+            8
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.3666666666666667,
+        "macro_f1": 0.3667763157894737,
+        "human_fpr": 0.6666666666666666,
+        "agent_fnr": 0.6,
+        "auroc": 0.29666666666666663,
+        "uncalibrated_brier": 0.3361072749116618,
+        "confusion_matrix_human_agent": [
+          [
+            5,
+            10
+          ],
+          [
+            12,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "application_holdout",
+    "method": "length",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.43666666666666665,
+    "macro_f1": 0.428475935828877,
+    "human_fpr": 0.66,
+    "agent_fnr": 0.4666666666666667,
+    "auroc": 0.3877777777777778,
+    "uncalibrated_brier": 0.3171800821104433,
+    "confusion_matrix_human_agent": [
+      [
+        17,
+        33
+      ],
+      [
+        21,
+        24
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.3284625201293104,
+      0.549640073831009
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.4831897749374826,
+        "human_fpr": 0.6,
+        "agent_fnr": 0.4,
+        "auroc": 0.41771428571428576,
+        "uncalibrated_brier": 0.341590023342838,
+        "confusion_matrix_human_agent": [
+          [
+            14,
+            21
+          ],
+          [
+            10,
+            15
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.325,
+        "macro_f1": 0.3229604709840202,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.55,
+        "auroc": 0.25666666666666665,
+        "uncalibrated_brier": 0.2753344685691952,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            11,
+            9
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "application_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.9588888888888889,
+    "macro_f1": 0.9578527062999113,
+    "human_fpr": 0.06,
+    "agent_fnr": 0.022222222222222223,
+    "auroc": 0.9933333333333334,
+    "uncalibrated_brier": 0.14716010711618957,
+    "confusion_matrix_human_agent": [
+      [
+        47,
+        3
+      ],
+      [
+        1,
+        44
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.9263839285714286,
+      0.9901960784313726
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.9571428571428571,
+        "macro_f1": 0.9493100535060546,
+        "human_fpr": 0.08571428571428572,
+        "agent_fnr": 0.0,
+        "auroc": 0.9931428571428571,
+        "uncalibrated_brier": 0.15241197156556227,
+        "confusion_matrix_human_agent": [
+          [
+            32,
+            3
+          ],
+          [
+            0,
+            25
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.975,
+        "macro_f1": 0.9710504549214227,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.05,
+        "auroc": 0.9933333333333334,
+        "uncalibrated_brier": 0.138156910917265,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            0
+          ],
+          [
+            1,
+            19
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_no_wrappers",
+    "panel": "application_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 95,
+    "human": 50,
+    "agent": 45,
+    "balanced_accuracy": 0.48,
+    "macro_f1": 0.46891771019677997,
+    "human_fpr": 0.64,
+    "agent_fnr": 0.4,
+    "auroc": 0.41955555555555557,
+    "uncalibrated_brier": 0.3442378811853277,
+    "confusion_matrix_human_agent": [
+      [
+        18,
+        32
+      ],
+      [
+        18,
+        27
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.42476587227219725,
+      0.5490803035518362
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 60,
+        "human": 35,
+        "agent": 25,
+        "balanced_accuracy": 0.4542857142857143,
+        "macro_f1": 0.44862155388471175,
+        "human_fpr": 0.5714285714285714,
+        "agent_fnr": 0.52,
+        "auroc": 0.3931428571428571,
+        "uncalibrated_brier": 0.38289123604758973,
+        "confusion_matrix_human_agent": [
+          [
+            15,
+            20
+          ],
+          [
+            13,
+            12
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 35,
+        "human": 15,
+        "agent": 20,
+        "balanced_accuracy": 0.475,
+        "macro_f1": 0.44958371877890846,
+        "human_fpr": 0.8,
+        "agent_fnr": 0.25,
+        "auroc": 0.39666666666666667,
+        "uncalibrated_brier": 0.27797498713573565,
+        "confusion_matrix_human_agent": [
+          [
+            3,
+            12
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "task_holdout",
+    "method": "length",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3559322033898305,
+    "human_fpr": 1.0,
+    "agent_fnr": 0.0,
+    "auroc": 0.4831932773109243,
+    "uncalibrated_brier": 0.25,
+    "confusion_matrix_human_agent": [
+      [
+        0,
+        17
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5,
+      0.5
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.2727272727272727,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.5666666666666667,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.46153846153846156,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.5,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "task_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.8879551820728291,
+    "macro_f1": 0.8920454545454546,
+    "human_fpr": 0.17647058823529413,
+    "agent_fnr": 0.047619047619047616,
+    "auroc": 0.9803921568627451,
+    "uncalibrated_brier": 0.1315478828278448,
+    "confusion_matrix_human_agent": [
+      [
+        14,
+        3
+      ],
+      [
+        1,
+        20
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.8,
+      1.0
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.8444444444444444,
+        "macro_f1": 0.8285714285714285,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.1111111111111111,
+        "auroc": 0.962962962962963,
+        "uncalibrated_brier": 0.1334041071337556,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            1,
+            8
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.0,
+        "auroc": 1.0,
+        "uncalibrated_brier": 0.12836578401771195,
+        "confusion_matrix_human_agent": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "task_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.6624649859943978,
+    "macro_f1": 0.6576576576576576,
+    "human_fpr": 0.29411764705882354,
+    "agent_fnr": 0.38095238095238093,
+    "auroc": 0.7170868347338936,
+    "uncalibrated_brier": 0.2121522832080279,
+    "confusion_matrix_human_agent": [
+      [
+        12,
+        5
+      ],
+      [
+        8,
+        13
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5079657831512052,
+      0.7976232290685151
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.6777777777777778,
+        "macro_f1": 0.6812144212523719,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.4444444444444444,
+        "auroc": 0.7777777777777778,
+        "uncalibrated_brier": 0.18829643750335892,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_f1": 0.36363636363636365,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.3333333333333333,
+        "auroc": 0.2916666666666667,
+        "uncalibrated_brier": 0.25304801870174615,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            2
+          ],
+          [
+            4,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3559322033898305,
+    "human_fpr": 1.0,
+    "agent_fnr": 0.0,
+    "auroc": 0.5252100840336134,
+    "uncalibrated_brier": 0.25,
+    "confusion_matrix_human_agent": [
+      [
+        0,
+        17
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5,
+      0.5
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.2727272727272727,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.5666666666666667,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.46153846153846156,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.375,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.8053221288515406,
+    "macro_f1": 0.8093189964157705,
+    "human_fpr": 0.29411764705882354,
+    "agent_fnr": 0.09523809523809523,
+    "auroc": 0.8487394957983192,
+    "uncalibrated_brier": 0.17709114005282764,
+    "confusion_matrix_human_agent": [
+      [
+        12,
+        5
+      ],
+      [
+        2,
+        19
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.6249928489702518,
+      0.95
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.7555555555555555,
+        "macro_f1": 0.7428571428571429,
+        "human_fpr": 0.26666666666666666,
+        "agent_fnr": 0.2222222222222222,
+        "auroc": 0.837037037037037,
+        "uncalibrated_brier": 0.17786844922537404,
+        "confusion_matrix_human_agent": [
+          [
+            11,
+            4
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.75,
+        "macro_f1": 0.8133333333333332,
+        "human_fpr": 0.5,
+        "agent_fnr": 0.0,
+        "auroc": 0.8333333333333333,
+        "uncalibrated_brier": 0.17575861004274804,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.4481792717086835,
+    "macro_f1": 0.39420289855072466,
+    "human_fpr": 0.29411764705882354,
+    "agent_fnr": 0.8095238095238095,
+    "auroc": 0.37815126050420167,
+    "uncalibrated_brier": 0.36307035622011596,
+    "confusion_matrix_human_agent": [
+      [
+        12,
+        5
+      ],
+      [
+        17,
+        4
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.32134740259740263,
+      0.6022850790513834
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.42222222222222217,
+        "macro_f1": 0.39495798319327735,
+        "human_fpr": 0.26666666666666666,
+        "agent_fnr": 0.8888888888888888,
+        "auroc": 0.37777777777777777,
+        "uncalibrated_brier": 0.30317170305488034,
+        "confusion_matrix_human_agent": [
+          [
+            11,
+            4
+          ],
+          [
+            8,
+            1
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.375,
+        "macro_f1": 0.2708333333333333,
+        "human_fpr": 0.5,
+        "agent_fnr": 0.75,
+        "auroc": 0.25,
+        "uncalibrated_brier": 0.46575376164623405,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            1
+          ],
+          [
+            9,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "crossed_task_source_holdout",
+    "method": "length",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3559322033898305,
+    "human_fpr": 1.0,
+    "agent_fnr": 0.0,
+    "auroc": 0.43557422969187676,
+    "uncalibrated_brier": 0.25,
+    "confusion_matrix_human_agent": [
+      [
+        0,
+        17
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5,
+      0.5
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.2727272727272727,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.48888888888888893,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.46153846153846156,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.25,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "crossed_task_source_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.7815126050420168,
+    "macro_f1": 0.7840909090909092,
+    "human_fpr": 0.29411764705882354,
+    "agent_fnr": 0.14285714285714285,
+    "auroc": 0.8375350140056022,
+    "uncalibrated_brier": 0.18362506201701514,
+    "confusion_matrix_human_agent": [
+      [
+        12,
+        5
+      ],
+      [
+        3,
+        18
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5947274896800826,
+      0.9286143543956044
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.7555555555555555,
+        "macro_f1": 0.7428571428571429,
+        "human_fpr": 0.26666666666666666,
+        "agent_fnr": 0.2222222222222222,
+        "auroc": 0.8740740740740741,
+        "uncalibrated_brier": 0.1759168195190944,
+        "confusion_matrix_human_agent": [
+          [
+            11,
+            4
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.7083333333333333,
+        "macro_f1": 0.7083333333333333,
+        "human_fpr": 0.5,
+        "agent_fnr": 0.08333333333333333,
+        "auroc": 0.6666666666666666,
+        "uncalibrated_brier": 0.19683919201345068,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            11
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "crossed_task_source_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.4481792717086835,
+    "macro_f1": 0.39420289855072466,
+    "human_fpr": 0.29411764705882354,
+    "agent_fnr": 0.8095238095238095,
+    "auroc": 0.4145658263305322,
+    "uncalibrated_brier": 0.3533595763006867,
+    "confusion_matrix_human_agent": [
+      [
+        12,
+        5
+      ],
+      [
+        17,
+        4
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.36570186335403726,
+      0.5500757575757576
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.42222222222222217,
+        "macro_f1": 0.39495798319327735,
+        "human_fpr": 0.26666666666666666,
+        "agent_fnr": 0.8888888888888888,
+        "auroc": 0.4296296296296296,
+        "uncalibrated_brier": 0.2910832412769641,
+        "confusion_matrix_human_agent": [
+          [
+            11,
+            4
+          ],
+          [
+            8,
+            1
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.375,
+        "macro_f1": 0.2708333333333333,
+        "human_fpr": 0.5,
+        "agent_fnr": 0.75,
+        "auroc": 0.25,
+        "uncalibrated_brier": 0.46011900776992537,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            1
+          ],
+          [
+            9,
+            3
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "application_holdout",
+    "method": "length",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.5,
+    "macro_f1": 0.3559322033898305,
+    "human_fpr": 1.0,
+    "agent_fnr": 0.0,
+    "auroc": 0.5,
+    "uncalibrated_brier": 0.25,
+    "confusion_matrix_human_agent": [
+      [
+        0,
+        17
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.5,
+      0.5
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.2727272727272727,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.5,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.46153846153846156,
+        "human_fpr": 1.0,
+        "agent_fnr": 0.0,
+        "auroc": 0.5,
+        "uncalibrated_brier": 0.25,
+        "confusion_matrix_human_agent": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "application_holdout",
+    "method": "lexical",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.9117647058823529,
+    "macro_f1": 0.9182795698924731,
+    "human_fpr": 0.17647058823529413,
+    "agent_fnr": 0.0,
+    "auroc": 0.9523809523809523,
+    "uncalibrated_brier": 0.15980088838080975,
+    "confusion_matrix_human_agent": [
+      [
+        14,
+        3
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.8260869565217391,
+      1.0
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.9,
+        "macro_f1": 0.873015873015873,
+        "human_fpr": 0.2,
+        "agent_fnr": 0.0,
+        "auroc": 0.9777777777777779,
+        "uncalibrated_brier": 0.16734162148032453,
+        "confusion_matrix_human_agent": [
+          [
+            12,
+            3
+          ],
+          [
+            0,
+            9
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "human_fpr": 0.0,
+        "agent_fnr": 0.0,
+        "auroc": 1.0,
+        "uncalibrated_brier": 0.14687391735307,
+        "confusion_matrix_human_agent": [
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "view": "login_first50",
+    "panel": "application_holdout",
+    "method": "core8",
+    "available": true,
+    "n": 38,
+    "human": 17,
+    "agent": 21,
+    "balanced_accuracy": 0.39215686274509803,
+    "macro_f1": 0.35692307692307695,
+    "human_fpr": 0.8823529411764706,
+    "agent_fnr": 0.3333333333333333,
+    "auroc": 0.35014005602240894,
+    "uncalibrated_brier": 0.39077491853316654,
+    "confusion_matrix_human_agent": [
+      [
+        2,
+        15
+      ],
+      [
+        7,
+        14
+      ]
+    ],
+    "task_conditional_ba_interval": [
+      0.22629892037786775,
+      0.5948305422647527
+    ],
+    "by_application": {
+      "Nextcloud": {
+        "n": 24,
+        "human": 15,
+        "agent": 9,
+        "balanced_accuracy": 0.36666666666666664,
+        "macro_f1": 0.2595281306715064,
+        "human_fpr": 0.9333333333333333,
+        "agent_fnr": 0.3333333333333333,
+        "auroc": 0.4962962962962963,
+        "uncalibrated_brier": 0.47826864694649673,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            14
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      },
+      "WordPress": {
+        "n": 14,
+        "human": 2,
+        "agent": 12,
+        "balanced_accuracy": 0.5833333333333333,
+        "macro_f1": 0.5238095238095237,
+        "human_fpr": 0.5,
+        "agent_fnr": 0.3333333333333333,
+        "auroc": 0.4583333333333333,
+        "uncalibrated_brier": 0.24078566982460042,
+        "confusion_matrix_human_agent": [
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            8
+          ]
+        ]
+      }
+    }
+  }
+]

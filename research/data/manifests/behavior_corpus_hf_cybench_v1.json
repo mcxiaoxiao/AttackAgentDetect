@@ -1,0 +1,43 @@
+{
+  "dataset": "antieval/cybench-trajectories",
+  "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+  "license": null,
+  "files": [
+    {
+      "path": "cybench_claude-opus-4.5.jsonl",
+      "bytes": 1013693,
+      "sha256": "007fa4f0f4635ad60869d5606ef75c82da41b4fafa920b170cdae5f36cfb5214",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_claude-opus-4.5.jsonl"
+    },
+    {
+      "path": "cybench_claude-sonnet-4.5.jsonl",
+      "bytes": 920665,
+      "sha256": "a5487be33d6ab07bdf264103c7bb5d4dd7b37c9f697bc21a8c9176d06656b86f",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_claude-sonnet-4.5.jsonl"
+    },
+    {
+      "path": "cybench_gpt-5.1.jsonl",
+      "bytes": 835208,
+      "sha256": "1df2099ced045e521f39fe37d985893c332c0feef529d84ed5bea3f4d9206801",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_gpt-5.1.jsonl"
+    },
+    {
+      "path": "cybench_gpt-5.2.jsonl",
+      "bytes": 2749453,
+      "sha256": "1b7a9e05cdeed9e5dd58f2a4f055aabdebdb7d20b954498a9e58edea390e2079",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_gpt-5.2.jsonl"
+    },
+    {
+      "path": "cybench_gpt-5.3-codex.jsonl",
+      "bytes": 1796765,
+      "sha256": "e811a7c58931830a75412f26cbaa58bf54c70edfeae870e6cdc5f08fdb3944a5",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_gpt-5.3-codex.jsonl"
+    },
+    {
+      "path": "cybench_gpt-5.4.jsonl",
+      "bytes": 1044486,
+      "sha256": "ed4807512b8434ea083ea0de19ff7f7d1c931d83826ac2b40930852255ff128e",
+      "url": "https://huggingface.co/datasets/antieval/cybench-trajectories/resolve/f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f/cybench_gpt-5.4.jsonl"
+    }
+  ]
+}

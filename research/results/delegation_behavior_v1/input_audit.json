@@ -1,0 +1,154 @@
+{
+  "status": "input_audit_only_no_effectiveness_experiment",
+  "feature_count": 24,
+  "feature_source_sha256": "a4aa489a1f6deecb1e679f6b73010d20e7425e7ea2be28234c44dd733598a70d",
+  "audit_script_sha256": "155982d19750f7185288144705442238fa0ae8152d3a78df56be28257a834c18",
+  "datasets": [
+    {
+      "source": "multidimensional_profile_association_v1",
+      "profile_records": 177,
+      "label_records": 177,
+      "profiles_without_labels": 0,
+      "labels_without_profiles": 0,
+      "by_record_label": {
+        "agent": 120,
+        "human": 57
+      },
+      "by_benchmark": {
+        "cybench": 26,
+        "intercode-ctf": 121,
+        "nyuctf": 30
+      },
+      "exported_source_formats": {
+        "cth-comparable-commands-v1": 177
+      },
+      "tensor_shapes": {
+        "[4, 8, 3]": 177
+      },
+      "feature_missing_counts": {
+        "log_command_count": 0,
+        "command_ttr": 0,
+        "command_entropy_bits": 0,
+        "command_top1_share": 0,
+        "adjacent_command_repeat": 2,
+        "command_bigram_repeat": 2,
+        "command_bigram_entropy_bits": 2,
+        "command_singleton_bigram_rate": 2,
+        "command_trigram_repeat": 28,
+        "command_gzip_ratio": 0,
+        "action_coverage": 0,
+        "action_entropy_bits": 0,
+        "action_top1_share": 0,
+        "adjacent_action_repeat": 2,
+        "action_bigram_repeat": 2,
+        "action_bigram_entropy_bits": 2,
+        "action_singleton_bigram_rate": 2,
+        "mean_action_run_share": 0,
+        "max_action_run_share": 0,
+        "action_run_cv": 0,
+        "max_command_run_share": 0,
+        "command_half_jsd": 47,
+        "action_half_jsd": 47,
+        "short_trace_flag": 0
+      },
+      "nonfinite_or_nonnumeric_counts": {},
+      "required_metadata_keys_present": {
+        "activity_id": false,
+        "episode_id": false,
+        "controller_id": false,
+        "delegation_condition": false,
+        "repeat_id": false,
+        "harness_version": false
+      },
+      "eligibility": {
+        "descriptive_profile_audit": true,
+        "controlled_delegation_effect": false,
+        "independent_activity_association_validation": false,
+        "reason": "Exports lack verified activity, delegation, controller, repetition and harness registry; task IDs and record labels cannot supply them."
+      },
+      "notes": [
+        "Record labels describe released trace sources, not independently verified delegation conditions.",
+        "Matching source_format strings do not establish matching underlying capture pipelines.",
+        "Datasets may overlap; record counts must not be added as independent samples."
+      ],
+      "input_sha256": {
+        "research/results/multidimensional_profile_association_v1/behavior_profiles_v3.jsonl": "56b69c5621985299cefbd8bb91c921365b19ae10d1dd06cd5cbdcf5c58e50950",
+        "research/results/multidimensional_profile_association_v1/evaluation_labels.csv": "276c9997d2fdb0f00d2ffa15c7cbf7b49b5e82f623687139190bfc9703cf95a8"
+      }
+    },
+    {
+      "source": "multidimensional_rerun_v1",
+      "profile_records": 127,
+      "label_records": 127,
+      "profiles_without_labels": 0,
+      "labels_without_profiles": 0,
+      "by_record_label": {
+        "agent": 54,
+        "human": 73
+      },
+      "by_benchmark": {
+        "cvebench": 22,
+        "cybench": 14,
+        "cybergym": 8,
+        "intercode-ctf": 67,
+        "nyuctf": 16
+      },
+      "exported_source_formats": {
+        "not_exported": 127
+      },
+      "tensor_shapes": {
+        "[4, 8, 3]": 127
+      },
+      "feature_missing_counts": {
+        "log_command_count": 0,
+        "command_ttr": 0,
+        "command_entropy_bits": 0,
+        "command_top1_share": 0,
+        "adjacent_command_repeat": 1,
+        "command_bigram_repeat": 1,
+        "command_bigram_entropy_bits": 1,
+        "command_singleton_bigram_rate": 1,
+        "command_trigram_repeat": 23,
+        "command_gzip_ratio": 0,
+        "action_coverage": 0,
+        "action_entropy_bits": 0,
+        "action_top1_share": 0,
+        "adjacent_action_repeat": 1,
+        "action_bigram_repeat": 1,
+        "action_bigram_entropy_bits": 1,
+        "action_singleton_bigram_rate": 1,
+        "mean_action_run_share": 0,
+        "max_action_run_share": 0,
+        "action_run_cv": 0,
+        "max_command_run_share": 0,
+        "command_half_jsd": 30,
+        "action_half_jsd": 30,
+        "short_trace_flag": 0
+      },
+      "nonfinite_or_nonnumeric_counts": {},
+      "required_metadata_keys_present": {
+        "activity_id": false,
+        "episode_id": false,
+        "controller_id": false,
+        "delegation_condition": false,
+        "repeat_id": false,
+        "harness_version": false
+      },
+      "eligibility": {
+        "descriptive_profile_audit": true,
+        "controlled_delegation_effect": false,
+        "independent_activity_association_validation": false,
+        "reason": "Exports lack verified activity, delegation, controller, repetition and harness registry; task IDs and record labels cannot supply them."
+      },
+      "notes": [
+        "Record labels describe released trace sources, not independently verified delegation conditions.",
+        "Matching source_format strings do not establish matching underlying capture pipelines.",
+        "Datasets may overlap; record counts must not be added as independent samples."
+      ],
+      "input_sha256": {
+        "research/results/multidimensional_rerun_v1/behavior_profiles.jsonl": "4c3b025644995d89bc9c826c4f457f5dfbcb4e8d8893f6571c140890656e216c",
+        "research/results/multidimensional_rerun_v1/evaluation_labels.csv": "c97110fbd5bfa8623396b7e35bffb113148959f274059680e41d1ed15bfdb6b7"
+      }
+    }
+  ]
+}

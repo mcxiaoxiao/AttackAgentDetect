@@ -1,0 +1,55 @@
+{
+  "url": "https://media.githubusercontent.com/media/KabakaWilliam/known_actions/main/src/traces.tar.xz",
+  "status": 200,
+  "content_length": "184239560",
+  "samples": [
+    {
+      "path": "traces/seed_2_lite/2wikimultihop_test/20260416_170659/seed_2_lite_4ac8c740.json",
+      "size": 85769,
+      "sample_sha256": "cc5233576e2babe29c145c5dca4ac098f9f27780af6a100b455e0bff1581a764",
+      "keys": [
+        "meta",
+        "result",
+        "verification",
+        "error",
+        "midscene_log",
+        "dom_trace"
+      ],
+      "meta_keys": [
+        "episode_id",
+        "agent_id",
+        "model_name",
+        "model_family",
+        "timestamp",
+        "question",
+        "start_url",
+        "task_type"
+      ],
+      "dom_events": 5
+    },
+    {
+      "path": "traces/seed_2_lite/2wikimultihop_test/20260416_170659/seed_2_lite_ef4430db.json",
+      "size": 56592,
+      "sample_sha256": "bd71ddd347d2236d74119903e423b4a044277c809225f9fea9fe1aeb82579ad6",
+      "keys": [
+        "meta",
+        "result",
+        "verification",
+        "error",
+        "midscene_log",
+        "dom_trace"
+      ],
+      "meta_keys": [
+        "episode_id",
+        "agent_id",
+        "model_name",
+        "model_family",
+        "timestamp",
+        "question",
+        "start_url",
+        "task_type"
+      ],
+      "dom_events": 5
+    }
+  ]
+}

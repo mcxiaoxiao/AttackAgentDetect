@@ -1,0 +1,1486 @@
+{
+  "status": "exploratory_not_confirmatory",
+  "date": "2026-11-01",
+  "archive_sha256": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914",
+  "script_sha256": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+  "protocol_sha256": "c034382322835d439bd313fdc53a6c4eadc1e0fe5f4a252028631d25bfd5ee1e",
+  "action_map_sha256": "2e6f66b62be5cf5b201a96e83b12b25b1886387dbbb03c18910fa6b0168469f1",
+  "parser_source_sha256": "ef8ad62c6d2ddb67074dc22cb14e7152b7bc182144d01179c5a230a8bec84c23",
+  "python": "3.10.16",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "sklearn": "1.7.2",
+  "seed": 20261101,
+  "measurement_checks": {
+    "hand_checked_feature_cases": 7,
+    "parser_checks": [
+      "event_join",
+      "duplicates",
+      "nonexec_syscall_exclusion",
+      "failed_launch_exclusion",
+      "actual_image_preference",
+      "hex_argv0_fallback",
+      "login_id_filter"
+    ]
+  },
+  "raw_runs": 109,
+  "raw_class_counts": {
+    "0": 61,
+    "1": 48
+  },
+  "source_folds": {
+    "Alice": 0,
+    "Bob": 1,
+    "Charlie": 2,
+    "David": 0,
+    "Eve": 1,
+    "Frank": 2,
+    "GPT4.1": 0,
+    "GPT4o": 1,
+    "GPT5": 2
+  },
+  "cross_run_identical_event_fingerprints": 0,
+  "runs_with_shared_events": 0,
+  "admission": {
+    "login_exec": {
+      "available_human": 61,
+      "excluded_evidence_human": 11,
+      "admitted_human": 50,
+      "available_agent": 48,
+      "admitted_agent": 45,
+      "excluded_evidence_agent": 3
+    },
+    "all_exec": {
+      "available_human": 61,
+      "admitted_human": 53,
+      "excluded_evidence_human": 8,
+      "available_agent": 48,
+      "admitted_agent": 43,
+      "excluded_evidence_agent": 5
+    },
+    "login_no_wrappers": {
+      "available_human": 61,
+      "excluded_evidence_human": 11,
+      "admitted_human": 50,
+      "available_agent": 48,
+      "admitted_agent": 45,
+      "excluded_evidence_agent": 3
+    },
+    "login_first50": {
+      "available_human": 61,
+      "excluded_budget_human": 38,
+      "admitted_human": 17,
+      "excluded_evidence_human": 6,
+      "available_agent": 48,
+      "excluded_budget_agent": 27,
+      "admitted_agent": 21
+    }
+  },
+  "folds": {
+    "login_exec/task_holdout": [
+      {
+        "fold": "Nextcloud/exp1",
+        "train": 90,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp2",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp3",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp4",
+        "train": 85,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp5",
+        "train": 85,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp6",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp7",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp1",
+        "train": 88,
+        "test": 7,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp2",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp3",
+        "train": 89,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp4",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp5",
+        "train": 89,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_exec/source_holdout": [
+      {
+        "fold": "0",
+        "train": 46,
+        "test": 49,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "1",
+        "train": 72,
+        "test": 23,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "2",
+        "train": 72,
+        "test": 23,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_exec/crossed_task_source_holdout": [
+      {
+        "fold": "('Nextcloud/exp1', 0)",
+        "train": 44,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 1)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 2)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 1)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 2)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 1)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 2)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 0)",
+        "train": 42,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 1)",
+        "train": 67,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 2)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 0)",
+        "train": 43,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 1)",
+        "train": 66,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 2)",
+        "train": 67,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 1)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 2)",
+        "train": 66,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 0)",
+        "train": 43,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 1)",
+        "train": 67,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 2)",
+        "train": 68,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 1)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 2)",
+        "train": 66,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 0)",
+        "train": 45,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 2)",
+        "train": 67,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_exec/application_holdout": [
+      {
+        "fold": "Nextcloud",
+        "train": 35,
+        "test": 60,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress",
+        "train": 60,
+        "test": 35,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "all_exec/task_holdout": [
+      {
+        "fold": "Nextcloud/exp1",
+        "train": 90,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp2",
+        "train": 86,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp3",
+        "train": 88,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp4",
+        "train": 86,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp5",
+        "train": 87,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp6",
+        "train": 87,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp7",
+        "train": 87,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp1",
+        "train": 89,
+        "test": 7,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp2",
+        "train": 88,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp3",
+        "train": 90,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp4",
+        "train": 88,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp5",
+        "train": 90,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "all_exec/source_holdout": [
+      {
+        "fold": "0",
+        "train": 46,
+        "test": 50,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "1",
+        "train": 75,
+        "test": 21,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "2",
+        "train": 71,
+        "test": 25,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "all_exec/crossed_task_source_holdout": [
+      {
+        "fold": "('Nextcloud/exp1', 0)",
+        "train": 44,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 1)",
+        "train": 70,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 2)",
+        "train": 66,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 1)",
+        "train": 68,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 2)",
+        "train": 64,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 0)",
+        "train": 42,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 1)",
+        "train": 69,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 1)",
+        "train": 68,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 2)",
+        "train": 64,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 1)",
+        "train": 68,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 2)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 1)",
+        "train": 69,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 2)",
+        "train": 64,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 1)",
+        "train": 69,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 2)",
+        "train": 64,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 0)",
+        "train": 43,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 1)",
+        "train": 69,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 2)",
+        "train": 66,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 1)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 0)",
+        "train": 43,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 1)",
+        "train": 70,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 2)",
+        "train": 67,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 1)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 0)",
+        "train": 45,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 2)",
+        "train": 66,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "all_exec/application_holdout": [
+      {
+        "fold": "Nextcloud",
+        "train": 35,
+        "test": 61,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress",
+        "train": 61,
+        "test": 35,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_no_wrappers/task_holdout": [
+      {
+        "fold": "Nextcloud/exp1",
+        "train": 90,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp2",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp3",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp4",
+        "train": 85,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp5",
+        "train": 85,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp6",
+        "train": 86,
+        "test": 9,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp7",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp1",
+        "train": 88,
+        "test": 7,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp2",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp3",
+        "train": 89,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp4",
+        "train": 87,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp5",
+        "train": 89,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_no_wrappers/source_holdout": [
+      {
+        "fold": "0",
+        "train": 46,
+        "test": 49,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "1",
+        "train": 72,
+        "test": 23,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "2",
+        "train": 72,
+        "test": 23,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_no_wrappers/crossed_task_source_holdout": [
+      {
+        "fold": "('Nextcloud/exp1', 0)",
+        "train": 44,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 1)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp1', 2)",
+        "train": 68,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 1)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 2)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 0)",
+        "train": 40,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 1)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 2)",
+        "train": 65,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 0)",
+        "train": 41,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 1)",
+        "train": 66,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 2)",
+        "train": 65,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 0)",
+        "train": 42,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 1)",
+        "train": 67,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 2)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 0)",
+        "train": 43,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 1)",
+        "train": 66,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 2)",
+        "train": 67,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 1)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 2)",
+        "train": 66,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 0)",
+        "train": 43,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 1)",
+        "train": 67,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 2)",
+        "train": 68,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 0)",
+        "train": 43,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 1)",
+        "train": 65,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 2)",
+        "train": 66,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 0)",
+        "train": 45,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 2)",
+        "train": 67,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_no_wrappers/application_holdout": [
+      {
+        "fold": "Nextcloud",
+        "train": 35,
+        "test": 60,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress",
+        "train": 60,
+        "test": 35,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_first50/task_holdout": [
+      {
+        "fold": "Nextcloud/exp2",
+        "train": 36,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp3",
+        "train": 35,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp4",
+        "train": 32,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp5",
+        "train": 35,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp6",
+        "train": 32,
+        "test": 6,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "Nextcloud/exp7",
+        "train": 34,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp1",
+        "train": 33,
+        "test": 5,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp2",
+        "train": 37,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp3",
+        "train": 35,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp4",
+        "train": 37,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress/exp5",
+        "train": 34,
+        "test": 4,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_first50/source_holdout": [
+      {
+        "fold": "0",
+        "train": 18,
+        "test": 20,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "1",
+        "train": 30,
+        "test": 8,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "2",
+        "train": 28,
+        "test": 10,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_first50/crossed_task_source_holdout": [
+      {
+        "fold": "('Nextcloud/exp2', 0)",
+        "train": 17,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp2', 1)",
+        "train": 29,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 0)",
+        "train": 16,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 1)",
+        "train": 28,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp3', 2)",
+        "train": 26,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 0)",
+        "train": 15,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 1)",
+        "train": 26,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp4', 2)",
+        "train": 23,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 0)",
+        "train": 16,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp5', 2)",
+        "train": 27,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 0)",
+        "train": 15,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 1)",
+        "train": 25,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp6', 2)",
+        "train": 24,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 0)",
+        "train": 16,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('Nextcloud/exp7', 1)",
+        "train": 28,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 0)",
+        "train": 16,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 1)",
+        "train": 26,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp1', 2)",
+        "train": 24,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp2', 2)",
+        "train": 28,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 0)",
+        "train": 17,
+        "test": 2,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp3', 2)",
+        "train": 26,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp4', 0)",
+        "train": 18,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 0)",
+        "train": 17,
+        "test": 3,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "('WordPress/exp5', 2)",
+        "train": 25,
+        "test": 1,
+        "purged": 0,
+        "available": true
+      }
+    ],
+    "login_first50/application_holdout": [
+      {
+        "fold": "Nextcloud",
+        "train": 14,
+        "test": 24,
+        "purged": 0,
+        "available": true
+      },
+      {
+        "fold": "WordPress",
+        "train": 24,
+        "test": 14,
+        "purged": 0,
+        "available": true
+      }
+    ]
+  },
+  "elapsed_seconds": 10.93828479199874
+}

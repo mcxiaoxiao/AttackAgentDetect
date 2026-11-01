@@ -1,0 +1,146 @@
+{
+  "version": "behavior-corpus-v1",
+  "date": "2026-11-01",
+  "status": "catalog_expansion_not_new_effectiveness_results",
+  "traces": 1142,
+  "human": 79,
+  "agent": 1063,
+  "task_groups": 645,
+  "matched_human_agent_task_groups": 54,
+  "matched_traces": 207,
+  "ctf_matched_human_agent_task_groups": 40,
+  "ctf_traces": 664,
+  "supplement_traces": 478,
+  "excluded_empty_command_view": 414,
+  "exclusions_by_source": {
+    "cyber-task-horizons": 351,
+    "antieval/cybench-trajectories": 1,
+    "pagarsky/agent-trace": 62
+  },
+  "length_coverage": {
+    "1": 1142,
+    "2": 967,
+    "5": 676,
+    "10": 477,
+    "20": 289
+  },
+  "quality": {
+    "cth": {
+      "decoded_agent_samples": 1207,
+      "other_tool_calls": 2599,
+      "overlapping_source_snapshots_replaced": 328,
+      "decoded_human_samples": 87
+    },
+    "hf_cybench": {
+      "decoded_records": 190,
+      "other_tool_calls": 321,
+      "unrecognized_shell_argument": 1
+    },
+    "hf_agenttrace": {
+      "decoded_records": 400
+    }
+  },
+  "sources": [
+    {
+      "source": "antieval/cybench-trajectories",
+      "traces": 189,
+      "human": 0,
+      "agent": 189,
+      "task_groups": 32,
+      "models": [
+        "claude-opus-4.5",
+        "claude-sonnet-4.5",
+        "gpt-5.1",
+        "gpt-5.2",
+        "gpt-5.3-codex",
+        "gpt-5.4"
+      ]
+    },
+    {
+      "source": "cyber-task-horizons",
+      "traces": 615,
+      "human": 79,
+      "agent": 536,
+      "task_groups": 282,
+      "models": [
+        "claude-opus-4.6",
+        "claude-sonnet-4.6",
+        "gpt-5.5"
+      ]
+    },
+    {
+      "source": "pagarsky/agent-trace",
+      "traces": 338,
+      "human": 0,
+      "agent": 338,
+      "task_groups": 331,
+      "models": [
+        "Qwen/Qwen3-0.6B",
+        "Qwen/Qwen3-1.7B"
+      ]
+    }
+  ],
+  "benchmarks": [
+    {
+      "benchmark": "cvebench",
+      "traces": 33,
+      "human": 12,
+      "agent": 21,
+      "task_groups": 21
+    },
+    {
+      "benchmark": "cybashbench",
+      "traces": 2,
+      "human": 2,
+      "agent": 0,
+      "task_groups": 2
+    },
+    {
+      "benchmark": "cybench",
+      "traces": 305,
+      "human": 8,
+      "agent": 297,
+      "task_groups": 70
+    },
+    {
+      "benchmark": "cybergym",
+      "traces": 104,
+      "human": 4,
+      "agent": 100,
+      "task_groups": 100
+    },
+    {
+      "benchmark": "intercode-ctf",
+      "traces": 224,
+      "human": 43,
+      "agent": 181,
+      "task_groups": 73
+    },
+    {
+      "benchmark": "nl2bash",
+      "traces": 339,
+      "human": 1,
+      "agent": 338,
+      "task_groups": 332
+    },
+    {
+      "benchmark": "nyuctf",
+      "traces": 135,
+      "human": 9,
+      "agent": 126,
+      "task_groups": 47
+    }
+  ],
+  "old_evaluation": {
+    "traces": 97,
+    "task_groups": 40,
+    "pairs": 1558,
+    "status": "historical_scores_not_recomputed_for_expanded_catalog"
+  },
+  "limits": [
+    "Task identity is source-qualified; no cross-source identity mapping is assumed.",
+    "Known-command-head normalization is a lossy common view, not complete host execution telemetry.",
+    "Human terminal capture and Agent tool calls remain different observation mechanisms.",
+    "A broader catalog is coverage evidence, not measured generalization or improved attribution."
+  ]
+}

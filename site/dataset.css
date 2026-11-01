@@ -47,6 +47,25 @@
 .dataset-action-secondary { border-color: var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; }
 .dataset-action-secondary:hover:not(:disabled) { border-color: var(--blue); background: var(--blue-pale); }
 .dataset-action:disabled { opacity: .48; cursor: not-allowed; }
+.corpus-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 16px; margin: 20px 0; }
+.corpus-controls label { display: grid; gap: 7px; min-width: 120px; color: var(--muted); font-size: 13px; }
+.corpus-controls select, .corpus-controls input[type="search"] { min-height: 40px; width: 100%; max-width: 290px; padding: 8px 10px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); font: inherit; }
+.corpus-controls .corpus-checkbox { display: flex; align-items: center; gap: 8px; padding-block: 10px; }
+.corpus-table { width: 100%; min-width: 900px; border-collapse: collapse; table-layout: fixed; text-align: left; font-size: 13px; line-height: 1.7; }
+.corpus-table th, .corpus-table td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+.corpus-table th:nth-child(1) { width: 23%; }
+.corpus-table th:nth-child(2) { width: 22%; }
+.corpus-table th:nth-child(3) { width: 20%; }
+.corpus-table th:nth-child(4) { width: 18%; }
+.corpus-table th:nth-child(5) { width: 7%; }
+.corpus-table details summary { color: var(--blue-deep); cursor: pointer; font-family: var(--mono); font-size: 11px; }
+.corpus-table details p { margin-top: 12px; color: var(--muted); font-size: 12px; }
+.corpus-table a { color: var(--blue-deep); }
+.corpus-pagination { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; }
+.corpus-pagination p { color: var(--muted); font-size: 13px; }
+.corpus-pagination div, .corpus-downloads { display: flex; flex-wrap: wrap; gap: 10px; }
+.corpus-downloads { margin-top: 20px; }
+.dataset-section .corpus-narrative { max-width: none; margin-top: 16px; color: var(--muted); font-size: 16px; line-height: 1.8; }
 .dataset-report-link { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 22px; margin-top: 20px; color: var(--soft); font-size: 12px; }
 .dataset-report-link a { color: var(--blue-deep); font-weight: 600; }
 .dataset-browser-tools { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }

@@ -1,0 +1,21 @@
+{
+  "dataset": "pagarsky/agent-trace",
+  "revision": "4b05b2f00eea267a5bb4d841c228059d1bf9ac0c",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "path": "datasets/nl2bash_0_6B_20260328T133144Z.jsonl",
+      "local": "nl2bash_0_6B_20260328T133144Z.jsonl",
+      "bytes": 2194460,
+      "sha256": "15ce46f5ad2a26de02f86c030bb1c9e174f65cdfedcb1490e642ac5c6ba519e6",
+      "url": "https://huggingface.co/datasets/pagarsky/agent-trace/resolve/4b05b2f00eea267a5bb4d841c228059d1bf9ac0c/datasets/nl2bash_0_6B_20260328T133144Z.jsonl"
+    },
+    {
+      "path": "datasets/nl2bash_1_7B_20260403T211347Z.jsonl",
+      "local": "nl2bash_1_7B_20260403T211347Z.jsonl",
+      "bytes": 4984809,
+      "sha256": "250313ae096b0bb8c1986b6f571b68f4ff7617a12026db20214ad84188d12ae5",
+      "url": "https://huggingface.co/datasets/pagarsky/agent-trace/resolve/4b05b2f00eea267a5bb4d841c228059d1bf9ac0c/datasets/nl2bash_1_7B_20260403T211347Z.jsonl"
+    }
+  ]
+}

@@ -361,7 +361,26 @@
 .mode-related-work .docs-prose > h3 { margin-top: 30px; font-size: 20px; line-height: 1.4; }
 .mode-related-work .docs-prose > h3 a { color: var(--ink); text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 .mode-related-work .docs-prose > h3 a:hover { color: var(--blue-deep); }
+.mode-related-work .mode-citation-links { margin: -10px 0 22px; color: var(--blue-deep); font-size: inherit; line-height: inherit; }
+.mode-related-work .mode-citation-links a { color: var(--blue-deep); font-weight: 600; text-decoration: underline; text-decoration-color: #8aadd0; text-underline-offset: 3px; cursor: pointer; }
+.mode-related-work .mode-citation-links a:hover { color: #005a8e; text-decoration-thickness: 2px; }
 .mode-related-note { margin-top: 24px !important; color: var(--soft) !important; font-size: 13px !important; }
+.related-work-notes .docs-prose > h3 { margin: 30px 0 8px; font-size: 20px; line-height: 1.4; }
+.related-work-notes .docs-prose > p.related-work-note { max-width: none; margin: 0 0 24px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+.related-work-notes .related-work-citations { white-space: nowrap; }
+.related-work-notes .related-work-citations a,
+.related-work-notes .related-work-citations a:visited { color: var(--blue-deep); font-weight: 600; text-decoration: underline; text-decoration-color: #8aadd0; text-underline-offset: 3px; }
+.related-work-notes .related-work-citations a:hover { color: #005a8e; text-decoration-thickness: 2px; }
+.related-work-notes .docs-prose > p.related-work-check { max-width: none; margin: 0 0 24px; color: var(--ink); font-size: 16px; line-height: 1.8; overflow-wrap: anywhere; }
+.related-work-notes .related-work-check .related-work-citations { white-space: normal; }
+.dataset-review-table { width: 100%; max-width: 100%; margin: 24px 0; overflow-x: auto; }
+.dataset-review-table table { width: 100%; min-width: 640px; table-layout: fixed; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.dataset-review-table caption { padding-bottom: 12px; text-align: left; color: var(--muted); }
+.dataset-review-table th, .dataset-review-table td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; white-space: normal; overflow-wrap: anywhere; }
+.dataset-review-table th:first-child { width: 25%; }
+.dataset-review-table th:nth-child(2) { width: 25%; }
+.dataset-review-table th:nth-child(3) { width: 18%; }
+.dataset-review-table a { color: var(--blue-deep); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 640px) {
   .mode-matrix-heading { font-size: 18px; }
   .mode-matrix table { min-width: 980px; }

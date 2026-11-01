@@ -1,0 +1,958 @@
+{
+  "files": [
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-83d0a1kx3i5t3u6b/2026-03-12T21-11-32+00-00_intercode-ctf_R9JrRTZ7DrXeeCXNqg2QHk.eval",
+      "bytes": 16577330,
+      "sha256": "4fc2d7721add5e4c41a0bf967c41c10f894f9514d1ec5132836d2ca7b049e0d6",
+      "decoded_samples": 74
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T22-52-01+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 24588857,
+      "sha256": "fcc44722631b27a6bd9048989407f46aff16a720b7afb9db2d24882e283919aa",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T23-12-29+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 12511308,
+      "sha256": "130912f126d25c29831d263a6ff69555838fc55091a5cd0d4ac8056f4126ee88",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T23-14-30+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 12779656,
+      "sha256": "fc6a5ee11c49797a64d5733febe5f491fd7543a9b4fc41e565ef3159527a90c9",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T23-18-29+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 17017110,
+      "sha256": "a6a2dba85fdb46eeaac42ab378e89d48097d5a3303b4247024811508f0adad90",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T23-36-51+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 13385311,
+      "sha256": "3a81340087d68bbe23b2129f9e1d9c21720fe38a6f8684d79902d68c10d81660",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-08T23-49-45+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 1381,
+      "sha256": "c6fdae8dd3838be6be8f2ddcc1bea01fa39d523503019d6c1737237cf88225ad",
+      "decoded_samples": 0
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-09T00-19-21+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval",
+      "bytes": 31885602,
+      "sha256": "b04c4de728a2bf4b787097d3e9cc7825baf17c6fb23d93c0a6e8ebac99f6dd3c",
+      "decoded_samples": 32
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-a3yica4ok4ag8nui/2026-05-10T21-45-45+00-00_nyuctf_auLdSgbNKeASnUQWrjZbdq.eval",
+      "bytes": 53552314,
+      "sha256": "399bc43d87e2f33e9557840b2f63c2a6ab257bb916c832e7444d5b41646c808f",
+      "decoded_samples": 33
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-bcakpnavej4q4jd3/2026-03-12T23-07-55+00-00_nl2bash_5guiDd5fjcm7ckzCNRFwh6.eval",
+      "bytes": 1318129,
+      "sha256": "e469dcd6f3062b6835fcbfce9d7b4fac5c5206192d3d24ea4e6871a058599142",
+      "decoded_samples": 129
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-bjldgp2ll9qroagt/2026-03-12T21-11-24+00-00_nyuctf_JHsQ7ZhyCe5UkcWU8SYjtP.eval",
+      "bytes": 105420333,
+      "sha256": "c230687dad0b02df2451fb287e88865381533fd136fc412fbe5ebeb9a02e999e",
+      "decoded_samples": 47
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-bjldgp2ll9qroagt/2026-03-12T22-07-29+00-00_nyuctf_JHsQ7ZhyCe5UkcWU8SYjtP.eval",
+      "bytes": 106165318,
+      "sha256": "13f8fb7a9b426e19e0cdac5aa5680c7365b04a8e427b8ba4b909fc55beb9a0dd",
+      "decoded_samples": 47
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-jcdoiurrc2a17nmv/2026-03-12T23-05-05+00-00_cybench_43a4KS3YzyjMoQjjDJGssW.eval",
+      "bytes": 81220005,
+      "sha256": "d801b41d1f6014e4e9176a88a4fe2ddf6a73a98979a674ba772970e7c5b0f5dc",
+      "decoded_samples": 38
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-mrfumbtyv0pa6iab/2026-03-12T23-39-13+00-00_cybashbench_LdxduwCUNE3NMD9bCvmmHa.eval",
+      "bytes": 1157244,
+      "sha256": "e4e12661de05fa3b8f9a4ff0a067e24131159f2c1a0a13bbaea90cdfc539a3d1",
+      "decoded_samples": 200
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-ogyy9cl9fe76c7u2/full.eval",
+      "bytes": 71017083,
+      "sha256": "889df51d3142b8360fb65ee3a30afa935a1145fb619ac36b6440660301dd2f2d",
+      "decoded_samples": 38
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-pndp4jp5hn3cutp0/full.eval",
+      "bytes": 56530808,
+      "sha256": "cb944eef65ee1440ce2c35fa77afe8094a21130a7597db3ae213ebed2dc4c18b",
+      "decoded_samples": 47
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-q2eavajb0blxpmc1/2026-05-08T22-36-59+00-00_intercode-ctf_bVXADwfuhdypaxLQaYefrs.eval",
+      "bytes": 2290684,
+      "sha256": "dc532b841589b197e40198909cf2b5698502c0bfcab4f8b59a64523c7991a86c",
+      "decoded_samples": 46
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-rnjcl1u90s49rfsx/2026-03-20T02-55-23+00-00_cvebench_dxQMRLGqnv89Q99am6nQ27.eval",
+      "bytes": 46901783,
+      "sha256": "b2b8ab7a815df04c9365e5adf2176f2df2cf15221016f9361c2011232b2607eb",
+      "decoded_samples": 21
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-rnjcl1u90s49rfsx/2026-03-20T03-32-44+00-00_cvebench_dxQMRLGqnv89Q99am6nQ27.eval",
+      "bytes": 57822788,
+      "sha256": "6aec17f99c72a19e52baca27704ffe0b3757b0a00e65fff0e55e50f992db69bb",
+      "decoded_samples": 21
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-x2n13zd6vulak29q/full.eval",
+      "bytes": 5447430,
+      "sha256": "304c094a0e15eeec78401599e522b6e691f4b51ce97aaf1e4067536db9a1c122",
+      "decoded_samples": 74
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-zsam5w2kdrpva5pz/2026-03-12T11-06-23+00-00_cybergym_7dTMR7f5jXRVKdRKonxTWn.eval",
+      "bytes": 345655995,
+      "sha256": "e1eb42e40f04d7bc802c23e48e6f10cd548825c9c9f9e6bb74f2694c384b33be",
+      "decoded_samples": 100
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/eval_logs/eval-set-zsam5w2kdrpva5pz/2026-03-12T12-07-10+00-00_cybergym_7dTMR7f5jXRVKdRKonxTWn.eval",
+      "bytes": 345257254,
+      "sha256": "3487a97a5968580229a62d0ac0de674835534b27530aa7695f04b2dc927f5ff7",
+      "decoded_samples": 100
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2023-37999/session_164_20260203_235200.eval.gz",
+      "bytes": 1651996,
+      "sha256": "021025fe4ffe8c0e60eba007404788b925c7e77c29c9754d32449f431f9c6a65",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2023-51483/session_422_20260202_212242.eval.gz",
+      "bytes": 825398,
+      "sha256": "1937f8f3d1ee85ead41f667fd503a0f716c6f8e1c02f2859f80a70565a33705b",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-2771/session_462_20260312_151645.eval.gz",
+      "bytes": 472175,
+      "sha256": "f37dc94bdbe1085c935dfc6f87fd5dc3dc30c155f0836a5683f3161146f9ff1a",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-31611/session_047_20260314_142514.eval.gz",
+      "bytes": 102091,
+      "sha256": "ea27127fcd0b1e5ea0b65811674e2855feb5c77ab6b1a342381029e7c12f2dff",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-3234/session_324_20260315_124616.eval.gz",
+      "bytes": 167536,
+      "sha256": "5d911092250d897cb1b9937555257d33ac7db34ba4fea4661285b147cbb3297d",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-34359/session_085_20260306_191722.eval.gz",
+      "bytes": 40432,
+      "sha256": "714dc2871fc197029132449a3749b1761491b2cbb5dbd9e7dd3e2515d078a343",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-3495/session_128_20260315_125943.eval.gz",
+      "bytes": 4922035,
+      "sha256": "16b1adcd4ce526b6fd8b6c0bf31a448379bc099c09c56ef44ccffd0aa2115e6c",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-3552/session_265_20260203_085059.eval.gz",
+      "bytes": 8239599,
+      "sha256": "39b2c742fe297dcfca41ebcb0e63b1c7a33eabd3917d9f1e14c99a220454614c",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-3552/session_271_20260303_155538.eval.gz",
+      "bytes": 49533,
+      "sha256": "d71b56c852ae3297471557a189f787c07ba6c0c45a15599aab9ea64abc3bfc09",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-36779/session_241_20260203_095244.eval.gz",
+      "bytes": 40132,
+      "sha256": "d6d69db2a14abc76b81c5e6455b1c6f05514ae4ae2eea1f1b76fb89a0be28055",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-36779/session_433_20260217_112152.eval.gz",
+      "bytes": 250448,
+      "sha256": "142f40c8a4b1c38000b867aa6ab1583a08566dae2922b5c0bc5977fdf3866c7d",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cvebench/CVE-2024-5084/session_381_20260315_131032.eval.gz",
+      "bytes": 19446,
+      "sha256": "b2cca7394ee9f0f53044a1c4312d3580ed5bee0cb8d073aa36cbc57e37fdd842",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybashbench/cybashbench_forensics_contextual_023/session_250_20260214_172120.eval.gz",
+      "bytes": 297913,
+      "sha256": "1d1b2183140b06b9960c8fffc8369cec63f966c7cdf19632a7e27af4baf56419",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybashbench/cybashbench_reverse_contextual_022/session_402_20260215_162306.eval.gz",
+      "bytes": 14849,
+      "sha256": "19d0c1c6b3b258fa20f2f137b9a1511ebf80a06c886df806f326c107aaa05719",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/back_to_the_past/session_004_20260129_171037.eval.gz",
+      "bytes": 178021,
+      "sha256": "4bcb1bb6dbe1181a180a814ca2f541fb89c381604930b93d1d84e77bf8955f6c",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/back_to_the_past/session_332_20260302_165544.eval.gz",
+      "bytes": 47644,
+      "sha256": "5a9358f311dc178ac69e4ad5612608ff0725300931c7056d629ae8b6548f6130",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/flag_command/session_137_20260302_175835.eval.gz",
+      "bytes": 28751,
+      "sha256": "0d046049f8b1de7013477e0d3824660629e09e01656f9f0a78d66cfedc804edf",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/glacier-exchange/session_302_20260312_214301.eval.gz",
+      "bytes": 40931,
+      "sha256": "efed20b049fabb524baad437f0016ffa0169adb668abd5eef83481fcb265bc58",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/locktalk/session_179_20260227_210321.eval.gz",
+      "bytes": 59545,
+      "sha256": "569ca8ce775cb45b9400a7d419cdb3cd1b62603c1440c91a9d567d8568454cdf",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/lootstash/session_013_20260303_212350.eval.gz",
+      "bytes": 11705,
+      "sha256": "6b020ad59ad7d287f6e4667436e6944202183e87f2a8be2880dd08beb371380e",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/lootstash/session_225_20260302_213149.eval.gz",
+      "bytes": 18040,
+      "sha256": "b04d604c3ec9ff5510b0cd93887611461344372ca84070283b9c5f683142dc38",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybench/packedaway/session_130_20260302_212354.eval.gz",
+      "bytes": 18934,
+      "sha256": "732a16b26e6b04cfcc0d3c5c1bee2b1ef04581fe8d062041320909ce1cbc9127",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:34299/session_023_20260113_225539.eval.gz",
+      "bytes": 9198,
+      "sha256": "3aa1df8f7b0b69231ea34f1eca51a0e19dff1938cc0deeec26136fb3e6ec4c84",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:3848/session_005_20260211_122626.eval.gz",
+      "bytes": 259708,
+      "sha256": "778dd3e4536fe1e9d7a5760fe1eb5d0f6cd457393ff8e68ffbd040940d090bb6",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:46883/session_244_20260130_084558.eval.gz",
+      "bytes": 41623,
+      "sha256": "8241df7f98df158768ee384a0ce3b3852df66a648d4ef236b28dd1e4a3e80e77",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:49903/session_343_20260224_021545.eval.gz",
+      "bytes": 19432,
+      "sha256": "2df5fea9aea0619011c18f12d73c96bad6d73576d87435d4901c281ab693c72e",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:50834/session_287_20260209_051244.eval.gz",
+      "bytes": 312038,
+      "sha256": "903d2578c09e41f570467037ac18fc78bf982da694c666d09df39da49fc63bb7",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/cybergym/arvo:60121/session_347_20260114_011459.eval.gz",
+      "bytes": 1376,
+      "sha256": "5964fe312d44e7c76a26e27486e188775cdcf684bab364945dcdd61b83c3ea65",
+      "decoded_samples": 0
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_11/session_373_20260314_193240.eval.gz",
+      "bytes": 9398,
+      "sha256": "6cc8233c1c6e9f3fcd5b4b97e279cd17a18fa1a7fcbcf71f85acf0ea90af03f8",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_17/session_061_20260309_211256.eval.gz",
+      "bytes": 7043,
+      "sha256": "5c1182f22aa61bab7ef7ac918e429240c50e57afc19a68ccdd37ae404b874932",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_18/session_299_20260314_192456.eval.gz",
+      "bytes": 7190,
+      "sha256": "e1b2f8417f88459b88bca4f1593bc671aef57d7bc921f60eb7e02f764009ec92",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_19/session_119_20260309_211522.eval.gz",
+      "bytes": 7047,
+      "sha256": "10467ecf1925a0d7cd26f5a714f5c58555abf18d298f0916dfbd1b0a013f812f",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_21/session_279_20260314_192627.eval.gz",
+      "bytes": 602569,
+      "sha256": "d3d6e4d7f561587b1985e40fc4ec5c93326cade48d5d6045dce84c10c8ca87c1",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_22/session_184_20260309_213113.eval.gz",
+      "bytes": 7623,
+      "sha256": "9f27fe9897cc198335fd03341d528e0a473a2e60cdb0e2e0ef424844abc5d901",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_23/session_277_20260314_192803.eval.gz",
+      "bytes": 7814,
+      "sha256": "b4d1865db57417d8c0136854a4789417d167e73a4a28de8cc3d033bf3145fa2b",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_24/session_154_20260309_213358.eval.gz",
+      "bytes": 7296,
+      "sha256": "e0ad17afd6bb48c045ec7f6231c638d41b40790fa8f3fac6a019c99a79c64a25",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_35/session_062_20260314_192922.eval.gz",
+      "bytes": 7404,
+      "sha256": "fc27ea0df3bd87a31052671a88d3e42ea8f0c0dc57f38216e7614a407be0a7d6",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_36/session_325_20260309_235508.eval.gz",
+      "bytes": 8700,
+      "sha256": "60e643ee3df02dc1a87b226f652a3cb21cc60eb6e4b01582ead123ab28098397",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_4/session_389_20260314_193039.eval.gz",
+      "bytes": 7383,
+      "sha256": "05b7ff81f62f61434d3656acfa05c36bb86dda089c97ce4357bd44436acfaaac",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_general_skills_task_40/session_086_20260310_000120.eval.gz",
+      "bytes": 7621,
+      "sha256": "c8e7add0fc4d2859de50bd8369b5e7144b445c7cbb890d915d3b8303abba2676",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_10/session_211_20260225_202106.eval.gz",
+      "bytes": 7933,
+      "sha256": "43d43d62f7c5ba5f267bcc85eb40c27b185079a459d6502e621a9bccb2c2821d",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_10/session_445_20260301_222016.eval.gz",
+      "bytes": 7514,
+      "sha256": "c087b403b974711b890f30f177008ef7f8b3a2fd3e7977bb24e688dcebd9f3a4",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_13/session_206_20260225_231301.eval.gz",
+      "bytes": 19525,
+      "sha256": "9506dc7c64c174afddabd666763c2448a84a3374779de885d49e7cf2397aeee0",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_13/session_283_20260217_212338.eval.gz",
+      "bytes": 20620,
+      "sha256": "dabafc63621a561ae8941f3db344b24acdc586109786ef706031816dfd8db483",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_14/session_259_20260304_061310.eval.gz",
+      "bytes": 17447,
+      "sha256": "d48ca50e47a080f197c2de122b2ba5b2da437a3345f8e0deb2d34587cfff6d97",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_14/session_415_20260303_142650.eval.gz",
+      "bytes": 69092,
+      "sha256": "2f096cffb704d10deff04a9422fade7981796d048bcdf7832a5f8aba97a76ac8",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_2/session_010_20260311_012850.eval.gz",
+      "bytes": 49650,
+      "sha256": "ee4e687d40b81e8c476fd991ff7a6d3ee31ec254d691ea4f6c45ea768f2a51b7",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_2/session_052_20260226_001720.eval.gz",
+      "bytes": 8621,
+      "sha256": "e785a1fe049285f3cf681a331b2516a30e91630b679a80a3a59d5375be7f771a",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_3/session_046_20260223_104329.eval.gz",
+      "bytes": 17137,
+      "sha256": "38cc17a3b93439b33b81528358e63ce1a5e08e3c41663d25fcb9166b458e5c89",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_44/session_135_20260225_204804.eval.gz",
+      "bytes": 8423,
+      "sha256": "afca25f8c3f09b9b58aa14d4c9a9fe600fc04526fc502b98cf559d2811e13b0a",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_45/session_065_20260227_211657.eval.gz",
+      "bytes": 11761,
+      "sha256": "6fa542cb10d29298460128b2bd168f80314386fa3f996008f873c277c11ac58e",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_45/session_228_20260301_223611.eval.gz",
+      "bytes": 8360,
+      "sha256": "a0b101ef5c33681eaf85a4e78dc0c0f46baac31988a1cc551d2f0a6e698520ed",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_46/session_059_20260225_230238.eval.gz",
+      "bytes": 13364,
+      "sha256": "cfb9afb61ceb169cde0adfd66753ee9dfadfe2a8df186e8e0b9badd3cc038d98",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_47/session_066_20260227_145745.eval.gz",
+      "bytes": 8301,
+      "sha256": "1b5538bc1b8b483fdd7e1a4c7a42c872a2b7e570741f605c3cbe66c3659f9224",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_48/session_039_20260304_234734.eval.gz",
+      "bytes": 8311,
+      "sha256": "115484f34eadf39d4692ee2d2b4797f9d65105b2cf99507bae11926fe6dd3ee9",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_48/session_252_20260306_183930.eval.gz",
+      "bytes": 8831,
+      "sha256": "b9e839c4d565f477328847f68c340056c25d6c9bae382330f6c585c0b90e2fe7",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_49/session_178_20260228_130853.eval.gz",
+      "bytes": 8735,
+      "sha256": "aa24ed22b9709de78841e2259b3f6fd26714e9b2ca39d2b3595c40b171458c7a",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_50/session_249_20260217_214417.eval.gz",
+      "bytes": 9098,
+      "sha256": "8f90d4b016d87694903a74c080189f13fa3b9cfb136cbac973e1214db225def2",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_50/session_399_20260225_232843.eval.gz",
+      "bytes": 13771,
+      "sha256": "58057959f2213aa38c3888f2f521ad1e692b0b73de07f09c66ee72df0196ff06",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_51/session_025_20260226_000548.eval.gz",
+      "bytes": 12803,
+      "sha256": "880f7d18936cb031d05483d0b4cce51604a4d83056b2439f7646f31e45178243",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_51/session_355_20260217_220833.eval.gz",
+      "bytes": 8571,
+      "sha256": "75c29be86a93cd41423b0f8d32c195815b00282dcde33bbe6af75064a7010617",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_68/session_190_20260305_022444.eval.gz",
+      "bytes": 14626,
+      "sha256": "f836652f0a0bece53e2e66d9de9c575531291b22d3ef2a3f85f46e0789f4ee08",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_68/session_255_20260308_164651.eval.gz",
+      "bytes": 7843,
+      "sha256": "c8fa8a1fec33d945b829c498494b5f89196e27a34db9caff9cac7c308bdd1f93",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_76/session_037_20260225_200506.eval.gz",
+      "bytes": 7439,
+      "sha256": "4242017f216679ae9dbfd1eaf0f473321ea600fa4fdf723d43581cc00dea19d5",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_77/session_401_20260301_223117.eval.gz",
+      "bytes": 8419,
+      "sha256": "a64ab5b6d8f506d8a83dd5736bd472732744b9986dd94bb646c5410671f78f53",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_77/session_417_20260303_132704.eval.gz",
+      "bytes": 16516,
+      "sha256": "85fde4aa79e7f1d1a621d4866ab2fc3d58868edb1dcda4323ab30ab983d7185e",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_8/session_446_20260223_105802.eval.gz",
+      "bytes": 173692,
+      "sha256": "edd45da43ef810aef2a146e2589f5b63ebfc1c8b36a73aa964451d8119649168",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_81/session_034_20260301_223918.eval.gz",
+      "bytes": 8177,
+      "sha256": "3cd50baf179ed4e314fef4a7e0b1a4690b1a417d64893afd21bc8f727050c478",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_81/session_123_20260225_203939.eval.gz",
+      "bytes": 11335,
+      "sha256": "d2d579de7a63aac279ffbb5727b0cd3a35807effe688f092d6dbd319b19c6558",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_82/session_197_20260301_224431.eval.gz",
+      "bytes": 12074,
+      "sha256": "bc96cece9f726c058f89a9bd76f108c929b305c8a455d1dc04f2bddb2d62dd3a",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_82/session_488_20260225_205549.eval.gz",
+      "bytes": 21942,
+      "sha256": "292bce9806541ac04564575a598f4703c6eb510a61c47322c28b3b8e88198e84",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_83/session_185_20260303_143933.eval.gz",
+      "bytes": 8776,
+      "sha256": "374a0c882a95fd6e3a716600644cb3e29ecdd27f323c2d94d1e75dc0a820e216",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_83/session_372_20260301_225929.eval.gz",
+      "bytes": 8083,
+      "sha256": "eb8ca8c6034e53a3eee1e8b165fb1174ef68db8bc503c838ae12241ab434cd69",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_85/session_167_20260211_141726_partial.eval.gz",
+      "bytes": 1562,
+      "sha256": "94f9effa853db8a6e707df57720a8239343e49dce69b995bcd727b618bac6b76",
+      "decoded_samples": 0
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_85/session_167_20260211_153239.eval.gz",
+      "bytes": 8053,
+      "sha256": "b0ea97ff58971c1ad9e6eb9f9489c76dd0129c116045a2226fcb08c20f1fed70",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_85/session_315_20260203_214330.eval.gz",
+      "bytes": 17477,
+      "sha256": "d9990972d6a8e1b83379eb3e0008dfd3a0157f3f0f66f2004758d6fc506c473e",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nl2bash/nl2bash_complex_task_712/session_295_20260217_103055.eval.gz",
+      "bytes": 6731,
+      "sha256": "9c3451435aaf2c25ee4cbb4c08010d7be4508d50060013b44926535799c9c036",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nl2bash/nl2bash_complex_task_713/session_497_20260217_102631.eval.gz",
+      "bytes": 8559,
+      "sha256": "cdbbd17f0db670d3f5e600b5721a7a2636b1ab95bbaefb6e6a8f76926e4c787f",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nl2bash/nl2bash_very_complex_task_711/session_351_20260217_103319.eval.gz",
+      "bytes": 6795,
+      "sha256": "1ec90749100742bc4b773027283ef60397af4258b4d75fad842b5826a4869cb8",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2013q-msc-networking_1/session_296_20260227_153258.eval.gz",
+      "bytes": 6916,
+      "sha256": "4a4d66a17c661e861e7715d2a85ce3ed43ff0d67041df8aa979ac5d7099bc6ba",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2016q-for-kill/session_187_20260218_031858.eval.gz",
+      "bytes": 25493,
+      "sha256": "3a9650e2c6ae771ed4589f6e02938e6e1bc8a88abadfb383039863854604ae3d",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2016q-rev-rock/session_369_20260210_011653_partial.eval.gz",
+      "bytes": 1544,
+      "sha256": "9a7bfb5dd00765176f749954ed3481d0482026f52f90eea71b951f1b1c4cfbe9",
+      "decoded_samples": 0
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2016q-rev-rock/session_369_20260210_024355.eval.gz",
+      "bytes": 99144,
+      "sha256": "59c1f236f156dc916854655aecce255deb6541780a9830d7e5000f67f8eec6c3",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2016q-rev-rock/session_464_20260225_204030.eval.gz",
+      "bytes": 15772,
+      "sha256": "2140158c3cdcee4b59ea338ece20a362737d50b0ff98b29a820c67a7849cb33c",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2017q-web-orange/session_102_20260302_041354.eval.gz",
+      "bytes": 15341,
+      "sha256": "1c1a6f962d39ea2f55148390dfbfa9437b0d0c095b6be4fd785cfb00d35b1295",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2018q-msc-short_circuit/session_131_20260305_043849.eval.gz",
+      "bytes": 30995,
+      "sha256": "3826ba97c29a137707d8a404523fc1cb78e8ac07ec1c1577dd0a80fb6c328201",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2021q-rev-checker/session_314_20260228_133028.eval.gz",
+      "bytes": 11670,
+      "sha256": "5d62f65d3f72ebca71f05f987dd55c86f8923e47c8fc390452565eca8b3d18c6",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2023q-msc-linear_aggressor/session_416_20260205_020010.eval.gz",
+      "bytes": 7796,
+      "sha256": "1e8efd4d7faaa0cbd44530fcba2ba5035c5f8511fef0b55242b8715b44cd25a0",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2023q-rev-baby_s_first/session_222_20260308_163129.eval.gz",
+      "bytes": 7965,
+      "sha256": "7b3e341e832479338c12a5b1bc7163756fb005b2a73fa2ff98b7026294a59c66",
+      "decoded_samples": 1
+    },
+    {
+      "source": "cyber-task-horizons",
+      "revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+      "file": "data/human/eval_logs/nyuctf/2023q-rev-baby_s_first/session_291_20260303_213139.eval.gz",
+      "bytes": 7988,
+      "sha256": "127f8e69a78d91466613780d68de47902436da6b7d59c4e3503fb714280b324d",
+      "decoded_samples": 1
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_claude-opus-4.5.jsonl",
+      "bytes": 1013693,
+      "sha256": "007fa4f0f4635ad60869d5606ef75c82da41b4fafa920b170cdae5f36cfb5214"
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_claude-sonnet-4.5.jsonl",
+      "bytes": 920665,
+      "sha256": "a5487be33d6ab07bdf264103c7bb5d4dd7b37c9f697bc21a8c9176d06656b86f"
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_gpt-5.1.jsonl",
+      "bytes": 835208,
+      "sha256": "1df2099ced045e521f39fe37d985893c332c0feef529d84ed5bea3f4d9206801"
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_gpt-5.2.jsonl",
+      "bytes": 2749453,
+      "sha256": "1b7a9e05cdeed9e5dd58f2a4f055aabdebdb7d20b954498a9e58edea390e2079"
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_gpt-5.3-codex.jsonl",
+      "bytes": 1796765,
+      "sha256": "e811a7c58931830a75412f26cbaa58bf54c70edfeae870e6cdc5f08fdb3944a5"
+    },
+    {
+      "source": "antieval/cybench-trajectories",
+      "revision": "f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f",
+      "file": "cybench_gpt-5.4.jsonl",
+      "bytes": 1044486,
+      "sha256": "ed4807512b8434ea083ea0de19ff7f7d1c931d83826ac2b40930852255ff128e"
+    },
+    {
+      "source": "pagarsky/agent-trace",
+      "revision": "4b05b2f00eea267a5bb4d841c228059d1bf9ac0c",
+      "file": "datasets/nl2bash_0_6B_20260328T133144Z.jsonl",
+      "bytes": 2194460,
+      "sha256": "15ce46f5ad2a26de02f86c030bb1c9e174f65cdfedcb1490e642ac5c6ba519e6"
+    },
+    {
+      "source": "pagarsky/agent-trace",
+      "revision": "4b05b2f00eea267a5bb4d841c228059d1bf9ac0c",
+      "file": "datasets/nl2bash_1_7B_20260403T211347Z.jsonl",
+      "bytes": 4984809,
+      "sha256": "250313ae096b0bb8c1986b6f571b68f4ff7617a12026db20214ad84188d12ae5"
+    }
+  ],
+  "builder_sha256": "770114c9cbd3b3d70b5c86f295520cd3a24fd65e9c8a8175e788cdb6a0fb39c5",
+  "command_adapter_sha256": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f"
+}

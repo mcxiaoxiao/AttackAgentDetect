@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-01",
+  "queries": [
+    "site:huggingface.co/datasets \"CTF\" \"human\" trajectories",
+    "site:huggingface.co/datasets \"cybench\" trajectories",
+    "site:huggingface.co/datasets cybersecurity agent trajectories logs human",
+    "site:huggingface.co/datasets \"CTF\" \"human\" \"trajectories\"",
+    "site:huggingface.co/datasets \"cybench-trajectories\""
+  ],
+  "decisions": [
+    {
+      "dataset": "enigma-agent/trajectories",
+      "status": "HTTP-401; not-ingested"
+    },
+    {
+      "dataset": "steinad/CheatBench",
+      "revision": "461360b34e93644955563dcc9243c6cc1a53bd0f",
+      "status": "card-and-tree-reviewed; no-records-ingested",
+      "reason": "secondary cheating corpus; source-overlap and command-adapter audit pending"
+    },
+    {
+      "dataset": "jz666/wild-trajectory",
+      "revision": "7dd4293af34e396e6db490cfba4e63b9d76aa381",
+      "status": "gated; not-requested-or-ingested",
+      "reason": "requires contact-information sharing; no new public corpus records acquired"
+    }
+  ]
+}

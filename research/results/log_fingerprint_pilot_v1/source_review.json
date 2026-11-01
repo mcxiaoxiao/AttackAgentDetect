@@ -1,0 +1,104 @@
+{
+  "status": "posthoc_descriptive_not_used_for_tuning",
+  "source_sha256": {
+    "README.md": "873e740f84bb01b9afff0d7d78422fe02476f1e2bff66e68c38951b793c0ef21",
+    "agent/utils.py": "9b2b3ae6d0543d46a676e993bfddb92dce3f2e8feca60095e270a5dcb6bf568d",
+    "agent/scenarios/nextcloud/human.py": "9c4babb3142da8cc2f1892719102fd259721a849a55f6ca8719fb8d1aa00f9ae",
+    "agent/scenarios/wordpress/human.py": "cf06fdbc6f834bf8cbe80e414557c0d4cb938c56d9b3924d09989e2ea36bdd9d",
+    "agent/runners/LLM_Agent.py": "715a86063857c16f41a83a9e986fcacb18af26b9cf4e5f1facda829b575424d1",
+    "agent/runners/LLM_Agent_WP.py": "7a88746695542b9069e9a1bbfdc90c77979fdd4357a1c9486022c0608e2fa649",
+    "src/core/shared/actor_catalog.py": "e007a07bffbac13f3a84a12074ead61a05fd8e0c57d1886990efb63bcbc6c92b"
+  },
+  "top_presence_differences": [
+    {
+      "executable": "basename",
+      "human_run_presence": 30,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.6
+    },
+    {
+      "executable": "sudo",
+      "human_run_presence": 5,
+      "agent_run_presence": 29,
+      "agent_minus_human_prevalence": 0.5444444444444445
+    },
+    {
+      "executable": "bash",
+      "human_run_presence": 26,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.52
+    },
+    {
+      "executable": "less",
+      "human_run_presence": 22,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.44
+    },
+    {
+      "executable": "tr",
+      "human_run_presence": 22,
+      "agent_run_presence": 1,
+      "agent_minus_human_prevalence": -0.4177777777777778
+    },
+    {
+      "executable": "systemctl",
+      "human_run_presence": 25,
+      "agent_run_presence": 40,
+      "agent_minus_human_prevalence": 0.38888888888888884
+    },
+    {
+      "executable": "sort",
+      "human_run_presence": 16,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.32
+    },
+    {
+      "executable": "groups",
+      "human_run_presence": 16,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.32
+    },
+    {
+      "executable": "mesg",
+      "human_run_presence": 16,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.32
+    },
+    {
+      "executable": "dircolors",
+      "human_run_presence": 16,
+      "agent_run_presence": 0,
+      "agent_minus_human_prevalence": -0.32
+    },
+    {
+      "executable": "locale-check",
+      "human_run_presence": 16,
+      "agent_run_presence": 1,
+      "agent_minus_human_prevalence": -0.2977777777777778
+    },
+    {
+      "executable": "locale",
+      "human_run_presence": 16,
+      "agent_run_presence": 1,
+      "agent_minus_human_prevalence": -0.2977777777777778
+    },
+    {
+      "executable": "dirname",
+      "human_run_presence": 16,
+      "agent_run_presence": 1,
+      "agent_minus_human_prevalence": -0.2977777777777778
+    },
+    {
+      "executable": "apache2",
+      "human_run_presence": 2,
+      "agent_run_presence": 15,
+      "agent_minus_human_prevalence": 0.29333333333333333
+    },
+    {
+      "executable": "curl",
+      "human_run_presence": 1,
+      "agent_run_presence": 14,
+      "agent_minus_human_prevalence": 0.2911111111111111
+    }
+  ]
+}

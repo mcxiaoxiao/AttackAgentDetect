@@ -1,0 +1,29 @@
+{
+  "source_url": "https://zenodo.org/records/20818246/files/Logs_final.zip",
+  "archive_bytes": 157739317,
+  "json_entries": 16199,
+  "uncompressed_bytes": 1212208871,
+  "sample_records": [
+    {
+      "path": "Logs_final/prompt_5/20/plain_cowrie/qwen3:4b/session21.json",
+      "sha256": "b8fbfbcfdc7fcf793bb1012edca9c565418c94ec9234d73b5c12a24e275ce26e",
+      "json_type": "list",
+      "length": 21,
+      "turn0_types": [
+        "list",
+        "list"
+      ]
+    },
+    {
+      "path": "Logs_final/prompt_5/20/plain_cowrie/qwen3:4b/session17.json",
+      "sha256": "395508dfec91e18070f2da590cd4d5631029345c5161747bd535f5ac898d6cb1",
+      "json_type": "list",
+      "length": 21,
+      "turn0_types": [
+        "list",
+        "list"
+      ]
+    }
+  ],
+  "downloaded_range_bytes": 2432756
+}

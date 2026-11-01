@@ -23,20 +23,21 @@
 })();
 </script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="CTF 行为轨迹集：来自 Cyber Task Horizons 的 97 条轨迹、40 个任务组与 1,558 条外层评估配对。" name="description"/>
+<meta content="执行行为轨迹集：1142条标准化记录，含CTF核心、漏洞复现与命令任务，逐源登记。" name="description"/>
 <meta content="#f5f9fd" name="theme-color"/>
-<title data-en="AttackAgent Detect | CTF Behavior Trace Set">AttackAgent Detect | CTF 行为轨迹集</title>
+<title data-en="AttackAgent Detect | Execution Behavior Trace Set">AttackAgent Detect | 执行行为轨迹集</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
-<link href="dataset.css?v=20261101-trace-width-v3" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-width-v3" rel="stylesheet"/>
+<link href="dataset.css?v=expanded-20261101-trace-width-v3" rel="stylesheet"/>
+<link href="research.css?v=expanded-20261101-research-width-v3" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="dataset.js?v=20261101-trace-workflows-v1"></script>
+<script defer="" src="corpus.js?v=20261101-expansion-v1"></script>
 </head>
 <body class="research-page">
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
@@ -56,19 +57,43 @@
 
 <header class="dataset-header">
 <p class="dataset-kicker" data-en="DATASET · SOURCE-LINKED SUBSET">数据集 · 来源可追溯子集</p>
-<h1 data-en="CTF Behavior Trace Set">CTF 行为轨迹集</h1>
-<p class="dataset-lead" data-en="A curated Human and Agent trace subset from Cyber Task Horizons, used to evaluate behavior-based trace association across three public CTF benchmarks.">从 Cyber Task Horizons 整理的人类与 Agent 轨迹子集，用于评估三个公开 CTF 基准上的行为轨迹关联。</p>
-<p class="dataset-origin"><span data-en="Pinned upstream source">固定版本上游来源</span><a href="https://github.com/lyptus-research/cyber-task-horizons-data/tree/178c0da1800f9c07311e1b8d6c61dd8104e7b4ae">Cyber Task Horizons ↗</a><span class="dataset-revision">178c0da1800f9c07311e1b8d6c61dd8104e7b4ae</span><a class="dataset-license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 ↗</a></p>
+<h1 data-en="Execution Behavior Trace Set">执行行为轨迹集</h1>
+<p class="dataset-lead" data-en="CTF traces form the core, with vulnerability-reproduction and command-task supplements. Source-linked records support behavioral fingerprints and task-level retrieval across execution settings.">以CTF轨迹为核心，补充漏洞复现与命令任务记录。保留来源、模型、任务及观测格式，用于行为指纹和不同执行条件下的任务轨迹检索。</p>
+<p class="dataset-origin"><span data-en="Catalog version">目录版本</span><span class="dataset-revision">behavior-corpus-v1 · 2026-11-01</span><a href="#sources" data-en="Sources and observation types">来源与观测类型 ↓</a><a href="data/behavior-corpus-v1.csv" data-en="Per-source licenses and provenance">逐源许可与版本登记 ↗</a></p>
 </header>
 
-<section aria-label="样本总览" class="dataset-stats" data-en-aria-label="Sample overview">
-<article><strong>97</strong><span data-en="traces">条轨迹</span><small data-en="57 Human · 40 Agent">57 条 Human · 40 条 Agent</small></article>
-<article><strong>40</strong><span data-en="task groups">个任务组</span><small data-en="27 InterCode · 6 CyBench · 7 NYU CTF">InterCode 27 · CyBench 6 · NYU CTF 7</small></article>
-<article><strong>1,558</strong><span data-en="outer-fold evaluation pairs">条外层评估配对</span><small data-en="148 same-task · 1,410 different-task">148 条同题 · 1,410 条异题</small></article>
+<section aria-label="样本总览" class="dataset-stats" data-en-aria-label="Catalog overview">
+<article><strong>1,142</strong><span data-en="normalized records">条标准化记录</span><small data-en="79 Human · 1063 Agent">79 条Human · 1063 条Agent</small></article>
+<article><strong>664</strong><span data-en="CTF core records">条CTF核心记录</span><small data-en="478 vulnerability / command supplements">另有478条漏洞/命令补充记录</small></article>
+<article><strong>3</strong><span data-en="ingested public sources">个已接入公开来源</span><small data-en="54 tasks with both classes">54个任务组同时有Human与Agent</small></article>
+</section>
+<section class="dataset-section" id="sources">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="CORPUS / INGESTED SOURCES">轨迹目录 / 已接入来源</p><h2 data-en="More settings, explicit relation labels">多场景输入，明确关联目标</h2></div></div>
+<p class="corpus-narrative" data-en="Behavioral association covers several retrieval and matching tasks. CTF challenges, vulnerability targets and command tasks provide distinct contexts; we preserve their source-qualified task labels.">行为关联包含多种检索和匹配问题。CTF题目、漏洞目标与命令任务都提供了可核验的任务上下文；我们保留各自带来源的标签，不把不同关系统一改成操作者身份。</p>
+<p class="corpus-narrative" data-en="The shared command view lets the tools accept different trace formats. Generalization is tested with held-out tasks, models or sources; adding sources expands coverage without establishing transfer performance by itself.">共享命令视图让工具能够接收不同格式的轨迹。扩充来源是在扩大覆盖范围；泛化能力仍通过留出任务、模型或来源的实验来检验。CTF核心与补充记录分域报告，也可用于检查短轨迹和观测差异带来的失败条件。</p>
+<div class="dataset-table-scroll"><table class="dataset-source-table"><thead><tr><th scope="col" data-en="Ingested source">已接入来源</th><th scope="col" data-en="Records">记录</th><th scope="col">Human</th><th scope="col">Agent</th><th scope="col" data-en="Agent models">Agent模型</th></tr></thead><tbody><tr><th scope='row'><a href="https://huggingface.co/datasets/antieval/cybench-trajectories">antieval/cybench-trajectories ↗</a></th><td>189</td><td>0</td><td>189</td><td>6</td></tr>
+<tr><th scope='row'><a href="https://github.com/lyptus-research/cyber-task-horizons-data">cyber-task-horizons ↗</a></th><td>615</td><td>79</td><td>536</td><td>3</td></tr>
+<tr><th scope='row'><a href="https://huggingface.co/datasets/pagarsky/agent-trace">pagarsky/agent-trace ↗</a></th><td>338</td><td>0</td><td>338</td><td>2</td></tr></tbody></table></div>
+<p class="dataset-table-note" data-en="Counts include nonempty explicit shell-command views after source checks and snapshot deduplication. Catalog records may not satisfy every experiment's minimum evidence rule. Different sources' task identities are not automatically merged.">仅统计通过来源检查、重叠快照去重且具有非空显式命令视图的记录；目录记录不代表每条都满足实验的最小证据要求。任务键按来源限定命名空间，未自动合并不同来源的同名题目。</p>
+<p class="corpus-narrative" data-en="CTH combines Human terminal-input captures and Agent shell calls. HF Cybench is Agent-only and has no stated source license. AgentTrace contains instrumented NL2Bash spans for short-command and fixture stress tests. Raw prompts, outputs and flags are not republished.">CTH包含Human终端输入和Agent工具调用；HF Cybench为Agent侧补充，来源未声明统一许可；AgentTrace为带遥测的NL2Bash工具调用，定位为短命令与fixture变化的压力样本。公开视图仅保留命令名称与登记信息，不发布原始提示、输出或题目答案。</p>
+<div class="corpus-downloads"><a class="dataset-action" download="behavior-corpus-v1.csv" href="data/behavior-corpus-v1.csv" data-en="Download registry CSV">下载轨迹登记 CSV</a><a class="dataset-action dataset-action-secondary" download="behavior-corpus-v1.json" href="data/behavior-corpus-v1.json" data-en="Download catalog JSON">下载目录 JSON</a><a class="dataset-action dataset-action-secondary" href="related-work.html#data-checks" data-en="Data availability checks">数据核实与来源</a></div>
+</section>
+<section class="dataset-section" id="corpusBrowser">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="CORPUS / TRACE BROWSER">轨迹目录 / 逐条浏览</p><h2 data-en="Browse the expanded trace set">查看扩充后的轨迹</h2></div></div>
+<div class="corpus-controls">
+<label><span data-en="Track">分域</span><select id="corpusTrack"><option value="ctf" data-en="CTF core">CTF核心</option><option value="security" data-en="Vulnerability reproduction">漏洞复现</option><option value="command_tasks" data-en="Command tasks">命令任务</option><option value="all" data-en="All tracks">全部分域</option></select></label>
+<label><span data-en="Source">来源</span><select id="corpusSource"><option value="all" data-en="All sources">全部来源</option></select></label>
+<label><span data-en="Benchmark">任务基准</span><select id="corpusBenchmark"><option value="all" data-en="All benchmarks">全部基准</option></select></label>
+<label><span data-en="Execution mode">执行方式</span><select id="corpusMode"><option value="all" data-en="All">全部</option><option value="human">Human</option><option value="agent">Agent</option></select></label>
+<label><span data-en="Trace, task or model">轨迹ID、任务或模型</span><input id="corpusSearch" type="search"/></label>
+<label class="corpus-checkbox"><input id="corpusMatched" type="checkbox"/><span data-en="Tasks with both classes">仅看有双类记录的任务</span></label>
+</div>
+<div class="dataset-table-scroll"><table class="corpus-table"><thead><tr><th scope="col" data-en="Trace / command preview">轨迹 / 命令预览</th><th scope="col" data-en="Source / benchmark">来源 / 基准</th><th scope="col" data-en="Source-qualified task">来源内任务</th><th scope="col" data-en="Mode / model">方式 / 模型</th><th scope="col" data-en="Commands">命令数</th><th scope="col" data-en="Provenance">溯源</th></tr></thead><tbody id="corpusRows"></tbody></table></div>
+<div class="corpus-pagination"><p id="corpusStatus" role="status" aria-live="polite" data-en="Loading the trace catalog…">正在加载轨迹目录…</p><div><button class="dataset-action dataset-action-secondary" id="corpusPrevious" type="button" disabled="" data-en="Previous page">上一页</button><button class="dataset-action dataset-action-secondary" id="corpusNext" type="button" disabled="" data-en="Next page">下一页</button></div></div>
 </section>
 
-<section class="dataset-section" id="sources">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="01 / SOURCE BREAKDOWN">01 / 来源拆分</p><h2 data-en="Where the traces come from">样本来自哪里</h2></div><p data-en="Counts refer to the curated subset used in this evaluation, not the full size of each upstream benchmark.">表内数量只统计本次评估使用的整理子集，不代表上游基准的完整规模。</p></div>
+<section class="dataset-section" id="historical-sources">
+<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="01 / SOURCE BREAKDOWN">01 / 来源拆分</p><h2 data-en="Historical pair-evaluation subset">历史配对评估子集</h2></div><p data-en="This is the previous 97-trace, 1,558-pair evaluation. Its scores have not been recomputed for the expanded catalog.">下表对应此前97条轨迹、1,558条配对的评估。旧分数没有随目录扩充而重新计算。</p></div>
 <div class="dataset-table-scroll">
 <table class="dataset-source-table">
 <thead><tr><th scope="col" data-en="Benchmark source">基准来源</th><th scope="col" data-en="Task groups">任务组</th><th scope="col" data-en="Human traces">Human 轨迹</th><th scope="col" data-en="Agent traces">Agent 轨迹</th><th scope="col" data-en="Total traces">轨迹合计</th><th scope="col" data-en="Evaluation pairs">评估配对</th></tr></thead>
@@ -85,10 +110,10 @@
 
 <section class="dataset-boundary" aria-labelledby="dataset-boundary-title">
 <p class="dataset-kicker" data-en="LIMITATIONS AND DATA CHOICE">研究局限与数据选择</p>
-<h2 id="dataset-boundary-title" data-en="Same task does not mean same attack activity">同题标签不等于同一攻击活动</h2>
-<p data-en="Public datasets rarely combine matched Human and Agent behavior, reproducible task labels, and independently verified attack-activity ground truth. Given this availability limit, we use the overlapping Human and Agent CTF traces in Cyber Task Horizons and treat shared task identity as a task-level association proxy. A CTF challenge gives both traces a common objective and task context; InterCode describes CTF solving as iterative exploration, debugging, and exploitation. Related case-association systems show why behavioral context matters: ATLAS (USENIX Security 2021) recovers attack stories from sequences in causal audit graphs, while HOLMES (IEEE S&amp;P 2019) correlates suspicious information flows into campaign-level graphs. These works motivate behavior-based association, but rely on attack-specific evidence and do not equate shared task identity with shared activity. Our evaluation tests task-level retrieval as an initial measure of whether behavior evidence can connect AI and human traces, not attribution to a common actor or campaign.">公开数据难以同时提供可对照的 Human 与 Agent 行为、可复现的任务标签和经独立核验的攻击活动真值。受数据可得性限制，我们采用 Cyber Task Horizons 中题目重叠的 Human 与 Agent 轨迹，并将共享题目身份作为任务层面的关联代理标签。CTF 题目为两条轨迹提供共同目标与任务上下文；InterCode 将 CTF 解题描述为包含环境探索、调试和利用的迭代过程。相关案例关联工作也说明了行为上下文的价值：ATLAS（USENIX Security 2021）从因果审计图中的行为序列恢复攻击故事，HOLMES（IEEE S&amp;P 2019）将可疑信息流关联为 campaign 级图。这些工作为基于行为的关联提供研究动机，但依赖攻击特定证据，并不意味着共享题目身份就等同于共享活动。因此，我们将任务层面检索作为初步检验，评估行为证据能否连接 AI 与人类轨迹，而不据此归因共同操作者或 campaign。</p>
+<h2 id="dataset-boundary-title" data-en="Task labels and evaluation scope">任务标签与评估范围</h2>
+<p data-en="The CTF track evaluates whether behavior can retrieve records from the same challenge across execution modes. Vulnerability and command tracks preserve their own task definitions. These are explicit association targets, separate from operator or organization identity.">CTF分域检验行为证据能否跨执行方式检索同一道题；漏洞与命令分域保留各自任务定义。这些都是明确的关联目标，与操作者或组织身份分别讨论。后续按任务、模型和来源分组留出验证，不将目录规模直接解释为泛化效果。</p>
 <p class="dataset-report-link"><span data-en="Related top-venue work">相关顶会论文</span><a href="https://papers.neurips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf" data-en="InterCode · NeurIPS 2023">InterCode · NeurIPS 2023 ↗</a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel" data-en="ATLAS · USENIX Security 2021">ATLAS · USENIX Security 2021 ↗</a><a href="https://ieeexplore.ieee.org/document/8835390/" data-en="HOLMES · IEEE S&amp;P 2019">HOLMES · IEEE S&amp;P 2019 ↗</a></p>
-<p data-en="The result shows a useful but incomplete signal: command-plus-artifact ranking raises Hit@1 to 79.31% from 29.60%, while the 75.87% false-merge rate remains high. A positive label means only that two traces come from the same benchmark challenge; it does not establish a shared person, Agent, campaign, host, or real-world attack. Human records are terminal captures and Agent records are structured tool calls, so execution mode is confounded with collection interface. Because these task groups also informed method development, the outer-fold results are not independent external confirmation. The evidence supports further study of AI–human trace retrieval, not operational attribution.">结果显示出有用但尚不充分的信号：命令与产物排序将 Hit@1 从 29.60% 提升到 79.31%，但 75.87% 的误合并率仍然很高。正例只表示两条轨迹来自同一道基准题目，不能证明它们属于同一人员、Agent、活动、主机或真实攻击。Human 记录来自终端采集，Agent 记录来自结构化工具调用，执行方式与采集接口相互混杂。由于这些任务组也参与了方法开发，外层留出结果不是独立外部确认。结果支持继续研究 AI 与人类轨迹检索的可用性，不支持实际攻击归因。</p>
+<p data-en="Historical 97-trace evaluation only; not expanded-corpus results. The result shows a useful but incomplete signal: command-plus-artifact ranking raises Hit@1 to 79.31% from 29.60%, while the 75.87% false-merge rate remains high. A positive label means only that two traces come from the same benchmark challenge; it does not establish a shared person, Agent, campaign, host, or real-world attack. Human records are terminal captures and Agent records are structured tool calls, so execution mode is confounded with collection interface. Because these task groups also informed method development, the outer-fold results are not independent external confirmation. The evidence supports further study of AI–human trace retrieval, not operational attribution."><strong>以下仅为旧97条轨迹的历史评估，非扩充目录的新结果。</strong>结果显示出有用但尚不充分的信号：命令与产物排序将 Hit@1 从 29.60% 提升到 79.31%，但 75.87% 的误合并率仍然很高。正例只表示两条轨迹来自同一道基准题目，不能证明它们属于同一人员、Agent、活动、主机或真实攻击。Human 记录来自终端采集，Agent 记录来自结构化工具调用，执行方式与采集接口相互混杂。由于这些任务组也参与了方法开发，外层留出结果不是独立外部确认。结果支持继续研究 AI 与人类轨迹检索的可用性，不支持实际攻击归因。</p>
 <p class="dataset-terms"><b data-en="Metric labels">指标写法</b><span>FMR <span data-en="(false-merge rate)">(误合并率)</span></span><span>FSR <span data-en="(missed-link / false-split rate)">(漏关联率 / 误拆分率)</span></span><span>BA <span data-en="(balanced accuracy)">(平衡准确率)</span></span><span>Hit@1 <span data-en="(top-ranked hit rate)">(顶部命中率)</span></span></p>
 </section>
 
@@ -116,7 +141,15 @@
 
 <section class="citation-section dataset-citation" id="citation">
 <div class="dataset-section-head"><div><p class="dataset-kicker" data-en="04 / CITATION">04 / 引用</p><h2 data-en="Cite the subset and its source">引用整理数据与上游来源</h2></div><button class="dataset-action dataset-action-secondary" data-copy="dataset-citation" data-en="Copy citation" type="button">复制引用</button></div>
-<pre><code id="dataset-citation">@misc{attackagent_ctf_behavior_trace_set_2026,
+<pre><code id="dataset-citation">@misc{attackagent_behavior_corpus_v1_2026,
+  author = {{AttackAgent Detect}},
+  title = {Execution Behavior Trace Set: Source-linked Catalog v1},
+  year = {2026},
+  howpublished = {\url{https://mcxiaoxiao.github.io/AttackAgentDetect/dataset.html}},
+  note = {1,142 normalized records: 664 CTF core and 478 vulnerability/command supplements. Source revisions, record locators and source-specific terms are retained in the registry. Coverage catalog; new effectiveness results pending.}
+}
+
+@misc{attackagent_ctf_behavior_trace_set_2026,
   author = {{AttackAgent Detect}},
   title = {CTF Behavior Trace Set},
   year = {2026},
@@ -130,7 +163,7 @@
   year = {2026},
   url = {https://github.com/lyptus-research/cyber-task-horizons-data}
 }</code></pre>
-<p class="citation-source-note" data-en="The upstream data is licensed CC BY 4.0; retain its attribution when reusing the derived subset.">上游数据采用 CC BY 4.0；复用整理子集时请保留上游署名。</p>
+<p class="citation-source-note" data-en="The historical CTH subset uses CC BY 4.0. The expanded registry records each source revision and license separately; retain upstream attribution and source terms.">历史CTH子集采用CC BY 4.0。扩充目录逐源登记版本与许可，复用时保留各来源署名及条款。</p>
 </section>
 </div>
 </main>

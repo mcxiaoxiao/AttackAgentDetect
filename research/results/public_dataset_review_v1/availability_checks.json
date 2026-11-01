@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-01",
+  "kind": "focused_dataset_availability_review_not_experiment_results",
+  "repositories": {
+    "nyu": {
+      "url": "https://github.com/NYU-LLM-CTF/leaderboard_submissions",
+      "tree_sha": "69def02a79e8b1d890e1e0d5c11106a9f40e11e1",
+      "truncated": false,
+      "submission_manifests": 15,
+      "manifest_paths": [
+        "transcripts/baseline_claude3_haiku/summary.json",
+        "transcripts/baseline_gpt3.5/summary.json",
+        "transcripts/baseline_gpt4/summary.json",
+        "transcripts/craken_claude3.5_sonnet/summary.json",
+        "transcripts/craken_claude3.7_sonnet/summary.json",
+        "transcripts/craken_gpt4.1/summary.json",
+        "transcripts/craken_gpt4o/summary.json",
+        "transcripts/craken_graph_claude3.5_sonnet/summary.json",
+        "transcripts/dcipher_claude3.5_sonnet/summary.json",
+        "transcripts/dcipher_claude3.7_sonnet/summary.json",
+        "transcripts/dcipher_gpt4.1/summary.json",
+        "transcripts/dcipher_gpt4o/summary.json",
+        "transcripts/enigma_claude3.5_sonnet/summary.json",
+        "transcripts/enigma_gpt4/summary.json",
+        "transcripts/enigma_gpt4o/summary.json"
+      ],
+      "sample_schema": [
+        "args",
+        "messages",
+        "challenge",
+        "solved",
+        "rounds",
+        "start_time",
+        "end_time",
+        "runtime_seconds",
+        "times",
+        "exception_info",
+        "finish_reason"
+      ]
+    },
+    "known_actions": {
+      "tree_sha": "4f3df1851e0e64dbf835344372b02d1b9593cfab",
+      "lfs_pointer": "version https://git-lfs.github.com/spec/v1\noid sha256:79aeee6a2a7c9b32cfa0eb2a2c95663258338b33eeac1eb0117001dde5712f79\nsize 184239560\n"
+    },
+    "intercode": {
+      "tree_sha": "c3e46d827cfc9d4c704ec078f7abf9f41e3191d8",
+      "human_files": [
+        {
+          "path": "data/results/sql/human/ic_sql_multiturn_human_10_turns.json",
+          "size": 199885,
+          "sha": "fafbe5080cc1c7e17c5dbe3fd3694762126120be"
+        }
+      ]
+    },
+    "cybias": {
+      "files": [
+        {
+          "path": "data/bias_injection_family_long.csv",
+          "size": 119015,
+          "sha": "0417e732a388a965cb154958b5ac150e48633b1f"
+        },
+        {
+          "path": "data/bias_injection_family_long.parquet",
+          "size": 14668,
+          "sha": "97f4992d8f52b525342cfdc097b2821bcde53d08"
+        },
+        {
+          "path": "data/bias_injection_records.csv",
+          "size": 42283,
+          "sha": "4512af76774e32d343df6f7e2d3b29d824428c3f"
+        },
+        {
+          "path": "data/bias_injection_records.parquet",
+          "size": 22936,
+          "sha": "7b4d0156239cb94ae6bb6a774a6b575e1945997a"
+        },
+        {
+          "path": "data/bias_injection_traces.csv",
+          "size": 43344319,
+          "sha": "d6d0469c6694c6883f19a7f5c8cbb9f655097ca5"
+        },
+        {
+          "path": "data/bias_injection_traces.parquet",
+          "size": 2525798,
+          "sha": "bb2448955fdbc299c57916becfbe76646f8cdf2f"
+        },
+        {
+          "path": "data/bias_observation_family_long.csv",
+          "size": 96176,
+          "sha": "e0d5291c798c3c696c432b3d26a5690bee7962cf"
+        },
+        {
+          "path": "data/bias_observation_family_long.parquet",
+          "size": 12630,
+          "sha": "7413f736de0966fa00f8dc7cf2e260811e01440b"
+        },
+        {
+          "path": "data/bias_observation_records.csv",
+          "size": 23033,
+          "sha": "f37ccfee64fa5fe563c0991a8b680d914ade209d"
+        },
+        {
+          "path": "data/bias_observation_records.parquet",
+          "size": 14025,
+          "sha": "ff453411c6b5405bb48217aa0d399a98676cddd4"
+        },
+        {
+          "path": "data/bias_observation_traces.csv",
+          "size": 3318810,
+          "sha": "094c5619e13e12b414630882b3714abbe1da7f62"
+        },
+        {
+          "path": "data/bias_observation_traces.parquet",
+          "size": 220783,
+          "sha": "7c06628a46af344ee739077729cb1e27f9b7b6f4"
+        }
+      ]
+    }
+  },
+  "scope": [
+    "Start with user-supplied related-work list; verify linked papers and actual data files.",
+    "Supplementary discovery on arXiv, authors' GitHub repositories, Zenodo, Hugging Face and official benchmark sites.",
+    "Single-reviewer focused review; no systematic completeness claim; absence not proven by search failure."
+  ],
+  "queries": [
+    "human agent CTF dataset trajectories public human logs",
+    "Honey for the Agent dataset github",
+    "human LLM attack audit.log dataset",
+    "cyber human agent dataset logs benchmark",
+    "Honey for the Agent github",
+    "InterCode human trajectories github",
+    "Cross-Agent Campaign Attribution SCD github",
+    "Trace 2605.01186 dataset github",
+    "HackSynth dataset trajectories logs",
+    "Cybench logs github",
+    "Cross-Agent Campaign Attribution supplementary dataset download",
+    "TraceML dataset github",
+    "ATLASv2 dataset download",
+    "LIDAR 2609.28559 code dataset"
+  ]
+}

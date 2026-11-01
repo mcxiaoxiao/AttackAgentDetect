@@ -1,0 +1,339 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=0.92in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\emergencystretch}{2em}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\Human}{\textsc{Human}}
+\newcommand{\Agent}{\textsc{Agent}}
+\newcommand{\Unknown}{\textsc{Unknown}}
+\newcommand{\ind}{\mathbf{1}}
+\title{Behavioral Fingerprint Matrices for Execution-Mode-Aware\\Trace Association Across Security Tasks}
+\author{AttackAgent Detect\\Research manuscript in development}
+\date{November 1, 2026}
+
+\begin{document}
+\maketitle
+\begin{center}
+\small\textbf{Round status:} measurement design, source audit, corpus expansion, and one exploratory log-classification pilot.\\
+Fingerprint-matrix association and transfer performance remain to be evaluated.
+\end{center}
+
+\begin{abstract}
+Behavior-based trace association uses evidence such as tool choice and operation order to retrieve or link related executions. Agent participation may change how this evidence is generated: observed behavior can reflect the task and human controller together with the model, harness, prompt, and tool configuration. We investigate whether execution mode changes the value of behavioral similarity for association, and whether an interpretable fingerprint matrix can help. The proposed representation measures feasible behavioral dimensions in consecutive execution windows and can support both Human/Agent estimation and direct association. We curate a source-linked catalog containing 1,142 nonempty normalized records: 664 CTF records and 478 vulnerability-reproduction or command-task supplements, from Cyber Task Horizons and two Hugging Face releases. Task identities remain source-qualified, and each track retains its observation contract and relation meaning. An exploratory common-log pilot on 95 troubleshooting runs gives 52.89\% balanced accuracy for eight whole-session statistics under task holdout, compared with 93.78\% for a lexical baseline; shell-initialization and interface confounding remain plausible. These are not matrix-association results. We specify Agent-mixture sweeps, pair-type analysis, direct matrix ablations, and held-out task, model, and source evaluations. Dataset breadth provides a basis for testing transfer; generalization and association improvements are not established by curation alone.
+\end{abstract}
+
+\section{Introduction}
+Security investigations use behavioral evidence to retrieve relevant prior executions and relate observations across records. Some methods compare tool choices, local command combinations, and operation order. Agent participation introduces another influence on these features: independent activities can share an execution system, while one activity can switch between human-selected and Agent-selected operations. Similarity may consequently reflect shared models or harnesses, and differences may reflect a change of execution mode. Whether these effects increase false links or missed links is an empirical question, rather than an assumed monotonic consequence of adding Agents.
+
+AttackAgent Detect develops a shared interface for behavioral observations, interpretable fingerprints, and association methods. Association has several explicit endpoints: retrieving the same CTF challenge, matching a vulnerability target, or linking independently labeled activity episodes. These endpoints need their own labels. Task retrieval is a useful problem in its own right; it does not become operator attribution merely because the observations concern security tasks.
+
+We propose a behavioral fingerprint matrix whose rows follow the execution and whose columns measure observable behavior. The representation preserves local changes in tool selection, action organization, and repetition. It can be used to estimate Human/Agent execution mode and can also enter an association method directly. Mode estimation need not be a mandatory intermediate decision or a rule that excludes cross-mode links.
+
+A common representation is useful across diverse inputs, provided their observation contracts remain visible. Terminal-input captures, Agent shell-tool calls, and host execution logs expose different parts of behavior. Our corpus preserves those distinctions, task versions, and source provenance. Heterogeneous sampling therefore supplies multiple evaluation settings and failure conditions, rather than a single pooled identity benchmark. Evidence for a broadly usable tool must come from transfer evaluation on these settings.
+
+We address three questions:
+\begin{enumerate}
+\item \textbf{RQ1---Association sensitivity:} how do established behavioral association baselines behave as the proportion of Agent traces changes, and which Human--Human, Human--Agent, or Agent--Agent comparisons account for any change?
+\item \textbf{RQ2---Fingerprint representation:} can an observable, time-ordered matrix describe relevant execution differences and support Human/Agent estimation beyond whole-session statistics and lexical baselines?
+\item \textbf{RQ3---Incremental value and transfer:} does directly adding the matrix improve association at matched operating points, and does the effect persist under held-out tasks, models, or sources?
+\end{enumerate}
+Completed work consists of the measurement specification, source checks, an expanded normalized catalog, and an exploratory classification pilot. The matrix method and the concentration/association experiments below are prospective. They do not inherit effectiveness claims from earlier task-retrieval experiments.
+
+\section{Related Work and Design Lessons}
+\paragraph{Human/Agent log analysis.}
+The AIT/AECID public troubleshooting project studies human administrators and AI agents using system logs. Its feature inventory includes command vocabulary, argument construction, repetition, timing, and syscall summaries. Its documentation also identifies schedule- and volume-confounded measurements \cite{ait}. This motivates field-aware feature definitions and explicit nuisance controls. The setting is troubleshooting, and the repository describes thesis work with a paper under review; it is not independent evidence that the same features separate attack sessions.
+
+\paragraph{Terminal behavior fingerprints.}
+Trace studies model-family attribution from terminal command sequences using TF--IDF bigrams and a linear classifier. Its command-name-only comparison makes argument availability a relevant design choice \cite{trace}. Its endpoint concerns model families within Agent sessions, rather than the Human/Agent task here. We retain a lexical sequence baseline to test whether a small interpretable profile adds information beyond command vocabulary.
+
+\paragraph{Procedural representations.}
+ProcGrep represents coding-agent trajectories through action vocabularies and local procedures, comparing their frequencies and distributions \cite{procgrep}. We adopt the principle of describing observable action organization. Our coarse security-action map and scalar summaries are explicit adaptations; they are not a reproduction of ProcGrep or a semantic labeling of attack phases.
+
+\paragraph{Multiple behavioral views.}
+HABITS organizes session-level Human/Agent analysis into behavioral signal families and evaluates restricted views and feature-group ablations \cite{habits}. Its shopping setting and partly simulated Agent evidence do not justify transferring a shopping funnel or a causal prerequisite directly into a security profile. Its design suggests testing group contribution instead of treating a single timing cue as sufficient.
+
+These works motivate candidate measurements, not predetermined effect directions. We do not assume that agents always repeat more, use fewer tools, or act faster. The contributions of the proposed dimensions must be measured under matched collection conditions.
+
+\section{Task, Labels, and Observable Inputs}
+\subsection{Units and relation labels}
+A session or independently delimited source run is the measurement unit. Human/Agent annotations describe the released source condition and remain in an evaluator sidecar. They are not extracted from usernames, file paths, or source-format markers. Ambiguous mixtures and fixed automation need separate handling rather than forced binary identities.
+
+Association labels are defined per track. In the current CTF track, a positive means the same source-qualified challenge. The CVE track can use a vulnerability-target key while retaining the one-day information condition; the command-task track retains its fixture version. No cross-source task equivalence is inferred solely from a matching title. If activity labels become available, they form a separate endpoint. A pair's execution-mode combination is a stratification variable, not its relation label.
+
+\subsection{Common execution-log contract}
+The minimum contract is an event reference, an executable name, an ordering relation, and an auditable sessionization rule. Linux audit execution records are the first implementation target. Audit configuration must actually retain the relevant execution events; installing auditd alone is not a completeness guarantee \cite{auditctl}. Records belonging to the same audit event must be joined before counting an execution.
+
+Windows Sysmon process-creation events and Security event 4688 illustrate other common process-log sources \cite{sysmon,event4688}. They are schema feasibility examples, not implemented or evaluated adapters in this round. The 4688 command-line field depends on policy and is empty by default; argument-dependent features consequently cannot be a mandatory cross-source input \cite{event4688}. Authentication-only logs, generic application messages, and HTTP-only logs do not satisfy an executable-stream contract merely because they contain timestamps.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Log observability determines the admitted measurement tier. Availability must be checked per collector and session.}
+\label{tab:tiers}
+\begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}YY@{}}
+\toprule
+Tier & Required evidence & Status in this round \\
+\midrule
+Core execution & Executable names, order, event references, session boundaries & Eight candidate core features \\
+Arguments & Reconstructed argv or a reliably parsed command line & Optional argument-count and option-use extension \\
+Shell structure & Actual submitted shell syntax with boundaries & Pipeline, condition-chain, and batch features deferred \\
+Feedback & Operation completion and feedback paired with the subsequent decision & Retry/adaptation features deferred \\
+Resources & Attributable object-access events and stable within-session resource keys & Exploration and revisit features deferred \\
+Decision timing & Feedback-ready and next-submission times on comparable clocks & Decision-gap features deferred \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The audit result of an \texttt{execve} syscall must not be confused with the launched program's eventual exit status: successful \texttt{execve} replaces the process image \cite{execve}. Likewise, a process-start timestamp is not the time at which a person or model received feedback. A pipeline or loop cannot generally be reconstructed from child executable names alone. These constraints remove several attractive but currently unobservable dimensions from the primary study.
+
+\subsection{Normalization, ordering, and boundaries}
+An adapter canonicalizes executable names with one versioned policy and retains unknown names. Arguments, target paths, collector fields, and identities do not enter the core profile. A fixed action map assigns recognized executable names to coarse categories. The existing implementation supplies categories for discovery, reading, search, execution, building, networking, modification, and environment operations. This is a tool-category map, not proof of what an invocation accomplished; for example, an interpreter may perform many different operations.
+
+Unknown categories remain at their original sequence positions. They do not create a direct transition between previously separated known actions. Shell built-ins and in-process library calls may not generate a new executable event; process-level profiles therefore describe the visible execution footprint rather than all decisions or actions.
+
+Session construction uses a recorded collector-specific policy, such as a validated login/session grouping with a fixed inactivity rule. Missing or unreliable session evidence is reported; unrelated processes are not silently concatenated into a confident session prediction. Host names, user names, PIDs, session identifiers, record keys, model names, and task identifiers are excluded from model features. They may support event reconstruction and evaluation grouping.
+
+Ordering is defined by observable timestamps and deterministic event tie-breaks. Concurrent operations do not acquire a semantic causal order merely through sorting. The evaluation includes tie-order and session-boundary sensitivity where those ambiguities are present. Wrapper filtering and duplicate-event removal follow fixed, label-independent rules and preserve their event references and counts.
+
+\section{An Eight-Feature Core Profile}
+\subsection{Definitions}
+Let a session contain executable names $c_1,\ldots,c_n$ and mapped action categories $a_1,\ldots,a_n$, where an unrecognized category is $\bot$. Let $p(c)$ be the empirical executable distribution and define the eligible adjacent pairs
+\begin{equation}
+\mathcal E=\{i:1\leq i<n,\ a_i\neq\bot,\ a_{i+1}\neq\bot\}.
+\end{equation}
+For $(u,v)$ in the action vocabulary, let $q(u,v)$ be its frequency over $\mathcal E$, and let $q_{\mathrm{out}}(u)=\sum_v q(u,v)$. The outgoing marginal is calculated over eligible transitions, rather than all action occurrences.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Proposed core statistics. They are candidate observations, not established Human/Agent discriminators.}
+\label{tab:core}
+\begin{tabularx}{\linewidth}{@{}p{0.055\linewidth}p{0.245\linewidth}Y@{}}
+\toprule
+ID & Measurement & Definition and interpretation \\
+\midrule
+K1 & Executable diversity & $|\{c_i\}|/n$; observed tool vocabulary relative to event count. \\
+K2 & Executable entropy & $-\sum_c p(c)\log_2 p(c)$; distributional diversity. \\
+K3 & Dominant-tool share & $\max_c p(c)$; concentration on one executable. \\
+K4 & Action switching & $|\mathcal E|^{-1}\sum_{i\in\mathcal E}\ind[a_i\ne a_{i+1}]$; local category changes. \\
+K5 & Conditional action entropy & $-\sum_{u,v:q(u,v)>0}q(u,v)\log_2[q(u,v)/q_{\mathrm{out}}(u)]$; empirical next-action diversity. \\
+K6 & Longest action-run share & $L_{\max}/n$; longest contiguous known-category run relative to all executable events. Unknown categories break a run. \\
+K7 & Action-pair reuse & $1-|\{(a_i,a_{i+1}):i\in\mathcal E\}|/|\mathcal E|$; repeated two-step combinations. \\
+K8 & Adjacent executable repetition & $(n-1)^{-1}\sum_{i=1}^{n-1}\ind[c_i=c_{i+1}]$; repeated executable names, irrespective of arguments or outcome. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+An empty session has no defined core profile. Undefined denominators produce missing values, not zero; K6 is also missing when no known-category run exists. Minimum evidence requirements for prediction are fixed using development data before final evaluation. Very short sessions can have mathematically defined but unstable entropy estimates; a numerical value alone does not certify sufficient evidence.
+
+K4 is complementary to adjacent action repetition, so both are not counted as separate features. K8 concerns executable names and must never be renamed ``failed-command retry rate.'' K1, K2, and K7 are length-sensitive; their usefulness is tested against an explicit length baseline and matched observation budgets.
+
+\subsection{Why the feature set contracted}
+The literature synthesis originally organized 21 candidates into tool selection, action organization, command construction, repetition/feedback, resource exploration, and timing. The mandatory profile now retains only candidates supported by the minimum contract: former F01--F07 and F12, renamed K1--K8. This decision precedes new outcome evaluation and is based on observability, not favorable classification scores.
+
+Two argument summaries---median argument count and the share of invocations with parsed options---remain an optional, separately evaluated module. Complete argv or an explicitly validated parser is required. Submitted shell chains, batch construction, response-conditioned retries, resource revisits, and feedback-to-decision intervals are not part of the core result. Missing richer fields are not reconstructed by guessing from tool names.
+
+Counts, duration, parse coverage, unknown-action rate, and feature availability are quality/control fields. They support admission, diagnostics, and explicit baselines. They are not presented as intrinsic behavioral traits. The primary classifier does not receive collector identity or missingness indicators as a shortcut to the source label.
+
+\subsection{Profile visualization and prediction}
+The report displays raw feature values, relevant denominators, and reference-distribution positions learned from the training set. An action-composition heatmap uses consecutive event windows; its number of windows can grow with session length. It has no mandatory four-stage partition and no automatic reconnaissance/exploitation phase labels. A separate transition chart shows observed action pairs and representative event references.
+
+For a development-fixed window width $b$, window $W_j$ contains at most $b$ consecutive executable events, and the displayed value for category $u$ is
+\begin{equation}
+ h_{j,u}=\frac{\sum_{i\in W_j}\ind[a_i=u]}{|W_j|}.
+\end{equation}
+An explicit unknown column retains unmapped events, so each nonempty row sums to one. The final partial window is labeled with its event count. The window count is $\lceil n/b\rceil$; it is a display resolution, not a fixed number of attack stages. Event-budget-aligned panels support comparisons without stretching a short session to resemble a long one. These windows are not treated as independent labeled training samples.
+
+The exported profile keeps its feature version, session-boundary policy, action-map version, raw values, denominators, coverage summary, and supporting event references. A prediction record separately stores the model version, score, decision threshold, and any abstention reason. This separation permits rechecking a measured profile without accepting a classifier's source estimate.
+
+A classifier returns a session-source estimate only after the evidence checks. Its output is distinct from measured values. Feature-group explanations identify evidence associated with a prediction; they do not infer internal reasoning, autonomy, or an operator's psychological traits.
+
+\begin{figure}[htbp]
+\centering\small
+\begin{tabular}{c}
+\fbox{Common execution records and retained event references} \\
+$\downarrow$ \\
+\fbox{Join, normalize, order, sessionize, and audit coverage} \\
+$\downarrow$ \\
+\fbox{Eight measured features + variable-window action display} \\
+$\downarrow$ \\
+\fbox{Human/Agent estimate or abstention + evidence-linked explanation}
+\end{tabular}
+\caption{Proposed inference pipeline. Ground-truth labels and source identities stay in the evaluator. This is an architectural illustration, not an experimental result.}
+\end{figure}
+
+\section{Fingerprint Matrix and Direct Association}
+\label{sec:matrix}
+The fingerprint matrix is distinct from the action-composition heatmap: its columns are the eight measurements K1--K8, rather than eight action categories. For consecutive windows $W_j$, define
+\begin{equation}
+ F_{j,k}=K_k\bigl((c_i)_{i\in W_j}\bigr),\qquad
+ F\in\mathbb R^{J\times 8}.
+\end{equation}
+A corresponding validity mask records undefined measurements. Window width and minimum evidence requirements are fixed on development data. The number of rows follows the observed sequence length; it is not a fixed four-stage attack model. For a trajectory-derived command view, the same formulas describe only retained command heads, not every host execution. Host-log and trajectory-view outcomes are reported separately.
+
+A simple proposed matrix baseline compares standardized windows with dynamic time warping. Scaling uses training sessions only. For two rows, a local distance averages squared differences over their shared valid columns. An alignment path then compares the evolving profiles while allowing different numbers of observed steps. Insufficient shared evidence produces an unavailable comparison. This is a baseline use of an existing alignment method, not a new decomposition algorithm; SVD, HOSVD, and TSA are outside this round.
+
+The association comparison has a direct form: a baseline command-similarity score alone versus the same score together with matrix similarity in a small training-fitted pair scorer. Pair labels come only from training tasks, and all preprocessing is fitted inside the training partition. The principal ablation removes the entire matrix; further ablations remove tool-selection, action-organization, or repetition columns and refit under identical partitions. An additional Human/Agent classifier can use the matrix as input, but its score is not assumed to be a required association feature. A separate recognition-branch ablation is warranted only if such a branch actually enters the final method.
+
+\section{Completed Research Progress}
+\subsection{Literature and field-feasibility review}
+The current round completed a focused review of Human/Agent log studies, terminal fingerprinting, procedural Agent representations, and session-level behavior analysis. Each proposed feature now has an observation requirement and an interpretation boundary. Common-log documentation motivated contracting the primary feature set and separating optional measurements, as summarized in Table~\ref{tab:tiers}.
+
+The existing library contains audit-record joining/session normalization and versioned legacy behavioral-profile extraction. Its public evidence object currently retains command names, actions, references, and quality information. It does not expose all argument, feedback, resource, and timing fields required by the broader 21-feature proposal. The exploratory pilot implements and checks the eight scalar definitions in an experiment workspace. Public-library integration and the temporal matrix association method remain pending; this is not an implementation-completion claim for the full proposed method.
+
+\subsection{Historical profile-export audit}
+An audit of saved profiles and separate evaluator labels recorded the two collections in Table~\ref{tab:audit}. The script checks unique trace IDs, label joins, the legacy feature inventory, numeric validity, and presence of fields required by a controlled follow-up. It does not train a classifier or read historical effectiveness summaries.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Completed input audit of overlapping historical exports. Counts are record-source labels, not newly verified execution-controller labels.}
+\label{tab:audit}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Export collection & Records & Human & Agent & Unmatched profile/label IDs \\
+\midrule
+Earlier multi-profile export & 177 & 57 & 120 & 0 / 0 \\
+Cross-benchmark rerun export & 127 & 73 & 54 & 0 / 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The audit found 24 legacy feature definitions and no nonnumeric or nonfinite values among nonmissing feature entries in these exports. This does not establish completeness, correctness of every extractor, or effectiveness of the new eight-feature specification. The two collections overlap and must not be summed into 304 independent samples. Their exported registries do not include the activity, controller, repeat, delegation-condition, and harness-version fields required by the previously proposed controlled delegation study.
+
+These records originate from earlier use of public Cyber Task Horizons material \cite{cth}. Human terminal capture and Agent tool-call capture differ. The exports can support parser/profile audits and explicitly exploratory record-label analysis, but they do not provide a matched host-log Human/Agent benchmark by changing label names. Historical task-retrieval metrics address a different endpoint and are not results of the present Human/Agent study.
+
+\subsection{Expanded source-linked catalog}
+\label{sec:corpus}
+The expanded catalog contains 1,142 records with a nonempty explicit common-command view (Table~\ref{tab:expanded}). It is built from pinned local CTH files and two downloaded Hugging Face sources \cite{cth,hfcybench,agenttrace}. The 664 CTF records form the core; 478 records belong to vulnerability-reproduction or command-task supplements. There are 79 Human-source and 1,063 Agent-source records. Fifty-four source-qualified task groups contain both source classes, with 207 records in that matched subset. Most newly added records are Agent-only; catalog growth does not remove the Human-sampling bottleneck.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Actually ingested records, after snapshot selection and removal of empty common-command views. Counts are coverage, not independent test sample sizes.}
+\label{tab:expanded}
+\begin{tabularx}{\linewidth}{@{}YrrrY@{}}
+\toprule
+Source & Records & Human & Agent & Experimental role \\
+\midrule
+Cyber Task Horizons & 615 & 79 & 536 & Task retrieval and execution-mode proxy analysis \\
+HF Antieval Cybench & 189 & 0 & 189 & Agent/task and source-transfer setting \\
+HF AgentTrace NL2Bash & 338 & 0 & 338 & Short-command and fixture-change stress setting \\
+\midrule
+Total & 1,142 & 79 & 1,063 & Separate tracks and source-qualified labels \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+CTH input manifests cover 90 Human archives; 87 decoded sample records are present, of which 79 retain a common command. Overlapping Agent retry snapshots are selected deterministically per evaluation set, task, and epoch rather than counted as new executions. Antieval contributes six model files with 190 records, of which 189 retain commands. AgentTrace contributes 400 NL2Bash runs from two Qwen configurations, of which 338 retain commands. Its fixture hashes can differ between runs, so identical task indices are not automatically treated as the same experimental condition.
+
+The catalog uses the versioned, lossy command-head adapter to expose a common comparison view. It does not recover omitted tools or in-process operations. Across the three selected sources, 414 decoded/selected records have no explicit retained common-command view and are excluded with recorded reasons. Raw prompts, outputs, answers, and private-looking path fields are not republished. CTH is CC BY 4.0; AgentTrace records Apache-2.0 with upstream task terms; Antieval does not state a unified source license, which remains explicit in the registry. The public catalog contains source links, task/model metadata, counts, and command-name previews rather than a wholesale copy of the source logs.
+
+\subsection{Completed common-log classification pilot}
+A fixed exploratory batch used AIT/AECID original troubleshooting runs \cite{ait}. From 109 source-labeled intervals, a login-attributable executable view admitted 95 runs (50 Human, 45 Agent) under predeclared evidence requirements. Models received no identities or collector fields. GPT4.1 V2/V3 repetitions were grouped with their base model. Transformations were fitted inside each training partition, and no parameter search was performed.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Exploratory balanced accuracy (percent) on the same 95-run primary view. Source and task-transfer panels use different partitions, not independent new datasets.}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Fixed method & Task holdout & Source holdout & Task + source holdout \\
+\midrule
+Length & 33.78 & 36.78 & 36.78 \\
+Command TF--IDF & 93.78 & 84.33 & 87.44 \\
+Whole-session K1--K8 & 52.89 & 43.44 & 46.89 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The task-holdout conditional interval for the eight-feature balanced accuracy is 42.11--64.03\%; it reflects resampling observed task groups, not a population of unseen people or models. Its Human false-positive rate is 52\%, and its Agent false-negative rate is 42.22\%. The lexical baseline's higher score does not establish intrinsic Agent recognition: posthoc inspection found asymmetric occurrence of shell-related tools such as basename, bash, groups, mesg, and dircolors. Wrapper/background sensitivities were prespecified and are retained in the full report; they do not eliminate all interface or startup confounding. This pilot tests whole-session scalars, not the temporal matrix or downstream association benefit.
+
+\section{Prospective Evaluation}
+\subsection{Agent-mixture sweep}
+The Agent concentration is the fraction of Agent sessions in a defined evaluation collection. We plan a development-fixed sweep such as 0, 25, 50, 75, and 100\%, using eligible tasks with adequate Human and Agent observations. Task membership, total observation budget, and positive/negative relation composition are controlled, with repeated predeclared resampling. Partitions are assigned before sampling and before deriving windows. Thresholds and model settings are fixed before evaluation; data reuse is identified as exploratory rather than independent confirmation.
+
+The 17 existing CTF task groups with at least two Human and two Agent records can support a small matched-mixture prototype. At concentrations where a pair type is absent, its error rate is unavailable rather than zero. More Agent-only records improve model/task coverage but cannot supply missing Human repeats. No monotonic error increase with concentration is assumed.
+
+\subsection{Error decomposition and baselines}
+For each mixture, we report overall association outcomes and Human--Human, Human--Agent, and Agent--Agent strata. This separates a change within a pair type from a change caused by pair composition. Errors are defined against the track's relation label: wrong-task acceptance and same-task rejection in the CTF proxy, rather than demonstrated real-activity false attribution. Representative cases illustrate the complete statistical results, rather than replace them.
+
+Fixed comparisons include command-name unigram/bigram similarity, a small local sequence baseline, and the same association scorer with the matrix added. The matrix-removal comparison measures incremental value; group removals explain which observable columns contribute. Whole-session K1--K8 and a lexical Human/Agent classifier remain reference methods for the separate execution-mode endpoint. All methods receive the same source filtering and budgets. A model family's name, task identifier, source path, answer, and evaluation label are never inference features.
+
+\subsection{Heterogeneous inputs and transfer}
+A shared interface does not require a universal meaning for every positive label. Each track declares its observation unit, retained fields, relation definition, and admissible metrics. Within-track outcomes are reported before any macro aggregation. Source-qualified tasks and explicit fixture/variant metadata prevent apparent diversity from silently changing the ground truth.
+
+The transfer panels leave out tasks, execution systems, and data sources separately. Queries and gallery references are distinct executions; all derived windows and related retries remain with their source session. A held-out source with only Agent labels can support task-retrieval transfer, but cannot by itself provide a two-class Human/Agent balanced-accuracy test. Where a source shares underlying tasks or copied traces with another release, the split groups that lineage or reports a separate matched-task condition.
+
+For association we report retrieval quality, wrong-task acceptance, same-task rejection, and coverage at fixed operating points. For mode estimation we report balanced accuracy, macro-F1, Human false positives, Agent false negatives, and abstention. Uncertainty groups sessions and repeated task/controller conditions appropriately; pair counts and event counts do not become independent sample sizes. Breadth is a property of the curated inputs. Generalization is an outcome to be established by these held-out evaluations.
+
+\section{Discussion and Scope}
+The intended tool supports multiple behavioral retrieval and association settings through explicit input and relation contracts. CTF task matching, vulnerability-target retrieval, and command/fixture stress tests provide complementary settings. They need not be reduced to TTP-based organization attribution. This makes heterogeneous sampling relevant to the research objective, while requiring separate validation of what transfers across conditions.
+
+The current evidence establishes source-linked data preparation and a weak result for the initial whole-session statistics on one common-log pilot. It does not show that Agent participation degrades every association method, that the matrix resolves any observed errors, or that the tool already generalizes broadly. A negative mixture or matrix result would identify where this representation adds no value. Successful transfer would need to outperform appropriate lexical/sequence baselines under the same observation and labeling rules.
+
+\section{Conclusion}
+We propose interpretable fingerprint matrices for execution-mode-aware trace association and curate a broader, versioned input catalog. The catalog now spans a CTF core with vulnerability and command supplements, preserving source-specific labels and observation types. A completed common-log pilot does not validate the initial eight whole-session scalars as reliable Human/Agent discriminators. The next step is the predeclared mixture and matrix-ablation study, followed by task/model/source transfer evaluation. The framework's broad usability remains a testable objective supported by explicit contracts, rather than a conclusion inferred from dataset size.
+
+\clearpage
+\appendix
+\section{Disposition of the Literature-Informed Candidate Inventory}
+Table~\ref{tab:inventory} preserves the broader design history. The inventory has six families and 21 candidate measurements; the primary profile has three observable groups and eight scalar measurements. These are different levels of description, not competing claims about the final dimension count.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Disposition of all 21 initial candidates under the common-log contract.}
+\label{tab:inventory}
+\begin{tabularx}{\linewidth}{@{}p{0.13\linewidth}p{0.18\linewidth}YY@{}}
+\toprule
+Original IDs & Family & Candidate measurements & Decision \\
+\midrule
+F01--F03 & Tool selection & Diversity, entropy, dominant-tool share & Core K1--K3 \\
+F04--F07 & Action organization & Switching, conditional entropy, longest run, action-pair reuse & Core K4--K7 \\
+F08--F09 & Command construction & Argument count, option-use share & Optional with reliable argv \\
+F10--F11 & Command construction & Shell chains, batch/multiple-command construction & Deferred; submitted syntax required \\
+F12 & Repetition/feedback & Adjacent executable-name repetition & Core K8; no outcome inference \\
+F13--F15 & Repetition/feedback & Exact-command retry, changed-argument retry, tool switching after failure & Deferred; completion feedback and resource pairing required \\
+F16--F18 & Resource exploration & Resource diversity, revisits, namespace/category switching & Deferred; attributable access events required \\
+F19--F21 & Timing & Feedback-to-submission gap, relative gap variability, burstiness & Deferred; comparable decision-boundary timestamps required \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The optional argument module is evaluated only on a cohort meeting the same argument-availability rule for both classes. The deferred families remain hypotheses about potentially useful evidence. Their presence in the inventory is neither an extraction claim nor a finding of importance.
+
+\section{Reproducibility and Artifact Status}
+The pinned inputs are retrieved with \texttt{python3 research/scripts/fetch\_behavior\_corpus\_v1.py --download}; its 120 files total 1,443,787,470 bytes and are validated by size and SHA-256. The corpus is reproduced with \texttt{python3 research/scripts/build\_behavior\_corpus\_v1.py}; its registry, exclusion list, source hashes, and normalized evidence are under \path{research/results/behavior_corpus_v1/}. The common-log pilot is under \path{research/experiments/log_fingerprint_pilot_v1/}. The expanded website catalog is separate from the historical 97-trace pair inspector.
+
+The manuscript is self-contained at \path{research/paper/human-agent-fingerprint-main.tex}. The broader feature-design history is in \path{research/plans/human-agent-fingerprint-dimensions-v1.md}. The round progress report is \path{research/reports/human-agent-fingerprint-round1-progress.md}.
+
+The completed export audit is reproduced from the repository root with:
+\begin{quote}\small\ttfamily
+python3 research/experiments/delegation\_behavior\_v1/audit\_existing.py
+\end{quote}
+Its machine-readable report is \path{research/results/delegation_behavior_v1/input_audit.json}; input and script hashes are recorded there. The directory name reflects the earlier design stage and does not turn this audit into a delegation-effect experiment. The legacy \path{feature_catalog.csv} contains 24 historical features, not the new core definition.
+
+The current source definition for execution observations is \path{attackagent/evidence.py}; legacy behavioral extraction is \path{attackagent/profiles.py}; Linux audit normalization is \path{attackagent/auditd.py}. These existing sources are foundations, not a completed implementation of every proposed formula. The earlier task-retrieval manuscript remains at \path{research/paper/main.tex} and is not overwritten.
+
+Study-design drafting used the documented experimental-design workflow of Scientific Agent Skills \cite{skills} to organize observation units, blocking, repetition, and confounding checks. This workflow is drafting support, not evidence for the behavioral hypotheses. Source documentation was checked on November 1, 2026.
+
+\begin{thebibliography}{99}
+\bibitem{ait} AIT Austrian Institute of Technology, AECID. \emph{AI-Agent vs. Human System Administrators in Web Application Troubleshooting}. Public research repository; thesis project, corresponding paper described as under review. \url{https://github.com/ait-aecid/llm-user-shell-sim}. Accessed November 1, 2026.
+\bibitem{trace} M. Ediga and S. Chattopadhyay. \emph{Trace: Unmasking AI Attack Agents Through Terminal Behavior Fingerprinting}. arXiv:2605.01186, 2026. \url{https://arxiv.org/abs/2605.01186}.
+\bibitem{procgrep} H. Oderinwale. \emph{Agent trajectories as programs: fingerprinting and programming coding-agent behavior}. arXiv:2606.16988, 2026. \url{https://arxiv.org/abs/2606.16988}.
+\bibitem{habits} A. Dutta, V. R. Surabhi, J. Tong, D. Dai, O. Boz, and A. Weerasinghe. ``Are LLM Shopping Agents Behaviorally Distinguishable from Human Shoppers? A Session-Level Study.'' In \emph{Proceedings of REALM 2026}, pp. 930--946, 2026. \url{https://doi.org/10.18653/2026.realm-1.64}.
+\bibitem{auditctl} Linux Audit project. \emph{auditctl(8): a utility to assist controlling the kernel's audit system}. Upstream manual. \url{https://man7.org/linux/man-pages/man8/auditctl.8.html}. Accessed November 1, 2026.
+\bibitem{execve} Linux man-pages project. \emph{execve(2): execute program}. \url{https://man7.org/linux/man-pages/man2/execve.2.html}. Accessed November 1, 2026.
+\bibitem{sysmon} Microsoft Sysinternals. \emph{Sysmon: process creation and event documentation}. \url{https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon}. Accessed November 1, 2026.
+\bibitem{event4688} Microsoft. \emph{4688(S): A new process has been created}. Windows Security Auditing documentation. \url{https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4688}. Accessed November 1, 2026.
+\bibitem{cth} Lyptus Research. \emph{Cyber Task Horizons public data}. Historical input snapshot \texttt{178c0da1800f9c07311e1b8d6c61dd8104e7b4ae}. \url{https://github.com/lyptus-research/cyber-task-horizons-data}.
+\bibitem{cthhuman} Lyptus Research. \emph{Human Expert Evaluation Logs: format and capture documentation}. \url{https://github.com/lyptus-research/cyber-task-horizons-data/blob/main/data/human/eval_logs/README.md}. Accessed November 1, 2026.
+\bibitem{cybias} CyBiasBench project. \emph{Benchmarking Bias in LLM Agents for Cyber-Attack Scenarios: public repository and sanitized trace schema}. \url{https://github.com/Harry24k/CyBiasBench}; \url{https://github.com/Harry24k/CyBiasBench/blob/main/schema/columns_traces.md}. Accessed November 1, 2026.
+\bibitem{skills} T. Kassis, V. Agarwal, Y. He, D. Patel, and A. M. Brueckner. \emph{Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents}. arXiv:2609.00065, 2026. \url{https://doi.org/10.48550/arXiv.2609.00065}.
+\bibitem{hfcybench} Antieval. \emph{Cybench trajectories}. Hugging Face dataset, revision \texttt{f5696b7efe1a176d00e529ca91fc35dd3a9b5b0f}. \url{https://huggingface.co/datasets/antieval/cybench-trajectories}. Accessed November 1, 2026.
+\bibitem{agenttrace} O. Paharskyi and H. Haina. \emph{AgentTrace: Tool-Using Model Telemetry Dataset}. 2026. Dataset revision \texttt{4b05b2f00eea267a5bb4d841c228059d1bf9ac0c}. \url{https://huggingface.co/datasets/pagarsky/agent-trace}.
+\end{thebibliography}
+\end{document}

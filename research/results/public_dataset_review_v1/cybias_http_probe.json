@@ -1,0 +1,23 @@
+{
+  "url": "https://raw.githubusercontent.com/Harry24k/CyBiasBench/main/data/bias_observation_traces.csv",
+  "status": 206,
+  "content_length": "10000",
+  "content_range": "bytes 0-9999/3318810",
+  "sample_bytes": 10000,
+  "columns": [
+    "\"record_id\"",
+    "\"scenario\"",
+    "\"target\"",
+    "\"agent\"",
+    "\"request_index\"",
+    "\"req_method\"",
+    "\"req_path\"",
+    "\"resp_status_code\"",
+    "\"attack_family\"",
+    "\"matched_rules\"",
+    "\"capec_id\"",
+    "\"cwe_id\"",
+    "\"success\"",
+    "\"success_evidence\""
+  ]
+}
