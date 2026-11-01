@@ -120,7 +120,7 @@ html:not(.has-field) .hero-copy { background: var(--paper); box-shadow: 0 0 48px
 .api-install button:hover, .api-pane button:hover { color: #fff; }
 .api-pane { min-width: 0; margin: 0; overflow: clip; border: 1px solid var(--graphite-rule); border-radius: 0; background: var(--graphite); color: var(--graphite-ink); clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
 .api-file { display: flex; min-height: 44px; align-items: center; gap: 16px; padding: 8px 18px; border-bottom: 1px solid var(--graphite-rule); background: #202b3e; color: var(--graphite-muted); font-size: 12px; }
-.api-file code { padding: 0; background: transparent; color: var(--graphite-ink); font: 500 11px var(--mono); }
+.api-file code { padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--graphite-ink); font: 500 11px var(--mono); }
 .api-file > span { margin-left: auto; }
 .api-pane pre { margin: 0; padding: 26px 18px 34px; overflow-x: auto; color: var(--graphite-ink); font: 13px/1.75 var(--mono); tab-size: 2; }
 .api-pane pre > code { display: block; min-width: max-content; padding: 0; background: transparent; color: inherit; font: inherit; }
