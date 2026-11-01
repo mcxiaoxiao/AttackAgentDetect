@@ -134,7 +134,7 @@
 }
 
 .research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms) {
-  max-width: 75ch;
+  max-width: none;
 }
 
 .research-page #main > details.research-technical-details {
@@ -250,7 +250,6 @@
 .research-page .result-intro > p,
 .research-page .dataset-lead,
 .research-page .dataset-section-head > p,
-.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms),
 .research-page .section .caption,
 .research-page .pair-error-result > p,
 .research-page .related-details > p,
@@ -328,4 +327,42 @@
   .research-page .dataset-section {
     padding-block: 38px;
   }
+}
+
+
+/* Visible detector method and experiment matrices use the page canvas, not card surfaces. */
+.research-page .mode-detector-doc,
+.research-page .mode-results,
+.research-page .mode-related-work,
+.research-page .mode-source-matrix,
+.research-page .mode-matrix { background: transparent; }
+.mode-matrix-heading { max-width: var(--content); margin: 34px auto 0; font-size: 20px; font-weight: 600; }
+.mode-protocol { max-width: 76ch; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.mode-source-matrix,
+.mode-matrix { width: 100%; max-width: var(--content); margin: 18px auto 0; overflow-x: auto; }
+.mode-source-matrix table { min-width: 620px; }
+.mode-matrix table { min-width: 980px; }
+.mode-source-matrix table,
+.mode-matrix table { background: transparent; }
+.mode-source-matrix th,
+.mode-source-matrix td,
+.mode-matrix th,
+.mode-matrix td { padding-block: 12px; border-bottom: 1px solid var(--line); background: transparent; }
+.mode-source-matrix th:not(:first-child),
+.mode-source-matrix td:not(:first-child),
+.mode-matrix th:nth-child(n + 3),
+.mode-matrix td:nth-child(n + 3) { text-align: right; white-space: nowrap; }
+.mode-source-matrix tr.mode-total-row th,
+.mode-source-matrix tr.mode-total-row td { border-top: 1px solid var(--line-strong); font-weight: 600; }
+.mode-matrix tbody tr:nth-child(even) th,
+.mode-matrix tbody tr:nth-child(even) td { background: rgb(23 50 77 / 2.5%); }
+.mode-matrix tbody tr.mode-best-row th,
+.mode-matrix tbody tr.mode-best-row td { background: #e9f2fb; font-weight: 600; }
+.mode-related-work .docs-prose > h3 { margin-top: 30px; font-size: 20px; line-height: 1.4; }
+.mode-related-work .docs-prose > h3 a { color: var(--ink); text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.mode-related-work .docs-prose > h3 a:hover { color: var(--blue-deep); }
+.mode-related-note { margin-top: 24px !important; color: var(--soft) !important; font-size: 13px !important; }
+@media (max-width: 640px) {
+  .mode-matrix-heading { font-size: 18px; }
+  .mode-matrix table { min-width: 980px; }
 }
