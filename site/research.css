@@ -265,14 +265,6 @@
   max-width: var(--content);
 }
 
-/* Give the research limitation block the same full content measure as its section. */
-.research-page #limits .docs-prose,
-.research-page #limits .docs-prose > p,
-.research-page .dataset-boundary > p:not(.dataset-kicker):not(.dataset-terms) {
-  width: 100%;
-  max-width: none;
-}
-
 .research-page .docs-prose > p:last-child {
   line-height: 1.7;
 }

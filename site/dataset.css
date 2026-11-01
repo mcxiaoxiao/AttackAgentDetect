@@ -68,9 +68,35 @@
 .pair-card-field dt { color: var(--soft); font-size: 11px; }
 .pair-card-field dd { margin: 0; color: var(--ink); font-size: 13px; overflow-wrap: anywhere; }
 .pair-card-field code { font-size: 10px; }
+.pair-workflows { margin-top: 22px; border-top: 1px solid var(--line); }
+.pair-workflows summary { width: fit-content; padding: 15px 0 5px; color: var(--blue-deep); font-size: 13px; font-weight: 600; cursor: pointer; }
+.pair-workflows summary:focus-visible, .trace-flow-controls button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.pair-workflow-note { max-width: 78ch; margin-top: 10px; color: var(--soft); font-size: 11px; line-height: 1.6; }
+.trace-flow-controls { display: flex; justify-content: flex-end; margin: 14px 0; }
+.trace-flow-controls button { min-height: 34px; padding: 6px 11px; font-size: 11px; }
+.trace-flow-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.trace-flow-panel { min-width: 0; border: 1px solid var(--line); background: #fbfcfd; }
+.trace-flow-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 13px 15px; border-bottom: 1px solid var(--line); }
+.trace-flow-heading h4 { font-size: 14px; font-weight: 600; }
+.trace-flow-heading > span { color: var(--soft); font: 10px var(--mono); }
+.trace-flow-steps { display: grid; gap: 0; max-height: 390px; margin: 0; padding: 8px 14px 10px; overflow: auto; list-style: none; }
+.trace-flow-steps li { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; padding: 9px 8px; border-left: 1px solid var(--line-strong); transition: background .18s ease, border-color .18s ease; }
+.trace-flow-steps li::before { position: absolute; top: 15px; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); content: ""; }
+.trace-flow-steps li.is-active { border-left-color: var(--blue); background: #eaf3fb; }
+.trace-flow-steps li.is-active::before { background: var(--blue-deep); box-shadow: 0 0 0 4px #d7e9f8; }
+.trace-step-index { color: var(--soft); font: 10px var(--mono); }
+.trace-flow-steps li > div { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; min-width: 0; }
+.trace-flow-steps code { color: var(--ink); font: 12px var(--mono); overflow-wrap: anywhere; }
+.trace-step-phase { color: var(--soft); font-size: 10px; }
+.trace-flow-empty { color: var(--muted); font-size: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .trace-flow-steps li { transition: none; }
+  .trace-flow-steps li.is-active { scroll-behavior: auto; }
+}
 .dataset-pair-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
 .dataset-pair-navigation span { color: var(--muted); font: 11px var(--mono); }
-.dataset-citation { padding-bottom: 30px; border-bottom: 0; }
+.dataset-section#downloads { border-bottom: 0; padding-bottom: 30px; }
+.dataset-citation { padding-top: 30px; padding-bottom: 44px; border-bottom: 1px solid var(--line-strong); }
 .dataset-citation .dataset-section-head { align-items: end; margin-bottom: 20px; }
 .dataset-citation pre { max-width: 100%; margin: 0; padding: 20px 22px; overflow: auto; border: 1px solid var(--graphite-rule); background: var(--graphite); color: var(--graphite-ink); font: 12px/1.75 var(--mono); tab-size: 2; }
 .dataset-citation pre code { min-width: max-content; white-space: pre; }
@@ -90,6 +116,7 @@
   .dataset-stats article + article { border-top: 1px solid var(--line); }
   .dataset-stats strong { font-size: 42px; }
   .dataset-downloads, .pair-card-grid { grid-template-columns: minmax(0, 1fr); }
+  .trace-flow-compare { grid-template-columns: minmax(0, 1fr); }
   .dataset-browser-tools { align-items: stretch; }
   .dataset-browser-tools label { min-width: calc(50% - 6px); flex: 1 1 150px; }
   .dataset-browser-tools > button { margin-left: 0; }

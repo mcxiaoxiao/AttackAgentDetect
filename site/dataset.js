@@ -31,6 +31,11 @@
       exported: '已导出当前筛选结果。', exportError: '导出失败。',
       searchPlaceholder: '输入 trace ID 定位样例',
       traceMatch: id => `已定位到轨迹 ${id}，显示包含该轨迹的配对。`,
+      flow: '展开两条轨迹的操作流程',
+      flowNote: '按记录中的命令名称与动作类别还原；参数和命令输出未展示。动画同步展示步骤顺序，不表示两侧步骤一一对应；这是 CTF 解题流程，不代表真实攻击链或共同操作者。',
+      traceSteps: '条命令步骤', noSteps: '该轨迹没有可展示的解析命令。',
+      playFlow: '播放步骤动画', pauseFlow: '暂停动画', querySide: '查询轨迹', candidateSide: '候选轨迹',
+      phases: {discover: '发现与定位', read: '读取与解析', search: '搜索', execute: '执行与分析', build: '构建', network: '网络交互', modify: '文件操作', environment: '环境检查'},
     },
     en: {
       loading: 'Loading the published pair file…',
@@ -47,12 +52,20 @@
       exported: 'Filtered records exported.', exportError: 'Export failed.',
       searchPlaceholder: 'Enter a trace ID to jump to its records',
       traceMatch: id => `Showing pairs that contain trace ${id}.`,
+      flow: 'Expand both trace workflows',
+      flowNote: 'Reconstructed from recorded command names and action categories; arguments and outputs are omitted. The animation synchronizes step order, not one-to-one semantic alignment. These are CTF task-solving steps, not a real-world attack chain or shared actor.',
+      traceSteps: 'command steps', noSteps: 'No parsed command steps are available for this trace.',
+      playFlow: 'Play step animation', pauseFlow: 'Pause animation', querySide: 'Query trace', candidateSide: 'Candidate trace',
+      phases: {discover: 'Discover', read: 'Read / parse', search: 'Search', execute: 'Execute / analyze', build: 'Build', network: 'Network', modify: 'Modify', environment: 'Environment'},
     },
   };
   let rows = [];
   let columns = [];
   let visible = [];
   let current = 0;
+  let traceDetails = {};
+  let playbackTimer = null;
+  let playbackStep = -1;
 
   const words = () => messages[document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'zh'];
   const text = (tag, value, className) => {
@@ -132,7 +145,76 @@
     grid.append(wrapper);
   }
 
+  function renderTraceFlow(traceId, sideLabel, lang) {
+    const trace = traceDetails[traceId];
+    const panel = document.createElement('section');
+    panel.className = `trace-flow-panel is-${trace?.mode || 'unknown'}`;
+    const heading = document.createElement('div');
+    heading.className = 'trace-flow-heading';
+    heading.append(text('h4', sideLabel), text('span', `${trace?.mode || '—'} · ${trace?.steps?.length || 0} ${lang.traceSteps}`));
+    const list = document.createElement('ol');
+    list.className = 'trace-flow-steps';
+    for (const [index, step] of (trace?.steps || []).entries()) {
+      const item = document.createElement('li');
+      item.append(text('span', String(index + 1).padStart(2, '0'), 'trace-step-index'));
+      const body = document.createElement('div');
+      body.append(text('code', step.command), text('span', lang.phases[step.phase] || step.phase_label, 'trace-step-phase'));
+      item.append(body);
+      list.append(item);
+    }
+    if (!list.children.length) list.append(text('li', lang.noSteps, 'trace-flow-empty'));
+    panel.append(heading, list);
+    return panel;
+  }
+
+  function addPairWorkflows(record, lang) {
+    const disclosure = document.createElement('details');
+    disclosure.className = 'pair-workflows';
+    const summary = document.createElement('summary');
+    summary.textContent = lang.flow;
+    const note = text('p', lang.flowNote, 'pair-workflow-note');
+    const controls = document.createElement('div');
+    controls.className = 'trace-flow-controls';
+    const play = text('button', lang.playFlow, 'dataset-action dataset-action-secondary');
+    play.type = 'button';
+    controls.append(play);
+    const tracks = document.createElement('div');
+    tracks.className = 'trace-flow-compare';
+    tracks.append(renderTraceFlow(record.query_trace_id, lang.querySide, lang), renderTraceFlow(record.candidate_trace_id, lang.candidateSide, lang));
+    disclosure.append(summary, note, controls, tracks);
+    play.addEventListener('click', () => {
+      const querySteps = [...tracks.children[0].querySelectorAll('.trace-flow-steps li:not(.trace-flow-empty)')];
+      const candidateSteps = [...tracks.children[1].querySelectorAll('.trace-flow-steps li:not(.trace-flow-empty)')];
+      const stepCount = Math.max(querySteps.length, candidateSteps.length);
+      if (playbackTimer) {
+        clearInterval(playbackTimer); playbackTimer = null; play.textContent = lang.playFlow; return;
+      }
+      if (playbackStep >= stepCount - 1) playbackStep = -1;
+      play.textContent = lang.pauseFlow;
+      const advance = () => {
+        querySteps.forEach(step => step.classList.remove('is-active'));
+        candidateSteps.forEach(step => step.classList.remove('is-active'));
+        playbackStep += 1;
+        if (playbackStep >= stepCount) {
+          clearInterval(playbackTimer); playbackTimer = null; playbackStep = -1; play.textContent = lang.playFlow; return;
+        }
+        const active = [querySteps[playbackStep], candidateSteps[playbackStep]].filter(Boolean);
+        active.forEach(step => step.classList.add('is-active'));
+        active[0]?.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+      };
+      advance(); playbackTimer = setInterval(advance, 650);
+    });
+    disclosure.addEventListener('toggle', () => {
+      if (!disclosure.open && playbackTimer) {
+        clearInterval(playbackTimer); playbackTimer = null; playbackStep = -1; play.textContent = lang.playFlow;
+      }
+    });
+    return disclosure;
+  }
+
   function renderPair() {
+    if (playbackTimer) clearInterval(playbackTimer);
+    playbackTimer = null; playbackStep = -1;
     const lang = words();
     const record = visible[current];
     if (!record) {
@@ -164,7 +246,7 @@
     addField(grid, lang.method, method);
     addField(grid, lang.score, format(score));
     addField(grid, lang.threshold, format(threshold));
-    detail.replaceChildren(header, grid);
+    detail.replaceChildren(header, grid, addPairWorkflows(record, lang));
   }
 
   function exportCSV() {
@@ -209,11 +291,16 @@
     }
     status.textContent = words().loading;
     try {
-      const response = await fetch(new URL('data/ctf-behavior-trace-pairs.csv?revision=association-20261101', document.baseURI));
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const parsed = parseCSV(await response.text());
+      const [response, traceResponse] = await Promise.all([
+        fetch(new URL('data/ctf-behavior-trace-pairs.csv?revision=association-20261101', document.baseURI)),
+        fetch(new URL('data/trace-details.json?revision=trace-flow-v1', document.baseURI)),
+      ]);
+      if (!response.ok || !traceResponse.ok) throw new Error(`HTTP ${response.status}/${traceResponse.status}`);
+      const [csvText, traceJson] = await Promise.all([response.text(), traceResponse.json()]);
+      const parsed = parseCSV(csvText);
       columns = parsed.columns;
       rows = parsed.rows;
+      traceDetails = traceJson;
       update();
     } catch (error) {
       console.error('Unable to load CTF behavior trace pairs:', error);
