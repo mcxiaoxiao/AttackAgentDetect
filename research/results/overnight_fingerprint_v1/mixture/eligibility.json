@@ -1,0 +1,16 @@
+{
+  "source": "cyber-task-horizons",
+  "eligible_tasks": 17,
+  "eligible_sessions_within_selected_tasks": 85,
+  "minimum_commands": 1,
+  "folds": {
+    "0": 6,
+    "1": 6,
+    "2": 5
+  },
+  "matrix_increment": {
+    "status": "not_run_insufficient_groups",
+    "eligible_2H2A_tasks_at_16_commands": 1,
+    "required": 15
+  }
+}

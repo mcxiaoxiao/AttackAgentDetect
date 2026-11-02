@@ -1,0 +1,26 @@
+{
+  "record_count": 1407,
+  "human_records": 344,
+  "agent_records": 1063,
+  "source_count": 4,
+  "sources": {
+    "antieval/cybench-trajectories": 189,
+    "cyber-task-horizons": 615,
+    "kypo-locust-human-training": 265,
+    "pagarsky/agent-trace": 338
+  },
+  "tracks": {
+    "command_tasks": 341,
+    "ctf": 664,
+    "human_task_supplement": 265,
+    "security": 137
+  },
+  "minimum_command_coverage": {
+    "1": 1407,
+    "4": 951,
+    "8": 696,
+    "16": 415,
+    "32": 233
+  },
+  "license_policy": "Licenses and source terms are recorded per trace; the package has no single blanket license."
+}

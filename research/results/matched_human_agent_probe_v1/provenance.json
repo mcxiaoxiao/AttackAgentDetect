@@ -1,0 +1,9 @@
+{
+  "seed": 20261102,
+  "inputs": [
+    "research/results/behavior_corpus_v1/evidence.jsonl",
+    "research/results/behavior_corpus_v1/trace_registry.csv"
+  ],
+  "runner_sha256": "df54e19fe632120bfbd5dbfa2bdf8ceb3f1fc7915c96d4d63b67359bb9729d28",
+  "program_sha256": "a69dc671d3331bf684baac9876ef8c5cb6ca06d7a298e73974da6249cc7a8e38"
+}

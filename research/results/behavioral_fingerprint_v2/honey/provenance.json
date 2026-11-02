@@ -1,0 +1,16 @@
+{
+  "protocol": "public-source-honey-leave-two-models-out-v1",
+  "seed": 20261103,
+  "archive_sha256": "2b5410d5fa6d9aed5218bcaa925686af639b50f4922c13131f746d14798daeb4",
+  "archive_bytes": 157739317,
+  "feature_code_sha256": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+  "runner_sha256": "84b93520db6181be23a9af794770ab102231f0747ce5d544dd8c3e4f4e6c304e",
+  "training_pairs_per_class_cap": 2500,
+  "queries_per_condition_model_pair": 3,
+  "feature_blocks": {
+    "B": "8 local symbol/action measures",
+    "S": "8 prefix-aware order/revisit/reuse measures",
+    "T": "8 time measures; only measured execution durations are available in Honey"
+  },
+  "redistribution": "only aggregates; no derived session-level rows are published"
+}

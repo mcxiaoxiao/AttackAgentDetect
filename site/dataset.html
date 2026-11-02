@@ -23,23 +23,25 @@
 })();
 </script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="执行行为轨迹集：1142条标准化记录，含CTF核心、漏洞复现与命令任务，逐源登记。" name="description"/>
+<meta content="包含1,407条来源可追溯的Human与Agent命令轨迹，并提供可下载数据包、任务配对浏览和实验分析。" name="description"/>
 <meta content="#f5f9fd" name="theme-color"/>
-<title data-en="AttackAgent Detect | Execution Behavior Trace Set">AttackAgent Detect | 执行行为轨迹集</title>
+<title data-en="AttackAgent Detect | Multi-source Execution Behavior Trace Set">AttackAgent Detect | 多来源执行行为轨迹集</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
-<link href="dataset.css?v=expanded-20261101-trace-width-v3" rel="stylesheet"/>
-<link href="research.css?v=expanded-20261101-research-width-v3" rel="stylesheet"/>
+<link href="dataset.css?v=dataset-v2-20261102" rel="stylesheet"/>
+<link href="research.css?v=20261103-bst-research-v3" rel="stylesheet"/>
+<link href="dataset-layout.css?v=20261103-v2" rel="stylesheet"/>
+<link href="scientific-figures.css?v=20261103-v3" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="dataset.js?v=20261101-trace-workflows-v1"></script>
-<script defer="" src="corpus.js?v=20261101-expansion-v1"></script>
+<script defer="" src="corpus.js?v=dataset-v2-20261102"></script>
 </head>
-<body class="research-page">
+<body class="research-page execution-dataset-page">
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
@@ -56,122 +58,93 @@
 <nav aria-label="面包屑" class="dataset-breadcrumb" data-en-aria-label="Breadcrumb"><a data-en="Home" href="index.html">首页</a><span aria-hidden="true">/</span><a data-en="Research" href="research.html">研究</a><span aria-hidden="true">/</span><span aria-current="page" data-en="Dataset">数据集</span></nav>
 
 <header class="dataset-header">
-<p class="dataset-kicker" data-en="DATASET · SOURCE-LINKED SUBSET">数据集 · 来源可追溯子集</p>
-<h1 data-en="Execution Behavior Trace Set">执行行为轨迹集</h1>
-<p class="dataset-lead" data-en="CTF traces form the core, with vulnerability-reproduction and command-task supplements. Source-linked records support behavioral fingerprints and task-level retrieval across execution settings.">以CTF轨迹为核心，补充漏洞复现与命令任务记录。保留来源、模型、任务及观测格式，用于行为指纹和不同执行条件下的任务轨迹检索。</p>
-<p class="dataset-origin"><span data-en="Catalog version">目录版本</span><span class="dataset-revision">behavior-corpus-v1 · 2026-11-01</span><a href="#sources" data-en="Sources and observation types">来源与观测类型 ↓</a><a href="data/behavior-corpus-v1.csv" data-en="Per-source licenses and provenance">逐源许可与版本登记 ↗</a></p>
+<div class="dataset-hero-copy">
+<h1 data-en="Multi-source execution behavior trace set">多来源执行行为轨迹集</h1>
+<p class="dataset-lead" data-en="Download and explore source-qualified Human and Agent command traces, with evaluation records and analysis in one package.">一套可下载、可检索的 Human 与 Agent 命令轨迹，附来源信息、评估记录和实验分析。</p>
+<div class="dataset-hero-actions"><a class="dataset-action" download="behavior-trace-dataset-v2.zip" href="data/behavior-trace-dataset-v2.zip" data-en="Download dataset bundle">下载完整数据包</a><a class="dataset-action dataset-action-secondary" href="#corpusBrowser" data-en="Browse traces">浏览轨迹</a></div>
+</div>
+<aside class="dataset-hero-index" aria-label="数据集构成" data-en-aria-label="Dataset composition">
+<p class="dataset-record-number"><strong>1,407</strong><span data-en="trace and task records">条轨迹与任务记录</span></p>
+<dl><div><dt data-en="Core command-view catalog">主命令视图目录</dt><dd>1,142</dd></div><div><dt data-en="Human task supplement">Human 任务补充</dt><dd>265</dd></div></dl>
+<p data-en="All entries retain source-qualified task keys.">每条记录保留来源限定的任务键。</p>
+</aside>
 </header>
 
-<section aria-label="样本总览" class="dataset-stats" data-en-aria-label="Catalog overview">
-<article><strong>1,142</strong><span data-en="normalized records">条标准化记录</span><small data-en="79 Human · 1063 Agent">79 条Human · 1063 条Agent</small></article>
-<article><strong>664</strong><span data-en="CTF core records">条CTF核心记录</span><small data-en="478 vulnerability / command supplements">另有478条漏洞/命令补充记录</small></article>
-<article><strong>3</strong><span data-en="ingested public sources">个已接入公开来源</span><small data-en="54 tasks with both classes">54个任务组同时有Human与Agent</small></article>
-</section>
 <section class="dataset-section" id="sources">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="CORPUS / INGESTED SOURCES">轨迹目录 / 已接入来源</p><h2 data-en="More settings, explicit relation labels">多场景输入，明确关联目标</h2></div></div>
-<p class="corpus-narrative" data-en="Behavioral association covers several retrieval and matching tasks. CTF challenges, vulnerability targets and command tasks provide distinct contexts; we preserve their source-qualified task labels.">行为关联包含多种检索和匹配问题。CTF题目、漏洞目标与命令任务都提供了可核验的任务上下文；我们保留各自带来源的标签，不把不同关系统一改成操作者身份。</p>
-<p class="corpus-narrative" data-en="The shared command view lets the tools accept different trace formats. Generalization is tested with held-out tasks, models or sources; adding sources expands coverage without establishing transfer performance by itself.">共享命令视图让工具能够接收不同格式的轨迹。扩充来源是在扩大覆盖范围；泛化能力仍通过留出任务、模型或来源的实验来检验。CTF核心与补充记录分域报告，也可用于检查短轨迹和观测差异带来的失败条件。</p>
-<div class="dataset-table-scroll"><table class="dataset-source-table"><thead><tr><th scope="col" data-en="Ingested source">已接入来源</th><th scope="col" data-en="Records">记录</th><th scope="col">Human</th><th scope="col">Agent</th><th scope="col" data-en="Agent models">Agent模型</th></tr></thead><tbody><tr><th scope='row'><a href="https://huggingface.co/datasets/antieval/cybench-trajectories">antieval/cybench-trajectories ↗</a></th><td>189</td><td>0</td><td>189</td><td>6</td></tr>
-<tr><th scope='row'><a href="https://github.com/lyptus-research/cyber-task-horizons-data">cyber-task-horizons ↗</a></th><td>615</td><td>79</td><td>536</td><td>3</td></tr>
-<tr><th scope='row'><a href="https://huggingface.co/datasets/pagarsky/agent-trace">pagarsky/agent-trace ↗</a></th><td>338</td><td>0</td><td>338</td><td>2</td></tr></tbody></table></div>
-<p class="dataset-table-note" data-en="Counts include nonempty explicit shell-command views after source checks and snapshot deduplication. Catalog records may not satisfy every experiment's minimum evidence rule. Different sources' task identities are not automatically merged.">仅统计通过来源检查、重叠快照去重且具有非空显式命令视图的记录；目录记录不代表每条都满足实验的最小证据要求。任务键按来源限定命名空间，未自动合并不同来源的同名题目。</p>
-<p class="corpus-narrative" data-en="CTH combines Human terminal-input captures and Agent shell calls. HF Cybench is Agent-only and has no stated source license. AgentTrace contains instrumented NL2Bash spans for short-command and fixture stress tests. Raw prompts, outputs and flags are not republished.">CTH包含Human终端输入和Agent工具调用；HF Cybench为Agent侧补充，来源未声明统一许可；AgentTrace为带遥测的NL2Bash工具调用，定位为短命令与fixture变化的压力样本。公开视图仅保留命令名称与登记信息，不发布原始提示、输出或题目答案。</p>
-<div class="corpus-downloads"><a class="dataset-action" download="behavior-corpus-v1.csv" href="data/behavior-corpus-v1.csv" data-en="Download registry CSV">下载轨迹登记 CSV</a><a class="dataset-action dataset-action-secondary" download="behavior-corpus-v1.json" href="data/behavior-corpus-v1.json" data-en="Download catalog JSON">下载目录 JSON</a><a class="dataset-action dataset-action-secondary" href="related-work.html#data-checks" data-en="Data availability checks">数据核实与来源</a></div>
-</section>
-<section class="dataset-section" id="corpusBrowser">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="CORPUS / TRACE BROWSER">轨迹目录 / 逐条浏览</p><h2 data-en="Browse the expanded trace set">查看扩充后的轨迹</h2></div></div>
-<div class="corpus-controls">
-<label><span data-en="Track">分域</span><select id="corpusTrack"><option value="ctf" data-en="CTF core">CTF核心</option><option value="security" data-en="Vulnerability reproduction">漏洞复现</option><option value="command_tasks" data-en="Command tasks">命令任务</option><option value="all" data-en="All tracks">全部分域</option></select></label>
-<label><span data-en="Source">来源</span><select id="corpusSource"><option value="all" data-en="All sources">全部来源</option></select></label>
-<label><span data-en="Benchmark">任务基准</span><select id="corpusBenchmark"><option value="all" data-en="All benchmarks">全部基准</option></select></label>
-<label><span data-en="Execution mode">执行方式</span><select id="corpusMode"><option value="all" data-en="All">全部</option><option value="human">Human</option><option value="agent">Agent</option></select></label>
-<label><span data-en="Trace, task or model">轨迹ID、任务或模型</span><input id="corpusSearch" type="search"/></label>
-<label class="corpus-checkbox"><input id="corpusMatched" type="checkbox"/><span data-en="Tasks with both classes">仅看有双类记录的任务</span></label>
-</div>
-<div class="dataset-table-scroll"><table class="corpus-table"><thead><tr><th scope="col" data-en="Trace / command preview">轨迹 / 命令预览</th><th scope="col" data-en="Source / benchmark">来源 / 基准</th><th scope="col" data-en="Source-qualified task">来源内任务</th><th scope="col" data-en="Mode / model">方式 / 模型</th><th scope="col" data-en="Commands">命令数</th><th scope="col" data-en="Provenance">溯源</th></tr></thead><tbody id="corpusRows"></tbody></table></div>
-<div class="corpus-pagination"><p id="corpusStatus" role="status" aria-live="polite" data-en="Loading the trace catalog…">正在加载轨迹目录…</p><div><button class="dataset-action dataset-action-secondary" id="corpusPrevious" type="button" disabled="" data-en="Previous page">上一页</button><button class="dataset-action dataset-action-secondary" id="corpusNext" type="button" disabled="" data-en="Next page">下一页</button></div></div>
-</section>
-
-<section class="dataset-section" id="historical-sources">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="01 / SOURCE BREAKDOWN">01 / 来源拆分</p><h2 data-en="Historical pair-evaluation subset">历史配对评估子集</h2></div><p data-en="This is the previous 97-trace, 1,558-pair evaluation. Its scores have not been recomputed for the expanded catalog.">下表对应此前97条轨迹、1,558条配对的评估。旧分数没有随目录扩充而重新计算。</p></div>
-<div class="dataset-table-scroll">
-<table class="dataset-source-table">
-<thead><tr><th scope="col" data-en="Benchmark source">基准来源</th><th scope="col" data-en="Task groups">任务组</th><th scope="col" data-en="Human traces">Human 轨迹</th><th scope="col" data-en="Agent traces">Agent 轨迹</th><th scope="col" data-en="Total traces">轨迹合计</th><th scope="col" data-en="Evaluation pairs">评估配对</th></tr></thead>
-<tbody>
-<tr><th scope="row"><a href="https://github.com/princeton-nlp/intercode">InterCode-CTF ↗</a></th><td>27</td><td>40</td><td>27</td><td>67</td><td>1,432</td></tr>
-<tr><th scope="row"><a href="https://cybench.github.io/">CyBench ↗</a></th><td>6</td><td>8</td><td>6</td><td>14</td><td>52</td></tr>
-<tr><th scope="row"><a href="https://github.com/NYU-LLM-CTF/NYU_CTF_Bench">NYU CTF Bench ↗</a></th><td>7</td><td>9</td><td>7</td><td>16</td><td>74</td></tr>
-</tbody>
-<tfoot><tr><th scope="row" data-en="Total">合计</th><td>40</td><td>57</td><td>40</td><td>97</td><td>1,558</td></tr></tfoot>
-</table>
-</div>
-<p class="dataset-table-note" data-en="The source benchmark links identify the original task suites. The trace records were collected from the pinned Cyber Task Horizons snapshot above; the public pair file contains task IDs and evaluation scores, not raw command transcripts.">来源链接指向原始任务基准；轨迹记录来自上方固定版本的 Cyber Task Horizons。公开配对文件包含任务 ID 和评估分数，不含原始命令记录。</p>
-</section>
-
-<section class="dataset-boundary" aria-labelledby="dataset-boundary-title">
-<p class="dataset-kicker" data-en="LIMITATIONS AND DATA CHOICE">研究局限与数据选择</p>
-<h2 id="dataset-boundary-title" data-en="Task labels and evaluation scope">任务标签与评估范围</h2>
-<p data-en="The CTF track evaluates whether behavior can retrieve records from the same challenge across execution modes. Vulnerability and command tracks preserve their own task definitions. These are explicit association targets, separate from operator or organization identity.">CTF分域检验行为证据能否跨执行方式检索同一道题；漏洞与命令分域保留各自任务定义。这些都是明确的关联目标，与操作者或组织身份分别讨论。后续按任务、模型和来源分组留出验证，不将目录规模直接解释为泛化效果。</p>
-<p class="dataset-report-link"><span data-en="Related top-venue work">相关顶会论文</span><a href="https://papers.neurips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf" data-en="InterCode · NeurIPS 2023">InterCode · NeurIPS 2023 ↗</a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel" data-en="ATLAS · USENIX Security 2021">ATLAS · USENIX Security 2021 ↗</a><a href="https://ieeexplore.ieee.org/document/8835390/" data-en="HOLMES · IEEE S&amp;P 2019">HOLMES · IEEE S&amp;P 2019 ↗</a></p>
-<p data-en="Historical 97-trace evaluation only; not expanded-corpus results. The result shows a useful but incomplete signal: command-plus-artifact ranking raises Hit@1 to 79.31% from 29.60%, while the 75.87% false-merge rate remains high. A positive label means only that two traces come from the same benchmark challenge; it does not establish a shared person, Agent, campaign, host, or real-world attack. Human records are terminal captures and Agent records are structured tool calls, so execution mode is confounded with collection interface. Because these task groups also informed method development, the outer-fold results are not independent external confirmation. The evidence supports further study of AI–human trace retrieval, not operational attribution."><strong>以下仅为旧97条轨迹的历史评估，非扩充目录的新结果。</strong>结果显示出有用但尚不充分的信号：命令与产物排序将 Hit@1 从 29.60% 提升到 79.31%，但 75.87% 的误合并率仍然很高。正例只表示两条轨迹来自同一道基准题目，不能证明它们属于同一人员、Agent、活动、主机或真实攻击。Human 记录来自终端采集，Agent 记录来自结构化工具调用，执行方式与采集接口相互混杂。由于这些任务组也参与了方法开发，外层留出结果不是独立外部确认。结果支持继续研究 AI 与人类轨迹检索的可用性，不支持实际攻击归因。</p>
-<p class="dataset-terms"><b data-en="Metric labels">指标写法</b><span>FMR <span data-en="(false-merge rate)">(误合并率)</span></span><span>FSR <span data-en="(missed-link / false-split rate)">(漏关联率 / 误拆分率)</span></span><span>BA <span data-en="(balanced accuracy)">(平衡准确率)</span></span><span>Hit@1 <span data-en="(top-ranked hit rate)">(顶部命中率)</span></span></p>
+<div class="dataset-section-head"><h2 data-en="Sources and task coverage">来源与任务覆盖</h2><p data-en="Different task settings share a command-view schema. Their task identities stay source-qualified so unrelated same-name tasks are not merged.">不同任务场景统一到命令视图，但任务身份仍按来源区分，避免把不同来源的同名任务误并为同一任务。</p></div>
+<div class="dataset-table-scroll" tabindex="0" role="region" aria-label="来源与任务覆盖" data-en-aria-label="Source and task coverage"><table class="dataset-source-table"><thead><tr><th scope="col" data-en="Source">来源</th><th scope="col" data-en="Records">记录数</th><th scope="col">Human</th><th scope="col">Agent</th><th scope="col" data-en="Task coverage and terms">任务覆盖与条款</th></tr></thead><tbody>
+<tr><th scope="row"><a href="https://github.com/lyptus-research/cyber-task-horizons-data">Cyber Task Horizons ↗</a></th><td>615</td><td>79</td><td>536</td><td data-en="CTF, security, and command tasks. CC BY 4.0.">CTF、安全与命令任务。CC BY 4.0。</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/datasets/antieval/cybench-trajectories">Antieval CyBench ↗</a></th><td>189</td><td>0</td><td>189</td><td data-en="Agent CTF traces. License not stated by source; only the published command prefix is included.">Agent CTF 轨迹。来源未声明许可，仅收录已公开的命令前缀。</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/datasets/pagarsky/agent-trace">AgentTrace / NL2Bash ↗</a></th><td>338</td><td>0</td><td>338</td><td data-en="Instrumented command tasks. Apache 2.0 and upstream task terms.">带遥测的命令任务。Apache 2.0 及上游任务条款。</td></tr>
+<tr><th scope="row"><a href="https://zenodo.org/records/10298187">KYPO Locust 3302 ↗</a></th><td>265</td><td>265</td><td>0</td><td data-en="Human training tasks from 100 participants. CC BY 4.0.">100名参与者的 Human 实训任务。CC BY 4.0。</td></tr>
+</tbody><tfoot><tr><th scope="row" data-en="Total">合计</th><td>1,407</td><td>344</td><td>1,063</td><td data-en="Four source families. Terms apply per source.">四个来源。使用条款逐源适用。</td></tr></tfoot></table></div>
+<p class="dataset-table-note" data-en="Track totals: 664 CTF records, 137 security-task records, 341 command-task records, and 265 Human training segments. Counts describe trace/task records, not distinct people, attacks, or campaigns.">分域统计：664条 CTF、137条安全任务、341条命令任务，以及265条 Human 实训片段。数量表示轨迹或任务记录，不表示独立人员、攻击或 campaign。</p>
+<p class="dataset-boundary-inline" data-en="The collection keeps diverse tasks and log formats because association tools need to handle varied evidence. More sources broaden coverage; held-out-source experiments are still needed to demonstrate transfer.">数据保留多种任务和日志格式，因为关联工具需要面对异构证据。来源变多扩大了覆盖范围；跨来源能力仍要通过留出来源的实验验证。</p>
+<p class="dataset-report-link"><a href="#analysis" data-en="See the current multi-source analysis">查看本轮多来源实验与结果</a><span data-en="All reported counts refer to audited existing records; supplemental external sources are analyzed separately from the downloadable bundle.">所有规模均来自已审计的现有记录；补充外部来源单独分析，不计入可下载数据包。</span></p>
 </section>
 
 <section class="dataset-section" id="downloads">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="02 / FILES">02 / 数据文件</p><h2 data-en="Download and inspect">下载与查看</h2></div><p data-en="The pair table is self-contained and loads on this page without a local project server.">配对表随站点发布，页面可直接读取，无需从仓库根目录启动服务器。</p></div>
-<div class="dataset-downloads">
-<article class="dataset-download-card"><div><p class="dataset-file-kind">CSV · 1,558 ROWS</p><h3 data-en="Outer-fold pair records">外层配对记录</h3><p data-en="Pair labels, trace IDs, selected decisions, and method scores. No raw commands.">包含配对标签、轨迹 ID、入选决策和方法分数，不含原始命令。</p></div><a class="dataset-action" download="ctf-behavior-trace-pairs.csv" href="data/ctf-behavior-trace-pairs.csv?revision=association-20261101" data-en="Download CSV">下载 CSV</a></article>
-<article class="dataset-download-card"><div><p class="dataset-file-kind">JSON · SUMMARY</p><h3 data-en="Evaluation summary">评估汇总</h3><p data-en="Method, aggregate metrics, and source revision for this evaluation.">本次评估的方法、汇总指标与数据来源版本。</p></div><a class="dataset-action" download="ctf-behavior-trace-summary.json" href="data/ctf-behavior-trace-summary.json?revision=association-20261101" data-en="Download JSON">下载 JSON</a></article>
+<div class="dataset-section-head"><h2 data-en="Download and reuse">下载与使用</h2><p data-en="The bundle includes command-view records, the matched-task crosswalk, evaluation pairs, metrics, and reports explaining how to reproduce and interpret them.">数据包包含命令视图记录、同题候选交叉表、评估配对、指标和复现说明。</p></div>
+<div class="dataset-download-list">
+<div><a class="dataset-action" download="behavior-trace-dataset-v2.zip" href="data/behavior-trace-dataset-v2.zip" data-en="Complete bundle, ZIP">完整数据包 ZIP</a><span data-en="Records, analyses, pair labels, and protocols">记录、分析、配对标签与实验方案</span></div>
+<div><a class="dataset-action dataset-action-secondary" download="behavior-trace-dataset-v2.csv" href="data/behavior-trace-dataset-v2.csv" data-en="Flat table, CSV">表格 CSV</a><span data-en="Commands and actions are JSON arrays in each row">命令和动作序列以 JSON 数组存放</span></div>
+<div><a class="dataset-action dataset-action-secondary" download="behavior-trace-dataset-v2.json" href="data/behavior-trace-dataset-v2.json" data-en="Structured records, JSON">结构化记录 JSON</a><span data-en="Full source and task metadata">包含完整来源和任务元数据</span></div>
+<div><a class="dataset-action dataset-action-secondary" download="behavior-trace-analysis-v2.json" href="data/behavior-trace-analysis-v2.json" data-en="Analysis results, JSON">分析结果 JSON</a><span data-en="Recognition, mixture, and retrieval panels">识别、混合配比与检索实验</span></div>
+<div><a class="dataset-action dataset-action-secondary" download="human-agent-cybench-crosswalk.csv" href="data/human-agent-cybench-crosswalk-v1.csv" data-en="Challenge crosswalk, CSV">同题候选交叉表</a><span data-en="Five normalized CyBench challenge names">五个规范化 CyBench 题目名</span></div>
+<div><a class="dataset-action dataset-action-secondary" href="assets/behavior-trace-dataset-v2-README.md" data-en="Data guide and terms">数据说明与许可</a><span data-en="Schema, splits, reuse, and attribution">字段、数据划分、使用与引用</span></div>
 </div>
-<p class="dataset-report-link"><span data-en="Method and limits">方法与边界</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/pairwise-trace-association.md" data-en="Read the method and evaluation">查看方法与评估 ↗</a><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/data_source_audit_v1.json" data-en="Open the source audit">查看来源审计 ↗</a></p>
+<div class="dataset-license-note"><strong data-en="Command-view scope and licenses">命令视图与许可范围</strong><p data-en="The common view contains ordered command names and coarse action labels, not raw arguments, prompts, outputs, secrets, or timestamps. Full normalized sequences are included for CTH, AgentTrace, and KYPO. Antieval has no stated source license, so its entry keeps only the already-published command prefix, up to 24 items.">统一视图提供有序命令名与粗粒度动作标签，不含原始参数、提示词、输出、密钥或时间戳。CTH、AgentTrace 和 KYPO 收录完整标准化序列。Antieval 未声明来源许可，因此只保留已公开的命令前缀，最多24条。</p><p data-en="The combined bundle has no blanket license. Review each record's license and source link before reuse or redistribution.">整套数据没有单一总许可。复用或再分发前，请逐条核对记录的许可和来源链接。</p></div>
+</section>
+
+<section class="dataset-section" id="human-task-supplement">
+<div class="dataset-section-head"><h2 data-en="Human task coverage">Human 任务覆盖</h2><p data-en="KYPO adds repeated Human sessions on shared training levels. It broadens Human-side behavior coverage; it contains no Agent runs.">KYPO 增加了共同训练任务上的 Human 重复会话，扩展 Human 行为覆盖；其中没有 Agent 运行。</p></div>
+<div class="dataset-table-scroll" tabindex="0" role="region" aria-label="Human 任务覆盖" data-en-aria-label="Human task coverage"><table class="dataset-source-table"><thead><tr><th scope="col" data-en="Minimum commands">最少命令数</th><th scope="col" data-en="Human segments">Human 片段</th><th scope="col" data-en="Training levels">训练任务数</th><th scope="col" data-en="Levels with repeated people">有多人参与的任务</th><th scope="col" data-en="Participants">参与者</th></tr></thead><tbody><tr><th scope="row">≥ 1</th><td>265</td><td>11</td><td>10</td><td>100</td></tr><tr><th scope="row">≥ 4</th><td>197</td><td>10</td><td>10</td><td>97</td></tr><tr><th scope="row">≥ 8</th><td>146</td><td>10</td><td>9</td><td>82</td></tr><tr><th scope="row">≥ 16</th><td>68</td><td>8</td><td>7</td><td>55</td></tr><tr><th scope="row">≥ 32</th><td>19</td><td>6</td><td>4</td><td>17</td></tr></tbody></table></div>
+<p class="dataset-table-note" data-en="Keep all records from one participant in the same split. Training levels are task labels, not verified attack-activity labels.">按参与者划分数据时，同一参与者的所有记录必须留在同一侧。训练任务是任务标签，不是经核验的攻击活动标签。</p>
+<div class="dataset-match-callout"><div><strong data-en="A small cross-source same-challenge panel">小规模跨来源同题候选集</strong><p data-en="CTH Human and Antieval Agent records share five normalized CyBench challenge names. At a four-command gate there are 7 Human queries and 30 Agent candidates. Challenge versions, fixtures, and capture parity are unverified.">CTH Human 与 Antieval Agent 记录有5个规范化 CyBench 题目名重合。至少4条命令时包含7条 Human 查询和30条 Agent 候选。题目版本、fixture 和采集方式尚未验证一致。</p></div><a class="dataset-action dataset-action-secondary" download="human-agent-cybench-crosswalk.csv" href="data/human-agent-cybench-crosswalk-v1.csv" data-en="Download crosswalk">下载交叉表</a></div>
+</section>
+
+
+<section class="dataset-section" id="analysis"><span id="transfer"></span><div class="dataset-section-head"><h2 data-en="Experiment coverage">实验覆盖</h2><p data-en="The catalog supports task-held-out CTF comparisons and participant-held-out Human task analysis. Honey and CyBiasBench are evaluated separately from the downloadable catalog.">目录支持 CTF 任务留出与 Human 参与者留出分析；Honey 和 CyBiasBench 单独评估。</p></div><p class="dataset-report-link"><a href="behavior-based-trace-association.html#transfer" data-en="Cross-source association results">查看多来源关联结果</a><a href="local-mode-detector.html#results" data-en="Execution-mode recognition">查看执行方式识别</a><a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip" data-en="Research source bundle">下载研究源码包</a></p></section>
+
+<section class="dataset-section" id="corpusBrowser">
+<div class="dataset-section-head"><h2 data-en="Browse the trace records">浏览轨迹记录</h2><p data-en="Filter by source, task suite, track, or recorded mode. Expand a row to see its normalized command sequence and source locator.">按来源、任务基准、分域或记录执行方式筛选。展开记录可查看标准化命令序列和来源位置。</p></div>
+<div class="corpus-controls"><label><span data-en="Track">分域</span><select id="corpusTrack"><option value="all" data-en="All tracks">全部分域</option><option value="ctf" data-en="CTF">CTF</option><option value="security" data-en="Security tasks">安全任务</option><option value="command_tasks" data-en="Command tasks">命令任务</option><option value="human_task_supplement" data-en="Human training">Human 实训</option></select></label><label><span data-en="Source">来源</span><select id="corpusSource"><option value="all" data-en="All sources">全部来源</option></select></label><label><span data-en="Task suite">任务基准</span><select id="corpusBenchmark"><option value="all" data-en="All task suites">全部基准</option></select></label><label><span data-en="Recorded mode">记录执行方式</span><select id="corpusMode"><option value="all" data-en="All">全部</option><option value="human">Human</option><option value="agent">Agent</option></select></label><label><span data-en="Trace, task, or model">轨迹、任务或模型</span><input id="corpusSearch" type="search" placeholder="输入 trace ID、任务名或模型" data-en-placeholder="Search trace ID, task, or model"/></label><label class="corpus-checkbox"><input id="corpusMatched" type="checkbox"/><span data-en="Tasks with both labels in source">来源内含两类记录的任务</span></label></div>
+<div class="dataset-table-scroll" tabindex="0" role="region" aria-label="浏览轨迹记录" data-en-aria-label="Trace record browser"><table class="corpus-table"><thead><tr><th scope="col" data-en="Trace / command sequence">轨迹 / 命令序列</th><th scope="col" data-en="Source / task suite">来源 / 任务基准</th><th scope="col" data-en="Source-qualified task">来源内任务</th><th scope="col" data-en="Mode / model">执行方式 / 模型</th><th scope="col" data-en="Commands">命令数</th><th scope="col" data-en="Source record">来源记录</th></tr></thead><tbody id="corpusRows"></tbody></table></div>
+<div class="corpus-pagination"><p id="corpusStatus" role="status" aria-live="polite" data-en="Loading the trace dataset…">正在加载轨迹数据集…</p><div><button class="dataset-action dataset-action-secondary" id="corpusPrevious" type="button" disabled data-en="Previous page">上一页</button><button class="dataset-action dataset-action-secondary" id="corpusNext" type="button" disabled data-en="Next page">下一页</button></div></div>
 </section>
 
 <section class="dataset-section dataset-browser" id="browser">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="03 / PAIR INSPECTOR">03 / 配对浏览</p><h2 data-en="Inspect evaluation pairs">逐条查看评估配对</h2></div><p data-en="Browse the published CSV by source and reference label. The page loads the file automatically.">按来源和参考标签筛选公开 CSV；页面会自动载入文件。</p></div>
-<div class="dataset-browser-tools">
-<label><span data-en="Trace ID">轨迹 ID</span><input autocomplete="off" id="traceSearch" placeholder="输入 trace ID 定位样例" type="search"/></label>
-<label><span data-en="Source">来源</span><select id="sourceFilter"><option data-en="All sources" value="all">全部来源</option><option value="intercode-ctf">InterCode-CTF</option><option value="cybench">CyBench</option><option value="nyuctf">NYU CTF Bench</option></select></label>
-<label><span data-en="Reference label">参考标签</span><select id="labelFilter"><option data-en="All pairs" value="all">全部配对</option><option data-en="Same task" value="same">同题</option><option data-en="Different tasks" value="different">异题</option></select></label>
-<button class="dataset-action dataset-action-secondary" disabled="" id="exportBtn" data-en="Export filtered CSV" type="button">导出筛选 CSV</button>
-</div>
-<p aria-live="polite" class="dataset-status" id="dataStatus" role="status"></p>
-<article aria-live="polite" class="dataset-pair-card" id="pairDetail"><p data-en="Loading published pair records…">正在读取公开配对记录…</p></article>
-<div class="dataset-pair-navigation"><button class="dataset-action dataset-action-secondary" disabled="" id="prevBtn" data-en="Previous pair" type="button">上一条</button><span id="caseCounter">—</span><button class="dataset-action dataset-action-secondary" disabled="" id="nextBtn" data-en="Next pair" type="button">下一条</button></div>
+<div class="dataset-section-head"><h2 data-en="Inspect the CTF retrieval pairs">查看 CTF 检索配对</h2><p data-en="The original association panel contains 1,558 scored pairs from 97 traces and 40 task groups; the new B/S/T analyses use separately defined, task-held-out CTH cohorts.">原关联面板包含97条轨迹、40个任务组构成的1,558条评分配对；新 B／S／T 分析使用独立划分的 CTH 任务留出队列。</p></div>
+<div class="dataset-browser-tools"><label><span data-en="Trace ID">轨迹 ID</span><input autocomplete="off" id="traceSearch" placeholder="输入 trace ID 定位样例" type="search"/></label><label><span data-en="Source">来源</span><select id="sourceFilter"><option data-en="All sources" value="all">全部来源</option><option value="intercode-ctf">InterCode-CTF</option><option value="cybench">CyBench</option><option value="nyuctf">NYU CTF Bench</option></select></label><label><span data-en="Reference label">参考标签</span><select id="labelFilter"><option data-en="All pairs" value="all">全部配对</option><option data-en="Same task" value="same">同题</option><option data-en="Different tasks" value="different">异题</option></select></label><button class="dataset-action dataset-action-secondary" disabled id="exportBtn" data-en="Export filtered CSV" type="button">导出筛选 CSV</button></div>
+<p aria-live="polite" class="dataset-status" id="dataStatus" role="status"></p><article aria-live="polite" class="dataset-pair-card" id="pairDetail"><p data-en="Loading evaluation pairs…">正在读取评估配对…</p></article><div class="dataset-pair-navigation"><button class="dataset-action dataset-action-secondary" disabled id="prevBtn" data-en="Previous pair" type="button">上一条</button><span id="caseCounter">等待数据</span><button class="dataset-action dataset-action-secondary" disabled id="nextBtn" data-en="Next pair" type="button">下一条</button></div>
 </section>
 
 <section class="citation-section dataset-citation" id="citation">
-<div class="dataset-section-head"><div><p class="dataset-kicker" data-en="04 / CITATION">04 / 引用</p><h2 data-en="Cite the subset and its source">引用整理数据与上游来源</h2></div><button class="dataset-action dataset-action-secondary" data-copy="dataset-citation" data-en="Copy citation" type="button">复制引用</button></div>
-<pre><code id="dataset-citation">@misc{attackagent_behavior_corpus_v1_2026,
+<div class="dataset-section-head"><h2 data-en="Cite the dataset">引用数据集</h2><button class="dataset-action dataset-action-secondary" data-copy="dataset-citation" data-en="Copy citation" type="button">复制引用</button></div>
+<pre><code id="dataset-citation">@misc{attackagent_execution_trace_dataset_v2_2026,
   author = {{AttackAgent Detect}},
-  title = {Execution Behavior Trace Set: Source-linked Catalog v1},
+  title = {Multi-source Execution Behavior Trace Set v2: Source-qualified Command-view Records and Analysis},
   year = {2026},
   howpublished = {\url{https://mcxiaoxiao.github.io/AttackAgentDetect/dataset.html}},
-  note = {1,142 normalized records: 664 CTF core and 478 vulnerability/command supplements. Source revisions, record locators and source-specific terms are retained in the registry. Coverage catalog; new effectiveness results pending.}
+  note = {1,407 trace/task records from four source families. Per-record source, revision, license, and task scope are included. No blanket license applies.}
 }
 
-@misc{attackagent_ctf_behavior_trace_set_2026,
+@misc{attackagent_ctf_retrieval_panel_2026,
   author = {{AttackAgent Detect}},
-  title = {CTF Behavior Trace Set},
+  title = {CTF Same-task Retrieval Evaluation Panel},
   year = {2026},
-  howpublished = {\url{https://github.com/mcxiaoxiao/AttackAgentDetect}},
-  note = {97 traces from 40 task groups and 1,558 outer-fold evaluation pairs. Curated from Cyber Task Horizons, revision 178c0da1800f9c07311e1b8d6c61dd8104e7b4ae.}
-}
-
-@article{payne2026cybertaskhorizons,
-  title = {Offensive Cyber Task Horizons: Measuring the Rate of Growth in AI Offensive Cybersecurity Capability},
-  author = {Payne, Jack and Miller, Jeremy and Peters, Sean},
-  year = {2026},
-  url = {https://github.com/lyptus-research/cyber-task-horizons-data}
+  note = {97 traces, 40 task groups, and 1,558 scored pairs; labels indicate benchmark-task identity only. Cite each upstream source used.}
 }</code></pre>
-<p class="citation-source-note" data-en="The historical CTH subset uses CC BY 4.0. The expanded registry records each source revision and license separately; retain upstream attribution and source terms.">历史CTH子集采用CC BY 4.0。扩充目录逐源登记版本与许可，复用时保留各来源署名及条款。</p>
+<p class="citation-source-note" data-en="Cite each upstream dataset used, retain its source-specific terms, and keep records grouped by source-qualified task keys.">请引用所用上游数据集，遵守各来源条款，并按带来源的任务键保留分组。</p>
 </section>
 </div>
 </main>
 </div>
+
 <footer>
 <div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>
 <div aria-label="项目与学校标识" class="footer-logos" data-en-aria-label="Project and university marks"><a aria-label="AttackAgent Detect 首页" class="footer-owl" data-en-aria-label="AttackAgent Detect home" href="index.html#top"><img alt="" height="80" src="assets/openmoji-owl.png" width="80"/></a><span aria-hidden="true" class="footer-cross">×</span><a aria-label="哈尔滨工业大学" class="footer-hit" data-en-aria-label="Harbin Institute of Technology" href="https://www.hit.edu.cn/"><img alt="哈尔滨工业大学校徽" data-en-alt="Harbin Institute of Technology emblem" height="72" src="assets/hit-logo.png" width="72"/></a></div>
-<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><span aria-hidden="true" class="credit-join">🤝</span><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
+<div class="footer-meta"><div class="footer-credits"><span data-en="Initiated by">项目发起</span><a href="https://github.com/sunyinggang">sunyinggang</a><a href="https://mcxiaoxiao.github.io/">OrlosZiming</a></div><div class="footer-legal"><span>© 2026 AttackAgent Detect</span><a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/LICENSE">MIT License</a><a href="https://openmoji.org/library/emoji-1F989/">Owl by Selina Bauder · OpenMoji · CC BY-SA 4.0</a><span class="deploy-meta"><span data-en="Source revision">源码版本</span> <a data-pages-commit="" href="https://github.com/mcxiaoxiao/AttackAgentDetect/commits/main" title="Source revision"><code>main</code></a></span></div></div>
 </footer>
 <div aria-atomic="true" aria-live="polite" class="copy-toast" hidden="" id="copy-toast" role="status"></div>
 </body>

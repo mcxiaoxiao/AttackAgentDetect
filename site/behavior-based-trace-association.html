@@ -22,10 +22,10 @@
   root.dataset.language = language;
 })();
 </script>
-<meta content="Task-held-out evaluation of command and artifact evidence for trace association on public CTF data." name="description"/>
+<meta content="An interpretable B/S/T fingerprint for execution-mode analysis and trace retrieval across multiple public log sources." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgent Detect | Behavior-based trace association">AttackAgent Detect | 基于行为证据的轨迹关联</title>
+<title data-en="AttackAgent Detect | Fingerprint-guided trace association">AttackAgent Detect | 行为指纹引导的轨迹关联</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -33,12 +33,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-width-v2" rel="stylesheet"/>
+<link href="research.css?v=20261103-bst-research-v3" rel="stylesheet"/>
+<link href="association-page.css?v=20261103-bst-association-v2" rel="stylesheet"/>
+<link href="scientific-figures.css?v=20261103-v3" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
+<script defer="" src="fingerprint-comparison.js?v=20261103-v1"></script>
 <script defer="" src="deployment.js"></script>
 </head>
-<body class="research-page">
+<body class="research-page fingerprint-association-page">
 <a class="skip" data-en="Skip to content" href="#main">跳转到正文</a>
 <div class="layout">
 <aside aria-label="页面导航" class="rail" data-en-aria-label="Page navigation">
@@ -51,49 +54,175 @@
 </div>
 </aside>
 <main id="main">
-<header class="docs-page-header">
-<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Behavior-based trace association">基于行为证据的轨迹关联</span></div>
-<h1 data-en="Behavior-based trace association">基于行为证据的轨迹关联</h1>
-<p data-en="A task-held-out evaluation of pair scores on 97 traces from 40 public CTF task groups. The same challenge is used only as a retrieval label.">在 40 个公开 CTF 任务组的 97 条轨迹上评估配对分数。相同题目仅作为检索标签。</p>
+<header class="docs-page-header association-hero">
+<div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Fingerprint-guided trace association">行为指纹引导的轨迹关联</span></div>
+<div class="association-hero-grid">
+<div class="association-hero-copy">
+<h1 class="association-title"><span class="association-title-line" data-en="Behavioral fingerprints">行为指纹</span><span class="association-title-line" data-en="for trace association">引导的轨迹关联</span></h1>
+<p class="association-lede" data-en="Represent commands, action order, and timing as interpretable fingerprints, then read execution mode and compare trace evidence.">将命令、动作顺序与执行节奏转成可解释指纹，用同一表示刻画执行方式、比较轨迹证据。</p>
+<nav aria-label="页面内容" class="association-anchor-nav" data-en-aria-label="Page contents">
+<a data-en="Association task" href="#association-task">关联任务</a>
+<a data-en="Fingerprint matrix" href="#fingerprint-matrix">行为指纹</a>
+<a data-en="Experiments" href="#association-results">实验结果</a>
+<a data-en="Evidence boundaries" href="#evidence-boundaries">证据边界</a>
+</nav>
+</div>
+<aside aria-label="评估范围" class="association-hero-index" data-en-aria-label="Evaluation scope"><dl>
+<div><dt data-en="Cross-mode traces">跨方式轨迹</dt><dd><strong>175</strong><span data-en="eligible CTH traces across 40 mixed tasks">条合格 CTH 轨迹，40 道双类任务</span></dd></div>
+<div><dt data-en="Mixed-mode tasks">双类任务</dt><dd><strong>40</strong><span data-en="mixed Human/Agent task groups">道同时含 Human 与 Agent 的任务</span></dd></div>
+<div><dt data-en="Fingerprint shape">指纹矩阵</dt><dd><strong>J × 16 / 24</strong><span data-en="B/S, with T when actual timing exists">B／S；有实际时间时加 T</span></dd></div>
+</dl></aside>
+</div>
 </header>
 
-<section class="section docs-content" id="method">
-<div class="docs-prose">
-<h2 data-en="Method">方法</h2>
-<p data-en="The pair score combines command TF–IDF similarity (45%) with IDF-weighted containment of artifact-name tokens in the shorter trace (55%). This reduces the effect of unrelated commands in a longer trace when both traces share a distinctive artifact. For each outer task-held-out fold, the score threshold is selected using only inner training tasks under the prespecified error constraints.">配对分数由命令 TF–IDF 相似度（45%）和短轨迹中产物名称的 IDF 加权包含度（55%）组成。两条轨迹共享显著产物时，这种计算可减弱长轨迹中无关命令带来的稀释。每个外层任务留出折的阈值都只依据内层训练任务，并按预设错误约束选择。</p>
+<nav aria-label="实验导航" class="association-section-nav" data-en-aria-label="Experiment navigation">
+<a data-en="Command and artifact baseline" href="#candidate-baseline">命令与产物基线</a>
+<a data-en="Human/Agent mixture" href="#role-mixture">Human / Agent 配比</a>
+<a data-en="Fingerprint increment" href="#fingerprint-increment">指纹增量</a>
+<a data-en="Mode recognition" href="#mode-recognition">执行方式识别</a>
+</nav>
+
+<section class="section association-section" id="association-task">
+<div class="association-section-head">
+<h2 data-en="Why introduce behavioral fingerprints?">为什么引入行为指纹</h2>
+<p data-en="Behavioral trace association commonly uses trace similarity as evidence. We test whether Human versus Agent execution changes this similarity and same-task association decisions.">行为轨迹关联通常把轨迹相似度当作关联证据。我们检验 Human 与 Agent 的执行方式是否会改变这种相似度及同题轨迹的关联判断。</p>
 </div>
+<p class="association-motivation" data-en="Agent-mediated behavior may reflect model, framework, prompt, and tool configuration alongside the task and environment. We build a multidimensional fingerprint from logs, making tool use, action organization, and local repetition comparable, and investigate its value for retrieval across execution modes, investigation triage, and association confidence.">Agent 参与后的行为，除了受任务与环境影响，还可能反映模型、框架、提示与工具配置。我们从日志构建多维行为指纹，将工具使用、动作组织和局部重复转成可比较的证据，探索它能否帮助跨执行方式的轨迹检索、线索筛选与关联置信度判断。</p>
+<p class="association-wide-note" data-en="Similarity first ranks candidate traces; a separate operating threshold decides whether to accept a link. Ranking quality and false-link rates answer different questions and are reported separately.">在具体评估中，相似度先为候选轨迹排序，再由工作阈值决定是否接受关联。排序质量与误关联率分开报告。</p>
+<div class="association-flow" aria-label="轨迹关联流程" data-en-aria-label="Trace association workflow">
+<div><span>01</span><strong data-en="Normalize">规范化</strong><p data-en="Commands and observable artifacts">命令与可见产物</p></div>
+<div><span>02</span><strong data-en="Build evidence">构造证据</strong><p data-en="Command similarity plus fingerprint sequence">命令相似度与指纹序列</p></div>
+<div><span>03</span><strong data-en="Rank candidates">候选排序</strong><p data-en="Hit@1, MRR, and retrieval coverage">Hit@1、MRR 与检索覆盖</p></div>
+<div><span>04</span><strong data-en="Set link threshold">判定阈值</strong><p data-en="False merges and missed links">误合并与漏关联</p></div>
+</div>
+<p class="association-wide-note" data-en="The command/artifact baseline and B/S fusion retain separate comparisons, scores, and reproduction records.">命令／产物基线与 B／S 指纹融合分别记录分数、比较结果和复现材料。</p>
 </section>
 
-<section class="section results" id="results">
-<div class="result-intro">
-<h2 data-en="Evaluation results">评估结果</h2>
-<p data-en="Combining command and artifact evidence lowers both error-rate point estimates and raises the top-ranked match rate in this cohort. The 75.87% false-merge rate remains too high for attribution.">在这批数据上，结合命令与产物证据后，两类错误率点估计均下降，首位命中率提高。但 75.87% 的误合并率仍然过高，不能用于攻击归因。</p>
+<section class="section association-section" id="fingerprint-matrix"><span class="association-legacy-anchor" id="method"></span>
+<div class="association-section-head">
+<h2 data-en="A variable-length, three-block behavioral fingerprint">可变长度的三块行为指纹</h2>
+<p data-en="A trace is segmented into short, overlapping-free windows. Each row records local behavior (B), sequence evolution (S), and, when real event times exist, execution rhythm (T).">将轨迹切成短窗口，每一行记录局部行为（B）、顺序演化（S）；只有日志含真实事件时间时，才计算执行节奏（T）。</p>
 </div>
-<div class="study-table-wrap">
-<table class="study-results">
-<thead><tr><th scope="col" data-en="Metric">指标</th><th scope="col" data-en="Command TF–IDF">命令 TF–IDF</th><th scope="col" data-en="Command + artifact score">命令 + 产物分数</th><th scope="col" data-en="Change, percentage points">变化，百分点</th></tr></thead>
+<div class="association-fingerprint-overview">
+<figure class="association-wide-figure">
+<div class="scientific-figure-viewport">
+<a class="scientific-figure-source" href="assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.png" aria-label="查看完整分辨率图表" data-en-aria-label="View full-resolution figure">
+<img src="assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.png?v=20261103-print-v3" alt="两条同一排障任务的真实轨迹，以 B 局部行为、S 顺序演化和 T 执行节奏三块矩阵显示；颜色表示合格队列标准化后的特征值，灰格表示来源没有该时间字段。" data-en-alt="Two real traces from the same troubleshooting task shown as B local behavior, S sequence evolution, and T execution rhythm matrices. Colors show eligible-cohort standardized features; gray cells mean the source lacks that timing field." loading="lazy" width="1598" height="1072"/>
+</a>
+</div>
+<figcaption data-en="An observed AIT Human-labeled and Agent-labeled pair for the same task. Each panel has a variable number of windows. A shared scale shows standardized features; gray cells mark unavailable timing fields.">AIT 中同一道排障任务的一条 Human 标签轨迹与一条 Agent 标签轨迹。窗口数随轨迹长度变化。统一色阶显示标准化特征，灰色格标记缺失时间字段。</figcaption>
+<a class="scientific-figure-open" href="assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.svg" data-en="Open vector figure">打开矢量图</a>
+</figure>
+<div class="association-fingerprint-callout">
+<strong data-en="The same representation supports two separate readouts">同一表示，两个分开评估的读出</strong>
+<div><span>01</span><b data-en="Execution-mode estimate">执行方式估计</b><p data-en="Predict the source label Human or Agent; report uncertainty and coverage.">预测记录标签为 Human 或 Agent，同时报告不确定性与适用覆盖。</p></div>
+<div><span>02</span><b data-en="Trace-pair evidence">轨迹配对证据</b><p data-en="Add fingerprint distances directly to command or request evidence; a prior mode prediction is optional.">将指纹距离直接加入命令或请求证据；不要求先预测执行方式。</p></div>
+</div>
+</div>
+<div class="association-method-grid">
+<div>
+<h3 data-en="Matrix shape and windows">矩阵形状与窗口</h3>
+<p data-en="With an eight-event window, B+S is J × 16; adding observed timing yields J × 24. J varies with trace length. The former 16-command admission gate is removed: the CTH role-mixture analysis accepts windows with at least two events, while other adapters use their declared minimum. Only the first 128 events enter these experiments.">每窗 8 个事件；B＋S 为 J × 16，有实际时间字段时为 J × 24。J 随轨迹长度变化，不再要求整条轨迹至少 16 条命令；CTH 配比实验接受至少 2 个事件的有效窗口，其他适配器按各自预先声明的最低长度处理。实验最多使用前 128 个事件。</p>
+<p data-en="For fixed-dimensional recognition, every feature contributes its mean, population standard deviation, and trend over normalized window position: 48 values for B+S and 72 for B+S+T. This summary is not the older 24-value, whole-trace profile.">定长识别摘要对每个特征计算均值、总体标准差及窗口位置趋势：B＋S 共 48 项，B＋S＋T 共 72 项；这与旧的 24 项整段画像不同。</p>
+</div>
+<div class="association-fingerprint-note">
+<strong data-en="Timing has a strict observation contract">时间特征按真实观测定义</strong>
+<p data-en="AIT contributes audit event start times. Honey contributes command execution or round-trip durations, not inter-command start gaps. CTH and CyBiasBench lack precise event times, so their T cells stay missing. No missing interval is filled or inferred from response latency.">AIT 提供 audit 事件启动时间；Honey 提供命令执行／往返耗时，不提供命令间启动间隔。CTH 和 CyBiasBench 没有精细事件时间，因此 T 块缺失。不用响应延迟补造时间间隔。</p>
+</div>
+</div>
+<div class="association-table-scroll">
+<table class="association-feature-table">
+<caption data-en="Observable features in the B/S/T fingerprint">B／S／T 行为指纹的可观测特征</caption>
+<thead><tr><th scope="col" data-en="Block">特征块</th><th scope="col" data-en="Dimensions">维度</th><th scope="col" data-en="What it measures">测量内容</th></tr></thead>
 <tbody>
-<tr><th scope="row" data-en="False-split rate">漏关联率</th><td>7.23%</td><td>0.00%</td><td>−7.23 [−17.58, −0.82]</td></tr>
-<tr><th scope="row" data-en="False-merge rate">误合并率</th><td>78.07%</td><td>75.87%</td><td>−2.20 [−3.47, −1.09]</td></tr>
-<tr><th scope="row" data-en="Balanced accuracy">平衡准确率</th><td>57.35%</td><td>62.06%</td><td>+4.71 [+1.57, +9.68]</td></tr>
-<tr><th scope="row">Hit@1</th><td>29.60%</td><td>79.31%</td><td>+49.71 [+34.63, +65.93]</td></tr>
+<tr><th scope="row" data-en="Local behavior">局部行为 B</th><td>B1–B3</td><td data-en="Command diversity, command entropy, dominant-command share">命令多样性、命令熵、主导命令占比</td></tr>
+<tr><th scope="row" data-en="Local behavior">局部行为 B</th><td>B4–B6</td><td data-en="Action-group switching, next-action conditional entropy, longest action run">动作组切换、下一动作条件熵、最长动作连续段</td></tr>
+<tr><th scope="row" data-en="Local behavior">局部行为 B</th><td>B7–B8</td><td data-en="Repeated mapped action-pair share, repeated adjacent command share">已映射动作对重复率、相邻命令重复率</td></tr>
+<tr><th scope="row" data-en="Sequence evolution">顺序演化 S</th><td>S1–S3</td><td data-en="First-seen tools, revisits, normalized revisit lag">首次出现工具、重访、归一化重访跨度</td></tr>
+<tr><th scope="row" data-en="Sequence evolution">顺序演化 S</th><td>S4–S6</td><td data-en="Action return motifs, lag-three returns, reused command bigrams">动作回返模式、间隔三步回返、复用命令二元组</td></tr>
+<tr><th scope="row" data-en="Sequence evolution">顺序演化 S</th><td>S7–S8</td><td data-en="Reused command trigrams, action-distribution drift between windows">复用命令三元组、相邻窗口间动作分布漂移</td></tr>
+<tr><th scope="row" data-en="Observed rhythm">观测节奏 T</th><td>T1–T3</td><td data-en="Median log gap, gap IQR, burstiness">命令间隔的对数中位数、四分位距、突发性</td></tr>
+<tr><th scope="row" data-en="Observed rhythm">观测节奏 T</th><td>T4–T6</td><td data-en="Fast-gap and long-pause share, lag-one log-gap correlation">快速间隔与长停顿比例、对数间隔的一阶相关</td></tr>
+<tr><th scope="row" data-en="Observed rhythm">观测节奏 T</th><td>T7–T8</td><td data-en="Observed execution duration and idle time after completion">实际观测的命令执行时长、执行完成后的空闲间隔</td></tr>
 </tbody>
 </table>
-<p class="caption" data-en="Changes are paired task-cluster estimates with 95% intervals. The command-and-artifact policy accepted all 148 observed same-task pairs; no missed-link event occurred in the 40 positive task groups. Under an independent-cluster sensitivity assumption, 0/40 gives a one-sided 95% upper bound of 7.2% for task groups with any miss. This is not a confidence interval for the task-macro false-split rate.">变化为配对任务簇估计及 95% 区间。命令与产物方法接纳了 148 条观测到的同题配对，40 个正例任务组中未观测到漏关联事件。若把任务组视为独立簇，0/40 对“出现任一漏关联的任务组比例”给出的单侧 95% 上限为 7.2%；这不是任务宏平均漏关联率的置信区间。</p>
 </div>
 </section>
 
-<section class="section docs-content" id="limits">
-<div class="docs-prose">
-<h2 data-en="Limitations and data choice">研究局限与数据选择</h2>
-<p data-en="Threat-intelligence and activity-correlation methods use commands, execution sequences, and operational patterns to connect new observations with prior investigations. When an LLM Agent participates, these traces may reflect both the activity being carried out and the system making execution decisions. This motivates a testable hypothesis: Agent participation can change the meaning and reliability of behavioral similarity for activity linkage. It does not assume that existing methods necessarily fail.">威胁情报分析与活动关联会利用命令、执行序列和操作习惯，将新观察与既有调查线索联系起来。LLM Agent 参与后，轨迹可能同时反映所执行的活动和作出执行决策的系统。因此需要检验一个假设：Agent 参与是否会改变行为相似性用于活动关联时的含义与可靠性。这并不预设现有方法必然失效。</p>
-<p data-en="The study asks whether different degrees of delegated operational decision-making change false splits and false merges. If a condition introduces additional errors, a further question is whether defender-side participation signals help choose or weight behavioral evidence, reducing those errors and aligning confidence with evidence strength. The aim is to measure when participation information is useful, not to treat a Human/Agent label as an attribution verdict.">本研究关注不同程度的操作决策委托是否会改变误拆分与误合并。如果某种条件确实带来额外错误，进一步的问题是防守侧参与信号能否帮助选择或加权行为证据、减少关联错误，并使置信度与证据强度相称。目标是测量参与信息在什么条件下有用，而不是把 Human/Agent 标签当作归因结论。</p>
-<p data-en="A controlled follow-up can compare (1) fixed-workflow execution, where a person specifies commands, parameters, and exception handling in advance and automation mainly executes them; (2) partial autonomy, where a person sets the main steps or technique and an LLM chooses concrete commands, parameters, and local recovery actions; and (3) higher autonomy, where the person supplies the goal, permissions, and constraints while the LLM selects tools, paths, and order in response to feedback. Fixed-workflow execution is a useful control for separating executor changes from workflow changes; it need not be treated as an LLM Agent condition.">后续受控实验可比较三种条件：（1）固定流程执行：人预先规定命令、参数和异常处理，自动化系统主要负责执行；（2）局部自主决策：人确定主要步骤或技术路线，LLM 根据环境反馈选择具体命令、参数和局部恢复动作；（3）较高自主决策：人提供目标、权限与约束，LLM 根据反馈选择工具、路径和执行顺序。固定流程执行有助于区分“执行者改变”与“工作流改变”，可作为对照，不必视为 LLM Agent 条件。</p>
-<p data-en="The current public CTF subset distinguishes released Human and Agent records but does not control or label these delegation levels. It therefore provides an initial task-level test of cross-mode behavioral retrieval; it cannot estimate a dose-response relationship across autonomy conditions. The limitations below describe the evidence available in this dataset.">当前公开 CTF 子集区分已发布的 Human 与 Agent 记录，但没有控制或标注上述委托程度。因此，本评估只能初步检验跨执行方式的任务级行为检索，不能估计不同自主程度之间的剂量—反应关系。以下局限对应的是这份数据实际能提供的证据范围。</p>
-<p data-en="Public data rarely combines matched Human and Agent behavior, reproducible task labels, and independently verified attack-activity ground truth. Given this availability limit, we use the overlapping Human and Agent CTF traces in Cyber Task Horizons and treat shared task identity as a task-level association proxy. A CTF challenge gives both traces a common objective and task context; InterCode describes CTF solving as iterative exploration, debugging, and exploitation. Related case-association systems show why behavioral context matters: ATLAS (USENIX Security 2021) recovers attack stories from sequences in causal audit graphs, while HOLMES (IEEE S&amp;P 2019) correlates suspicious information flows into campaign-level graphs. These works motivate behavior-based association, but use attack-specific evidence and do not make shared task identity equivalent to shared activity. Our evaluation therefore tests task-level retrieval as an initial measure of whether behavior evidence can connect AI and human traces, not attribution to a common actor or campaign.">公开数据难以同时提供可对照的 Human 与 Agent 行为、可复现的任务标签和经独立核验的攻击活动真值。受数据可得性限制，我们采用 Cyber Task Horizons 中题目重叠的 Human 与 Agent 轨迹，并将共享题目身份作为任务层面的关联代理标签。CTF 题目为两条轨迹提供共同目标与任务上下文；InterCode 将 CTF 解题描述为包含环境探索、调试和利用的迭代过程。相关案例关联工作也说明了行为上下文的价值：ATLAS（USENIX Security 2021）从因果审计图中的行为序列恢复攻击故事，HOLMES（IEEE S&amp;P 2019）则将可疑信息流关联为 campaign 级图。这些工作为基于行为的关联提供研究动机，但依赖攻击特定证据，并不意味着共享题目身份就等同于共享活动。因此，我们将任务层面检索作为初步检验，评估行为证据能否连接 AI 与人类轨迹，而不据此归因共同操作者或 campaign。<a href="https://papers.neurips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf" data-en="InterCode, NeurIPS 2023">（InterCode，NeurIPS 2023）</a> · <a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel" data-en="ATLAS, USENIX Security 2021">ATLAS（USENIX Security 2021）</a> · <a href="https://ieeexplore.ieee.org/document/8835390/" data-en="HOLMES, IEEE S&amp;P 2019">HOLMES（IEEE S&amp;P 2019）</a></p>
-<p data-en="The evaluation shows a useful but incomplete signal: command-plus-artifact ranking raises Hit@1 to 79.31% from 29.60%, while the 75.87% false-merge rate remains high. A positive label means only that two traces come from the same benchmark challenge; it does not establish a shared person, Agent, campaign, host, or real-world attack. Human records are terminal captures and Agent records are structured tool calls, so execution mode is confounded with collection interface. Because these task groups also informed method development, the outer-fold results are not independent external confirmation. The findings therefore support further study of AI–human trace retrieval, not operational attribution.">评估显示出有用但尚不充分的信号：命令与产物排序将 Hit@1 从 29.60% 提升到 79.31%，但 75.87% 的误合并率仍然很高。正例只表示两条轨迹来自同一道基准题目，不能证明它们属于同一人员、Agent、活动、主机或真实攻击。Human 记录来自终端采集，Agent 记录来自结构化工具调用，执行方式与采集接口相互混杂。由于这些任务组也参与了方法开发，外层留出结果不是独立外部确认。因此，结果支持继续研究 AI 与人类轨迹检索的可用性，不支持实际攻击归因。</p>
-<p class="caption" data-en="Metric labels: FMR, false-merge rate; FSR, missed-link / false-split rate; BA, balanced accuracy; Hit@1, top-ranked hit rate.">指标写法：FMR（误合并率）；FSR（漏关联率 / 误拆分率）；BA（平衡准确率）；Hit@1（顶部命中率）。</p>
-<p><a href="dataset.html#browser" data-en="Search the pair browser by trace ID">在数据集浏览器中按 trace ID 查找</a> · <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/pairwise-trace-association.md" data-en="Method and reproducibility details">方法与复现信息</a></p>
+<section class="section association-section association-results-section" id="association-results"><span class="association-legacy-anchor" id="results"></span>
+<div class="association-section-head">
+<h2 data-en="Experiments: how execution mode and fingerprints change evidence">实验：执行方式与指纹如何改变证据</h2>
+<p data-en="The original command-and-artifact baseline, the new fingerprint tests, and the external-source diagnostics are separate protocols. Results are reported by their actual observation units and relation labels.">原命令与产物基线、新指纹实验和外部来源诊断使用不同协议。以下按实际观测单位和关系标签分别报告。</p>
+</div>
+<div class="association-result-block" id="candidate-baseline">
+<h3 data-en="Existing command-and-artifact benchmark">已有命令与产物关联基线</h3>
+<p data-en="On the preserved 97-trace, 40-task, 1,558-pair panel, adding distinctive artifacts raises Hit@1 from 29.60% to 79.31% and task-macro BA from 57.35% to 62.06%. FMR remains 75.87%. This is the earlier command/artifact comparison; it is not an evaluation of B/S/T.">保留的旧基线含 97 条轨迹、40 个任务组和 1,558 条配对。加入显著产物后，Hit@1 从 29.60% 升至 79.31%，任务宏 BA 从 57.35% 升至 62.06%，但 FMR 仍为 75.87%。这是原命令／产物比较，不是 B／S／T 指纹结果。</p>
+<div class="association-result-strip"><div><strong>29.60% → 79.31%</strong><span>Hit@1</span></div><div><strong>57.35% → 62.06%</strong><span data-en="Task-macro balanced accuracy">任务宏平衡准确率</span></div><div><strong>75.87%</strong><span data-en="False-merge rate after adding artifacts">加入产物后的误合并率</span></div></div>
+</div>
+<div class="association-result-block" id="role-mixture"><h3 data-en="Exact mixtures: how the original baselines change">精确配比：原有关联基线如何变化</h3><p data-en="On the original 17-task CTH cohort, each of 170 paired draws uses 16 tasks and 32 query/gallery roles. The target Agent shares are exactly 0%, 25%, 50%, 75%, and 100%; task exclusion and eligible records rotate across draws. Under the original train-side FMR threshold, command BA falls from 53.6% to 46.5% and action-bigram BA from 57.4% to 46.5%. The endpoint changes are −7.10 pp [−15.45, +0.06] and −10.92 pp [−20.61, −3.06], respectively.">沿用原 CTH 17 题队列，每次从中轮换使用 16 题，共 32 个查询／候选角色，并在 170 次配对抽样中精确设置五档 Agent 比例。原训练侧阈值下，命令基线 BA 从 53.6% 降至 46.5%，动作二元组从 57.4% 降至 46.5%；端点变化分别为 −7.10 个百分点 [−15.45, +0.06] 与 −10.92 个百分点 [−20.61, −3.06]。</p><figure class="association-wide-figure"><div class="scientific-figure-viewport"><a class="scientific-figure-source" href="assets/association-fingerprint-v3/exact-mixture-v3.svg"><img src="assets/association-fingerprint-v3/exact-mixture-v3.png" alt="五档 Agent 角色占比下，命令和动作二元组基线的误合并、漏关联和平衡准确率三图。" data-en-alt="Three panels show false merges, missed links, and balanced accuracy for command and action-bigram baselines across five exact Agent-role shares." loading="lazy"/></a></div><figcaption data-en="Bands show task-cluster intervals after averaging coupled draws within each task. Same-task labels are benchmark proxies; the original 97-trace panel and the fusion experiment below use different protocols.">先在每题内汇总配对抽样，再按任务簇估计区间；同题为基准代理标签。下方指纹融合实验使用不同训练队列与角色分配协议。</figcaption><a class="scientific-figure-open" href="assets/association-fingerprint-v3/exact-mixture-v3.svg" data-en="Open vector original">打开矢量原图</a></figure></div>
+<div class="association-result-block" id="mixture-fusion">
+<h3 data-en="Role-mixture experiment: point estimates move, intervals remain uncertain">五档配比：指纹调整两类关联错误</h3>
+<p data-en="In 17 CTH tasks with at least two Human and two Agent traces, we varied the role share across eight query/candidate slots from 0% to 100%. Each query ranks one same-task and three different-task candidates (chance 25%). Adding B/S raises task-macro BA by 2.0–5.5 points at each target share, but every task-cluster interval for the paired change crosses zero; Hit@1 does not improve consistently.">在 17 道 Human 与 Agent 各至少两条轨迹的 CTH 题目中，我们将八个查询／候选槽位的 Agent 比例从 0% 调到 100%。每次查询在一道同题和三道异题候选中排序（随机命中率 25%）。加入 B／S 后，五档配比的任务宏 BA 点估计均提高 2.0–5.5 个百分点，但配对任务簇区间全部跨零，Hit@1 也没有稳定改善。</p>
+<figure class="association-wide-figure"><div class="scientific-figure-viewport"><a class="scientific-figure-source" href="assets/behavioral-fingerprint-v2/fig4-cth-mixture-bst.png" aria-label="查看配比融合图原图" data-en-aria-label="Open mixture-fusion figure"><img src="assets/behavioral-fingerprint-v2/fig4-cth-mixture-bst.png?v=20261103-print-v3" alt="CTH 目标 Agent 配比为 0%、25%、50%、75%、100% 时，命令基线与命令加 B/S 的 FMR、FSR 和任务宏 BA 三张图并排，显示任务簇区间。" data-en-alt="Three side-by-side plots of FMR, FSR, and task-macro BA for command-only and command plus B/S across 0%, 25%, 50%, 75%, and 100% target Agent shares, with task-cluster intervals." loading="lazy" width="1580" height="587"/></a></div><figcaption data-en="Each of the three panels uses the same 17 task groups and exact role allocation. Intervals summarize task-cluster resampling; repeated role draws are averaged within task first.">三张并排图使用同一组 17 个任务和精确角色配比。区间按任务簇重采样，先在每题内对重复角色分配取平均。</figcaption><a class="scientific-figure-open" href="assets/behavioral-fingerprint-v2/fig4-cth-mixture-bst.svg" data-en="Open vector original">打开矢量原图</a></figure>
+<div class="association-table-scroll"><table class="association-results-table association-mixture-table">
+<caption data-en="CTH task-macro retrieval metrics by target Agent share">按目标 Agent 配比报告的 CTH 任务宏检索指标</caption>
+<thead><tr><th scope="col">Agent</th><th scope="col">FMR</th><th scope="col">FSR</th><th scope="col">BA</th><th scope="col">Hit@1</th><th scope="col" data-en="BA change with B/S">加入 B／S 后 BA 变化</th></tr></thead><tbody>
+<tr><th>0%</th><td>41.0 → 47.6%</td><td>47.1 → 29.4%</td><td>56.0 → 61.5%</td><td>42.0 → 41.0%</td><td>+5.5 [−1.5, +14.2] pp</td></tr>
+<tr><th>25%</th><td>25.8 → 32.0%</td><td>63.6 → 51.8%</td><td>55.3 → 58.1%</td><td>40.7 → 40.8%</td><td>+2.8 [−1.0, +7.2] pp</td></tr>
+<tr><th>50%</th><td>18.1 → 22.5%</td><td>72.3 → 62.7%</td><td>54.8 → 57.4%</td><td>39.3 → 40.0%</td><td>+2.6 [−0.5, +6.0] pp</td></tr>
+<tr><th>75%</th><td>13.1 → 16.9%</td><td>79.5 → 70.1%</td><td>53.7 → 56.5%</td><td>38.0 → 36.3%</td><td>+2.8 [−0.6, +6.6] pp</td></tr>
+<tr><th>100%</th><td>13.6 → 16.3%</td><td>72.8 → 66.0%</td><td>56.8 → 58.8%</td><td>45.5 → 43.2%</td><td>+2.0 [−1.8, +6.2] pp</td></tr>
+</tbody></table></div>
+<p class="association-result-caveat" data-en="At the 50% allocation, the descriptive pair-type analysis shows Human–Agent positives have higher false-split rates than Human–Human positives under both command-only and fused scores. These are repeated pair decisions, not independent activity-level estimates.">50% 配比的描述性分组中，Human–Agent 正例在命令基线和融合分数下的 FSR 都高于 Human–Human 正例。这些是重复配对判定，不是相互独立的活动级估计。</p>
+<div class="association-table-scroll"><table class="association-compact-table"><thead><tr><th data-en="50% mixture">50% 配比</th><th data-en="Method">方法</th><th>HH FSR／FMR</th><th>HA FSR／FMR</th><th>AA FSR／FMR</th></tr></thead><tbody>
+<tr><th>Command</th><td>cosine</td><td>45.1／43.2%</td><td>81.9／11.7%</td><td>73.3／15.7%</td></tr>
+<tr><th>Command + B/S</th><td>fused</td><td>25.6／50.1%</td><td>76.5／16.4%</td><td>62.8／17.9%</td></tr>
+</tbody></table></div>
+</div>
+<div class="association-result-block" id="execution-mode-gap"><h3 data-en="Missed same-task links differ across execution-mode pairings">不同执行方式配对的同题漏关联差异</h3><p data-en-html="At the fixed 50% role mixture, the command baseline’s task-macro FSR is <strong>35.5 pp</strong> higher for HA than HH pairs (95% task-cluster interval +12.8 to +58.4). Adding B/S lowers HA FSR by 6.0 pp [−12.6, −0.1], while increasing HA FMR by 4.6 pp [+2.6, +6.8].">在固定 50% 角色配比下，命令基线的 Human–Agent 同题漏关联率比 Human–Human 高 <strong>35.5 个百分点</strong>（95% 任务簇区间 +12.8 至 +58.4）。加入 B／S 后，HA 的 FSR 降低 6.0 个百分点 [−12.6, −0.1]，FMR 同时提高 4.6 个百分点 [+2.6, +6.8]。</p><p data-en="This task-macro contrast gives execution mode an empirical role in association analysis. The fingerprint changes the operating trade-off, motivating explicit evidence contributions and threshold selection. Exploratory intervals average allocations within 17 tasks before resampling.">这一任务宏对比为关联分析纳入执行方式提供了实验依据。指纹改变了关联阈值下的错误取舍，使证据贡献与阈值选择成为方法设计的关键。探索性区间先汇总每题内的重复分配，再重采样 17 个任务。</p><figure class="association-wide-figure"><div class="scientific-figure-viewport"><a class="scientific-figure-source" href="assets/behavioral-fingerprint-v2/fingerprint-v2-error-strata.svg"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-error-strata.png?v=20261103-print-v3" alt="50% 配比下任务宏漏关联率及 B/S 融合引起的 FSR 和 FMR 配对变化" loading="lazy" width="1699" height="668"/></a></div><figcaption data-en="Left: command-baseline FSR. Right: paired changes after B/S fusion. Bars are exploratory, unadjusted 95% task-cluster intervals.">左：命令基线的 FSR。右：B／S 融合后的配对变化。误差线为探索性、未作多重比较调整的 95% 任务簇区间。</figcaption></figure></div>
+<div class="association-result-block" id="fingerprint-increment">
+<h3 data-en="Cross-mode retrieval: the incremental ranking contribution">跨方式检索：比较指纹融合的排序增量</h3>
+<p data-en="Across all 40 CTH tasks with both labels, 175 eligible traces (57 Human, 118 Agent) form a task-held-out, eight-candidate opposite-mode gallery. Command cosine reaches 33.65% Hit@1; command+B/S reaches 33.56%. The paired change is −0.08 points (95% task-cluster interval −5.71 to +5.58); chance is 12.5%. This is a task-retrieval proxy, not evidence that a common attack was found.">CTH 中 40 道同时含两类记录的题目共 175 条合格轨迹（57 Human、118 Agent），按任务留出，以八个异方式候选构成图库。命令余弦 Hit@1 为 33.65%，加入 B／S 后为 33.56%；配对变化 −0.08 个百分点（95% 任务簇区间 −5.71 至 +5.58），随机基线为 12.5%。</p>
+<figure class="association-secondary-figure"><div class="scientific-figure-viewport"><a class="scientific-figure-source" href="assets/behavioral-fingerprint-v2/fingerprint-v2-retrieval-increment.png"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-retrieval-increment.png?v=20261103-multisample-v4" alt="六个留出样本中的 Hit@1 配对变化；新 B／S 与旧版 24 值窗口画像分别标明，CyBiasBench 显示三个目标的范围。" data-en-alt="Paired Hit@1 changes across six held-out samples; new B/S and the legacy 24-value window profile are identified separately, and CyBiasBench shows the range across three targets." loading="lazy" width="1534" height="882"/></a></div><figcaption data-en="The figure covers mixed-mode CTH, Agent-only CTH, Honey, CyBiasBench, Human-only KYPO, and Antieval. The Agent-only CTH and Antieval rows use the legacy 24-value window profile; CyBiasBench shows a three-target range. Each cohort retains its own holdout and same-task/condition label.">图中覆盖混合方式 CTH、Agent-only CTH、Honey、CyBiasBench、Human-only KYPO 与 Antieval。CTH Agent-only 和 Antieval 使用旧版 24 值窗口画像；CyBiasBench 报告三个目标的范围。各样本沿用各自的留出单位和同题／同条件标签。</figcaption></figure>
+</div>
+<div class="association-result-block" id="mode-recognition"><h3 data-en="Execution-mode recognition">执行方式识别</h3><p data-en-html="The fingerprint also supports an execution-mode readout. <a href='local-mode-detector.html#results'>See recognition results and timing ablations</a>.">同一指纹也可用于执行方式识别。<a href="local-mode-detector.html#results">查看识别结果与时间特征消融</a>。</p></div>
+<div class="association-result-block" id="association-ba-v3"><h3 data-en="Evidence-conditioned fingerprints: a multi-source BA comparison">条件化指纹：多来源关联增量</h3><p data-en="We compare the same shallow-tree learner and candidate pairs with and without B/S component distances conditioned on command evidence. Window size and depth are selected inside training folds. On held-out CTH tasks, BA changes from 65.1% to 68.0%; on held-out KYPO participants, from 55.8% to 60.1%. On the harder leave-one-source-out comparison, known matching CyBench task names are removed from training: CTH changes from 52.0% to 56.7%, while Antieval changes from 71.9% to 68.6%. These post-observation comparisons are exploratory and use task or condition labels.">使用相同的浅层树、训练配对和候选，比较基础证据与加入命令条件化 B／S 分量距离的结果；窗口和树深度由训练侧选择。CTH 任务留出的 BA 从 65.1% 到 68.0%，KYPO 参与者留出从 55.8% 到 60.1%。整来源留出并从训练中排除已知同名 CyBench 题目后，CTH 从 52.0% 到 56.7%，Antieval 从 71.9% 到 68.6%。这些观察后设计的比较属于探索性实验，关系标签为任务或条件。</p><p data-en="In CTH source holdout, FSR falls from 85.8% to 72.9%, while FMR rises from 10.3% to 13.7%. The result recovers more same-task links at the cost of more false merges; it is a measurable trade-off, not an operational attack-attribution result.">在 CTH 来源留出中，FSR 从 85.8% 降至 72.9%，FMR 同时从 10.3% 升至 13.7%。指纹帮助找回更多同题关联，同时增加了误合并。</p><figure class="association-wide-figure"><div class="scientific-figure-viewport"><a class="scientific-figure-source" href="assets/association-fingerprint-v3/association-ba-v3.svg"><img src="assets/association-fingerprint-v3/association-ba-v3.png" alt="三个来源内留出与三个整来源留出的 BA 配对变化，以及 CTH 整来源留出的误合并、漏关联和平衡准确率。" data-en-alt="Paired BA changes across three within-source and three source holdouts, with false-merge, missed-link, and BA rates for the CTH source holdout." loading="lazy"/></a></div><figcaption data-en="Exploratory, unadjusted paired 95% cluster intervals. Within-source rows select window size by inner validation; source-held-out rows use eight-event windows. KYPO resamples query participants with candidate galleries fixed.">误差线为探索性、未作多重比较调整的配对 95% 簇区间。来源内实验在内层选择窗口，整来源留出使用 8 事件窗口；KYPO 按查询参与者重采样，候选集固定。</figcaption><a class="scientific-figure-open" href="assets/association-fingerprint-v3/association-ba-v3.svg" data-en="Open vector original">打开矢量原图</a></figure></div>
+<div class="association-result-block" id="refinement-results"><h3 data-en="A bounded comparison tests how fingerprints enter the score">有边界的方法优化：比较指纹如何进入分数</h3><p data-en="With identical 40-task galleries, three inner task folds select regularization for scalar fusion, conditional interactions, 48 component distances, and local masked DTW. The nested family selector reaches 33.35% Hit@1 (Δ −0.29 pp [−5.67, +5.21]); scalar fusion reaches 34.19%. Cross-fitted mode assistance reaches 30.52% with commands and 31.15% with command+B/S. All attempts are retained in the manuscript appendix.">固定 40 题图库，以三折内层任务验证选择正则强度，比较标量融合、条件化交互、48 项分量距离与局部 masked DTW。嵌套方法选择器的 Hit@1 为 33.35%（Δ −0.29 个百分点 [−5.67, +5.21]），标量融合为 34.19%；交叉拟合的执行方式辅助分支分别为 30.52% 和 31.15%。完整尝试列入论文附录，当前收益集中在错误取舍和时间信号。</p></div>
+<div class="association-result-block" id="external-source-results">
+<h3 data-en="External Agent-only sources: useful stress tests, no matrix gain">多来源评估：SSH、HTTP 与 Human 任务检索</h3>
+<p data-en="Honey for the Agent contributes 13,080 eligible sessions from nine model snapshots and 49 prompt/cap/environment cells. B+S lowers condition-cluster Hit@1 by 1.30 pp (95% interval −2.21 to −0.35). Adding observed execution/round-trip durations to B+S changes Hit@1 by −0.35 pp (−0.87 to +0.16); those durations are not inter-command gaps.">Honey for the Agent 提供 9 个模型快照、49 个提示／轮数／环境条件下的 13,080 条合格会话。加入 B＋S 后，条件簇 Hit@1 下降 1.30 个百分点（95% 区间 −2.21 至 −0.35）。在 B＋S 上加入实际命令执行／往返耗时后，变化为 −0.35 个百分点（−0.87 至 +0.16）；这些时间不是命令间隔。</p>
+<p data-en="CyBiasBench contributes 450 specified-family sessions, 258,019 HTTP requests, five Agent systems, and three targets. Held-out-target route Hit@1 is 39.02%; route+B/S is 39.94% (+0.92 pp mean across targets). FMR falls from 13.6% to 2.8% while FSR rises from 74.7% to 92.8%. With three target clusters, this is a descriptive trade-off, not a reliable average gain.">CyBiasBench 提供 450 场指定攻击家族会话、258,019 条 HTTP 请求、5 个 Agent 系统和 3 个目标。留一目标时，路由序列 Hit@1 从 39.02% 到 39.94%（目标均值 +0.92 个百分点）；FMR 从 13.6% 降到 2.8%，FSR 从 74.7% 升到 92.8%。三个目标上的结果分别列入跨来源评估表。</p>
+<p data-en="KYPO adds a participant-disjoint Human-only comparison: 190 queries from 97 people across eight task levels. Command Hit@1 is 31.71%; command+B/S is 30.29%. The cross-source table reports source scale, observation fields, held-out units, and paired effects.">KYPO 增加了参与者留出的 Human-only 对照：97 名参与者、8 个任务层级的 190 个查询中，命令 Hit@1 为 31.71%，命令＋B／S 为 30.29%。跨来源表统一列出规模、观测条件、留出对象和配对效果。</p><p><a href="#transfer" data-en="Compare cross-source and held-out-condition results">查看跨来源与留出条件评估表</a></p><p class="association-resource-links"><a href="https://zenodo.org/records/20818246" data-en="Honey for the Agent source">Honey 原始数据 ↗</a><a href="https://github.com/Harry24k/CyBiasBench" data-en="CyBiasBench source">CyBiasBench 原始数据 ↗</a><a href="dataset.html#analysis" data-en="Dataset and analysis details">数据集与完整分析 ↗</a></p>
+</div>
+</section>
+
+
+
+<section class="section association-section" id="transfer"><div class="association-section-head"><h2 data-en="Multi-source BA results">多来源 BA 结果</h2><p data-en="The same evidence-conditioned fingerprint is evaluated under each source’s relation and holdout contract.">同一条件化指纹按各来源的关系标签与留出方式评估。</p></div><div class="association-table-scroll" tabindex="0" role="region" aria-label="多来源 BA 结果" data-en-aria-label="Multi-source BA results"><table class="association-results-table"><thead><tr><th data-en="Source">来源</th><th data-en="Scale">规模</th><th data-en="Holdout">留出条件</th><th data-en="BA: evidence → fingerprint">BA：基础 → 指纹</th><th data-en="Paired change / 95% interval">配对变化／95% 区间</th></tr></thead><tbody><tr><th scope="row">CTH</th><td data-en="175 traces / 40 tasks">175 条／40 题</td><td data-en="Task holdout">任务留出</td><td>65.07% → 68.00%</td><td>+2.94 [+0.43, +5.34] pp</td></tr><tr><th scope="row">KYPO</th><td data-en="197 traces / 97 people">197 条／97 人</td><td data-en="Participant holdout">参与者留出</td><td>55.83% → 60.08%</td><td>+4.25 [+1.03, +8.02] pp</td></tr><tr><th scope="row">Antieval</th><td data-en="163 traces / 31 evaluated tasks">163 条／31 题评估</td><td data-en="Task holdout">任务留出</td><td>70.24% → 70.38%</td><td>+0.13 [-2.47, +2.61] pp</td></tr><tr><th scope="row">CTH</th><td data-en="175 traces / 40 tasks">175 条／40 题</td><td data-en="Source holdout; shared tasks purged">整来源留出；去重题</td><td>51.98% → 56.69%</td><td>+4.71 [+0.69, +8.83] pp</td></tr><tr><th scope="row">KYPO</th><td data-en="197 traces / 97 people">197 条／97 人</td><td data-en="Source holdout">整来源留出</td><td>66.40% → 66.61%</td><td>+0.21 [-1.06, +1.36] pp</td></tr><tr><th scope="row">Antieval</th><td data-en="163 traces / 32 tasks">163 条／32 题</td><td data-en="Source holdout; shared tasks purged">整来源留出；去重题</td><td>71.90% → 68.63%</td><td>-3.27 [-6.28, -0.22] pp</td></tr></tbody></table></div><p class="association-transfer-note" data-en="These are post-observation exploratory comparisons. Intervals are unadjusted; KYPO resamples query participants with the candidate gallery fixed. Known shared CyBench challenge names are purged from source-held-out training.">结果为观察后开展的探索性比较，区间未作多重比较调整；KYPO 按查询参与者重采样，候选集固定。整来源留出训练已排除已知重合的 CyBench 题名。</p></section>
+
+<section class="section association-section" id="evidence-boundaries">
+<span class="association-legacy-anchor" id="limits"></span>
+<div class="association-section-head">
+<h2 data-en="Data, labels, and what the results support">数据、标签与结果能支持的结论</h2>
+<p data-en="We sample different tasks, sources, and observation formats because practical association begins with heterogeneous retained logs. This broad coverage tests input adaptability; it is not by itself evidence of generalization. We report each source separately and reserve claims for the relation labels actually observed.">我们广泛采样不同任务、来源和观测格式，因为实际关联工作面对的是异构日志。这样的覆盖用于检验输入适配能力；它本身不等于证明泛化。我们按来源分别报告，只对实际观测到的关系标签作结论。</p>
+</div>
+<div class="association-boundary-list">
+<div><strong data-en="Scope of association evidence">关联证据范围</strong><p data-en="The evaluated relation is same-task retrieval and pairwise matching under public benchmark labels. Independently verified real attack-activity, campaign, and common-operator labels are unavailable, so effectiveness for those relations remains untested.">当前评估的关联限于公开基准标签下的同题轨迹检索与配对判断。受数据可得性限制，尚无独立核验的真实攻击活动、campaign 和共同操作者关系标签，因此尚未验证对这些关系的关联效果。</p></div>
+<div><strong data-en="Collection path">采集路径</strong><p data-en="CTH Human traces are terminal captures, while Agent traces are structured tool calls. Execution mode is therefore entangled with interface and instrumentation.">CTH Human 轨迹来自终端采集，Agent 轨迹来自结构化工具调用，因此执行方式与接口、仪器采集相互混杂。</p></div>
+<div><strong data-en="Validation status">验证状态</strong><p data-en="The public task groups informed method development, so outer-fold results are exploratory rather than independent external confirmation. The mixture test was completed on 17 tasks and 85 traces; independent sources and real-activity relation labels are still needed.">这些公开任务组参与过方法开发，外层留出用于探索，不等于独立外部确认。混合配比已在 17 题、85 条轨迹上完成，仍需在独立来源和真实活动关系标签上验证。</p></div>
+</div>
+<p class="association-context" data-en-html="InterCode describes CTF solving as iterative exploration, debugging, and exploitation. ATLAS and HOLMES show how system behavior can support attack-story reconstruction and campaign-level correlation, but their attack-specific evidence is not equivalent to a same-task CTF label. <a href=&quot;https://papers.neurips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf&quot;>InterCode (NeurIPS 2023)</a> · <a href=&quot;https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel&quot;>ATLAS (USENIX Security 2021)</a> · <a href=&quot;https://arxiv.org/abs/1810.01594&quot;>HOLMES (IEEE S&amp;P 2019)</a>">InterCode 将 CTF 解题描述为环境探索、调试和利用的迭代过程。ATLAS 与 HOLMES 展示了系统行为如何支持攻击故事重建与 campaign 级关联，但它们依赖的攻击特定证据不能等同于“同一道 CTF 题”的标签。<a href="https://papers.neurips.cc/paper_files/paper/2023/file/4b175d846fb008d540d233c188379ff9-Paper-Datasets_and_Benchmarks.pdf">InterCode（NeurIPS 2023）</a> · <a href="https://www.usenix.org/conference/usenixsecurity21/presentation/alsaheel">ATLAS（USENIX Security 2021）</a> · <a href="https://arxiv.org/abs/1810.01594">HOLMES（IEEE S&amp;P 2019）</a></p>
+<div class="association-reproduction">
+<h3 data-en="Inspect data and reproduce">查看数据与复现材料</h3>
+<p data-en="Browse source-linked traces, inspect task-pair decisions, and download the full method and experiment records.">浏览带来源链接的轨迹、检查任务配对判定，并下载完整方法与实验记录。</p>
+<div class="association-resource-links">
+<a href="dataset.html#browser" data-en="Open trace and pair browser">打开轨迹与配对浏览器 ↗</a>
+<a href="data/task-association-v2.json" data-en="Task-pair results JSON">任务配对结果 JSON</a>
+<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/reports/pairwise-trace-association.md" data-en="Pairwise association protocol">轨迹配对方案</a>
+<a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight.tex" data-en="Fingerprint experiment TeX source">行为指纹实验 TeX 源码</a>
+<a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip" data-en="Research source bundle ZIP">研究源码包 ZIP</a>
+<a href="related-work.html#round-results" data-en="Related work and data sources">相关工作与数据来源</a>
+</div>
 </div>
 </section>
 

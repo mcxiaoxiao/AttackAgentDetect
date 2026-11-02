@@ -1,0 +1,33 @@
+{
+  "available": true,
+  "n": 89,
+  "human": 45,
+  "agent": 44,
+  "task_macro_balanced_accuracy": 0.6513888888888889,
+  "tasks_with_both_classes": 12,
+  "task_macro_ba_cluster_bootstrap_95ci": [
+    0.5430555555555556,
+    0.7625173611111109
+  ],
+  "pooled_balanced_accuracy": 0.617929292929293,
+  "macro_f1": 0.617929292929293,
+  "human_fpr": 0.37777777777777777,
+  "agent_fnr": 0.38636363636363635,
+  "auroc": 0.6358585858585859,
+  "brier": 0.2556005222215736,
+  "confusion_human_agent": [
+    [
+      28,
+      17
+    ],
+    [
+      17,
+      27
+    ]
+  ],
+  "variant": "window_order_shuffle",
+  "panel": "task_holdout",
+  "model": "window_summary",
+  "coverage": 1.0,
+  "cohort_n": 89
+}

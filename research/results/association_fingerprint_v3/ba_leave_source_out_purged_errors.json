@@ -1,0 +1,269 @@
+{
+  "cth": {
+    "metrics": {
+      "fmr": {
+        "baseline": 0.10291666666666663,
+        "fingerprint": 0.13749999999999998,
+        "delta": 0.034583333333333355,
+        "paired_cluster_ci95": [
+          0.009523809523809518,
+          0.05904761904761903
+        ]
+      },
+      "fsr": {
+        "baseline": 0.8574999999999999,
+        "fingerprint": 0.7287500000000001,
+        "delta": -0.1287499999999998,
+        "paired_cluster_ci95": [
+          -0.203846153846154,
+          -0.05162500000000058
+        ]
+      },
+      "ba": {
+        "baseline": 0.5197916666666668,
+        "fingerprint": 0.5668750000000002,
+        "delta": 0.04708333333333348,
+        "paired_cluster_ci95": [
+          0.006852314352314282,
+          0.08825195023661636
+        ]
+      }
+    },
+    "changed_pair_counts": {
+      "recovered_positive": 31,
+      "new_missed_positive": 10,
+      "avoided_false_merge": 86,
+      "new_false_merge": 127
+    },
+    "examples": {
+      "recovered_positive": {
+        "query": "52a0646b315e8ca89eaa",
+        "candidate": "f5ce90daaa4cbe6e6f8c",
+        "baseline_score": 0.42881690067377826,
+        "baseline_threshold": 0.608787327267799,
+        "fingerprint_score": 0.7141075207500497,
+        "fingerprint_threshold": 0.6163898232843545,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.014771250302745922,
+        "B_contribution": 0.11973762340232699,
+        "S_contribution": 0.07959864704497685
+      },
+      "new_missed_positive": {
+        "query": "80e88aad43d1bad7bfb3",
+        "candidate": "8ddaef7d7d91cc61bd54",
+        "baseline_score": 0.6306178728279261,
+        "baseline_threshold": 0.608787327267799,
+        "fingerprint_score": 0.49877215656501717,
+        "fingerprint_threshold": 0.6163898232843545,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.04578451075581687,
+        "B_contribution": 0.01383303811638004,
+        "S_contribution": -0.060845392307179676
+      },
+      "avoided_false_merge": {
+        "query": "05f9991f5125f9d8eca8",
+        "candidate": "8f5754278e0fc7875e8d",
+        "baseline_score": 0.62011483064921,
+        "baseline_threshold": 0.608787327267799,
+        "fingerprint_score": 0.546559562518695,
+        "fingerprint_threshold": 0.6163898232843545,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.005573315550363555,
+        "B_contribution": 0.012591990195408308,
+        "S_contribution": 0.028394256772923218
+      },
+      "new_false_merge": {
+        "query": "7ce509f3552c06669bd6",
+        "candidate": "64ef68f83fbe103a0926",
+        "baseline_score": 0.5560279720694487,
+        "baseline_threshold": 0.608787327267799,
+        "fingerprint_score": 0.6276447510822512,
+        "fingerprint_threshold": 0.6163898232843545,
+        "root_probability": 0.5,
+        "evidence_contribution": -0.008669437078147593,
+        "B_contribution": 0.080670746573264,
+        "S_contribution": 0.05564344158713466
+      }
+    },
+    "bootstrap_unit": "task",
+    "note": "Candidate galleries are fixed during query-unit resampling; repeated candidate participants are not independently resampled."
+  },
+  "antieval": {
+    "metrics": {
+      "fmr": {
+        "baseline": 0.29687500000000006,
+        "fingerprint": 0.30967261904761906,
+        "delta": 0.012797619047619002,
+        "paired_cluster_ci95": [
+          -0.009637486573576829,
+          0.03533881578947369
+        ]
+      },
+      "fsr": {
+        "baseline": 0.2651041666666667,
+        "fingerprint": 0.31770833333333337,
+        "delta": 0.052604166666666674,
+        "paired_cluster_ci95": [
+          -0.0017543859649122875,
+          0.10666666666666669
+        ]
+      },
+      "ba": {
+        "baseline": 0.7190104166666667,
+        "fingerprint": 0.6863095238095239,
+        "delta": -0.03270089285714273,
+        "paired_cluster_ci95": [
+          -0.06276581465919694,
+          -0.002248482726423828
+        ]
+      }
+    },
+    "changed_pair_counts": {
+      "recovered_positive": 11,
+      "new_missed_positive": 20,
+      "avoided_false_merge": 88,
+      "new_false_merge": 95
+    },
+    "examples": {
+      "recovered_positive": {
+        "query": "906f505e9846f3d8800b",
+        "candidate": "2c0c6537b46b09a7b0ef",
+        "baseline_score": 0.527416084745149,
+        "baseline_threshold": 0.5621083616175734,
+        "fingerprint_score": 0.5655856370509571,
+        "fingerprint_threshold": 0.5406951497341964,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.053406475601511016,
+        "B_contribution": -0.04296624238890344,
+        "S_contribution": 0.05514540383834957
+      },
+      "new_missed_positive": {
+        "query": "5df7a49c2cef7c0cb3bb",
+        "candidate": "49c62f0b192a846748f4",
+        "baseline_score": 0.5689359459800295,
+        "baseline_threshold": 0.5621083616175734,
+        "fingerprint_score": 0.5325835374562313,
+        "fingerprint_threshold": 0.5406951497341964,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.027511299490633523,
+        "B_contribution": 0.03255509879501285,
+        "S_contribution": -0.0274828608294149
+      },
+      "avoided_false_merge": {
+        "query": "0f84ad81c2a3a90e0f51",
+        "candidate": "f39515c3ef88c7ee0859",
+        "baseline_score": 0.6792008504052817,
+        "baseline_threshold": 0.5621083616175734,
+        "fingerprint_score": 0.47035376675590496,
+        "fingerprint_threshold": 0.5406951497341964,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.03912605274202789,
+        "B_contribution": -0.08396217428322102,
+        "S_contribution": 0.015189888297098046
+      },
+      "new_false_merge": {
+        "query": "8d79b72c509a8788417d",
+        "candidate": "38c64477d95c0b48194b",
+        "baseline_score": 0.42398652697607236,
+        "baseline_threshold": 0.5621083616175734,
+        "fingerprint_score": 0.5479733821815895,
+        "fingerprint_threshold": 0.5406951497341964,
+        "root_probability": 0.5,
+        "evidence_contribution": -0.027098549814363364,
+        "B_contribution": 0.07180739291457731,
+        "S_contribution": 0.003264539081375465
+      }
+    },
+    "bootstrap_unit": "task",
+    "note": "Candidate galleries are fixed during query-unit resampling; repeated candidate participants are not independently resampled."
+  },
+  "kypo": {
+    "metrics": {
+      "fmr": {
+        "baseline": 0.33420483025746184,
+        "fingerprint": 0.3205684666210983,
+        "delta": -0.013636363636363558,
+        "paired_cluster_ci95": [
+          -0.023970148665526797,
+          -0.005337919653333188
+        ]
+      },
+      "fsr": {
+        "baseline": 0.3378787878787879,
+        "fingerprint": 0.3472727272727273,
+        "delta": 0.009393939393939399,
+        "paired_cluster_ci95": [
+          -0.013136977707749785,
+          0.03442479439512106
+        ]
+      },
+      "ba": {
+        "baseline": 0.663958190931875,
+        "fingerprint": 0.6660794030530872,
+        "delta": 0.0021212121212121904,
+        "paired_cluster_ci95": [
+          -0.010616457176657318,
+          0.013644335633812564
+        ]
+      }
+    },
+    "changed_pair_counts": {
+      "recovered_positive": 4,
+      "new_missed_positive": 6,
+      "avoided_false_merge": 30,
+      "new_false_merge": 11
+    },
+    "examples": {
+      "recovered_positive": {
+        "query": "a6abf058afc5b5cff10d",
+        "candidate": "6e41632e249c31fdf88c",
+        "baseline_score": 0.510982035679914,
+        "baseline_threshold": 0.5292953681644377,
+        "fingerprint_score": 0.5186436293911197,
+        "fingerprint_threshold": 0.5067565219748742,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.03360892538954823,
+        "B_contribution": -0.01594708271855446,
+        "S_contribution": 0.0009817867201259989
+      },
+      "new_missed_positive": {
+        "query": "2eb0ff5d7766c435b176",
+        "candidate": "7ef832fe1eee7c278f23",
+        "baseline_score": 0.6473598136098472,
+        "baseline_threshold": 0.5292953681644377,
+        "fingerprint_score": 0.4904170444004626,
+        "fingerprint_threshold": 0.5067565219748742,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.0023563581211582807,
+        "B_contribution": 0.04367485845284623,
+        "S_contribution": -0.05561417217354207
+      },
+      "avoided_false_merge": {
+        "query": "9419e69112cd75010f6f",
+        "candidate": "fc6129234be2cbf81afd",
+        "baseline_score": 0.5929663560663067,
+        "baseline_threshold": 0.5292953681644377,
+        "fingerprint_score": 0.42727915111384196,
+        "fingerprint_threshold": 0.5067565219748742,
+        "root_probability": 0.5,
+        "evidence_contribution": 0.04074893124666301,
+        "B_contribution": -0.003701810130499741,
+        "S_contribution": -0.10976797000232127
+      },
+      "new_false_merge": {
+        "query": "39690ab4f1289644cd32",
+        "candidate": "1c707f75753ce2c189d1",
+        "baseline_score": 0.4772995881167491,
+        "baseline_threshold": 0.5292953681644377,
+        "fingerprint_score": 0.5462292595388734,
+        "fingerprint_threshold": 0.5067565219748742,
+        "root_probability": 0.5,
+        "evidence_contribution": -0.028574064355808268,
+        "B_contribution": 0.0254803325462122,
+        "S_contribution": 0.049322991348469444
+      }
+    },
+    "bootstrap_unit": "query participant",
+    "note": "Candidate galleries are fixed during query-unit resampling; repeated candidate participants are not independently resampled."
+  }
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "method": "action_bigram_cosine",
+    "targets": [
+      "juice-shop",
+      "mlflow",
+      "vuln-shop"
+    ],
+    "target_macro_hit_at_1": 0.28319444444444447,
+    "target_range_hit_at_1": [
+      0.24541666666666667,
+      0.31
+    ],
+    "target_macro_mrr": 0.5293881172839506,
+    "target_macro_fmr": 0.10388888888888888,
+    "target_macro_fsr": 0.8305555555555556,
+    "target_macro_ba": 0.5327777777777778,
+    "per_target": [
+      {
+        "target": "juice-shop",
+        "method": "action_bigram_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.24541666666666667,
+        "task_macro_mrr": 0.5022939814814815,
+        "fmr": 0.065,
+        "fsr": 0.9116666666666666,
+        "balanced_accuracy": 0.5116666666666667,
+        "threshold": 0.996345199666059,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "mlflow",
+        "method": "action_bigram_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.2941666666666667,
+        "task_macro_mrr": 0.5384166666666668,
+        "fmr": 0.17,
+        "fsr": 0.73,
+        "balanced_accuracy": 0.55,
+        "threshold": 0.9940315257591306,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "vuln-shop",
+        "method": "action_bigram_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.31,
+        "task_macro_mrr": 0.5474537037037037,
+        "fmr": 0.07666666666666666,
+        "fsr": 0.85,
+        "balanced_accuracy": 0.5366666666666666,
+        "threshold": 0.9960317405209382,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      }
+    ],
+    "uncertainty_note": "only three held-out targets; report target range, not a pseudo-precise query-level interval"
+  },
+  {
+    "method": "route_cosine",
+    "targets": [
+      "juice-shop",
+      "mlflow",
+      "vuln-shop"
+    ],
+    "target_macro_hit_at_1": 0.3902037037037038,
+    "target_range_hit_at_1": [
+      0.3197777777777778,
+      0.4533333333333333
+    ],
+    "target_macro_mrr": 0.599046913580247,
+    "target_macro_fmr": 0.13597222222222224,
+    "target_macro_fsr": 0.7466666666666666,
+    "target_macro_ba": 0.5586805555555556,
+    "per_target": [
+      {
+        "target": "juice-shop",
+        "method": "route_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.3975,
+        "task_macro_mrr": 0.6065277777777779,
+        "fmr": 0.049166666666666664,
+        "fsr": 0.8283333333333334,
+        "balanced_accuracy": 0.56125,
+        "threshold": 0.6129676762612408,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "mlflow",
+        "method": "route_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.3197777777777778,
+        "task_macro_mrr": 0.5523212962962962,
+        "fmr": 0.07,
+        "fsr": 0.9066666666666666,
+        "balanced_accuracy": 0.5116666666666667,
+        "threshold": 0.5518151082630115,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "vuln-shop",
+        "method": "route_cosine",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.4533333333333333,
+        "task_macro_mrr": 0.6382916666666668,
+        "fmr": 0.28875,
+        "fsr": 0.505,
+        "balanced_accuracy": 0.603125,
+        "threshold": 0.45441284445108937,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      }
+    ],
+    "uncertainty_note": "only three held-out targets; report target range, not a pseudo-precise query-level interval"
+  },
+  {
+    "method": "route_plus_B",
+    "targets": [
+      "juice-shop",
+      "mlflow",
+      "vuln-shop"
+    ],
+    "target_macro_hit_at_1": 0.4022222222222222,
+    "target_range_hit_at_1": [
+      0.3416666666666667,
+      0.45166666666666666
+    ],
+    "target_macro_mrr": 0.6059907407407407,
+    "target_macro_fmr": 0.02763888888888889,
+    "target_macro_fsr": 0.9288888888888889,
+    "target_macro_ba": 0.5217361111111111,
+    "per_target": [
+      {
+        "target": "juice-shop",
+        "method": "route_plus_B",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.4133333333333333,
+        "task_macro_mrr": 0.6144999999999999,
+        "fmr": 0.0125,
+        "fsr": 0.97,
+        "balanced_accuracy": 0.50875,
+        "threshold": 0.9839569155511364,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "mlflow",
+        "method": "route_plus_B",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.3416666666666667,
+        "task_macro_mrr": 0.5658611111111111,
+        "fmr": 0.0,
+        "fsr": 1.0,
+        "balanced_accuracy": 0.5,
+        "threshold": 0.9996480405637489,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "vuln-shop",
+        "method": "route_plus_B",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.45166666666666666,
+        "task_macro_mrr": 0.6376111111111112,
+        "fmr": 0.07041666666666667,
+        "fsr": 0.8166666666666667,
+        "balanced_accuracy": 0.5564583333333333,
+        "threshold": 0.9940192461763199,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      }
+    ],
+    "uncertainty_note": "only three held-out targets; report target range, not a pseudo-precise query-level interval"
+  },
+  {
+    "method": "route_plus_BS",
+    "targets": [
+      "juice-shop",
+      "mlflow",
+      "vuln-shop"
+    ],
+    "target_macro_hit_at_1": 0.3994444444444445,
+    "target_range_hit_at_1": [
+      0.335,
+      0.45166666666666666
+    ],
+    "target_macro_mrr": 0.6044629629629631,
+    "target_macro_fmr": 0.02763888888888889,
+    "target_macro_fsr": 0.9283333333333333,
+    "target_macro_ba": 0.5220138888888889,
+    "per_target": [
+      {
+        "target": "juice-shop",
+        "method": "route_plus_BS",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.41166666666666674,
+        "task_macro_mrr": 0.6139444444444445,
+        "fmr": 0.011666666666666667,
+        "fsr": 0.97,
+        "balanced_accuracy": 0.5091666666666667,
+        "threshold": 0.9841256893639779,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "mlflow",
+        "method": "route_plus_BS",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.335,
+        "task_macro_mrr": 0.5620833333333335,
+        "fmr": 0.0,
+        "fsr": 1.0,
+        "balanced_accuracy": 0.5,
+        "threshold": 0.9996210391986347,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      },
+      {
+        "target": "vuln-shop",
+        "method": "route_plus_BS",
+        "query_count": 600,
+        "candidate_count": 5,
+        "chance_hit_at_1": 0.2,
+        "task_macro_hit_at_1": 0.45166666666666666,
+        "task_macro_mrr": 0.6373611111111112,
+        "fmr": 0.07125,
+        "fsr": 0.815,
+        "balanced_accuracy": 0.556875,
+        "threshold": 0.9938814865234449,
+        "positive_pairs": 600,
+        "negative_pairs": 2400
+      }
+    ],
+    "uncertainty_note": "only three held-out targets; report target range, not a pseudo-precise query-level interval"
+  }
+]

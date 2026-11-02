@@ -1,0 +1,10 @@
+{
+  "status": "post_observation_exploratory",
+  "seed": 20261103,
+  "input_candidate_scores_sha256": "66742a13cf67a3af637e586e8e584cbadd527776dd8dfbce6d0bd5f419b60816",
+  "protocol_sha256": "b9bfbf17c0643e99acd50796cd613d7bb3c25a158bf0393c84c70999a56a788b",
+  "runner_sha256": "0c8db2e4b11be48c5ebe028a3175884908d760736b2f77ba0a090764336096a3",
+  "outer_test_selection": false,
+  "family_and_C_selection": "inner task-held-out Hit@1; MRR breaks ties",
+  "candidate_pool": "identical to original CTH cross-mode panel"
+}

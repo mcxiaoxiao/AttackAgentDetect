@@ -1,0 +1,102 @@
+[
+  {
+    "fold": 0,
+    "train_tasks": 32,
+    "test_tasks": 8,
+    "train_traces": 139,
+    "test_queries": 36,
+    "train_pairs": 426,
+    "train_positive_pairs": 213,
+    "train_negative_pairs": 213,
+    "transform": {
+      "command_vocabulary": 334,
+      "action_bigram_vocabulary": 53,
+      "train_trace_count": 139,
+      "profile_blocks": [
+        "B",
+        "S"
+      ],
+      "profile_scaling": "median imputation and standardization fitted on outer training traces only"
+    }
+  },
+  {
+    "fold": 1,
+    "train_tasks": 32,
+    "test_tasks": 8,
+    "train_traces": 141,
+    "test_queries": 34,
+    "train_pairs": 434,
+    "train_positive_pairs": 217,
+    "train_negative_pairs": 217,
+    "transform": {
+      "command_vocabulary": 340,
+      "action_bigram_vocabulary": 53,
+      "train_trace_count": 141,
+      "profile_blocks": [
+        "B",
+        "S"
+      ],
+      "profile_scaling": "median imputation and standardization fitted on outer training traces only"
+    }
+  },
+  {
+    "fold": 2,
+    "train_tasks": 32,
+    "test_tasks": 8,
+    "train_traces": 142,
+    "test_queries": 33,
+    "train_pairs": 440,
+    "train_positive_pairs": 220,
+    "train_negative_pairs": 220,
+    "transform": {
+      "command_vocabulary": 357,
+      "action_bigram_vocabulary": 52,
+      "train_trace_count": 142,
+      "profile_blocks": [
+        "B",
+        "S"
+      ],
+      "profile_scaling": "median imputation and standardization fitted on outer training traces only"
+    }
+  },
+  {
+    "fold": 3,
+    "train_tasks": 32,
+    "test_tasks": 8,
+    "train_traces": 139,
+    "test_queries": 36,
+    "train_pairs": 426,
+    "train_positive_pairs": 213,
+    "train_negative_pairs": 213,
+    "transform": {
+      "command_vocabulary": 336,
+      "action_bigram_vocabulary": 52,
+      "train_trace_count": 139,
+      "profile_blocks": [
+        "B",
+        "S"
+      ],
+      "profile_scaling": "median imputation and standardization fitted on outer training traces only"
+    }
+  },
+  {
+    "fold": 4,
+    "train_tasks": 32,
+    "test_tasks": 8,
+    "train_traces": 139,
+    "test_queries": 36,
+    "train_pairs": 426,
+    "train_positive_pairs": 213,
+    "train_negative_pairs": 213,
+    "transform": {
+      "command_vocabulary": 321,
+      "action_bigram_vocabulary": 53,
+      "train_trace_count": 139,
+      "profile_blocks": [
+        "B",
+        "S"
+      ],
+      "profile_scaling": "median imputation and standardization fitted on outer training traces only"
+    }
+  }
+]

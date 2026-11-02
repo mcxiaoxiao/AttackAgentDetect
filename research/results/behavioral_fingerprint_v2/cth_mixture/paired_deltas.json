@@ -1,0 +1,167 @@
+[
+  {
+    "fraction": 0.0,
+    "method": "B_profile",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.04106850578897501,
+    "task_cluster_95ci": [
+      -0.16980834106071024,
+      0.08621724952819478
+    ]
+  },
+  {
+    "fraction": 0.0,
+    "method": "B_plus_S",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.08532085342704417,
+    "task_cluster_95ci": [
+      -0.19983046817791153,
+      0.030308483519586038
+    ]
+  },
+  {
+    "fraction": 0.0,
+    "method": "command_plus_BS",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": 0.055094896460054554,
+    "task_cluster_95ci": [
+      -0.01484157743030532,
+      0.14231640615849078
+    ]
+  },
+  {
+    "fraction": 0.25,
+    "method": "B_profile",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.03570538791176573,
+    "task_cluster_95ci": [
+      -0.1164536224108745,
+      0.038597576947079236
+    ]
+  },
+  {
+    "fraction": 0.25,
+    "method": "B_plus_S",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.043159724230830185,
+    "task_cluster_95ci": [
+      -0.1255466994867245,
+      0.04028056670816817
+    ]
+  },
+  {
+    "fraction": 0.25,
+    "method": "command_plus_BS",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": 0.028478713478049436,
+    "task_cluster_95ci": [
+      -0.009652116920148933,
+      0.07154388748560121
+    ]
+  },
+  {
+    "fraction": 0.5,
+    "method": "B_profile",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.029268036990718678,
+    "task_cluster_95ci": [
+      -0.08815539098864858,
+      0.02628955261390905
+    ]
+  },
+  {
+    "fraction": 0.5,
+    "method": "B_plus_S",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.019305451659732232,
+    "task_cluster_95ci": [
+      -0.09188789935095122,
+      0.057975855539016526
+    ]
+  },
+  {
+    "fraction": 0.5,
+    "method": "command_plus_BS",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": 0.02603548297238381,
+    "task_cluster_95ci": [
+      -0.004880483998798676,
+      0.060198051875088254
+    ]
+  },
+  {
+    "fraction": 0.75,
+    "method": "B_profile",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.013355890991046223,
+    "task_cluster_95ci": [
+      -0.07752525329944525,
+      0.05460395334940991
+    ]
+  },
+  {
+    "fraction": 0.75,
+    "method": "B_plus_S",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.014059890252301229,
+    "task_cluster_95ci": [
+      -0.09182808093005881,
+      0.06751690928245857
+    ]
+  },
+  {
+    "fraction": 0.75,
+    "method": "command_plus_BS",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": 0.02794578984319815,
+    "task_cluster_95ci": [
+      -0.005732385876368337,
+      0.06621634176874483
+    ]
+  },
+  {
+    "fraction": 1.0,
+    "method": "B_profile",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.027701653306254664,
+    "task_cluster_95ci": [
+      -0.14443691914997375,
+      0.08585091366745248
+    ]
+  },
+  {
+    "fraction": 1.0,
+    "method": "B_plus_S",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": -0.03987438922872282,
+    "task_cluster_95ci": [
+      -0.15235654045991334,
+      0.07680231128619491
+    ]
+  },
+  {
+    "fraction": 1.0,
+    "method": "command_plus_BS",
+    "baseline": "command_cosine",
+    "task_count": 17,
+    "delta_task_macro_ba": 0.02043403393352807,
+    "task_cluster_95ci": [
+      -0.017833806054689937,
+      0.061696538571087076
+    ]
+  }
+]

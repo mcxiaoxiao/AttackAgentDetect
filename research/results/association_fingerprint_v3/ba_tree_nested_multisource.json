@@ -1,0 +1,121 @@
+{
+  "status": "post-observation exploratory; fixed gated-components family, select window and depth from inner folds",
+  "results": {
+    "antieval": {
+      "ba": 0.70375,
+      "baseline_ba": 0.7024462365591401,
+      "delta_ba": 0.0013037634408599175,
+      "paired_cluster_ci95": [
+        -0.024736553030302987,
+        0.026136136642156933
+      ],
+      "queries": 157,
+      "independent_units": 31,
+      "selected": [
+        {
+          "fold": 0,
+          "window": 8,
+          "depth_selector": 0.1,
+          "inner_ba": 0.7138227513227513
+        },
+        {
+          "fold": 1,
+          "window": 16,
+          "depth_selector": 0.1,
+          "inner_ba": 0.7328042328042329
+        },
+        {
+          "fold": 2,
+          "window": 16,
+          "depth_selector": 1.0,
+          "inner_ba": 0.720734126984127
+        }
+      ]
+    },
+    "kypo": {
+      "ba": 0.6007937991285031,
+      "baseline_ba": 0.5582722589301536,
+      "delta_ba": 0.04252154019834942,
+      "paired_cluster_ci95": [
+        0.010284413023931035,
+        0.08018103929947401
+      ],
+      "queries": 190,
+      "independent_units": 97,
+      "selected": [
+        {
+          "fold": 0,
+          "window": 4,
+          "depth_selector": 1.0,
+          "inner_ba": 0.6484400648906187
+        },
+        {
+          "fold": 1,
+          "window": 16,
+          "depth_selector": 1.0,
+          "inner_ba": 0.63160450605337
+        },
+        {
+          "fold": 2,
+          "window": 8,
+          "depth_selector": 1.0,
+          "inner_ba": 0.642975800373702
+        },
+        {
+          "fold": 3,
+          "window": 4,
+          "depth_selector": 0.1,
+          "inner_ba": 0.6539587161340596
+        },
+        {
+          "fold": 4,
+          "window": 8,
+          "depth_selector": 1.0,
+          "inner_ba": 0.6097038803923174
+        }
+      ]
+    },
+    "cth": {
+      "ba": 0.6800297619047619,
+      "baseline_ba": 0.6506547619047619,
+      "delta_ba": 0.029374999999999995,
+      "paired_cluster_ci95": [
+        0.004285714285714287,
+        0.05339285714285713
+      ],
+      "independent_units": 40,
+      "selected": [
+        {
+          "fold": 0,
+          "window": 4,
+          "depth_selector": 10.0,
+          "inner_ba": 0.6958333333333333
+        },
+        {
+          "fold": 1,
+          "window": 16,
+          "depth_selector": 1.0,
+          "inner_ba": 0.6888888888888889
+        },
+        {
+          "fold": 2,
+          "window": 16,
+          "depth_selector": 10.0,
+          "inner_ba": 0.7306076388888889
+        },
+        {
+          "fold": 3,
+          "window": 4,
+          "depth_selector": 10.0,
+          "inner_ba": 0.6768431712962963
+        },
+        {
+          "fold": 4,
+          "window": 4,
+          "depth_selector": 1.0,
+          "inner_ba": 0.6909143518518519
+        }
+      ]
+    }
+  }
+}

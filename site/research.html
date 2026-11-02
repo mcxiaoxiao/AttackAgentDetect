@@ -23,7 +23,7 @@
 })();
 </script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Research on behavior-based association and task-held-out evaluation of public CTF traces." name="description"/>
+<meta content="Log-derived behavioral fingerprints for execution-mode analysis and trace retrieval across CTF, audit, SSH, and HTTP sources." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <title data-en="AttackAgent Detect | Research">AttackAgent Detect | 研究</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
@@ -33,7 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-research-width-v2" rel="stylesheet"/>
+<link href="research.css?v=20261103-bst-research-v2" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -54,15 +54,15 @@
 <header class="docs-page-header research-page-header">
 <div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><span aria-current="page" data-en="Research">研究</span></div>
 <h1 data-en="Research">研究</h1>
-<p class="research-intro" data-en="We evaluate command and artifact evidence for associating traces from public CTF tasks, with task-held-out results and clear limits on what a same-task match means.">本研究评估如何结合命令与产物证据关联公开 CTF 任务轨迹，并说明任务留出结果及“同题”标签的适用边界。</p>
+<p class="research-intro" data-en="We evaluate an interpretable, log-derived B/S/T fingerprint for execution-mode analysis and trace retrieval across CTF, audit, SSH, and HTTP logs.">本研究从日志构建可解释的 B／S／T 行为指纹，评估其在 CTF、audit、SSH 与 HTTP 轨迹上的执行方式分析和检索能力。</p>
 </header>
 <section class="section docs-content research-index-section" aria-label="研究分支" data-en-aria-label="Research branches">
 <div class="docs-prose">
 <ol class="research-list research-list-page">
-<li><a href="behavior-based-trace-association.html"><strong data-en="Behavior-based trace association">基于行为证据的轨迹关联</strong><span data-en="Score trace pairs with command similarity and distinctive artifact evidence.">结合命令相似度与显著产物证据为轨迹配对打分。</span><small data-en="97 traces · 40 task groups · 1,558 pairs">97 条轨迹 · 40 个任务组 · 1,558 条配对</small></a></li>
-<li><a href="local-mode-detector.html"><strong data-en="Log-based Human / Agent detection">基于日志的 Human / Agent 识别</strong><span data-en="Compare command and action evidence for execution-mode classification.">比较命令与动作证据对执行方式分类的效果。</span><small data-en="Method and evaluation">方法与评估</small></a></li>
-<li><a href="dataset.html"><strong data-en="Execution Behavior Trace Set">执行行为轨迹集</strong><span data-en="Browse source-linked traces by task, model, mode and observation format.">按来源、任务、模型与执行方式浏览轨迹，并查看历史评估配对。</span><small data-en="1,142 records · CTF core and supplements">1,142条记录 · CTF核心与补充分域</small></a></li>
-<li><a href="related-work.html"><strong data-en="Related work">相关工作</strong><span data-en="Zotero attack collection notes, source links, and reusable datasets.">集中查看 Zotero attack 文献笔记、来源链接与可复用数据。</span><small data-en="Literature notes">文献阅读笔记</small></a></li>
+<li><a href="behavior-based-trace-association.html"><strong data-en="Fingerprint-guided trace association">行为指纹引导的轨迹关联</strong><span data-en="Study how execution mode affects trace association and evaluate fingerprint-guided evidence fusion.">研究执行方式如何影响轨迹关联，并评估指纹引导的证据融合。</span></a></li>
+<li><a href="local-mode-detector.html"><strong data-en="Behavioral fingerprints and execution-mode recognition">日志行为指纹与执行方式识别</strong><span data-en="Explore fingerprint features, observed timing, and Human/Agent recognition.">了解指纹维度、可观测时间与 Human／Agent 执行方式识别。</span></a></li>
+<li><a href="dataset.html"><strong data-en="Execution Behavior Trace Set">执行行为轨迹集</strong><span data-en="Browse source-linked traces by task, model, mode and observation format.">按来源、任务、模型与执行方式浏览轨迹，并查看当前评估队列。</span></a></li>
+<li><a href="related-work.html"><strong data-en="Related work">相关工作</strong><span data-en="Zotero attack collection notes, source links, and reusable datasets.">集中查看 Zotero attack 文献笔记、来源链接与可复用数据。</span></a></li>
 </ol>
 </div>
 </section>

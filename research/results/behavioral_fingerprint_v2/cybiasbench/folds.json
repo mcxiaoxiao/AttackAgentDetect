@@ -1,0 +1,80 @@
+[
+  {
+    "target": "juice-shop",
+    "training_targets": [
+      "mlflow",
+      "vuln-shop"
+    ],
+    "training_trace_count": 300,
+    "training_pair_count": 12000,
+    "training_positive_pairs": 6000,
+    "training_negative_pairs": 6000,
+    "threshold_oof_pairs": 12000,
+    "threshold_policy": "leave-one-training-target-out scores; max recall under FMR<=10%",
+    "thresholds": {
+      "route_cosine": 0.6129676762612408,
+      "action_bigram_cosine": 0.996345199666059,
+      "route_plus_B": 0.9839569155511364,
+      "route_plus_BS": 0.9841256893639779
+    },
+    "transform": {
+      "route_vocab": 10559,
+      "action_bigram_vocab": 4,
+      "scaling": "train sessions only; median imputation and standardization"
+    },
+    "test_family_count": 10,
+    "test_agent_count": 5
+  },
+  {
+    "target": "mlflow",
+    "training_targets": [
+      "juice-shop",
+      "vuln-shop"
+    ],
+    "training_trace_count": 300,
+    "training_pair_count": 12000,
+    "training_positive_pairs": 6000,
+    "training_negative_pairs": 6000,
+    "threshold_oof_pairs": 12000,
+    "threshold_policy": "leave-one-training-target-out scores; max recall under FMR<=10%",
+    "thresholds": {
+      "route_cosine": 0.5518151082630115,
+      "action_bigram_cosine": 0.9940315257591306,
+      "route_plus_B": 0.9996480405637489,
+      "route_plus_BS": 0.9996210391986347
+    },
+    "transform": {
+      "route_vocab": 11366,
+      "action_bigram_vocab": 4,
+      "scaling": "train sessions only; median imputation and standardization"
+    },
+    "test_family_count": 10,
+    "test_agent_count": 5
+  },
+  {
+    "target": "vuln-shop",
+    "training_targets": [
+      "juice-shop",
+      "mlflow"
+    ],
+    "training_trace_count": 300,
+    "training_pair_count": 12000,
+    "training_positive_pairs": 6000,
+    "training_negative_pairs": 6000,
+    "threshold_oof_pairs": 12000,
+    "threshold_policy": "leave-one-training-target-out scores; max recall under FMR<=10%",
+    "thresholds": {
+      "route_cosine": 0.45441284445108937,
+      "action_bigram_cosine": 0.9960317405209382,
+      "route_plus_B": 0.9940192461763199,
+      "route_plus_BS": 0.9938814865234449
+    },
+    "transform": {
+      "route_vocab": 11752,
+      "action_bigram_vocab": 4,
+      "scaling": "train sessions only; median imputation and standardization"
+    },
+    "test_family_count": 10,
+    "test_agent_count": 5
+  }
+]

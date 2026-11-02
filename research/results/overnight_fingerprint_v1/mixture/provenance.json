@@ -1,0 +1,49 @@
+{
+  "status": "exploratory_frozen_protocol_execution",
+  "seed": 20261102,
+  "source_rows": 475,
+  "eligible_tasks": 17,
+  "replicates_per_fraction": 100,
+  "runner_sha256": "6b08a26e04e91940336f39d82e4f03e5344bcaf1d0ffb8791358b7a16ba56f44",
+  "frozen_inputs": {
+    "research/results/behavior_corpus_v1/evidence.jsonl": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "research/results/behavior_corpus_v1/trace_registry.csv": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "research/results/behavior_corpus_v1/summary.json": "b6aa2f2dd4689877fdb873902aa638a4e9b9e69be73ec6cb9b78ed7746eb8eb7",
+    "research/results/log_fingerprint_pilot_v1/features.csv": "009dfbb341f68173bee2ec7dbffe016cd8c38585fb0a28c4fb0341c436959c84",
+    "research/results/log_fingerprint_pilot_v1/run_registry.csv": "95f8b4563fdcdcddf2a7dfad73b9d61dd7d8c1f14a7232ec7eda8064b786d523",
+    "research/experiments/log_fingerprint_pilot_v1/run.py": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+    "attackagent/auditd.py": "ef8ad62c6d2ddb67074dc22cb14e7152b7bc182144d01179c5a230a8bec84c23",
+    "attackagent/traces.py": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f",
+    "research/data/external/ait-shell-pilot-v1/data.zip": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914"
+  },
+  "task_group_folds": {
+    "cyber-task-horizons/cybench/lootstash": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": 0,
+    "cyber-task-horizons/cybench/back_to_the_past": 1,
+    "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": 0,
+    "cyber-task-horizons/nyuctf/2016q-rev-rock": 1
+  },
+  "threshold_fit": "3-fold task-held-out training-only pair scores",
+  "threshold_target": "empirical training FMR <= 0.10, maximize training positive recall",
+  "concentration_slots": {
+    "0.0": 0,
+    "0.25": 8,
+    "0.5": 17,
+    "0.75": 26,
+    "1.0": 34
+  },
+  "matrix_claim": "not evaluated because 1 eligible task < required 15",
+  "elapsed_seconds": 12.331375417001254
+}

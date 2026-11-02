@@ -1,0 +1,106 @@
+{
+  "cohort_records": 197,
+  "cohort_participants": 97,
+  "evaluated_tasks": 8,
+  "evaluated_query_traces": 190,
+  "evaluated_participants": 97,
+  "metrics": [
+    {
+      "method": "command_cosine",
+      "metric": "hit_at_1",
+      "value": 0.3171481758373206,
+      "participant_cluster_ci95": [
+        0.2853999070124585,
+        0.35451083821729923
+      ],
+      "paired_delta": 0.0,
+      "paired_delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "metric": "hit_at_1",
+      "value": 0.30292389354066984,
+      "participant_cluster_ci95": [
+        0.27019227142722824,
+        0.34246506148913397
+      ],
+      "paired_delta": -0.014224282296650737,
+      "paired_delta_ci95": [
+        -0.025912653102372563,
+        -0.0023025808542523566
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "metric": "mrr",
+      "value": 0.5516401633819397,
+      "participant_cluster_ci95": [
+        0.5246369057944449,
+        0.5831883551794665
+      ],
+      "paired_delta": 0.0,
+      "paired_delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "metric": "mrr",
+      "value": 0.5449321247405129,
+      "participant_cluster_ci95": [
+        0.516620266918123,
+        0.5767519092311134
+      ],
+      "paired_delta": -0.006708038641426772,
+      "paired_delta_ci95": [
+        -0.01842999223679137,
+        0.0054000106456670955
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "train_participants": 77,
+      "test_participants": 20,
+      "eligible_gallery_tasks": 8,
+      "queries": 38
+    },
+    {
+      "fold": 1,
+      "train_participants": 77,
+      "test_participants": 20,
+      "eligible_gallery_tasks": 8,
+      "queries": 42
+    },
+    {
+      "fold": 2,
+      "train_participants": 78,
+      "test_participants": 19,
+      "eligible_gallery_tasks": 7,
+      "queries": 38
+    },
+    {
+      "fold": 3,
+      "train_participants": 78,
+      "test_participants": 19,
+      "eligible_gallery_tasks": 6,
+      "queries": 32
+    },
+    {
+      "fold": 4,
+      "train_participants": 78,
+      "test_participants": 19,
+      "eligible_gallery_tasks": 7,
+      "queries": 40
+    }
+  ],
+  "protocol": "fixed C=1; five participant-disjoint folds; known task labels; 20 galleries per query; one same-task and four other-task candidates; different query/candidate participants; training-only transformations",
+  "uncertainty": "5000 participant-cluster resamples, recompute task macro after averaging repeated draws",
+  "labels": "same source variant and training level; Human-only known-task retrieval",
+  "runner_sha256": "555705c0bdfd641419f410357d9465eef872e363a1c83b72496c881b90010f03"
+}

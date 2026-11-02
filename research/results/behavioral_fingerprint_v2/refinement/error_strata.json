@@ -1,0 +1,196 @@
+{
+  "summary": [
+    {
+      "method": "command_cosine",
+      "type": "HH",
+      "metric": "FSR",
+      "value": 0.47058823529411764,
+      "ci95": [
+        0.23529411764705882,
+        0.7058823529411765
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "HH",
+      "metric": "FSR",
+      "value": 0.29411764705882354,
+      "ci95": [
+        0.11764705882352941,
+        0.5294117647058824
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "type": "HH",
+      "metric": "FMR",
+      "value": 0.4220090193810854,
+      "ci95": [
+        0.27989498549443287,
+        0.5689868082293226
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "HH",
+      "metric": "FMR",
+      "value": 0.4800775064362696,
+      "ci95": [
+        0.30015480015514157,
+        0.6613905219086985
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "type": "HA",
+      "metric": "FSR",
+      "value": 0.8259794258053408,
+      "ci95": [
+        0.7142235751274739,
+        0.9220029912417457
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "HA",
+      "metric": "FSR",
+      "value": 0.7662676898804224,
+      "ci95": [
+        0.6550427655159382,
+        0.8717647956842558
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "type": "HA",
+      "metric": "FMR",
+      "value": 0.10678713284892417,
+      "ci95": [
+        0.05697033970029431,
+        0.16499721349836236
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "HA",
+      "metric": "FMR",
+      "value": 0.1524691156353728,
+      "ci95": [
+        0.08562557979228115,
+        0.22699555783246345
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "type": "AA",
+      "metric": "FSR",
+      "value": 0.7230890217049387,
+      "ci95": [
+        0.5755003819709702,
+        0.8587597802044169
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "AA",
+      "metric": "FSR",
+      "value": 0.6229317395407361,
+      "ci95": [
+        0.46458001917344477,
+        0.776767177459219
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "type": "AA",
+      "metric": "FMR",
+      "value": 0.14619930530175662,
+      "ci95": [
+        0.08815866755541926,
+        0.20906258097724104
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "type": "AA",
+      "metric": "FMR",
+      "value": 0.16704608066335552,
+      "ci95": [
+        0.10548213364006259,
+        0.23202049496843313
+      ]
+    }
+  ],
+  "paired_deltas": [
+    {
+      "type": "HH",
+      "metric": "FSR",
+      "tasks": 17,
+      "delta": -0.17647058823529413,
+      "ci95": [
+        -0.35294117647058826,
+        0.0
+      ]
+    },
+    {
+      "type": "HH",
+      "metric": "FMR",
+      "tasks": 17,
+      "delta": 0.058068487055184255,
+      "ci95": [
+        0.005292253562149757,
+        0.12320124971301873
+      ]
+    },
+    {
+      "type": "HA",
+      "metric": "FSR",
+      "tasks": 17,
+      "delta": -0.05971173592491847,
+      "ci95": [
+        -0.12631317926501065,
+        -0.0009301156359979856
+      ]
+    },
+    {
+      "type": "HA",
+      "metric": "FMR",
+      "tasks": 17,
+      "delta": 0.04568198278644862,
+      "ci95": [
+        0.025691828948155856,
+        0.06826433047103107
+      ]
+    },
+    {
+      "type": "AA",
+      "metric": "FSR",
+      "tasks": 17,
+      "delta": -0.10015728216420258,
+      "ci95": [
+        -0.2095452797874943,
+        -0.00817867253853414
+      ]
+    },
+    {
+      "type": "AA",
+      "metric": "FMR",
+      "tasks": 17,
+      "delta": 0.020846775361598895,
+      "ci95": [
+        -0.005551527932626839,
+        0.045059413742812846
+      ]
+    }
+  ],
+  "mode_gap": {
+    "comparison": "HA_minus_HH_FSR_command",
+    "tasks": 17,
+    "delta": 0.3553911905112232,
+    "ci95": [
+      0.12828063588213173,
+      0.5840158589503083
+    ]
+  },
+  "protocol": "50% role mixture, fixed original predictions; average allocations within query task before 10000 task-cluster resamples; all HH/HA/AA FSR and FMR contrasts retained; exploratory intervals unadjusted for multiple comparisons"
+}

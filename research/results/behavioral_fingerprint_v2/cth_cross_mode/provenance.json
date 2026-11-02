@@ -1,0 +1,9 @@
+{
+  "protocol": "cth-cross-mode-retrieval-v1",
+  "seed": 20261103,
+  "outer_folds": 5,
+  "feature_scaling": "training-fold traces only; task and mode are evaluation metadata, never pair features",
+  "models": "command/action cosine; regularized class-balanced logistic regression for B, B+S, and command+B/S",
+  "candidate_design": "fixed 8-task within-fold gallery; all query and gallery tasks are held out from model fitting",
+  "claim_boundary": "retrieves same CTH challenge context across execution modes; does not establish a common actor, activity, attack, or campaign"
+}

@@ -1,0 +1,359 @@
+{"trace_id": "a803859d7c432c1be9f2", "commands": ["ls", "vi", "ls", "pwd", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 3, "modify": 1, "network": 9}}
+{"trace_id": "191a1406e91b0dff88f8", "commands": ["ls", "pwd", "touch", "nano", "rm", "nano", "cat", "bash", "ls", "cat", "bash", "bash", "ls", "nano", "python", "python3", "nano", "python3", "python", "python", "python", "python", "python", "python", "python", "ssh", "python", "python", "python", "python", "python", "python", "python", "python", "nano", "python", "python3", "python3", "cat", "nc", "python", "python", "python", "python", "python", "python", "python", "python", "python", "pwd", "python", "python", "python", "python", "python", "python", "ls", "sh", "ls", "ls", "pwd", "ls"], "action_counts": {"discover": 10, "modify": 7, "read": 3, "execute": 40, "network": 2}}
+{"trace_id": "f2e4f87d27bd17ea6409", "commands": [], "action_counts": {}}
+{"trace_id": "5b735ed0ab9d6c5603f6", "commands": [], "action_counts": {}}
+{"trace_id": "8a6d51422a801e14c043", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 7}}
+{"trace_id": "c73eae3b3316ad06f167", "commands": [], "action_counts": {}}
+{"trace_id": "aa7435eaca8c333503db", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 7}}
+{"trace_id": "4cb24f74491acaa11dfe", "commands": ["ls", "ls"], "action_counts": {"discover": 2}}
+{"trace_id": "4006a1635a9a978a5a08", "commands": [], "action_counts": {}}
+{"trace_id": "0ba8f12914d5bab0b5f8", "commands": ["nmap", "nmap", "nmap", "nmap", "curl"], "action_counts": {"network": 5}}
+{"trace_id": "3057c37e83f4c139e50e", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "5d8e6e5a73acf145e97c", "commands": ["echo", "echo", "ls"], "action_counts": {"modify": 2, "discover": 1}}
+{"trace_id": "976b06453aadd34ea67d", "commands": ["nmap", "ssh", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "1e7c0853e534a1e373fa", "commands": ["ls", "python"], "action_counts": {"discover": 1, "execute": 1}}
+{"trace_id": "a83fedc99fd6bd82bbcf", "commands": [], "action_counts": {}}
+{"trace_id": "4f9656336bb4b55156ad", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "ade5b339116c7c4c5365", "commands": ["curl"], "action_counts": {"network": 1}}
+{"trace_id": "e2ff5d0f7404f974ca4a", "commands": ["ps", "ps", "curl", "curl", "curl"], "action_counts": {"environment": 2, "network": 3}}
+{"trace_id": "165689d422bb270bc422", "commands": ["locate", "cp", "cp", "nano", "sh", "sh", "bash"], "action_counts": {"discover": 1, "modify": 3, "execute": 3}}
+{"trace_id": "35e888ff95da84f989cd", "commands": ["wget", "nano", "python3", "python3", "python3", "curl", "cd", "cd", "ls"], "action_counts": {"network": 2, "modify": 1, "execute": 3, "environment": 2, "discover": 1}}
+{"trace_id": "3995ea96ee4fefe7f1f2", "commands": ["ls", "cat", "cat", "ssh", "ssh", "ssh", "ls", "cd", "nano", "nano", "cat", "nano", "ls", "cat", "cat", "locate", "locate", "chmod", "ssh", "ssh", "ls", "cd", "ls", "cd", "ls", "cat", "ls", "cat", "cd", "ls", "ps"], "action_counts": {"discover": 10, "read": 7, "network": 5, "environment": 5, "modify": 4}}
+{"trace_id": "f61062827eef15a62318", "commands": ["ls", "cat", "nmap", "nmap"], "action_counts": {"discover": 1, "read": 1, "network": 2}}
+{"trace_id": "9419e69112cd75010f6f", "commands": ["ls", "cd", "ls", "cd", "ls", "ls", "nc", "nc", "ls", "cat", "cd", "ls", "chmod", "ls", "python", "python3", "nc", "python", "python", "python", "python", "python"], "action_counts": {"discover": 7, "environment": 3, "network": 3, "read": 1, "modify": 1, "execute": 7}}
+{"trace_id": "b05ba82cefae3a8a55dd", "commands": ["ls", "ps", "cd", "cd", "cd", "cd", "cd", "cd", "cd", "cd", "ls", "cd", "ls", "ls", "cd", "ls", "cd", "cd", "cd", "ls", "vi", "ls", "cd", "ls", "cat", "less"], "action_counts": {"discover": 8, "environment": 15, "modify": 1, "read": 2}}
+{"trace_id": "97fa510f5616dbeee8ee", "commands": ["nmap", "nmap", "nc", "nc", "nc", "nc", "nc", "nmap", "nmap", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "b83c98e13f1c11114b06", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "34bfbf9fe1f5036d07e9", "commands": ["ls", "ls", "nano", "ls", "wget", "ls", "ruby", "nano", "ruby", "nano", "nano"], "action_counts": {"discover": 4, "modify": 4, "network": 1, "execute": 2}}
+{"trace_id": "c9d6720fe4afe177f141", "commands": [], "action_counts": {}}
+{"trace_id": "f7d3634a5ddb4fc0ea9a", "commands": [], "action_counts": {}}
+{"trace_id": "0575091f25706ba9c430", "commands": ["ls", "vim", "nmap", "ssh", "nmap", "nmap", "nmap", "ls", "nmap", "nmap", "ssh", "ssh", "ssh", "ssh", "nmap", "nmap", "nmap", "vim", "vim", "cat", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "vim", "nmap"], "action_counts": {"discover": 2, "modify": 4, "network": 46, "read": 1}}
+{"trace_id": "337375119e3139871500", "commands": ["curl", "curl", "curl", "curl", "ls", "vim", "curl", "curl", "vim", "vim", "curl", "vim", "ls", "rm", "rm", "rm", "vim", "vim", "curl", "vim", "vim", "curl", "vim", "rm", "curl", "rm", "curl", "vim", "curl", "vim", "curl", "vim", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "vim", "curl", "vim"], "action_counts": {"network": 21, "discover": 2, "modify": 19}}
+{"trace_id": "d765bf895db953128d5b", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "96cebba329cd5eea4468", "commands": ["ls", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "ls", "ps", "ps", "nmap", "nmap"], "action_counts": {"discover": 2, "network": 9, "environment": 2}}
+{"trace_id": "178256403135bfd18dca", "commands": ["nmap", "cp", "cp", "cp", "cp", "cp", "ls", "pwd", "cp", "ls", "cat", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "ls", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "ssh", "curl", "curl", "ssh", "curl", "ls", "nano", "curl", "ssh", "ssh", "curl", "curl", "ssh", "curl", "curl", "curl", "curl", "curl", "curl", "ssh", "curl", "curl", "id", "curl", "curl", "curl", "ls", "ls", "ls", "nano", "touch", "ls", "nano", "ssh"], "action_counts": {"network": 42, "modify": 10, "discover": 9, "read": 1, "environment": 1}}
+{"trace_id": "ddd56f0137742965ffdb", "commands": ["ls", "cat", "nmap", "ssh", "ls", "nmap", "nmap", "nmap"], "action_counts": {"discover": 2, "read": 1, "network": 5}}
+{"trace_id": "fc19ce7f432c38b69244", "commands": ["curl", "curl", "nano", "curl", "nano", "wget", "wget", "wget", "ls", "mv", "chmod", "cat", "ls"], "action_counts": {"network": 6, "modify": 4, "discover": 2, "read": 1}}
+{"trace_id": "45507ae8961571ef4185", "commands": ["mv", "wget", "ls", "mv", "gcc", "gcc", "gcc", "gcc", "gcc", "gcc", "nano", "gcc"], "action_counts": {"modify": 3, "network": 1, "discover": 1, "build": 7}}
+{"trace_id": "04e253ef894cc46a9f1e", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "2de4495d017f29002677", "commands": ["ls", "cat", "python3", "ssh", "python", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "cd", "ls", "ls", "cd", "ls", "cd", "ls", "head", "cat", "ls", "ssh", "ssh", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "nmap", "netcat", "netcat", "nmap", "nc", "nc", "nc", "nc", "nmap", "netcat", "ls", "nmap", "nmap"], "action_counts": {"discover": 17, "read": 3, "execute": 2, "network": 15, "environment": 17}}
+{"trace_id": "505ca5114944ea705fe7", "commands": ["ssh", "ssh", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "62b1dac42fffca5a35d2", "commands": [], "action_counts": {}}
+{"trace_id": "ffa32c325943e234d4fa", "commands": [], "action_counts": {}}
+{"trace_id": "54d2e7832df6c1d7e2fd", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "addcdb210d118fd48152", "commands": ["nano", "cd", "python", "python", "python", "python", "python", "python", "python", "python", "ssh", "python", "ssh", "python", "python", "python", "ssh", "python", "ssh", "ls", "cat"], "action_counts": {"modify": 1, "environment": 1, "execute": 13, "network": 4, "discover": 1, "read": 1}}
+{"trace_id": "3ab9687b040333c1b610", "commands": ["ls", "pwd", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "cd", "ls", "cat"], "action_counts": {"discover": 8, "environment": 8, "read": 1}}
+{"trace_id": "3f842f2f8702cca348d1", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "087b359a38744793bb30", "commands": [], "action_counts": {}}
+{"trace_id": "c6b6d385c06d79d8a199", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 13}}
+{"trace_id": "d9afd70d44a11f51e43f", "commands": ["curl", "curl", "echo", "curl", "curl", "ssh", "ssh", "ssh", "curl", "ls", "cat", "curl", "cat", "ls", "ls", "rm", "curl", "echo", "echo", "curl", "curl", "echo", "echo", "echo", "echo", "echo", "echo", "curl", "echo", "curl", "echo", "curl", "curl", "echo", "curl", "curl", "echo", "curl", "echo", "curl", "echo", "curl", "curl", "echo", "curl", "curl", "curl", "echo", "curl", "curl", "curl", "grep", "curl", "curl", "echo", "grep", "grep", "grep", "grep", "grep", "curl", "ls", "echo", "ls", "grep", "grep", "curl", "curl", "curl", "curl", "id", "id", "echo", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl"], "action_counts": {"network": 53, "modify": 21, "discover": 5, "read": 2, "search": 8, "environment": 2}}
+{"trace_id": "4eab5af92c521f587f91", "commands": [], "action_counts": {}}
+{"trace_id": "a14ddcd013ecba618604", "commands": [], "action_counts": {}}
+{"trace_id": "df08cf936ffa59fa6318", "commands": ["ssh", "ls", "cat", "python", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "nmap"], "action_counts": {"network": 24, "discover": 1, "read": 1, "execute": 1}}
+{"trace_id": "8f5444b46eac130c0be8", "commands": ["nano", "ls", "sh", "ls", "cd", "make", "ls", "cd", "ls", "nano", "ls", "cat", "cd", "ls", "nano", "cd", "ls", "cd", "ls", "cd", "cd", "make", "ls", "cd", "ls", "cd", "nano", "ls", "nano", "nano", "cd", "cd", "make", "cd", "ls", "cd", "ls", "nano", "ls", "nano", "cd", "cd", "make", "ls", "cd", "ls", "cd", "cd", "ls", "rm", "rm", "ls", "cd", "make", "cd", "ls", "cd", "ls", "nano", "cd", "make", "make"], "action_counts": {"modify": 11, "discover": 20, "execute": 1, "environment": 22, "build": 7, "read": 1}}
+{"trace_id": "38c5e9e4a10088a0f4e5", "commands": ["ssh"], "action_counts": {"network": 1}}
+{"trace_id": "3d0664441ed13c7c08cd", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cat", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "cd", "ls", "cd", "ls", "cd", "cd", "cd", "ls", "cd", "ls", "cat", "nmap", "nmap", "nmap", "nmap", "touch", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 12, "environment": 14, "read": 2, "network": 31, "modify": 1}}
+{"trace_id": "e0f127ca5f5e7c8de2b5", "commands": [], "action_counts": {}}
+{"trace_id": "2bf588a5a83563065100", "commands": [], "action_counts": {}}
+{"trace_id": "e903e225953cb103eb12", "commands": [], "action_counts": {}}
+{"trace_id": "49cd99551e874df0e75c", "commands": ["ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 8}}
+{"trace_id": "3666ef2be0557f9ad961", "commands": [], "action_counts": {}}
+{"trace_id": "5d327cb677939b4c1110", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "6f3ad5b13281ed5ff99a", "commands": [], "action_counts": {}}
+{"trace_id": "b6d0c44608b04793bcf7", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 8}}
+{"trace_id": "9394e07df639f4e24eb1", "commands": [], "action_counts": {}}
+{"trace_id": "a9fce91e212d60d6ef6c", "commands": ["nmap", "netcat", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "locate", "locate", "locate", "nmap", "locate", "nmap", "nmap", "nmap"], "action_counts": {"network": 17, "discover": 4}}
+{"trace_id": "6148514f5d9e501dce9c", "commands": ["nmap", "ls", "cat", "locate", "nmap"], "action_counts": {"network": 2, "discover": 2, "read": 1}}
+{"trace_id": "9da51b4fcd81545dfdc1", "commands": ["ls", "locate"], "action_counts": {"discover": 2}}
+{"trace_id": "b11310917939e06f7d0d", "commands": [], "action_counts": {}}
+{"trace_id": "094973867f3dd6c57486", "commands": [], "action_counts": {}}
+{"trace_id": "69186f1ce794c2f7c8b8", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "56dd8d2cebedb934c021", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "1c707f75753ce2c189d1", "commands": ["nmap", "nmap", "ls", "ls", "cat"], "action_counts": {"network": 2, "discover": 2, "read": 1}}
+{"trace_id": "172c50de97aec7542fd8", "commands": [], "action_counts": {}}
+{"trace_id": "ed06ff0c42fd84147556", "commands": ["ssh", "nc", "nc", "vim", "chmod", "vim", "vim", "nc", "echo", "echo", "echo", "vim", "vim", "vim", "echo", "echo", "echo", "echo", "vim", "vim", "vim", "ssh", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 11, "modify": 17}}
+{"trace_id": "ad5da50d653fe8a1a5ea", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "c897760814ce8d0216bf", "commands": ["ls", "echo", "cat", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "modify": 1, "read": 1, "network": 3}}
+{"trace_id": "5ac34cce9f39cc5044bc", "commands": ["nano", "wget", "cat", "cat", "cat", "cat", "wget", "nano", "python3", "nano", "nano", "python3", "nano", "python3", "python3", "python3"], "action_counts": {"modify": 5, "network": 2, "read": 4, "execute": 5}}
+{"trace_id": "aaafbec7b455a235874b", "commands": ["python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3", "python3"], "action_counts": {"execute": 18}}
+{"trace_id": "1031c658996d0c22804b", "commands": ["ls", "cat", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "read": 1, "network": 3}}
+{"trace_id": "9994098c7929594b8e49", "commands": ["ssh", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "ls", "python3", "python3", "python3"], "action_counts": {"network": 21, "discover": 1, "execute": 3}}
+{"trace_id": "a2745ec95363d4a121da", "commands": ["nmap", "ssh", "python3", "nmap", "nmap", "python3", "python3", "python3", "python3"], "action_counts": {"network": 4, "execute": 5}}
+{"trace_id": "10c27c26b61c623fcc5c", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 9}}
+{"trace_id": "7513e6a2e45051148a47", "commands": ["ls"], "action_counts": {"discover": 1}}
+{"trace_id": "26d4d951a24647bae361", "commands": [], "action_counts": {}}
+{"trace_id": "6a1de931f914d38679ab", "commands": [], "action_counts": {}}
+{"trace_id": "092891466301b803e17a", "commands": ["cat", "pwd", "cd", "cd", "cd", "cd", "cd", "cd", "cd", "cd", "mkdir", "cat", "cd", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"read": 2, "discover": 1, "environment": 9, "modify": 1, "network": 9}}
+{"trace_id": "7bea31cdd6331c4803db", "commands": [], "action_counts": {}}
+{"trace_id": "11b8fcac1a1664211924", "commands": [], "action_counts": {}}
+{"trace_id": "3867b54e9f73f8d10971", "commands": ["cd", "cat", "cat", "grep", "ls", "grep", "grep", "cat", "cat", "cat", "cat", "ls", "cat", "cd"], "action_counts": {"environment": 2, "read": 7, "search": 3, "discover": 2}}
+{"trace_id": "c3ff9059fd6792775b84", "commands": ["ps", "ls", "cat", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"environment": 1, "discover": 1, "read": 1, "network": 8}}
+{"trace_id": "a6abf058afc5b5cff10d", "commands": ["cd", "wget", "wget", "wget", "ls", "cat", "cat", "rm", "wget", "cat", "python", "nano", "nano", "python", "python", "python", "nano", "python", "python", "python3", "python3"], "action_counts": {"environment": 1, "network": 4, "discover": 1, "read": 3, "modify": 4, "execute": 8}}
+{"trace_id": "ddf25dfda5acc3c89ae5", "commands": ["python3", "cd", "python3", "wget", "python3", "nano", "nano", "python3", "python3"], "action_counts": {"execute": 5, "environment": 1, "network": 1, "modify": 2}}
+{"trace_id": "dbaf0d72984eca63d2f3", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "602b9a31bd7a06074890", "commands": ["ls", "pwd", "cat", "ls", "cd"], "action_counts": {"discover": 3, "read": 1, "environment": 1}}
+{"trace_id": "dcc5b9fe2ea2e5322982", "commands": [], "action_counts": {}}
+{"trace_id": "ef9a590a5c5a4196d5fe", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 9}}
+{"trace_id": "21757b09afdd5447484b", "commands": ["touch", "nano"], "action_counts": {"modify": 2}}
+{"trace_id": "4cac2691e2febf313575", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "9d0f891c71f29c4dc20b", "commands": [], "action_counts": {}}
+{"trace_id": "20436f21ef5e36a4b9e5", "commands": ["ls", "ls", "cd", "ls", "cat", "ls", "cd", "cd", "ls", "ls", "cd", "ls", "ls"], "action_counts": {"discover": 8, "environment": 4, "read": 1}}
+{"trace_id": "80c69f6e00f571ab22af", "commands": ["ls", "ls", "cat", "vim", "vim", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 2, "read": 1, "modify": 2, "network": 6}}
+{"trace_id": "92489655652f216cbbf4", "commands": ["ls", "curl", "curl", "curl", "curl", "curl", "python3", "vim", "curl", "curl", "curl", "ls", "echo"], "action_counts": {"discover": 2, "network": 8, "execute": 1, "modify": 2}}
+{"trace_id": "742e8f517c8f797284e9", "commands": [], "action_counts": {}}
+{"trace_id": "65f2951861329ab9e11c", "commands": [], "action_counts": {}}
+{"trace_id": "d86824f3121bd32a0a75", "commands": ["nmap", "nmap", "nmap", "nmap", "nc", "nc", "nc", "nmap", "nmap", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "4e15e0fcfe0dd54a688f", "commands": ["cd"], "action_counts": {"environment": 1}}
+{"trace_id": "dcff5ae84ee8018af4c6", "commands": [], "action_counts": {}}
+{"trace_id": "89eebef6c4be1d1ed2be", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "a8675f66ba33fcdb3af6", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "697f6071fd18f6a913f4", "commands": ["ls"], "action_counts": {"discover": 1}}
+{"trace_id": "58a58c58a203db171a4b", "commands": [], "action_counts": {}}
+{"trace_id": "8b6fd8cc0e52ef159ab2", "commands": ["ls", "vim", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "modify": 1, "network": 9}}
+{"trace_id": "270dcd194edf5019ea7d", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "2eb0ff5d7766c435b176", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "ls", "cd", "ls", "cd", "ls", "cat"], "action_counts": {"discover": 10, "environment": 8, "read": 1}}
+{"trace_id": "30c4af247987ac773335", "commands": ["nmap", "export", "bash", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 7, "environment": 1, "execute": 1}}
+{"trace_id": "d4f50bd245f5c26f228e", "commands": [], "action_counts": {}}
+{"trace_id": "ac43479d374ecc1acdb0", "commands": ["ls", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "network": 3}}
+{"trace_id": "9f33d13225018e621353", "commands": ["ls", "cat", "ls", "cd", "ls", "cat"], "action_counts": {"discover": 3, "read": 2, "environment": 1}}
+{"trace_id": "cb91aff403ef08460eca", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "ls", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "ls", "cd", "ls", "ls", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "ls", "cd", "ls", "ls", "ls", "ls", "ls", "ls", "cat", "cd", "ls", "cat", "cd", "ls", "ls", "ls", "cat"], "action_counts": {"discover": 27, "environment": 16, "read": 3}}
+{"trace_id": "6dd2a0510bdb1a1ce591", "commands": ["ssh", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 9}}
+{"trace_id": "3202a3cbac1f92728dd0", "commands": ["cd", "cd", "cd", "ls", "vim", "cd", "ls", "locate", "cd", "ls", "cd", "ls"], "action_counts": {"environment": 6, "discover": 5, "modify": 1}}
+{"trace_id": "ad1327a33c2f59145fc5", "commands": ["ls", "cat", "ls", "ls", "ls", "ls", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 5, "read": 1, "network": 6}}
+{"trace_id": "650f42977734aafd4ca7", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "45a8dd4de9d005df0770", "commands": ["ls", "cat", "nano", "ls", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python"], "action_counts": {"discover": 2, "read": 1, "modify": 1, "execute": 22}}
+{"trace_id": "f975a613ecdb8c75cab4", "commands": ["python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python"], "action_counts": {"execute": 25}}
+{"trace_id": "3af0fd665eae4b16d15f", "commands": ["nmap", "nc", "nc", "nc", "nc", "nc", "nc", "nc", "wget", "wget", "less", "nmap", "nmap", "nmap"], "action_counts": {"network": 13, "read": 1}}
+{"trace_id": "cb5edd5d128cf20d5abf", "commands": ["curl", "curl", "curl", "wget", "wget", "python3", "vim", "cd", "python3", "cd", "rm", "cd", "ls", "python", "python", "python", "python"], "action_counts": {"network": 5, "execute": 6, "modify": 2, "environment": 3, "discover": 1}}
+{"trace_id": "827abbb769db68c45a42", "commands": ["python", "python", "python", "python", "python", "python", "python", "python", "python", "python"], "action_counts": {"execute": 10}}
+{"trace_id": "d8165d74de69283b51d8", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "7ef832fe1eee7c278f23", "commands": ["ls", "vim", "vim", "chmod", "echo", "curl", "ruby", "vim", "vim", "vim", "vim", "vim", "nano", "ruby", "ls", "rm", "nmap", "vim", "python3", "cd", "python3", "python3", "python3", "cd", "cd", "nc", "nc", "chmod", "nc"], "action_counts": {"discover": 2, "modify": 13, "network": 5, "execute": 6, "environment": 3}}
+{"trace_id": "9a13dcf38bf9e04e0610", "commands": ["ls", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "network": 8}}
+{"trace_id": "c675ba53ecddee8acdd1", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "2705d15fb84069b593b3", "commands": ["ls", "vim", "ls", "sh", "ls", "vim", "ls", "vim", "curl", "ls", "vim", "curl", "ls", "vim", "curl", "ls", "cat", "wget", "ls", "cat", "ls", "cat", "ls", "vim", "sh", "mv", "sh", "sh", "ls", "sh", "chmod", "chmod", "chmod", "chmod", "chmod", "sh", "vim", "sh", "vim", "sh", "sh", "nmap", "sh", "nmap", "ls", "vim", "sh", "ls", "cat", "sh", "nmap", "cat", "vim", "vim", "sh", "vim", "sh", "sh", "sh", "cat", "sh", "sh", "cat", "sh", "cat", "sh", "vim", "sh", "ls", "chmod", "ls", "chmod", "ls", "cat", "ls", "ls", "bash", "ls", "sh", "nmap", "nmap", "nmap", "vim", "sh", "cat", "vim", "cat", "sh", "cat", "vim", "sh", "vim", "sh", "vim", "sh", "vim", "sh", "cat", "wget"], "action_counts": {"discover": 19, "modify": 27, "execute": 29, "network": 11, "read": 13}}
+{"trace_id": "3acf214f2ff84e9ea10c", "commands": [], "action_counts": {}}
+{"trace_id": "2091cecbd38bdf594e9a", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 5}}
+{"trace_id": "6136f7b3e377c40e822a", "commands": ["vim", "bash", "vim", "curl", "gcc", "vim", "gcc", "curl", "curl", "cat", "curl", "python", "python", "python", "bash", "python", "python", "python", "python"], "action_counts": {"modify": 3, "execute": 9, "network": 4, "build": 2, "read": 1}}
+{"trace_id": "48bbbcfdacfea6356325", "commands": ["python", "python", "python", "python", "python", "python", "python", "python", "python"], "action_counts": {"execute": 9}}
+{"trace_id": "08318ca1e0025194dbd5", "commands": ["ssh", "nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 16}}
+{"trace_id": "216e0d9cd954f1b9abba", "commands": ["cp", "ls", "ls", "cd", "ls", "cd", "cd", "ls", "cp", "cp", "cp"], "action_counts": {"modify": 4, "discover": 4, "environment": 3}}
+{"trace_id": "a2f2ee85627b9ede9ea2", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "cd", "cd", "ls", "cd", "cd", "ls"], "action_counts": {"discover": 6, "environment": 9}}
+{"trace_id": "29d35778487e3cbbc4fb", "commands": ["ls", "id", "nmap", "nmap", "nmap", "nc", "nc", "ls", "nmap", "nc", "nc"], "action_counts": {"discover": 2, "environment": 1, "network": 8}}
+{"trace_id": "6e41632e249c31fdf88c", "commands": ["vi", "ls", "ls", "nano", "ls", "nano", "curl", "curl", "vim", "vi", "vim", "chmod", "vim", "vim", "vim", "vim", "ls", "cd", "ls", "cat", "cat", "ls"], "action_counts": {"modify": 11, "discover": 6, "network": 2, "environment": 1, "read": 2}}
+{"trace_id": "75c03b1d2543160ebb88", "commands": ["cd", "ls", "cd", "ls", "ls", "cat", "less", "ls", "ls", "cat"], "action_counts": {"environment": 2, "discover": 5, "read": 3}}
+{"trace_id": "b6d62dd26046deb40cb1", "commands": ["ls", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "network": 3}}
+{"trace_id": "21d3b945fa8f69fbfc4d", "commands": [], "action_counts": {}}
+{"trace_id": "32d0b2ff9bd76d5ef6db", "commands": [], "action_counts": {}}
+{"trace_id": "c9a8a1f64e0e5cf4eacb", "commands": ["ls", "ls", "pwd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "vim", "ls", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "ssh", "nc", "nc", "nc", "nc", "nc", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 8, "environment": 4, "modify": 1, "network": 17}}
+{"trace_id": "c595b7dd1f0f9df4da7d", "commands": ["ssh"], "action_counts": {"network": 1}}
+{"trace_id": "75ea77cfdded8b60aee8", "commands": [], "action_counts": {}}
+{"trace_id": "7f24197f4c3d1bc03ddf", "commands": ["ls"], "action_counts": {"discover": 1}}
+{"trace_id": "a2e7bca5d7ff9ca10fe6", "commands": ["ls", "vim", "python", "ls", "cd", "ls", "cd", "ls", "ls", "ls", "ssh", "ssh", "ssh", "ssh", "ssh", "nmap", "nmap", "nmap", "ssh", "ssh", "ssh", "nmap"], "action_counts": {"discover": 6, "modify": 1, "execute": 1, "environment": 2, "network": 12}}
+{"trace_id": "f39d8fd71f9e69877549", "commands": ["vim", "cat", "ls", "cd", "ls", "cat", "vim", "whoami", "python", "vim", "ls", "pwd", "mv"], "action_counts": {"modify": 4, "read": 2, "discover": 4, "environment": 2, "execute": 1}}
+{"trace_id": "0eb88a69f16e820ac949", "commands": [], "action_counts": {}}
+{"trace_id": "6f24f40e042e0c5baf78", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "4b1964cb2b3d27ca82de", "commands": ["curl", "echo", "curl", "echo", "curl", "curl", "echo", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl"], "action_counts": {"network": 16, "modify": 3}}
+{"trace_id": "93154be2c1f56f89e2b6", "commands": [], "action_counts": {}}
+{"trace_id": "6e160330de238c89ccaf", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "b3e61e17e437abfbb52b", "commands": ["python", "python3", "wget", "ls", "cat", "ls", "ls", "python3", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python", "python"], "action_counts": {"execute": 15, "network": 1, "discover": 3, "read": 1}}
+{"trace_id": "2ec689a3af78831cf1bd", "commands": ["python", "python", "python", "python", "python", "python"], "action_counts": {"execute": 6}}
+{"trace_id": "0404609177e077e7ff47", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "8f4be9cd36c43444cf78", "commands": ["ls", "cat", "python", "ls", "ls", "ls", "cd", "ls", "cat", "python", "python", "python", "python", "python3", "python3", "python3", "cd", "ls", "python3", "ls"], "action_counts": {"discover": 7, "read": 2, "execute": 9, "environment": 2}}
+{"trace_id": "0cb902ea14ff5ae8677c", "commands": [], "action_counts": {}}
+{"trace_id": "ee5e8c3f92d7014c58e5", "commands": ["ls", "python", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "ls", "python", "python", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 2, "execute": 3, "network": 11}}
+{"trace_id": "80ade95697fb96fa05c1", "commands": [], "action_counts": {}}
+{"trace_id": "4507d1ad333033cb03bb", "commands": [], "action_counts": {}}
+{"trace_id": "4ea615653e3f746a0072", "commands": [], "action_counts": {}}
+{"trace_id": "73b2b0e75764b13840c3", "commands": ["python3", "python3", "python3", "python3", "python3"], "action_counts": {"execute": 5}}
+{"trace_id": "0ee13aa1ddcb8bff6589", "commands": ["ssh", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "853fba67d0f3c03345d9", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "7ce73bf2ba0a9d556500", "commands": ["ssh", "ssh"], "action_counts": {"network": 2}}
+{"trace_id": "5e44cf3f73dec311da90", "commands": [], "action_counts": {}}
+{"trace_id": "af0140dd273371219d38", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 20}}
+{"trace_id": "c360e954d097b08d5f8f", "commands": [], "action_counts": {}}
+{"trace_id": "4a0f87efacedc34d49c1", "commands": [], "action_counts": {}}
+{"trace_id": "2248efcabf47d5e78e11", "commands": ["vim", "vim", "vim", "nano", "nano", "ls", "ls", "python", "python", "ls", "python"], "action_counts": {"modify": 5, "discover": 3, "execute": 3}}
+{"trace_id": "2db60643345bedcdab99", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 16}}
+{"trace_id": "8a8b5ee90ca9b03ec76d", "commands": [], "action_counts": {}}
+{"trace_id": "309da16e71acf9df0699", "commands": ["ls", "nano", "cat", "ls", "ls", "nano"], "action_counts": {"discover": 3, "modify": 2, "read": 1}}
+{"trace_id": "b580527d71e4a74c6cdc", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 21}}
+{"trace_id": "3a4ba827ff920606680c", "commands": ["curl", "curl", "curl"], "action_counts": {"network": 3}}
+{"trace_id": "b7159cafdd4057e90948", "commands": [], "action_counts": {}}
+{"trace_id": "c7817e6c0901096db042", "commands": ["ls", "echo", "echo", "touch", "nano", "ls", "cat", "nano", "nano"], "action_counts": {"discover": 2, "modify": 6, "read": 1}}
+{"trace_id": "e5a0cea5f3ebf4a4a402", "commands": ["ls", "ls", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 2, "network": 7}}
+{"trace_id": "f780af3ffb5336e233af", "commands": [], "action_counts": {}}
+{"trace_id": "76d581cb11e87a83b221", "commands": [], "action_counts": {}}
+{"trace_id": "ad9f060f403b8cbd8f0b", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "32e9a6d283f15a743ed7", "commands": [], "action_counts": {}}
+{"trace_id": "1117f5470a328247399d", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "bd8399a243e1f285cbcc", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 5}}
+{"trace_id": "56f701a48ed1a5806e9a", "commands": ["ssh", "ssh"], "action_counts": {"network": 2}}
+{"trace_id": "631fe26d24dc7a1e152b", "commands": ["nano", "cat", "cat", "vi", "rm", "cat", "cat", "touch", "cat", "nano", "touch", "nano", "nano", "nano", "touch", "nano", "cat", "cat"], "action_counts": {"modify": 11, "read": 7}}
+{"trace_id": "55fdee646b671546adfd", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "8b0a794c687e1d7d76a2", "commands": [], "action_counts": {}}
+{"trace_id": "9223c58145159de7d1a4", "commands": [], "action_counts": {}}
+{"trace_id": "773f32719d9acf32539a", "commands": [], "action_counts": {}}
+{"trace_id": "74c9ccdc0bb5f62e977c", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "700eb2472ea8f9546844", "commands": ["python", "python", "ls", "ls", "cat", "nano", "nano", "nano", "nano"], "action_counts": {"execute": 2, "discover": 2, "read": 1, "modify": 4}}
+{"trace_id": "bb70a3282e5f4736d3c1", "commands": ["python3", "ls", "cat"], "action_counts": {"execute": 1, "discover": 1, "read": 1}}
+{"trace_id": "191309ad789e39425941", "commands": [], "action_counts": {}}
+{"trace_id": "f017f59836277af3a950", "commands": [], "action_counts": {}}
+{"trace_id": "702d5d39f36c81652684", "commands": [], "action_counts": {}}
+{"trace_id": "baf7322433c3e751eb0d", "commands": ["ls", "cd", "ls", "python3"], "action_counts": {"discover": 2, "environment": 1, "execute": 1}}
+{"trace_id": "289bb60d9b5b99e0f631", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 7}}
+{"trace_id": "fcb294961aca31b72ced", "commands": ["nano", "ls", "cat", "sh", "sh", "nano", "python", "python3", "python", "nano", "nano", "python", "python", "python", "python", "python", "python", "python", "ssh", "ls", "ls", "ls", "ls", "cat", "cat", "ssh", "nano", "python", "rm", "nano", "python", "python", "python3", "python3", "python3", "python3", "python3", "python3", "python3"], "action_counts": {"modify": 7, "discover": 5, "read": 3, "execute": 22, "network": 2}}
+{"trace_id": "c1124bf02df0a8ab0646", "commands": ["nano", "python3", "ls", "cat", "mv", "python3", "cat"], "action_counts": {"modify": 2, "execute": 2, "discover": 1, "read": 2}}
+{"trace_id": "75b75c0be893e6c8440b", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 12}}
+{"trace_id": "3d8fbb09027095acfa28", "commands": [], "action_counts": {}}
+{"trace_id": "9ab2382e7a5a29676a37", "commands": ["ssh", "nmap", "ssh"], "action_counts": {"network": 3}}
+{"trace_id": "a84f80d955d053d6136f", "commands": [], "action_counts": {}}
+{"trace_id": "36a68f8b6d672fd4fc2b", "commands": ["nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap", "curl", "curl", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "a30706f3084e216bcfd2", "commands": [], "action_counts": {}}
+{"trace_id": "f19be0bb4cfd5942447d", "commands": ["nmap", "nmap", "vi", "ls", "ls", "cd", "cd", "ls", "find", "cd", "ls"], "action_counts": {"network": 2, "modify": 1, "discover": 5, "environment": 3}}
+{"trace_id": "17582e37c0edf1f34edd", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "4e408566da95da77f113", "commands": [], "action_counts": {}}
+{"trace_id": "f941af6cb1d8ea48e6e0", "commands": [], "action_counts": {}}
+{"trace_id": "c6f658a5121c86ae2f81", "commands": [], "action_counts": {}}
+{"trace_id": "8cc903bd0ffb56e7dd47", "commands": [], "action_counts": {}}
+{"trace_id": "02e091efd794424d4bbd", "commands": [], "action_counts": {}}
+{"trace_id": "6e423e237bd8ae655f73", "commands": ["ssh", "chmod", "ssh"], "action_counts": {"network": 2, "modify": 1}}
+{"trace_id": "d86c23b502172519648f", "commands": ["nmap", "cat", "ps", "cd", "cd", "cd", "ls", "ls", "cat", "cd", "ls", "cd", "ls", "cat", "cat", "cd", "ls", "ssh", "cd", "cat", "ls", "cd", "ls", "cd", "ls", "cat", "cat", "cat", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "cat", "cd", "ls", "cd", "ls", "cd", "ls", "cat", "cd", "ls", "ls", "cat", "cd", "ls", "cd", "ls", "cat", "cd", "ls", "cd", "ls", "cat", "cd", "ls", "cat", "cd", "find", "ssh", "scp", "cat", "scp", "vim", "vim", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cat", "ssh", "ls", "cat", "cd", "ls", "cd", "ls", "cat", "cat", "ls", "vim", "cat", "cat", "ls", "cd", "ls", "find", "cat", "cd", "cd", "ls", "ls", "cat", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cat", "cat", "cd", "ls", "cd", "ls", "vim", "cat", "ls", "cd", "ls", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "find", "find", "find", "grep", "cd", "grep", "grep", "cd", "ls", "cd", "ls", "cd", "ls", "vim", "cat", "cd", "ls", "cd", "ls", "cat", "ls", "cat", "cat", "ssh", "ssh", "ssh", "python"], "action_counts": {"network": 9, "read": 30, "environment": 56, "discover": 63, "modify": 5, "search": 3, "execute": 1}}
+{"trace_id": "9365646c02e4436251bc", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 5}}
+{"trace_id": "ebe1e847222fba63deee", "commands": ["python"], "action_counts": {"execute": 1}}
+{"trace_id": "e98c595682e7280f8697", "commands": [], "action_counts": {}}
+{"trace_id": "76dcc653e28b57f900ed", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "75564c55b5ca90f56f84", "commands": [], "action_counts": {}}
+{"trace_id": "7f28f5e7fe8094cf622c", "commands": [], "action_counts": {}}
+{"trace_id": "76f7414e2cf5644aa210", "commands": ["nmap", "ls", "touch", "nano", "python", "ls", "cat", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "ls"], "action_counts": {"network": 1, "discover": 14, "modify": 2, "execute": 1, "read": 1}}
+{"trace_id": "3d96d68594d569f5411a", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "63ab0c1735ca7b0639e7", "commands": [], "action_counts": {}}
+{"trace_id": "fc6129234be2cbf81afd", "commands": ["wget", "cat", "ruby", "cd", "pwd", "cd"], "action_counts": {"network": 1, "read": 1, "execute": 1, "environment": 2, "discover": 1}}
+{"trace_id": "51c7d0c8faf668693889", "commands": ["ls", "cd", "ls", "mkdir", "cd", "vim", "ls", "vim", "vim", "vim", "vim", "ls", "ssh", "chmod", "ssh", "ls", "ls", "ls", "python3", "pwd", "python3", "cd", "ls", "cd", "ls", "python3", "cat", "ls"], "action_counts": {"discover": 11, "environment": 4, "modify": 7, "network": 2, "execute": 3, "read": 1}}
+{"trace_id": "e5bb3799cabc59dc892d", "commands": ["nmap", "cat", "cat", "nmap", "nmap", "nmap"], "action_counts": {"network": 4, "read": 2}}
+{"trace_id": "05d59cb462b46e7c87bb", "commands": ["curl", "curl", "curl", "curl", "curl", "curl"], "action_counts": {"network": 6}}
+{"trace_id": "6e30006e8eb940aa0e5c", "commands": ["python3"], "action_counts": {"execute": 1}}
+{"trace_id": "0d56233bb49c4ecf51d8", "commands": ["nmap", "nmap", "ssh", "ssh"], "action_counts": {"network": 4}}
+{"trace_id": "9066977589e30e1d271a", "commands": ["cd", "ls", "ruby", "curl", "ruby"], "action_counts": {"environment": 1, "discover": 1, "execute": 2, "network": 1}}
+{"trace_id": "0943f64183b9040dd81c", "commands": ["ls", "ls", "cat", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "cd", "ls", "cat", "cd", "cd", "ls", "ls", "less", "cd", "less", "ls", "cat", "ls", "cat"], "action_counts": {"discover": 17, "read": 6, "environment": 17}}
+{"trace_id": "6f6148adcaa8c1c54307", "commands": ["cd", "ls", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "cat", "ls", "python3"], "action_counts": {"environment": 7, "discover": 7, "read": 1, "execute": 1}}
+{"trace_id": "21aac16b117282f0274c", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "6598cb347ecbd06c24c7", "commands": [], "action_counts": {}}
+{"trace_id": "4a85c6afe00730469783", "commands": ["cd", "ls", "python3", "python3", "vim", "cat", "nc"], "action_counts": {"environment": 1, "discover": 1, "execute": 2, "modify": 1, "read": 1, "network": 1}}
+{"trace_id": "9edb0a542d4e6da837a6", "commands": ["vim", "ssh", "chmod", "ssh", "chmod", "ssh", "ssh", "nc", "vim", "vim", "ssh", "locate", "python3", "python", "python", "ls", "cd", "ls", "cat"], "action_counts": {"modify": 5, "network": 6, "discover": 3, "execute": 3, "environment": 1, "read": 1}}
+{"trace_id": "84e249afef91d76ad9a2", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 8}}
+{"trace_id": "c52e5d782550010d1c22", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "5dea86cb496a46da167b", "commands": ["ls", "mkdir", "cd", "ls", "cd", "ls", "ls", "ls", "python", "python", "python", "ssh", "ssh"], "action_counts": {"discover": 5, "modify": 1, "environment": 2, "execute": 3, "network": 2}}
+{"trace_id": "dde8cab21b42a8297da2", "commands": [], "action_counts": {}}
+{"trace_id": "be6337001caf5e57420c", "commands": ["ls", "cd", "ls", "ls", "ls", "ls", "cd", "cd", "ls", "cd", "ls", "ls", "ls", "ls", "nano", "nano", "ls", "python", "ls", "cat"], "action_counts": {"discover": 12, "environment": 4, "modify": 2, "execute": 1, "read": 1}}
+{"trace_id": "33908d4620b500b3c767", "commands": ["ls", "vim", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "modify": 1, "network": 7}}
+{"trace_id": "af24f162953af60314fc", "commands": ["curl"], "action_counts": {"network": 1}}
+{"trace_id": "bc369eefdc1159a9476c", "commands": ["ls", "cat", "ls", "cd", "ls", "cd", "cd", "ls", "ls", "ls", "cd", "ls", "less"], "action_counts": {"discover": 7, "read": 2, "environment": 4}}
+{"trace_id": "dac6bf897b43231914cc", "commands": ["ls", "cd", "ls", "ls", "cd", "ls", "find", "ls", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "scp", "ls", "scp", "ls", "cd", "ls", "cd", "ls", "uname", "python", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "ls", "cd", "ls", "uname", "python"], "action_counts": {"discover": 21, "environment": 15, "network": 2, "execute": 2}}
+{"trace_id": "44db4b2c0ed3bc3cb515", "commands": [], "action_counts": {}}
+{"trace_id": "ad43ed71ce172a1b0b36", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 5}}
+{"trace_id": "68655b482cb416c72ee8", "commands": [], "action_counts": {}}
+{"trace_id": "e47dff01030f6e7c6ae4", "commands": [], "action_counts": {}}
+{"trace_id": "4aa40efe6c2446e6c4ef", "commands": [], "action_counts": {}}
+{"trace_id": "a91e6617e3f161fb95be", "commands": [], "action_counts": {}}
+{"trace_id": "98d702797b1612e486f0", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "053340fd08371ccb505e", "commands": ["ls", "cd", "cd", "cd", "cd", "cd", "ls", "cat"], "action_counts": {"discover": 2, "environment": 5, "read": 1}}
+{"trace_id": "ebf2214f230689396a5a", "commands": ["ls", "ls", "cd", "ls", "cd", "ls", "ls", "cd", "ls", "ls", "cat"], "action_counts": {"discover": 7, "environment": 3, "read": 1}}
+{"trace_id": "e009906b85e7244d0220", "commands": ["ls", "cd", "ls", "python", "python3", "scp", "wget", "ls", "ls", "cat", "cat"], "action_counts": {"discover": 4, "environment": 1, "execute": 2, "network": 2, "read": 2}}
+{"trace_id": "0a789c8666b442be470f", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "2bea2c7fffb9705012c8", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 15}}
+{"trace_id": "f5c0d3b0aac72bc427f2", "commands": [], "action_counts": {}}
+{"trace_id": "67294ec6a501831058d8", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "996ab967aca0ec054083", "commands": ["cd", "nano", "nano", "nano", "nano", "ssh", "ssh", "ssh", "ssh", "ssh", "ssh", "chmod", "ssh", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "locate", "python", "python", "python", "python", "ls", "ls"], "action_counts": {"environment": 1, "modify": 5, "network": 7, "discover": 10, "execute": 4}}
+{"trace_id": "b47bed56d181eb1ec323", "commands": ["nmap", "nmap"], "action_counts": {"network": 2}}
+{"trace_id": "1f7d90974ddb80feca0d", "commands": ["nmap", "cd", "cd", "nmap"], "action_counts": {"network": 2, "environment": 2}}
+{"trace_id": "8d7d87ac075665211047", "commands": [], "action_counts": {}}
+{"trace_id": "809cb24da3e188c8705c", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "b4ffd14ae962829f89f3", "commands": ["cd", "nc", "nc", "nc", "cd", "ls", "rm", "nc", "ls", "less", "nc", "ls", "less", "nc", "less", "ls", "nc", "ls", "less", "rm", "nc", "less", "rm", "nc", "less", "less", "cd", "vim", "vim", "vim", "ls", "less", "less", "vim", "vim", "less", "less", "cat", "cat", "less", "less", "less", "cd", "cd", "cd", "cd", "cd", "cd", "less", "less", "ls", "less", "less", "python3", "python3", "python3", "ls", "less"], "action_counts": {"environment": 9, "network": 9, "discover": 8, "modify": 8, "read": 21, "execute": 3}}
+{"trace_id": "f00a26524954e866e869", "commands": ["ls", "chmod", "grep", "grep", "grep", "grep", "grep", "grep"], "action_counts": {"discover": 1, "modify": 1, "search": 6}}
+{"trace_id": "a95024d26e53b3358271", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "4b04c2eabe59cd496b96", "commands": [], "action_counts": {}}
+{"trace_id": "217b3b850a05707ff512", "commands": ["python3"], "action_counts": {"execute": 1}}
+{"trace_id": "fecb15cb30d80d0aa0c9", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "cat", "cat", "cd", "cd", "cd", "ls", "cd", "cd", "cat", "ls"], "action_counts": {"discover": 8, "environment": 10, "read": 3}}
+{"trace_id": "84a8f3360248236fa439", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 11}}
+{"trace_id": "5df633a171a2857d0880", "commands": ["cd", "touch", "chmod", "vim", "cat", "vim", "vim", "ls", "sh", "sh", "nmap"], "action_counts": {"environment": 1, "modify": 5, "read": 1, "discover": 1, "execute": 2, "network": 1}}
+{"trace_id": "9349a08bc6f63e3cc59a", "commands": ["ls", "touch", "vim", "cat", "vim", "vim", "touch", "vim", "vim", "python", "python3", "python", "mv", "ruby", "ruby"], "action_counts": {"discover": 1, "modify": 8, "read": 1, "execute": 5}}
+{"trace_id": "c31e8faadfa792b972d0", "commands": [], "action_counts": {}}
+{"trace_id": "9c7fe551ee1963e5b6db", "commands": ["ls", "touch", "vim", "vim", "python3", "ls", "cat", "ssh", "ssh"], "action_counts": {"discover": 2, "modify": 3, "execute": 1, "read": 1, "network": 2}}
+{"trace_id": "12e061b70a22cc209c46", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "91e6f3a52daf5d626813", "commands": [], "action_counts": {}}
+{"trace_id": "04703ce3e01cd897f21c", "commands": ["ls", "ls", "ls", "ls", "ls", "ls", "cat", "ls", "python", "ls", "ls", "ls"], "action_counts": {"discover": 10, "read": 1, "execute": 1}}
+{"trace_id": "16dcbc32c47bd1b0d39f", "commands": ["nano"], "action_counts": {"modify": 1}}
+{"trace_id": "a6cb1606fef699826d4d", "commands": ["nmap", "nmap", "nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 16}}
+{"trace_id": "7c636da1c96e4b12f0ce", "commands": [], "action_counts": {}}
+{"trace_id": "7e062196a1f847e13ed3", "commands": [], "action_counts": {}}
+{"trace_id": "34b155441a027c2a8c7a", "commands": [], "action_counts": {}}
+{"trace_id": "4df94ea49de90becda7c", "commands": ["ls", "cd", "ls", "cat", "touch", "ls", "nano", "cat", "nano", "cat", "cat", "cat", "cat", "cat", "rm", "touch", "rm", "touch", "ls", "nano", "nano", "cat", "python3", "cat", "python3", "python3", "cd", "python3", "cat", "cd"], "action_counts": {"discover": 4, "environment": 3, "read": 10, "modify": 9, "execute": 4}}
+{"trace_id": "57f12fa61de9d5279917", "commands": ["ls"], "action_counts": {"discover": 1}}
+{"trace_id": "ca1707c4508478fa6efd", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 12}}
+{"trace_id": "9b9187d47d00c7fb32a6", "commands": ["ssh", "ssh", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "d1b14ca3e33fa872481a", "commands": [], "action_counts": {}}
+{"trace_id": "30a632f730d09a38f208", "commands": ["ls", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "network": 7}}
+{"trace_id": "e8dcff174fb2f8d33e00", "commands": ["nano", "nano", "nano", "nano", "nano", "nano", "cat", "nano", "ssh", "ssh", "ls", "python", "python", "python"], "action_counts": {"modify": 7, "read": 1, "network": 2, "discover": 1, "execute": 3}}
+{"trace_id": "5fe98c811590ac96024b", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "162cbcf1669ce690d8d3", "commands": ["ssh", "ssh", "ssh", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "curl", "vim", "mv", "python", "vim", "python", "vim", "rm", "vim", "wget", "python", "python", "python", "python", "ssh", "python", "cat", "ls", "cat"], "action_counts": {"network": 14, "modify": 6, "execute": 7, "read": 2, "discover": 1}}
+{"trace_id": "fb1b415bf3d352853058", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "cd", "ls", "cat", "ls", "cat", "ls", "cat", "cd", "ls", "ls", "cd", "cat", "cd", "ls", "cat", "cd", "ls", "cd", "ls", "cd", "cd", "cd", "ls", "cd", "ls", "ls", "cat", "cat", "cat", "cd", "ls", "cd", "ls", "cd", "ls", "cat", "cd", "cd", "ls", "cd", "ls", "ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls", "ls", "cat", "cat", "cat", "cd", "ls", "cat", "cd", "ls", "ls", "ls", "cat", "cat"], "action_counts": {"discover": 32, "environment": 31, "read": 15}}
+{"trace_id": "7214db72caf86a5c6491", "commands": ["cd", "cd", "ls", "ssh", "ls", "ssh", "ssh", "ssh", "ssh", "ls", "cd", "ls", "cd", "ls", "cat", "cat", "cat", "nmap", "ssh", "cat", "ls", "ls", "cd", "ls", "ls", "cd", "ls", "cat", "ssh", "cd", "ls", "ls", "cat", "cd", "ls", "cd", "cd", "ls", "cd", "ls", "cat", "cat", "cat", "ssh", "vim", "wget", "python", "python", "cat", "cd", "ls", "ls", "cd", "ls", "cd", "ls", "cat", "cat", "cat", "cat", "cat", "cat", "cat"], "action_counts": {"environment": 14, "discover": 19, "network": 10, "read": 17, "modify": 1, "execute": 2}}
+{"trace_id": "12fbeaba7d6214b184af", "commands": ["vim", "vim", "vim", "vim", "nmap", "nmap", "nmap", "ssh", "ssh", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"modify": 4, "network": 15}}
+{"trace_id": "673a2bb570b7de9c4116", "commands": ["nmap", "nmap", "vim", "vim", "chmod", "rm", "wget", "wget", "rm", "cat", "vim", "vim", "ssh", "ssh", "ssh", "ssh"], "action_counts": {"network": 8, "modify": 7, "read": 1}}
+{"trace_id": "3ff52442d067be70d4bd", "commands": ["ssh", "ssh", "ssh", "nmap", "nmap"], "action_counts": {"network": 5}}
+{"trace_id": "018add959091ed46d869", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "mkdir", "cd", "vim", "vim", "vim", "vim", "ssh", "chmod", "chmod", "chmod", "ssh", "ssh", "ssh", "rm", "vim", "vim", "vim", "vim", "echo", "echo", "echo", "echo", "echo", "echo"], "action_counts": {"network": 9, "modify": 19, "environment": 1}}
+{"trace_id": "898d892cf62eb70c1e86", "commands": ["whoami", "nmap", "nmap", "nmap", "cd", "cd", "cd", "nmap", "nmap", "nmap", "find", "find", "find", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"environment": 4, "network": 17, "discover": 3}}
+{"trace_id": "455816f2631ea87a4468", "commands": ["nmap", "nmap", "ls", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6, "discover": 1}}
+{"trace_id": "1a0fb761f49a6be0c40f", "commands": ["ls", "cd", "cd", "ls", "cd", "ls", "cd", "ls"], "action_counts": {"discover": 4, "environment": 4}}
+{"trace_id": "4814cfe7c965be1321a3", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 10}}
+{"trace_id": "6e9cdee3cf19073f18a9", "commands": ["ssh", "ssh"], "action_counts": {"network": 2}}
+{"trace_id": "f109833bbdffc16f9b3c", "commands": ["ls", "vim", "python3"], "action_counts": {"discover": 1, "modify": 1, "execute": 1}}
+{"trace_id": "b10bd3a7532a79babc2b", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "28744211eed70ce372cd", "commands": [], "action_counts": {}}
+{"trace_id": "4227f940bece93410267", "commands": [], "action_counts": {}}
+{"trace_id": "ed2f69f7c427408aafda", "commands": ["cd", "cd", "ls", "ls", "mkdir", "cd", "ls", "ls", "cat", "cat", "ssh", "cd", "ls", "scp", "ssh", "cd", "cd", "mkdir", "cd", "scp", "scp", "scp", "ls", "ls", "ssh", "scp", "scp", "ls", "cat", "cat", "cat", "tail", "head", "head", "ls", "cd", "ls", "ls", "ls", "ls", "ls", "ls", "ls", "cd", "find", "cd", "head", "cat"], "action_counts": {"environment": 10, "discover": 17, "modify": 2, "read": 10, "network": 9}}
+{"trace_id": "5bdb76c3e1a57583596c", "commands": ["nmap", "nmap", "nmap"], "action_counts": {"network": 3}}
+{"trace_id": "144811034ab92fb4e169", "commands": ["ssh"], "action_counts": {"network": 1}}
+{"trace_id": "8b76e3ff8fdc4d201ffb", "commands": [], "action_counts": {}}
+{"trace_id": "39690ab4f1289644cd32", "commands": ["ls", "cat", "cat", "cat", "python3", "rm", "cat", "python3"], "action_counts": {"discover": 1, "read": 4, "execute": 2, "modify": 1}}
+{"trace_id": "dd9bf7343ed5b649f697", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "4bd8b9e6bb0b58fa0ec6", "commands": [], "action_counts": {}}
+{"trace_id": "ee3cb6c5522a597ef4c3", "commands": ["ls", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls", "touch", "nano", "ls", "python"], "action_counts": {"discover": 6, "environment": 4, "modify": 2, "execute": 1}}
+{"trace_id": "803595882a7c7fa86c67", "commands": ["nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 4}}
+{"trace_id": "da44721590bc6bea0c2c", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "550548c079c338612946", "commands": ["ls", "ls", "cd", "ls", "python", "vim", "ls", "ls", "vim"], "action_counts": {"discover": 5, "environment": 1, "execute": 1, "modify": 2}}
+{"trace_id": "4eafb98b57a2142a9870", "commands": ["ls", "cd", "ls", "rm", "rm", "ls", "rm", "ls", "nmap", "nmap"], "action_counts": {"discover": 4, "environment": 1, "modify": 3, "network": 2}}
+{"trace_id": "97dc9623cb1d2223c7bb", "commands": ["ls", "ls", "cd", "ls", "ls", "ls", "vim", "ls", "cat", "ssh", "python", "python", "ls"], "action_counts": {"discover": 7, "environment": 1, "modify": 1, "read": 1, "network": 1, "execute": 2}}
+{"trace_id": "808cb68335a8ac0672a2", "commands": ["ssh"], "action_counts": {"network": 1}}
+{"trace_id": "7ed43ee974373a102c9d", "commands": ["nmap", "nmap", "curl", "curl", "curl", "curl", "curl", "curl", "nmap"], "action_counts": {"network": 9}}
+{"trace_id": "d07293aed521a215da80", "commands": [], "action_counts": {}}
+{"trace_id": "953433fa1c18c6cf808f", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "ssh", "ssh", "nmap"], "action_counts": {"network": 9}}
+{"trace_id": "6e23e4a69b7c02510c07", "commands": ["ls", "cat", "python", "python", "ls", "cat", "mv", "ls", "python", "vim", "ls", "python", "cat", "cat", "wget", "ls", "ls", "ls", "cd", "ls", "cat", "cat", "cd", "wget", "ls", "cat", "ls", "cat", "cat", "cd", "ls", "cat", "ls", "cat", "cat", "cat", "cat", "cd"], "action_counts": {"discover": 12, "read": 14, "execute": 4, "modify": 2, "network": 2, "environment": 4}}
+{"trace_id": "4ced472215405369a49a", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "f8e55cd9ada7cf348050", "commands": [], "action_counts": {}}
+{"trace_id": "b70dbc5a123c317f3a9f", "commands": [], "action_counts": {}}
+{"trace_id": "2e12a3573b8a32962575", "commands": ["ls", "vim", "ls", "nano", "vim", "vim", "vim", "cat", "python", "ls", "cat", "ls", "ls", "ls"], "action_counts": {"discover": 6, "modify": 5, "read": 2, "execute": 1}}
+{"trace_id": "ec28adcf9ff07f517404", "commands": ["nano"], "action_counts": {"modify": 1}}
+{"trace_id": "effadf288d6390031b93", "commands": ["ls", "pwd", "head", "cat", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "ls", "cat", "ls", "nmap"], "action_counts": {"discover": 4, "read": 3, "network": 10}}
+{"trace_id": "e307dcbd8f3089a954e8", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "5e82b55aeaebaab7e251", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "413ee3719c88146cc2a5", "commands": ["vi", "ls", "cd", "ls", "cd", "ls", "vi", "vi", "vi", "vi", "ls", "cat", "rm", "vi", "cat", "python3"], "action_counts": {"modify": 7, "discover": 4, "environment": 2, "read": 2, "execute": 1}}
+{"trace_id": "90eb96a14d53723bc2b4", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 6}}
+{"trace_id": "95ce43863e16ee4b797d", "commands": [], "action_counts": {}}
+{"trace_id": "a209ac2839f1e0f24761", "commands": ["ls", "nano", "ls", "python3"], "action_counts": {"discover": 2, "modify": 1, "execute": 1}}
+{"trace_id": "d630c939b6f9deb19d86", "commands": ["curl", "curl", "nmap", "curl", "nmap", "nmap", "nmap"], "action_counts": {"network": 7}}
+{"trace_id": "649fd259a3b10066dff7", "commands": ["curl", "export", "echo", "curl", "curl", "curl", "curl", "curl", "curl"], "action_counts": {"network": 7, "environment": 1, "modify": 1}}
+{"trace_id": "6a909a2e493416d6a85b", "commands": ["ls", "nano", "nano", "vim", "ls", "cd", "cd", "cd", "cd", "python", "python", "python"], "action_counts": {"discover": 2, "modify": 3, "environment": 4, "execute": 3}}
+{"trace_id": "a0ab2368b9659dd2eebc", "commands": ["nmap", "nmap", "nmap", "nmap", "ssh", "ssh", "ssh", "ssh", "ssh", "nmap", "nmap", "nmap", "ssh", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 22}}
+{"trace_id": "93df11f665cec7388ae7", "commands": ["ssh", "ls", "cd", "ls", "ls", "cd", "cd", "ls", "cd", "cd", "cd", "ssh", "ssh"], "action_counts": {"network": 3, "discover": 4, "environment": 6}}
+{"trace_id": "cc7394ed842b67eca368", "commands": ["ssh", "tail", "head", "ls", "cat", "cd", "ls", "cd", "ls", "cd", "ls", "cd", "ls"], "action_counts": {"network": 1, "read": 3, "discover": 5, "environment": 4}}
+{"trace_id": "6d0c86428f7189f17dd7", "commands": ["ls", "ls", "python3"], "action_counts": {"discover": 2, "execute": 1}}
+{"trace_id": "a98d84ac2ae745db922d", "commands": ["ls", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"discover": 1, "network": 9}}
+{"trace_id": "77536a0b7569d94128e2", "commands": ["ls", "vim", "ls", "cd", "ls", "cd"], "action_counts": {"discover": 3, "modify": 1, "environment": 2}}
+{"trace_id": "9a1790907d172a7416a7", "commands": [], "action_counts": {}}
+{"trace_id": "5e83458d5a01c946fa9c", "commands": ["nmap"], "action_counts": {"network": 1}}
+{"trace_id": "25e9541ab037d1ca4c43", "commands": ["ls", "ls", "vim"], "action_counts": {"discover": 2, "modify": 1}}
+{"trace_id": "0fbfbd6cb5236b7ca33c", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 8}}
+{"trace_id": "70d54b7b9803f472520f", "commands": [], "action_counts": {}}
+{"trace_id": "81a7a4d63e75fcc968d2", "commands": ["nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap", "nmap"], "action_counts": {"network": 11}}
+{"trace_id": "ff40f92d2ea716d07cd4", "commands": ["nc", "nc", "nc", "nc", "nc", "nano", "ls", "nano", "python", "nano", "rm", "ls", "cd", "cd", "ls", "cd", "ls"], "action_counts": {"network": 5, "modify": 4, "discover": 4, "execute": 1, "environment": 3}}

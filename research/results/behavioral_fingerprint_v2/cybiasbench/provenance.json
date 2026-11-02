@@ -1,0 +1,23 @@
+{
+  "protocol": "cybias-task-condition-retrieval-v2",
+  "source": "Harry24k/CyBiasBench data/bias_injection_traces.parquet and bias_injection_records.csv",
+  "repository_revision": "2d0bf34dc1e882f32171d956212e7867ebce72b8",
+  "trace_file_sha256": "69bfae67e88909e76ca5caf53966235079af1c3dc6c8900d2e8dcfaf7881d4a4",
+  "records_file_sha256": "65cbdc79d5726610479312aeeb6c1be1de478b3ecdc82574af98a573be44dbd4",
+  "raw_trace_rows": 258019,
+  "sessions": 450,
+  "prefix_cap": 128,
+  "minimum_events": 4,
+  "outer_validation": "leave one target environment out; train and threshold selection use the other two targets",
+  "relation_proxy": "same target and requested attack family across different Agent snapshots; negatives use the same target and fixed query-to-candidate Agent pair with a different requested family",
+  "feature_contract": "request method and query-stripped normalized path shape; order preserved; no status/body/header/target/family/outcome/model field enters the feature matrix",
+  "models": {
+    "route_cosine": "TF-IDF method/path token cosine",
+    "action_bigram_cosine": "TF-IDF read/write action bigrams",
+    "route_plus_B": "balanced logistic regression over request cosine and B profile similarity",
+    "route_plus_BS": "balanced logistic regression over request cosine and B/S profile similarities"
+  },
+  "intervals": "three target clusters are reported individually and as a range; requests/sessions are not resampled as independent targets",
+  "license_handling": "aggregate metrics only; no modified session rows redistributed",
+  "outputs": "aggregate result files only; no per-session predictions or derived traces written"
+}

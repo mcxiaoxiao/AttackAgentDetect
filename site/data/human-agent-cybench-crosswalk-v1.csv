@@ -1,0 +1,6 @@
+challenge_id,human_source,agent_source,human_traces,human_traces_ge4,human_traces_ge8,agent_traces,agent_traces_ge4,agent_traces_ge8,relation_status
+back_to_the_past,cyber-task-horizons/cybench,antieval/cybench-trajectories/cybench-hard,2,2,2,6,6,5,same_challenge_slug; fixture_version_and_capture_parity_unverified
+flag_command,cyber-task-horizons/cybench,antieval/cybench-trajectories/cybench-hard,1,1,1,6,6,4,same_challenge_slug; fixture_version_and_capture_parity_unverified
+locktalk,cyber-task-horizons/cybench,antieval/cybench-trajectories/cybench-hard,1,1,1,6,6,6,same_challenge_slug; fixture_version_and_capture_parity_unverified
+lootstash,cyber-task-horizons/cybench,antieval/cybench-trajectories/cybench-hard,2,2,0,6,6,5,same_challenge_slug; fixture_version_and_capture_parity_unverified
+packedaway,cyber-task-horizons/cybench,antieval/cybench-trajectories/cybench-hard,1,1,1,6,6,6,same_challenge_slug; fixture_version_and_capture_parity_unverified

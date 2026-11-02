@@ -1,0 +1,335 @@
+{
+  "cohort": {
+    "tasks": 40,
+    "raw_traces": 177,
+    "eligible_traces": 175,
+    "human": 57,
+    "agent": 118,
+    "outer_folds": 5,
+    "queries": 175,
+    "candidate_gallery": "one opposite-mode trace from each of the eight held-out tasks; one same-task proxy and seven different-task negatives",
+    "chance_hit_at_1": 0.125,
+    "labels": "same source-qualified CTH challenge group; task retrieval proxy only",
+    "timing": "not available in the normalized CTH records"
+  },
+  "methods": [
+    {
+      "method": "command_cosine",
+      "direction": "all",
+      "task_count": 40,
+      "query_count": 175,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.33645833333333336,
+      "hit_at_1_task_cluster_95ci": [
+        0.24666145833333333,
+        0.4335520833333332
+      ],
+      "mrr": 0.5388928571428572,
+      "mrr_task_cluster_95ci": [
+        0.4701734375,
+        0.6107836309523809
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "direction": "human_to_agent",
+      "task_count": 40,
+      "query_count": 57,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.3625,
+      "hit_at_1_task_cluster_95ci": [
+        0.225,
+        0.5125
+      ],
+      "mrr": 0.5704761904761904,
+      "mrr_task_cluster_95ci": [
+        0.47702380952380957,
+        0.6689047619047618
+      ]
+    },
+    {
+      "method": "command_cosine",
+      "direction": "agent_to_human",
+      "task_count": 40,
+      "query_count": 118,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.33194444444444443,
+      "hit_at_1_task_cluster_95ci": [
+        0.22777777777777777,
+        0.44861111111111107
+      ],
+      "mrr": 0.5283035714285714,
+      "mrr_task_cluster_95ci": [
+        0.4479608134920635,
+        0.6134930555555554
+      ]
+    },
+    {
+      "method": "action_bigram_cosine",
+      "direction": "all",
+      "task_count": 40,
+      "query_count": 175,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.30203125,
+      "hit_at_1_task_cluster_95ci": [
+        0.21416276041666668,
+        0.3970325520833334
+      ],
+      "mrr": 0.4883863913863914,
+      "mrr_task_cluster_95ci": [
+        0.4076515979680042,
+        0.564740948894855
+      ]
+    },
+    {
+      "method": "action_bigram_cosine",
+      "direction": "human_to_agent",
+      "task_count": 40,
+      "query_count": 57,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.278125,
+      "hit_at_1_task_cluster_95ci": [
+        0.153125,
+        0.4125
+      ],
+      "mrr": 0.48305555555555557,
+      "mrr_task_cluster_95ci": [
+        0.38801314484126986,
+        0.5891768353174603
+      ]
+    },
+    {
+      "method": "action_bigram_cosine",
+      "direction": "agent_to_human",
+      "task_count": 40,
+      "query_count": 118,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.30416666666666664,
+      "hit_at_1_task_cluster_95ci": [
+        0.20555555555555555,
+        0.4111111111111111
+      ],
+      "mrr": 0.4844727147852148,
+      "mrr_task_cluster_95ci": [
+        0.3962026862026862,
+        0.5766927594974469
+      ]
+    },
+    {
+      "method": "B_profile",
+      "direction": "all",
+      "task_count": 40,
+      "query_count": 175,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.24395833333333333,
+      "hit_at_1_task_cluster_95ci": [
+        0.16957291666666668,
+        0.3239635416666666
+      ],
+      "mrr": 0.44937984584859586,
+      "mrr_task_cluster_95ci": [
+        0.3881021520146519,
+        0.5157921817765567
+      ]
+    },
+    {
+      "method": "B_profile",
+      "direction": "human_to_agent",
+      "task_count": 40,
+      "query_count": 57,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.2,
+      "hit_at_1_task_cluster_95ci": [
+        0.0875,
+        0.325
+      ],
+      "mrr": 0.4335451007326007,
+      "mrr_task_cluster_95ci": [
+        0.344745621565934,
+        0.5262992788461539
+      ]
+    },
+    {
+      "method": "B_profile",
+      "direction": "agent_to_human",
+      "task_count": 40,
+      "query_count": 118,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.25277777777777777,
+      "hit_at_1_task_cluster_95ci": [
+        0.1638888888888889,
+        0.35
+      ],
+      "mrr": 0.4492162698412699,
+      "mrr_task_cluster_95ci": [
+        0.3763861607142857,
+        0.522453621031746
+      ]
+    },
+    {
+      "method": "B_plus_S",
+      "direction": "all",
+      "task_count": 40,
+      "query_count": 175,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.2614583333333333,
+      "hit_at_1_task_cluster_95ci": [
+        0.185,
+        0.344375
+      ],
+      "mrr": 0.453131333943834,
+      "mrr_task_cluster_95ci": [
+        0.3893049078525641,
+        0.5196357886904762
+      ]
+    },
+    {
+      "method": "B_plus_S",
+      "direction": "human_to_agent",
+      "task_count": 40,
+      "query_count": 57,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.25,
+      "hit_at_1_task_cluster_95ci": [
+        0.1375,
+        0.375
+      ],
+      "mrr": 0.45300938644688643,
+      "mrr_task_cluster_95ci": [
+        0.3631648923992674,
+        0.5475480769230769
+      ]
+    },
+    {
+      "method": "B_plus_S",
+      "direction": "agent_to_human",
+      "task_count": 40,
+      "query_count": 118,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.25277777777777777,
+      "hit_at_1_task_cluster_95ci": [
+        0.1638888888888889,
+        0.35
+      ],
+      "mrr": 0.44287698412698423,
+      "mrr_task_cluster_95ci": [
+        0.3686602182539682,
+        0.5199322916666667
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "direction": "all",
+      "task_count": 40,
+      "query_count": 175,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.335625,
+      "hit_at_1_task_cluster_95ci": [
+        0.2504166666666666,
+        0.4241718749999999
+      ],
+      "mrr": 0.5346645472582973,
+      "mrr_task_cluster_95ci": [
+        0.47016889091810965,
+        0.6015710836038961
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "direction": "human_to_agent",
+      "task_count": 40,
+      "query_count": 57,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.3375,
+      "hit_at_1_task_cluster_95ci": [
+        0.2,
+        0.4875
+      ],
+      "mrr": 0.5435565476190476,
+      "mrr_task_cluster_95ci": [
+        0.44619122023809527,
+        0.6466670386904763
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "direction": "agent_to_human",
+      "task_count": 40,
+      "query_count": 118,
+      "candidate_count": 8,
+      "chance_hit_at_1": 0.125,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_1_task_cluster_95ci": [
+        0.2375,
+        0.43194444444444446
+      ],
+      "mrr": 0.5311877705627706,
+      "mrr_task_cluster_95ci": [
+        0.45651720328282824,
+        0.6089585813492064
+      ]
+    }
+  ],
+  "paired_deltas_vs_command": [
+    {
+      "method": "B_profile",
+      "baseline": "command_cosine",
+      "task_count": 40,
+      "delta_hit_at_1": -0.0925,
+      "delta_hit_at_1_task_cluster_95ci": [
+        -0.20125,
+        0.018333333333333333
+      ],
+      "delta_mrr": -0.0895130112942613,
+      "delta_mrr_task_cluster_95ci": [
+        -0.1777963818299756,
+        -0.004194571314102581
+      ]
+    },
+    {
+      "method": "B_plus_S",
+      "baseline": "command_cosine",
+      "task_count": 40,
+      "delta_hit_at_1": -0.075,
+      "delta_hit_at_1_task_cluster_95ci": [
+        -0.18229166666666669,
+        0.03250520833333325
+      ],
+      "delta_mrr": -0.08576152319902322,
+      "delta_mrr_task_cluster_95ci": [
+        -0.17110606684981686,
+        0.0008771520146518701
+      ]
+    },
+    {
+      "method": "command_plus_BS",
+      "baseline": "command_cosine",
+      "task_count": 40,
+      "delta_hit_at_1": -0.0008333333333333346,
+      "delta_hit_at_1_task_cluster_95ci": [
+        -0.05708333333333333,
+        0.055843749999999845
+      ],
+      "delta_mrr": -0.004228309884559878,
+      "delta_mrr_task_cluster_95ci": [
+        -0.037122048611111104,
+        0.028762757034632037
+      ]
+    }
+  ],
+  "uncertainty": "5,000 bootstrap draws over 40 task clusters after averaging repeated queries within task"
+}

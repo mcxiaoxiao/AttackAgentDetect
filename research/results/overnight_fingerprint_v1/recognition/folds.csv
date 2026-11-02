@@ -1,0 +1,244 @@
+variant,panel,fold,train_n,test_n,purged_exact_sequence_n,train_classes
+primary,task_holdout,Nextcloud/exp1,86,3,3,2
+primary,task_holdout,Nextcloud/exp2,80,9,9,2
+primary,task_holdout,Nextcloud/exp3,81,8,8,2
+primary,task_holdout,Nextcloud/exp4,79,10,10,2
+primary,task_holdout,Nextcloud/exp5,79,10,10,2
+primary,task_holdout,Nextcloud/exp6,80,9,9,2
+primary,task_holdout,Nextcloud/exp7,81,8,8,2
+primary,task_holdout,WordPress/exp1,82,7,7,2
+primary,task_holdout,WordPress/exp2,81,8,8,2
+primary,task_holdout,WordPress/exp3,84,5,5,2
+primary,task_holdout,WordPress/exp4,83,6,6,2
+primary,task_holdout,WordPress/exp5,83,6,6,2
+primary,source_holdout,0,42,47,47,2
+primary,source_holdout,1,68,21,21,2
+primary,source_holdout,2,68,21,21,2
+primary,application_holdout,Nextcloud,32,57,57,2
+primary,application_holdout,WordPress,57,32,32,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp1', 0)",41,2,2,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp1', 1)",66,1,1,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp2', 0)",37,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp2', 1)",62,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp2', 2)",61,2,2,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp3', 0)",38,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp3', 1)",62,2,2,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp3', 2)",62,2,2,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp4', 0)",36,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp4', 1)",61,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp4', 2)",61,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp5', 0)",36,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp5', 1)",61,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp5', 2)",61,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp6', 0)",37,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp6', 1)",62,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp6', 2)",61,2,2,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp7', 0)",38,4,4,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp7', 1)",63,3,3,2
+primary,crossed_task_source_holdout,"('Nextcloud/exp7', 2)",61,1,1,2
+primary,crossed_task_source_holdout,"('WordPress/exp1', 0)",39,4,4,2
+primary,crossed_task_source_holdout,"('WordPress/exp1', 1)",62,1,1,2
+primary,crossed_task_source_holdout,"('WordPress/exp1', 2)",63,2,2,2
+primary,crossed_task_source_holdout,"('WordPress/exp2', 0)",39,5,5,2
+primary,crossed_task_source_holdout,"('WordPress/exp2', 1)",61,1,1,2
+primary,crossed_task_source_holdout,"('WordPress/exp2', 2)",62,2,2,2
+primary,crossed_task_source_holdout,"('WordPress/exp3', 0)",40,3,3,2
+primary,crossed_task_source_holdout,"('WordPress/exp3', 2)",65,2,2,2
+primary,crossed_task_source_holdout,"('WordPress/exp4', 0)",40,4,4,2
+primary,crossed_task_source_holdout,"('WordPress/exp4', 1)",63,1,1,2
+primary,crossed_task_source_holdout,"('WordPress/exp4', 2)",63,1,1,2
+primary,crossed_task_source_holdout,"('WordPress/exp5', 0)",41,5,5,2
+primary,crossed_task_source_holdout,"('WordPress/exp5', 2)",63,1,1,2
+fixed_first32,task_holdout,Nextcloud/exp1,46,1,1,2
+fixed_first32,task_holdout,Nextcloud/exp2,40,7,7,2
+fixed_first32,task_holdout,Nextcloud/exp3,45,2,2,2
+fixed_first32,task_holdout,Nextcloud/exp4,42,5,5,2
+fixed_first32,task_holdout,Nextcloud/exp5,42,5,5,2
+fixed_first32,task_holdout,Nextcloud/exp6,43,4,4,2
+fixed_first32,task_holdout,Nextcloud/exp7,41,6,6,2
+fixed_first32,task_holdout,WordPress/exp1,41,6,6,2
+fixed_first32,task_holdout,WordPress/exp2,46,1,1,2
+fixed_first32,task_holdout,WordPress/exp3,44,3,3,2
+fixed_first32,task_holdout,WordPress/exp4,44,3,3,2
+fixed_first32,task_holdout,WordPress/exp5,43,4,4,2
+fixed_first32,source_holdout,0,20,27,27,2
+fixed_first32,source_holdout,1,41,6,6,2
+fixed_first32,source_holdout,2,33,14,14,2
+fixed_first32,application_holdout,Nextcloud,17,30,30,2
+fixed_first32,application_holdout,WordPress,30,17,17,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp1', 0)",20,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp2', 0)",17,4,4,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp2', 1)",36,2,2,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp2', 2)",27,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp3', 0)",19,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp3', 2)",32,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp4', 0)",18,3,3,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp4', 1)",37,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp4', 2)",29,1,1,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp5', 0)",17,2,2,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp5', 2)",31,3,3,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp6', 0)",18,2,2,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp6', 2)",31,2,2,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp7', 0)",17,3,3,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp7', 1)",37,2,2,2
+fixed_first32,crossed_task_source_holdout,"('Nextcloud/exp7', 2)",28,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp1', 0)",18,4,4,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp1', 1)",36,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp1', 2)",28,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp2', 2)",33,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp3', 0)",19,2,2,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp3', 2)",31,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp4', 0)",19,2,2,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp4', 2)",31,1,1,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp5', 0)",19,3,3,2
+fixed_first32,crossed_task_source_holdout,"('WordPress/exp5', 2)",30,1,1,2
+without_wrappers,task_holdout,Nextcloud/exp1,82,2,2,2
+without_wrappers,task_holdout,Nextcloud/exp2,75,9,9,2
+without_wrappers,task_holdout,Nextcloud/exp3,78,6,6,2
+without_wrappers,task_holdout,Nextcloud/exp4,75,9,9,2
+without_wrappers,task_holdout,Nextcloud/exp5,74,10,10,2
+without_wrappers,task_holdout,Nextcloud/exp6,75,9,9,2
+without_wrappers,task_holdout,Nextcloud/exp7,76,8,8,2
+without_wrappers,task_holdout,WordPress/exp1,77,7,7,2
+without_wrappers,task_holdout,WordPress/exp2,76,8,8,2
+without_wrappers,task_holdout,WordPress/exp3,79,5,5,2
+without_wrappers,task_holdout,WordPress/exp4,78,6,6,2
+without_wrappers,task_holdout,WordPress/exp5,79,5,5,2
+without_wrappers,source_holdout,0,39,45,45,2
+without_wrappers,source_holdout,1,64,20,20,2
+without_wrappers,source_holdout,2,65,19,19,2
+without_wrappers,application_holdout,Nextcloud,31,53,53,2
+without_wrappers,application_holdout,WordPress,53,31,31,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp1', 0)",38,1,1,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp1', 1)",63,1,1,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp2', 0)",34,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp2', 1)",58,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp2', 2)",58,2,2,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp3', 0)",37,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp3', 1)",59,1,1,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp3', 2)",60,1,1,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp4', 0)",34,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp4', 1)",58,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp4', 2)",58,2,2,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp5', 0)",33,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp5', 1)",57,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp5', 2)",58,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp6', 0)",34,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp6', 1)",58,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp6', 2)",58,2,2,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp7', 0)",35,4,4,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp7', 1)",59,3,3,2
+without_wrappers,crossed_task_source_holdout,"('Nextcloud/exp7', 2)",58,1,1,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp1', 0)",36,4,4,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp1', 1)",58,1,1,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp1', 2)",60,2,2,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp2', 0)",36,5,5,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp2', 1)",57,1,1,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp2', 2)",59,2,2,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp3', 0)",37,3,3,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp3', 2)",62,2,2,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp4', 0)",37,4,4,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp4', 1)",59,1,1,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp4', 2)",60,1,1,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp5', 0)",38,4,4,2
+without_wrappers,crossed_task_source_holdout,"('WordPress/exp5', 2)",61,1,1,2
+window_order_shuffle,task_holdout,Nextcloud/exp1,86,3,3,2
+window_order_shuffle,task_holdout,Nextcloud/exp2,80,9,9,2
+window_order_shuffle,task_holdout,Nextcloud/exp3,81,8,8,2
+window_order_shuffle,task_holdout,Nextcloud/exp4,79,10,10,2
+window_order_shuffle,task_holdout,Nextcloud/exp5,79,10,10,2
+window_order_shuffle,task_holdout,Nextcloud/exp6,80,9,9,2
+window_order_shuffle,task_holdout,Nextcloud/exp7,81,8,8,2
+window_order_shuffle,task_holdout,WordPress/exp1,82,7,7,2
+window_order_shuffle,task_holdout,WordPress/exp2,81,8,8,2
+window_order_shuffle,task_holdout,WordPress/exp3,84,5,5,2
+window_order_shuffle,task_holdout,WordPress/exp4,83,6,6,2
+window_order_shuffle,task_holdout,WordPress/exp5,83,6,6,2
+window_order_shuffle,source_holdout,0,42,47,47,2
+window_order_shuffle,source_holdout,1,68,21,21,2
+window_order_shuffle,source_holdout,2,68,21,21,2
+window_order_shuffle,application_holdout,Nextcloud,32,57,57,2
+window_order_shuffle,application_holdout,WordPress,57,32,32,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp1', 0)",41,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp1', 1)",66,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 0)",37,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 1)",62,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 2)",61,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 0)",38,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 1)",62,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 2)",62,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 0)",36,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 1)",61,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 2)",61,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 0)",36,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 1)",61,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 2)",61,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 0)",37,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 1)",62,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 2)",61,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 0)",38,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 1)",63,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 2)",61,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 0)",39,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 1)",62,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 2)",63,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 0)",39,5,5,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 1)",61,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 2)",62,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp3', 0)",40,3,3,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp3', 2)",65,2,2,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 0)",40,4,4,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 1)",63,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 2)",63,1,1,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp5', 0)",41,5,5,2
+window_order_shuffle,crossed_task_source_holdout,"('WordPress/exp5', 2)",63,1,1,2
+command_order_shuffle,task_holdout,Nextcloud/exp1,78,3,3,2
+command_order_shuffle,task_holdout,Nextcloud/exp2,72,9,9,2
+command_order_shuffle,task_holdout,Nextcloud/exp3,73,8,8,2
+command_order_shuffle,task_holdout,Nextcloud/exp4,72,9,9,2
+command_order_shuffle,task_holdout,Nextcloud/exp5,73,8,8,2
+command_order_shuffle,task_holdout,Nextcloud/exp6,72,9,9,2
+command_order_shuffle,task_holdout,Nextcloud/exp7,74,7,7,2
+command_order_shuffle,task_holdout,WordPress/exp1,74,7,7,2
+command_order_shuffle,task_holdout,WordPress/exp2,75,6,6,2
+command_order_shuffle,task_holdout,WordPress/exp3,76,5,5,2
+command_order_shuffle,task_holdout,WordPress/exp4,76,5,5,2
+command_order_shuffle,task_holdout,WordPress/exp5,76,5,5,2
+command_order_shuffle,source_holdout,0,38,43,43,2
+command_order_shuffle,source_holdout,1,64,17,17,2
+command_order_shuffle,source_holdout,2,60,21,21,2
+command_order_shuffle,application_holdout,Nextcloud,28,53,53,2
+command_order_shuffle,application_holdout,WordPress,53,28,28,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp1', 0)",37,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp1', 1)",62,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 0)",33,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 1)",58,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp2', 2)",53,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 0)",34,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 1)",58,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp3', 2)",54,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 0)",33,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 1)",57,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp4', 2)",54,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 0)",34,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 1)",57,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp5', 2)",55,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 0)",33,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 1)",58,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp6', 2)",53,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 0)",35,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 1)",59,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('Nextcloud/exp7', 2)",54,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 0)",35,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 1)",58,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp1', 2)",55,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 0)",35,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 1)",59,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp2', 2)",56,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp3', 0)",36,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp3', 2)",57,2,2,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 0)",36,3,3,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 1)",60,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp4', 2)",56,1,1,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp5', 0)",37,4,4,2
+command_order_shuffle,crossed_task_source_holdout,"('WordPress/exp5', 2)",56,1,1,2

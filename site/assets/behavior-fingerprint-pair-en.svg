@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 490" role="img" aria-labelledby="title desc">
+<title id="title">Two source-backed behavioral fingerprint matrices</title>
+<desc id="desc">Each colored cell is one feature in one consecutive command window. The same values appear in the layered and flat views. Three groups organize K1–K8; they are not attack stages. Trace A has 16 windows and trace B has 13.</desc>
+<defs><style>
+:root { --ink: #18283b; --muted: #596779; --rule: #bac9d8; --guide: #d5e0eb; --paper: #f5f9fd; --edge: #d5e0eb; --label-font: 'IBM Plex Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+text { font-family: var(--label-font); fill: var(--ink); font-variant-numeric: tabular-nums; }
+.axis { font-size: 14px; fill: var(--muted); }
+.group { font-size: 20px; font-weight: 600; text-anchor: middle; }
+.group-id { font-size: 13px; fill: var(--muted); text-anchor: middle; }
+.cell { stroke: var(--paper); stroke-width: 1.4; }
+.outline { fill: none; stroke: var(--rule); stroke-width: 1; }
+.edge { fill: var(--edge); }
+.guide { fill: none; stroke: var(--guide); stroke-width: 1; }
+.group-rule { fill: none; stroke: var(--paper); stroke-width: 4; }
+</style>
+<pattern id="missing" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#e0e7ef"/><path d="M0,6 L6,0" stroke="#bac9d8" stroke-width="1"/></pattern>
+</defs>
+<path d="M68,62 L84,352" class="guide"/>
+<path d="M516,62 L532,352" class="guide"/>
+<polygon points="104.0,128.0 552.0,128.0 552.0,133.0 104.0,133.0" class="edge"/>
+<polygon points="68.0,62.0 96.0,62.0 108.0,84.0 80.0,84.0" fill="#2366ac" class="cell"><title>Window 1, K1: z=-1.696</title></polygon>
+<polygon points="96.0,62.0 124.0,62.0 136.0,84.0 108.0,84.0" fill="#2366ac" class="cell"><title>Window 2, K1: z=-1.696</title></polygon>
+<polygon points="124.0,62.0 152.0,62.0 164.0,84.0 136.0,84.0" fill="#719cc9" class="cell"><title>Window 3, K1: z=-0.940</title></polygon>
+<polygon points="152.0,62.0 180.0,62.0 192.0,84.0 164.0,84.0" fill="#719cc9" class="cell"><title>Window 4, K1: z=-0.940</title></polygon>
+<polygon points="180.0,62.0 208.0,62.0 220.0,84.0 192.0,84.0" fill="#dae4f0" class="cell"><title>Window 5, K1: z=-0.183</title></polygon>
+<polygon points="208.0,62.0 236.0,62.0 248.0,84.0 220.0,84.0" fill="#719cc9" class="cell"><title>Window 6, K1: z=-0.940</title></polygon>
+<polygon points="236.0,62.0 264.0,62.0 276.0,84.0 248.0,84.0" fill="#dae4f0" class="cell"><title>Window 7, K1: z=-0.183</title></polygon>
+<polygon points="264.0,62.0 292.0,62.0 304.0,84.0 276.0,84.0" fill="#e2c1b0" class="cell"><title>Window 8, K1: z=0.573</title></polygon>
+<polygon points="292.0,62.0 320.0,62.0 332.0,84.0 304.0,84.0" fill="#dae4f0" class="cell"><title>Window 9, K1: z=-0.183</title></polygon>
+<polygon points="320.0,62.0 348.0,62.0 360.0,84.0 332.0,84.0" fill="#719cc9" class="cell"><title>Window 10, K1: z=-0.940</title></polygon>
+<polygon points="348.0,62.0 376.0,62.0 388.0,84.0 360.0,84.0" fill="#dae4f0" class="cell"><title>Window 11, K1: z=-0.183</title></polygon>
+<polygon points="376.0,62.0 404.0,62.0 416.0,84.0 388.0,84.0" fill="#719cc9" class="cell"><title>Window 12, K1: z=-0.940</title></polygon>
+<polygon points="404.0,62.0 432.0,62.0 444.0,84.0 416.0,84.0" fill="#dae4f0" class="cell"><title>Window 13, K1: z=-0.183</title></polygon>
+<polygon points="432.0,62.0 460.0,62.0 472.0,84.0 444.0,84.0" fill="#719cc9" class="cell"><title>Window 14, K1: z=-0.940</title></polygon>
+<polygon points="460.0,62.0 488.0,62.0 500.0,84.0 472.0,84.0" fill="#e2c1b0" class="cell"><title>Window 15, K1: z=0.573</title></polygon>
+<polygon points="488.0,62.0 516.0,62.0 528.0,84.0 500.0,84.0" fill="#dae4f0" class="cell"><title>Window 16, K1: z=-0.183</title></polygon>
+<text x="60.400000000000006" y="77.4" text-anchor="end" class="axis">K1</text>
+<polygon points="80.0,84.0 108.0,84.0 120.0,106.0 92.0,106.0" fill="#2366ac" class="cell"><title>Window 1, K2: z=-1.693</title></polygon>
+<polygon points="108.0,84.0 136.0,84.0 148.0,106.0 120.0,106.0" fill="#2366ac" class="cell"><title>Window 2, K2: z=-1.606</title></polygon>
+<polygon points="136.0,84.0 164.0,84.0 176.0,106.0 148.0,106.0" fill="#aac4df" class="cell"><title>Window 3, K2: z=-0.525</title></polygon>
+<polygon points="164.0,84.0 192.0,84.0 204.0,106.0 176.0,106.0" fill="#aac4df" class="cell"><title>Window 4, K2: z=-0.525</title></polygon>
+<polygon points="192.0,84.0 220.0,84.0 232.0,106.0 204.0,106.0" fill="#dde6f2" class="cell"><title>Window 5, K2: z=-0.162</title></polygon>
+<polygon points="220.0,84.0 248.0,84.0 260.0,106.0 232.0,106.0" fill="#aac4df" class="cell"><title>Window 6, K2: z=-0.525</title></polygon>
+<polygon points="248.0,84.0 276.0,84.0 288.0,106.0 260.0,106.0" fill="#efe9e8" class="cell"><title>Window 7, K2: z=0.137</title></polygon>
+<polygon points="276.0,84.0 304.0,84.0 316.0,106.0 288.0,106.0" fill="#e0bdaa" class="cell"><title>Window 8, K2: z=0.618</title></polygon>
+<polygon points="304.0,84.0 332.0,84.0 344.0,106.0 316.0,106.0" fill="#e9d8d1" class="cell"><title>Window 9, K2: z=0.319</title></polygon>
+<polygon points="332.0,84.0 360.0,84.0 372.0,106.0 344.0,106.0" fill="#aac4df" class="cell"><title>Window 10, K2: z=-0.525</title></polygon>
+<polygon points="360.0,84.0 388.0,84.0 400.0,106.0 372.0,106.0" fill="#efe9e8" class="cell"><title>Window 11, K2: z=0.137</title></polygon>
+<polygon points="388.0,84.0 416.0,84.0 428.0,106.0 400.0,106.0" fill="#aac4df" class="cell"><title>Window 12, K2: z=-0.525</title></polygon>
+<polygon points="416.0,84.0 444.0,84.0 456.0,106.0 428.0,106.0" fill="#edf2f8" class="cell"><title>Window 13, K2: z=-0.044</title></polygon>
+<polygon points="444.0,84.0 472.0,84.0 484.0,106.0 456.0,106.0" fill="#aac4df" class="cell"><title>Window 14, K2: z=-0.525</title></polygon>
+<polygon points="472.0,84.0 500.0,84.0 512.0,106.0 484.0,106.0" fill="#dbac93" class="cell"><title>Window 15, K2: z=0.800</title></polygon>
+<polygon points="500.0,84.0 528.0,84.0 540.0,106.0 512.0,106.0" fill="#efe9e8" class="cell"><title>Window 16, K2: z=0.137</title></polygon>
+<text x="72.4" y="99.4" text-anchor="end" class="axis">K2</text>
+<polygon points="92.0,106.0 120.0,106.0 132.0,128.0 104.0,128.0" fill="#ca794b" class="cell"><title>Window 1, K3: z=1.350</title></polygon>
+<polygon points="120.0,106.0 148.0,106.0 160.0,128.0 132.0,128.0" fill="#e3c6b7" class="cell"><title>Window 2, K3: z=0.521</title></polygon>
+<polygon points="148.0,106.0 176.0,106.0 188.0,128.0 160.0,128.0" fill="#c8d8ea" class="cell"><title>Window 3, K3: z=-0.307</title></polygon>
+<polygon points="176.0,106.0 204.0,106.0 216.0,128.0 188.0,128.0" fill="#c8d8ea" class="cell"><title>Window 4, K3: z=-0.307</title></polygon>
+<polygon points="204.0,106.0 232.0,106.0 244.0,128.0 216.0,128.0" fill="#e3c6b7" class="cell"><title>Window 5, K3: z=0.521</title></polygon>
+<polygon points="232.0,106.0 260.0,106.0 272.0,128.0 244.0,128.0" fill="#c8d8ea" class="cell"><title>Window 6, K3: z=-0.307</title></polygon>
+<polygon points="260.0,106.0 288.0,106.0 300.0,128.0 272.0,128.0" fill="#c8d8ea" class="cell"><title>Window 7, K3: z=-0.307</title></polygon>
+<polygon points="288.0,106.0 316.0,106.0 328.0,128.0 300.0,128.0" fill="#c8d8ea" class="cell"><title>Window 8, K3: z=-0.307</title></polygon>
+<polygon points="316.0,106.0 344.0,106.0 356.0,128.0 328.0,128.0" fill="#5589bf" class="cell"><title>Window 9, K3: z=-1.136</title></polygon>
+<polygon points="344.0,106.0 372.0,106.0 384.0,128.0 356.0,128.0" fill="#c8d8ea" class="cell"><title>Window 10, K3: z=-0.307</title></polygon>
+<polygon points="372.0,106.0 400.0,106.0 412.0,128.0 384.0,128.0" fill="#c8d8ea" class="cell"><title>Window 11, K3: z=-0.307</title></polygon>
+<polygon points="400.0,106.0 428.0,106.0 440.0,128.0 412.0,128.0" fill="#c8d8ea" class="cell"><title>Window 12, K3: z=-0.307</title></polygon>
+<polygon points="428.0,106.0 456.0,106.0 468.0,128.0 440.0,128.0" fill="#c8d8ea" class="cell"><title>Window 13, K3: z=-0.307</title></polygon>
+<polygon points="456.0,106.0 484.0,106.0 496.0,128.0 468.0,128.0" fill="#c8d8ea" class="cell"><title>Window 14, K3: z=-0.307</title></polygon>
+<polygon points="484.0,106.0 512.0,106.0 524.0,128.0 496.0,128.0" fill="#5589bf" class="cell"><title>Window 15, K3: z=-1.136</title></polygon>
+<polygon points="512.0,106.0 540.0,106.0 552.0,128.0 524.0,128.0" fill="#c8d8ea" class="cell"><title>Window 16, K3: z=-0.307</title></polygon>
+<text x="84.4" y="121.4" text-anchor="end" class="axis">K3</text>
+<polygon points="68.0,62.0 516.0,62.0 552.0,128.0 104.0,128.0" class="outline"/>
+<text x="82.0" y="48" text-anchor="middle" class="axis">01</text>
+<text x="166.0" y="48" text-anchor="middle" class="axis">04</text>
+<text x="278.0" y="48" text-anchor="middle" class="axis">08</text>
+<text x="390.0" y="48" text-anchor="middle" class="axis">12</text>
+<text x="502.0" y="48" text-anchor="middle" class="axis">16</text>
+<polygon points="112.0,273.0 560.0,273.0 560.0,278.0 112.0,278.0" class="edge"/>
+<polygon points="76.0,207.0 104.0,207.0 116.0,229.0 88.0,229.0" fill="#e1bfad" class="cell"><title>Window 1, K4: z=0.597</title></polygon>
+<polygon points="104.0,207.0 132.0,207.0 144.0,229.0 116.0,229.0" fill="#ce855d" class="cell"><title>Window 2, K4: z=1.218</title></polygon>
+<polygon points="132.0,207.0 160.0,207.0 172.0,229.0 144.0,229.0" fill="#ce855d" class="cell"><title>Window 3, K4: z=1.218</title></polygon>
+<polygon points="160.0,207.0 188.0,207.0 200.0,229.0 172.0,229.0" fill="#ce855d" class="cell"><title>Window 4, K4: z=1.218</title></polygon>
+<polygon points="188.0,207.0 216.0,207.0 228.0,229.0 200.0,229.0" fill="#ce855d" class="cell"><title>Window 5, K4: z=1.218</title></polygon>
+<polygon points="216.0,207.0 244.0,207.0 256.0,229.0 228.0,229.0" fill="#ce855d" class="cell"><title>Window 6, K4: z=1.218</title></polygon>
+<polygon points="244.0,207.0 272.0,207.0 284.0,229.0 256.0,229.0" fill="#ce855d" class="cell"><title>Window 7, K4: z=1.218</title></polygon>
+<polygon points="272.0,207.0 300.0,207.0 312.0,229.0 284.0,229.0" fill="#e1bfad" class="cell"><title>Window 8, K4: z=0.597</title></polygon>
+<polygon points="300.0,207.0 328.0,207.0 340.0,229.0 312.0,229.0" fill="#f0f4f9" class="cell"><title>Window 9, K4: z=-0.024</title></polygon>
+<polygon points="328.0,207.0 356.0,207.0 368.0,229.0 340.0,229.0" fill="#e1bfad" class="cell"><title>Window 10, K4: z=0.597</title></polygon>
+<polygon points="356.0,207.0 384.0,207.0 396.0,229.0 368.0,229.0" fill="#ce855d" class="cell"><title>Window 11, K4: z=1.218</title></polygon>
+<polygon points="384.0,207.0 412.0,207.0 424.0,229.0 396.0,229.0" fill="#ce855d" class="cell"><title>Window 12, K4: z=1.218</title></polygon>
+<polygon points="412.0,207.0 440.0,207.0 452.0,229.0 424.0,229.0" fill="#ce855d" class="cell"><title>Window 13, K4: z=1.218</title></polygon>
+<polygon points="440.0,207.0 468.0,207.0 480.0,229.0 452.0,229.0" fill="#e1bfad" class="cell"><title>Window 14, K4: z=0.597</title></polygon>
+<polygon points="468.0,207.0 496.0,207.0 508.0,229.0 480.0,229.0" fill="#e1bfad" class="cell"><title>Window 15, K4: z=0.597</title></polygon>
+<polygon points="496.0,207.0 524.0,207.0 536.0,229.0 508.0,229.0" fill="#e1bfad" class="cell"><title>Window 16, K4: z=0.597</title></polygon>
+<text x="68.4" y="222.4" text-anchor="end" class="axis">K4</text>
+<polygon points="88.0,229.0 116.0,229.0 128.0,251.0 100.0,251.0" fill="#88acd2" class="cell"><title>Window 1, K5: z=-0.774</title></polygon>
+<polygon points="116.0,229.0 144.0,229.0 156.0,251.0 128.0,251.0" fill="#2366ac" class="cell"><title>Window 2, K5: z=-2.369</title></polygon>
+<polygon points="144.0,229.0 172.0,229.0 184.0,251.0 156.0,251.0" fill="#3371b2" class="cell"><title>Window 3, K5: z=-1.386</title></polygon>
+<polygon points="172.0,229.0 200.0,229.0 212.0,251.0 184.0,251.0" fill="#6695c5" class="cell"><title>Window 4, K5: z=-1.015</title></polygon>
+<polygon points="200.0,229.0 228.0,229.0 240.0,251.0 212.0,251.0" fill="#eff3f8" class="cell"><title>Window 5, K5: z=-0.032</title></polygon>
+<polygon points="228.0,229.0 256.0,229.0 268.0,251.0 240.0,251.0" fill="#e9d7ce" class="cell"><title>Window 6, K5: z=0.339</title></polygon>
+<polygon points="256.0,229.0 284.0,229.0 296.0,251.0 268.0,251.0" fill="#3371b2" class="cell"><title>Window 7, K5: z=-1.386</title></polygon>
+<polygon points="284.0,229.0 312.0,229.0 324.0,251.0 296.0,251.0" fill="#6695c5" class="cell"><title>Window 8, K5: z=-1.015</title></polygon>
+<polygon points="312.0,229.0 340.0,229.0 352.0,251.0 324.0,251.0" fill="#bbcfe5" class="cell"><title>Window 9, K5: z=-0.403</title></polygon>
+<polygon points="340.0,229.0 368.0,229.0 380.0,251.0 352.0,251.0" fill="#6695c5" class="cell"><title>Window 10, K5: z=-1.015</title></polygon>
+<polygon points="368.0,229.0 396.0,229.0 408.0,251.0 380.0,251.0" fill="#6695c5" class="cell"><title>Window 11, K5: z=-1.015</title></polygon>
+<polygon points="396.0,229.0 424.0,229.0 436.0,251.0 408.0,251.0" fill="#6695c5" class="cell"><title>Window 12, K5: z=-1.015</title></polygon>
+<polygon points="424.0,229.0 452.0,229.0 464.0,251.0 436.0,251.0" fill="#eff3f8" class="cell"><title>Window 13, K5: z=-0.032</title></polygon>
+<polygon points="452.0,229.0 480.0,229.0 492.0,251.0 464.0,251.0" fill="#d69e7f" class="cell"><title>Window 14, K5: z=0.951</title></polygon>
+<polygon points="480.0,229.0 508.0,229.0 520.0,251.0 492.0,251.0" fill="#bbcfe5" class="cell"><title>Window 15, K5: z=-0.403</title></polygon>
+<polygon points="508.0,229.0 536.0,229.0 548.0,251.0 520.0,251.0" fill="#eff3f8" class="cell"><title>Window 16, K5: z=-0.032</title></polygon>
+<text x="80.4" y="244.4" text-anchor="end" class="axis">K5</text>
+<polygon points="100.0,251.0 128.0,251.0 140.0,273.0 112.0,273.0" fill="#bed1e6" class="cell"><title>Window 1, K6: z=-0.385</title></polygon>
+<polygon points="128.0,251.0 156.0,251.0 168.0,273.0 140.0,273.0" fill="#5c8ec1" class="cell"><title>Window 2, K6: z=-1.088</title></polygon>
+<polygon points="156.0,251.0 184.0,251.0 196.0,273.0 168.0,273.0" fill="#5c8ec1" class="cell"><title>Window 3, K6: z=-1.088</title></polygon>
+<polygon points="184.0,251.0 212.0,251.0 224.0,273.0 196.0,273.0" fill="#5c8ec1" class="cell"><title>Window 4, K6: z=-1.088</title></polygon>
+<polygon points="212.0,251.0 240.0,251.0 252.0,273.0 224.0,273.0" fill="#5c8ec1" class="cell"><title>Window 5, K6: z=-1.088</title></polygon>
+<polygon points="240.0,251.0 268.0,251.0 280.0,273.0 252.0,273.0" fill="#5c8ec1" class="cell"><title>Window 6, K6: z=-1.088</title></polygon>
+<polygon points="268.0,251.0 296.0,251.0 308.0,273.0 280.0,273.0" fill="#5c8ec1" class="cell"><title>Window 7, K6: z=-1.088</title></polygon>
+<polygon points="296.0,251.0 324.0,251.0 336.0,273.0 308.0,273.0" fill="#bed1e6" class="cell"><title>Window 8, K6: z=-0.385</title></polygon>
+<polygon points="324.0,251.0 352.0,251.0 364.0,273.0 336.0,273.0" fill="#bed1e6" class="cell"><title>Window 9, K6: z=-0.385</title></polygon>
+<polygon points="352.0,251.0 380.0,251.0 392.0,273.0 364.0,273.0" fill="#bed1e6" class="cell"><title>Window 10, K6: z=-0.385</title></polygon>
+<polygon points="380.0,251.0 408.0,251.0 420.0,273.0 392.0,273.0" fill="#5c8ec1" class="cell"><title>Window 11, K6: z=-1.088</title></polygon>
+<polygon points="408.0,251.0 436.0,251.0 448.0,273.0 420.0,273.0" fill="#5c8ec1" class="cell"><title>Window 12, K6: z=-1.088</title></polygon>
+<polygon points="436.0,251.0 464.0,251.0 476.0,273.0 448.0,273.0" fill="#5c8ec1" class="cell"><title>Window 13, K6: z=-1.088</title></polygon>
+<polygon points="464.0,251.0 492.0,251.0 504.0,273.0 476.0,273.0" fill="#bed1e6" class="cell"><title>Window 14, K6: z=-0.385</title></polygon>
+<polygon points="492.0,251.0 520.0,251.0 532.0,273.0 504.0,273.0" fill="#bed1e6" class="cell"><title>Window 15, K6: z=-0.385</title></polygon>
+<polygon points="520.0,251.0 548.0,251.0 560.0,273.0 532.0,273.0" fill="#bed1e6" class="cell"><title>Window 16, K6: z=-0.385</title></polygon>
+<text x="92.4" y="266.4" text-anchor="end" class="axis">K6</text>
+<polygon points="76.0,207.0 524.0,207.0 560.0,273.0 112.0,273.0" class="outline"/>
+<polygon points="108.0,396.0 556.0,396.0 556.0,401.0 108.0,401.0" class="edge"/>
+<polygon points="84.0,352.0 112.0,352.0 124.0,374.0 96.0,374.0" fill="#cb7c4f" class="cell"><title>Window 1, K7: z=1.320</title></polygon>
+<polygon points="112.0,352.0 140.0,352.0 152.0,374.0 124.0,374.0" fill="#c66b38" class="cell"><title>Window 2, K7: z=2.031</title></polygon>
+<polygon points="140.0,352.0 168.0,352.0 180.0,374.0 152.0,374.0" fill="#e1beab" class="cell"><title>Window 3, K7: z=0.608</title></polygon>
+<polygon points="168.0,352.0 196.0,352.0 208.0,374.0 180.0,374.0" fill="#e1beab" class="cell"><title>Window 4, K7: z=0.608</title></polygon>
+<polygon points="196.0,352.0 224.0,352.0 236.0,374.0 208.0,374.0" fill="#82a8d0" class="cell"><title>Window 5, K7: z=-0.816</title></polygon>
+<polygon points="224.0,352.0 252.0,352.0 264.0,374.0 236.0,374.0" fill="#e5ecf5" class="cell"><title>Window 6, K7: z=-0.104</title></polygon>
+<polygon points="252.0,352.0 280.0,352.0 292.0,374.0 264.0,374.0" fill="#e5ecf5" class="cell"><title>Window 7, K7: z=-0.104</title></polygon>
+<polygon points="280.0,352.0 308.0,352.0 320.0,374.0 292.0,374.0" fill="#e5ecf5" class="cell"><title>Window 8, K7: z=-0.104</title></polygon>
+<polygon points="308.0,352.0 336.0,352.0 348.0,374.0 320.0,374.0" fill="#e1beab" class="cell"><title>Window 9, K7: z=0.608</title></polygon>
+<polygon points="336.0,352.0 364.0,352.0 376.0,374.0 348.0,374.0" fill="#e1beab" class="cell"><title>Window 10, K7: z=0.608</title></polygon>
+<polygon points="364.0,352.0 392.0,352.0 404.0,374.0 376.0,374.0" fill="#e5ecf5" class="cell"><title>Window 11, K7: z=-0.104</title></polygon>
+<polygon points="392.0,352.0 420.0,352.0 432.0,374.0 404.0,374.0" fill="#e1beab" class="cell"><title>Window 12, K7: z=0.608</title></polygon>
+<polygon points="420.0,352.0 448.0,352.0 460.0,374.0 432.0,374.0" fill="#82a8d0" class="cell"><title>Window 13, K7: z=-0.816</title></polygon>
+<polygon points="448.0,352.0 476.0,352.0 488.0,374.0 460.0,374.0" fill="#82a8d0" class="cell"><title>Window 14, K7: z=-0.816</title></polygon>
+<polygon points="476.0,352.0 504.0,352.0 516.0,374.0 488.0,374.0" fill="#2366ac" class="cell"><title>Window 15, K7: z=-1.528</title></polygon>
+<polygon points="504.0,352.0 532.0,352.0 544.0,374.0 516.0,374.0" fill="#e5ecf5" class="cell"><title>Window 16, K7: z=-0.104</title></polygon>
+<text x="76.4" y="367.4" text-anchor="end" class="axis">K7</text>
+<polygon points="96.0,374.0 124.0,374.0 136.0,396.0 108.0,396.0" fill="#dfe8f3" class="cell"><title>Window 1, K8: z=-0.143</title></polygon>
+<polygon points="124.0,374.0 152.0,374.0 164.0,396.0 136.0,396.0" fill="#80a6cf" class="cell"><title>Window 2, K8: z=-0.830</title></polygon>
+<polygon points="152.0,374.0 180.0,374.0 192.0,396.0 164.0,396.0" fill="#80a6cf" class="cell"><title>Window 3, K8: z=-0.830</title></polygon>
+<polygon points="180.0,374.0 208.0,374.0 220.0,396.0 192.0,396.0" fill="#80a6cf" class="cell"><title>Window 4, K8: z=-0.830</title></polygon>
+<polygon points="208.0,374.0 236.0,374.0 248.0,396.0 220.0,396.0" fill="#80a6cf" class="cell"><title>Window 5, K8: z=-0.830</title></polygon>
+<polygon points="236.0,374.0 264.0,374.0 276.0,396.0 248.0,396.0" fill="#80a6cf" class="cell"><title>Window 6, K8: z=-0.830</title></polygon>
+<polygon points="264.0,374.0 292.0,374.0 304.0,396.0 276.0,396.0" fill="#80a6cf" class="cell"><title>Window 7, K8: z=-0.830</title></polygon>
+<polygon points="292.0,374.0 320.0,374.0 332.0,396.0 304.0,396.0" fill="#80a6cf" class="cell"><title>Window 8, K8: z=-0.830</title></polygon>
+<polygon points="320.0,374.0 348.0,374.0 360.0,396.0 332.0,396.0" fill="#80a6cf" class="cell"><title>Window 9, K8: z=-0.830</title></polygon>
+<polygon points="348.0,374.0 376.0,374.0 388.0,396.0 360.0,396.0" fill="#dfe8f3" class="cell"><title>Window 10, K8: z=-0.143</title></polygon>
+<polygon points="376.0,374.0 404.0,374.0 416.0,396.0 388.0,396.0" fill="#80a6cf" class="cell"><title>Window 11, K8: z=-0.830</title></polygon>
+<polygon points="404.0,374.0 432.0,374.0 444.0,396.0 416.0,396.0" fill="#80a6cf" class="cell"><title>Window 12, K8: z=-0.830</title></polygon>
+<polygon points="432.0,374.0 460.0,374.0 472.0,396.0 444.0,396.0" fill="#80a6cf" class="cell"><title>Window 13, K8: z=-0.830</title></polygon>
+<polygon points="460.0,374.0 488.0,374.0 500.0,396.0 472.0,396.0" fill="#dfe8f3" class="cell"><title>Window 14, K8: z=-0.143</title></polygon>
+<polygon points="488.0,374.0 516.0,374.0 528.0,396.0 500.0,396.0" fill="#dfe8f3" class="cell"><title>Window 15, K8: z=-0.143</title></polygon>
+<polygon points="516.0,374.0 544.0,374.0 556.0,396.0 528.0,396.0" fill="#dfe8f3" class="cell"><title>Window 16, K8: z=-0.143</title></polygon>
+<text x="88.4" y="389.4" text-anchor="end" class="axis">K8</text>
+<polygon points="84.0,352.0 532.0,352.0 556.0,396.0 108.0,396.0" class="outline"/>
+<path d="M798,62 L814,352" class="guide"/>
+<path d="M1162,62 L1178,352" class="guide"/>
+<polygon points="834.0,128.0 1198.0,128.0 1198.0,133.0 834.0,133.0" class="edge"/>
+<polygon points="798.0,62.0 826.0,62.0 838.0,84.0 810.0,84.0" fill="#2366ac" class="cell"><title>Window 1, K1: z=-1.696</title></polygon>
+<polygon points="826.0,62.0 854.0,62.0 866.0,84.0 838.0,84.0" fill="#719cc9" class="cell"><title>Window 2, K1: z=-0.940</title></polygon>
+<polygon points="854.0,62.0 882.0,62.0 894.0,84.0 866.0,84.0" fill="#2366ac" class="cell"><title>Window 3, K1: z=-1.696</title></polygon>
+<polygon points="882.0,62.0 910.0,62.0 922.0,84.0 894.0,84.0" fill="#dae4f0" class="cell"><title>Window 4, K1: z=-0.183</title></polygon>
+<polygon points="910.0,62.0 938.0,62.0 950.0,84.0 922.0,84.0" fill="#719cc9" class="cell"><title>Window 5, K1: z=-0.940</title></polygon>
+<polygon points="938.0,62.0 966.0,62.0 978.0,84.0 950.0,84.0" fill="#719cc9" class="cell"><title>Window 6, K1: z=-0.940</title></polygon>
+<polygon points="966.0,62.0 994.0,62.0 1006.0,84.0 978.0,84.0" fill="#719cc9" class="cell"><title>Window 7, K1: z=-0.940</title></polygon>
+<polygon points="994.0,62.0 1022.0,62.0 1034.0,84.0 1006.0,84.0" fill="#e2c1b0" class="cell"><title>Window 8, K1: z=0.573</title></polygon>
+<polygon points="1022.0,62.0 1050.0,62.0 1062.0,84.0 1034.0,84.0" fill="#e2c1b0" class="cell"><title>Window 9, K1: z=0.573</title></polygon>
+<polygon points="1050.0,62.0 1078.0,62.0 1090.0,84.0 1062.0,84.0" fill="#dae4f0" class="cell"><title>Window 10, K1: z=-0.183</title></polygon>
+<polygon points="1078.0,62.0 1106.0,62.0 1118.0,84.0 1090.0,84.0" fill="#dae4f0" class="cell"><title>Window 11, K1: z=-0.183</title></polygon>
+<polygon points="1106.0,62.0 1134.0,62.0 1146.0,84.0 1118.0,84.0" fill="#e2c1b0" class="cell"><title>Window 12, K1: z=0.573</title></polygon>
+<polygon points="1134.0,62.0 1162.0,62.0 1174.0,84.0 1146.0,84.0" fill="#719cc9" class="cell"><title>Window 13, K1: z=-0.940</title></polygon>
+<text x="790.4" y="77.4" text-anchor="end" class="axis">K1</text>
+<polygon points="810.0,84.0 838.0,84.0 850.0,106.0 822.0,106.0" fill="#2366ac" class="cell"><title>Window 1, K2: z=-1.693</title></polygon>
+<polygon points="838.0,84.0 866.0,84.0 878.0,106.0 850.0,106.0" fill="#81a7cf" class="cell"><title>Window 2, K2: z=-0.825</title></polygon>
+<polygon points="866.0,84.0 894.0,84.0 906.0,106.0 878.0,106.0" fill="#2366ac" class="cell"><title>Window 3, K2: z=-1.606</title></polygon>
+<polygon points="894.0,84.0 922.0,84.0 934.0,106.0 906.0,106.0" fill="#efe9e8" class="cell"><title>Window 4, K2: z=0.137</title></polygon>
+<polygon points="922.0,84.0 950.0,84.0 962.0,106.0 934.0,106.0" fill="#aac4df" class="cell"><title>Window 5, K2: z=-0.525</title></polygon>
+<polygon points="950.0,84.0 978.0,84.0 990.0,106.0 962.0,106.0" fill="#81a7cf" class="cell"><title>Window 6, K2: z=-0.825</title></polygon>
+<polygon points="978.0,84.0 1006.0,84.0 1018.0,106.0 990.0,106.0" fill="#aac4df" class="cell"><title>Window 7, K2: z=-0.525</title></polygon>
+<polygon points="1006.0,84.0 1034.0,84.0 1046.0,106.0 1018.0,106.0" fill="#dbac93" class="cell"><title>Window 8, K2: z=0.800</title></polygon>
+<polygon points="1034.0,84.0 1062.0,84.0 1074.0,106.0 1046.0,106.0" fill="#e0bdaa" class="cell"><title>Window 9, K2: z=0.618</title></polygon>
+<polygon points="1062.0,84.0 1090.0,84.0 1102.0,106.0 1074.0,106.0" fill="#efe9e8" class="cell"><title>Window 10, K2: z=0.137</title></polygon>
+<polygon points="1090.0,84.0 1118.0,84.0 1130.0,106.0 1102.0,106.0" fill="#efe9e8" class="cell"><title>Window 11, K2: z=0.137</title></polygon>
+<polygon points="1118.0,84.0 1146.0,84.0 1158.0,106.0 1130.0,106.0" fill="#dbac93" class="cell"><title>Window 12, K2: z=0.800</title></polygon>
+<polygon points="1146.0,84.0 1174.0,84.0 1186.0,106.0 1158.0,106.0" fill="#9ab8d9" class="cell"><title>Window 13, K2: z=-0.643</title></polygon>
+<text x="802.4" y="99.4" text-anchor="end" class="axis">K2</text>
+<polygon points="822.0,106.0 850.0,106.0 862.0,128.0 834.0,128.0" fill="#ca794b" class="cell"><title>Window 1, K3: z=1.350</title></polygon>
+<polygon points="850.0,106.0 878.0,106.0 890.0,128.0 862.0,128.0" fill="#e3c6b7" class="cell"><title>Window 2, K3: z=0.521</title></polygon>
+<polygon points="878.0,106.0 906.0,106.0 918.0,128.0 890.0,128.0" fill="#e3c6b7" class="cell"><title>Window 3, K3: z=0.521</title></polygon>
+<polygon points="906.0,106.0 934.0,106.0 946.0,128.0 918.0,128.0" fill="#c8d8ea" class="cell"><title>Window 4, K3: z=-0.307</title></polygon>
+<polygon points="934.0,106.0 962.0,106.0 974.0,128.0 946.0,128.0" fill="#c8d8ea" class="cell"><title>Window 5, K3: z=-0.307</title></polygon>
+<polygon points="962.0,106.0 990.0,106.0 1002.0,128.0 974.0,128.0" fill="#e3c6b7" class="cell"><title>Window 6, K3: z=0.521</title></polygon>
+<polygon points="990.0,106.0 1018.0,106.0 1030.0,128.0 1002.0,128.0" fill="#c8d8ea" class="cell"><title>Window 7, K3: z=-0.307</title></polygon>
+<polygon points="1018.0,106.0 1046.0,106.0 1058.0,128.0 1030.0,128.0" fill="#5589bf" class="cell"><title>Window 8, K3: z=-1.136</title></polygon>
+<polygon points="1046.0,106.0 1074.0,106.0 1086.0,128.0 1058.0,128.0" fill="#c8d8ea" class="cell"><title>Window 9, K3: z=-0.307</title></polygon>
+<polygon points="1074.0,106.0 1102.0,106.0 1114.0,128.0 1086.0,128.0" fill="#c8d8ea" class="cell"><title>Window 10, K3: z=-0.307</title></polygon>
+<polygon points="1102.0,106.0 1130.0,106.0 1142.0,128.0 1114.0,128.0" fill="#c8d8ea" class="cell"><title>Window 11, K3: z=-0.307</title></polygon>
+<polygon points="1130.0,106.0 1158.0,106.0 1170.0,128.0 1142.0,128.0" fill="#5589bf" class="cell"><title>Window 12, K3: z=-1.136</title></polygon>
+<polygon points="1158.0,106.0 1186.0,106.0 1198.0,128.0 1170.0,128.0" fill="#e3c6b7" class="cell"><title>Window 13, K3: z=0.521</title></polygon>
+<text x="814.4" y="121.4" text-anchor="end" class="axis">K3</text>
+<polygon points="798.0,62.0 1162.0,62.0 1198.0,128.0 834.0,128.0" class="outline"/>
+<text x="812.0" y="48" text-anchor="middle" class="axis">01</text>
+<text x="896.0" y="48" text-anchor="middle" class="axis">04</text>
+<text x="1008.0" y="48" text-anchor="middle" class="axis">08</text>
+<text x="1120.0" y="48" text-anchor="middle" class="axis">12</text>
+<text x="1148.0" y="48" text-anchor="middle" class="axis">13</text>
+<polygon points="842.0,273.0 1206.0,273.0 1206.0,278.0 842.0,278.0" class="edge"/>
+<polygon points="806.0,207.0 834.0,207.0 846.0,229.0 818.0,229.0" fill="#e1bfad" class="cell"><title>Window 1, K4: z=0.597</title></polygon>
+<polygon points="834.0,207.0 862.0,207.0 874.0,229.0 846.0,229.0" fill="#e1bfad" class="cell"><title>Window 2, K4: z=0.597</title></polygon>
+<polygon points="862.0,207.0 890.0,207.0 902.0,229.0 874.0,229.0" fill="#ce855d" class="cell"><title>Window 3, K4: z=1.218</title></polygon>
+<polygon points="890.0,207.0 918.0,207.0 930.0,229.0 902.0,229.0" fill="#ce855d" class="cell"><title>Window 4, K4: z=1.218</title></polygon>
+<polygon points="918.0,207.0 946.0,207.0 958.0,229.0 930.0,229.0" fill="#ce855d" class="cell"><title>Window 5, K4: z=1.218</title></polygon>
+<polygon points="946.0,207.0 974.0,207.0 986.0,229.0 958.0,229.0" fill="#ce855d" class="cell"><title>Window 6, K4: z=1.218</title></polygon>
+<polygon points="974.0,207.0 1002.0,207.0 1014.0,229.0 986.0,229.0" fill="#ce855d" class="cell"><title>Window 7, K4: z=1.218</title></polygon>
+<polygon points="1002.0,207.0 1030.0,207.0 1042.0,229.0 1014.0,229.0" fill="#e1bfad" class="cell"><title>Window 8, K4: z=0.597</title></polygon>
+<polygon points="1030.0,207.0 1058.0,207.0 1070.0,229.0 1042.0,229.0" fill="#ce855d" class="cell"><title>Window 9, K4: z=1.218</title></polygon>
+<polygon points="1058.0,207.0 1086.0,207.0 1098.0,229.0 1070.0,229.0" fill="#ce855d" class="cell"><title>Window 10, K4: z=1.218</title></polygon>
+<polygon points="1086.0,207.0 1114.0,207.0 1126.0,229.0 1098.0,229.0" fill="#f0f4f9" class="cell"><title>Window 11, K4: z=-0.024</title></polygon>
+<polygon points="1114.0,207.0 1142.0,207.0 1154.0,229.0 1126.0,229.0" fill="#ce855d" class="cell"><title>Window 12, K4: z=1.218</title></polygon>
+<polygon points="1142.0,207.0 1170.0,207.0 1182.0,229.0 1154.0,229.0" fill="#9ab8d8" class="cell"><title>Window 13, K4: z=-0.644</title></polygon>
+<text x="798.4" y="222.4" text-anchor="end" class="axis">K4</text>
+<polygon points="818.0,229.0 846.0,229.0 858.0,251.0 830.0,251.0" fill="#88acd2" class="cell"><title>Window 1, K5: z=-0.774</title></polygon>
+<polygon points="846.0,229.0 874.0,229.0 886.0,251.0 858.0,251.0" fill="#88acd2" class="cell"><title>Window 2, K5: z=-0.774</title></polygon>
+<polygon points="874.0,229.0 902.0,229.0 914.0,251.0 886.0,251.0" fill="#2366ac" class="cell"><title>Window 3, K5: z=-2.369</title></polygon>
+<polygon points="902.0,229.0 930.0,229.0 942.0,251.0 914.0,251.0" fill="#3371b2" class="cell"><title>Window 4, K5: z=-1.386</title></polygon>
+<polygon points="930.0,229.0 958.0,229.0 970.0,251.0 942.0,251.0" fill="#eff3f8" class="cell"><title>Window 5, K5: z=-0.032</title></polygon>
+<polygon points="958.0,229.0 986.0,229.0 998.0,251.0 970.0,251.0" fill="#6695c5" class="cell"><title>Window 6, K5: z=-1.015</title></polygon>
+<polygon points="986.0,229.0 1014.0,229.0 1026.0,251.0 998.0,251.0" fill="#6695c5" class="cell"><title>Window 7, K5: z=-1.015</title></polygon>
+<polygon points="1014.0,229.0 1042.0,229.0 1054.0,251.0 1026.0,251.0" fill="#6695c5" class="cell"><title>Window 8, K5: z=-1.015</title></polygon>
+<polygon points="1042.0,229.0 1070.0,229.0 1082.0,251.0 1054.0,251.0" fill="#eff3f8" class="cell"><title>Window 9, K5: z=-0.032</title></polygon>
+<polygon points="1070.0,229.0 1098.0,229.0 1110.0,251.0 1082.0,251.0" fill="#6695c5" class="cell"><title>Window 10, K5: z=-1.015</title></polygon>
+<polygon points="1098.0,229.0 1126.0,229.0 1138.0,251.0 1110.0,251.0" fill="#d69e7f" class="cell"><title>Window 11, K5: z=0.951</title></polygon>
+<polygon points="1126.0,229.0 1154.0,229.0 1166.0,251.0 1138.0,251.0" fill="#e2c0af" class="cell"><title>Window 12, K5: z=0.580</title></polygon>
+<polygon points="1154.0,229.0 1182.0,229.0 1194.0,251.0 1166.0,251.0" fill="#ede3df" class="cell"><title>Window 13, K5: z=0.209</title></polygon>
+<text x="810.4" y="244.4" text-anchor="end" class="axis">K5</text>
+<polygon points="830.0,251.0 858.0,251.0 870.0,273.0 842.0,273.0" fill="#bed1e6" class="cell"><title>Window 1, K6: z=-0.385</title></polygon>
+<polygon points="858.0,251.0 886.0,251.0 898.0,273.0 870.0,273.0" fill="#bed1e6" class="cell"><title>Window 2, K6: z=-0.385</title></polygon>
+<polygon points="886.0,251.0 914.0,251.0 926.0,273.0 898.0,273.0" fill="#5c8ec1" class="cell"><title>Window 3, K6: z=-1.088</title></polygon>
+<polygon points="914.0,251.0 942.0,251.0 954.0,273.0 926.0,273.0" fill="#5c8ec1" class="cell"><title>Window 4, K6: z=-1.088</title></polygon>
+<polygon points="942.0,251.0 970.0,251.0 982.0,273.0 954.0,273.0" fill="#5c8ec1" class="cell"><title>Window 5, K6: z=-1.088</title></polygon>
+<polygon points="970.0,251.0 998.0,251.0 1010.0,273.0 982.0,273.0" fill="#5c8ec1" class="cell"><title>Window 6, K6: z=-1.088</title></polygon>
+<polygon points="998.0,251.0 1026.0,251.0 1038.0,273.0 1010.0,273.0" fill="#5c8ec1" class="cell"><title>Window 7, K6: z=-1.088</title></polygon>
+<polygon points="1026.0,251.0 1054.0,251.0 1066.0,273.0 1038.0,273.0" fill="#bed1e6" class="cell"><title>Window 8, K6: z=-0.385</title></polygon>
+<polygon points="1054.0,251.0 1082.0,251.0 1094.0,273.0 1066.0,273.0" fill="#5c8ec1" class="cell"><title>Window 9, K6: z=-1.088</title></polygon>
+<polygon points="1082.0,251.0 1110.0,251.0 1122.0,273.0 1094.0,273.0" fill="#5c8ec1" class="cell"><title>Window 10, K6: z=-1.088</title></polygon>
+<polygon points="1110.0,251.0 1138.0,251.0 1150.0,273.0 1122.0,273.0" fill="#bed1e6" class="cell"><title>Window 11, K6: z=-0.385</title></polygon>
+<polygon points="1138.0,251.0 1166.0,251.0 1178.0,273.0 1150.0,273.0" fill="#5c8ec1" class="cell"><title>Window 12, K6: z=-1.088</title></polygon>
+<polygon points="1166.0,251.0 1194.0,251.0 1206.0,273.0 1178.0,273.0" fill="#d49776" class="cell"><title>Window 13, K6: z=1.022</title></polygon>
+<text x="822.4" y="266.4" text-anchor="end" class="axis">K6</text>
+<polygon points="806.0,207.0 1170.0,207.0 1206.0,273.0 842.0,273.0" class="outline"/>
+<polygon points="838.0,396.0 1202.0,396.0 1202.0,401.0 838.0,401.0" class="edge"/>
+<polygon points="814.0,352.0 842.0,352.0 854.0,374.0 826.0,374.0" fill="#cb7c4f" class="cell"><title>Window 1, K7: z=1.320</title></polygon>
+<polygon points="842.0,352.0 870.0,352.0 882.0,374.0 854.0,374.0" fill="#cb7c4f" class="cell"><title>Window 2, K7: z=1.320</title></polygon>
+<polygon points="870.0,352.0 898.0,352.0 910.0,374.0 882.0,374.0" fill="#c66b38" class="cell"><title>Window 3, K7: z=2.031</title></polygon>
+<polygon points="898.0,352.0 926.0,352.0 938.0,374.0 910.0,374.0" fill="#e5ecf5" class="cell"><title>Window 4, K7: z=-0.104</title></polygon>
+<polygon points="926.0,352.0 954.0,352.0 966.0,374.0 938.0,374.0" fill="#e5ecf5" class="cell"><title>Window 5, K7: z=-0.104</title></polygon>
+<polygon points="954.0,352.0 982.0,352.0 994.0,374.0 966.0,374.0" fill="#e1beab" class="cell"><title>Window 6, K7: z=0.608</title></polygon>
+<polygon points="982.0,352.0 1010.0,352.0 1022.0,374.0 994.0,374.0" fill="#e1beab" class="cell"><title>Window 7, K7: z=0.608</title></polygon>
+<polygon points="1010.0,352.0 1038.0,352.0 1050.0,374.0 1022.0,374.0" fill="#e1beab" class="cell"><title>Window 8, K7: z=0.608</title></polygon>
+<polygon points="1038.0,352.0 1066.0,352.0 1078.0,374.0 1050.0,374.0" fill="#82a8d0" class="cell"><title>Window 9, K7: z=-0.816</title></polygon>
+<polygon points="1066.0,352.0 1094.0,352.0 1106.0,374.0 1078.0,374.0" fill="#e1beab" class="cell"><title>Window 10, K7: z=0.608</title></polygon>
+<polygon points="1094.0,352.0 1122.0,352.0 1134.0,374.0 1106.0,374.0" fill="#82a8d0" class="cell"><title>Window 11, K7: z=-0.816</title></polygon>
+<polygon points="1122.0,352.0 1150.0,352.0 1162.0,374.0 1134.0,374.0" fill="#2366ac" class="cell"><title>Window 12, K7: z=-1.528</title></polygon>
+<polygon points="1150.0,352.0 1178.0,352.0 1190.0,374.0 1162.0,374.0" fill="#e5ecf5" class="cell"><title>Window 13, K7: z=-0.104</title></polygon>
+<text x="806.4" y="367.4" text-anchor="end" class="axis">K7</text>
+<polygon points="826.0,374.0 854.0,374.0 866.0,396.0 838.0,396.0" fill="#dfe8f3" class="cell"><title>Window 1, K8: z=-0.143</title></polygon>
+<polygon points="854.0,374.0 882.0,374.0 894.0,396.0 866.0,396.0" fill="#80a6cf" class="cell"><title>Window 2, K8: z=-0.830</title></polygon>
+<polygon points="882.0,374.0 910.0,374.0 922.0,396.0 894.0,396.0" fill="#80a6cf" class="cell"><title>Window 3, K8: z=-0.830</title></polygon>
+<polygon points="910.0,374.0 938.0,374.0 950.0,396.0 922.0,396.0" fill="#80a6cf" class="cell"><title>Window 4, K8: z=-0.830</title></polygon>
+<polygon points="938.0,374.0 966.0,374.0 978.0,396.0 950.0,396.0" fill="#80a6cf" class="cell"><title>Window 5, K8: z=-0.830</title></polygon>
+<polygon points="966.0,374.0 994.0,374.0 1006.0,396.0 978.0,396.0" fill="#80a6cf" class="cell"><title>Window 6, K8: z=-0.830</title></polygon>
+<polygon points="994.0,374.0 1022.0,374.0 1034.0,396.0 1006.0,396.0" fill="#80a6cf" class="cell"><title>Window 7, K8: z=-0.830</title></polygon>
+<polygon points="1022.0,374.0 1050.0,374.0 1062.0,396.0 1034.0,396.0" fill="#80a6cf" class="cell"><title>Window 8, K8: z=-0.830</title></polygon>
+<polygon points="1050.0,374.0 1078.0,374.0 1090.0,396.0 1062.0,396.0" fill="#80a6cf" class="cell"><title>Window 9, K8: z=-0.830</title></polygon>
+<polygon points="1078.0,374.0 1106.0,374.0 1118.0,396.0 1090.0,396.0" fill="#80a6cf" class="cell"><title>Window 10, K8: z=-0.830</title></polygon>
+<polygon points="1106.0,374.0 1134.0,374.0 1146.0,396.0 1118.0,396.0" fill="#e3c4b4" class="cell"><title>Window 11, K8: z=0.545</title></polygon>
+<polygon points="1134.0,374.0 1162.0,374.0 1174.0,396.0 1146.0,396.0" fill="#80a6cf" class="cell"><title>Window 12, K8: z=-0.830</title></polygon>
+<polygon points="1162.0,374.0 1190.0,374.0 1202.0,396.0 1174.0,396.0" fill="#ce845b" class="cell"><title>Window 13, K8: z=1.232</title></polygon>
+<text x="818.4" y="389.4" text-anchor="end" class="axis">K8</text>
+<polygon points="814.0,352.0 1178.0,352.0 1202.0,396.0 838.0,396.0" class="outline"/>
+<text x="687" y="91" class="group">Tool use</text>
+<text x="687" y="114" class="group-id">K1–K3</text>
+<text x="687" y="236" class="group">Action organization</text>
+<text x="687" y="259" class="group-id">K4–K6</text>
+<text x="687" y="381" class="group">Local repetition</text>
+<text x="687" y="404" class="group-id">K7–K8</text>
+<text x="292" y="461" text-anchor="middle" class="axis">Consecutive command windows</text>
+<text x="1022" y="461" text-anchor="middle" class="axis">Consecutive command windows</text>
+</svg>

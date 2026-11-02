@@ -1,0 +1,10 @@
+{
+  "comparison": "window_summary minus whole_session_core8",
+  "task_macro_delta_ba": 0.011111111111111108,
+  "paired_task_bootstrap_95ci": [
+    -0.14307291666666666,
+    0.15416666666666667
+  ],
+  "tasks": 12,
+  "conditional_on_fixed_oof_predictions": true
+}

@@ -1,0 +1,52 @@
+{
+  "raw_runs": 109,
+  "raw_human": 61,
+  "raw_agent": 48,
+  "extended_min4_eligible": 109,
+  "extended_mode_counts": {
+    "human": 61,
+    "agent": 48
+  },
+  "extended_tasks": 12,
+  "v1_frozen_89_ids_available": 89,
+  "v1_frozen_89_mode_counts": {
+    "human": 45,
+    "agent": 44
+  },
+  "v1_frozen_89_tasks": 12,
+  "time_fields": "auditd EXECVE launch timestamps; no execution durations were present; T block uses measured inter-launch intervals only",
+  "frozen_v1_89": {
+    "n": 89,
+    "task_count": 12,
+    "source_fold_map": {
+      "Alice": 0,
+      "Bob": 1,
+      "Charlie": 2,
+      "David": 0,
+      "Eve": 1,
+      "Frank": 2,
+      "GPT4.1": 0,
+      "GPT4o": 1,
+      "GPT5": 2
+    },
+    "valid_time_gaps": 4510,
+    "missing_time_events": 0
+  },
+  "extended_all_eligible_min4": {
+    "n": 109,
+    "task_count": 12,
+    "source_fold_map": {
+      "Alice": 0,
+      "Bob": 1,
+      "Charlie": 2,
+      "David": 0,
+      "Eve": 1,
+      "Frank": 2,
+      "GPT4.1": 0,
+      "GPT4o": 1,
+      "GPT5": 2
+    },
+    "valid_time_gaps": 4745,
+    "missing_time_events": 0
+  }
+}

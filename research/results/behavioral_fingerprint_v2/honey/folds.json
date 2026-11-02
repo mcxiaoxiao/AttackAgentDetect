@@ -1,0 +1,650 @@
+[
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:1.5b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "deepseek-r1:32b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:27b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "gemma3:4b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "llama3.1:8b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:1.5b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen2.5:32b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:30b",
+    "candidate_model": "qwen3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "deepseek-r1:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "deepseek-r1:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "gemma3:27b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "gemma3:4b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "llama3.1:8b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "qwen2.5:1.5b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "qwen2.5:32b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  },
+  {
+    "query_model": "qwen3:4b",
+    "candidate_model": "qwen3:30b",
+    "status": "complete",
+    "training_models": 7,
+    "training_pairs": 5000,
+    "shared_conditions": 49,
+    "test_queries": 144
+  }
+]

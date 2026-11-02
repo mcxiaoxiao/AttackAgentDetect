@@ -1,0 +1,1124 @@
+{
+  "protocol": "post-observation exploratory; same fixed CTH galleries; five outer task folds; nested three task folds choose C and BA threshold; local alignment is exploratory; matched lexical-only alignment and fingerprint alignment share training pairs and logistic learner",
+  "summary": [
+    {
+      "method": "evidence",
+      "tasks": 40,
+      "ba": 0.6336309523809524,
+      "delta_ba": 0.0,
+      "paired_task_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "lexical_local",
+      "tasks": 40,
+      "ba": 0.6335714285714287,
+      "delta_ba": -5.9523809523803764e-05,
+      "paired_task_ci95": [
+        -0.03497023809523808,
+        0.03407886904761904
+      ]
+    },
+    {
+      "method": "fingerprint_local",
+      "tasks": 40,
+      "ba": 0.648154761904762,
+      "delta_ba": 0.014523809523809533,
+      "paired_task_ci95": [
+        -0.02633928571428571,
+        0.053810267857142866
+      ]
+    }
+  ],
+  "fold_choices": [
+    {
+      "fold": 0,
+      "selected": {
+        "evidence": [
+          10.0,
+          0.42703504031361583
+        ],
+        "lexical_local": [
+          0.1,
+          0.44323153689173583
+        ],
+        "fingerprint_local": [
+          1.0,
+          0.4121760967499361
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6775173611111112,
+          "threshold": 0.44904510257153296
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6768576388888888,
+          "threshold": 0.4498964851406431
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6788454861111111,
+          "threshold": 0.42703504031361583
+        },
+        {
+          "method": "lexical_local",
+          "C": 0.1,
+          "inner_ba": 0.6711545138888888,
+          "threshold": 0.44323153689173583
+        },
+        {
+          "method": "lexical_local",
+          "C": 1.0,
+          "inner_ba": 0.6646006944444445,
+          "threshold": 0.44433102822369547
+        },
+        {
+          "method": "lexical_local",
+          "C": 10.0,
+          "inner_ba": 0.6672222222222222,
+          "threshold": 0.4378991441157454
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 0.1,
+          "inner_ba": 0.6824305555555557,
+          "threshold": 0.41100365096984587
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 1.0,
+          "inner_ba": 0.6856336805555555,
+          "threshold": 0.4121760967499361
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 10.0,
+          "inner_ba": 0.6810243055555556,
+          "threshold": 0.40468342856751677
+        }
+      ]
+    },
+    {
+      "fold": 1,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4533875465194065
+        ],
+        "lexical_local": [
+          0.1,
+          0.42278428140015106
+        ],
+        "fingerprint_local": [
+          10.0,
+          0.3707809183362803
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6727256944444444,
+          "threshold": 0.4533875465194065
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6638194444444445,
+          "threshold": 0.4653161413781739
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6640711805555556,
+          "threshold": 0.46775200766584324
+        },
+        {
+          "method": "lexical_local",
+          "C": 0.1,
+          "inner_ba": 0.675,
+          "threshold": 0.42278428140015106
+        },
+        {
+          "method": "lexical_local",
+          "C": 1.0,
+          "inner_ba": 0.66796875,
+          "threshold": 0.38452375618221646
+        },
+        {
+          "method": "lexical_local",
+          "C": 10.0,
+          "inner_ba": 0.6689843750000001,
+          "threshold": 0.37564943664171374
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 0.1,
+          "inner_ba": 0.6734201388888889,
+          "threshold": 0.3887549202893003
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 1.0,
+          "inner_ba": 0.6704947916666667,
+          "threshold": 0.3704936588121284
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 10.0,
+          "inner_ba": 0.6737413194444445,
+          "threshold": 0.3707809183362803
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "selected": {
+        "evidence": [
+          1.0,
+          0.4544931520027902
+        ],
+        "lexical_local": [
+          1.0,
+          0.4539843707703515
+        ],
+        "fingerprint_local": [
+          1.0,
+          0.45517984931201805
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6884635416666667,
+          "threshold": 0.4657897806677561
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6942881944444445,
+          "threshold": 0.4544931520027902
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6942100694444444,
+          "threshold": 0.4506657587241985
+        },
+        {
+          "method": "lexical_local",
+          "C": 0.1,
+          "inner_ba": 0.6788368055555556,
+          "threshold": 0.44293485291492324
+        },
+        {
+          "method": "lexical_local",
+          "C": 1.0,
+          "inner_ba": 0.6836371527777778,
+          "threshold": 0.4539843707703515
+        },
+        {
+          "method": "lexical_local",
+          "C": 10.0,
+          "inner_ba": 0.6793055555555556,
+          "threshold": 0.42893911256660033
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 0.1,
+          "inner_ba": 0.6843663194444445,
+          "threshold": 0.46322885268460506
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 1.0,
+          "inner_ba": 0.686640625,
+          "threshold": 0.45517984931201805
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 10.0,
+          "inner_ba": 0.677265625,
+          "threshold": 0.42983211534122484
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4682129883735152
+        ],
+        "lexical_local": [
+          0.1,
+          0.42878529882645133
+        ],
+        "fingerprint_local": [
+          0.1,
+          0.3879188948984685
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6423582175925926,
+          "threshold": 0.4682129883735152
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6414033564814814,
+          "threshold": 0.478446039169426
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6399537037037037,
+          "threshold": 0.46587198788209133
+        },
+        {
+          "method": "lexical_local",
+          "C": 0.1,
+          "inner_ba": 0.6425289351851852,
+          "threshold": 0.42878529882645133
+        },
+        {
+          "method": "lexical_local",
+          "C": 1.0,
+          "inner_ba": 0.6267100694444445,
+          "threshold": 0.40828326687035693
+        },
+        {
+          "method": "lexical_local",
+          "C": 10.0,
+          "inner_ba": 0.6280237268518518,
+          "threshold": 0.3899613054373273
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 0.1,
+          "inner_ba": 0.6298553240740741,
+          "threshold": 0.3879188948984685
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 1.0,
+          "inner_ba": 0.6164901620370371,
+          "threshold": 0.44820520855311186
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 10.0,
+          "inner_ba": 0.6212615740740741,
+          "threshold": 0.46026738526283667
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "selected": {
+        "evidence": [
+          10.0,
+          0.48362494207399465
+        ],
+        "lexical_local": [
+          0.1,
+          0.5437018407872136
+        ],
+        "fingerprint_local": [
+          0.1,
+          0.46317159540378267
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6492737268518519,
+          "threshold": 0.4822439833330088
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6556799768518518,
+          "threshold": 0.4818125784572218
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6569039351851851,
+          "threshold": 0.48362494207399465
+        },
+        {
+          "method": "lexical_local",
+          "C": 0.1,
+          "inner_ba": 0.6283391203703703,
+          "threshold": 0.5437018407872136
+        },
+        {
+          "method": "lexical_local",
+          "C": 1.0,
+          "inner_ba": 0.6248061342592592,
+          "threshold": 0.5077423517377513
+        },
+        {
+          "method": "lexical_local",
+          "C": 10.0,
+          "inner_ba": 0.622800925925926,
+          "threshold": 0.4991606212186317
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 0.1,
+          "inner_ba": 0.6274855324074073,
+          "threshold": 0.46317159540378267
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 1.0,
+          "inner_ba": 0.6229166666666667,
+          "threshold": 0.5132542286643338
+        },
+        {
+          "method": "fingerprint_local",
+          "C": 10.0,
+          "inner_ba": 0.6232118055555556,
+          "threshold": 0.46446896310225927
+        }
+      ]
+    }
+  ],
+  "task_predictions": [
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "evidence",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "evidence",
+      "ba": 0.4714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "evidence",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "evidence",
+      "ba": 0.6428571428571429
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "lexical_local",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "lexical_local",
+      "ba": 0.5857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "lexical_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "lexical_local",
+      "ba": 0.6285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "lexical_local",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "lexical_local",
+      "ba": 0.3035714285714286
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "lexical_local",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "lexical_local",
+      "ba": 0.6714285714285715
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "fingerprint_local",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "fingerprint_local",
+      "ba": 0.5428571428571429
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "fingerprint_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "fingerprint_local",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "fingerprint_local",
+      "ba": 0.41428571428571437
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "fingerprint_local",
+      "ba": 0.3035714285714286
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "fingerprint_local",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "fingerprint_local",
+      "ba": 0.6714285714285715
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "evidence",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "evidence",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "evidence",
+      "ba": 0.7
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "evidence",
+      "ba": 0.9821428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "evidence",
+      "ba": 0.875
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "lexical_local",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "lexical_local",
+      "ba": 0.4571428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "lexical_local",
+      "ba": 0.6785714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "lexical_local",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "lexical_local",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "lexical_local",
+      "ba": 0.7285714285714285
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "lexical_local",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "lexical_local",
+      "ba": 0.875
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "fingerprint_local",
+      "ba": 0.4821428571428572
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "fingerprint_local",
+      "ba": 0.5285714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "fingerprint_local",
+      "ba": 0.5535714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "fingerprint_local",
+      "ba": 0.75
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "fingerprint_local",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "fingerprint_local",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "fingerprint_local",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "fingerprint_local",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "evidence",
+      "ba": 0.8
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "evidence",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "evidence",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "evidence",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "evidence",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "evidence",
+      "ba": 0.5952380952380952
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "evidence",
+      "ba": 0.6428571428571429
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "evidence",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "lexical_local",
+      "ba": 0.6714285714285715
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "lexical_local",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "lexical_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "lexical_local",
+      "ba": 0.4821428571428572
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "lexical_local",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "lexical_local",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "lexical_local",
+      "ba": 0.6714285714285715
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "lexical_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "fingerprint_local",
+      "ba": 0.6714285714285715
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "fingerprint_local",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "fingerprint_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "fingerprint_local",
+      "ba": 0.4464285714285714
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "fingerprint_local",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "fingerprint_local",
+      "ba": 0.40476190476190477
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "fingerprint_local",
+      "ba": 0.6571428571428571
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "fingerprint_local",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "evidence",
+      "ba": 0.875
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "evidence",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "evidence",
+      "ba": 0.375
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "evidence",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "evidence",
+      "ba": 0.41428571428571426
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "evidence",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "evidence",
+      "ba": 0.5571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "lexical_local",
+      "ba": 0.8214285714285714
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "lexical_local",
+      "ba": 0.75
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "lexical_local",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "lexical_local",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "lexical_local",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "lexical_local",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "lexical_local",
+      "ba": 0.5571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "lexical_local",
+      "ba": 0.48571428571428565
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "fingerprint_local",
+      "ba": 0.8214285714285714
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "fingerprint_local",
+      "ba": 0.6964285714285714
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "fingerprint_local",
+      "ba": 0.625
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "fingerprint_local",
+      "ba": 0.5535714285714286
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "fingerprint_local",
+      "ba": 0.7571428571428571
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "fingerprint_local",
+      "ba": 0.48571428571428577
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "fingerprint_local",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "fingerprint_local",
+      "ba": 0.4714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "evidence",
+      "ba": 0.8928571428571429
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "evidence",
+      "ba": 0.6
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "evidence",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "lexical_local",
+      "ba": 0.6285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "lexical_local",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "lexical_local",
+      "ba": 0.4821428571428571
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "lexical_local",
+      "ba": 0.5
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "lexical_local",
+      "ba": 0.5428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "lexical_local",
+      "ba": 0.5428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "lexical_local",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "lexical_local",
+      "ba": 0.4821428571428571
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "fingerprint_local",
+      "ba": 0.8285714285714285
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "fingerprint_local",
+      "ba": 0.8392857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "fingerprint_local",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "fingerprint_local",
+      "ba": 0.6
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "fingerprint_local",
+      "ba": 0.8142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "fingerprint_local",
+      "ba": 0.4571428571428571
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "fingerprint_local",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "fingerprint_local",
+      "ba": 0.3928571428571429
+    }
+  ]
+}

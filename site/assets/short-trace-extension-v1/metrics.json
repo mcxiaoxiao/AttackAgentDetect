@@ -1,0 +1,424 @@
+[
+  {
+    "source": "cyber-task-horizons",
+    "raw_agent_ctf": 415,
+    "eligible_sessions_after_dedup": 219,
+    "eligible_tasks": 86,
+    "folds": [
+      {
+        "fold": 0,
+        "train_sessions": 149,
+        "eligible_test_tasks": 29,
+        "test_sessions": 70,
+        "training_pairs": 254
+      },
+      {
+        "fold": 1,
+        "train_sessions": 143,
+        "eligible_test_tasks": 29,
+        "test_sessions": 76,
+        "training_pairs": 230
+      },
+      {
+        "fold": 2,
+        "train_sessions": 146,
+        "eligible_test_tasks": 28,
+        "test_sessions": 73,
+        "training_pairs": 236
+      }
+    ],
+    "metrics": [
+      {
+        "source": "cyber-task-horizons",
+        "method": "command",
+        "metric": "hit1",
+        "value": 0.5706395348837209,
+        "tasks": 86,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "command",
+        "metric": "mrr",
+        "value": 0.7408478682170543,
+        "tasks": 86,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "command",
+        "metric": "auc",
+        "value": 0.8084544573643412,
+        "tasks": 86,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "length",
+        "metric": "hit1",
+        "value": 0.5947674418604652,
+        "tasks": 86,
+        "paired_delta": 0.024127906976744187,
+        "paired_95ci": [
+          -0.0050411821705426295,
+          0.05203730620155036
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "length",
+        "metric": "mrr",
+        "value": 0.7548465762273902,
+        "tasks": 86,
+        "paired_delta": 0.013998708010335916,
+        "paired_95ci": [
+          -0.00585226905684754,
+          0.03343083817829457
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "length",
+        "metric": "auc",
+        "value": 0.8164244186046511,
+        "tasks": 86,
+        "paired_delta": 0.00796996124031008,
+        "paired_95ci": [
+          -0.012645348837209294,
+          0.0277858527131783
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "static8",
+        "metric": "hit1",
+        "value": 0.5637596899224807,
+        "tasks": 86,
+        "paired_delta": -0.006879844961240309,
+        "paired_95ci": [
+          -0.03226744186046512,
+          0.017831879844961214
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "static8",
+        "metric": "mrr",
+        "value": 0.7335158268733851,
+        "tasks": 86,
+        "paired_delta": -0.00733204134366924,
+        "paired_95ci": [
+          -0.02597064760981911,
+          0.011170058139534882
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "static8",
+        "metric": "auc",
+        "value": 0.7945494186046511,
+        "tasks": 86,
+        "paired_delta": -0.013905038759689917,
+        "paired_95ci": [
+          -0.03730741279069768,
+          0.008357558139534888
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "matrix24",
+        "metric": "hit1",
+        "value": 0.5349806201550389,
+        "tasks": 86,
+        "paired_delta": -0.03565891472868217,
+        "paired_95ci": [
+          -0.06821705426356589,
+          -0.004261143410852741
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "matrix24",
+        "metric": "mrr",
+        "value": 0.7099321705426357,
+        "tasks": 86,
+        "paired_delta": -0.030915697674418593,
+        "paired_95ci": [
+          -0.054368822674418595,
+          -0.008383397932816523
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "matrix24",
+        "metric": "auc",
+        "value": 0.7689680232558139,
+        "tasks": 86,
+        "paired_delta": -0.039486434108527126,
+        "paired_95ci": [
+          -0.066593992248062,
+          -0.014219961240310075
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "shuffle24",
+        "metric": "hit1",
+        "value": 0.5280038759689921,
+        "tasks": 86,
+        "paired_delta": -0.042635658914728675,
+        "paired_95ci": [
+          -0.06831637596899225,
+          -0.018798449612403092
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "shuffle24",
+        "metric": "mrr",
+        "value": 0.7053003875968993,
+        "tasks": 86,
+        "paired_delta": -0.035547480620155024,
+        "paired_95ci": [
+          -0.05443798449612401,
+          -0.0179048368863049
+        ]
+      },
+      {
+        "source": "cyber-task-horizons",
+        "method": "shuffle24",
+        "metric": "auc",
+        "value": 0.7652616279069766,
+        "tasks": 86,
+        "paired_delta": -0.043192829457364336,
+        "paired_95ci": [
+          -0.06768531976744188,
+          -0.021341448643410862
+        ]
+      }
+    ]
+  },
+  {
+    "source": "antieval/cybench-trajectories",
+    "raw_agent_ctf": 189,
+    "eligible_sessions_after_dedup": 120,
+    "eligible_tasks": 27,
+    "folds": [
+      {
+        "fold": 0,
+        "train_sessions": 78,
+        "eligible_test_tasks": 9,
+        "test_sessions": 42,
+        "training_pairs": 300
+      },
+      {
+        "fold": 1,
+        "train_sessions": 81,
+        "eligible_test_tasks": 9,
+        "test_sessions": 39,
+        "training_pairs": 328
+      },
+      {
+        "fold": 2,
+        "train_sessions": 81,
+        "eligible_test_tasks": 9,
+        "test_sessions": 39,
+        "training_pairs": 324
+      }
+    ],
+    "metrics": [
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "command",
+        "metric": "hit1",
+        "value": 0.49666666666666665,
+        "tasks": 27,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "command",
+        "metric": "mrr",
+        "value": 0.7057733196159122,
+        "tasks": 27,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "command",
+        "metric": "auc",
+        "value": 0.7951620370370369,
+        "tasks": 27,
+        "paired_delta": 0.0,
+        "paired_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "length",
+        "metric": "hit1",
+        "value": 0.49672839506172833,
+        "tasks": 27,
+        "paired_delta": 6.17283950617293e-05,
+        "paired_95ci": [
+          -0.010030864197530865,
+          0.011635802469135804
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "length",
+        "metric": "mrr",
+        "value": 0.7019495884773663,
+        "tasks": 27,
+        "paired_delta": -0.003823731138545966,
+        "paired_95ci": [
+          -0.01257034465020576,
+          0.004206104252400523
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "length",
+        "metric": "auc",
+        "value": 0.7860570987654322,
+        "tasks": 27,
+        "paired_delta": -0.009104938271604938,
+        "paired_95ci": [
+          -0.022840470679012344,
+          0.0006944444444444318
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "static8",
+        "metric": "hit1",
+        "value": 0.48432098765432097,
+        "tasks": 27,
+        "paired_delta": -0.012345679012345671,
+        "paired_95ci": [
+          -0.03240740740740739,
+          0.0063580246913580276
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "static8",
+        "metric": "mrr",
+        "value": 0.6916692386831277,
+        "tasks": 27,
+        "paired_delta": -0.01410408093278464,
+        "paired_95ci": [
+          -0.02841640946502057,
+          -0.0011898791152263363
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "static8",
+        "metric": "auc",
+        "value": 0.7780787037037037,
+        "tasks": 27,
+        "paired_delta": -0.017083333333333325,
+        "paired_95ci": [
+          -0.03387345679012345,
+          -0.0019673996913580146
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "matrix24",
+        "metric": "hit1",
+        "value": 0.4677469135802469,
+        "tasks": 27,
+        "paired_delta": -0.028919753086419746,
+        "paired_95ci": [
+          -0.0750007716049383,
+          0.017934413580246878
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "matrix24",
+        "metric": "mrr",
+        "value": 0.6734310699588477,
+        "tasks": 27,
+        "paired_delta": -0.03234224965706448,
+        "paired_95ci": [
+          -0.06680214763374488,
+          0.0016343235596707401
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "matrix24",
+        "metric": "auc",
+        "value": 0.7528395061728396,
+        "tasks": 27,
+        "paired_delta": -0.042322530864197544,
+        "paired_95ci": [
+          -0.07618074845679011,
+          -0.010223572530864197
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "shuffle24",
+        "metric": "hit1",
+        "value": 0.46783950617283954,
+        "tasks": 27,
+        "paired_delta": -0.02882716049382715,
+        "paired_95ci": [
+          -0.06706867283950617,
+          0.00938271604938272
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "shuffle24",
+        "metric": "mrr",
+        "value": 0.6757854938271605,
+        "tasks": 27,
+        "paired_delta": -0.029987825788751723,
+        "paired_95ci": [
+          -0.05923619255829906,
+          -0.001580396947873825
+        ]
+      },
+      {
+        "source": "antieval/cybench-trajectories",
+        "method": "shuffle24",
+        "metric": "auc",
+        "value": 0.756875,
+        "tasks": 27,
+        "paired_delta": -0.03828703703703704,
+        "paired_95ci": [
+          -0.07177507716049385,
+          -0.005508101851851879
+        ]
+      }
+    ]
+  }
+]

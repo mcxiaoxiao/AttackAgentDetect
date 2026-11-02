@@ -1,0 +1,149 @@
+{
+  "status": "exploratory_cross_source_same_challenge_proxy",
+  "task_join": "normalized CyBench slug only; fixture equivalence unverified",
+  "human_traces_ge4": 7,
+  "agent_traces_ge4": 30,
+  "tasks": [
+    "back_to_the_past",
+    "flag_command",
+    "locktalk",
+    "lootstash",
+    "packedaway"
+  ],
+  "human_queries": 7,
+  "draws_per_query": 20,
+  "candidates_per_query": 5,
+  "folds": [
+    {
+      "query_task": "back_to_the_past",
+      "training_agent_tasks": 4,
+      "training_pairs": 120,
+      "human_queries": 2
+    },
+    {
+      "query_task": "flag_command",
+      "training_agent_tasks": 4,
+      "training_pairs": 120,
+      "human_queries": 1
+    },
+    {
+      "query_task": "locktalk",
+      "training_agent_tasks": 4,
+      "training_pairs": 120,
+      "human_queries": 1
+    },
+    {
+      "query_task": "lootstash",
+      "training_agent_tasks": 4,
+      "training_pairs": 120,
+      "human_queries": 2
+    },
+    {
+      "query_task": "packedaway",
+      "training_agent_tasks": 4,
+      "training_pairs": 120,
+      "human_queries": 1
+    }
+  ],
+  "metrics": [
+    {
+      "method": "command",
+      "metric": "hit1",
+      "value": 0.43999999999999995,
+      "tasks": 5,
+      "paired_delta": 0.0,
+      "paired_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "command",
+      "metric": "mrr",
+      "value": 0.6809999999999999,
+      "tasks": 5,
+      "paired_delta": 0.0,
+      "paired_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "command",
+      "metric": "auc",
+      "value": 0.7837499999999998,
+      "tasks": 5,
+      "paired_delta": 0.0,
+      "paired_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "command_matrix",
+      "metric": "hit1",
+      "value": 0.425,
+      "tasks": 5,
+      "paired_delta": -0.01499999999999999,
+      "paired_95ci": [
+        -0.04499999999999997,
+        0.0
+      ]
+    },
+    {
+      "method": "command_matrix",
+      "metric": "mrr",
+      "value": 0.671,
+      "tasks": 5,
+      "paired_delta": -0.009999999999999986,
+      "paired_95ci": [
+        -0.026666666666666637,
+        0.0
+      ]
+    },
+    {
+      "method": "command_matrix",
+      "metric": "auc",
+      "value": 0.7762500000000001,
+      "tasks": 5,
+      "paired_delta": -0.007500000000000018,
+      "paired_95ci": [
+        -0.017500000000000026,
+        0.0
+      ]
+    },
+    {
+      "method": "command_length",
+      "metric": "hit1",
+      "value": 0.39,
+      "tasks": 5,
+      "paired_delta": -0.05,
+      "paired_95ci": [
+        -0.09000000000000001,
+        -0.010000000000000009
+      ]
+    },
+    {
+      "method": "command_length",
+      "metric": "mrr",
+      "value": 0.6493333333333332,
+      "tasks": 5,
+      "paired_delta": -0.03166666666666666,
+      "paired_95ci": [
+        -0.05583333333333329,
+        -0.010833333333333361
+      ]
+    },
+    {
+      "method": "command_length",
+      "metric": "auc",
+      "value": 0.75875,
+      "tasks": 5,
+      "paired_delta": -0.025,
+      "paired_95ci": [
+        -0.04125000000000003,
+        -0.00874999999999999
+      ]
+    }
+  ]
+}

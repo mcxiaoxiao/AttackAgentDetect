@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-02",
+  "source": "https://zenodo.org/records/10298187",
+  "license": "CC-BY-4.0",
+  "participants": 100,
+  "task_level_segments": 359,
+  "nonempty_common_view_segments": 265,
+  "source_variant_levels": 12,
+  "raw_event_counts": {
+    "bash-command": 5668,
+    "msf-command": 2480,
+    "game-event": 3597
+  },
+  "length_coverage": [
+    {
+      "minimum_commands": 1,
+      "records": 265,
+      "tasks": 11,
+      "tasks_with_2_humans": 10,
+      "records_in_repeated_tasks": 264,
+      "participants": 100
+    },
+    {
+      "minimum_commands": 4,
+      "records": 197,
+      "tasks": 10,
+      "tasks_with_2_humans": 10,
+      "records_in_repeated_tasks": 197,
+      "participants": 97
+    },
+    {
+      "minimum_commands": 8,
+      "records": 146,
+      "tasks": 10,
+      "tasks_with_2_humans": 9,
+      "records_in_repeated_tasks": 145,
+      "participants": 82
+    },
+    {
+      "minimum_commands": 16,
+      "records": 68,
+      "tasks": 8,
+      "tasks_with_2_humans": 7,
+      "records_in_repeated_tasks": 67,
+      "participants": 55
+    },
+    {
+      "minimum_commands": 32,
+      "records": 19,
+      "tasks": 6,
+      "tasks_with_2_humans": 4,
+      "records_in_repeated_tasks": 17,
+      "participants": 17
+    }
+  ],
+  "human_agent_matched_tasks": 0,
+  "status": "ingested_human_only_task_level_supplement_not_evaluated",
+  "limits": [
+    "Segments from the same participant are dependent. Split by participant before windows/pairs.",
+    "Data1 and data2 retain separate task namespaces; no cross-variant equivalence assumed.",
+    "Author-provided level labels delimit training tasks; not real attack campaign identities.",
+    "No Agent runs in this source; do not pool source labels into a Human/Agent classifier.",
+    "Common view retains known Bash/ZSH command heads only. Metasploit events remain in raw archive, excluded from common shell view."
+  ]
+}

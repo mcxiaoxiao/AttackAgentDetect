@@ -1,0 +1,88 @@
+{
+  "raw_runs": 109,
+  "permutations_per_trace": 20,
+  "frozen_v1_89": {
+    "n": 89,
+    "tasks": 12,
+    "gap_shuffle_window_audit": {
+      "Charlie": {
+        "eligible_windows": 960,
+        "preserved_windows": 60
+      },
+      "GPT5": {
+        "eligible_windows": 1660,
+        "preserved_windows": 80
+      },
+      "Alice": {
+        "eligible_windows": 1500,
+        "preserved_windows": 80
+      },
+      "GPT4.1": {
+        "eligible_windows": 4120,
+        "preserved_windows": 320
+      },
+      "Eve": {
+        "eligible_windows": 1840,
+        "preserved_windows": 40
+      },
+      "David": {
+        "eligible_windows": 1040,
+        "preserved_windows": 80
+      },
+      "Bob": {
+        "eligible_windows": 1280,
+        "preserved_windows": 20
+      },
+      "Frank": {
+        "eligible_windows": 380,
+        "preserved_windows": 60
+      },
+      "GPT4o": {
+        "eligible_windows": 320,
+        "preserved_windows": 40
+      }
+    }
+  },
+  "extended_all_eligible_min4": {
+    "n": 109,
+    "tasks": 12,
+    "gap_shuffle_window_audit": {
+      "Alice": {
+        "eligible_windows": 1640,
+        "preserved_windows": 100
+      },
+      "Bob": {
+        "eligible_windows": 1320,
+        "preserved_windows": 20
+      },
+      "Charlie": {
+        "eligible_windows": 1060,
+        "preserved_windows": 80
+      },
+      "David": {
+        "eligible_windows": 1140,
+        "preserved_windows": 80
+      },
+      "Eve": {
+        "eligible_windows": 1960,
+        "preserved_windows": 60
+      },
+      "Frank": {
+        "eligible_windows": 500,
+        "preserved_windows": 100
+      },
+      "GPT4.1": {
+        "eligible_windows": 4120,
+        "preserved_windows": 320
+      },
+      "GPT4o": {
+        "eligible_windows": 380,
+        "preserved_windows": 60
+      },
+      "GPT5": {
+        "eligible_windows": 1720,
+        "preserved_windows": 80
+      }
+    }
+  }
+}

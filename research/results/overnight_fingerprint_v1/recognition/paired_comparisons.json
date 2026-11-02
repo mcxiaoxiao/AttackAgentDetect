@@ -1,0 +1,564 @@
+{
+  "ablations": {
+    "ablate_tool_selection": {
+      "available": true,
+      "shared_runs": 89,
+      "tasks": 12,
+      "task_macro_delta_ba": 0.049999999999999996,
+      "paired_task_bootstrap_95ci": [
+        0.0,
+        0.11458333333333333
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 1.0,
+          "delta": 0.0,
+          "n": 3
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.525,
+          "comparison_ba": 0.525,
+          "delta": 0.0,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.8,
+          "comparison_ba": 0.9,
+          "delta": 0.09999999999999998,
+          "n": 8
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.7916666666666667,
+          "comparison_ba": 0.7916666666666667,
+          "delta": 0.0,
+          "n": 10
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.8333333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.0,
+          "n": 10
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.425,
+          "delta": 0.0,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.6333333333333333,
+          "delta": 0.0,
+          "n": 8
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 8
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.125,
+          "delta": 0.0,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.875,
+          "delta": 0.125,
+          "n": 6
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.5,
+          "delta": 0.375,
+          "n": 6
+        }
+      }
+    },
+    "ablate_action_organization": {
+      "available": true,
+      "shared_runs": 89,
+      "tasks": 12,
+      "task_macro_delta_ba": -0.05486111111111112,
+      "paired_task_bootstrap_95ci": [
+        -0.17987847222222225,
+        0.07713541666666637
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 1.0,
+          "delta": 0.0,
+          "n": 3
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.525,
+          "comparison_ba": 0.55,
+          "delta": 0.025000000000000022,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.8,
+          "comparison_ba": 0.7,
+          "delta": -0.10000000000000009,
+          "n": 8
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.7916666666666667,
+          "comparison_ba": 0.4583333333333333,
+          "delta": -0.3333333333333334,
+          "n": 10
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.8333333333333333,
+          "comparison_ba": 0.4166666666666667,
+          "delta": -0.4166666666666666,
+          "n": 10
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.2,
+          "delta": -0.22499999999999998,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.5666666666666667,
+          "delta": -0.06666666666666665,
+          "n": 8
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.7083333333333333,
+          "delta": 0.33333333333333326,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.625,
+          "delta": 0.25,
+          "n": 8
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.375,
+          "delta": 0.25,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.5,
+          "delta": -0.25,
+          "n": 6
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.0,
+          "delta": -0.125,
+          "n": 6
+        }
+      }
+    },
+    "ablate_local_repetition": {
+      "available": true,
+      "shared_runs": 89,
+      "tasks": 12,
+      "task_macro_delta_ba": -0.022916666666666658,
+      "paired_task_bootstrap_95ci": [
+        -0.11666666666666665,
+        0.03958333333333334
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 0.5,
+          "delta": -0.5,
+          "n": 3
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.525,
+          "comparison_ba": 0.525,
+          "delta": 0.0,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.8,
+          "comparison_ba": 0.8,
+          "delta": 0.0,
+          "n": 8
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.7916666666666667,
+          "comparison_ba": 0.7916666666666667,
+          "delta": 0.0,
+          "n": 10
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.8333333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.0,
+          "n": 10
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.425,
+          "delta": 0.0,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.7333333333333334,
+          "delta": 0.10000000000000009,
+          "n": 8
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 8
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.125,
+          "delta": 0.0,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.75,
+          "delta": 0.0,
+          "n": 6
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.25,
+          "delta": 0.125,
+          "n": 6
+        }
+      }
+    }
+  },
+  "controls": {
+    "fixed_first32": {
+      "available": true,
+      "shared_runs": 47,
+      "tasks": 7,
+      "task_macro_delta_ba": 0.21428571428571427,
+      "paired_task_bootstrap_95ci": [
+        0.005952380952380963,
+        0.42261904761904756
+      ],
+      "task_deltas": {
+        "Nextcloud/exp2": {
+          "base_ba": 0.5833333333333333,
+          "comparison_ba": 0.41666666666666663,
+          "delta": -0.16666666666666663,
+          "n": 7
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.41666666666666663,
+          "comparison_ba": 0.6666666666666666,
+          "delta": 0.25,
+          "n": 5
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.41666666666666663,
+          "comparison_ba": 0.6666666666666666,
+          "delta": 0.25,
+          "n": 5
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.16666666666666666,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.6666666666666666,
+          "n": 4
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.5,
+          "delta": 0.125,
+          "n": 6
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.625,
+          "delta": -0.125,
+          "n": 6
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.5,
+          "comparison_ba": 1.0,
+          "delta": 0.5,
+          "n": 3
+        }
+      }
+    },
+    "without_wrappers": {
+      "available": true,
+      "shared_runs": 84,
+      "tasks": 12,
+      "task_macro_delta_ba": 0.07152777777777779,
+      "paired_task_bootstrap_95ci": [
+        -0.05626736111111113,
+        0.218767361111111
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 1.0,
+          "delta": 0.0,
+          "n": 2
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.55,
+          "comparison_ba": 0.325,
+          "delta": -0.22500000000000003,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.8333333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.0,
+          "n": 6
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.575,
+          "comparison_ba": 0.475,
+          "delta": -0.09999999999999998,
+          "n": 9
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.7083333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.125,
+          "n": 10
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.3,
+          "comparison_ba": 0.625,
+          "delta": 0.325,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.7,
+          "delta": 0.06666666666666665,
+          "n": 8
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.41666666666666663,
+          "delta": 0.04166666666666663,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 8
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.25,
+          "delta": 0.125,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.5,
+          "delta": -0.25,
+          "n": 6
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.875,
+          "delta": 0.75,
+          "n": 5
+        }
+      }
+    },
+    "window_order_shuffle": {
+      "available": true,
+      "shared_runs": 89,
+      "tasks": 12,
+      "task_macro_delta_ba": 0.08819444444444445,
+      "paired_task_bootstrap_95ci": [
+        -0.03404513888888892,
+        0.22361111111111112
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 1.0,
+          "delta": 0.0,
+          "n": 3
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.525,
+          "comparison_ba": 0.425,
+          "delta": -0.10000000000000003,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.8,
+          "comparison_ba": 0.6333333333333333,
+          "delta": -0.16666666666666674,
+          "n": 8
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.7916666666666667,
+          "comparison_ba": 0.5416666666666666,
+          "delta": -0.2500000000000001,
+          "n": 10
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.8333333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.0,
+          "n": 10
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.525,
+          "delta": 0.10000000000000003,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.7333333333333334,
+          "delta": 0.10000000000000009,
+          "n": 8
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.375,
+          "delta": 0.0,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.75,
+          "delta": 0.375,
+          "n": 8
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.75,
+          "delta": 0.625,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.875,
+          "delta": 0.125,
+          "n": 6
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.125,
+          "comparison_ba": 0.375,
+          "delta": 0.25,
+          "n": 6
+        }
+      }
+    },
+    "command_order_shuffle": {
+      "available": true,
+      "shared_runs": 81,
+      "tasks": 12,
+      "task_macro_delta_ba": -0.09583333333333333,
+      "paired_task_bootstrap_95ci": [
+        -0.25833333333333336,
+        0.07499999999999998
+      ],
+      "task_deltas": {
+        "Nextcloud/exp1": {
+          "base_ba": 1.0,
+          "comparison_ba": 0.5,
+          "delta": -0.5,
+          "n": 3
+        },
+        "Nextcloud/exp2": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.65,
+          "delta": 0.22500000000000003,
+          "n": 9
+        },
+        "Nextcloud/exp3": {
+          "base_ba": 0.6333333333333333,
+          "comparison_ba": 0.8333333333333333,
+          "delta": 0.19999999999999996,
+          "n": 8
+        },
+        "Nextcloud/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.3333333333333333,
+          "delta": -0.4166666666666667,
+          "n": 9
+        },
+        "Nextcloud/exp5": {
+          "base_ba": 0.875,
+          "comparison_ba": 0.75,
+          "delta": -0.125,
+          "n": 8
+        },
+        "Nextcloud/exp6": {
+          "base_ba": 0.425,
+          "comparison_ba": 0.575,
+          "delta": 0.14999999999999997,
+          "n": 9
+        },
+        "Nextcloud/exp7": {
+          "base_ba": 0.9,
+          "comparison_ba": 0.8,
+          "delta": -0.09999999999999998,
+          "n": 7
+        },
+        "WordPress/exp1": {
+          "base_ba": 0.375,
+          "comparison_ba": 0.0,
+          "delta": -0.375,
+          "n": 7
+        },
+        "WordPress/exp2": {
+          "base_ba": 0.5,
+          "comparison_ba": 0.6666666666666666,
+          "delta": 0.16666666666666663,
+          "n": 6
+        },
+        "WordPress/exp3": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.375,
+          "delta": -0.375,
+          "n": 5
+        },
+        "WordPress/exp4": {
+          "base_ba": 0.75,
+          "comparison_ba": 0.375,
+          "delta": -0.375,
+          "n": 5
+        },
+        "WordPress/exp5": {
+          "base_ba": 0.0,
+          "comparison_ba": 0.375,
+          "delta": 0.375,
+          "n": 5
+        }
+      }
+    }
+  }
+}

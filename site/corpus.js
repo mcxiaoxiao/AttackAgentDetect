@@ -37,7 +37,12 @@
       const identity = document.createElement('td');
       const details = document.createElement('details');
       details.append(text('summary', r.trace_id));
-      details.append(text('p', r.commands_preview.join(' → ')));
+      const commands = Array.isArray(r.commands) ? r.commands : [];
+      const preview = commands.slice(0, 24).join(' → ');
+      const omitted = Number(r.command_count) - Math.min(commands.length, 24);
+      details.append(text('p', omitted > 0
+        ? `${preview} … (${omitted} ${english() ? 'commands omitted from the public view' : '条命令未在公开视图展开'})`
+        : preview));
       details.append(text('p', `${r.observation_format} · ${r.normalization}`));
       identity.append(details); tr.append(identity);
       tr.append(text('td', `${r.source_dataset} / ${r.benchmark}`));
@@ -62,10 +67,10 @@
   previous.addEventListener('click', () => { page--; render(); });
   next.addEventListener('click', () => { page++; render(); });
   document.addEventListener('pagelanguagechange', () => { if (records.length) render(); });
-  fetch(new URL('data/behavior-corpus-v1.json?revision=20261101-expansion-v1', document.baseURI))
+  fetch(new URL('data/behavior-trace-dataset-v2.json?revision=20261102-dataset-v2', document.baseURI))
     .then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
     .then(data => {
-      records = data.traces;
+      records = data.records;
       populate(source, records.map(r => r.source_dataset));
       populate(benchmark, records.map(r => r.benchmark));
       render();

@@ -1,0 +1,8 @@
+{
+  "status": "post_observation_exploratory",
+  "mode_features": "B/S summaries only; three task-fold crossfit for training-pair mode scores; outer-training fit for test mode scores",
+  "fusion": "fixed C=1; cosine, probabilities of HH/HA/AA, and cosine interactions; optional scalar B/S distances",
+  "mode_label_usage": "supervised training only; true test mode never enters pair score",
+  "runner_sha256": "f2468005b7443beb7335329da14540c35abcb2fb36d9d631f312736f3b2919f1",
+  "protocol_sha256": "b15e8fe945be20a4ef3b26f5b8d9b8244149319a0a1795ef26afe5451c2a8f0f"
+}

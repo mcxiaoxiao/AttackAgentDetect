@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350" role="img" aria-labelledby="title desc">
+<title id="title">Two source-backed behavioral fingerprint matrices</title>
+<desc id="desc">Each colored cell is one feature in one consecutive command window. The same values appear in the layered and flat views. Three groups organize K1–K8; they are not attack stages. Trace A has 16 windows and trace B has 13.</desc>
+<defs><style>
+:root { --ink: #18283b; --muted: #596779; --rule: #bac9d8; --guide: #d5e0eb; --paper: #f5f9fd; --edge: #d5e0eb; --label-font: 'IBM Plex Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+text { font-family: var(--label-font); fill: var(--ink); font-variant-numeric: tabular-nums; }
+.axis { font-size: 14px; fill: var(--muted); }
+.group { font-size: 20px; font-weight: 600; text-anchor: middle; }
+.group-id { font-size: 13px; fill: var(--muted); text-anchor: middle; }
+.cell { stroke: var(--paper); stroke-width: 1.4; }
+.outline { fill: none; stroke: var(--rule); stroke-width: 1; }
+.edge { fill: var(--edge); }
+.guide { fill: none; stroke: var(--guide); stroke-width: 1; }
+.group-rule { fill: none; stroke: var(--paper); stroke-width: 4; }
+</style>
+<pattern id="missing" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#e0e7ef"/><path d="M0,6 L6,0" stroke="#bac9d8" stroke-width="1"/></pattern>
+</defs>
+<text x="53" y="72" text-anchor="end" class="axis">K1</text>
+<rect x="68" y="53" width="28" height="29" fill="#2366ac" class="cell"><title>Window 1, K1: z=-1.696</title></rect>
+<rect x="96" y="53" width="28" height="29" fill="#2366ac" class="cell"><title>Window 2, K1: z=-1.696</title></rect>
+<rect x="124" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 3, K1: z=-0.940</title></rect>
+<rect x="152" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 4, K1: z=-0.940</title></rect>
+<rect x="180" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 5, K1: z=-0.183</title></rect>
+<rect x="208" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 6, K1: z=-0.940</title></rect>
+<rect x="236" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 7, K1: z=-0.183</title></rect>
+<rect x="264" y="53" width="28" height="29" fill="#e2c1b0" class="cell"><title>Window 8, K1: z=0.573</title></rect>
+<rect x="292" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 9, K1: z=-0.183</title></rect>
+<rect x="320" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 10, K1: z=-0.940</title></rect>
+<rect x="348" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 11, K1: z=-0.183</title></rect>
+<rect x="376" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 12, K1: z=-0.940</title></rect>
+<rect x="404" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 13, K1: z=-0.183</title></rect>
+<rect x="432" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 14, K1: z=-0.940</title></rect>
+<rect x="460" y="53" width="28" height="29" fill="#e2c1b0" class="cell"><title>Window 15, K1: z=0.573</title></rect>
+<rect x="488" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 16, K1: z=-0.183</title></rect>
+<text x="53" y="101" text-anchor="end" class="axis">K2</text>
+<rect x="68" y="82" width="28" height="29" fill="#2366ac" class="cell"><title>Window 1, K2: z=-1.693</title></rect>
+<rect x="96" y="82" width="28" height="29" fill="#2366ac" class="cell"><title>Window 2, K2: z=-1.606</title></rect>
+<rect x="124" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 3, K2: z=-0.525</title></rect>
+<rect x="152" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 4, K2: z=-0.525</title></rect>
+<rect x="180" y="82" width="28" height="29" fill="#dde6f2" class="cell"><title>Window 5, K2: z=-0.162</title></rect>
+<rect x="208" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 6, K2: z=-0.525</title></rect>
+<rect x="236" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 7, K2: z=0.137</title></rect>
+<rect x="264" y="82" width="28" height="29" fill="#e0bdaa" class="cell"><title>Window 8, K2: z=0.618</title></rect>
+<rect x="292" y="82" width="28" height="29" fill="#e9d8d1" class="cell"><title>Window 9, K2: z=0.319</title></rect>
+<rect x="320" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 10, K2: z=-0.525</title></rect>
+<rect x="348" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 11, K2: z=0.137</title></rect>
+<rect x="376" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 12, K2: z=-0.525</title></rect>
+<rect x="404" y="82" width="28" height="29" fill="#edf2f8" class="cell"><title>Window 13, K2: z=-0.044</title></rect>
+<rect x="432" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 14, K2: z=-0.525</title></rect>
+<rect x="460" y="82" width="28" height="29" fill="#dbac93" class="cell"><title>Window 15, K2: z=0.800</title></rect>
+<rect x="488" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 16, K2: z=0.137</title></rect>
+<text x="53" y="130" text-anchor="end" class="axis">K3</text>
+<rect x="68" y="111" width="28" height="29" fill="#ca794b" class="cell"><title>Window 1, K3: z=1.350</title></rect>
+<rect x="96" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 2, K3: z=0.521</title></rect>
+<rect x="124" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 3, K3: z=-0.307</title></rect>
+<rect x="152" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 4, K3: z=-0.307</title></rect>
+<rect x="180" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 5, K3: z=0.521</title></rect>
+<rect x="208" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 6, K3: z=-0.307</title></rect>
+<rect x="236" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 7, K3: z=-0.307</title></rect>
+<rect x="264" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 8, K3: z=-0.307</title></rect>
+<rect x="292" y="111" width="28" height="29" fill="#5589bf" class="cell"><title>Window 9, K3: z=-1.136</title></rect>
+<rect x="320" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 10, K3: z=-0.307</title></rect>
+<rect x="348" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 11, K3: z=-0.307</title></rect>
+<rect x="376" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 12, K3: z=-0.307</title></rect>
+<rect x="404" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 13, K3: z=-0.307</title></rect>
+<rect x="432" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 14, K3: z=-0.307</title></rect>
+<rect x="460" y="111" width="28" height="29" fill="#5589bf" class="cell"><title>Window 15, K3: z=-1.136</title></rect>
+<rect x="488" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 16, K3: z=-0.307</title></rect>
+<text x="53" y="159" text-anchor="end" class="axis">K4</text>
+<rect x="68" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 1, K4: z=0.597</title></rect>
+<rect x="96" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 2, K4: z=1.218</title></rect>
+<rect x="124" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 3, K4: z=1.218</title></rect>
+<rect x="152" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 4, K4: z=1.218</title></rect>
+<rect x="180" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 5, K4: z=1.218</title></rect>
+<rect x="208" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 6, K4: z=1.218</title></rect>
+<rect x="236" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 7, K4: z=1.218</title></rect>
+<rect x="264" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 8, K4: z=0.597</title></rect>
+<rect x="292" y="140" width="28" height="29" fill="#f0f4f9" class="cell"><title>Window 9, K4: z=-0.024</title></rect>
+<rect x="320" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 10, K4: z=0.597</title></rect>
+<rect x="348" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 11, K4: z=1.218</title></rect>
+<rect x="376" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 12, K4: z=1.218</title></rect>
+<rect x="404" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 13, K4: z=1.218</title></rect>
+<rect x="432" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 14, K4: z=0.597</title></rect>
+<rect x="460" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 15, K4: z=0.597</title></rect>
+<rect x="488" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 16, K4: z=0.597</title></rect>
+<text x="53" y="188" text-anchor="end" class="axis">K5</text>
+<rect x="68" y="169" width="28" height="29" fill="#88acd2" class="cell"><title>Window 1, K5: z=-0.774</title></rect>
+<rect x="96" y="169" width="28" height="29" fill="#2366ac" class="cell"><title>Window 2, K5: z=-2.369</title></rect>
+<rect x="124" y="169" width="28" height="29" fill="#3371b2" class="cell"><title>Window 3, K5: z=-1.386</title></rect>
+<rect x="152" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 4, K5: z=-1.015</title></rect>
+<rect x="180" y="169" width="28" height="29" fill="#eff3f8" class="cell"><title>Window 5, K5: z=-0.032</title></rect>
+<rect x="208" y="169" width="28" height="29" fill="#e9d7ce" class="cell"><title>Window 6, K5: z=0.339</title></rect>
+<rect x="236" y="169" width="28" height="29" fill="#3371b2" class="cell"><title>Window 7, K5: z=-1.386</title></rect>
+<rect x="264" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 8, K5: z=-1.015</title></rect>
+<rect x="292" y="169" width="28" height="29" fill="#bbcfe5" class="cell"><title>Window 9, K5: z=-0.403</title></rect>
+<rect x="320" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 10, K5: z=-1.015</title></rect>
+<rect x="348" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 11, K5: z=-1.015</title></rect>
+<rect x="376" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 12, K5: z=-1.015</title></rect>
+<rect x="404" y="169" width="28" height="29" fill="#eff3f8" class="cell"><title>Window 13, K5: z=-0.032</title></rect>
+<rect x="432" y="169" width="28" height="29" fill="#d69e7f" class="cell"><title>Window 14, K5: z=0.951</title></rect>
+<rect x="460" y="169" width="28" height="29" fill="#bbcfe5" class="cell"><title>Window 15, K5: z=-0.403</title></rect>
+<rect x="488" y="169" width="28" height="29" fill="#eff3f8" class="cell"><title>Window 16, K5: z=-0.032</title></rect>
+<text x="53" y="217" text-anchor="end" class="axis">K6</text>
+<rect x="68" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 1, K6: z=-0.385</title></rect>
+<rect x="96" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 2, K6: z=-1.088</title></rect>
+<rect x="124" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 3, K6: z=-1.088</title></rect>
+<rect x="152" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 4, K6: z=-1.088</title></rect>
+<rect x="180" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 5, K6: z=-1.088</title></rect>
+<rect x="208" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 6, K6: z=-1.088</title></rect>
+<rect x="236" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 7, K6: z=-1.088</title></rect>
+<rect x="264" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 8, K6: z=-0.385</title></rect>
+<rect x="292" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 9, K6: z=-0.385</title></rect>
+<rect x="320" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 10, K6: z=-0.385</title></rect>
+<rect x="348" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 11, K6: z=-1.088</title></rect>
+<rect x="376" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 12, K6: z=-1.088</title></rect>
+<rect x="404" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 13, K6: z=-1.088</title></rect>
+<rect x="432" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 14, K6: z=-0.385</title></rect>
+<rect x="460" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 15, K6: z=-0.385</title></rect>
+<rect x="488" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 16, K6: z=-0.385</title></rect>
+<text x="53" y="246" text-anchor="end" class="axis">K7</text>
+<rect x="68" y="227" width="28" height="29" fill="#cb7c4f" class="cell"><title>Window 1, K7: z=1.320</title></rect>
+<rect x="96" y="227" width="28" height="29" fill="#c66b38" class="cell"><title>Window 2, K7: z=2.031</title></rect>
+<rect x="124" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 3, K7: z=0.608</title></rect>
+<rect x="152" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 4, K7: z=0.608</title></rect>
+<rect x="180" y="227" width="28" height="29" fill="#82a8d0" class="cell"><title>Window 5, K7: z=-0.816</title></rect>
+<rect x="208" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 6, K7: z=-0.104</title></rect>
+<rect x="236" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 7, K7: z=-0.104</title></rect>
+<rect x="264" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 8, K7: z=-0.104</title></rect>
+<rect x="292" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 9, K7: z=0.608</title></rect>
+<rect x="320" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 10, K7: z=0.608</title></rect>
+<rect x="348" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 11, K7: z=-0.104</title></rect>
+<rect x="376" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 12, K7: z=0.608</title></rect>
+<rect x="404" y="227" width="28" height="29" fill="#82a8d0" class="cell"><title>Window 13, K7: z=-0.816</title></rect>
+<rect x="432" y="227" width="28" height="29" fill="#82a8d0" class="cell"><title>Window 14, K7: z=-0.816</title></rect>
+<rect x="460" y="227" width="28" height="29" fill="#2366ac" class="cell"><title>Window 15, K7: z=-1.528</title></rect>
+<rect x="488" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 16, K7: z=-0.104</title></rect>
+<text x="53" y="275" text-anchor="end" class="axis">K8</text>
+<rect x="68" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 1, K8: z=-0.143</title></rect>
+<rect x="96" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 2, K8: z=-0.830</title></rect>
+<rect x="124" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 3, K8: z=-0.830</title></rect>
+<rect x="152" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 4, K8: z=-0.830</title></rect>
+<rect x="180" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 5, K8: z=-0.830</title></rect>
+<rect x="208" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 6, K8: z=-0.830</title></rect>
+<rect x="236" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 7, K8: z=-0.830</title></rect>
+<rect x="264" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 8, K8: z=-0.830</title></rect>
+<rect x="292" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 9, K8: z=-0.830</title></rect>
+<rect x="320" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 10, K8: z=-0.143</title></rect>
+<rect x="348" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 11, K8: z=-0.830</title></rect>
+<rect x="376" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 12, K8: z=-0.830</title></rect>
+<rect x="404" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 13, K8: z=-0.830</title></rect>
+<rect x="432" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 14, K8: z=-0.143</title></rect>
+<rect x="460" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 15, K8: z=-0.143</title></rect>
+<rect x="488" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 16, K8: z=-0.143</title></rect>
+<path d="M68,140 H516" class="group-rule"/>
+<path d="M68,227 H516" class="group-rule"/>
+<text x="82.0" y="39" text-anchor="middle" class="axis">01</text>
+<text x="166.0" y="39" text-anchor="middle" class="axis">04</text>
+<text x="278.0" y="39" text-anchor="middle" class="axis">08</text>
+<text x="390.0" y="39" text-anchor="middle" class="axis">12</text>
+<text x="502.0" y="39" text-anchor="middle" class="axis">16</text>
+<text x="783" y="72" text-anchor="end" class="axis">K1</text>
+<rect x="798" y="53" width="28" height="29" fill="#2366ac" class="cell"><title>Window 1, K1: z=-1.696</title></rect>
+<rect x="826" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 2, K1: z=-0.940</title></rect>
+<rect x="854" y="53" width="28" height="29" fill="#2366ac" class="cell"><title>Window 3, K1: z=-1.696</title></rect>
+<rect x="882" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 4, K1: z=-0.183</title></rect>
+<rect x="910" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 5, K1: z=-0.940</title></rect>
+<rect x="938" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 6, K1: z=-0.940</title></rect>
+<rect x="966" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 7, K1: z=-0.940</title></rect>
+<rect x="994" y="53" width="28" height="29" fill="#e2c1b0" class="cell"><title>Window 8, K1: z=0.573</title></rect>
+<rect x="1022" y="53" width="28" height="29" fill="#e2c1b0" class="cell"><title>Window 9, K1: z=0.573</title></rect>
+<rect x="1050" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 10, K1: z=-0.183</title></rect>
+<rect x="1078" y="53" width="28" height="29" fill="#dae4f0" class="cell"><title>Window 11, K1: z=-0.183</title></rect>
+<rect x="1106" y="53" width="28" height="29" fill="#e2c1b0" class="cell"><title>Window 12, K1: z=0.573</title></rect>
+<rect x="1134" y="53" width="28" height="29" fill="#719cc9" class="cell"><title>Window 13, K1: z=-0.940</title></rect>
+<text x="783" y="101" text-anchor="end" class="axis">K2</text>
+<rect x="798" y="82" width="28" height="29" fill="#2366ac" class="cell"><title>Window 1, K2: z=-1.693</title></rect>
+<rect x="826" y="82" width="28" height="29" fill="#81a7cf" class="cell"><title>Window 2, K2: z=-0.825</title></rect>
+<rect x="854" y="82" width="28" height="29" fill="#2366ac" class="cell"><title>Window 3, K2: z=-1.606</title></rect>
+<rect x="882" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 4, K2: z=0.137</title></rect>
+<rect x="910" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 5, K2: z=-0.525</title></rect>
+<rect x="938" y="82" width="28" height="29" fill="#81a7cf" class="cell"><title>Window 6, K2: z=-0.825</title></rect>
+<rect x="966" y="82" width="28" height="29" fill="#aac4df" class="cell"><title>Window 7, K2: z=-0.525</title></rect>
+<rect x="994" y="82" width="28" height="29" fill="#dbac93" class="cell"><title>Window 8, K2: z=0.800</title></rect>
+<rect x="1022" y="82" width="28" height="29" fill="#e0bdaa" class="cell"><title>Window 9, K2: z=0.618</title></rect>
+<rect x="1050" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 10, K2: z=0.137</title></rect>
+<rect x="1078" y="82" width="28" height="29" fill="#efe9e8" class="cell"><title>Window 11, K2: z=0.137</title></rect>
+<rect x="1106" y="82" width="28" height="29" fill="#dbac93" class="cell"><title>Window 12, K2: z=0.800</title></rect>
+<rect x="1134" y="82" width="28" height="29" fill="#9ab8d9" class="cell"><title>Window 13, K2: z=-0.643</title></rect>
+<text x="783" y="130" text-anchor="end" class="axis">K3</text>
+<rect x="798" y="111" width="28" height="29" fill="#ca794b" class="cell"><title>Window 1, K3: z=1.350</title></rect>
+<rect x="826" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 2, K3: z=0.521</title></rect>
+<rect x="854" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 3, K3: z=0.521</title></rect>
+<rect x="882" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 4, K3: z=-0.307</title></rect>
+<rect x="910" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 5, K3: z=-0.307</title></rect>
+<rect x="938" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 6, K3: z=0.521</title></rect>
+<rect x="966" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 7, K3: z=-0.307</title></rect>
+<rect x="994" y="111" width="28" height="29" fill="#5589bf" class="cell"><title>Window 8, K3: z=-1.136</title></rect>
+<rect x="1022" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 9, K3: z=-0.307</title></rect>
+<rect x="1050" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 10, K3: z=-0.307</title></rect>
+<rect x="1078" y="111" width="28" height="29" fill="#c8d8ea" class="cell"><title>Window 11, K3: z=-0.307</title></rect>
+<rect x="1106" y="111" width="28" height="29" fill="#5589bf" class="cell"><title>Window 12, K3: z=-1.136</title></rect>
+<rect x="1134" y="111" width="28" height="29" fill="#e3c6b7" class="cell"><title>Window 13, K3: z=0.521</title></rect>
+<text x="783" y="159" text-anchor="end" class="axis">K4</text>
+<rect x="798" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 1, K4: z=0.597</title></rect>
+<rect x="826" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 2, K4: z=0.597</title></rect>
+<rect x="854" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 3, K4: z=1.218</title></rect>
+<rect x="882" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 4, K4: z=1.218</title></rect>
+<rect x="910" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 5, K4: z=1.218</title></rect>
+<rect x="938" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 6, K4: z=1.218</title></rect>
+<rect x="966" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 7, K4: z=1.218</title></rect>
+<rect x="994" y="140" width="28" height="29" fill="#e1bfad" class="cell"><title>Window 8, K4: z=0.597</title></rect>
+<rect x="1022" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 9, K4: z=1.218</title></rect>
+<rect x="1050" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 10, K4: z=1.218</title></rect>
+<rect x="1078" y="140" width="28" height="29" fill="#f0f4f9" class="cell"><title>Window 11, K4: z=-0.024</title></rect>
+<rect x="1106" y="140" width="28" height="29" fill="#ce855d" class="cell"><title>Window 12, K4: z=1.218</title></rect>
+<rect x="1134" y="140" width="28" height="29" fill="#9ab8d8" class="cell"><title>Window 13, K4: z=-0.644</title></rect>
+<text x="783" y="188" text-anchor="end" class="axis">K5</text>
+<rect x="798" y="169" width="28" height="29" fill="#88acd2" class="cell"><title>Window 1, K5: z=-0.774</title></rect>
+<rect x="826" y="169" width="28" height="29" fill="#88acd2" class="cell"><title>Window 2, K5: z=-0.774</title></rect>
+<rect x="854" y="169" width="28" height="29" fill="#2366ac" class="cell"><title>Window 3, K5: z=-2.369</title></rect>
+<rect x="882" y="169" width="28" height="29" fill="#3371b2" class="cell"><title>Window 4, K5: z=-1.386</title></rect>
+<rect x="910" y="169" width="28" height="29" fill="#eff3f8" class="cell"><title>Window 5, K5: z=-0.032</title></rect>
+<rect x="938" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 6, K5: z=-1.015</title></rect>
+<rect x="966" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 7, K5: z=-1.015</title></rect>
+<rect x="994" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 8, K5: z=-1.015</title></rect>
+<rect x="1022" y="169" width="28" height="29" fill="#eff3f8" class="cell"><title>Window 9, K5: z=-0.032</title></rect>
+<rect x="1050" y="169" width="28" height="29" fill="#6695c5" class="cell"><title>Window 10, K5: z=-1.015</title></rect>
+<rect x="1078" y="169" width="28" height="29" fill="#d69e7f" class="cell"><title>Window 11, K5: z=0.951</title></rect>
+<rect x="1106" y="169" width="28" height="29" fill="#e2c0af" class="cell"><title>Window 12, K5: z=0.580</title></rect>
+<rect x="1134" y="169" width="28" height="29" fill="#ede3df" class="cell"><title>Window 13, K5: z=0.209</title></rect>
+<text x="783" y="217" text-anchor="end" class="axis">K6</text>
+<rect x="798" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 1, K6: z=-0.385</title></rect>
+<rect x="826" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 2, K6: z=-0.385</title></rect>
+<rect x="854" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 3, K6: z=-1.088</title></rect>
+<rect x="882" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 4, K6: z=-1.088</title></rect>
+<rect x="910" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 5, K6: z=-1.088</title></rect>
+<rect x="938" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 6, K6: z=-1.088</title></rect>
+<rect x="966" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 7, K6: z=-1.088</title></rect>
+<rect x="994" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 8, K6: z=-0.385</title></rect>
+<rect x="1022" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 9, K6: z=-1.088</title></rect>
+<rect x="1050" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 10, K6: z=-1.088</title></rect>
+<rect x="1078" y="198" width="28" height="29" fill="#bed1e6" class="cell"><title>Window 11, K6: z=-0.385</title></rect>
+<rect x="1106" y="198" width="28" height="29" fill="#5c8ec1" class="cell"><title>Window 12, K6: z=-1.088</title></rect>
+<rect x="1134" y="198" width="28" height="29" fill="#d49776" class="cell"><title>Window 13, K6: z=1.022</title></rect>
+<text x="783" y="246" text-anchor="end" class="axis">K7</text>
+<rect x="798" y="227" width="28" height="29" fill="#cb7c4f" class="cell"><title>Window 1, K7: z=1.320</title></rect>
+<rect x="826" y="227" width="28" height="29" fill="#cb7c4f" class="cell"><title>Window 2, K7: z=1.320</title></rect>
+<rect x="854" y="227" width="28" height="29" fill="#c66b38" class="cell"><title>Window 3, K7: z=2.031</title></rect>
+<rect x="882" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 4, K7: z=-0.104</title></rect>
+<rect x="910" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 5, K7: z=-0.104</title></rect>
+<rect x="938" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 6, K7: z=0.608</title></rect>
+<rect x="966" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 7, K7: z=0.608</title></rect>
+<rect x="994" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 8, K7: z=0.608</title></rect>
+<rect x="1022" y="227" width="28" height="29" fill="#82a8d0" class="cell"><title>Window 9, K7: z=-0.816</title></rect>
+<rect x="1050" y="227" width="28" height="29" fill="#e1beab" class="cell"><title>Window 10, K7: z=0.608</title></rect>
+<rect x="1078" y="227" width="28" height="29" fill="#82a8d0" class="cell"><title>Window 11, K7: z=-0.816</title></rect>
+<rect x="1106" y="227" width="28" height="29" fill="#2366ac" class="cell"><title>Window 12, K7: z=-1.528</title></rect>
+<rect x="1134" y="227" width="28" height="29" fill="#e5ecf5" class="cell"><title>Window 13, K7: z=-0.104</title></rect>
+<text x="783" y="275" text-anchor="end" class="axis">K8</text>
+<rect x="798" y="256" width="28" height="29" fill="#dfe8f3" class="cell"><title>Window 1, K8: z=-0.143</title></rect>
+<rect x="826" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 2, K8: z=-0.830</title></rect>
+<rect x="854" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 3, K8: z=-0.830</title></rect>
+<rect x="882" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 4, K8: z=-0.830</title></rect>
+<rect x="910" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 5, K8: z=-0.830</title></rect>
+<rect x="938" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 6, K8: z=-0.830</title></rect>
+<rect x="966" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 7, K8: z=-0.830</title></rect>
+<rect x="994" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 8, K8: z=-0.830</title></rect>
+<rect x="1022" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 9, K8: z=-0.830</title></rect>
+<rect x="1050" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 10, K8: z=-0.830</title></rect>
+<rect x="1078" y="256" width="28" height="29" fill="#e3c4b4" class="cell"><title>Window 11, K8: z=0.545</title></rect>
+<rect x="1106" y="256" width="28" height="29" fill="#80a6cf" class="cell"><title>Window 12, K8: z=-0.830</title></rect>
+<rect x="1134" y="256" width="28" height="29" fill="#ce845b" class="cell"><title>Window 13, K8: z=1.232</title></rect>
+<path d="M798,140 H1162" class="group-rule"/>
+<path d="M798,227 H1162" class="group-rule"/>
+<text x="812.0" y="39" text-anchor="middle" class="axis">01</text>
+<text x="896.0" y="39" text-anchor="middle" class="axis">04</text>
+<text x="1008.0" y="39" text-anchor="middle" class="axis">08</text>
+<text x="1120.0" y="39" text-anchor="middle" class="axis">12</text>
+<text x="1148.0" y="39" text-anchor="middle" class="axis">13</text>
+<text x="687" y="96.5" class="group">工具使用</text>
+<text x="687" y="119.5" class="group-id">K1–K3</text>
+<text x="687" y="183.5" class="group">动作组织</text>
+<text x="687" y="206.5" class="group-id">K4–K6</text>
+<text x="687" y="256.0" class="group">局部重复</text>
+<text x="687" y="279.0" class="group-id">K7–K8</text>
+<text x="292" y="330" text-anchor="middle" class="axis">连续命令窗口</text>
+<text x="1022" y="330" text-anchor="middle" class="axis">连续命令窗口</text>
+</svg>

@@ -1,0 +1,86 @@
+{
+  "status": "completed exploratory task-held-out evaluation",
+  "evaluation_date": "2026-10-31",
+  "protocol": "research/reports/pairwise-trace-association.md",
+  "method": {
+    "name": "Command TF-IDF + artifact containment",
+    "score": "0.45 × command TF-IDF similarity + 0.55 × training-IDF-weighted containment of distinctive artifact-name tokens in the shorter trace",
+    "threshold_selection": "Select the cutoff from inner task-grouped out-of-fold predictions within each outer fold; the selected score was artifact containment plus command TF-IDF in all three folds."
+  },
+  "evaluation": {
+    "outer_folds": 3,
+    "confidence_intervals": "5,000 benchmark-stratified task-cluster paired bootstrap draws"
+  },
+  "dataset": {
+    "records": 97,
+    "task_groups": 40,
+    "benchmarks": [
+      "cybench",
+      "intercode-ctf",
+      "nyuctf"
+    ],
+    "human_terminal_records": 57,
+    "agent_tool_call_records": 40,
+    "outer_fold_pairs": 1558,
+    "same_task_pairs": 148,
+    "different_task_pairs": 1410,
+    "source_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+    "label_scope": "Same benchmark-qualified CTF task as a retrieval proxy, not actor, campaign, organization, or identity.",
+    "reuse_boundary": "Task groups were used during method development; results are exploratory and not independent confirmation."
+  },
+  "results_percent": {
+    "command_tfidf_baseline": {
+      "false_split_rate": 7.23,
+      "false_merge_rate": 78.07,
+      "balanced_accuracy": 57.35,
+      "hit_at_1": 29.6
+    },
+    "command_artifact_score": {
+      "false_split_rate": 0.0,
+      "false_merge_rate": 75.87,
+      "balanced_accuracy": 62.06,
+      "hit_at_1": 79.31
+    },
+    "paired_change_percentage_points": {
+      "false_split_rate": {
+        "estimate": -7.23,
+        "ci95": [
+          -17.58,
+          -0.82
+        ]
+      },
+      "false_merge_rate": {
+        "estimate": -2.2,
+        "ci95": [
+          -3.47,
+          -1.09
+        ]
+      },
+      "balanced_accuracy": {
+        "estimate": 4.71,
+        "ci95": [
+          1.57,
+          9.68
+        ]
+      },
+      "hit_at_1": {
+        "estimate": 49.71,
+        "ci95": [
+          34.63,
+          65.93
+        ]
+      }
+    }
+  },
+  "zero_miss_sensitivity": {
+    "positive_task_groups": 40,
+    "task_groups_with_any_miss": 0,
+    "one_sided_95_upper_bound_percent": 7.2,
+    "interpretation": "Independent-task-cluster sensitivity bound for the share of task groups with any missed link; not a confidence interval for task-macro false-split rate."
+  },
+  "limits": [
+    "The 75.87% false-merge rate remains too high for attribution.",
+    "Human terminal records and Agent tool-call records use different collection interfaces, so execution mode is confounded with capture format.",
+    "The dataset has no Script traces or independent actor, campaign, or organization labels."
+  ]
+}

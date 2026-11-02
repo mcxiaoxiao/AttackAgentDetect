@@ -1,0 +1,22 @@
+{
+  "source": "https://zenodo.org/records/10298187",
+  "license": "CC-BY-4.0",
+  "archives": [
+    {
+      "file": "data1.zip",
+      "sha256": "ceae9c1dd60986262e5f9e6456fa75266a98f134b2032b6ef32275d596699adc",
+      "bytes": 425979,
+      "url": "https://zenodo.org/records/10298187/files/data1.zip?download=1"
+    },
+    {
+      "file": "data2.zip",
+      "sha256": "e2099c2ac919f534f23c89f4f34c01c7426c81a95e682b5b5349c2d8e11dec85",
+      "bytes": 430293,
+      "url": "https://zenodo.org/records/10298187/files/data2.zip?download=1"
+    }
+  ],
+  "normalization": "known-command-heads-lossy-v1; Bash cmd_name only; excludes game and Metasploit events",
+  "builder_sha256": "b037b881b7531b8d4de43ed4420aecc6cf9fb11f936c48de149ca9681fe1bab5",
+  "crosswalk_source": "research/results/behavior_corpus_v1/trace_registry.csv",
+  "crosswalk_method": "exact normalized challenge slug only; no fixture equivalence asserted"
+}

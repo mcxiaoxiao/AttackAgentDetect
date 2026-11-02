@@ -1,0 +1,434 @@
+[
+  {
+    "agent_fraction": 0.0,
+    "method": "action_bigram_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.5294117647058824,
+        "fsr_task_cluster_95ci": [
+          0.29411764705882354,
+          0.7647058823529411
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.32382352941176473,
+        "fmr_task_cluster_95ci": [
+          0.1377683823529412,
+          0.5473676470588235
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "AA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.0,
+    "method": "command_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.6470588235294118,
+        "fsr_task_cluster_95ci": [
+          0.4117647058823529,
+          0.8823529411764706
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.27764705882352947,
+        "fmr_task_cluster_95ci": [
+          0.12468014705882353,
+          0.44795955882352934
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "AA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.25,
+    "method": "action_bigram_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.5294117647058824,
+        "fsr_task_cluster_95ci": [
+          0.29411764705882354,
+          0.7647058823529411
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.32032315957820773,
+        "fmr_task_cluster_95ci": [
+          0.11759796783057348,
+          0.543917087989275
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9161828293706851,
+        "fsr_task_cluster_95ci": [
+          0.847311122145088,
+          0.9697378193701721
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.06608168619057518,
+        "fmr_task_cluster_95ci": [
+          0.02553505086672061,
+          0.11749277232147434
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 1.0,
+        "fsr_task_cluster_95ci": [
+          1.0,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.08423096511331805,
+        "fmr_task_cluster_95ci": [
+          0.034803338001867405,
+          0.149333301502419
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.25,
+    "method": "command_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.6470588235294118,
+        "fsr_task_cluster_95ci": [
+          0.4117647058823529,
+          0.8823529411764706
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.28661270263065264,
+        "fmr_task_cluster_95ci": [
+          0.1293191554413836,
+          0.4549780720742201
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9474394180276533,
+        "fsr_task_cluster_95ci": [
+          0.8859661800838272,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.0660510010936695,
+        "fmr_task_cluster_95ci": [
+          0.02160114950963933,
+          0.11718754301628015
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 1.0,
+        "fsr_task_cluster_95ci": [
+          1.0,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.09587683558271792,
+        "fmr_task_cluster_95ci": [
+          0.03723155929038282,
+          0.160399531024531
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.5,
+    "method": "action_bigram_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.5294117647058824,
+        "fsr_task_cluster_95ci": [
+          0.29411764705882354,
+          0.7647058823529411
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.32212511749432904,
+        "fmr_task_cluster_95ci": [
+          0.1265597147950089,
+          0.5383244206773619
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9204275409066917,
+        "fsr_task_cluster_95ci": [
+          0.8487072660694388,
+          0.9798362724327015
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.06182738694180943,
+        "fmr_task_cluster_95ci": [
+          0.02116614446817584,
+          0.10755174106949517
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 0.9858012170385396,
+        "fsr_task_cluster_95ci": [
+          0.9574036511156185,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.096837497330028,
+        "fmr_task_cluster_95ci": [
+          0.047543603213528206,
+          0.15079634482461546
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.5,
+    "method": "command_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.6470588235294118,
+        "fsr_task_cluster_95ci": [
+          0.4117647058823529,
+          0.8823529411764706
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.2818683307119395,
+        "fmr_task_cluster_95ci": [
+          0.11838296479575787,
+          0.4549770176752694
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9362745098039216,
+        "fsr_task_cluster_95ci": [
+          0.8566176470588235,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.058573924096352335,
+        "fmr_task_cluster_95ci": [
+          0.020027473374995327,
+          0.10322146483310174
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 0.9858012170385396,
+        "fsr_task_cluster_95ci": [
+          0.9574036511156185,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.0973444186409967,
+        "fmr_task_cluster_95ci": [
+          0.038307062444886915,
+          0.1639145065246928
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.75,
+    "method": "action_bigram_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.5,
+        "fsr_task_cluster_95ci": [
+          0.25,
+          0.75
+        ],
+        "fsr_tasks": 16,
+        "fmr": 0.33775423212763367,
+        "fmr_task_cluster_95ci": [
+          0.14593837535014006,
+          0.5601023017902813
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9185921862270299,
+        "fsr_task_cluster_95ci": [
+          0.8507805565536398,
+          0.978328173374613
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.06717524234750569,
+        "fmr_task_cluster_95ci": [
+          0.022576753416589875,
+          0.11639065683160049
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 0.9779411764705882,
+        "fsr_task_cluster_95ci": [
+          0.9338235294117647,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.08192114540472885,
+        "fmr_task_cluster_95ci": [
+          0.038206600571169376,
+          0.13055763837961323
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 0.75,
+    "method": "command_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": 0.625,
+        "fsr_task_cluster_95ci": [
+          0.375,
+          0.875
+        ],
+        "fsr_tasks": 16,
+        "fmr": 0.27242743474201275,
+        "fmr_task_cluster_95ci": [
+          0.135141725530792,
+          0.41837545670442067
+        ],
+        "fmr_tasks": 17
+      },
+      "HA": {
+        "fsr": 0.9581257614935784,
+        "fsr_task_cluster_95ci": [
+          0.8988838570504356,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.055478750155312236,
+        "fmr_task_cluster_95ci": [
+          0.0177264366010198,
+          0.09874053147320135
+        ],
+        "fmr_tasks": 17
+      },
+      "AA": {
+        "fsr": 0.9779411764705882,
+        "fsr_task_cluster_95ci": [
+          0.9338235294117647,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.08439673277430593,
+        "fmr_task_cluster_95ci": [
+          0.031936878526435494,
+          0.1439043881200614
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 1.0,
+    "method": "action_bigram_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "HA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "AA": {
+        "fsr": 0.9835294117647058,
+        "fsr_task_cluster_95ci": [
+          0.9505882352941176,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.09647058823529413,
+        "fmr_task_cluster_95ci": [
+          0.04705147058823529,
+          0.15897058823529409
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  },
+  {
+    "agent_fraction": 1.0,
+    "method": "command_cosine",
+    "pair_types": {
+      "HH": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "HA": {
+        "fsr": null,
+        "fsr_task_cluster_95ci": null,
+        "fsr_tasks": 0,
+        "fmr": null,
+        "fmr_task_cluster_95ci": null,
+        "fmr_tasks": 0
+      },
+      "AA": {
+        "fsr": 0.9835294117647058,
+        "fsr_task_cluster_95ci": [
+          0.9505882352941176,
+          1.0
+        ],
+        "fsr_tasks": 17,
+        "fmr": 0.09573529411764706,
+        "fmr_task_cluster_95ci": [
+          0.03882352941176471,
+          0.1633933823529411
+        ],
+        "fmr_tasks": 17
+      }
+    }
+  }
+]

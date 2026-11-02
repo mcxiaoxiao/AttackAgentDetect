@@ -23,10 +23,10 @@
   root.dataset.language = language;
 })();
 </script>
-<meta content="A local Human/Agent trace classifier, its API, public-data comparison, and evaluation limits." name="description"/>
+<meta content="Log-derived Human/Agent behavioral fingerprints, classification methods, reproducible experiments, and evaluation limits." name="description"/>
 <meta content="#f7fafd" name="theme-color"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title data-en="AttackAgent Detect | Local mode detector">AttackAgent Detect | 本地执行方式识别</title>
+<title data-en="AttackAgent Detect | Log-derived fingerprints and execution-mode recognition">AttackAgent Detect | 日志行为指纹与执行方式识别</title>
 <link href="assets/openmoji-owl.png" rel="icon" sizes="240x240" type="image/png"/>
 <link href="assets/openmoji-owl.png" rel="apple-touch-icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -34,7 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-related-work-citations-v1" rel="stylesheet"/>
+<link href="research.css?v=20261103-bst-research-v3" rel="stylesheet"/>
 <link href="local-mode-demo.css?v=20261101-trace-demo-v1" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
@@ -55,21 +55,30 @@
 <main id="main">
 <header class="docs-page-header">
 <div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Methods &amp; API" href="index.html#method">方法与接口</a><span>/</span><span aria-current="page">local_mode_detector</span></div>
-<h1 data-en="Local Human / Agent detector">本地 Human / Agent 识别</h1>
-<p data-en="A format-matched, supervised baseline that reads command and action traces.">使用采集格式匹配的标注轨迹，从命令和动作中识别执行方式。</p>
-<p class="mode-protocol"><span data-en="A fixed overnight study is prepared, with eligibility audited and model experiments not yet started. The 177-trace results below are historical CTF baselines.">新一轮整夜实验方案已准备，数据资格已审计，模型实验尚未启动。下方177条轨迹的结果为历史CTF基线。</span> <a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/experiments/overnight_fingerprint_v1/program.md" data-en="Read the execution plan →">查看执行规划 →</a></p>
+<h1 data-en="Log-derived fingerprints and execution-mode recognition">日志行为指纹与执行方式识别</h1>
+<p data-en="Build interpretable fingerprints from available command and event logs; evaluate Human/Agent label recognition and trace retrieval separately.">从可获得的命令与事件日志构建可解释指纹，分别评估 Human／Agent 标签识别与轨迹关联检索。</p>
+<p class="mode-protocol"><span data-en="This page presents the B/S/T research representation, its recognition and retrieval readouts, and multi-source results.">本页并列展示 B／S／T 研究表示、识别读出、关联读出与多来源结果。</span> <a href="#results" data-en="Read method and results">查看方法与结果</a> <a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip" data-en="Download reproducible TeX source bundle">下载可复现 TeX 源码包</a></p>
+
 </header>
+
+<section class="section mode-detector-doc" id="motivation">
+<div class="docs-prose">
+<h2 data-en="Research motivation">研究动机</h2>
+<p data-en="Behavioral trace association commonly uses trace similarity as evidence. Investigators may not know the model, framework, or prompt behind retained logs, and may not be able to probe a system in a shared sandbox. We build an interpretable B/S/T fingerprint and separately test whether it describes recorded execution mode and whether it adds evidence directly to command- and artifact-based retrieval.">行为轨迹关联通常把轨迹相似度当作关联证据。我们检验 Human 与 Agent 的执行方式是否会改变这种相似度及同题轨迹的关联判断。调查往往从已经留存的日志开始，分析者未必知道背后的模型、框架和提示配置，也未必能下发探针或接入统一沙箱。我们因此构建可解释的 B／S／T 指纹，并分别检验它能否描述执行方式、能否直接补充命令与产物的关联证据。</p>
+<p data-en="The evaluation studies two scenarios: an execution-mode switch changes the path of one task, and similar execution systems introduce common habits across tasks. Benchmark task identity supplies the evaluated relation.">实验围绕两个场景展开：同一任务切换执行方式产生不同路径，以及相近执行系统使不同任务呈现共同习惯。当前实验以基准任务身份定义检索关系。</p>
+</div>
+</section>
 
 <section class="section docs-content mode-detector-doc" id="method">
 <div class="docs-prose">
 <h2 data-en="Method">识别方法</h2>
-<p data-en="local_mode_detector is a supervised binary baseline: it learns from labeled traces in one source_format, then returns a Human/Agent label and an Agent-like score for unlabeled traces in that same format. The score describes this model's estimate for the recorded trace; it does not establish who performed the action."><code>local_mode_detector</code> 是一个有监督二分类基线：用同一 <code>source_format</code> 的已标注轨迹训练，再为同格式的无标签轨迹输出 Human/Agent 标签和 Agent 倾向分数。分数表示当前模型对记录轨迹的估计，不能证明实际执行者身份。</p>
+<p data-en-html="<code>local_mode_detector</code> is a supervised binary baseline: it learns from labeled traces in one <code>source_format</code>, then returns a Human/Agent label and an Agent-like score for unlabeled traces in that same format. The score expresses the fitted model’s estimate for the recorded label."><code>local_mode_detector</code> 是一个有监督二分类基线：用同一 <code>source_format</code> 的已标注轨迹训练，再为同格式的无标签轨迹输出 Human/Agent 标签和 Agent 倾向分数。分数用于表达当前模型对记录标签的估计。</p>
 <h3 data-en="Method pipeline">方法流程</h3>
-<div class="docs-table mode-method-matrix"><table aria-label="本地 Human/Agent 识别方法流程" data-en-aria-label="Local Human/Agent detection method"><thead><tr><th scope="col" data-en="Stage">环节</th><th scope="col" data-en="Implementation and constraints">实现与约束</th></tr></thead><tbody>
-<tr><th scope="row" data-en="Training data">训练数据</th><td data-en="Labeled Human and Agent traces; at least eight records, both labels, and one shared source_format.">带 Human/Agent 标签的轨迹；至少 8 条，必须包含两类标签，且训练记录使用同一 <code>source_format</code>。</td></tr>
+<div class="docs-table mode-method-matrix"><table aria-label="Human/Agent 识别方法流程" data-en-aria-label="Human/Agent recognition method"><thead><tr><th scope="col" data-en="Stage">环节</th><th scope="col" data-en="Implementation and constraints">实现与约束</th></tr></thead><tbody>
+<tr><th scope="row" data-en="Training data">训练数据</th><td data-en-html="Labeled Human and Agent traces; at least eight records, both labels, and one shared <code>source_format</code>.">带 Human/Agent 标签的轨迹；至少 8 条，必须包含两类标签，且训练记录使用同一 <code>source_format</code>。</td></tr>
 <tr><th scope="row" data-en="Features">特征</th><td data-en="Command names and coarse action tokens are prefixed by field, then encoded as unigram/bigram TF–IDF. Task text, prompts, model names, timestamps, and paths are not features.">命令名称与粗粒度动作分别加字段前缀，再提取 unigram/bigram TF‑IDF；不使用题目文本、提示词、模型名、时间戳或路径。</td></tr>
-<tr><th scope="row" data-en="Classifier">分类器</th><td data-en="Class-balanced logistic regression (C=1); the predicted Agent probability is thresholded at 0.5.">类别平衡的逻辑回归（<code>C=1</code>）；以 0.5 为阈值输出预测类别。</td></tr>
-<tr><th scope="row" data-en="Output and limits">输出与限制</th><td data-en="Returns a predicted label and raw, uncalibrated agent_like_score. A source-format mismatch or no learned feature tokens returns unknown.">返回预测标签和未经校准的原始 <code>agent_like_score</code>。采集格式不匹配或没有已学习特征词项时返回 <code>unknown</code>。</td></tr>
+<tr><th scope="row" data-en="Classifier">分类器</th><td data-en-html="Class-balanced logistic regression (<code>C=1</code>); the predicted Agent probability is thresholded at 0.5.">类别平衡的逻辑回归（<code>C=1</code>）；以 0.5 为阈值输出预测类别。</td></tr>
+<tr><th scope="row" data-en="Output and limits">输出与限制</th><td data-en-html="Returns a predicted label and raw, uncalibrated <code>agent_like_score</code>. A source-format mismatch or no learned feature tokens returns <code>unknown</code>.">返回预测标签和未经校准的原始 <code>agent_like_score</code>。采集格式不匹配或没有已学习特征词项时返回 <code>unknown</code>。</td></tr>
 </tbody></table></div>
 <h3 data-en="Python API">Python API</h3>
 <div class="docs-code-window"><div class="api-file"><code>Python API</code><span data-en="Train and score">训练与识别</span><button aria-label="复制识别器示例" data-copy="detector-api-example" data-en="Copy" data-en-aria-label="Copy detector example" type="button">复制</button></div><pre id="detector-api-example"><code><span class="kn">from</span> <span class="nn">attackagent</span> <span class="kn">import</span> <span class="n">fit_detector</span><span class="p">,</span> <span class="n">predict_modes</span>
@@ -80,15 +89,15 @@
 
 <span class="kn">for</span> <span class="n">score</span> <span class="kn">in</span> <span class="n">scores</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">prediction</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">agent_like_score</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">available</span><span class="p">)</span></code></pre></div>
-<p class="mode-api-note" data-en="The API needs labeled examples that match the collection format of the traces being scored. Its raw score is useful as a model output, not as calibrated confidence or proof of actor identity.">API 需要与待识别轨迹采集格式相匹配的标注样本。原始分数是模型输出，不能当作校准置信度或执行者身份凭证。</p>
+<p class="mode-api-note" data-en="The API needs labeled examples that match the collection format of the traces being scored. Evaluate and calibrate score reliability under the target collection conditions.">API 需要与待识别轨迹采集格式相匹配的标注样本。分数的可靠性应在目标采集条件下测量并校准。</p>
 </div>
 </section>
 
 <section class="section mode-visual-section" id="trace-demo" aria-labelledby="trace-demo-title">
 <div class="mode-visual-wrap">
-<div class="mode-visual-heading"><span class="section-kicker" data-en="TRACE WALKTHROUGH">轨迹演示</span><h2 id="trace-demo-title" data-en="Two capture formats, one comparable command view">两种采集格式，归一成可比较的命令视图</h2><p data-en="A real same-task pair from InterCode-CTF shows what the detector receives after normalization. The animation aligns sequence positions for inspection; it does not claim that the steps are semantically equivalent.">以 InterCode-CTF 的真实同题轨迹为例，展示归一化后识别器实际接收的内容。动画按序号同步播放以便观察，不表示两条轨迹的步骤在语义上等价。</p></div>
+<div class="mode-visual-heading"><h2 id="trace-demo-title" data-en="Two capture formats, one comparable command view">两种采集格式，归一成可比较的命令视图</h2><p data-en="A real same-task pair from InterCode-CTF shows what the detector receives after normalization. The animation aligns sequence positions to show command and action differences.">以 InterCode-CTF 的真实同题轨迹为例，展示归一化后识别器实际接收的内容。动画按序号对齐，显示两条轨迹中的命令与动作差异。</p></div>
 <div class="mode-trace-demo" data-mode-trace-demo>
-<div class="mode-trace-demo-toolbar"><span><b data-en="InterCode-CTF · task_11">InterCode-CTF · task_11</b><small data-en="Same benchmark task · different collection interfaces">同一道基准题 · 不同采集接口</small></span><div class="mode-trace-controls"><button type="button" data-trace-play data-en="▶ Play">▶ 播放</button><button type="button" data-trace-reset data-en="↺ Replay">↺ 重播</button></div></div>
+<div class="mode-trace-demo-toolbar"><span><b data-en="InterCode-CTF · task_11">InterCode-CTF · task_11</b></span><div class="mode-trace-controls"><button type="button" data-trace-play data-en="▶ Play">▶ 播放</button><button type="button" data-trace-reset data-en="↺ Replay">↺ 重播</button></div></div>
 <div class="mode-trace-lanes">
 <article class="mode-trace-lane" data-lane="human"><header><span class="mode-lane-mark human-mark">H</span><span><b>Human</b><small data-en="Terminal keystroke capture">终端按键采集</small></span><code>d209c425ee9ce2bf</code></header><ol aria-label="Human normalized command sequence" data-en-aria-label="Human normalized command sequence"><li>ls</li><li>file</li><li>file</li><li>chmod</li><li>cat</li><li>ls</li><li>cat</li></ol></article>
 <article class="mode-trace-lane" data-lane="agent"><header><span class="mode-lane-mark agent-mark">A</span><span><b>Agent</b><small data-en="Structured tool-call capture">结构化工具调用采集</small></span><code>6138df9a9fd7da34</code></header><ol aria-label="Agent normalized command sequence" data-en-aria-label="Agent normalized command sequence"><li>ls</li><li>cat</li><li>file</li><li>strings</li></ol></article>
@@ -100,55 +109,23 @@
 </div>
 </section>
 
-<section class="section results mode-results" id="results">
-<div class="result-intro">
-<h2 data-en="Experiment design and results">实验设计与结果</h2>
-<p data-en="We compare four CPU-only baselines on the pinned public Cyber Task Horizons traces. Command-name TF–IDF with logistic regression is strongest in this comparison: 84.4% task-group balanced accuracy (95% task-cluster interval 76.6%–91.5%). This exploratory result predicts the released trace labels; it does not isolate actor identity from capture format.">在固定版本的公开 Cyber Task Horizons 轨迹上比较四种本地 CPU 基线。命令名称 TF‑IDF + 逻辑回归在本轮对照中最高：题目组平衡准确率 84.4%（95% 任务簇区间 76.6%–91.5%）。这项探索性结果预测的是发布数据中的轨迹标签，无法将执行者差异与采集格式差异分开。</p>
+<section class="section results mode-results overnight-results" id="results"><div class="mode-results-heading"><h2 data-en="One log-derived fingerprint, two readouts">一套日志行为指纹，两个评估读出</h2><p data-en="The public Python API remains the existing command TF–IDF detector. The B/S/T matrices below are a versioned research method evaluated separately; they are not silently substituted into that API.">公开 Python API 仍是现有命令 TF–IDF 识别器。以下 B／S／T 矩阵属于独立版本化的研究方法，并未替换该 API。</p></div>
+<div class="mode-matrix-grid">
+<div><h3 data-en="B · local behavior">B · 局部行为</h3><p data-en="Command diversity and entropy, action-group switching, transition uncertainty, local runs, and repeated operations.">命令多样性与熵、动作组切换、转移不确定性、局部连续段及重复操作。</p></div>
+<div><h3 data-en="S · sequence evolution">S · 顺序演化</h3><p data-en="Novel tools, revisits and their lag, return motifs, fragment reuse, and change between neighboring windows.">新工具、重访及跨度、回返模式、片段复用与相邻窗口间变化。</p></div>
+<div><h3 data-en="T · observed rhythm">T · 观测节奏</h3><p data-en="Real inter-event gaps, bursts and pauses, sequence continuity, observed command durations, and post-completion idle time.">真实事件间隔、突发与停顿、间隔序列连续性、观测到的命令耗时及完成后的空档。</p></div>
 </div>
-<div class="data-grid mode-data" aria-label="实验数据规模" data-en-aria-label="Evaluation data">
-<article><strong>177</strong><span data-en="Traces">条轨迹</span><small data-en="Cyber Task Horizons">Cyber Task Horizons</small></article>
-<article><strong>40</strong><span data-en="Task groups">个题目组</span><small data-en="Grouped across all folds">按题目分组留出</small></article>
-<article><strong>57</strong><span data-en="Human traces">条 Human 轨迹</span><small data-en="Terminal input">终端输入</small></article>
-<article><strong>120</strong><span data-en="Agent traces">条 Agent 轨迹</span><small data-en="Structured tool calls">结构化工具调用</small></article>
-</div>
-<h3 class="mode-matrix-heading" data-en="Benchmark composition">数据集组成</h3>
-<div class="docs-table mode-source-matrix"><table aria-label="按基准划分的人类和 Agent 轨迹数量" data-en-aria-label="Human and Agent traces by benchmark"><thead><tr><th scope="col" data-en="Benchmark">基准</th><th scope="col" data-en="Task groups">题目组</th><th scope="col">Human</th><th scope="col">Agent</th><th scope="col" data-en="Total traces">轨迹合计</th></tr></thead><tbody>
-<tr><th scope="row">InterCode-CTF</th><td>27</td><td>40</td><td>81</td><td>121</td></tr>
-<tr><th scope="row">CyBench</th><td>6</td><td>8</td><td>18</td><td>26</td></tr>
-<tr><th scope="row">NYU CTF Bench</th><td>7</td><td>9</td><td>21</td><td>30</td></tr>
-<tr class="mode-total-row"><th scope="row" data-en="Total">合计</th><td>40</td><td>57</td><td>120</td><td>177</td></tr>
-</tbody></table></div>
-<h3 class="mode-matrix-heading" data-en="Evaluation protocol">评估协议</h3>
-<p class="mode-protocol" data-en="Five-fold GroupKFold keeps every trace from a benchmark/task group in the same fold. Features are fit on training folds only; the decision threshold is 0.5. Metrics weight task groups equally within each benchmark, then weight benchmarks equally. The 95% intervals use 5,000 benchmark-stratified task-cluster bootstrap samples on fixed out-of-fold predictions, so they do not include retraining uncertainty. No probability calibration was fitted.">采用五折 GroupKFold，确保同一基准/题目组的轨迹只出现在同一折；特征仅在训练折拟合，判定阈值为 0.5。先在各基准内对题目组等权，再对基准等权计算指标。95% 区间来自固定折外预测上的 5,000 次基准分层任务簇 bootstrap，不包含重新训练带来的不确定性；未拟合概率校准器。</p>
-<h3 class="mode-matrix-heading" data-en="Baseline comparison matrix">基线结果矩阵</h3>
-<div class="docs-table mode-matrix"><table aria-label="Human/Agent 分类基线结果矩阵" data-en-aria-label="Human/Agent classification baseline results matrix"><thead><tr><th scope="col" data-en="Baseline">对照方法</th><th scope="col" data-en="Representation">特征表示</th><th scope="col" data-en="Balanced accuracy (95% CI)">平衡准确率（95% CI）</th><th scope="col" data-en="Macro-F1">Macro-F1</th><th scope="col" data-en="ROC-AUC">ROC-AUC</th><th scope="col" data-en="Brier ↓">Brier ↓</th><th scope="col" data-en="ECE ↓">ECE ↓</th></tr></thead><tbody>
-<tr class="mode-best-row"><th scope="row"><code>command_tfidf_logistic</code></th><td data-en="Command-name unigram/bigram TF–IDF + logistic regression">命令名称 unigram/bigram TF‑IDF + 逻辑回归</td><td>84.4% (76.6–91.5)</td><td>80.4%</td><td>95.7%</td><td>0.125</td><td>0.161</td></tr>
-<tr><th scope="row"><code>action_tfidf_logistic</code></th><td data-en="Coarse-action unigram/bigram TF–IDF + logistic regression">粗粒度动作 unigram/bigram TF‑IDF + 逻辑回归</td><td>77.7% (69.2–85.5)</td><td>72.9%</td><td>83.5%</td><td>0.166</td><td>0.150</td></tr>
-<tr><th scope="row"><code>count_action_logistic</code></th><td data-en="Command count and action proportions + logistic regression">命令数与动作比例 + 逻辑回归</td><td>62.2% (56.9–68.3)</td><td>53.7%</td><td>81.9%</td><td>0.203</td><td>0.138</td></tr>
-<tr><th scope="row"><code>count_action_extra_trees</code></th><td data-en="Command count and action proportions + ExtraTrees">命令数与动作比例 + ExtraTrees</td><td>72.3% (65.4–79.7)</td><td>66.8%</td><td>81.9%</td><td>0.169</td><td>0.073</td></tr>
-</tbody></table></div>
-<p class="mode-result-note" data-en="Balanced accuracy averages recall across both labels; Macro-F1 averages the class-wise F1 scores. Lower Brier and ECE are better, but they do not imply calibrated confidence. The intervals shown in the figure are task-cluster intervals.">平衡准确率是两类召回率的平均值；Macro-F1 是两类 F1 的平均值。Brier 与 ECE 越低越好，但数值不表示概率已校准。图中展示各指标的任务簇区间。</p>
-<figure class="diagnostic-figure mode-figure">
-<img alt="四种本地 Human/Agent 轨迹分类基线的任务留出平衡准确率、Macro-F1、ROC-AUC、Brier 与 ECE，对照任务簇区间。" data-en-alt="Task-held-out balanced accuracy, Macro-F1, ROC-AUC, Brier, and ECE with task-cluster intervals for four local Human/Agent trace-classification baselines." src="assets/local-model-comparison.png"/>
-<figcaption data-en="Five-fold task-grouped evaluation; 5,000 benchmark-stratified task-cluster bootstrap samples on fixed out-of-fold predictions. Lower Brier/ECE is better. No calibration was fitted.">五折按题目分组评估；固定折外预测上的 5,000 次基准分层任务簇 bootstrap。Brier 与 ECE 越低越好；未拟合校准器。</figcaption>
-</figure>
-<h3 class="mode-matrix-heading" data-en="What the predictions look like">预测结果分布</h3>
-<figure class="diagnostic-figure mode-figure"><img alt="Human 和 Agent 轨迹类别预测混淆矩阵，显示每格计数和真实类别内比例。" data-en-alt="Human and Agent trace-label confusion matrix with counts and within-class proportions." loading="lazy" src="assets/mixed_gallery_confusion.png"/><figcaption data-en="The command-only comparison correctly classifies 43/57 Human records and 112/120 Agent records at the fixed threshold. The labels remain confounded with terminal-versus-tool-call capture.">固定阈值下，仅命令基线判对 57 条 Human 中的 43 条、120 条 Agent 中的 112 条。类别标签仍与终端采集 / 工具调用采集相互混杂。</figcaption></figure>
-<h3 class="mode-matrix-heading" data-en="Feature diagnostics from the companion study">配套特征研究图</h3>
-<p class="mode-result-note" data-en="These two figures summarize a separate, task-held-out feature study on the same public corpus; they are not additional runs of the four-baseline matrix above.">以下两图总结同一公开语料上的另一项按题目留出的特征研究，不是上方四基线矩阵的额外实验结果。</p>
-<div class="mode-figure-grid">
-<figure class="diagnostic-figure"><img alt="不同轨迹特征组合与分类器的按任务留出平衡准确率对比。" data-en-alt="Task-held-out balanced accuracy for trace feature combinations and classifiers." loading="lazy" src="assets/feature_ablation_v1.png"/><figcaption data-en="Command-name TF–IDF carries the strongest signal in this companion study; adding coarse sequence statistics does not improve both classifiers consistently.">在这项配套研究中，命令名称 TF‑IDF 的信号最强；加入粗粒度序列统计并未使两种分类器都稳定提升。</figcaption></figure>
-<figure class="diagnostic-figure"><img alt="完整命令与前缀观察预算、原始与打乱顺序的配对比较结果。" data-en-alt="Paired comparisons of full command traces versus prefixes and original versus shuffled order." loading="lazy" src="assets/feature_budget_order_v1.png"/><figcaption data-en="More commands can add useful vocabulary in longer traces; the order-shuffling comparison does not establish a stable benefit from coarse sequence order.">较长轨迹中的更多命令可增加有用词汇；顺序打乱对照尚不能证明粗粒度序列顺序带来稳定收益。</figcaption></figure>
-</div>
-<p class="mode-result-note" data-en="The 84.4% result belongs to the command-only comparison model. It is not a direct performance estimate for the package API implementation, which combines command and action tokens.">84.4% 对应的是“仅命令”对照模型，不是库 API 当前“命令 + 动作”实现的直接性能估计。</p>
-<p class="caveat mode-caveat"><span aria-hidden="true">i</span><span data-en="Human labels in this release come from terminal capture; Agent labels come from structured tool-call capture. Since label and capture pathway are perfectly aligned, these results measure prediction of this release's trace labels, not isolated actor identity. The corpus has no Script traces or real attack-campaign labels.">数据中的 Human 标签来自终端采集，Agent 标签来自结构化工具调用；标签与采集方式完全绑定。因此结果衡量的是对这批轨迹标签的预测，不是排除了接口影响后的执行者识别。数据也没有 Script 轨迹或真实攻击活动标签。</span></p>
-<div class="mode-result-links">
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/attackagent/api.py">API 源码</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/scripts/compare_trace_mode_models.py">实验脚本</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/local_model_comparison.json">完整指标 JSON</a>
-<a href="https://github.com/mcxiaoxiao/AttackAgentDetect/blob/main/research/results/local_model_comparison_task_metrics.csv">逐题指标 CSV</a>
-<a data-en="Behavior-correlation study" href="execution-mode-behavior-correlation.html">执行方式与行为关联研究</a>
-</div>
+<p data-en="An eight-event window produces a variable-row J × 16 B/S matrix, or J × 24 when source-observed timing exists. Summarizing each feature by mean, standard deviation, and normalized-position trend gives 48 or 72 recognition inputs. Short traces remain eligible under source-specific minimum windows; the old 16-command gate is removed.">每个 8 事件窗口组成可变行数的 J × 16 B／S 矩阵；日志存在真实时间时扩展为 J × 24。对每个特征计算均值、标准差和归一化位置趋势后，得到 48 或 72 个识别输入。短轨迹按来源最低有效窗口参与，不再使用旧的 16 命令门槛。</p>
+<figure class="overnight-figure" tabindex="0"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-architecture.png?v=20261103-print-v3" alt="来源日志先提取局部行为、顺序演化、实际时间三块指纹，再分别进入执行方式识别和轨迹关联两个分支。" data-en-alt="Source logs produce local-behavior, sequence-evolution, and observed-timing blocks, then feed separate execution-mode and trace-retrieval branches." loading="lazy" width="1596" height="730"/><figcaption data-en="Mode prediction is one readout; fingerprint distances can also enter retrieval directly without predicting a named model or Agent product.">执行方式预测只是一个读出；指纹距离也可直接进入检索，不需要预测具体模型或 Agent 产品。</figcaption></figure>
+<h3 class="mode-matrix-heading" data-en="Recognition: task cues are strong, transfer is limited">执行方式识别：任务线索很强，跨来源有限</h3>
+<div class="mode-result-callout"><strong>109</strong><span data-en="AIT runs: 61 Human / 48 Agent">AIT 次运行：61 Human／48 Agent</span><strong>12</strong><span data-en="troubleshooting task groups">个排障任务组</span></div>
+<p data-en="Under task holdout, B+S+T reaches 68.8% task-macro balanced accuracy on expanded AIT, versus 95.1% for command TF–IDF. Under source holdout, B+S+T reaches 52.6%; command TF–IDF reaches 85.4%. Frozen-89 task-holdout scores are 70.6% for B+S+T and 96.8% for command TF–IDF. Labels co-vary with task workflow and capture interface, so the high vocabulary baseline is evidence of label predictability in this cohort, not a general detector of who operated a system.">AIT 扩展队列按任务留出时，B＋S＋T 的任务宏平衡准确率为 68.8%，命令 TF–IDF 为 95.1%；按来源留出时分别为 52.6% 和 85.4%。冻结的 89 条队列按任务留出分别为 70.6% 和 96.8%。识别结果同时反映此队列的任务工作流与采集接口，完整观测条件见数据与局限。</p>
+<figure class="overnight-figure" tabindex="0"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-ait-recognition.png?v=20261103-print-v3" alt="AIT 冻结89条和扩展109条队列在任务留出、来源留出条件下，多种方法的识别平衡准确率及任务簇区间。" data-en-alt="Recognition balanced accuracy and task-cluster intervals for multiple methods in frozen 89-run and expanded 109-run AIT cohorts under task and source holdout." loading="lazy" width="1469" height="1050"/><figcaption data-en="The timing block raises task-held-out BA by 15.1 pp on frozen 89 and 15.8 pp on expanded 109 when added to B+S. Source-held-out estimates vary and remain entangled with collection design.">在 B＋S 上加时间块后，冻结 89 条队列的任务留出 BA 提高 15.1 个百分点，扩展 109 条提高 15.8 个百分点；来源留出结果不稳定，且仍与采集设计相互混杂。</figcaption></figure>
+<figure class="overnight-figure" tabindex="0"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-ait-timing-increment.png?v=20261103-print-v3" alt="AIT任务留出与来源留出中，B+S增加T后的配对平衡准确率变化。" data-en-alt="Paired balanced-accuracy change after adding T to B+S in AIT task and source holdout." loading="lazy" width="1546" height="555"/><figcaption data-en="Timing measurements are source-specific observed fields; no missing command gap is imputed.">时间项是该来源实际记录的字段；不对缺失的命令间隔进行插补。</figcaption></figure>
+<p data-en="Ablation controls on expanded AIT show 72.3% task-held-out BA from only the first eight-event window, versus 53.0% from full B+S (+19.3 pp; 95% task-cluster interval +6.2 to +31.9). Shuffling window order yields 55.8%. Permuting observed gap order within windows retains 70.6% for B+S+T, close to the unshuffled 68.8%. These results point to early workflow cues and per-window gap summaries; they do not validate a general temporal fingerprint.">扩展 AIT 上的对照显示，只用首个 8 事件窗口就达到 72.3% 的任务留出 BA，高于完整 B＋S 的 53.0%（+19.3 个百分点；95% 任务簇区间 +6.2 至 +31.9）。打乱窗口顺序后为 55.8%。在窗口内打乱实测时间间隔顺序后，B＋S＋T 仍为 70.6%，接近未打乱时的 68.8%。对照将有效信号定位到早期工作流线索和窗口内间隔分布。</p>
+<figure class="overnight-figure" tabindex="0"><a href="assets/behavioral-fingerprint-v2/fingerprint-v2-ait-ablation.png"><img src="assets/behavioral-fingerprint-v2/fingerprint-v2-ait-ablation.png?v=20261103-print-v3" alt="扩展 AIT 队列在任务留出和来源留出下的首窗口、窗口顺序与时间间隔对照结果和任务簇区间。" data-en-alt="First-window, window-order, and timing-gap controls with task-cluster intervals for the expanded AIT cohort under task and source holdout." loading="lazy" width="1857" height="896"/></a><figcaption data-en="Expanded AIT · 109 runs · 12 task groups. The first-window, order, and gap controls locate the useful information.">扩展 AIT · 109 次运行 · 12 个任务组。首窗口、窗口顺序和间隔顺序的对照用于定位有效信息。</figcaption></figure>
+<p class="mode-association-link"><a href="behavior-based-trace-association.html#association-results" data-en="Explore fingerprint-guided trace association and its evaluation →">查看指纹引导的轨迹关联及其实验 →</a></p>
+<div class="mode-evidence-boundary"><h3 data-en="How to read these results">如何解读</h3><p data-en="Same challenge or condition is a retrieval proxy, not common attack activity. These datasets do not independently label the same real-world actor, operation, campaign, or organization. A broadly sampled fingerprint is motivated by heterogeneous log inputs, but general usefulness must be demonstrated with new sources, compatible fields, and independent relation labels.">同题或同条件只是检索代理，不是同一次攻击活动。现有数据没有独立标注共同的现实操作者、行动、campaign 或组织。异构采样用于贴近真实日志输入；通用价值仍须在新来源、兼容字段和独立关系标签上验证。</p><p><a href="behavior-based-trace-association.html#association-results">查看完整关联结果 ↗</a> · <a href="dataset.html#analysis">查看数据集与分析 ↗</a></p></div>
 </section>
 
 <section class="section docs-content mode-related-work" id="related-work">

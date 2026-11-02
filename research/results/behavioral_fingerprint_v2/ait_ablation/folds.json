@@ -1,0 +1,242 @@
+[
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp1",
+    "train_n": 86,
+    "test_n": 3,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp2",
+    "train_n": 80,
+    "test_n": 9,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp3",
+    "train_n": 81,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp4",
+    "train_n": 79,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp5",
+    "train_n": 79,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp6",
+    "train_n": 80,
+    "test_n": 9,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp7",
+    "train_n": 81,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp1",
+    "train_n": 82,
+    "test_n": 7,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp2",
+    "train_n": 81,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp3",
+    "train_n": 84,
+    "test_n": 5,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp4",
+    "train_n": 83,
+    "test_n": 6,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp5",
+    "train_n": 83,
+    "test_n": 6,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "source_holdout",
+    "fold": "0",
+    "train_n": 42,
+    "test_n": 47,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "source_holdout",
+    "fold": "1",
+    "train_n": 68,
+    "test_n": 21,
+    "available": true
+  },
+  {
+    "dataset": "frozen_v1_89",
+    "panel": "source_holdout",
+    "fold": "2",
+    "train_n": 68,
+    "test_n": 21,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp1",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp2",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp3",
+    "train_n": 100,
+    "test_n": 9,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp4",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp5",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp6",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "Nextcloud/exp7",
+    "train_n": 99,
+    "test_n": 10,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp1",
+    "train_n": 101,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp2",
+    "train_n": 101,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp3",
+    "train_n": 101,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp4",
+    "train_n": 101,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "task_holdout",
+    "fold": "WordPress/exp5",
+    "train_n": 101,
+    "test_n": 8,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "source_holdout",
+    "fold": "0",
+    "train_n": 56,
+    "test_n": 53,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "source_holdout",
+    "fold": "1",
+    "train_n": 83,
+    "test_n": 26,
+    "available": true
+  },
+  {
+    "dataset": "extended_all_eligible_min4",
+    "panel": "source_holdout",
+    "fold": "2",
+    "train_n": 79,
+    "test_n": 30,
+    "available": true
+  }
+]

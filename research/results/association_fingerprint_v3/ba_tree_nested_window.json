@@ -1,0 +1,153 @@
+{
+  "status": "post-observation exploratory; window and feature family selection simulated only from stored inner-validation metrics for each outer fold",
+  "results": [
+    {
+      "families": [
+        "gated"
+      ],
+      "ba": 0.6732440476190475,
+      "baseline_ba": 0.6506547619047619,
+      "delta_ba": 0.02258928571428572,
+      "paired_task_ci95": [
+        -0.006073660714285726,
+        0.05018080357142856
+      ],
+      "selected": [
+        {
+          "fold": 0,
+          "window": 4,
+          "method": "gated",
+          "depth_selector": 1.0,
+          "inner_ba": 0.7040625
+        },
+        {
+          "fold": 1,
+          "window": 4,
+          "method": "gated",
+          "depth_selector": 0.1,
+          "inner_ba": 0.6819791666666667
+        },
+        {
+          "fold": 2,
+          "window": 16,
+          "method": "gated",
+          "depth_selector": 10.0,
+          "inner_ba": 0.7346875
+        },
+        {
+          "fold": 3,
+          "window": 16,
+          "method": "gated",
+          "depth_selector": 10.0,
+          "inner_ba": 0.6657725694444445
+        },
+        {
+          "fold": 4,
+          "window": 16,
+          "method": "gated",
+          "depth_selector": 1.0,
+          "inner_ba": 0.6992418981481481
+        }
+      ]
+    },
+    {
+      "families": [
+        "gated_components"
+      ],
+      "ba": 0.6800297619047619,
+      "baseline_ba": 0.6506547619047619,
+      "delta_ba": 0.029374999999999995,
+      "paired_task_ci95": [
+        0.004285714285714287,
+        0.05339285714285713
+      ],
+      "selected": [
+        {
+          "fold": 0,
+          "window": 4,
+          "method": "gated_components",
+          "depth_selector": 10.0,
+          "inner_ba": 0.6958333333333333
+        },
+        {
+          "fold": 1,
+          "window": 16,
+          "method": "gated_components",
+          "depth_selector": 1.0,
+          "inner_ba": 0.6888888888888889
+        },
+        {
+          "fold": 2,
+          "window": 16,
+          "method": "gated_components",
+          "depth_selector": 10.0,
+          "inner_ba": 0.7306076388888889
+        },
+        {
+          "fold": 3,
+          "window": 4,
+          "method": "gated_components",
+          "depth_selector": 10.0,
+          "inner_ba": 0.6768431712962963
+        },
+        {
+          "fold": 4,
+          "window": 4,
+          "method": "gated_components",
+          "depth_selector": 1.0,
+          "inner_ba": 0.6909143518518519
+        }
+      ]
+    },
+    {
+      "families": [
+        "gated",
+        "gated_components"
+      ],
+      "ba": 0.6792261904761905,
+      "baseline_ba": 0.6506547619047619,
+      "delta_ba": 0.028571428571428574,
+      "paired_task_ci95": [
+        -0.000267857142857131,
+        0.05473437499999999
+      ],
+      "selected": [
+        {
+          "fold": 0,
+          "window": 4,
+          "method": "gated",
+          "depth_selector": 1.0,
+          "inner_ba": 0.7040625
+        },
+        {
+          "fold": 1,
+          "window": 16,
+          "method": "gated_components",
+          "depth_selector": 1.0,
+          "inner_ba": 0.6888888888888889
+        },
+        {
+          "fold": 2,
+          "window": 16,
+          "method": "gated",
+          "depth_selector": 10.0,
+          "inner_ba": 0.7346875
+        },
+        {
+          "fold": 3,
+          "window": 4,
+          "method": "gated_components",
+          "depth_selector": 10.0,
+          "inner_ba": 0.6768431712962963
+        },
+        {
+          "fold": 4,
+          "window": 16,
+          "method": "gated",
+          "depth_selector": 1.0,
+          "inner_ba": 0.6992418981481481
+        }
+      ]
+    }
+  ]
+}

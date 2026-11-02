@@ -1,23 +1,17 @@
-# Paper
+# Research papers and notes
 
-## Current round
+## Current manuscript
 
-[`human-agent-fingerprint-main.tex`](human-agent-fingerprint-main.tex) is the current-round manuscript: **Behavioral Fingerprint Matrices for Execution-Mode-Aware Trace Association Across Security Tasks**. It is a self-contained English TeX source with the literature synthesis, feasible log contract, eight core formulas, a proposed fingerprint matrix, the actual 1,142-record corpus, completed exploratory pilot outcomes, prospective association/transfer evaluation, and bibliography.
+[`human-agent-fingerprint-overnight.tex`](human-agent-fingerprint-overnight.tex) is the current concise research manuscript. It presents the log-derived B/S/T fingerprint, its execution-mode and trace-retrieval readouts, the multi-source data contracts, completed experiments, limitations, and reproducibility appendix. The current file is compiled in the desktop LaTeX editor; its source bundle with all referenced vector figures is available at [`site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip`](../../site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip).
 
-Status: research-design/progress draft. The 21-candidate literature inventory is contracted to eight mandatory measurements; richer telemetry is optional or deferred. The completed 95-run scalar pilot is reported separately; expanded-corpus matrix and association improvements are not claimed.
+The exploratory v3 follow-up adds exact mixture baselines and a source-held-out conditioned-fingerprint comparison; its paired scores and tree-path contributions are recorded under `research/results/association_fingerprint_v3/`. The manuscript is evidence-bounded: same-task or source-specific conditions are retrieval proxies, not verified common attacks, operators, or campaigns. The 17-task mixture experiment and 40-task cross-mode retrieval are reported separately from the earlier 97-trace command-and-artifact baseline. AIT recognition is a troubleshooting-log diagnostic with task and collection confounding; Honey and CyBiasBench are Agent-only source-local stress tests.
 
-The [prepared overnight execution plan](../experiments/overnight_fingerprint_v1/program.md) specifies the next evidence-driven manuscript and Human/Agent-page revision. Its eligibility audit has run; the full experiment runner and the new results manuscript are not yet implemented. The future `human-agent-fingerprint-overnight.tex` becomes a new manuscript only after that execution, and is not an existing results paper.
+## Reproduction material
 
-To compile from this directory with a local LaTeX installation:
+- [`research/experiments/behavioral_fingerprint_v2/`](../experiments/behavioral_fingerprint_v2/README.md) documents the current B/S/T protocol and reproduction commands.
+- [`research/results/behavioral_fingerprint_v2/`](../results/behavioral_fingerprint_v2/) contains versioned outputs, splits, predictions, metrics, and provenance.
+- [`overnight-fingerprint-v1.md`](../reports/overnight-fingerprint-v1.md) and [`research/results/overnight_fingerprint_v1/`](../results/overnight_fingerprint_v1/README.md) preserve the earlier frozen run and its results.
+- [`human-agent-fingerprint-main.tex`](human-agent-fingerprint-main.tex) remains a broader research-design draft; proposed experiments in it are not completed results.
+- `main.tex` and its included sections preserve the earlier command-and-artifact task-retrieval manuscript.
 
-```sh
-mkdir -p build
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build human-agent-fingerprint-main.tex
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build human-agent-fingerprint-main.tex
-```
-
-Alternatively, Tectonic can compile the same standalone source and resolve cross-references automatically.
-
-## Earlier manuscript
-
-`main.tex` is the earlier command-and-artifact task-retrieval manuscript. Its included sources are `pairwise-association-method.tex`, `pairwise-association-results.tex`, and `appendix.tex`. It is retained as historical work and is not the entry point for the new Human/Agent fingerprint round.
+The current TeX source is compiled through the desktop editor so it uses the open document's project context and figures. The downloadable source bundle contains the TeX file and all eleven referenced PDF figures.

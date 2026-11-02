@@ -1,0 +1,6615 @@
+{
+  "source": "kypo",
+  "records": 197,
+  "task_groups": 10,
+  "holdout": "participant_id",
+  "independent_units": 97,
+  "protocol": "shallow tree feature families and nested depth/threshold selection; same candidate pairs; retrospective exploratory evaluation",
+  "summary": [
+    {
+      "method": "evidence",
+      "ba": 0.5582722589301536,
+      "delta_ba": 0.0,
+      "paired_cluster_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "additive",
+      "ba": 0.5928346552935368,
+      "delta_ba": 0.03456239636338321,
+      "paired_cluster_ci95": [
+        0.010639361208493407,
+        0.05856905357373117
+      ]
+    },
+    {
+      "method": "gated",
+      "ba": 0.5672816728532191,
+      "delta_ba": 0.009009413923065424,
+      "paired_cluster_ci95": [
+        -0.005051078942588869,
+        0.02488483035861935
+      ]
+    },
+    {
+      "method": "gated_components",
+      "ba": 0.5958009567795752,
+      "delta_ba": 0.03752869784942159,
+      "paired_cluster_ci95": [
+        0.0013838014649513151,
+        0.06733252231909774
+      ]
+    }
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "test_groups": 20,
+      "queries": 38,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.3886071749952997
+        ],
+        "additive": [
+          1.0,
+          0.4328184800511367
+        ],
+        "gated": [
+          1.0,
+          0.35738216773167025
+        ],
+        "gated_components": [
+          10.0,
+          0.36708688789280897
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6298230883344974,
+          "threshold": 0.3886071749952997
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6123905038497625,
+          "threshold": 0.34648886744934476
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6036933819184639,
+          "threshold": 0.295487636001161
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6453687028821438,
+          "threshold": 0.4657256423037688
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6483035659818251,
+          "threshold": 0.4328184800511367
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6266876322903363,
+          "threshold": 0.4933204991280649
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6257983946616371,
+          "threshold": 0.3622671962020794
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6400099455831693,
+          "threshold": 0.35738216773167025
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6184851038728604,
+          "threshold": 0.30959004838258597
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6394426742657169,
+          "threshold": 0.40113659406004337
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6346753765969047,
+          "threshold": 0.38148141573075534
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.641588913698723,
+          "threshold": 0.36708688789280897
+        }
+      ]
+    },
+    {
+      "fold": 1,
+      "test_groups": 20,
+      "queries": 42,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4476674700769939
+        ],
+        "additive": [
+          0.1,
+          0.5198412190120808
+        ],
+        "gated": [
+          0.1,
+          0.4510838149681301
+        ],
+        "gated_components": [
+          0.1,
+          0.5573326785582228
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6165534151008847,
+          "threshold": 0.4476674700769939
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.5940864958445586,
+          "threshold": 0.46488344185355995
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.5753737893429667,
+          "threshold": 0.520436458863092
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.611393882539094,
+          "threshold": 0.5198412190120808
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.5985210044518194,
+          "threshold": 0.5858959599538833
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.5920764113439492,
+          "threshold": 0.5448782806231561
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6155416714078017,
+          "threshold": 0.4510838149681301
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.60267544423909,
+          "threshold": 0.5372476675999048
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6042672530769498,
+          "threshold": 0.5269374301403253
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6234841056395407,
+          "threshold": 0.5573326785582228
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6202899702797087,
+          "threshold": 0.5487743863433588
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.5971863443261789,
+          "threshold": 0.4657361806479004
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "test_groups": 19,
+      "queries": 38,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4355631240851233
+        ],
+        "additive": [
+          0.1,
+          0.5098560001161583
+        ],
+        "gated": [
+          0.1,
+          0.4178302650137811
+        ],
+        "gated_components": [
+          1.0,
+          0.4045580902943549
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6480839694929553,
+          "threshold": 0.4355631240851233
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.636630189777639,
+          "threshold": 0.39336367006670403
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6267787408621086,
+          "threshold": 0.4685755657986215
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6344970953291829,
+          "threshold": 0.5098560001161583
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.624627203394595,
+          "threshold": 0.6475850343194406
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6164297168279353,
+          "threshold": 0.6358487093371603
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6625220915619072,
+          "threshold": 0.4178302650137811
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.650455152706338,
+          "threshold": 0.4197469054340936
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6313875981022452,
+          "threshold": 0.3437482540182448
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6237921127097126,
+          "threshold": 0.38082766092120385
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.642975800373702,
+          "threshold": 0.4045580902943549
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.6407943579992907,
+          "threshold": 0.38264391454234137
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "test_groups": 19,
+      "queries": 32,
+      "selected": {
+        "evidence": [
+          1.0,
+          0.44127149218210926
+        ],
+        "additive": [
+          0.1,
+          0.49808764572645037
+        ],
+        "gated": [
+          0.1,
+          0.4466675408632036
+        ],
+        "gated_components": [
+          0.1,
+          0.41143697770684345
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6543045687107253,
+          "threshold": 0.44534271281683735
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6571863055928254,
+          "threshold": 0.44127149218210926
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6103766045911826,
+          "threshold": 0.41656708437053247
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6232689011751754,
+          "threshold": 0.49808764572645037
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6028814319277779,
+          "threshold": 0.5528058107395944
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6016513421658684,
+          "threshold": 0.5572936507936508
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.666278380997467,
+          "threshold": 0.4466675408632036
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6177443933252807,
+          "threshold": 0.4621830094935639
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6397890528855436,
+          "threshold": 0.4863317648005148
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6223666247040267,
+          "threshold": 0.41143697770684345
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6096541723102107,
+          "threshold": 0.3807127144360914
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.6050445220782018,
+          "threshold": 0.5498258877756662
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "test_groups": 19,
+      "queries": 40,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.43916990671640027
+        ],
+        "additive": [
+          0.1,
+          0.42603353141154393
+        ],
+        "gated": [
+          0.1,
+          0.4388448807130833
+        ],
+        "gated_components": [
+          1.0,
+          0.47373861703280556
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6617818268081674,
+          "threshold": 0.43916990671640027
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6073416092862559,
+          "threshold": 0.4117138187178167
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.5861350573581038,
+          "threshold": 0.569425839431298
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6272634092430635,
+          "threshold": 0.42603353141154393
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.5949007602185412,
+          "threshold": 0.4607425790032427
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.5747769363853652,
+          "threshold": 0.3705311183381836
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6164473056022265,
+          "threshold": 0.4388448807130833
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.5707965950257433,
+          "threshold": 0.4172425776852323
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.5744236993922543,
+          "threshold": 0.4366763523638523
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.5833833659137886,
+          "threshold": 0.4370017427663178
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6097038803923174,
+          "threshold": 0.47373861703280556
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.6026307808217184,
+          "threshold": 0.41666010154061633
+        }
+      ]
+    }
+  ],
+  "query_predictions": [
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b4915cedb9e3f9fd",
+      "query": "976b06453aadd34ea67d",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "cc19c4b368124f6b",
+      "query": "addcdb210d118fd48152",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "cc19c4b368124f6b",
+      "query": "3ab9687b040333c1b610",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03eaf7831c472cb2",
+      "query": "c6b6d385c06d79d8a199",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "03eaf7831c472cb2",
+      "query": "d9afd70d44a11f51e43f",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6806626927055eb9",
+      "query": "df08cf936ffa59fa6318",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "6806626927055eb9",
+      "query": "8f5444b46eac130c0be8",
+      "method": "evidence",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "c897760814ce8d0216bf",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "5ac34cce9f39cc5044bc",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "aaafbec7b455a235874b",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f50f5ad65d1e18e1",
+      "query": "10c27c26b61c623fcc5c",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bfe6807d4434cfcb",
+      "query": "d86824f3121bd32a0a75",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b0a02e925261f7d7",
+      "query": "b6d62dd26046deb40cb1",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a5aa59d60f623ac5",
+      "query": "6f24f40e042e0c5baf78",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "a5aa59d60f623ac5",
+      "query": "4b1964cb2b3d27ca82de",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b886c5b490e71f16",
+      "query": "2db60643345bedcdab99",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b886c5b490e71f16",
+      "query": "309da16e71acf9df0699",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "25e4bd020c10b24f",
+      "query": "e5a0cea5f3ebf4a4a402",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "5683fd651bc1218e",
+      "query": "1117f5470a328247399d",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "5683fd651bc1218e",
+      "query": "bd8399a243e1f285cbcc",
+      "method": "evidence",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "5683fd651bc1218e",
+      "query": "631fe26d24dc7a1e152b",
+      "method": "evidence",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "98d936002bdaf0f3",
+      "query": "55fdee646b671546adfd",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "289bb60d9b5b99e0f631",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "fcb294961aca31b72ced",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "c1124bf02df0a8ab0646",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "71baae15ea707261",
+      "query": "9365646c02e4436251bc",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "86d5cb94141d63e2",
+      "query": "e5bb3799cabc59dc892d",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "86d5cb94141d63e2",
+      "query": "05d59cb462b46e7c87bb",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0d56233bb49c4ecf51d8",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "9066977589e30e1d271a",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0943f64183b9040dd81c",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "6f6148adcaa8c1c54307",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0ad1ea496c426de6",
+      "query": "ee3cb6c5522a597ef4c3",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e9487a16fbca892f",
+      "query": "a98d84ac2ae745db922d",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "e9487a16fbca892f",
+      "query": "77536a0b7569d94128e2",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f9a539703ca5568f",
+      "query": "0fbfbd6cb5236b7ca33c",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "f9a539703ca5568f",
+      "query": "81a7a4d63e75fcc968d2",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f9a539703ca5568f",
+      "query": "ff40f92d2ea716d07cd4",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b4915cedb9e3f9fd",
+      "query": "976b06453aadd34ea67d",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "cc19c4b368124f6b",
+      "query": "addcdb210d118fd48152",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "cc19c4b368124f6b",
+      "query": "3ab9687b040333c1b610",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03eaf7831c472cb2",
+      "query": "c6b6d385c06d79d8a199",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "03eaf7831c472cb2",
+      "query": "d9afd70d44a11f51e43f",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6806626927055eb9",
+      "query": "df08cf936ffa59fa6318",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "6806626927055eb9",
+      "query": "8f5444b46eac130c0be8",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "c897760814ce8d0216bf",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "5ac34cce9f39cc5044bc",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "aaafbec7b455a235874b",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f50f5ad65d1e18e1",
+      "query": "10c27c26b61c623fcc5c",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bfe6807d4434cfcb",
+      "query": "d86824f3121bd32a0a75",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b0a02e925261f7d7",
+      "query": "b6d62dd26046deb40cb1",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a5aa59d60f623ac5",
+      "query": "6f24f40e042e0c5baf78",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "a5aa59d60f623ac5",
+      "query": "4b1964cb2b3d27ca82de",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b886c5b490e71f16",
+      "query": "2db60643345bedcdab99",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b886c5b490e71f16",
+      "query": "309da16e71acf9df0699",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "25e4bd020c10b24f",
+      "query": "e5a0cea5f3ebf4a4a402",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "5683fd651bc1218e",
+      "query": "1117f5470a328247399d",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "5683fd651bc1218e",
+      "query": "bd8399a243e1f285cbcc",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "5683fd651bc1218e",
+      "query": "631fe26d24dc7a1e152b",
+      "method": "additive",
+      "ba": 1.0
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "98d936002bdaf0f3",
+      "query": "55fdee646b671546adfd",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "289bb60d9b5b99e0f631",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "fcb294961aca31b72ced",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "c1124bf02df0a8ab0646",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "71baae15ea707261",
+      "query": "9365646c02e4436251bc",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "86d5cb94141d63e2",
+      "query": "e5bb3799cabc59dc892d",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "86d5cb94141d63e2",
+      "query": "05d59cb462b46e7c87bb",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0d56233bb49c4ecf51d8",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "9066977589e30e1d271a",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0943f64183b9040dd81c",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "6f6148adcaa8c1c54307",
+      "method": "additive",
+      "ba": 1.0
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0ad1ea496c426de6",
+      "query": "ee3cb6c5522a597ef4c3",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e9487a16fbca892f",
+      "query": "a98d84ac2ae745db922d",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "e9487a16fbca892f",
+      "query": "77536a0b7569d94128e2",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f9a539703ca5568f",
+      "query": "0fbfbd6cb5236b7ca33c",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "f9a539703ca5568f",
+      "query": "81a7a4d63e75fcc968d2",
+      "method": "additive",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f9a539703ca5568f",
+      "query": "ff40f92d2ea716d07cd4",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b4915cedb9e3f9fd",
+      "query": "976b06453aadd34ea67d",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "cc19c4b368124f6b",
+      "query": "addcdb210d118fd48152",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "cc19c4b368124f6b",
+      "query": "3ab9687b040333c1b610",
+      "method": "gated",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03eaf7831c472cb2",
+      "query": "c6b6d385c06d79d8a199",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "03eaf7831c472cb2",
+      "query": "d9afd70d44a11f51e43f",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6806626927055eb9",
+      "query": "df08cf936ffa59fa6318",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "6806626927055eb9",
+      "query": "8f5444b46eac130c0be8",
+      "method": "gated",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "c897760814ce8d0216bf",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "5ac34cce9f39cc5044bc",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "aaafbec7b455a235874b",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f50f5ad65d1e18e1",
+      "query": "10c27c26b61c623fcc5c",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bfe6807d4434cfcb",
+      "query": "d86824f3121bd32a0a75",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b0a02e925261f7d7",
+      "query": "b6d62dd26046deb40cb1",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a5aa59d60f623ac5",
+      "query": "6f24f40e042e0c5baf78",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "a5aa59d60f623ac5",
+      "query": "4b1964cb2b3d27ca82de",
+      "method": "gated",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b886c5b490e71f16",
+      "query": "2db60643345bedcdab99",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b886c5b490e71f16",
+      "query": "309da16e71acf9df0699",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "25e4bd020c10b24f",
+      "query": "e5a0cea5f3ebf4a4a402",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "5683fd651bc1218e",
+      "query": "1117f5470a328247399d",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "5683fd651bc1218e",
+      "query": "bd8399a243e1f285cbcc",
+      "method": "gated",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "5683fd651bc1218e",
+      "query": "631fe26d24dc7a1e152b",
+      "method": "gated",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "98d936002bdaf0f3",
+      "query": "55fdee646b671546adfd",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "289bb60d9b5b99e0f631",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "fcb294961aca31b72ced",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "c1124bf02df0a8ab0646",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "71baae15ea707261",
+      "query": "9365646c02e4436251bc",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "86d5cb94141d63e2",
+      "query": "e5bb3799cabc59dc892d",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "86d5cb94141d63e2",
+      "query": "05d59cb462b46e7c87bb",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0d56233bb49c4ecf51d8",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "9066977589e30e1d271a",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0943f64183b9040dd81c",
+      "method": "gated",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "6f6148adcaa8c1c54307",
+      "method": "gated",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0ad1ea496c426de6",
+      "query": "ee3cb6c5522a597ef4c3",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e9487a16fbca892f",
+      "query": "a98d84ac2ae745db922d",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "e9487a16fbca892f",
+      "query": "77536a0b7569d94128e2",
+      "method": "gated",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f9a539703ca5568f",
+      "query": "0fbfbd6cb5236b7ca33c",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "f9a539703ca5568f",
+      "query": "81a7a4d63e75fcc968d2",
+      "method": "gated",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f9a539703ca5568f",
+      "query": "ff40f92d2ea716d07cd4",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b4915cedb9e3f9fd",
+      "query": "976b06453aadd34ea67d",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "cc19c4b368124f6b",
+      "query": "addcdb210d118fd48152",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "cc19c4b368124f6b",
+      "query": "3ab9687b040333c1b610",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03eaf7831c472cb2",
+      "query": "c6b6d385c06d79d8a199",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "03eaf7831c472cb2",
+      "query": "d9afd70d44a11f51e43f",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6806626927055eb9",
+      "query": "df08cf936ffa59fa6318",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "6806626927055eb9",
+      "query": "8f5444b46eac130c0be8",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "c897760814ce8d0216bf",
+      "method": "gated_components",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "5ac34cce9f39cc5044bc",
+      "method": "gated_components",
+      "ba": 0.0
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "8e02a9d8f0b9e3c9",
+      "query": "aaafbec7b455a235874b",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f50f5ad65d1e18e1",
+      "query": "10c27c26b61c623fcc5c",
+      "method": "gated_components",
+      "ba": 0.0714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bfe6807d4434cfcb",
+      "query": "d86824f3121bd32a0a75",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b0a02e925261f7d7",
+      "query": "b6d62dd26046deb40cb1",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a5aa59d60f623ac5",
+      "query": "6f24f40e042e0c5baf78",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "a5aa59d60f623ac5",
+      "query": "4b1964cb2b3d27ca82de",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b886c5b490e71f16",
+      "query": "2db60643345bedcdab99",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b886c5b490e71f16",
+      "query": "309da16e71acf9df0699",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "25e4bd020c10b24f",
+      "query": "e5a0cea5f3ebf4a4a402",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "5683fd651bc1218e",
+      "query": "1117f5470a328247399d",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "5683fd651bc1218e",
+      "query": "bd8399a243e1f285cbcc",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "5683fd651bc1218e",
+      "query": "631fe26d24dc7a1e152b",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "98d936002bdaf0f3",
+      "query": "55fdee646b671546adfd",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "289bb60d9b5b99e0f631",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "fcb294961aca31b72ced",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "67c7a7b986b6f2ac",
+      "query": "c1124bf02df0a8ab0646",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "71baae15ea707261",
+      "query": "9365646c02e4436251bc",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "86d5cb94141d63e2",
+      "query": "e5bb3799cabc59dc892d",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "86d5cb94141d63e2",
+      "query": "05d59cb462b46e7c87bb",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0d56233bb49c4ecf51d8",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "9066977589e30e1d271a",
+      "method": "gated_components",
+      "ba": 0.0
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "0943f64183b9040dd81c",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d0d95ec1afcea3b6",
+      "query": "6f6148adcaa8c1c54307",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0ad1ea496c426de6",
+      "query": "ee3cb6c5522a597ef4c3",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e9487a16fbca892f",
+      "query": "a98d84ac2ae745db922d",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "e9487a16fbca892f",
+      "query": "77536a0b7569d94128e2",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f9a539703ca5568f",
+      "query": "0fbfbd6cb5236b7ca33c",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "f9a539703ca5568f",
+      "query": "81a7a4d63e75fcc968d2",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f9a539703ca5568f",
+      "query": "ff40f92d2ea716d07cd4",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "604845164d007d35",
+      "query": "ddd56f0137742965ffdb",
+      "method": "evidence",
+      "ba": 0.9375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "604845164d007d35",
+      "query": "45507ae8961571ef4185",
+      "method": "evidence",
+      "ba": 0.4375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "865e1d269b6116fb",
+      "query": "b6d0c44608b04793bcf7",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "26561f3770fdae9c",
+      "query": "092891466301b803e17a",
+      "method": "evidence",
+      "ba": 0.7222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "26561f3770fdae9c",
+      "query": "3867b54e9f73f8d10971",
+      "method": "evidence",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "dad4b825e3e20ca4",
+      "query": "ef9a590a5c5a4196d5fe",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "521c83a85ef92b4b",
+      "query": "8b6fd8cc0e52ef159ab2",
+      "method": "evidence",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "521c83a85ef92b4b",
+      "query": "2eb0ff5d7766c435b176",
+      "method": "evidence",
+      "ba": 0.7222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "579cffd1e8e7e527",
+      "query": "6dd2a0510bdb1a1ce591",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "579cffd1e8e7e527",
+      "query": "3202a3cbac1f92728dd0",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "13ca23bf789b82e0",
+      "query": "2091cecbd38bdf594e9a",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "13ca23bf789b82e0",
+      "query": "6136f7b3e377c40e822a",
+      "method": "evidence",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "13ca23bf789b82e0",
+      "query": "48bbbcfdacfea6356325",
+      "method": "evidence",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "560cec0b895752f3",
+      "query": "8f4be9cd36c43444cf78",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "af0140dd273371219d38",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "2248efcabf47d5e78e11",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0598d50febb1e823",
+      "query": "b580527d71e4a74c6cdc",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0598d50febb1e823",
+      "query": "c7817e6c0901096db042",
+      "method": "evidence",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2b6ee08ec1641176",
+      "query": "17582e37c0edf1f34edd",
+      "method": "evidence",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "6c70c88aeae3a19d",
+      "query": "3d96d68594d569f5411a",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "6c70c88aeae3a19d",
+      "query": "fc6129234be2cbf81afd",
+      "method": "evidence",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "6c70c88aeae3a19d",
+      "query": "51c7d0c8faf668693889",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d2239749a7c0ed0b",
+      "query": "84e249afef91d76ad9a2",
+      "method": "evidence",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d2239749a7c0ed0b",
+      "query": "5dea86cb496a46da167b",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d2239749a7c0ed0b",
+      "query": "be6337001caf5e57420c",
+      "method": "evidence",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2c804f31624acae4",
+      "query": "ad43ed71ce172a1b0b36",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "053340fd08371ccb505e",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "ebf2214f230689396a5a",
+      "method": "evidence",
+      "ba": 0.2777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "e009906b85e7244d0220",
+      "method": "evidence",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "267a5fa51f23a101",
+      "query": "1f7d90974ddb80feca0d",
+      "method": "evidence",
+      "ba": 0.3125
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "267a5fa51f23a101",
+      "query": "b4ffd14ae962829f89f3",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b2db1b3bf10cb880",
+      "query": "ca1707c4508478fa6efd",
+      "method": "evidence",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "b2db1b3bf10cb880",
+      "query": "30a632f730d09a38f208",
+      "method": "evidence",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b2db1b3bf10cb880",
+      "query": "e8dcff174fb2f8d33e00",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "46ed942f4d9c12eb",
+      "query": "898d892cf62eb70c1e86",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "46ed942f4d9c12eb",
+      "query": "455816f2631ea87a4468",
+      "method": "evidence",
+      "ba": 0.2222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "46ed942f4d9c12eb",
+      "query": "1a0fb761f49a6be0c40f",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "49002ed013dcada8",
+      "query": "4ced472215405369a49a",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "49002ed013dcada8",
+      "query": "2e12a3573b8a32962575",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "a0ab2368b9659dd2eebc",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "93df11f665cec7388ae7",
+      "method": "evidence",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "cc7394ed842b67eca368",
+      "method": "evidence",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "604845164d007d35",
+      "query": "ddd56f0137742965ffdb",
+      "method": "additive",
+      "ba": 0.9375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "604845164d007d35",
+      "query": "45507ae8961571ef4185",
+      "method": "additive",
+      "ba": 0.5
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "865e1d269b6116fb",
+      "query": "b6d0c44608b04793bcf7",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "26561f3770fdae9c",
+      "query": "092891466301b803e17a",
+      "method": "additive",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "26561f3770fdae9c",
+      "query": "3867b54e9f73f8d10971",
+      "method": "additive",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "dad4b825e3e20ca4",
+      "query": "ef9a590a5c5a4196d5fe",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "521c83a85ef92b4b",
+      "query": "8b6fd8cc0e52ef159ab2",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "521c83a85ef92b4b",
+      "query": "2eb0ff5d7766c435b176",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "579cffd1e8e7e527",
+      "query": "6dd2a0510bdb1a1ce591",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "579cffd1e8e7e527",
+      "query": "3202a3cbac1f92728dd0",
+      "method": "additive",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "13ca23bf789b82e0",
+      "query": "2091cecbd38bdf594e9a",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "13ca23bf789b82e0",
+      "query": "6136f7b3e377c40e822a",
+      "method": "additive",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "13ca23bf789b82e0",
+      "query": "48bbbcfdacfea6356325",
+      "method": "additive",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "560cec0b895752f3",
+      "query": "8f4be9cd36c43444cf78",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "af0140dd273371219d38",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "2248efcabf47d5e78e11",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0598d50febb1e823",
+      "query": "b580527d71e4a74c6cdc",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0598d50febb1e823",
+      "query": "c7817e6c0901096db042",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2b6ee08ec1641176",
+      "query": "17582e37c0edf1f34edd",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "6c70c88aeae3a19d",
+      "query": "3d96d68594d569f5411a",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "6c70c88aeae3a19d",
+      "query": "fc6129234be2cbf81afd",
+      "method": "additive",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "6c70c88aeae3a19d",
+      "query": "51c7d0c8faf668693889",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d2239749a7c0ed0b",
+      "query": "84e249afef91d76ad9a2",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d2239749a7c0ed0b",
+      "query": "5dea86cb496a46da167b",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d2239749a7c0ed0b",
+      "query": "be6337001caf5e57420c",
+      "method": "additive",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2c804f31624acae4",
+      "query": "ad43ed71ce172a1b0b36",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "053340fd08371ccb505e",
+      "method": "additive",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "ebf2214f230689396a5a",
+      "method": "additive",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "e009906b85e7244d0220",
+      "method": "additive",
+      "ba": 0.7222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "267a5fa51f23a101",
+      "query": "1f7d90974ddb80feca0d",
+      "method": "additive",
+      "ba": 0.4375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "267a5fa51f23a101",
+      "query": "b4ffd14ae962829f89f3",
+      "method": "additive",
+      "ba": 0.4375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b2db1b3bf10cb880",
+      "query": "ca1707c4508478fa6efd",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "b2db1b3bf10cb880",
+      "query": "30a632f730d09a38f208",
+      "method": "additive",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b2db1b3bf10cb880",
+      "query": "e8dcff174fb2f8d33e00",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "46ed942f4d9c12eb",
+      "query": "898d892cf62eb70c1e86",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "46ed942f4d9c12eb",
+      "query": "455816f2631ea87a4468",
+      "method": "additive",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "46ed942f4d9c12eb",
+      "query": "1a0fb761f49a6be0c40f",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "49002ed013dcada8",
+      "query": "4ced472215405369a49a",
+      "method": "additive",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "49002ed013dcada8",
+      "query": "2e12a3573b8a32962575",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "a0ab2368b9659dd2eebc",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "93df11f665cec7388ae7",
+      "method": "additive",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "cc7394ed842b67eca368",
+      "method": "additive",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "604845164d007d35",
+      "query": "ddd56f0137742965ffdb",
+      "method": "gated",
+      "ba": 0.8125
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "604845164d007d35",
+      "query": "45507ae8961571ef4185",
+      "method": "gated",
+      "ba": 0.375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "865e1d269b6116fb",
+      "query": "b6d0c44608b04793bcf7",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "26561f3770fdae9c",
+      "query": "092891466301b803e17a",
+      "method": "gated",
+      "ba": 0.7222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "26561f3770fdae9c",
+      "query": "3867b54e9f73f8d10971",
+      "method": "gated",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "dad4b825e3e20ca4",
+      "query": "ef9a590a5c5a4196d5fe",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "521c83a85ef92b4b",
+      "query": "8b6fd8cc0e52ef159ab2",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "521c83a85ef92b4b",
+      "query": "2eb0ff5d7766c435b176",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "579cffd1e8e7e527",
+      "query": "6dd2a0510bdb1a1ce591",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "579cffd1e8e7e527",
+      "query": "3202a3cbac1f92728dd0",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "13ca23bf789b82e0",
+      "query": "2091cecbd38bdf594e9a",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "13ca23bf789b82e0",
+      "query": "6136f7b3e377c40e822a",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "13ca23bf789b82e0",
+      "query": "48bbbcfdacfea6356325",
+      "method": "gated",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "560cec0b895752f3",
+      "query": "8f4be9cd36c43444cf78",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "af0140dd273371219d38",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "2248efcabf47d5e78e11",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0598d50febb1e823",
+      "query": "b580527d71e4a74c6cdc",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0598d50febb1e823",
+      "query": "c7817e6c0901096db042",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2b6ee08ec1641176",
+      "query": "17582e37c0edf1f34edd",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "6c70c88aeae3a19d",
+      "query": "3d96d68594d569f5411a",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "6c70c88aeae3a19d",
+      "query": "fc6129234be2cbf81afd",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "6c70c88aeae3a19d",
+      "query": "51c7d0c8faf668693889",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d2239749a7c0ed0b",
+      "query": "84e249afef91d76ad9a2",
+      "method": "gated",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d2239749a7c0ed0b",
+      "query": "5dea86cb496a46da167b",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d2239749a7c0ed0b",
+      "query": "be6337001caf5e57420c",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2c804f31624acae4",
+      "query": "ad43ed71ce172a1b0b36",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "053340fd08371ccb505e",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "ebf2214f230689396a5a",
+      "method": "gated",
+      "ba": 0.2222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "e009906b85e7244d0220",
+      "method": "gated",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "267a5fa51f23a101",
+      "query": "1f7d90974ddb80feca0d",
+      "method": "gated",
+      "ba": 0.375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "267a5fa51f23a101",
+      "query": "b4ffd14ae962829f89f3",
+      "method": "gated",
+      "ba": 0.25
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b2db1b3bf10cb880",
+      "query": "ca1707c4508478fa6efd",
+      "method": "gated",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "b2db1b3bf10cb880",
+      "query": "30a632f730d09a38f208",
+      "method": "gated",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b2db1b3bf10cb880",
+      "query": "e8dcff174fb2f8d33e00",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "46ed942f4d9c12eb",
+      "query": "898d892cf62eb70c1e86",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "46ed942f4d9c12eb",
+      "query": "455816f2631ea87a4468",
+      "method": "gated",
+      "ba": 0.2222222222222222
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "46ed942f4d9c12eb",
+      "query": "1a0fb761f49a6be0c40f",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "49002ed013dcada8",
+      "query": "4ced472215405369a49a",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "49002ed013dcada8",
+      "query": "2e12a3573b8a32962575",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "a0ab2368b9659dd2eebc",
+      "method": "gated",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "93df11f665cec7388ae7",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "cc7394ed842b67eca368",
+      "method": "gated",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "604845164d007d35",
+      "query": "ddd56f0137742965ffdb",
+      "method": "gated_components",
+      "ba": 0.8125
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "604845164d007d35",
+      "query": "45507ae8961571ef4185",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "865e1d269b6116fb",
+      "query": "b6d0c44608b04793bcf7",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "26561f3770fdae9c",
+      "query": "092891466301b803e17a",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "26561f3770fdae9c",
+      "query": "3867b54e9f73f8d10971",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "dad4b825e3e20ca4",
+      "query": "ef9a590a5c5a4196d5fe",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "521c83a85ef92b4b",
+      "query": "8b6fd8cc0e52ef159ab2",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "521c83a85ef92b4b",
+      "query": "2eb0ff5d7766c435b176",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "579cffd1e8e7e527",
+      "query": "6dd2a0510bdb1a1ce591",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "579cffd1e8e7e527",
+      "query": "3202a3cbac1f92728dd0",
+      "method": "gated_components",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "13ca23bf789b82e0",
+      "query": "2091cecbd38bdf594e9a",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "13ca23bf789b82e0",
+      "query": "6136f7b3e377c40e822a",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "13ca23bf789b82e0",
+      "query": "48bbbcfdacfea6356325",
+      "method": "gated_components",
+      "ba": 0.4444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "560cec0b895752f3",
+      "query": "8f4be9cd36c43444cf78",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "af0140dd273371219d38",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e4a1dbe5b1effd69",
+      "query": "2248efcabf47d5e78e11",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0598d50febb1e823",
+      "query": "b580527d71e4a74c6cdc",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0598d50febb1e823",
+      "query": "c7817e6c0901096db042",
+      "method": "gated_components",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2b6ee08ec1641176",
+      "query": "17582e37c0edf1f34edd",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "6c70c88aeae3a19d",
+      "query": "3d96d68594d569f5411a",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "6c70c88aeae3a19d",
+      "query": "fc6129234be2cbf81afd",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "6c70c88aeae3a19d",
+      "query": "51c7d0c8faf668693889",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d2239749a7c0ed0b",
+      "query": "84e249afef91d76ad9a2",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d2239749a7c0ed0b",
+      "query": "5dea86cb496a46da167b",
+      "method": "gated_components",
+      "ba": 0.9444444444444444
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d2239749a7c0ed0b",
+      "query": "be6337001caf5e57420c",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "2c804f31624acae4",
+      "query": "ad43ed71ce172a1b0b36",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "053340fd08371ccb505e",
+      "method": "gated_components",
+      "ba": 0.7777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "ebf2214f230689396a5a",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "865afdfdcc9f3ffb",
+      "query": "e009906b85e7244d0220",
+      "method": "gated_components",
+      "ba": 0.2777777777777778
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "267a5fa51f23a101",
+      "query": "1f7d90974ddb80feca0d",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "267a5fa51f23a101",
+      "query": "b4ffd14ae962829f89f3",
+      "method": "gated_components",
+      "ba": 0.4375
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b2db1b3bf10cb880",
+      "query": "ca1707c4508478fa6efd",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "b2db1b3bf10cb880",
+      "query": "30a632f730d09a38f208",
+      "method": "gated_components",
+      "ba": 0.38888888888888884
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "b2db1b3bf10cb880",
+      "query": "e8dcff174fb2f8d33e00",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "46ed942f4d9c12eb",
+      "query": "898d892cf62eb70c1e86",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-35",
+      "participant": "46ed942f4d9c12eb",
+      "query": "455816f2631ea87a4468",
+      "method": "gated_components",
+      "ba": 0.8888888888888888
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "46ed942f4d9c12eb",
+      "query": "1a0fb761f49a6be0c40f",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "49002ed013dcada8",
+      "query": "4ced472215405369a49a",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "49002ed013dcada8",
+      "query": "2e12a3573b8a32962575",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "a0ab2368b9659dd2eebc",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "93df11f665cec7388ae7",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 1,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "e5d0c65bc2b6bd44",
+      "query": "cc7394ed842b67eca368",
+      "method": "gated_components",
+      "ba": 0.2777777777777778
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6b58baaefd943c63",
+      "query": "aa7435eaca8c333503db",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c9a6584edffd2fd5",
+      "query": "0575091f25706ba9c430",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c9a6584edffd2fd5",
+      "query": "337375119e3139871500",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05a296cbb1a37a3c",
+      "query": "2de4495d017f29002677",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bd7648550a163c6a",
+      "query": "49cd99551e874df0e75c",
+      "method": "evidence",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f8bd4b80a70ef951",
+      "query": "a9fce91e212d60d6ef6c",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "59a6612af1fb2ff9",
+      "query": "ad1327a33c2f59145fc5",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "59a6612af1fb2ff9",
+      "query": "45a8dd4de9d005df0770",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "59a6612af1fb2ff9",
+      "query": "f975a613ecdb8c75cab4",
+      "method": "evidence",
+      "ba": 0.3125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7a77469a422d936e",
+      "query": "9a13dcf38bf9e04e0610",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7a77469a422d936e",
+      "query": "2705d15fb84069b593b3",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "928a39bdd154bdb7",
+      "query": "08318ca1e0025194dbd5",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "928a39bdd154bdb7",
+      "query": "216e0d9cd954f1b9abba",
+      "method": "evidence",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "928a39bdd154bdb7",
+      "query": "a2f2ee85627b9ede9ea2",
+      "method": "evidence",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0f81920b378a73e1",
+      "query": "74c9ccdc0bb5f62e977c",
+      "method": "evidence",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0f81920b378a73e1",
+      "query": "700eb2472ea8f9546844",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "ab253b85c1714bca",
+      "query": "baf7322433c3e751eb0d",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "70ccd71c736ea21c",
+      "query": "d86c23b502172519648f",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e6d9168ebf51dba7",
+      "query": "4a85c6afe00730469783",
+      "method": "evidence",
+      "ba": 0.0625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e6d9168ebf51dba7",
+      "query": "9edb0a542d4e6da837a6",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d50fc617e215836b",
+      "query": "84a8f3360248236fa439",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d50fc617e215836b",
+      "query": "9349a08bc6f63e3cc59a",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d50fc617e215836b",
+      "query": "9c7fe551ee1963e5b6db",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0b5a396a1ba9a180",
+      "query": "5fe98c811590ac96024b",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0b5a396a1ba9a180",
+      "query": "162cbcf1669ce690d8d3",
+      "method": "evidence",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "0b5a396a1ba9a180",
+      "query": "fb1b415bf3d352853058",
+      "method": "evidence",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0b5a396a1ba9a180",
+      "query": "7214db72caf86a5c6491",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "900450aba7b82331",
+      "query": "4814cfe7c965be1321a3",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a598c7e076188423",
+      "query": "7ed43ee974373a102c9d",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a598c7e076188423",
+      "query": "953433fa1c18c6cf808f",
+      "method": "evidence",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a598c7e076188423",
+      "query": "6e23e4a69b7c02510c07",
+      "method": "evidence",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "3259ebe310ae9154",
+      "query": "effadf288d6390031b93",
+      "method": "evidence",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3259ebe310ae9154",
+      "query": "413ee3719c88146cc2a5",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "386f62c0c65daab5",
+      "query": "90eb96a14d53723bc2b4",
+      "method": "evidence",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "386f62c0c65daab5",
+      "query": "a209ac2839f1e0f24761",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "95650b7e779f6f25",
+      "query": "d630c939b6f9deb19d86",
+      "method": "evidence",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "95650b7e779f6f25",
+      "query": "649fd259a3b10066dff7",
+      "method": "evidence",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "95650b7e779f6f25",
+      "query": "6a909a2e493416d6a85b",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6b58baaefd943c63",
+      "query": "aa7435eaca8c333503db",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c9a6584edffd2fd5",
+      "query": "0575091f25706ba9c430",
+      "method": "additive",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c9a6584edffd2fd5",
+      "query": "337375119e3139871500",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05a296cbb1a37a3c",
+      "query": "2de4495d017f29002677",
+      "method": "additive",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bd7648550a163c6a",
+      "query": "49cd99551e874df0e75c",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f8bd4b80a70ef951",
+      "query": "a9fce91e212d60d6ef6c",
+      "method": "additive",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "59a6612af1fb2ff9",
+      "query": "ad1327a33c2f59145fc5",
+      "method": "additive",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "59a6612af1fb2ff9",
+      "query": "45a8dd4de9d005df0770",
+      "method": "additive",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "59a6612af1fb2ff9",
+      "query": "f975a613ecdb8c75cab4",
+      "method": "additive",
+      "ba": 0.4375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7a77469a422d936e",
+      "query": "9a13dcf38bf9e04e0610",
+      "method": "additive",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7a77469a422d936e",
+      "query": "2705d15fb84069b593b3",
+      "method": "additive",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "928a39bdd154bdb7",
+      "query": "08318ca1e0025194dbd5",
+      "method": "additive",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "928a39bdd154bdb7",
+      "query": "216e0d9cd954f1b9abba",
+      "method": "additive",
+      "ba": 0.3125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "928a39bdd154bdb7",
+      "query": "a2f2ee85627b9ede9ea2",
+      "method": "additive",
+      "ba": 0.4375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0f81920b378a73e1",
+      "query": "74c9ccdc0bb5f62e977c",
+      "method": "additive",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0f81920b378a73e1",
+      "query": "700eb2472ea8f9546844",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "ab253b85c1714bca",
+      "query": "baf7322433c3e751eb0d",
+      "method": "additive",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "70ccd71c736ea21c",
+      "query": "d86c23b502172519648f",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e6d9168ebf51dba7",
+      "query": "4a85c6afe00730469783",
+      "method": "additive",
+      "ba": 0.25
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e6d9168ebf51dba7",
+      "query": "9edb0a542d4e6da837a6",
+      "method": "additive",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d50fc617e215836b",
+      "query": "84a8f3360248236fa439",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d50fc617e215836b",
+      "query": "9349a08bc6f63e3cc59a",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d50fc617e215836b",
+      "query": "9c7fe551ee1963e5b6db",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0b5a396a1ba9a180",
+      "query": "5fe98c811590ac96024b",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0b5a396a1ba9a180",
+      "query": "162cbcf1669ce690d8d3",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "0b5a396a1ba9a180",
+      "query": "fb1b415bf3d352853058",
+      "method": "additive",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0b5a396a1ba9a180",
+      "query": "7214db72caf86a5c6491",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "900450aba7b82331",
+      "query": "4814cfe7c965be1321a3",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a598c7e076188423",
+      "query": "7ed43ee974373a102c9d",
+      "method": "additive",
+      "ba": 0.9375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a598c7e076188423",
+      "query": "953433fa1c18c6cf808f",
+      "method": "additive",
+      "ba": 0.3125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a598c7e076188423",
+      "query": "6e23e4a69b7c02510c07",
+      "method": "additive",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "3259ebe310ae9154",
+      "query": "effadf288d6390031b93",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3259ebe310ae9154",
+      "query": "413ee3719c88146cc2a5",
+      "method": "additive",
+      "ba": 0.9375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "386f62c0c65daab5",
+      "query": "90eb96a14d53723bc2b4",
+      "method": "additive",
+      "ba": 0.875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "386f62c0c65daab5",
+      "query": "a209ac2839f1e0f24761",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "95650b7e779f6f25",
+      "query": "d630c939b6f9deb19d86",
+      "method": "additive",
+      "ba": 1.0
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "95650b7e779f6f25",
+      "query": "649fd259a3b10066dff7",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "95650b7e779f6f25",
+      "query": "6a909a2e493416d6a85b",
+      "method": "additive",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6b58baaefd943c63",
+      "query": "aa7435eaca8c333503db",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c9a6584edffd2fd5",
+      "query": "0575091f25706ba9c430",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c9a6584edffd2fd5",
+      "query": "337375119e3139871500",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05a296cbb1a37a3c",
+      "query": "2de4495d017f29002677",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bd7648550a163c6a",
+      "query": "49cd99551e874df0e75c",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f8bd4b80a70ef951",
+      "query": "a9fce91e212d60d6ef6c",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "59a6612af1fb2ff9",
+      "query": "ad1327a33c2f59145fc5",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "59a6612af1fb2ff9",
+      "query": "45a8dd4de9d005df0770",
+      "method": "gated",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "59a6612af1fb2ff9",
+      "query": "f975a613ecdb8c75cab4",
+      "method": "gated",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7a77469a422d936e",
+      "query": "9a13dcf38bf9e04e0610",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7a77469a422d936e",
+      "query": "2705d15fb84069b593b3",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "928a39bdd154bdb7",
+      "query": "08318ca1e0025194dbd5",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "928a39bdd154bdb7",
+      "query": "216e0d9cd954f1b9abba",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "928a39bdd154bdb7",
+      "query": "a2f2ee85627b9ede9ea2",
+      "method": "gated",
+      "ba": 0.125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0f81920b378a73e1",
+      "query": "74c9ccdc0bb5f62e977c",
+      "method": "gated",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0f81920b378a73e1",
+      "query": "700eb2472ea8f9546844",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "ab253b85c1714bca",
+      "query": "baf7322433c3e751eb0d",
+      "method": "gated",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "70ccd71c736ea21c",
+      "query": "d86c23b502172519648f",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e6d9168ebf51dba7",
+      "query": "4a85c6afe00730469783",
+      "method": "gated",
+      "ba": 0.125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e6d9168ebf51dba7",
+      "query": "9edb0a542d4e6da837a6",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d50fc617e215836b",
+      "query": "84a8f3360248236fa439",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d50fc617e215836b",
+      "query": "9349a08bc6f63e3cc59a",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d50fc617e215836b",
+      "query": "9c7fe551ee1963e5b6db",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0b5a396a1ba9a180",
+      "query": "5fe98c811590ac96024b",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0b5a396a1ba9a180",
+      "query": "162cbcf1669ce690d8d3",
+      "method": "gated",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "0b5a396a1ba9a180",
+      "query": "fb1b415bf3d352853058",
+      "method": "gated",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0b5a396a1ba9a180",
+      "query": "7214db72caf86a5c6491",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "900450aba7b82331",
+      "query": "4814cfe7c965be1321a3",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a598c7e076188423",
+      "query": "7ed43ee974373a102c9d",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a598c7e076188423",
+      "query": "953433fa1c18c6cf808f",
+      "method": "gated",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a598c7e076188423",
+      "query": "6e23e4a69b7c02510c07",
+      "method": "gated",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "3259ebe310ae9154",
+      "query": "effadf288d6390031b93",
+      "method": "gated",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3259ebe310ae9154",
+      "query": "413ee3719c88146cc2a5",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "386f62c0c65daab5",
+      "query": "90eb96a14d53723bc2b4",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "386f62c0c65daab5",
+      "query": "a209ac2839f1e0f24761",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "95650b7e779f6f25",
+      "query": "d630c939b6f9deb19d86",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "95650b7e779f6f25",
+      "query": "649fd259a3b10066dff7",
+      "method": "gated",
+      "ba": 0.9375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "95650b7e779f6f25",
+      "query": "6a909a2e493416d6a85b",
+      "method": "gated",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "6b58baaefd943c63",
+      "query": "aa7435eaca8c333503db",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c9a6584edffd2fd5",
+      "query": "0575091f25706ba9c430",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c9a6584edffd2fd5",
+      "query": "337375119e3139871500",
+      "method": "gated_components",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05a296cbb1a37a3c",
+      "query": "2de4495d017f29002677",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "bd7648550a163c6a",
+      "query": "49cd99551e874df0e75c",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f8bd4b80a70ef951",
+      "query": "a9fce91e212d60d6ef6c",
+      "method": "gated_components",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "59a6612af1fb2ff9",
+      "query": "ad1327a33c2f59145fc5",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "59a6612af1fb2ff9",
+      "query": "45a8dd4de9d005df0770",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "59a6612af1fb2ff9",
+      "query": "f975a613ecdb8c75cab4",
+      "method": "gated_components",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7a77469a422d936e",
+      "query": "9a13dcf38bf9e04e0610",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7a77469a422d936e",
+      "query": "2705d15fb84069b593b3",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "928a39bdd154bdb7",
+      "query": "08318ca1e0025194dbd5",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "928a39bdd154bdb7",
+      "query": "216e0d9cd954f1b9abba",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "928a39bdd154bdb7",
+      "query": "a2f2ee85627b9ede9ea2",
+      "method": "gated_components",
+      "ba": 0.125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0f81920b378a73e1",
+      "query": "74c9ccdc0bb5f62e977c",
+      "method": "gated_components",
+      "ba": 0.8125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0f81920b378a73e1",
+      "query": "700eb2472ea8f9546844",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "ab253b85c1714bca",
+      "query": "baf7322433c3e751eb0d",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "70ccd71c736ea21c",
+      "query": "d86c23b502172519648f",
+      "method": "gated_components",
+      "ba": 0.5625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "e6d9168ebf51dba7",
+      "query": "4a85c6afe00730469783",
+      "method": "gated_components",
+      "ba": 0.125
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "e6d9168ebf51dba7",
+      "query": "9edb0a542d4e6da837a6",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "d50fc617e215836b",
+      "query": "84a8f3360248236fa439",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "d50fc617e215836b",
+      "query": "9349a08bc6f63e3cc59a",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "d50fc617e215836b",
+      "query": "9c7fe551ee1963e5b6db",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "0b5a396a1ba9a180",
+      "query": "5fe98c811590ac96024b",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "0b5a396a1ba9a180",
+      "query": "162cbcf1669ce690d8d3",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "0b5a396a1ba9a180",
+      "query": "fb1b415bf3d352853058",
+      "method": "gated_components",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "0b5a396a1ba9a180",
+      "query": "7214db72caf86a5c6491",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "900450aba7b82331",
+      "query": "4814cfe7c965be1321a3",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a598c7e076188423",
+      "query": "7ed43ee974373a102c9d",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a598c7e076188423",
+      "query": "953433fa1c18c6cf808f",
+      "method": "gated_components",
+      "ba": 0.1875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a598c7e076188423",
+      "query": "6e23e4a69b7c02510c07",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "3259ebe310ae9154",
+      "query": "effadf288d6390031b93",
+      "method": "gated_components",
+      "ba": 0.625
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3259ebe310ae9154",
+      "query": "413ee3719c88146cc2a5",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "386f62c0c65daab5",
+      "query": "90eb96a14d53723bc2b4",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "386f62c0c65daab5",
+      "query": "a209ac2839f1e0f24761",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "95650b7e779f6f25",
+      "query": "d630c939b6f9deb19d86",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "95650b7e779f6f25",
+      "query": "649fd259a3b10066dff7",
+      "method": "gated_components",
+      "ba": 0.9375
+    },
+    {
+      "fold": 2,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "95650b7e779f6f25",
+      "query": "6a909a2e493416d6a85b",
+      "method": "gated_components",
+      "ba": 0.6875
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "a803859d7c432c1be9f2",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "191a1406e91b0dff88f8",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a8bc9ad9a3ee0c2e",
+      "query": "0ba8f12914d5bab0b5f8",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b1cdca3854efd62d",
+      "query": "97fa510f5616dbeee8ee",
+      "method": "evidence",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "b1cdca3854efd62d",
+      "query": "34bfbf9fe1f5036d07e9",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "442dba7a4cbd0e95",
+      "query": "ed06ff0c42fd84147556",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "1031c658996d0c22804b",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "9994098c7929594b8e49",
+      "method": "evidence",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "a2745ec95363d4a121da",
+      "method": "evidence",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98f35e8b3593686e",
+      "query": "602b9a31bd7a06074890",
+      "method": "evidence",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "4cac2691e2febf313575",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "20436f21ef5e36a4b9e5",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "82e863490fdf8776",
+      "query": "80c69f6e00f571ab22af",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "82e863490fdf8776",
+      "query": "92489655652f216cbbf4",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05e23437bc1d9cf2",
+      "query": "3af0fd665eae4b16d15f",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "05e23437bc1d9cf2",
+      "query": "cb5edd5d128cf20d5abf",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "05e23437bc1d9cf2",
+      "query": "827abbb769db68c45a42",
+      "method": "evidence",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "4e7f28a4e798720d",
+      "query": "d8165d74de69283b51d8",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "4e7f28a4e798720d",
+      "query": "7ef832fe1eee7c278f23",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8fd26d53b1d64ea4",
+      "query": "c9a8a1f64e0e5cf4eacb",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "417c9c3a9de376ce",
+      "query": "ee5e8c3f92d7014c58e5",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "417c9c3a9de376ce",
+      "query": "73b2b0e75764b13840c3",
+      "method": "evidence",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "ebc2aa7e5b71775b",
+      "query": "0ee13aa1ddcb8bff6589",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b8298ef460c22733",
+      "query": "75b75c0be893e6c8440b",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f2930e8ee1da329f",
+      "query": "36a68f8b6d672fd4fc2b",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f2930e8ee1da329f",
+      "query": "f19be0bb4cfd5942447d",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "33908d4620b500b3c767",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "bc369eefdc1159a9476c",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "dac6bf897b43231914cc",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2afbeb4f5a0ae1c",
+      "query": "996ab967aca0ec054083",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f349e20a010a2005",
+      "query": "a95024d26e53b3358271",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "9e05cdbc13a1d328",
+      "query": "04703ce3e01cd897f21c",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "a803859d7c432c1be9f2",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "191a1406e91b0dff88f8",
+      "method": "additive",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a8bc9ad9a3ee0c2e",
+      "query": "0ba8f12914d5bab0b5f8",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b1cdca3854efd62d",
+      "query": "97fa510f5616dbeee8ee",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "b1cdca3854efd62d",
+      "query": "34bfbf9fe1f5036d07e9",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "442dba7a4cbd0e95",
+      "query": "ed06ff0c42fd84147556",
+      "method": "additive",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "1031c658996d0c22804b",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "9994098c7929594b8e49",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "a2745ec95363d4a121da",
+      "method": "additive",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98f35e8b3593686e",
+      "query": "602b9a31bd7a06074890",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "4cac2691e2febf313575",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "20436f21ef5e36a4b9e5",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "82e863490fdf8776",
+      "query": "80c69f6e00f571ab22af",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "82e863490fdf8776",
+      "query": "92489655652f216cbbf4",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05e23437bc1d9cf2",
+      "query": "3af0fd665eae4b16d15f",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "05e23437bc1d9cf2",
+      "query": "cb5edd5d128cf20d5abf",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "05e23437bc1d9cf2",
+      "query": "827abbb769db68c45a42",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "4e7f28a4e798720d",
+      "query": "d8165d74de69283b51d8",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "4e7f28a4e798720d",
+      "query": "7ef832fe1eee7c278f23",
+      "method": "additive",
+      "ba": 1.0
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8fd26d53b1d64ea4",
+      "query": "c9a8a1f64e0e5cf4eacb",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "417c9c3a9de376ce",
+      "query": "ee5e8c3f92d7014c58e5",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "417c9c3a9de376ce",
+      "query": "73b2b0e75764b13840c3",
+      "method": "additive",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "ebc2aa7e5b71775b",
+      "query": "0ee13aa1ddcb8bff6589",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b8298ef460c22733",
+      "query": "75b75c0be893e6c8440b",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f2930e8ee1da329f",
+      "query": "36a68f8b6d672fd4fc2b",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f2930e8ee1da329f",
+      "query": "f19be0bb4cfd5942447d",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "33908d4620b500b3c767",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "bc369eefdc1159a9476c",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "dac6bf897b43231914cc",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2afbeb4f5a0ae1c",
+      "query": "996ab967aca0ec054083",
+      "method": "additive",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f349e20a010a2005",
+      "query": "a95024d26e53b3358271",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "9e05cdbc13a1d328",
+      "query": "04703ce3e01cd897f21c",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "a803859d7c432c1be9f2",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "191a1406e91b0dff88f8",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a8bc9ad9a3ee0c2e",
+      "query": "0ba8f12914d5bab0b5f8",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b1cdca3854efd62d",
+      "query": "97fa510f5616dbeee8ee",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "b1cdca3854efd62d",
+      "query": "34bfbf9fe1f5036d07e9",
+      "method": "gated",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "442dba7a4cbd0e95",
+      "query": "ed06ff0c42fd84147556",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "1031c658996d0c22804b",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "9994098c7929594b8e49",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "a2745ec95363d4a121da",
+      "method": "gated",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98f35e8b3593686e",
+      "query": "602b9a31bd7a06074890",
+      "method": "gated",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "4cac2691e2febf313575",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "20436f21ef5e36a4b9e5",
+      "method": "gated",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "82e863490fdf8776",
+      "query": "80c69f6e00f571ab22af",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "82e863490fdf8776",
+      "query": "92489655652f216cbbf4",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05e23437bc1d9cf2",
+      "query": "3af0fd665eae4b16d15f",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "05e23437bc1d9cf2",
+      "query": "cb5edd5d128cf20d5abf",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "05e23437bc1d9cf2",
+      "query": "827abbb769db68c45a42",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "4e7f28a4e798720d",
+      "query": "d8165d74de69283b51d8",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "4e7f28a4e798720d",
+      "query": "7ef832fe1eee7c278f23",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8fd26d53b1d64ea4",
+      "query": "c9a8a1f64e0e5cf4eacb",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "417c9c3a9de376ce",
+      "query": "ee5e8c3f92d7014c58e5",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "417c9c3a9de376ce",
+      "query": "73b2b0e75764b13840c3",
+      "method": "gated",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "ebc2aa7e5b71775b",
+      "query": "0ee13aa1ddcb8bff6589",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b8298ef460c22733",
+      "query": "75b75c0be893e6c8440b",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f2930e8ee1da329f",
+      "query": "36a68f8b6d672fd4fc2b",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f2930e8ee1da329f",
+      "query": "f19be0bb4cfd5942447d",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "33908d4620b500b3c767",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "bc369eefdc1159a9476c",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "dac6bf897b43231914cc",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2afbeb4f5a0ae1c",
+      "query": "996ab967aca0ec054083",
+      "method": "gated",
+      "ba": 0.5833333333333333
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f349e20a010a2005",
+      "query": "a95024d26e53b3358271",
+      "method": "gated",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "9e05cdbc13a1d328",
+      "query": "04703ce3e01cd897f21c",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "a803859d7c432c1be9f2",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "5fa2ad5a45133e9e",
+      "query": "191a1406e91b0dff88f8",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "a8bc9ad9a3ee0c2e",
+      "query": "0ba8f12914d5bab0b5f8",
+      "method": "gated_components",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "b1cdca3854efd62d",
+      "query": "97fa510f5616dbeee8ee",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "b1cdca3854efd62d",
+      "query": "34bfbf9fe1f5036d07e9",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "442dba7a4cbd0e95",
+      "query": "ed06ff0c42fd84147556",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "1031c658996d0c22804b",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "9994098c7929594b8e49",
+      "method": "gated_components",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "f7a7afc6f2415d4f",
+      "query": "a2745ec95363d4a121da",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98f35e8b3593686e",
+      "query": "602b9a31bd7a06074890",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "4cac2691e2febf313575",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "0c95ecd1e0aefffb",
+      "query": "20436f21ef5e36a4b9e5",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "82e863490fdf8776",
+      "query": "80c69f6e00f571ab22af",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "82e863490fdf8776",
+      "query": "92489655652f216cbbf4",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "05e23437bc1d9cf2",
+      "query": "3af0fd665eae4b16d15f",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "05e23437bc1d9cf2",
+      "query": "cb5edd5d128cf20d5abf",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "05e23437bc1d9cf2",
+      "query": "827abbb769db68c45a42",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "4e7f28a4e798720d",
+      "query": "d8165d74de69283b51d8",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "4e7f28a4e798720d",
+      "query": "7ef832fe1eee7c278f23",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "8fd26d53b1d64ea4",
+      "query": "c9a8a1f64e0e5cf4eacb",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "417c9c3a9de376ce",
+      "query": "ee5e8c3f92d7014c58e5",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "417c9c3a9de376ce",
+      "query": "73b2b0e75764b13840c3",
+      "method": "gated_components",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "ebc2aa7e5b71775b",
+      "query": "0ee13aa1ddcb8bff6589",
+      "method": "gated_components",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "b8298ef460c22733",
+      "query": "75b75c0be893e6c8440b",
+      "method": "gated_components",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f2930e8ee1da329f",
+      "query": "36a68f8b6d672fd4fc2b",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f2930e8ee1da329f",
+      "query": "f19be0bb4cfd5942447d",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "33908d4620b500b3c767",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "bc369eefdc1159a9476c",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "4f50d9ac0f2f1c6b",
+      "query": "dac6bf897b43231914cc",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2afbeb4f5a0ae1c",
+      "query": "996ab967aca0ec054083",
+      "method": "gated_components",
+      "ba": 0.5
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f349e20a010a2005",
+      "query": "a95024d26e53b3358271",
+      "method": "gated_components",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 3,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "9e05cdbc13a1d328",
+      "query": "04703ce3e01cd897f21c",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c5fc673fb33e5a89",
+      "query": "8a6d51422a801e14c043",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03c06bc67c6a448f",
+      "query": "4f9656336bb4b55156ad",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "265ae069316b0f39",
+      "query": "e2ff5d0f7404f974ca4a",
+      "method": "evidence",
+      "ba": 0.41666666666666663
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "265ae069316b0f39",
+      "query": "35e888ff95da84f989cd",
+      "method": "evidence",
+      "ba": 0.8333333333333334
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "265ae069316b0f39",
+      "query": "3995ea96ee4fefe7f1f2",
+      "method": "evidence",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7eca97943296d9cf",
+      "query": "f61062827eef15a62318",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7eca97943296d9cf",
+      "query": "9419e69112cd75010f6f",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "7eca97943296d9cf",
+      "query": "b05ba82cefae3a8a55dd",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "505b390a456f3140",
+      "query": "96cebba329cd5eea4468",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "505b390a456f3140",
+      "query": "178256403135bfd18dca",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "346c3721d0236c04",
+      "query": "3d0664441ed13c7c08cd",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "42b305b27c5624ba",
+      "query": "1c707f75753ce2c189d1",
+      "method": "evidence",
+      "ba": 0.0714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "c3ff9059fd6792775b84",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "a6abf058afc5b5cff10d",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "ddf25dfda5acc3c89ae5",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5ef8c39c061c5447",
+      "query": "30c4af247987ac773335",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "40b3c59a6958fff2",
+      "query": "ac43479d374ecc1acdb0",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "40b3c59a6958fff2",
+      "query": "9f33d13225018e621353",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "40b3c59a6958fff2",
+      "query": "cb91aff403ef08460eca",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c0c4d1413592ec68",
+      "query": "29d35778487e3cbbc4fb",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c0c4d1413592ec68",
+      "query": "6e41632e249c31fdf88c",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "c0c4d1413592ec68",
+      "query": "75c03b1d2543160ebb88",
+      "method": "evidence",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "10dab2665e077eed",
+      "query": "a2e7bca5d7ff9ca10fe6",
+      "method": "evidence",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "10dab2665e077eed",
+      "query": "f39d8fd71f9e69877549",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98513e7dca7b7def",
+      "query": "b3e61e17e437abfbb52b",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "98513e7dca7b7def",
+      "query": "2ec689a3af78831cf1bd",
+      "method": "evidence",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f90b401ad49fa958",
+      "query": "76dcc653e28b57f900ed",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f90b401ad49fa958",
+      "query": "76f7414e2cf5644aa210",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "82e0473df8916d6f",
+      "query": "a6cb1606fef699826d4d",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "82e0473df8916d6f",
+      "query": "4df94ea49de90becda7c",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "634962b60fe41aba",
+      "query": "12fbeaba7d6214b184af",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "634962b60fe41aba",
+      "query": "673a2bb570b7de9c4116",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "634962b60fe41aba",
+      "query": "3ff52442d067be70d4bd",
+      "method": "evidence",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "634962b60fe41aba",
+      "query": "018add959091ed46d869",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3e0de6f11ae72355",
+      "query": "ed2f69f7c427408aafda",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "cdcd7d881bbb7278",
+      "query": "39690ab4f1289644cd32",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "803595882a7c7fa86c67",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "550548c079c338612946",
+      "method": "evidence",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "4eafb98b57a2142a9870",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "97dc9623cb1d2223c7bb",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c5fc673fb33e5a89",
+      "query": "8a6d51422a801e14c043",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03c06bc67c6a448f",
+      "query": "4f9656336bb4b55156ad",
+      "method": "additive",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "265ae069316b0f39",
+      "query": "e2ff5d0f7404f974ca4a",
+      "method": "additive",
+      "ba": 0.41666666666666663
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "265ae069316b0f39",
+      "query": "35e888ff95da84f989cd",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "265ae069316b0f39",
+      "query": "3995ea96ee4fefe7f1f2",
+      "method": "additive",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7eca97943296d9cf",
+      "query": "f61062827eef15a62318",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7eca97943296d9cf",
+      "query": "9419e69112cd75010f6f",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "7eca97943296d9cf",
+      "query": "b05ba82cefae3a8a55dd",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "505b390a456f3140",
+      "query": "96cebba329cd5eea4468",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "505b390a456f3140",
+      "query": "178256403135bfd18dca",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "346c3721d0236c04",
+      "query": "3d0664441ed13c7c08cd",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "42b305b27c5624ba",
+      "query": "1c707f75753ce2c189d1",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "c3ff9059fd6792775b84",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "a6abf058afc5b5cff10d",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "ddf25dfda5acc3c89ae5",
+      "method": "additive",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5ef8c39c061c5447",
+      "query": "30c4af247987ac773335",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "40b3c59a6958fff2",
+      "query": "ac43479d374ecc1acdb0",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "40b3c59a6958fff2",
+      "query": "9f33d13225018e621353",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "40b3c59a6958fff2",
+      "query": "cb91aff403ef08460eca",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c0c4d1413592ec68",
+      "query": "29d35778487e3cbbc4fb",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c0c4d1413592ec68",
+      "query": "6e41632e249c31fdf88c",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "c0c4d1413592ec68",
+      "query": "75c03b1d2543160ebb88",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "10dab2665e077eed",
+      "query": "a2e7bca5d7ff9ca10fe6",
+      "method": "additive",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "10dab2665e077eed",
+      "query": "f39d8fd71f9e69877549",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98513e7dca7b7def",
+      "query": "b3e61e17e437abfbb52b",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "98513e7dca7b7def",
+      "query": "2ec689a3af78831cf1bd",
+      "method": "additive",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f90b401ad49fa958",
+      "query": "76dcc653e28b57f900ed",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f90b401ad49fa958",
+      "query": "76f7414e2cf5644aa210",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "82e0473df8916d6f",
+      "query": "a6cb1606fef699826d4d",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "82e0473df8916d6f",
+      "query": "4df94ea49de90becda7c",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "634962b60fe41aba",
+      "query": "12fbeaba7d6214b184af",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "634962b60fe41aba",
+      "query": "673a2bb570b7de9c4116",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "634962b60fe41aba",
+      "query": "3ff52442d067be70d4bd",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "634962b60fe41aba",
+      "query": "018add959091ed46d869",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3e0de6f11ae72355",
+      "query": "ed2f69f7c427408aafda",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "cdcd7d881bbb7278",
+      "query": "39690ab4f1289644cd32",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "803595882a7c7fa86c67",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "550548c079c338612946",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "4eafb98b57a2142a9870",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "97dc9623cb1d2223c7bb",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c5fc673fb33e5a89",
+      "query": "8a6d51422a801e14c043",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03c06bc67c6a448f",
+      "query": "4f9656336bb4b55156ad",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "265ae069316b0f39",
+      "query": "e2ff5d0f7404f974ca4a",
+      "method": "gated",
+      "ba": 0.41666666666666663
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "265ae069316b0f39",
+      "query": "35e888ff95da84f989cd",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "265ae069316b0f39",
+      "query": "3995ea96ee4fefe7f1f2",
+      "method": "gated",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7eca97943296d9cf",
+      "query": "f61062827eef15a62318",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7eca97943296d9cf",
+      "query": "9419e69112cd75010f6f",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "7eca97943296d9cf",
+      "query": "b05ba82cefae3a8a55dd",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "505b390a456f3140",
+      "query": "96cebba329cd5eea4468",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "505b390a456f3140",
+      "query": "178256403135bfd18dca",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "346c3721d0236c04",
+      "query": "3d0664441ed13c7c08cd",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "42b305b27c5624ba",
+      "query": "1c707f75753ce2c189d1",
+      "method": "gated",
+      "ba": 0.0714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "c3ff9059fd6792775b84",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "a6abf058afc5b5cff10d",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "ddf25dfda5acc3c89ae5",
+      "method": "gated",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5ef8c39c061c5447",
+      "query": "30c4af247987ac773335",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "40b3c59a6958fff2",
+      "query": "ac43479d374ecc1acdb0",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "40b3c59a6958fff2",
+      "query": "9f33d13225018e621353",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "40b3c59a6958fff2",
+      "query": "cb91aff403ef08460eca",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c0c4d1413592ec68",
+      "query": "29d35778487e3cbbc4fb",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c0c4d1413592ec68",
+      "query": "6e41632e249c31fdf88c",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "c0c4d1413592ec68",
+      "query": "75c03b1d2543160ebb88",
+      "method": "gated",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "10dab2665e077eed",
+      "query": "a2e7bca5d7ff9ca10fe6",
+      "method": "gated",
+      "ba": 0.0714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "10dab2665e077eed",
+      "query": "f39d8fd71f9e69877549",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98513e7dca7b7def",
+      "query": "b3e61e17e437abfbb52b",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "98513e7dca7b7def",
+      "query": "2ec689a3af78831cf1bd",
+      "method": "gated",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f90b401ad49fa958",
+      "query": "76dcc653e28b57f900ed",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f90b401ad49fa958",
+      "query": "76f7414e2cf5644aa210",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "82e0473df8916d6f",
+      "query": "a6cb1606fef699826d4d",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "82e0473df8916d6f",
+      "query": "4df94ea49de90becda7c",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "634962b60fe41aba",
+      "query": "12fbeaba7d6214b184af",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "634962b60fe41aba",
+      "query": "673a2bb570b7de9c4116",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "634962b60fe41aba",
+      "query": "3ff52442d067be70d4bd",
+      "method": "gated",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "634962b60fe41aba",
+      "query": "018add959091ed46d869",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3e0de6f11ae72355",
+      "query": "ed2f69f7c427408aafda",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "cdcd7d881bbb7278",
+      "query": "39690ab4f1289644cd32",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "803595882a7c7fa86c67",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "550548c079c338612946",
+      "method": "gated",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "4eafb98b57a2142a9870",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "97dc9623cb1d2223c7bb",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c5fc673fb33e5a89",
+      "query": "8a6d51422a801e14c043",
+      "method": "gated_components",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "03c06bc67c6a448f",
+      "query": "4f9656336bb4b55156ad",
+      "method": "gated_components",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "265ae069316b0f39",
+      "query": "e2ff5d0f7404f974ca4a",
+      "method": "gated_components",
+      "ba": 0.41666666666666663
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "265ae069316b0f39",
+      "query": "35e888ff95da84f989cd",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "265ae069316b0f39",
+      "query": "3995ea96ee4fefe7f1f2",
+      "method": "gated_components",
+      "ba": 0.6666666666666667
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "7eca97943296d9cf",
+      "query": "f61062827eef15a62318",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "7eca97943296d9cf",
+      "query": "9419e69112cd75010f6f",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "7eca97943296d9cf",
+      "query": "b05ba82cefae3a8a55dd",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "505b390a456f3140",
+      "query": "96cebba329cd5eea4468",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "505b390a456f3140",
+      "query": "178256403135bfd18dca",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "346c3721d0236c04",
+      "query": "3d0664441ed13c7c08cd",
+      "method": "gated_components",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "42b305b27c5624ba",
+      "query": "1c707f75753ce2c189d1",
+      "method": "gated_components",
+      "ba": 0.1428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "c3ff9059fd6792775b84",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "a6abf058afc5b5cff10d",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "d3cc2c1c7f8ddc3e",
+      "query": "ddf25dfda5acc3c89ae5",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "5ef8c39c061c5447",
+      "query": "30c4af247987ac773335",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "40b3c59a6958fff2",
+      "query": "ac43479d374ecc1acdb0",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "40b3c59a6958fff2",
+      "query": "9f33d13225018e621353",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "40b3c59a6958fff2",
+      "query": "cb91aff403ef08460eca",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "c0c4d1413592ec68",
+      "query": "29d35778487e3cbbc4fb",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "c0c4d1413592ec68",
+      "query": "6e41632e249c31fdf88c",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "c0c4d1413592ec68",
+      "query": "75c03b1d2543160ebb88",
+      "method": "gated_components",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-43",
+      "participant": "10dab2665e077eed",
+      "query": "a2e7bca5d7ff9ca10fe6",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "10dab2665e077eed",
+      "query": "f39d8fd71f9e69877549",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-45",
+      "participant": "98513e7dca7b7def",
+      "query": "b3e61e17e437abfbb52b",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data1/level-46",
+      "participant": "98513e7dca7b7def",
+      "query": "2ec689a3af78831cf1bd",
+      "method": "gated_components",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "f90b401ad49fa958",
+      "query": "76dcc653e28b57f900ed",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "f90b401ad49fa958",
+      "query": "76f7414e2cf5644aa210",
+      "method": "gated_components",
+      "ba": 0.2142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "82e0473df8916d6f",
+      "query": "a6cb1606fef699826d4d",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "82e0473df8916d6f",
+      "query": "4df94ea49de90becda7c",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "634962b60fe41aba",
+      "query": "12fbeaba7d6214b184af",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "634962b60fe41aba",
+      "query": "673a2bb570b7de9c4116",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "634962b60fe41aba",
+      "query": "3ff52442d067be70d4bd",
+      "method": "gated_components",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "634962b60fe41aba",
+      "query": "018add959091ed46d869",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "3e0de6f11ae72355",
+      "query": "ed2f69f7c427408aafda",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "cdcd7d881bbb7278",
+      "query": "39690ab4f1289644cd32",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-34",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "803595882a7c7fa86c67",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-36",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "550548c079c338612946",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-37",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "4eafb98b57a2142a9870",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "kypo-locust/data2/level-38",
+      "participant": "a2bb66f6c9ad2c27",
+      "query": "97dc9623cb1d2223c7bb",
+      "method": "gated_components",
+      "ba": 0.1428571428571428
+    }
+  ]
+}

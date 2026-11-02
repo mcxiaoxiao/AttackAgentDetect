@@ -1,0 +1,32 @@
+{
+  "raw_request_rows": 258019,
+  "metadata_sessions": 450,
+  "sessions_with_requests": 450,
+  "eligible_sessions_minimum_4_requests": 450,
+  "request_count_quantiles": {
+    "0": 4,
+    "0.25": 22,
+    "0.5": 63,
+    "0.75": 110,
+    "1": 175506
+  },
+  "prefix_cap": 128,
+  "request_action_counts_in_prefix": {
+    "read": 19821,
+    "write": 9829
+  },
+  "unique_route_shapes_in_prefix": 2897,
+  "normalization": "method + query-stripped path; integer, UUID, long hex, and >40-character segments replaced with type markers",
+  "excluded_fields": [
+    "resp_status_code",
+    "attack_family",
+    "success",
+    "success_evidence",
+    "matched_rules",
+    "CAPEC",
+    "CWE",
+    "request body",
+    "headers",
+    "model, target, and requested-family identifiers"
+  ]
+}

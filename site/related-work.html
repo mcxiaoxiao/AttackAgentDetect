@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261101-dataset-checks-v1" rel="stylesheet"/>
+<link href="research.css?v=20261103-bst-research-v2" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -47,13 +47,30 @@
 <header class="docs-page-header research-page-header">
 <div class="docs-breadcrumb"><a data-en="Home" href="index.html">首页</a><span>/</span><a data-en="Research" href="research.html">研究</a><span>/</span><span aria-current="page" data-en="Related work">相关工作</span></div>
 <h1 data-en="Related work">相关工作</h1>
-<p data-en="Reading notes from the Zotero attack collection. Notes are kept in their original wording, with each paper's source link immediately following its note.">Zotero「attack」文献笔记。保留笔记原文，每篇笔记后紧跟对应来源链接。</p>
+<p data-en="Research on Agent behavior, trace association, and public datasets.">Agent 行为、轨迹关联与公开数据的研究与来源。</p>
 </header>
+
+<section class="section docs-content related-work-comparison" id="comparison-matrix">
+<div class="docs-prose">
+<h2 data-en="What adjacent studies identify, and what their setup requires">相邻研究的识别对象与实验条件</h2>
+<p data-en="These studies answer different questions and are not ranked by one accuracy number. Their candidate identities, task domains, observation fields, and ability to intervene determine what each result supports.">这些研究回答的问题不同，不用一个准确率数字排高低。候选身份集合、任务领域、观测字段和能否主动干预，共同决定结果可以支持什么结论。</p>
+<div class="related-work-table-scroll"><table class="related-work-table"><thead><tr><th>工作</th><th data-en="Question">研究目标</th><th data-en="Reported scope">已评估覆盖</th><th data-en="Evidence and intervention">证据与干预</th><th data-en="Boundary relevant here">与本研究的边界</th></tr></thead><tbody>
+<tr><th><a href="https://arxiv.org/abs/2605.01186">Trace</a></th><td data-en="Model-family recognition, followed by prompt extraction">模型家族识别及后续提示词提取</td><td>7 个模型家族、3 种框架</td><td data-en="Passive terminal commands, then active prompt injection">被动终端命令，后接主动提示注入</td><td data-en="Tested candidates and attack-sandbox setup; does not establish broad open-world identification">候选集合及沙箱范围固定，不能证明开放环境广覆盖</td></tr>
+<tr><th><a href="https://arxiv.org/abs/2606.16988">ProcGrep</a></th><td data-en="Programmatic recognition and retrieval of coding-agent workflows">编码 Agent 工作流识别与检索</td><td>10 个编码 Agent；留出轨迹识别准确率 85.7%</td><td data-en="Passive SWE-bench coding trajectories and procedural features">SWE-bench 编码轨迹与程序化行为特征</td><td data-en="Different task domain and no paired Human attack cohort">任务域不同，没有配对的 Human 攻击轨迹</td></tr>
+<tr><th><a href="https://arxiv.org/abs/2609.28559">LIDAR</a></th><td data-en="Underlying-model recognition">底层模型识别</td><td>36 个模型、7 个家族、2 种框架</td><td data-en="Active paired coding probes">主动成对编码探针</td><td data-en="Requires controlled interaction with the target system">需要对目标系统进行受控交互</td></tr>
+<tr><th><a href="https://arxiv.org/abs/2605.14786">Known By Their Actions</a></th><td data-en="Browser-agent model recognition">浏览器 Agent 模型识别</td><td>14 个模型、4 种网页环境</td><td data-en="Passive JavaScript-recorded UI actions and timing">被动采集 UI 动作与时间</td><td data-en="Browser event vocabulary; cross-site performance is weaker than in-domain">浏览器事件集；跨站迁移弱于域内评估</td></tr>
+<tr><th><a href="https://arxiv.org/abs/2605.07830">CyBiasBench</a></th><td data-en="Attack-family preference analysis">攻击家族偏好分析</td><td>630 场会话、5 个 Agent、3 个目标</td><td data-en="HTTP requests under assigned and free-choice task conditions">指定与自由选择任务条件下的 HTTP 请求</td><td data-en="Agent-only sessions; request semantics and task conditions are available">仅 Agent 会话；请求语义与任务条件可见</td></tr>
+<tr><th><a href="https://arxiv.org/html/2607.18826">Cross-Agent Campaign Attribution</a></th><td data-en="Cross-session campaign linking">跨会话 campaign 关联</td><td data-en="Synthetic persona/campaign data and framework examples">合成 persona／campaign 数据及框架样例</td><td data-en="Agent-visible structure, text, and timing">Agent 可见的结构、文本和时间</td><td data-en="Synthetic persona labels are not verified operators or real campaigns">合成 persona 标签不是经核验的操作者或真实 campaign</td></tr>
+<tr><th data-en="This study">本文</th><td data-en="Execution-mode assessment and task-level trace retrieval from common logs">用常见日志评估执行方式并检索任务级轨迹</td><td>40 道 CTH 双类任务；AIT、Honey、CyBiasBench 另作补充评估</td><td data-en="Offline log features; no active probe or named-system lookup">离线日志特征；无需主动探针或指定系统名单</td><td data-en="Current relation labels are task/condition proxies; label confounding limits mode recognition">当前关系标签是任务／条件代理；标签混杂限制执行方式识别</td></tr>
+</tbody></table></div>
+<p class="related-work-check" data-en="Positioning: the practical motivation is that post-incident analysis often starts with whatever logs are retained. A log-derived, interpretable fingerprint can be computed without knowing every model and Agent product or placing them in one controlled sandbox. This is an input-availability argument, not a claim that model-identification studies are impractical or less accurate.">本文定位：事后分析往往只能从已经留存的日志开始。可解释的日志指纹不需要预先知道所有模型与 Agent 产品，也不要求把它们放入同一沙箱。这是基于输入可得性的研究选择，并不表示模型识别研究不实用或准确率较低。</p>
+</div></section>
+
 <section class="section docs-content related-work-notes"><div class="docs-prose">
 <h2 id="data-checks" data-en="Public data availability checks">公开数据可用性核实</h2>
 <p class="related-work-check">核查日期：2026-11-01。本页保留Zotero原笔记，在每篇后追加核查结果；若原“未确认数据”已被后续验证更正，以追加说明为准。这是数据可用性核查，不是模型效果复现。</p>
 <div class="dataset-review-table" role="region" aria-label="公开数据可用性对照" tabindex="0"><table><caption>按实际文件、观测类型与实验用途选择数据</caption><thead><tr><th scope="col">数据</th><th scope="col">核查状态</th><th scope="col">Human对照</th><th scope="col">适合本研究的用途</th></tr></thead><tbody>
-<tr><th scope="row"><a href="#dataset-cth">Cyber Task Horizons</a></th><td>已接入615条：79 Human / 536 Agent</td><td>有</td><td>CTF代理关联与浓度预实验</td></tr>
+<tr><th scope="row"><a href="#dataset-cth">Cyber Task Horizons</a></th><td>已接入615条：79 Human / 536 Agent</td><td>有</td><td>CTF任务级关联代理与配比实验</td></tr>
 <tr><th scope="row"><a href="#dataset-nyu">NYU CTF提交库</a></th><td>已读会话样例</td><td>无</td><td>扩充同题Agent、模型与框架</td></tr>
 <tr><th scope="row"><a href="#dataset-honey">Honey for the Agent</a></th><td>已读归档目录与样例</td><td>无</td><td>模型/提示/环境影响</td></tr>
 <tr><th scope="row"><a href="#dataset-ait">AIT/AECID</a></th><td>已审计原始日志</td><td>有，排障</td><td>通用日志画像与混杂检查</td></tr>
@@ -109,11 +126,17 @@
 <h3 id="dataset-nyu">NYU CTF 官方提交轨迹库</h3>
 <p class="related-work-check"><strong>已读取实际会话样例，优先用于扩充CTF Agent侧。</strong>官方目录有15份提交summary.json；已读JSON包含模型配置、对话、题目、成功状态和时间字段。不同提交格式不统一，提交数不等于独立模型或会话数。可按相同题目和不同模型/框架比较指纹，或增加Agent重复记录；与CTH Human记录拼接前必须核对题目版本和采集差异。没有配套Human终端对照。 <span class="related-work-citations"><a href="https://github.com/NYU-LLM-CTF/leaderboard_submissions">数据仓库</a> · <a href="https://github.com/NYU-LLM-CTF/leaderboard_submissions/tree/main/transcripts">实际轨迹目录</a></span></p>
 <h3 id="dataset-honey">Honey for the Agent</h3>
-<p class="related-work-check"><strong>已核实公开归档目录并读取会话样例。</strong>Zenodo提供Logs_final.zip（157,739,317字节，CC BY 4.0）与inputs.json；作者说明约16,200个会话；本轮列出实际归档的16,199个JSON文件，并解析2份会话，确认初始化和逐轮交互结构。数据按模型、提示、环境与轮数上限组织，含命令、终端输出和响应耗时。适合检验模型/提示/环境如何影响Agent行为；没有Human组，环境或提示类别不等于真实活动身份。 <span class="related-work-citations"><a href="https://zenodo.org/records/20818246">数据与字段说明</a> · <a href="https://zenodo.org/records/20818246/files/Logs_final.zip?download=1">日志归档</a> · <a href="https://orbit.dtu.dk/en/publications/honey-for-the-agent-cyber-deception-and-behavioral-fingerprinting/">论文正式记录</a></span></p>
+<p class="related-work-check"><strong>已核实公开归档目录并读取会话样例。</strong>Zenodo提供Logs_final.zip与inputs.json，归档含16,199个JSON会话文件；本轮解析并评估13,080条至少含4条命令的会话，覆盖9个模型快照和49种提示／环境／轮数条件。数据含命令顺序与来源提供的执行耗时；没有Human组，条件标签不等于真实活动身份。原始会话不随本站分析结果再分发。 <span class="related-work-citations"><a href="https://zenodo.org/records/20818246">数据与字段说明</a> · <a href="https://zenodo.org/records/20818246/files/Logs_final.zip?download=1">日志归档</a> · <a href="https://orbit.dtu.dk/en/publications/honey-for-the-agent-cyber-deception-and-behavioral-fingerprinting/">论文正式记录</a></span></p>
 <h3 id="dataset-cth">Cyber Task Horizons：继续扩充现有安全任务轨迹</h3>
-<p class="related-work-check"><strong>同时提供Human与Agent记录，仍是现有CTF实验入口。</strong>上游说明有90份Human终端记录和Agent评估日志，不能把完成记录或时间估计都算作可用轨迹。本轮核验全部90份Human归档，87份有样本，79条保留公共命令视图；连同536条Agent记录共615条接入目录。当前CTF分域有40个双类任务组，其中17题至少包含2条Human和2条Agent，可用于受限浓度预实验。题目一致是任务代理标签；人的script终端录制与Agent工具调用采集不同，归一化不等于消除了观测差异。 <span class="related-work-citations"><a href="https://github.com/lyptus-research/cyber-task-horizons-data">公开数据</a> · <a href="https://github.com/lyptus-research/cyber-task-horizons-data/blob/main/data/human/eval_logs/README.md">Human采集说明</a></span></p>
+<p class="related-work-check"><strong>同时提供Human与Agent记录，是本轮CTF任务级配比实验的数据入口。</strong>上游说明有90份Human终端记录和Agent评估日志，不能把完成记录或时间估计都算作可用轨迹。本轮核验全部90份Human归档，87份有样本，79条保留公共命令视图；连同536条Agent记录共615条接入目录。当前CTF分域有40个双类任务组，其中17题至少包含2条Human和2条Agent，并进入本轮受限配比比较。题目一致是任务代理标签；人的script终端录制与Agent工具调用采集不同，归一化不等于消除了观测差异。 <span class="related-work-citations"><a href="https://github.com/lyptus-research/cyber-task-horizons-data">公开数据</a> · <a href="https://github.com/lyptus-research/cyber-task-horizons-data/blob/main/data/human/eval_logs/README.md">Human采集说明</a></span></p>
 <h3 id="dataset-ait">AIT/AECID：Human 与 AI 排障主机日志</h3>
 <p class="related-work-check"><strong>已下载并审计原始每次运行日志。</strong>data.zip中有109份独立路径的原始audit.log，来源标签为61份Human、48份Agent，并有聚合副本；只使用原始每次运行版本。适合验证日志解析、画像提取和采集干扰；任务是Nextcloud/WordPress排障，不是攻击。V2/V3重复需按同一基础模型分组，不能当成新模型。 <span class="related-work-citations"><a href="https://github.com/ait-aecid/llm-user-shell-sim">数据与代码</a> · <a href="https://github.com/ait-aecid/llm-user-shell-sim/blob/main/data.zip">原始日志归档</a></span></p>
+<h2 id="round-results" data-en="Evidence for our study">本研究的实验观察</h2>
+<p class="related-work-check"><span data-en="In the CTH source holdout, after purging known shared challenge names from training, evidence-conditioned fingerprints increase task-macro BA from 52.0% to 56.7%. Missed links decrease while false merges rise. The same method decreases BA on the Antieval source holdout; both results use same-task proxy labels and exploratory, unadjusted intervals.">在 CTH 来源留出中，训练侧排除已知重合题名后，条件化指纹将任务宏 BA 从 52.0% 提高至 56.7%，漏关联下降、误合并上升；同一方法在 Antieval 来源留出中 BA 下降。两者使用同题代理标签，区间均属探索性结果。</span> <a href="behavior-based-trace-association.html#association-ba-v3" data-en="View the multi-source comparison">查看多来源比较</a>。</p>
+<p class="related-work-check"><span data-en="AIT recognition experiments use observed audit timing and distinguish task-group from source-group holdouts. Task workflow and collection path remain mixed with the released execution-mode labels.">AIT 识别实验使用实际 audit 时间，并区分任务组与采集来源组留出；任务工作流和采集路径仍与执行方式标签混杂。</span> <a href="local-mode-detector.html#results" data-en="View recognition results">查看识别结果</a>。</p>
+<p class="related-work-check"><strong>研究选择：</strong>Trace、ProcGrep、LIDAR 和 Known By Their Actions 证明具体模型或 Agent 候选集内可以从行为中识别系统特征；Cross-Agent 已研究 Agent 会话关联。本文不否认这些方向，而是聚焦日志可得性：调查者通常不一定知道具体执行栈，也未必能够主动探测或接入统一沙箱。我们测试同一组可解释日志特征能否支持执行方式分析，并作为命令／请求证据的关联补充。当前数据的“同题”“同提示条件”“同目标”仍是检索代理，不能验证真实攻击活动、campaign 或操作者关系。</p>
+<p class="related-work-check"><strong>跨来源采样的意义与限制：</strong>CTH、AIT、Honey 和 CyBiasBench 提供不同任务和观测格式。多来源采样用于检验表示对异构输入的适配并扩大覆盖，不自动构成泛化贡献；所有来源各自评估，来源留出、字段可见性和标签定义均在方法页逐项列出。本文的现有结论限定于这些已公开任务／条件代理。</p>
+<p class="related-work-check"><a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight.tex">查看本轮 TeX 源码</a> · <a href="assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip">下载完整源码与图件</a> · <a href="dataset.html#analysis">数据集</a> · <a href="behavior-based-trace-association.html#association-ba-v3">关联结果</a>。</p>
 </div></section>
 <footer>
 <div aria-label="AttackAgent Detect" class="footer-signature"><strong class="signature-art">AttackAgent<br/>Detect</strong></div>

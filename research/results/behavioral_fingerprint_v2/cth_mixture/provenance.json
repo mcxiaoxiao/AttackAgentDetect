@@ -1,0 +1,21 @@
+{
+  "protocol": "cth-short-trace-mixture-v2",
+  "seed": 20261103,
+  "replicates": 100,
+  "fraction_levels": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "minimum_events": 2,
+  "window_size": 8,
+  "association_models": {
+    "pair_lr": "C=1, class_weight=balanced, liblinear",
+    "all_method_thresholds": "three-fold task-held-out out-of-fold scores; maximize train-side recall subject to FMR<=10%"
+  },
+  "feature_scaling": "median imputation and StandardScaler fit within outer training traces only",
+  "confidence_intervals": "5,000 bootstrap draws over 17 task clusters; candidate draws are not independent units",
+  "scope": "task-level retrieval proxy; not operator, attack, activity, or campaign attribution"
+}

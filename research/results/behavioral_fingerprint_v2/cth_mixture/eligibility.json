@@ -1,0 +1,72 @@
+{
+  "status": "exploratory_short_trace_v2_post_v1",
+  "source": "Cyber Task Horizons; CTF only",
+  "raw_cth_ctf_trace_count": 475,
+  "raw_cth_ctf_task_count": 158,
+  "raw_cth_ctf_mode_counts": {
+    "human": 60,
+    "agent": 415
+  },
+  "mixed_mode_task_count": 40,
+  "mixed_mode_raw_trace_count": 177,
+  "mixed_mode_raw_counts": {
+    "human": 57,
+    "agent": 120
+  },
+  "mixed_mode_profile_eligible_counts": {
+    "human": 57,
+    "agent": 118
+  },
+  "mixed_mode_tasks_with_at_least_two_profile_eligible_each": 17,
+  "fingerprint_eligible_minimum_two_commands": 467,
+  "minimum_commands": 2,
+  "window_size": 8,
+  "core_task_count": 17,
+  "core_trace_count": 85,
+  "core_eligible_trace_count": 84,
+  "core_mode_counts": {
+    "human": 34,
+    "agent": 51
+  },
+  "core_profile_mode_counts": {
+    "human": 34,
+    "agent": 50
+  },
+  "all_core_groups_keep_two_profiles_each_mode": true,
+  "outer_folds_reused_from_v1": {
+    "0": [
+      "cyber-task-horizons/cybench/lootstash",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+    ],
+    "1": [
+      "cyber-task-horizons/cybench/back_to_the_past",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "cyber-task-horizons/nyuctf/2016q-rev-rock"
+    ],
+    "2": [
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+    ]
+  },
+  "test_protocol": "4 query tasks per fold; one same-task gallery and three other-task galleries; 8 unique query/gallery role slots per fold; exact 0/25/50/75/100 Agent shares; four candidates per query; chance Hit@1=25%",
+  "training_groups": "all other eligible CTH CTF task groups; relation labels are same source-qualified task group",
+  "inputs_excluded": [
+    "mode label",
+    "task ID",
+    "dataset/model/framework IDs",
+    "participant IDs",
+    "source path",
+    "attack outcome"
+  ],
+  "timing": "not available in normalized CTH records; no timing block used"
+}

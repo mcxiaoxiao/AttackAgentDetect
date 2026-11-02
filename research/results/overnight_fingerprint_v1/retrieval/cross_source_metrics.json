@@ -1,0 +1,124 @@
+[
+  {
+    "train_source": "cyber-task-horizons",
+    "test_source": "antieval/cybench-trajectories",
+    "fold": {
+      "available": true,
+      "train_source": "cyber-task-horizons",
+      "test_source": "antieval/cybench-trajectories",
+      "train_tasks": 48,
+      "train_sessions": 121,
+      "test_tasks": 12,
+      "test_sessions": 31,
+      "training_pairs": 196,
+      "training_matrix_pair_coverage": 1.0,
+      "test_queries": 31,
+      "task_relation": "same source-qualified challenge within the held-out target source"
+    },
+    "metrics": [
+      {
+        "train_source": "cyber-task-horizons",
+        "test_source": "antieval/cybench-trajectories",
+        "method": "command_cosine",
+        "task_macro_hit_at_1": 0.5138888888888888,
+        "task_cluster_bootstrap_95ci": [
+          0.3125,
+          0.7083333333333334
+        ],
+        "task_n": 12,
+        "query_n": 31,
+        "candidate_count": 3,
+        "chance": 0.3333333333333333,
+        "matrix_candidate_coverage_mean": 1.0
+      },
+      {
+        "train_source": "cyber-task-horizons",
+        "test_source": "antieval/cybench-trajectories",
+        "method": "command_plus_matrix",
+        "task_macro_hit_at_1": 0.5138888888888888,
+        "task_cluster_bootstrap_95ci": [
+          0.3055555555555555,
+          0.7083333333333334
+        ],
+        "task_n": 12,
+        "query_n": 31,
+        "candidate_count": 3,
+        "chance": 0.3333333333333333,
+        "matrix_candidate_coverage_mean": 1.0
+      },
+      {
+        "train_source": "cyber-task-horizons",
+        "test_source": "antieval/cybench-trajectories",
+        "method": "paired_delta_matrix_minus_command",
+        "task_macro_hit_at_1_delta": 0.0,
+        "task_cluster_bootstrap_95ci": [
+          0.0,
+          0.0
+        ],
+        "task_n": 12,
+        "same_queries_and_candidates": true
+      }
+    ]
+  },
+  {
+    "train_source": "antieval/cybench-trajectories",
+    "test_source": "cyber-task-horizons",
+    "fold": {
+      "available": true,
+      "train_source": "antieval/cybench-trajectories",
+      "test_source": "cyber-task-horizons",
+      "train_tasks": 12,
+      "train_sessions": 31,
+      "test_tasks": 48,
+      "test_sessions": 121,
+      "training_pairs": 58,
+      "training_matrix_pair_coverage": 1.0,
+      "test_queries": 121,
+      "task_relation": "same source-qualified challenge within the held-out target source"
+    },
+    "metrics": [
+      {
+        "train_source": "antieval/cybench-trajectories",
+        "test_source": "cyber-task-horizons",
+        "method": "command_cosine",
+        "task_macro_hit_at_1": 0.5277777777777778,
+        "task_cluster_bootstrap_95ci": [
+          0.4236111111111111,
+          0.6354166666666666
+        ],
+        "task_n": 48,
+        "query_n": 121,
+        "candidate_count": 5,
+        "chance": 0.2,
+        "matrix_candidate_coverage_mean": 1.0
+      },
+      {
+        "train_source": "antieval/cybench-trajectories",
+        "test_source": "cyber-task-horizons",
+        "method": "command_plus_matrix",
+        "task_macro_hit_at_1": 0.545138888888889,
+        "task_cluster_bootstrap_95ci": [
+          0.4479166666666667,
+          0.6388888888888888
+        ],
+        "task_n": 48,
+        "query_n": 121,
+        "candidate_count": 5,
+        "chance": 0.2,
+        "matrix_candidate_coverage_mean": 1.0
+      },
+      {
+        "train_source": "antieval/cybench-trajectories",
+        "test_source": "cyber-task-horizons",
+        "method": "paired_delta_matrix_minus_command",
+        "task_macro_hit_at_1_delta": 0.01736111111111111,
+        "task_cluster_bootstrap_95ci": [
+          -0.03819444444444444,
+          0.06944444444444445
+        ],
+        "task_n": 48,
+        "same_queries_and_candidates": true
+      }
+    ]
+  }
+]

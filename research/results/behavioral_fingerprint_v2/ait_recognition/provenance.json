@@ -1,0 +1,81 @@
+{
+  "protocol": "ait-execution-fingerprint-v2",
+  "seed": 20261103,
+  "min_events": 4,
+  "max_events": 128,
+  "feature_sets": {
+    "core8": 8,
+    "B": 24,
+    "B_plus_S": 48,
+    "B_plus_S_plus_T": 72,
+    "command_tfidf": "unigrams+bigrams",
+    "length": 1,
+    "extra_trees_B_plus_S_plus_T": "max_depth=4, min_samples_leaf=3, n_estimators=300"
+  },
+  "classifier": "task/source grouped fold; StandardScaler and median imputation fit on training only; balanced logistic regression C=1; fixed probability cutoff=0.5",
+  "input_exclusions": [
+    "task",
+    "app",
+    "source group",
+    "actor name",
+    "label",
+    "audit IDs",
+    "collection format"
+  ],
+  "cohorts": {
+    "raw_runs": 109,
+    "raw_human": 61,
+    "raw_agent": 48,
+    "extended_min4_eligible": 109,
+    "extended_mode_counts": {
+      "human": 61,
+      "agent": 48
+    },
+    "extended_tasks": 12,
+    "v1_frozen_89_ids_available": 89,
+    "v1_frozen_89_mode_counts": {
+      "human": 45,
+      "agent": 44
+    },
+    "v1_frozen_89_tasks": 12,
+    "time_fields": "auditd EXECVE launch timestamps; no execution durations were present; T block uses measured inter-launch intervals only",
+    "frozen_v1_89": {
+      "n": 89,
+      "task_count": 12,
+      "source_fold_map": {
+        "Alice": 0,
+        "Bob": 1,
+        "Charlie": 2,
+        "David": 0,
+        "Eve": 1,
+        "Frank": 2,
+        "GPT4.1": 0,
+        "GPT4o": 1,
+        "GPT5": 2
+      },
+      "valid_time_gaps": 4510,
+      "missing_time_events": 0
+    },
+    "extended_all_eligible_min4": {
+      "n": 109,
+      "task_count": 12,
+      "source_fold_map": {
+        "Alice": 0,
+        "Bob": 1,
+        "Charlie": 2,
+        "David": 0,
+        "Eve": 1,
+        "Frank": 2,
+        "GPT4.1": 0,
+        "GPT4o": 1,
+        "GPT5": 2
+      },
+      "valid_time_gaps": 4745,
+      "missing_time_events": 0
+    }
+  },
+  "pilot_archive_sha256": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914",
+  "pilot_parser_sha256": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+  "fingerprint_code_sha256": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+  "runner_sha256": "34f08483c278bd57f64b02dacd63ead4eb799e9ae6b78ee74614a9c9464ad502"
+}

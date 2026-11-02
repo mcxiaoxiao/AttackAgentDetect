@@ -1,0 +1,542 @@
+[
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.0,
+    "method": "command_cosine",
+    "actual_agent_fraction_mean": 0.0,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.6470588235294119,
+    "task_macro_fmr_mean": 0.27764705882352947,
+    "task_macro_ba_mean": 0.5376470588235294,
+    "task_macro_hit_at_1_mean": 0.4152647058823529,
+    "sampling_spread_fsr_95pct": [
+      0.6470588235294118,
+      0.6470588235294118
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.20588235294117646,
+      0.35294117647058826
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.4117647058823529,
+      0.8823529411764706
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.12484926470588237,
+      0.45090073529411756
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.24412475490196078,
+      0.5888595588235292
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 6800,
+        "fmr": 0.2776470588235294,
+        "positive_pairs": 1700,
+        "fsr": 0.6470588235294118
+      },
+      "HA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "AA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.0,
+    "method": "action_bigram_cosine",
+    "actual_agent_fraction_mean": 0.0,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.5294117647058824,
+    "task_macro_fmr_mean": 0.3238235294117648,
+    "task_macro_ba_mean": 0.5733823529411763,
+    "task_macro_hit_at_1_mean": 0.38867647058823535,
+    "sampling_spread_fsr_95pct": [
+      0.5294117647058824,
+      0.5294117647058824
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.29411764705882354,
+      0.36066176470588224
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.29411764705882354,
+      0.7647058823529411
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.13675,
+      0.5413308823529402
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.22909313725490196,
+      0.5628747549019607
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 6800,
+        "fmr": 0.32382352941176473,
+        "positive_pairs": 1700,
+        "fsr": 0.5294117647058824
+      },
+      "HA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "AA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.25,
+    "method": "command_cosine",
+    "actual_agent_fraction_mean": 0.23529411764705885,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.7699999999999999,
+    "task_macro_fmr_mean": 0.20205882352941176,
+    "task_macro_ba_mean": 0.5139705882352942,
+    "task_macro_hit_at_1_mean": 0.36470588235294116,
+    "sampling_spread_fsr_95pct": [
+      0.675,
+      0.8823529411764706
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.1323529411764706,
+      0.28713235294117634
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.6182058823529412,
+      0.9123676470588236
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.09117279411764707,
+      0.3310330882352941
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.24415245098039215,
+      0.4926504901960784
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 3876,
+        "fmr": 0.30856553147574817,
+        "positive_pairs": 961,
+        "fsr": 0.6295525494276795
+      },
+      "HA": {
+        "negative_pairs": 2661,
+        "fmr": 0.06012777151446824,
+        "positive_pairs": 678,
+        "fsr": 0.948377581120944
+      },
+      "AA": {
+        "negative_pairs": 263,
+        "fmr": 0.06844106463878327,
+        "positive_pairs": 61,
+        "fsr": 1.0
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.25,
+    "method": "action_bigram_cosine",
+    "actual_agent_fraction_mean": 0.23529411764705885,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.6970588235294117,
+    "task_macro_fmr_mean": 0.2245588235294117,
+    "task_macro_ba_mean": 0.5391911764705882,
+    "task_macro_hit_at_1_mean": 0.34304901960784306,
+    "sampling_spread_fsr_95pct": [
+      0.5882352941176471,
+      0.7647058823529411
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.17647058823529413,
+      0.27941176470588236
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.5511617647058823,
+      0.8453088235294117
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.09308455882352942,
+      0.38103308823529414
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.23612598039215685,
+      0.46182720588235276
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 3876,
+        "fmr": 0.3480392156862745,
+        "positive_pairs": 961,
+        "fsr": 0.5192507804370448
+      },
+      "HA": {
+        "negative_pairs": 2661,
+        "fmr": 0.060879368658399095,
+        "positive_pairs": 678,
+        "fsr": 0.9218289085545722
+      },
+      "AA": {
+        "negative_pairs": 263,
+        "fmr": 0.060836501901140684,
+        "positive_pairs": 61,
+        "fsr": 1.0
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.5,
+    "method": "command_cosine",
+    "actual_agent_fraction_mean": 0.5,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.8811764705882353,
+    "task_macro_fmr_mean": 0.1175,
+    "task_macro_ba_mean": 0.5006617647058824,
+    "task_macro_hit_at_1_mean": 0.351078431372549,
+    "sampling_spread_fsr_95pct": [
+      0.7647058823529411,
+      1.0
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.04411764705882353,
+      0.1988970588235293
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.8052941176470589,
+      0.9488235294117646
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.05161397058823529,
+      0.19471691176470585
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.2450453431372549,
+      0.46261029411764704
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 1520,
+        "fmr": 0.2835526315789474,
+        "positive_pairs": 376,
+        "fsr": 0.6542553191489362
+      },
+      "HA": {
+        "negative_pairs": 3746,
+        "fmr": 0.05792845702082221,
+        "positive_pairs": 948,
+        "fsr": 0.9314345991561181
+      },
+      "AA": {
+        "negative_pairs": 1534,
+        "fmr": 0.0984354628422425,
+        "positive_pairs": 376,
+        "fsr": 0.9813829787234043
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.5,
+    "method": "action_bigram_cosine",
+    "actual_agent_fraction_mean": 0.5,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.8411764705882352,
+    "task_macro_fmr_mean": 0.12897058823529411,
+    "task_macro_ba_mean": 0.5149264705882353,
+    "task_macro_hit_at_1_mean": 0.3209705882352942,
+    "sampling_spread_fsr_95pct": [
+      0.7058823529411765,
+      0.9411764705882353
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.07352941176470588,
+      0.1841911764705881
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.761764705882353,
+      0.9170735294117647
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.056610294117647064,
+      0.2130955882352941
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.23323235294117647,
+      0.4242205882352941
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 1520,
+        "fmr": 0.3269736842105263,
+        "positive_pairs": 376,
+        "fsr": 0.5159574468085106
+      },
+      "HA": {
+        "negative_pairs": 3746,
+        "fmr": 0.061665776828617194,
+        "positive_pairs": 948,
+        "fsr": 0.9145569620253164
+      },
+      "AA": {
+        "negative_pairs": 1534,
+        "fmr": 0.09713168187744459,
+        "positive_pairs": 376,
+        "fsr": 0.9813829787234043
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.75,
+    "method": "command_cosine",
+    "actual_agent_fraction_mean": 0.7647058823529413,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.9641176470588235,
+    "task_macro_fmr_mean": 0.07823529411764706,
+    "task_macro_ba_mean": 0.4788235294117646,
+    "task_macro_hit_at_1_mean": 0.3494117647058825,
+    "sampling_spread_fsr_95pct": [
+      0.8823529411764706,
+      1.0
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.021691176470588235,
+      0.1323529411764706
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.9264558823529412,
+      0.9941176470588234
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.03176470588235294,
+      0.12970955882352936
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.243906862745098,
+      0.45923529411764696
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 249,
+        "fmr": 0.18473895582329317,
+        "positive_pairs": 47,
+        "fsr": 0.7872340425531915
+      },
+      "HA": {
+        "negative_pairs": 2707,
+        "fmr": 0.05060953084595493,
+        "positive_pairs": 706,
+        "fsr": 0.9617563739376771
+      },
+      "AA": {
+        "negative_pairs": 3844,
+        "fmr": 0.09079084287200832,
+        "positive_pairs": 947,
+        "fsr": 0.9746568109820486
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 0.75,
+    "method": "action_bigram_cosine",
+    "actual_agent_fraction_mean": 0.7647058823529413,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.9464705882352941,
+    "task_macro_fmr_mean": 0.08205882352941175,
+    "task_macro_ba_mean": 0.48573529411764704,
+    "task_macro_hit_at_1_mean": 0.28577450980392155,
+    "sampling_spread_fsr_95pct": [
+      0.8823529411764706,
+      1.0
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.029411764705882353,
+      0.1400735294117646
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.9094117647058824,
+      0.9794117647058823
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.03764705882352942,
+      0.13147058823529412
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.19392132352941177,
+      0.39248063725490195
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 249,
+        "fmr": 0.21285140562248997,
+        "positive_pairs": 47,
+        "fsr": 0.6808510638297872
+      },
+      "HA": {
+        "negative_pairs": 2707,
+        "fmr": 0.061691909863317324,
+        "positive_pairs": 706,
+        "fsr": 0.9263456090651558
+      },
+      "AA": {
+        "negative_pairs": 3844,
+        "fmr": 0.08792924037460978,
+        "positive_pairs": 947,
+        "fsr": 0.9746568109820486
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 1.0,
+    "method": "command_cosine",
+    "actual_agent_fraction_mean": 1.0,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.983529411764706,
+    "task_macro_fmr_mean": 0.09573529411764704,
+    "task_macro_ba_mean": 0.4603676470588235,
+    "task_macro_hit_at_1_mean": 0.39088235294117646,
+    "sampling_spread_fsr_95pct": [
+      0.9411764705882353,
+      1.0
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.029411764705882353,
+      0.14705882352941177
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.9505882352941176,
+      1.0
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.039246323529411764,
+      0.161345588235294
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.2467573529411765,
+      0.5405955882352941
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "HA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "AA": {
+        "negative_pairs": 6800,
+        "fmr": 0.09573529411764706,
+        "positive_pairs": 1700,
+        "fsr": 0.9835294117647059
+      }
+    }
+  },
+  {
+    "source": "cyber-task-horizons",
+    "nominal_agent_fraction": 1.0,
+    "method": "action_bigram_cosine",
+    "actual_agent_fraction_mean": 1.0,
+    "replicates": 100,
+    "task_macro_fsr_mean": 0.983529411764706,
+    "task_macro_fmr_mean": 0.09647058823529413,
+    "task_macro_ba_mean": 0.4599999999999999,
+    "task_macro_hit_at_1_mean": 0.26337254901960777,
+    "sampling_spread_fsr_95pct": [
+      0.9411764705882353,
+      1.0
+    ],
+    "sampling_spread_fmr_95pct": [
+      0.04411764705882353,
+      0.16176470588235295
+    ],
+    "task_macro_fsr_task_cluster_95ci": [
+      0.9505882352941176,
+      1.0
+    ],
+    "task_macro_fsr_tasks": 17,
+    "task_macro_fmr_task_cluster_95ci": [
+      0.04647058823529412,
+      0.1547095588235294
+    ],
+    "task_macro_fmr_tasks": 17,
+    "task_macro_hit_at_1_task_cluster_95ci": [
+      0.13229705882352938,
+      0.41215735294117656
+    ],
+    "task_macro_hit_at_1_tasks": 17,
+    "pair_type_errors": {
+      "HH": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "HA": {
+        "negative_pairs": 0,
+        "fmr": null,
+        "positive_pairs": 0,
+        "fsr": null
+      },
+      "AA": {
+        "negative_pairs": 6800,
+        "fmr": 0.09647058823529411,
+        "positive_pairs": 1700,
+        "fsr": 0.9835294117647059
+      }
+    }
+  }
+]

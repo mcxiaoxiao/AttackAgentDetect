@@ -1,0 +1,1 @@
+Current research source. Open human-agent-fingerprint-overnight.tex with the figures folder beside it. The document references 11 PDF vector figures. Methods, predictions, metrics and protocols are versioned under research/experiments/behavioral_fingerprint_v2 and research/results/behavioral_fingerprint_v2 in the repository.

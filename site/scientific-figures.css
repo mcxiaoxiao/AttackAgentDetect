@@ -1,0 +1,17 @@
+/* Hallmark · component: scientific figure viewport · genre: modern-minimal · theme: brand · states: inherited and explicit · contrast: shared tokens · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E5 S5 R5 V4 · weakest: mobile data density; keep plot labels at a readable scale inside local scrolling viewports */
+.scientific-figure-viewport { width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.scientific-figure-source { display: block; }
+.scientific-figure-source img { display: block; width: 100%; max-width: none; height: auto; }
+.scientific-figure-viewport:focus-visible,
+.scientific-figure-source:focus-visible,
+.scientific-figure-open:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.scientific-figure-open { display: inline-flex; min-height: 44px; align-items: center; margin-top: 4px; color: var(--blue-deep); font: 500 13px/1.5 var(--font-body); text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.scientific-figure-open:hover { text-decoration-thickness: 2px; }
+.scientific-figure-open:active { color: var(--ink); }
+@media (max-width: 640px) {
+  .scientific-figure-source { min-width: 960px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scientific-figure-viewport { scroll-behavior: auto; }
+}

@@ -1,0 +1,305 @@
+train_source,test_source,task,query_trace_id,method,hit_credit,matrix_query_candidate_coverage,candidate_count,chance
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,command_cosine,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,command_plus_matrix,0.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,command_cosine,1.0,1.0,3,0.3333333333333333
+cyber-task-horizons,antieval/cybench-trajectories,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,command_plus_matrix,1.0,1.0,3,0.3333333333333333
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,command_cosine,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,command_plus_matrix,0.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,command_plus_matrix,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,command_cosine,1.0,1.0,5,0.2
+antieval/cybench-trajectories,cyber-task-horizons,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,command_plus_matrix,1.0,1.0,5,0.2

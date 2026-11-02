@@ -1,0 +1,50 @@
+{
+  "fold0/command_cosine": {
+    "threshold": 0.5816824651614982,
+    "reason": null,
+    "positive_pairs": 110,
+    "negative_pairs": 750,
+    "training_recall_at_threshold": 0.15454545454545454,
+    "training_fmr_at_threshold": 0.09866666666666667
+  },
+  "fold0/action_bigram_cosine": {
+    "threshold": 0.7190881223070338,
+    "reason": null,
+    "positive_pairs": 110,
+    "negative_pairs": 750,
+    "training_recall_at_threshold": 0.19090909090909092,
+    "training_fmr_at_threshold": 0.096
+  },
+  "fold1/command_cosine": {
+    "threshold": 0.8588495667673416,
+    "reason": null,
+    "positive_pairs": 110,
+    "negative_pairs": 750,
+    "training_recall_at_threshold": 0.09090909090909091,
+    "training_fmr_at_threshold": 0.08533333333333333
+  },
+  "fold1/action_bigram_cosine": {
+    "threshold": null,
+    "reason": null,
+    "positive_pairs": 110,
+    "negative_pairs": 750,
+    "training_recall_at_threshold": 0.0,
+    "training_fmr_at_threshold": 0.0
+  },
+  "fold2/command_cosine": {
+    "threshold": 0.34609917605928686,
+    "reason": null,
+    "positive_pairs": 120,
+    "negative_pairs": 900,
+    "training_recall_at_threshold": 0.25,
+    "training_fmr_at_threshold": 0.1
+  },
+  "fold2/action_bigram_cosine": {
+    "threshold": 0.5428587383986749,
+    "reason": null,
+    "positive_pairs": 120,
+    "negative_pairs": 900,
+    "training_recall_at_threshold": 0.2,
+    "training_fmr_at_threshold": 0.09333333333333334
+  }
+}

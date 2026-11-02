@@ -1,16 +1,18 @@
 # Overnight fingerprint study v1
 
-Status: prepared, not launched. This is an eight-hour research and delivery runbook, not an already implemented full experiment runner.
+Status: **executed**. The frozen protocol in `protocol.json` was used for three completed tracks: AIT mode-label recognition, CTH CTF mixture retrieval, and source-local Agent-only retrieval (CTH and Antieval Cybench). A post-observation two-way source-transfer analysis is reported separately as exploratory.
 
-- [Complete overnight plan](program.md): stages, fixed comparisons, failure rules, new manuscript and page acceptance criteria.
-- [Frozen machine-readable protocol](protocol.json): input hashes, seeds, eligibility and compute limits.
-- [Actual eligibility audit](../../results/overnight_fingerprint_v1/preflight.json): primary AIT recognition and CTF baseline mixture gates pass; the Human/Agent matrix-mixture increment gate fails.
-- [Entry prompt for the execution turn](START.md).
+- [`program.md`](program.md): fixed design, gates, outputs, and interpretation boundaries.
+- [`protocol.json`](protocol.json): pre-run protocol and input hashes. Its `prepared_not_launched` status is the original preregistration snapshot; execution status is recorded separately below.
+- [`START.md`](START.md): reproduction commands and the final-run scope.
+- [`../../results/overnight_fingerprint_v1/README.md`](../../results/overnight_fingerprint_v1/README.md): eligibility, completed results, and interpretation.
+- [`../../paper/human-agent-fingerprint-overnight.tex`](../../paper/human-agent-fingerprint-overnight.tex): concise method/data/results manuscript source.
 
-Reproduce the eligibility audit from the repository root:
+Run from the repository root:
 
 ```sh
-.venv/bin/python research/experiments/overnight_fingerprint_v1/preflight.py
+.venv/bin/python research/experiments/overnight_fingerprint_v1/run.py all
+.venv/bin/python research/experiments/overnight_fingerprint_v1/build_figures.py
 ```
 
-This parses the pinned local AIT archive and verifies the normalized CTF catalog. It fits no model, overwrites no historical experiment output, and starts no background process. The first implementation stage must build and check `run.py` before any full batch is started. Do not confuse a passed eligibility check with a successful fingerprint method.
+`run.py all` verifies the frozen input hashes before writing outputs. Existing predictions and metrics are reproducible under the frozen seed; the run ledger preserves earlier implementation failures as well as completed attempts. Those bookkeeping failures are not model results. No Git action is part of this workflow.

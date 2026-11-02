@@ -1,0 +1,52 @@
+{
+  "login_exec": {
+    "available_human": 61,
+    "excluded_evidence_human": 11,
+    "admitted_human": 50,
+    "available_agent": 48,
+    "admitted_agent": 45,
+    "excluded_evidence_agent": 3,
+    "admitted_after_matrix_gate": 89,
+    "run_count": 109
+  },
+  "fixed_first32": {
+    "available_human": 61,
+    "excluded_evidence_human": 11,
+    "admitted_human": 50,
+    "available_agent": 48,
+    "admitted_agent": 45,
+    "excluded_evidence_agent": 3,
+    "admitted_after_matrix_gate": 47,
+    "run_count": 109
+  },
+  "without_wrappers": {
+    "available_human": 61,
+    "excluded_evidence_human": 11,
+    "admitted_human": 50,
+    "available_agent": 48,
+    "admitted_agent": 45,
+    "excluded_evidence_agent": 3,
+    "admitted_after_matrix_gate": 84,
+    "run_count": 109
+  },
+  "window_order_shuffle": {
+    "available_human": 61,
+    "excluded_evidence_human": 11,
+    "admitted_human": 50,
+    "available_agent": 48,
+    "admitted_agent": 45,
+    "excluded_evidence_agent": 3,
+    "admitted_after_matrix_gate": 89,
+    "run_count": 109
+  },
+  "command_order_shuffle": {
+    "available_human": 61,
+    "excluded_evidence_human": 11,
+    "admitted_human": 50,
+    "available_agent": 48,
+    "admitted_agent": 45,
+    "excluded_evidence_agent": 3,
+    "admitted_after_matrix_gate": 81,
+    "run_count": 109
+  }
+}

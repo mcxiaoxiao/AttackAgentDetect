@@ -1,0 +1,1484 @@
+{
+  "protocol": "post-observation exploratory; same fixed CTH galleries; five outer task folds; nested three task folds choose C and BA threshold; all methods share training pairs and logistic learner",
+  "summary": [
+    {
+      "method": "evidence",
+      "tasks": 40,
+      "ba": 0.6336309523809524,
+      "delta_ba": 0.0,
+      "paired_task_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "additive",
+      "tasks": 40,
+      "ba": 0.6573809523809524,
+      "delta_ba": 0.02375,
+      "paired_task_ci95": [
+        -0.023037946428571425,
+        0.06955357142857141
+      ]
+    },
+    {
+      "method": "gated",
+      "tasks": 40,
+      "ba": 0.647172619047619,
+      "delta_ba": 0.013541666666666665,
+      "paired_task_ci95": [
+        -0.006994047619047619,
+        0.03633928571428572
+      ]
+    },
+    {
+      "method": "gated_components",
+      "tasks": 40,
+      "ba": 0.646279761904762,
+      "delta_ba": 0.01264880952380952,
+      "paired_task_ci95": [
+        -0.03839360119047618,
+        0.06095386904761902
+      ]
+    }
+  ],
+  "fold_choices": [
+    {
+      "fold": 0,
+      "selected": {
+        "evidence": [
+          10.0,
+          0.42703504031361583
+        ],
+        "additive": [
+          0.1,
+          0.47226372351350676
+        ],
+        "gated": [
+          10.0,
+          0.4615968463850566
+        ],
+        "gated_components": [
+          0.1,
+          0.4285158668427501
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6775173611111112,
+          "threshold": 0.44904510257153296
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6768576388888888,
+          "threshold": 0.4498964851406431
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6788454861111111,
+          "threshold": 0.42703504031361583
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6625434027777778,
+          "threshold": 0.47226372351350676
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6532118055555556,
+          "threshold": 0.4580233196992113
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6509201388888889,
+          "threshold": 0.4551393036428375
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6555555555555556,
+          "threshold": 0.4730521935958581
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6567534722222221,
+          "threshold": 0.4585862634152507
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6584635416666667,
+          "threshold": 0.4615968463850566
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6821267361111112,
+          "threshold": 0.4285158668427501
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.66109375,
+          "threshold": 0.45331940176596097
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.648984375,
+          "threshold": 0.4823162154459706
+        }
+      ]
+    },
+    {
+      "fold": 1,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4533875465194065
+        ],
+        "additive": [
+          1.0,
+          0.48148302423631023
+        ],
+        "gated": [
+          10.0,
+          0.43814559845395895
+        ],
+        "gated_components": [
+          0.1,
+          0.37762529652587096
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6727256944444444,
+          "threshold": 0.4533875465194065
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6638194444444445,
+          "threshold": 0.4653161413781739
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6640711805555556,
+          "threshold": 0.46775200766584324
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6513975694444445,
+          "threshold": 0.44241746488260697
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6571614583333334,
+          "threshold": 0.48148302423631023
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6521006944444444,
+          "threshold": 0.4815945974170706
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6541666666666667,
+          "threshold": 0.44814851528636324
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6534548611111112,
+          "threshold": 0.43931551154035875
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.654470486111111,
+          "threshold": 0.43814559845395895
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6574739583333333,
+          "threshold": 0.37762529652587096
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6191319444444444,
+          "threshold": 0.35986439132827763
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.5812065972222222,
+          "threshold": 0.4066003160465726
+        }
+      ]
+    },
+    {
+      "fold": 2,
+      "selected": {
+        "evidence": [
+          1.0,
+          0.4544931520027902
+        ],
+        "additive": [
+          10.0,
+          0.4348284874602841
+        ],
+        "gated": [
+          1.0,
+          0.45359744987516987
+        ],
+        "gated_components": [
+          0.1,
+          0.4424137726069731
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6884635416666667,
+          "threshold": 0.4657897806677561
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6942881944444445,
+          "threshold": 0.4544931520027902
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6942100694444444,
+          "threshold": 0.4506657587241985
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6928038194444444,
+          "threshold": 0.43507620575722555
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6973090277777778,
+          "threshold": 0.4350320686660868
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.7002083333333333,
+          "threshold": 0.4348284874602841
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.6853906249999999,
+          "threshold": 0.48620882044804803
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6901475694444446,
+          "threshold": 0.45359744987516987
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6895225694444445,
+          "threshold": 0.42842165009851657
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6750347222222223,
+          "threshold": 0.4424137726069731
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6512586805555556,
+          "threshold": 0.4448720641695443
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.6286024305555555,
+          "threshold": 0.40093291442147416
+        }
+      ]
+    },
+    {
+      "fold": 3,
+      "selected": {
+        "evidence": [
+          0.1,
+          0.4682129883735152
+        ],
+        "additive": [
+          10.0,
+          0.4536553305399427
+        ],
+        "gated": [
+          1.0,
+          0.4567089779997434
+        ],
+        "gated_components": [
+          0.1,
+          0.42838194069465424
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6423582175925926,
+          "threshold": 0.4682129883735152
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6414033564814814,
+          "threshold": 0.478446039169426
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6399537037037037,
+          "threshold": 0.46587198788209133
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6348148148148147,
+          "threshold": 0.45203225333171715
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6416840277777778,
+          "threshold": 0.4475440420213885
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6419733796296296,
+          "threshold": 0.4536553305399427
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.636316550925926,
+          "threshold": 0.4485799813471227
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6474913194444445,
+          "threshold": 0.4567089779997434
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6467708333333333,
+          "threshold": 0.44744147079626234
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6293721064814815,
+          "threshold": 0.42838194069465424
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.6187760416666667,
+          "threshold": 0.4397757682078165
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.5794704861111112,
+          "threshold": 0.4467565031432887
+        }
+      ]
+    },
+    {
+      "fold": 4,
+      "selected": {
+        "evidence": [
+          10.0,
+          0.48362494207399465
+        ],
+        "additive": [
+          0.1,
+          0.4619854846819363
+        ],
+        "gated": [
+          1.0,
+          0.47927690006438806
+        ],
+        "gated_components": [
+          0.1,
+          0.43004141588374395
+        ]
+      },
+      "inner_results": [
+        {
+          "method": "evidence",
+          "C": 0.1,
+          "inner_ba": 0.6492737268518519,
+          "threshold": 0.4822439833330088
+        },
+        {
+          "method": "evidence",
+          "C": 1.0,
+          "inner_ba": 0.6556799768518518,
+          "threshold": 0.4818125784572218
+        },
+        {
+          "method": "evidence",
+          "C": 10.0,
+          "inner_ba": 0.6569039351851851,
+          "threshold": 0.48362494207399465
+        },
+        {
+          "method": "additive",
+          "C": 0.1,
+          "inner_ba": 0.6324074074074073,
+          "threshold": 0.4619854846819363
+        },
+        {
+          "method": "additive",
+          "C": 1.0,
+          "inner_ba": 0.6292795138888888,
+          "threshold": 0.45862109706987075
+        },
+        {
+          "method": "additive",
+          "C": 10.0,
+          "inner_ba": 0.6262326388888888,
+          "threshold": 0.4591056691818301
+        },
+        {
+          "method": "gated",
+          "C": 0.1,
+          "inner_ba": 0.631875,
+          "threshold": 0.5050418349871713
+        },
+        {
+          "method": "gated",
+          "C": 1.0,
+          "inner_ba": 0.6332262731481482,
+          "threshold": 0.47927690006438806
+        },
+        {
+          "method": "gated",
+          "C": 10.0,
+          "inner_ba": 0.6306799768518518,
+          "threshold": 0.4770618292882941
+        },
+        {
+          "method": "gated_components",
+          "C": 0.1,
+          "inner_ba": 0.6214178240740741,
+          "threshold": 0.43004141588374395
+        },
+        {
+          "method": "gated_components",
+          "C": 1.0,
+          "inner_ba": 0.5903964120370371,
+          "threshold": 0.4504945656126339
+        },
+        {
+          "method": "gated_components",
+          "C": 10.0,
+          "inner_ba": 0.5988628472222222,
+          "threshold": 0.47623013006125764
+        }
+      ]
+    }
+  ],
+  "task_predictions": [
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "evidence",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "evidence",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "evidence",
+      "ba": 0.4714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "evidence",
+      "ba": 0.2857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "evidence",
+      "ba": 0.75
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "evidence",
+      "ba": 0.6428571428571429
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "additive",
+      "ba": 0.4642857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "additive",
+      "ba": 0.6857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "additive",
+      "ba": 0.48571428571428577
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "additive",
+      "ba": 0.3928571428571429
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "additive",
+      "ba": 0.7
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "gated",
+      "ba": 0.9464285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "gated",
+      "ba": 0.4714285714285714
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "gated",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "gated",
+      "ba": 0.6857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "gated",
+      "ba": 0.5
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "gated",
+      "ba": 0.3392857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "gated",
+      "ba": 0.6857142857142857
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/cybench/glacier-exchange",
+      "method": "gated_components",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "method": "gated_components",
+      "ba": 0.3999999999999999
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_47",
+      "method": "gated_components",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "method": "gated_components",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+      "method": "gated_components",
+      "ba": 0.5178571428571428
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2016q-for-kill",
+      "method": "gated_components",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 0,
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "method": "gated_components",
+      "ba": 0.6571428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "evidence",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "evidence",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "evidence",
+      "ba": 0.7
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "evidence",
+      "ba": 0.9821428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "evidence",
+      "ba": 0.875
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "additive",
+      "ba": 0.875
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "additive",
+      "ba": 0.37142857142857144
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "additive",
+      "ba": 0.8392857142857143
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "additive",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "additive",
+      "ba": 0.7571428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "additive",
+      "ba": 1.0
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "additive",
+      "ba": 0.9285714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "gated",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "gated",
+      "ba": 0.4571428571428571
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "gated",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "gated",
+      "ba": 0.5178571428571428
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "gated",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "gated",
+      "ba": 0.7
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "gated",
+      "ba": 0.9464285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "gated",
+      "ba": 0.875
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_21",
+      "method": "gated_components",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "method": "gated_components",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_44",
+      "method": "gated_components",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_46",
+      "method": "gated_components",
+      "ba": 0.6964285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_49",
+      "method": "gated_components",
+      "ba": 0.6964285714285714
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "method": "gated_components",
+      "ba": 0.7428571428571429
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2017q-web-orange",
+      "method": "gated_components",
+      "ba": 0.9642857142857143
+    },
+    {
+      "fold": 1,
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+      "method": "gated_components",
+      "ba": 0.5535714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "evidence",
+      "ba": 0.8
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "evidence",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "evidence",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "evidence",
+      "ba": 0.375
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "evidence",
+      "ba": 0.7678571428571428
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "evidence",
+      "ba": 0.5952380952380952
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "evidence",
+      "ba": 0.6428571428571429
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "evidence",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "additive",
+      "ba": 0.4
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "additive",
+      "ba": 0.6071428571428572
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "additive",
+      "ba": 0.5892857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "additive",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "additive",
+      "ba": 0.5952380952380952
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "additive",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "additive",
+      "ba": 0.5357142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "gated",
+      "ba": 0.8285714285714285
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "gated",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "gated",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "gated",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "gated",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "gated",
+      "ba": 0.6904761904761905
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "gated",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "gated",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "method": "gated_components",
+      "ba": 0.8
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_11",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_36",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "method": "gated_components",
+      "ba": 0.4107142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_3",
+      "method": "gated_components",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_76",
+      "method": "gated_components",
+      "ba": 0.33333333333333337
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "method": "gated_components",
+      "ba": 0.5857142857142857
+    },
+    {
+      "fold": 2,
+      "task": "cyber-task-horizons/nyuctf/2021q-rev-checker",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "evidence",
+      "ba": 0.875
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "evidence",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "evidence",
+      "ba": 0.6607142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "evidence",
+      "ba": 0.375
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "evidence",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "evidence",
+      "ba": 0.41428571428571426
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "evidence",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "evidence",
+      "ba": 0.5571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "additive",
+      "ba": 0.8392857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "additive",
+      "ba": 0.9107142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "additive",
+      "ba": 0.3928571428571428
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "additive",
+      "ba": 0.7428571428571429
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "additive",
+      "ba": 0.6857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "additive",
+      "ba": 0.4571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "gated",
+      "ba": 0.8392857142857143
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "gated",
+      "ba": 0.6071428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "gated",
+      "ba": 0.3571428571428572
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "gated",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "gated",
+      "ba": 0.3999999999999999
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "gated",
+      "ba": 0.6
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "gated",
+      "ba": 0.5285714285714286
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/flag_command",
+      "method": "gated_components",
+      "ba": 0.9107142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/cybench/locktalk",
+      "method": "gated_components",
+      "ba": 0.6964285714285714
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_24",
+      "method": "gated_components",
+      "ba": 0.6964285714285714
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_4",
+      "method": "gated_components",
+      "ba": 0.5178571428571428
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "method": "gated_components",
+      "ba": 0.8
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "method": "gated_components",
+      "ba": 0.3857142857142857
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "method": "gated_components",
+      "ba": 0.7
+    },
+    {
+      "fold": 3,
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "method": "gated_components",
+      "ba": 0.6571428571428571
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "evidence",
+      "ba": 0.8571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "evidence",
+      "ba": 0.8928571428571429
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "evidence",
+      "ba": 0.5714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "evidence",
+      "ba": 0.6
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "evidence",
+      "ba": 0.5142857142857142
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "evidence",
+      "ba": 0.8035714285714286
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "evidence",
+      "ba": 0.4285714285714286
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "additive",
+      "ba": 0.5571428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "additive",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "additive",
+      "ba": 0.8392857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "additive",
+      "ba": 0.7
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "additive",
+      "ba": 0.44285714285714284
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "additive",
+      "ba": 0.7142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "additive",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "additive",
+      "ba": 0.375
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "gated",
+      "ba": 0.8142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "gated",
+      "ba": 0.4821428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "gated",
+      "ba": 0.5857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "gated",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "gated",
+      "ba": 0.4714285714285714
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "gated",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "gated",
+      "ba": 0.375
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "method": "gated_components",
+      "ba": 0.6428571428571428
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/cybench/packedaway",
+      "method": "gated_components",
+      "ba": 0.7857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_23",
+      "method": "gated_components",
+      "ba": 0.75
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "method": "gated_components",
+      "ba": 0.7714285714285715
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "method": "gated_components",
+      "ba": 0.6857142857142857
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "method": "gated_components",
+      "ba": 0.6142857142857143
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+      "method": "gated_components",
+      "ba": 0.6071428571428572
+    },
+    {
+      "fold": 4,
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_85",
+      "method": "gated_components",
+      "ba": 0.6964285714285714
+    }
+  ]
+}

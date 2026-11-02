@@ -1,0 +1,13 @@
+stage,status,start_unix,end_unix,elapsed_seconds,detail
+recognition,failed,1793549690.937,1793549726.637,35.698,"RuntimeError: AIT frozen cohort mismatch: 84 runs, 12 tasks"
+recognition,complete,1793549762.025,1793549856.636,94.610,main=89
+mixture,complete,1793549892.991,1793549903.500,10.509,tasks=17
+retrieval,failed,1793550102.942,1793550102.966,0.024,RuntimeError: Missing frozen task fold for cyber-task-horizons
+retrieval,failed,1793550213.247,1793550213.268,0.022,RuntimeError: Missing frozen task fold for cyber-task-horizons
+retrieval,complete,1793550291.737,1793550294.370,2.633,source_tracks=2
+recognition,complete,1793550419.282,1793550479.367,60.085,main=89
+mixture,complete,1793550479.391,1793550494.068,14.677,tasks=17
+retrieval,complete,1793550494.084,1793550498.090,4.006,source_tracks=2
+recognition,complete,1793550785.051,1793550843.847,58.796,main=89
+mixture,complete,1793550843.866,1793550856.198,12.332,tasks=17
+retrieval,complete,1793550856.213,1793550861.454,5.241,source_tracks=2

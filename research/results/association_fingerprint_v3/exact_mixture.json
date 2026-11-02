@@ -1,0 +1,1032 @@
+{
+  "task_means": {
+    "0:command_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.1041666666666667,
+        1.0,
+        0.4479166666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.20624999999999982,
+        0.0,
+        0.896875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.525,
+        1.0,
+        0.2375
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.8687500000000007,
+        0.0,
+        0.5656250000000002
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.8812500000000005,
+        0.0,
+        0.5593750000000003
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.09166666666666672,
+        1.0,
+        0.4541666666666666
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.09791666666666671,
+        1.0,
+        0.4510416666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.15624999999999997,
+        1.0,
+        0.4218749999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.12291666666666667,
+        1.0,
+        0.4385416666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.8625000000000005,
+        0.0,
+        0.5687500000000003
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.8625000000000005,
+        0.0,
+        0.5687500000000003
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "0:action_bigram_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.20624999999999982,
+        0.0,
+        0.896875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        1.0,
+        0.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        1.0,
+        0.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        1.0,
+        0.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.15624999999999997,
+        1.0,
+        0.4218749999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.12291666666666667,
+        1.0,
+        0.4385416666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        1.0,
+        0.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        1.0,
+        0.0,
+        0.5
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "8:command_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.06666666666666668,
+        1.0,
+        0.4666666666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.004166666666666667,
+        0.43125,
+        0.7822916666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.1229166666666666,
+        0.4625,
+        0.7072916666666662
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.37083333333333324,
+        0.90625,
+        0.3614583333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.5687500000000002,
+        0.35625,
+        0.5375000000000002
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.5249999999999999,
+        0.4125,
+        0.5312499999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0625,
+        1.0,
+        0.4687499999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.05416666666666666,
+        1.0,
+        0.47291666666666654
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.08750000000000002,
+        1.0,
+        0.4562500000000001
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.05624999999999999,
+        1.0,
+        0.47187499999999993
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.5312499999999999,
+        0.475,
+        0.49687499999999984
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.5854166666666668,
+        0.3375,
+        0.5385416666666667
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "8:action_bigram_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.00625,
+        1.0,
+        0.496875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.012499999999999999,
+        0.44375,
+        0.7718749999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        0.43125,
+        0.784375
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.13333333333333325,
+        0.4625,
+        0.7020833333333328
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.5770833333333335,
+        0.33125,
+        0.5458333333333336
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.6520833333333336,
+        0.35625,
+        0.4958333333333334
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.5875000000000001,
+        0.4125,
+        0.4999999999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.10833333333333335,
+        0.94375,
+        0.47395833333333337
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.05833333333333333,
+        1.0,
+        0.4708333333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.6916666666666672,
+        0.3,
+        0.5041666666666667
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.6770833333333339,
+        0.3375,
+        0.4927083333333334
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "16:command_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.02291666666666667,
+        1.0,
+        0.4885416666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.00625,
+        1.0,
+        0.496875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.010416666666666666,
+        0.78125,
+        0.6041666666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.06666666666666668,
+        0.76875,
+        0.5822916666666664
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.3229166666666667,
+        0.9,
+        0.3885416666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.4125,
+        0.5875,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.33333333333333326,
+        0.6625,
+        0.5020833333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.031249999999999993,
+        1.0,
+        0.4843749999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.041666666666666664,
+        1.0,
+        0.47916666666666663
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.05624999999999999,
+        1.0,
+        0.47187500000000016
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.02708333333333333,
+        1.0,
+        0.4864583333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.2895833333333333,
+        0.79375,
+        0.45833333333333315
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.3687500000000001,
+        0.61875,
+        0.5062499999999999
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "16:action_bigram_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.025,
+        1.0,
+        0.4875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.025,
+        0.775,
+        0.5999999999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        0.78125,
+        0.609375
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.07500000000000002,
+        0.76875,
+        0.5781249999999998
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.3333333333333333,
+        0.6375,
+        0.5145833333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.44791666666666663,
+        0.5875,
+        0.4822916666666665
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.3583333333333333,
+        0.6625,
+        0.4895833333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.07708333333333336,
+        0.94375,
+        0.4895833333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.031249999999999993,
+        1.0,
+        0.48437499999999983
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.4041666666666666,
+        0.6,
+        0.4979166666666667
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.4041666666666668,
+        0.61875,
+        0.4885416666666666
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "24:command_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.010416666666666666,
+        1.0,
+        0.4947916666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.020833333333333336,
+        1.0,
+        0.4895833333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0020833333333333333,
+        0.925,
+        0.5364583333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.03749999999999999,
+        0.94375,
+        0.5093749999999998
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.28958333333333336,
+        0.90625,
+        0.40208333333333346
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.2750000000000001,
+        0.84375,
+        0.440625
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.28125000000000006,
+        0.725,
+        0.496875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.010416666666666666,
+        1.0,
+        0.4947916666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.020833333333333336,
+        1.0,
+        0.4895833333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.03749999999999999,
+        1.0,
+        0.48125
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.008333333333333333,
+        1.0,
+        0.4958333333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.20416666666666666,
+        0.94375,
+        0.4260416666666667
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.2729166666666667,
+        0.84375,
+        0.4416666666666667
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "24:action_bigram_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.03749999999999999,
+        1.0,
+        0.4812500000000002
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.045833333333333316,
+        0.91875,
+        0.5177083333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        0.925,
+        0.5375
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.049999999999999975,
+        0.94375,
+        0.5031249999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.21249999999999997,
+        0.90625,
+        0.4406250000000001
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.24791666666666673,
+        0.84375,
+        0.4541666666666666
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.30000000000000004,
+        0.725,
+        0.4875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.0625,
+        0.975,
+        0.4812499999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.016666666666666666,
+        1.0,
+        0.4916666666666666
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.2979166666666669,
+        0.85,
+        0.4260416666666669
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.26875000000000004,
+        0.84375,
+        0.44375
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "32:command_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.045833333333333316,
+        1.0,
+        0.4770833333333333
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.04791666666666665,
+        1.0,
+        0.4760416666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.3395833333333334,
+        1.0,
+        0.3302083333333334
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.2562499999999999,
+        1.0,
+        0.3718750000000001
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.3416666666666668,
+        0.6375,
+        0.510416666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.016666666666666666,
+        1.0,
+        0.4916666666666667
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.025,
+        1.0,
+        0.4875
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.04791666666666665,
+        1.0,
+        0.47604166666666653
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.16249999999999998,
+        1.0,
+        0.41875000000000007
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.27083333333333337,
+        1.0,
+        0.36458333333333337
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    "32:action_bigram_cosine": {
+      "cyber-task-horizons/cybench/lootstash": [
+        0.052083333333333315,
+        1.0,
+        0.4739583333333336
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": [
+        0.07291666666666667,
+        1.0,
+        0.4635416666666668
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": [
+        0.07708333333333335,
+        1.0,
+        0.4614583333333334
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": [
+        0.2291666666666666,
+        1.0,
+        0.38541666666666674
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": [
+        0.19374999999999984,
+        1.0,
+        0.4031250000000003
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": [
+        0.3500000000000002,
+        0.6375,
+        0.5062500000000003
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": [
+        0.06458333333333334,
+        1.0,
+        0.4677083333333332
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": [
+        0.01875,
+        1.0,
+        0.4906249999999999
+      ],
+      "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": [
+        0.26041666666666663,
+        1.0,
+        0.3697916666666668
+      ],
+      "cyber-task-horizons/nyuctf/2016q-rev-rock": [
+        0.0,
+        1.0,
+        0.5
+      ],
+      "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": [
+        0.2416666666666667,
+        1.0,
+        0.3791666666666669
+      ],
+      "cyber-task-horizons/cybench/back_to_the_past": [
+        0.0,
+        1.0,
+        0.5
+      ]
+    }
+  },
+  "paired_endpoint": {
+    "command_cosine": {
+      "delta_ba": -0.07095588235294122,
+      "task_cluster_95ci": [
+        -0.1544745710784314,
+        0.0005530024509803764
+      ]
+    },
+    "action_bigram_cosine": {
+      "delta_ba": -0.10919117647058817,
+      "task_cluster_95ci": [
+        -0.20606770833333332,
+        -0.03063572303921557
+      ]
+    }
+  },
+  "protocol": "original 17-task cohort; 16 query/gallery pairs per draw, 32 unique roles; 170 coupled draws; 1 same-task and 3 other-task candidates; original training-side FMR<=10% threshold",
+  "seed": 20261103,
+  "results": [
+    {
+      "agent_fraction": 0.0,
+      "method": "action_bigram_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.322671568627451,
+      "fsr": 0.5294117647058824,
+      "ba": 0.5739583333333333,
+      "ba_task_cluster_95ci": [
+        0.49411764705882355,
+        0.6682598039215686
+      ]
+    },
+    {
+      "agent_fraction": 0.0,
+      "method": "command_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.2811274509803923,
+      "fsr": 0.6470588235294118,
+      "ba": 0.5359068627450981,
+      "ba_task_cluster_95ci": [
+        0.4629273897058824,
+        0.6218152573529414
+      ]
+    },
+    {
+      "agent_fraction": 0.25,
+      "method": "action_bigram_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.20612745098039226,
+      "fsr": 0.7069852941176471,
+      "ba": 0.5434436274509803,
+      "ba_task_cluster_95ci": [
+        0.5011642156862745,
+        0.5954672181372548
+      ]
+    },
+    {
+      "agent_fraction": 0.25,
+      "method": "command_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.17855392156862743,
+      "fsr": 0.7871323529411764,
+      "ba": 0.517156862745098,
+      "ba_task_cluster_95ci": [
+        0.4778170955882352,
+        0.5648912377450981
+      ]
+    },
+    {
+      "agent_fraction": 0.5,
+      "method": "action_bigram_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.12830882352941178,
+      "fsr": 0.8455882352941176,
+      "ba": 0.5130514705882351,
+      "ba_task_cluster_95ci": [
+        0.49644607843137245,
+        0.533517156862745
+      ]
+    },
+    {
+      "agent_fraction": 0.5,
+      "method": "command_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.1170343137254902,
+      "fsr": 0.8889705882352942,
+      "ba": 0.49699754901960785,
+      "ba_task_cluster_95ci": [
+        0.47628676470588227,
+        0.5182613357843137
+      ]
+    },
+    {
+      "agent_fraction": 0.75,
+      "method": "action_bigram_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.09056372549019609,
+      "fsr": 0.9371323529411765,
+      "ba": 0.48615196078431366,
+      "ba_task_cluster_95ci": [
+        0.47248774509803915,
+        0.4990196078431372
+      ]
+    },
+    {
+      "agent_fraction": 0.75,
+      "method": "command_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.08651960784313727,
+      "fsr": 0.9488970588235295,
+      "ba": 0.4822916666666667,
+      "ba_task_cluster_95ci": [
+        0.4661151960784315,
+        0.49718137254901956
+      ]
+    },
+    {
+      "agent_fraction": 1.0,
+      "method": "action_bigram_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.0917892156862745,
+      "fsr": 0.9786764705882353,
+      "ba": 0.46476715686274517,
+      "ba_task_cluster_95ci": [
+        0.44178921568627466,
+        0.48541666666666666
+      ]
+    },
+    {
+      "agent_fraction": 1.0,
+      "method": "command_cosine",
+      "task_count": 17,
+      "replicates": 170,
+      "fmr": 0.09142156862745099,
+      "fsr": 0.9786764705882353,
+      "ba": 0.4649509803921569,
+      "ba_task_cluster_95ci": [
+        0.43713235294117647,
+        0.4882368259803922
+      ]
+    }
+  ],
+  "thresholds": {
+    "(0, 'command_cosine')": 0.5816824651614982,
+    "(0, 'action_bigram_cosine')": 0.7190881223070338,
+    "(1, 'command_cosine')": 0.8588495667673416,
+    "(1, 'action_bigram_cosine')": Infinity,
+    "(2, 'command_cosine')": 0.34609917605928686,
+    "(2, 'action_bigram_cosine')": 0.5428587383986749
+  }
+}

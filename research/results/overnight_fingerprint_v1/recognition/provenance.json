@@ -1,0 +1,36 @@
+{
+  "status": "exploratory_frozen_protocol_execution",
+  "seed": 20261102,
+  "pilot_archive_sha256": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914",
+  "pilot_parser_sha256": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+  "fingerprint_implementation_sha256": "13b17e26961befa00c4f6389173749843480da3d827b7cd801191bd1f7326507",
+  "runner_sha256": "6b08a26e04e91940336f39d82e4f03e5344bcaf1d0ffb8791358b7a16ba56f44",
+  "frozen_inputs": {
+    "research/results/behavior_corpus_v1/evidence.jsonl": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "research/results/behavior_corpus_v1/trace_registry.csv": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "research/results/behavior_corpus_v1/summary.json": "b6aa2f2dd4689877fdb873902aa638a4e9b9e69be73ec6cb9b78ed7746eb8eb7",
+    "research/results/log_fingerprint_pilot_v1/features.csv": "009dfbb341f68173bee2ec7dbffe016cd8c38585fb0a28c4fb0341c436959c84",
+    "research/results/log_fingerprint_pilot_v1/run_registry.csv": "95f8b4563fdcdcddf2a7dfad73b9d61dd7d8c1f14a7232ec7eda8064b786d523",
+    "research/experiments/log_fingerprint_pilot_v1/run.py": "d34035e715d5a6ed09869fd3684dbebcc3782977e1e1c7610626d263fbe248ef",
+    "attackagent/auditd.py": "ef8ad62c6d2ddb67074dc22cb14e7152b7bc182144d01179c5a230a8bec84c23",
+    "attackagent/traces.py": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f",
+    "research/data/external/ait-shell-pilot-v1/data.zip": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914"
+  },
+  "protocol_sha256": "32e76e2353624f6c5cf39f5b3fa6804a949bf5bc8a8420949af34c12c4e060d7",
+  "raw_runs": 109,
+  "primary_eligible_runs": 89,
+  "primary_tasks": 12,
+  "source_folds": {
+    "Alice": 0,
+    "Bob": 1,
+    "Charlie": 2,
+    "David": 0,
+    "Eve": 1,
+    "Frank": 2,
+    "GPT4.1": 0,
+    "GPT4o": 1,
+    "GPT5": 2
+  },
+  "elapsed_seconds": 58.795297417003894,
+  "feature_inputs": "ordered executable names only; labels, IDs, app, task, source, observation format excluded"
+}

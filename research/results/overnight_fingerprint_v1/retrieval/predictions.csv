@@ -1,0 +1,913 @@
+source,fold,task,query_trace_id,method,hit_credit,matrix_query_candidate_coverage,query_has_any_matrix_candidate,chance,candidate_count
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,07723534e7d9ea9cc70a,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,107a1215517541a1e1fc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/data_siege,f05788d6b1ba4663c39b,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,59e5d273e86ca15d05c4,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/failproof,9ed1d462d07d8d6e57a3,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,0475207b92ec30e846a5,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,71e5e96ce658aeab85e8,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/frog_waf,7225495aee85d52d174f,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,25637c44d56da2920636,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,3d24027c2782c57cb06a,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/cybench/glacier-exchange,e997873f0c15ffc6abe5,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,7367ee991b9a80329685,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_12,ac41fe5b9877a0a765a3,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,00668bd88922b834652e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2,64ef68f83fbe103a0926,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,40fd194fdd4de1466ace,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2013f-cry-stfu,ebed856d6feeadd98cbb,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,1464e88346c84398b2ab,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,44b4a2a6847a29fcdf8e,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2015q-web-k_stairs,98b5ef66479d65c21bea,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,13b2c6e2d3ce35cc737e,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,2d4a7841049d2635dd17,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t,695bb6331005f47d8c25,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,0957d72abed802c2a9d0,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-pwn-pilot,f146a981ae65e4445259,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,aed3da73b1036f60b401,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,de26a563f1205eb349ca,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2017q-rev-prophecy,e37a05dd93f2a840bc69,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,494e2b42a88df425dd4a,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2018f-cry-distastrous_security_apparatus,d24c52fc65c194d03855,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,02a56f5e516313d47fe3,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2020f-rev-rap,3fe9697a15bc3ae45c29,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,365b5175f73eb5dc1602,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2021q-pwn-alien_math,8d44001e0acb4c1332c3,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,23fd27812a3c4e12982e,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2022f-msc-farmlang,39ed83f5605a4365e7a2,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,6cca687fb3ea16bd4a49,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,0,cyber-task-horizons/nyuctf/2023q-web-smug_dino,ca4c58a957ae2305824e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,125d73213a70b89dbbe1,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,41dc7cb00040afb4c587,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/back_to_the_past,efa1c8ca98c2d711f97f,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,2532bc7bc28508fdbeee,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,5571201e03ad38e76648,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/chunky,a46587fc0b2bbba15e21,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,0fde24701239f9ca15d0,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,82b946a2cab3de94ec2e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/flecks_of_gold,992ecde9f4e30158d0f8,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,09da3bd87625cf4549f2,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,13a3c6926ff49b7df0c3,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/locktalk,7ecf363d80334c698427,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,0b6e90ce912755831a0c,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,89eeb7da4917f3f8d21b,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/rpgo,ad947df42d824214fa28,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,9cd0d067418b9cd0f41c,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,c7511ba6545069a49e36,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/cybench/sop,cadae0b99f83bfca9f78,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,0aed1be00bded23455cc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14,c026d2e79e7692582162,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,038f0d749c7646adb6d5,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,04e292f34978dd8a7f38,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70,6fb95cbac34df8b7c2fc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,8fa919a793e2db854f6d,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,9f603295af358dfb35cc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2015q-rev-ftp,de97642fefa07aedf4d1,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,43c54acc067c4b964f15,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,9baf34ef01012becb8ab,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard,b7da845ef417fdc5bd92,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,3540209fb52d07c0f6ae,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,ae72534e0856f66deaa7,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-for-kill,b36e0efc59c64b5ac58e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,2cd792d7a77f613481d7,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,586c3429c1115758f850,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2016q-pwn-hungman,d3676a54544671e02a50,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c57fc0cb71bfa93d4cd2,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1,c9c28fdea7b8c7506d2f,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,518dc4ac8220e5ca8d41,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,7241cf5a2218f4ab97cc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2019q-rev-call_site,ccf9647baa4417ef1846,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,285831e5b3612fafedbd,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2020q-pwn-roppity,692ef56ae2a94737e24f,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,09e80f52fa5a4d36817f,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,1,cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all,78b6b366022086440262,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,4e667ffe0f21ea733fbf,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/crushing,b23b69fa4c78995185cd,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,02ea0a35cbb9b7b29d2e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/diffecient,3abbc0173d2730bf6486,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,469ebee7688f9d51ddab,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/emaze,87c34219a7846deeccef,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,1d7f0b3f6520e7cc48f0,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/labyrinth_linguist,4f188ccd981075891674,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,14e132c2d6514a301731,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,201d96da40ca52518b74,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/cybench/network_tools,54c970e97bcbaa0a4400,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,38e2b9e346f74eeeda99,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_61,f3ad495f409da48e6dc4,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,06e374501a5f9f9deda5,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8,c1460887e0f35d84a0d4,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,4a053e093e11e040770d,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2016q-rev-rock,54828c33a141dc7a1925,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,065ad6289cda4a7328d7,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,a1a7e86f9598b918bacf,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-for-missed_registration,ba9965cb46bc6c66450e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,371ac65c8344fbc4c1ca,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cbf193b2366081808a15,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-rev-grumpcheck,cd2612497bbacd1e1e97,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,9c5ab86b903d36ed45d7,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,b054993a8ecd64aa6262,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2017q-web-orange,c54fe99a35607344f345,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,52a0646b315e8ca89eaa,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,6f31a2eb4f417a3db35e,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2018q-msc-short_circuit,734a55c6a034f4454298,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,84cb5ba82f3ea13508dd,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,c7fc732c97caf9be250f,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020f-web-picgram,dd3e024ca826e61ba698,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,3941babdba68217fc8d9,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2020q-rev-ezbreezy,5b860ac4d9d1e285d008,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,29b8c647b31cb3d73ca4,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022f-cry-the_lengths_we_extend_ourselves,adf40e4e5682a2136c8a,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,command_cosine,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,full_matrix,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,ablate_tool_selection,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,ablate_action_organization,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,ablate_local_repetition,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,2b0a1f71a47ebd6139af,window_order_shuffle,1.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,4b663a41b4420adb78fc,window_order_shuffle,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,command_cosine,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,full_matrix,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,ablate_tool_selection,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,ablate_action_organization,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,ablate_local_repetition,0.0,1.0,True,0.2,5
+cyber-task-horizons,2,cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking,9e9de258f562317748d2,window_order_shuffle,0.0,1.0,True,0.2,5
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),c43d311ac0b8201b14f7,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:glacier_exchange (hard),feef88900d7ca68c5ae8,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),35dc03539be64471ad73,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),550c5f2a8288b09a0597,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),7dbcf03210ed7b09b7c8,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:labyrinth_linguist (hard),bd58c5e6d234b8d012f0,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),9e284ce055ba209bc940,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:network_tools (hard),b89b508a14a833a27c4c,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),514f12d0dbbfe2106a35,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,0,antieval/cybench-trajectories/cybench/cybench:packedaway (hard),d30f422ea3b45efe23e2,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),10d9977a6bf2fe656b63,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:crushing (hard),c920d423ec757e158ed4,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),78a74b87722112e45bf4,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:delulu (hard),f3978a4df39ec1613784,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),1562f7e4970a5ea05fc4,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),4b436459dd5d60d2c561,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:locktalk (hard),80f360820d769709f9f0,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),7e78dcc3dfdd7cc0d60b,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,1,antieval/cybench-trajectories/cybench/cybench:sop (hard),bbb8cc60f0980739f160,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),35dfdbd597f1a8f92d8f,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),81f0bd1561814d9ba59f,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),96c111b5c4864b0944cf,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:back_to_the_past (hard),eb98d2ce13f85d718b8d,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),2c0c6537b46b09a7b0ef,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flag_command (hard),ab8377c71e58c88815b8,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),44524f21ce4026fecbcd,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),8aec1ca16061a6e0c714,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),d0225b110e6b8b59b74b,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,command_cosine,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,full_matrix,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,ablate_tool_selection,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,ablate_action_organization,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,ablate_local_repetition,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:flecks_of_gold (hard),df0cc35242cc8276f139,window_order_shuffle,0.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),6cb58826d71d863a31a1,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,command_cosine,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,full_matrix,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,ablate_tool_selection,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,ablate_action_organization,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,ablate_local_repetition,1.0,1.0,True,0.3333333333333333,3
+antieval/cybench-trajectories,2,antieval/cybench-trajectories/cybench/cybench:robust_cbc (hard),823753c41156c629a532,window_order_shuffle,1.0,1.0,True,0.3333333333333333,3

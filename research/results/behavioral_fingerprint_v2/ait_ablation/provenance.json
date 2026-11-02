@@ -1,0 +1,11 @@
+{
+  "seed": 20261103,
+  "permutations_per_trace": 20,
+  "source_archive_sha256": null,
+  "controls": {
+    "first_window_BS": "only first valid eight-event window; tests whether full length is required",
+    "B_plus_S_window_order_shuffled": "randomly permuted eight-event chunks; B window contents are unchanged, S is recomputed",
+    "B_plus_S_plus_T_gap_order_shuffled": "permutes observed gaps within each eight-event window while preserving that window's gap multiset"
+  },
+  "claim_boundary": "AIT troubleshooting labels and capture workflows are confounded; controls diagnose this cohort only"
+}

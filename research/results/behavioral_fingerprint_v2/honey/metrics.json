@@ -1,0 +1,140 @@
+{
+  "source": "Honey for the Agent, Zenodo version v1",
+  "raw_json_sessions": 16199,
+  "parsed_session_files": 16196,
+  "eligible_sessions_minimum_4_commands": 13080,
+  "models": [
+    "deepseek-r1:1.5b",
+    "deepseek-r1:32b",
+    "gemma3:27b",
+    "gemma3:4b",
+    "llama3.1:8b",
+    "qwen2.5:1.5b",
+    "qwen2.5:32b",
+    "qwen3:30b",
+    "qwen3:4b"
+  ],
+  "model_count": 9,
+  "conditions": 49,
+  "prompt_count": 6,
+  "turn_cap_count": 2,
+  "environment_count": 5,
+  "command_count_quantiles": {
+    "0": 4.0,
+    "0.25": 20.0,
+    "0.5": 20.0,
+    "0.75": 30.0,
+    "1": 30.0
+  },
+  "execution_latency_ms_nonmissing": 280014,
+  "response_latency_ms_nonmissing": 280014,
+  "timing_interpretation": "source-reported model response and command execution/round-trip durations; no inter-event start gaps inferred",
+  "methods": [
+    {
+      "method": "B_plus_S",
+      "hit_at_1": {
+        "mean": 0.2396637088477366,
+        "ci95": [
+          0.22966459297839503,
+          0.25014467592592593
+        ],
+        "clusters": 48
+      },
+      "mrr": {
+        "mean": 0.486182243441358,
+        "ci95": [
+          0.47856095679012345,
+          0.4943753951796125
+        ],
+        "clusters": 48
+      },
+      "query_n": 10368,
+      "chance_hit_at_1": 0.2,
+      "task_relation": "same prompt, turn-cap and environment; positive uses a different held-out model snapshot"
+    },
+    {
+      "method": "B_plus_S_plus_exec_duration",
+      "hit_at_1": {
+        "mean": 0.23620756172839508,
+        "ci95": [
+          0.22675540123456792,
+          0.2461443865740741
+        ],
+        "clusters": 48
+      },
+      "mrr": {
+        "mean": 0.4851032021604938,
+        "ci95": [
+          0.4780252941743828,
+          0.4924094569830247
+        ],
+        "clusters": 48
+      },
+      "query_n": 10368,
+      "chance_hit_at_1": 0.2,
+      "task_relation": "same prompt, turn-cap and environment; positive uses a different held-out model snapshot"
+    },
+    {
+      "method": "B_profile",
+      "hit_at_1": {
+        "mean": 0.24561953446502058,
+        "ci95": [
+          0.23466394997427983,
+          0.25749943737139913
+        ],
+        "clusters": 48
+      },
+      "mrr": {
+        "mean": 0.49033685378086417,
+        "ci95": [
+          0.4815370209619341,
+          0.49980438944080074
+        ],
+        "clusters": 48
+      },
+      "query_n": 10368,
+      "chance_hit_at_1": 0.2,
+      "task_relation": "same prompt, turn-cap and environment; positive uses a different held-out model snapshot"
+    },
+    {
+      "method": "command_cosine",
+      "hit_at_1": {
+        "mean": 0.25263470936213994,
+        "ci95": [
+          0.2413175958076132,
+          0.2648268711419753
+        ],
+        "clusters": 48
+      },
+      "mrr": {
+        "mean": 0.4973478223593964,
+        "ci95": [
+          0.4881895710090878,
+          0.5069452676236711
+        ],
+        "clusters": 48
+      },
+      "query_n": 10368,
+      "chance_hit_at_1": 0.2,
+      "task_relation": "same prompt, turn-cap and environment; positive uses a different held-out model snapshot"
+    }
+  ],
+  "paired_B_plus_S_minus_command_hit1": {
+    "mean": -0.012971000514403294,
+    "ci95": [
+      -0.02206677597736626,
+      -0.0034657519933127623
+    ],
+    "clusters": 48
+  },
+  "paired_exec_duration_increment_over_B_plus_S": {
+    "mean": -0.003456147119341564,
+    "ci95": [
+      -0.008680555555555554,
+      0.0016083140432098639
+    ],
+    "clusters": 48
+  },
+  "held_out_model_pairs": 72,
+  "uncertainty_unit": "60 prompt x turn-cap x environment conditions; model-pair and query repeats averaged within condition"
+}
