@@ -1,0 +1,54 @@
+{
+  "protocol": "CTH task-held-out, fixed 8-event windows; paired task-cluster bootstrap against full B+S; exploratory and unadjusted",
+  "source": "ba_tree_ablation.json",
+  "seed": 20261103,
+  "task_count": 40,
+  "bootstrap_samples": 10000,
+  "summary": [
+    {
+      "method": "evidence",
+      "ba": 0.6506547619047619,
+      "delta_vs_full": -0.020297619047619054,
+      "paired_task_ci95": [
+        -0.039762648809523814,
+        -0.0008333333333333551
+      ]
+    },
+    {
+      "method": "length_control",
+      "ba": 0.657797619047619,
+      "delta_vs_full": -0.013154761904761902,
+      "paired_task_ci95": [
+        -0.041160714285714294,
+        0.014941964285714258
+      ]
+    },
+    {
+      "method": "gated_S",
+      "ba": 0.6395833333333334,
+      "delta_vs_full": -0.03136904761904763,
+      "paired_task_ci95": [
+        -0.06205431547619049,
+        -0.0021726190476190643
+      ]
+    },
+    {
+      "method": "gated_B",
+      "ba": 0.6563095238095238,
+      "delta_vs_full": -0.014642857142857141,
+      "paired_task_ci95": [
+        -0.042142857142857135,
+        0.010714285714285721
+      ]
+    },
+    {
+      "method": "gated_components",
+      "ba": 0.6709523809523811,
+      "delta_vs_full": 0.0,
+      "paired_task_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

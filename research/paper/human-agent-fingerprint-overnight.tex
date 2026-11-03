@@ -51,7 +51,7 @@ As illustrated in Figure~\ref{fig:architecture}, the fingerprint serves two anal
 \textbf{Observable logs} & \textbf{B/S/T fingerprint} & \textbf{Two readouts} \\
 Commands, order, timing & Behavior, sequence, timing & Mode scoring; association
 \end{tabularx}
-\caption{From observable logs to a windowed behavioral fingerprint and two separately evaluated readouts. For the selected log trace, the three displayed sheets show the B, S, and T feature blocks; their columns form a single fingerprint matrix. The operation repeats for each trace before association. Timing remains missing when unavailable. Commands and cells are illustrative, not measured values.}
+\caption{From observable logs to a windowed behavioral fingerprint and two separately evaluated readouts. For the selected log trace, the three displayed sheets show the B, S, and T feature blocks; their columns form a single fingerprint matrix. The operation repeats for each trace before association. Timing remains missing when unavailable. Log fields and cell colors are illustrative, not measured values.}
 \label{fig:architecture}
 \end{figure}
 
@@ -156,7 +156,7 @@ We use all 40 CTH tasks containing at least one feature-eligible trace of each m
 \subsection{BA comparison and source holdout}
 The post-observation BA study uses five task-group folds on 175 CTH traces, three task-group folds on 163 Antieval traces, and five participant-disjoint folds on 197 KYPO traces. The held-out Antieval gallery evaluates 31 task groups and the KYPO panel evaluates 190 queries. In each outer fold, three inner folds choose tree depth, decision threshold, and a B/S window of 4, 8, or 16 events. The evidence-only comparison uses the same learner and candidates. We resample 40 CTH tasks, 31 Antieval tasks, or 97 KYPO query participants after averaging repeated observations. KYPO candidate galleries remain fixed under query-participant resampling.
 
-The leave-one-source-out study holds out CTH, Antieval, or KYPO entirely. Models train on source-balanced, same-source task pairs from the remaining sources, and two inner source holdouts select depth and threshold. The B/S window is fixed at eight events. Where CTH and Antieval share a normalized CyBench challenge name, training records with that name are purged against both outer and inner validation sources; 33 and 26 training records are removed when holding out CTH and Antieval, respectively. Each test query is compared with one same-task and seven different-task candidates. Source and task labels determine splits and pairs, not the feature vector. These analyses were specified after inspecting prior results; reported intervals are unadjusted exploratory intervals.
+For the CTH ablation, we instead fix the B/S window at eight events and compare the full model with block removals and a length-only control on the same outer galleries. The leave-one-source-out study holds out CTH, Antieval, or KYPO entirely. Models train on source-balanced, same-source task pairs from the remaining sources, and two inner source holdouts select depth and threshold. The B/S window is fixed at eight events. Where CTH and Antieval share a normalized CyBench challenge name, training records with that name are purged against both outer and inner validation sources; 33 and 26 training records are removed when holding out CTH and Antieval, respectively. Each test query is compared with one same-task and seven different-task candidates. Source and task labels determine splits and pairs, not the feature vector. These analyses were specified after inspecting prior results; reported intervals are unadjusted exploratory intervals.
 
 \subsection{AIT recognition and supplemental sources}
 For AIT, we compare frozen 89-run and expanded 109-run cohorts under task-group and source-group holdouts. Feature scaling and imputation are fit on training folds only. Paired changes add S to B and then T to B+S. We also compare full B+S with a fixed first eight-event window, shuffled eight-event window order, and B+S+T with observed gaps permuted within each eight-event window. Twenty perturbations are averaged per trace; task-cluster intervals resample the 12 task groups. These controls diagnose the AIT cohort and do not isolate mode from workflow. For Honey, query/candidate conditions are fixed and the held-out model snapshot is varied; 10,368 queries are summarized over 48 prompt/cap/environment clusters. For CyBiasBench, one target application is held out at a time; there are 600 queries per target with one positive and four negatives. Because there are only three targets, we report per-target range rather than a query-level confidence interval.
@@ -220,17 +220,19 @@ The matched tree comparison produces task-macro BA changes of $+2.94\pp$ $[+0.43
 \centering\small
 \caption{Matched association BA across sources. Within-source folds hold out tasks (CTH, Antieval) or participants (KYPO); source holdout trains on the other sources after purging known matching task names. Changes and unadjusted 95\% cluster intervals are in percentage points.}
 \label{tab:association-ba-v3}
-\begin{tabularx}{\linewidth}{@{}l l r r Y@{}}
-\toprule Source & Holdout & Evidence & + Fingerprint & $\Delta$ [95\% interval] \\
+\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule Source & Holdout & Evidence & + B/S & $\Delta$BA [95\% CI] \\
 \midrule
 CTH & Task & 65.07 & 68.00 & $+2.94\;[+0.43,+5.34]$ \\
 KYPO & Participant & 55.83 & 60.08 & $+4.25\;[+1.03,+8.02]$ \\
 Antieval & Task & 70.24 & 70.38 & $+0.13\;[-2.47,+2.61]$ \\
+\addlinespace
 CTH & Source & 51.98 & 56.69 & $+4.71\;[+0.69,+8.83]$ \\
 KYPO & Source & 66.40 & 66.61 & $+0.21\;[-1.06,+1.36]$ \\
 Antieval & Source & 71.90 & 68.63 & $-3.27\;[-6.28,-0.22]$ \\
 \bottomrule
-\end{tabularx}
+\end{tabular*}
 \end{table}
 
 \begin{figure}[ht]
@@ -241,23 +243,46 @@ Antieval & Source & 71.90 & 68.63 & $-3.27\;[-6.28,-0.22]$ \\
 
 \begin{table}[ht]
 \centering\small
-\caption{Cross-sample generalization tests. Each paired change compares a named behavior-augmented method with its control on the held-out sample or condition. Higher Hit@1 and BA are better. CTH Agent-only and Antieval use the earlier 24-value window profile, not the new B/S representation. The CyBiasBench interval is the range across three targets, not a confidence interval.}
+\caption{Additional transfer comparisons. Each row uses its stated outcome and held-out unit; changes are percentage points. The CyBiasBench interval is the range across three targets, not a confidence interval. Legacy denotes the earlier 24-value profile.}
 \label{tab:transfer}
-\begin{tabularx}{\linewidth}{@{}p{.16\linewidth}p{.20\linewidth}Yp{.29\linewidth}@{}}
-\toprule Source / scale & Held-out condition & Comparison and metric & Change [95\% interval] \\
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}p{.15\linewidth}p{.18\linewidth}Yp{.27\linewidth}@{}}
+\toprule Source / $n$ & Holdout & Comparison; outcome & $\Delta$ [95\% CI] \\
 \midrule
-CTH: 175 / 40 tasks & Task groups, opposite-mode gallery & Command $\to$ command+B/S; Hit@1 & $-0.08\;[-5.71,+5.58]$ \\
-CTH: 219 / 86 tasks & Task groups, Agent-only gallery & Command $\to$ command+legacy 24-value profile; Hit@1 & $-3.57\;[-6.82,-0.43]$ \\
-AIT: 109 / 12 tasks & Task groups & B/S $\to$ B/S/T; BA & $+15.83\;[+6.11,+25.00]$ \\
-AIT: 109 / 12 tasks & Collection-source groups & B/S $\to$ B/S/T; BA & $+16.88\;[+8.19,+25.77]$ \\
-Honey: 13,080 & Model snapshot; fixed task conditions & Command $\to$ B/S; Hit@1 & $-1.30\;[-2.21,-0.35]$ \\
-CyBiasBench: 450 & Target application & Route $\to$ route+B/S; Hit@1 & $+0.92$; target range $[-0.17,+1.58]$ \\
-KYPO: 197 / 97 people & Participants; known task levels & Command $\to$ command+B/S; Hit@1 & $-1.42\;[-2.59,-0.23]$ \\
-Antieval: 120 / 27 tasks & Task groups & Command $\to$ command+legacy window profile; Hit@1 & $-2.89\;[-7.50,+1.79]$ \\
+CTH / 175 & Task; opposite mode & Command $\to$ +B/S; Hit@1 & $-0.08\;[-5.71,+5.58]$ \\
+CTH / 219 & Task; Agent-only & Command $\to$ legacy; Hit@1 & $-3.57\;[-6.82,-0.43]$ \\
+AIT / 109 & Task & B/S $\to$ B/S/T; BA & $+15.83\;[+6.11,+25.00]$ \\
+AIT / 109 & Source group & B/S $\to$ B/S/T; BA & $+16.88\;[+8.19,+25.77]$ \\
+Honey / 13,080 & Model snapshot & Command $\to$ B/S; Hit@1 & $-1.30\;[-2.21,-0.35]$ \\
+CyBias / 450 & Target & Route $\to$ +B/S; Hit@1 & $+0.92$; $[-0.17,+1.58]^\dagger$ \\
+KYPO / 197 & Participant & Command $\to$ +B/S; Hit@1 & $-1.42\;[-2.59,-0.23]$ \\
+Antieval / 120 & Task & Command $\to$ legacy; Hit@1 & $-2.89\;[-7.50,+1.79]$ \\
 \bottomrule
 \end{tabularx}
 \end{table}
 KYPO contributes a Human-only, participant-disjoint comparison. Five folds separate all segments of a participant before fitting features or scores. The eligible cohort contains 197 records from 97 participants; the retrieval panel evaluates 190 queries across eight task levels, with one same-task candidate and four other-task candidates. All candidates are from held-out participants, and query and candidate participants differ. Command Hit@1 is 31.71\%, compared with 30.29\% for command+B/S. The 219-trace CTH row and Antieval row use the earlier 24-value window-profile protocol; they remain distinct from the new B/S representation. Table~\ref{tab:transfer} shows the strongest positive increments in AIT's task and collection-source splits, while expanded CTH, Honey, KYPO, and Antieval retrieval panels show lower Hit@1 after adding their named window profiles. CyBiasBench's modest mean increase varies across its three targets. Fingerprint value tracks the information retained by each source and observation contract.
+
+\subsection{Feature-block ablation on held-out CTH tasks}
+We isolate the fingerprint contribution on 175 traces from 40 mixed-mode CTH tasks. All rows use the same outer task folds, query--candidate galleries, evidence features, and shallow-tree family. Each model selects its depth and decision threshold on inner training tasks. The full configuration combines command and action-bigram evidence with command-conditioned B and S feature differences, using fixed eight-event windows. The length control adds only the log-length difference to the same evidence; the two ablations retain only S or only B, respectively. T is unavailable in this CTH command view and is evaluated separately on AIT.
+
+\begin{table}[ht]
+\centering\small
+\caption{CTH fingerprint ablation. BA is task-macro balanced accuracy (\%); $\Delta$ compares each row with the full B/S model in percentage points. Intervals resample the 40 paired task-level outcomes 10,000 times; they are exploratory and unadjusted for multiple comparisons.}
+\label{tab:fingerprint-ablation}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrr@{}}
+\toprule Configuration & BA (\%) & $\Delta$ vs. full [95\% CI] \\
+\midrule
+Evidence only & 65.07 & $-2.03\;[-3.98,-0.08]$ \\
+Evidence + length & 65.78 & $-1.32\;[-4.12,+1.49]$ \\
+Remove B (evidence + S) & 63.96 & $-3.14\;[-6.21,-0.22]$ \\
+Remove S (evidence + B) & 65.63 & $-1.46\;[-4.21,+1.07]$ \\
+Full (evidence + B/S) & 67.10 & Reference \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+Removing B reduces BA by $3.14\pp$ relative to the full model in this fixed-window comparison; removing S reduces the point estimate by $1.46\pp$, with an interval spanning zero. The length-only control also has an interval spanning zero relative to the full model. These paired results support a contribution from B under this particular CTH protocol; they do not establish that S has no effect, that length cannot matter, or that the gain transfers across sources. The full-model BA here differs from the nested-window CTH result in Table~\ref{tab:association-ba-v3} because the ablation fixes the window at eight events.
 
 \section{Discussion and limitations}
 \paragraph{Implications for behavioral association.} Execution mode is a useful stratification variable when examining behavioral evidence. In the evaluated five-level allocation, both baseline BA point estimates decrease across the tested Agent-role shares; between the endpoints, missed links increase and false merges decrease. An interpretable fingerprint makes tool organization, repetition, sequence evolution, and timing available as separate evidence blocks. The source-held-out CTH fusion recovers some same-task links at the cost of additional merges, making the operating threshold and evidence contribution central to its use.
@@ -292,7 +317,7 @@ T & T7--T8 & Median log(1+observed event duration); median log(1+idle interval) 
 \section{Reproduction, versions, and data handling}
 The versioned implementation is \texttt{attackagent/fingerprint\_v2.py}. Main experiment programs are \texttt{research/experiments/behavioral\_fingerprint\_v2/run\_ait\_recognition.py}, \texttt{run\_cth\_mixture.py}, \texttt{run\_cth\_cross\_mode.py}, \texttt{run.py} (Honey), and \texttt{run\_cybias\_retrieval.py}; figures are regenerated with \texttt{build\_figures.py}. Aggregate metrics, fold definitions, provenance, and query-level scores are versioned under \texttt{research/results/behavioral\_fingerprint\_v2/}. No model, framework, prompt, task ID, source ID, participant ID, or outcome field enters the fingerprint features.
 
-The follow-up programs under \texttt{research/experiments/association\_fingerprint\_v3/} reproduce the exact role mixture, within-source BA pilots, window controls, and purged leave-one-source-out comparison. The latter stores candidate scores, thresholds, and probability-preserving tree-path contributions in \texttt{ba\_leave\_source\_out\_purged\_pairs.csv}; task-level metrics and all attempted configurations are retained alongside it. One positive and seven negatives per query are evaluated in the source holdout, and candidate draws are fixed within each comparison.
+The follow-up programs under \texttt{research/experiments/association\_fingerprint\_v3/} reproduce the exact role mixture, within-source BA pilots, window controls, and purged leave-one-source-out comparison. The fixed-window block ablation and its paired full-model intervals are produced by \texttt{run\_tree\_ablation.py} and \texttt{summarize\_ablation\_against\_full.py}. The source-holdout analysis stores candidate scores, thresholds, and probability-preserving tree-path contributions in \texttt{ba\_leave\_source\_out\_purged\_pairs.csv}; task-level metrics and all attempted configurations are retained alongside it. One positive and seven negatives per query are evaluated in the source holdout, and candidate draws are fixed within each comparison.
 
 The downloadable 1,407-record bundle retains source-specific links, revisions, task keys, and licensing metadata. External Honey and CyBiasBench analyses use pinned public source snapshots; aggregate results are included, but no modified per-session CyBiasBench rows are redistributed. The original 97-trace pair panel remains separately versioned and should not be merged with the newer CTH cross-mode cohort. Source terms apply independently; the bundle has no blanket license.
 

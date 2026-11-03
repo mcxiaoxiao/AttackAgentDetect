@@ -296,6 +296,7 @@ html[lang="en"] .fingerprint-association-page .association-hero-copy h1 {
 .association-recognition-takeaway p { margin-top: 8px; font-size: 14px; }
 
 .association-table-scroll { width: 100%; max-width: 100%; margin-top: 28px; overflow-x: auto; overscroll-behavior-inline: contain; }
+.association-table-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .association-feature-table,
 .association-results-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
 .association-feature-table caption,
