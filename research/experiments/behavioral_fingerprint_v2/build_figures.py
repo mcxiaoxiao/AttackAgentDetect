@@ -162,41 +162,43 @@ def matrix_example():
             pieces.append(np.clip(z, -2.5, 2.5))
         z_matrices.append(np.hstack(pieces))
 
-    fig, axes = plt.subplots(2, 1, figsize=(7.2, 5.0), gridspec_kw={"height_ratios": [1, 1]})
-    names = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8",
-             "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8",
-             "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8"]
+    from matplotlib.colors import LinearSegmentedColormap
+    from matplotlib.patches import Rectangle, Patch
+    from paper_style import apply, save as save_publication, PAGE_WIDTH, MISSING
+    apply()
+    fig, axes = plt.subplots(2, 1, figsize=(PAGE_WIDTH, 3.15), sharex=True)
+    names = [f"{block}{j}" for block in ("B", "S", "T") for j in range(1, 9)]
+    cmap = LinearSegmentedColormap.from_list("fingerprint_cobalt", [BLUE, "#f7fafd", "#c66b38"])
+    cmap.set_bad(MISSING)
     last = None
     for i, ax in enumerate(axes):
         matrix = z_matrices[i]
-        masked = np.ma.masked_invalid(matrix)
-        cmap = plt.get_cmap("RdBu_r").copy()
-        cmap.set_bad("#d8e0e8")
-        last = ax.imshow(masked, aspect="auto", interpolation="nearest", cmap=cmap,
-                         vmin=-2.5, vmax=2.5)
-        ax.set_yticks(np.arange(matrix.shape[0]), [f"W{j+1:02d}" for j in range(matrix.shape[0])])
-        ax.set_xticks(np.arange(24), names, rotation=0, fontsize=7)
-        ax.tick_params(length=0)
-        ax.set_title(f"{raw[i][1]}  ·  Nextcloud/exp1  ·  {raw[i][2]['events']} observed commands",
-                     loc="left", fontsize=8.3, weight="bold", pad=8)
-        ax.set_xticks([7.5, 15.5], minor=True)
-        ax.grid(which="minor", axis="x", color="white", linewidth=2.2)
-        ax.tick_params(which="minor", bottom=False)
-        for side in ax.spines.values():
-            side.set_visible(False)
-        ax.text(3.5, -0.30, "B · local behavior", ha="center", va="bottom", color=BLUE,
-                fontsize=7.5, weight="bold", transform=ax.get_xaxis_transform())
-        ax.text(11.5, -0.30, "S · sequence evolution", ha="center", va="bottom", color=TEAL,
-                fontsize=7.5, weight="bold", transform=ax.get_xaxis_transform())
-        ax.text(19.5, -0.30, "T · observed timing", ha="center", va="bottom", color=ORANGE,
-                fontsize=7.5, weight="bold", transform=ax.get_xaxis_transform())
-    # A fixed cbar axis preserves a generous matrix panel and avoids tight-bbox
-    # clipping of the final timing columns in the PDF/SVG exports.
-    cb = fig.colorbar(last, cax=fig.add_axes([.945, .22, .014, .60]))
-    cb.set_label("z-score across eligible AIT windows (clipped ±2.5)", fontsize=7.5)
-    cb.ax.tick_params(labelsize=7)
-    fig.subplots_adjust(left=.075, right=.92, top=.93, bottom=.12, hspace=.85)
-    save(fig, "fingerprint-v2-matrix-example", "fingerprint-v2-matrix-example")
+        last = ax.imshow(np.ma.masked_invalid(matrix), aspect="auto", interpolation="nearest",
+                         cmap=cmap, vmin=-2.5, vmax=2.5)
+        for row, col in zip(*np.where(~np.isfinite(matrix))):
+            ax.add_patch(Rectangle((col-.5, row-.5), 1, 1, facecolor=MISSING,
+                                   edgecolor="#afbac7", linewidth=0, hatch="///"))
+        ax.set_yticks(np.arange(matrix.shape[0]), [str(j+1) for j in range(matrix.shape[0])])
+        ax.set_ylabel("Window", fontsize=7)
+        ax.set_xticks(np.arange(24), names, fontsize=6.4)
+        ax.tick_params(length=0, labelbottom=(i==1), labelsize=6.4)
+        label = "Human" if i == 0 else "Agent"
+        ax.set_title(f"{'ab'[i]}  {label} ({raw[i][2]['events']} launches)", loc="left",
+                     fontsize=8.3, weight="bold", pad=6)
+        for border in (7.5, 15.5):ax.axvline(border, color="white", linewidth=1.7)
+        for side in ax.spines.values():side.set_visible(False)
+    for x, label, color in [(3.5, "B  Local behavior", BLUE), (11.5, "S  Sequence evolution", TEAL),
+                             (19.5, "T  Observed timing", ORANGE)]:
+        axes[1].text(x, -.35, label, ha="center", va="top", color=color, fontsize=7.2,
+                     transform=axes[1].get_xaxis_transform())
+    cb = fig.colorbar(last, cax=fig.add_axes([.27, .075, .42, .025]), orientation="horizontal",
+                      ticks=[-2.5, 0, 2.5])
+    cb.set_label("Standardized feature (z; clipped ±2.5)", fontsize=6.8, labelpad=2)
+    cb.ax.tick_params(labelsize=6.3, length=2);cb.outline.set_linewidth(.4)
+    fig.legend(handles=[Patch(facecolor=MISSING, edgecolor="#afbac7", hatch="///", label="Missing")],
+               loc="lower right", bbox_to_anchor=(.99, .06), fontsize=6.8, frameon=False)
+    fig.subplots_adjust(left=.055, right=.99, top=.92, bottom=.30, hspace=.35)
+    save_publication(fig, "fingerprint-v2-matrix-example", (PAPER, SITE))
 
 
 def mixture_figure():

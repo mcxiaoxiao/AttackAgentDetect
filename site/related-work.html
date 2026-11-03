@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=20261101-readable-research-v2" rel="stylesheet"/>
 <link href="docs.css?v=20261101-readable-research-v1" rel="stylesheet"/>
-<link href="research.css?v=20261103-structured-v1" rel="stylesheet"/>
+<link href="research.css?v=20261103-compact-v3" rel="stylesheet"/>
 <script defer="" src="i18n.js?v=20261101-global-header-v1"></script>
 <script defer="" src="site.js?v=20261101-global-header-v1"></script>
 <script defer="" src="deployment.js"></script>
@@ -52,18 +52,18 @@
 
 <section class="section docs-content related-work-comparison" id="comparison-matrix">
 <div class="docs-prose">
-<h2 data-en="What adjacent studies identify, and what their setup requires">相邻研究的识别对象与实验条件</h2>
-<p data-en="These studies answer different questions and are not ranked by one accuracy number. Their candidate identities, task domains, observation fields, and ability to intervene determine what each result supports.">这些研究回答的问题不同，不用一个准确率数字排高低。候选身份集合、任务领域、观测字段和能否主动干预，共同决定结果可以支持什么结论。</p>
-<div class="related-work-table-scroll" tabindex="0" role="region" aria-label="相关工作对照" data-en-aria-label="Related work comparison"><table class="related-work-table"><thead><tr><th scope="col" data-en="Study">研究</th><th scope="col" data-en="Objective">目标</th><th scope="col" data-en="Evaluated scope">评估范围</th><th scope="col" data-en="Observation">观测数据</th><th scope="col" data-en="Intervention">干预方式</th></tr></thead><tbody>
+<h2 data-en="From system identity to association utility">从系统身份识别到关联效用</h2>
+<p data-en="Identity readouts in Trace, LIDAR, and Known By Their Actions use labelled or enrolled candidate systems; LIDAR additionally executes controlled probes. Known By Their Actions also evaluates open-set detection. Their goals differ from using behavior directly to judge a relation between retained traces.">Trace、LIDAR 和 Known By Their Actions 的身份识别读出使用已标注或已登记的候选系统；LIDAR 还执行受控探针，Known By Their Actions 也评估开放集检测。它们着眼于识别系统身份，我们关注行为证据怎样直接帮助两条留存轨迹的关联判断。</p>
+<div class="related-work-table-scroll" tabindex="0" role="region" aria-label="相关工作对照" data-en-aria-label="Related work comparison"><table class="related-work-table"><thead><tr><th scope="col" data-en="Study">研究</th><th scope="col" data-en="Objective">目标</th><th scope="col" data-en="Evaluated scope">评估范围</th><th scope="col" data-en="Observation">观测数据</th><th scope="col" data-en="Intervention">干预方式</th></tr></thead><tbody><tr class="table-group"><th colspan="5" scope="colgroup" data-en="System identity and workflow">系统身份与工作流</th></tr>
 <tr><th scope="row"><a href="https://arxiv.org/abs/2605.01186">Trace</a></th><td data-en="Model family">模型家族</td><td data-en="7 families; 3 scaffolds">7 个家族；3 种框架</td><td data-en="Terminal commands">终端命令</td><td data-en="Passive; active follow-on">被动；后续主动探测</td></tr>
 <tr><th scope="row"><a href="https://arxiv.org/abs/2606.16988">ProcGrep</a></th><td data-en="Agent workflow">Agent 工作流</td><td data-en="10 coding Agents">10 个编码 Agent</td><td data-en="Coding actions">编码动作</td><td data-en="Passive">被动</td></tr>
 <tr><th scope="row"><a href="https://arxiv.org/abs/2609.28559">LIDAR</a></th><td data-en="Underlying model">底层模型</td><td data-en="36 models; 2 harnesses">36 个模型；2 种框架</td><td data-en="Coding behavior">编码行为</td><td data-en="Active probes">主动探针</td></tr>
 <tr><th scope="row"><a href="https://arxiv.org/abs/2605.14786">Known By Their Actions</a></th><td data-en="Browser model">浏览器模型</td><td data-en="14 models; 4 environments">14 个模型；4 类环境</td><td data-en="UI events; timing">UI 事件；时间</td><td data-en="Passive">被动</td></tr>
-<tr><th scope="row"><a href="https://arxiv.org/abs/2605.07830">CyBiasBench</a></th><td data-en="Attack preference">攻击偏好</td><td data-en="5 Agents; 3 targets">5 个 Agent；3 个目标</td><td>HTTP</td><td data-en="Task conditions">任务条件</td></tr>
+<tr class="table-group"><th colspan="5" scope="colgroup" data-en="Attack behavior and relation evidence">攻击行为与关系证据</th></tr><tr><th scope="row"><a href="https://arxiv.org/abs/2605.07830">CyBiasBench</a></th><td data-en="Attack preference">攻击偏好</td><td data-en="5 Agents; 3 targets">5 个 Agent；3 个目标</td><td>HTTP</td><td data-en="Task conditions">任务条件</td></tr>
 <tr><th scope="row"><a href="https://arxiv.org/html/2607.18826">Cross-Agent</a></th><td data-en="Campaign linking">Campaign 关联</td><td data-en="Synthetic sessions; framework probes">合成会话；框架探针</td><td data-en="Events; text; timing">事件；文本；时间</td><td data-en="Logs and probes">日志与探针</td></tr>
-<tr><th scope="row" data-en="This study">本文</th><td data-en="Mode and task association">执行方式与任务关联</td><td data-en="CTH and multi-source cohorts">CTH 与多来源队列</td><td data-en="Commands; order; optional timing">命令；顺序；可用时间</td><td data-en="Passive logs">被动日志</td></tr>
+<tr><th scope="row" data-en="This study">本文</th><td data-en="Trace association">轨迹关联</td><td data-en="3 sources; 2 protocols">3 个来源；2 种协议</td><td data-en="Command sequences">命令序列</td><td data-en="Passive">被动</td></tr>
 </tbody></table></div>
-<p class="related-work-check" data-en="Cross-Agent uses synthetic campaign labels; our labels are task or condition proxies. Positioning: the practical motivation is that post-incident analysis often starts with whatever logs are retained. A log-derived, interpretable fingerprint can be computed without knowing every model and Agent product or placing them in one controlled sandbox. This is an input-availability argument, not a claim that model-identification studies are impractical or less accurate.">Cross-Agent 使用合成 campaign 标签；本文使用任务或条件代理标签。本文定位：事后分析往往只能从已经留存的日志开始。可解释的日志指纹不需要预先知道所有模型与 Agent 产品，也不要求把它们放入同一沙箱。这是基于输入可得性的研究选择，并不表示模型识别研究不实用或准确率较低。</p>
+<p class="related-work-check" data-en="The association branch learns from trace-pair relations and does not require a named-model catalogue or active access at inference. This removes identity classification as a prior step when investigating unidentified systems. Training labels, input adapters, and source-specific evaluation are still required. ProcGrep also supports trace search; Cross-Agent studies campaign linking with synthetic labels.">我们的关联分支根据轨迹配对关系学习，推断时不要求具体模型名录或主动访问执行系统。这使调查未知系统时可以直接比较行为证据；仍需配对标签、输入适配与来源验证。ProcGrep 同样支持轨迹搜索，Cross-Agent 则在合成标签上研究 campaign 关联。</p>
 </div></section>
 
 <section class="section docs-content related-work-notes"><div class="docs-prose">

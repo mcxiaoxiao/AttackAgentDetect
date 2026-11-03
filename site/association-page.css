@@ -460,13 +460,23 @@ html[lang="en"] .fingerprint-association-page .association-hero-copy h1 {
 
 /* Conceptual introduction: image and labels share the page's content width. */
 .association-overview-figure { min-width: 0; margin: 38px 0 24px; }
-.association-overview-figure > img { display: block; width: 100%; height: auto; }
-.association-overview-labels { display: grid; grid-template-columns: 31% 35% 34%; gap: 0; padding-block: 18px; border-block: 1px solid var(--line); }
-.association-overview-labels > div { min-width: 0; padding-right: 18px; }
+.association-overview-canvas > img { display: block; width: 100%; height: auto; }
+.association-overview-labels { display: grid; grid-template-columns: 31% 38% 9% 22%; gap: 0; padding-block: 12px; border-block: 1px solid var(--line); }
+.association-overview-labels > div { min-width: 0; text-align: center; }
 .association-overview-labels strong, .association-overview-labels span { display: block; }
-.association-overview-labels strong { font-size: 16px; }
-.association-overview-labels span { margin-top: 5px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.association-overview-labels strong { font-size: 14px; }
+.association-overview-labels span { margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .association-overview-figure figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+/* Keep the captions centred on the actual three diagram groups. */
+.association-overview-viewport { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.association-overview-canvas { width: 100%; }
+.association-overview-labels > div:nth-child(3) { grid-column: 4; }
+.association-overview-viewport:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.association-mechanism { margin-top: 36px; }
+.association-mechanism > h3 { margin-bottom: 12px; font-size: 22px; }
+.association-mechanism > p { margin-bottom: 22px; color: var(--muted); line-height: 1.75; }
 @media (max-width: 640px) {
-  .association-overview-labels { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .association-overview-canvas { min-width: 720px; }
+  .association-overview-labels { grid-template-columns: 31% 38% 9% 22%; gap: 0; }
 }
