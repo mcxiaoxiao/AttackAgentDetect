@@ -166,3 +166,24 @@
 .execution-dataset-page .transfer-results-table th:last-child,
 .execution-dataset-page .transfer-results-table td:last-child { width: 25%; }
 .dataset-wide-note { margin-top: 20px; max-width: 90ch; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+/* Source and cohort tables keep counts and observation contracts in separate columns. */
+.execution-dataset-page .dataset-sources-structured,
+.execution-dataset-page .dataset-cohort-table { table-layout: fixed; }
+.execution-dataset-page .dataset-sources-structured th:first-child { width: 25%; }
+.execution-dataset-page .dataset-sources-structured th:nth-child(2),
+.execution-dataset-page .dataset-sources-structured th:nth-child(3),
+.execution-dataset-page .dataset-sources-structured th:nth-child(4) { width: 9%; }
+.execution-dataset-page .dataset-sources-structured th:nth-child(5) { width: 20%; }
+.execution-dataset-page .dataset-sources-structured th:last-child,
+.execution-dataset-page .dataset-sources-structured td:last-child { width: 28%; text-align: left; }
+.execution-dataset-page .dataset-sources-structured th:nth-child(5),
+.execution-dataset-page .dataset-sources-structured td:nth-child(5) { text-align: left; }
+.execution-dataset-page .dataset-cohort-table th:first-child { width: 22%; }
+.execution-dataset-page .dataset-cohort-table th:nth-child(2) { width: 13%; }
+.execution-dataset-page .dataset-cohort-table th:nth-child(3) { width: 15%; }
+.execution-dataset-page .dataset-cohort-table th:nth-child(4) { width: 22%; text-align: left; }
+.execution-dataset-page .dataset-cohort-table td:nth-child(4) { text-align: left; }
+.execution-dataset-page .dataset-cohort-table th:last-child,
+.execution-dataset-page .dataset-cohort-table td:last-child { width: 28%; text-align: left; }
+.execution-dataset-page .dataset-section { scroll-margin-top: 96px; }

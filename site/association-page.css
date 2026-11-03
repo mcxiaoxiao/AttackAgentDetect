@@ -456,3 +456,16 @@ html[lang="en"] .fingerprint-association-page .association-hero-copy h1 {
   .fingerprint-association-page *::before,
   .fingerprint-association-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Conceptual introduction: image and labels share the page's content width. */
+.association-overview-figure { min-width: 0; margin: 38px 0 24px; }
+.association-overview-figure > img { display: block; width: 100%; height: auto; }
+.association-overview-labels { display: grid; grid-template-columns: 31% 35% 34%; gap: 0; padding-block: 18px; border-block: 1px solid var(--line); }
+.association-overview-labels > div { min-width: 0; padding-right: 18px; }
+.association-overview-labels strong, .association-overview-labels span { display: block; }
+.association-overview-labels strong { font-size: 16px; }
+.association-overview-labels span { margin-top: 5px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.association-overview-figure figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+@media (max-width: 640px) {
+  .association-overview-labels { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}

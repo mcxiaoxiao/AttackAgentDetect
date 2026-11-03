@@ -514,3 +514,12 @@
 
 /* Research entries use their title and description as the hierarchy. */
 .research-page .research-list-page a { grid-template-columns: minmax(0, 1fr); }
+
+/* Compact, comparable columns for the related-work matrix. */
+.related-work-comparison .related-work-table { min-width: 760px; table-layout: fixed; }
+.related-work-comparison .related-work-table th:first-child { width: 20%; }
+.related-work-comparison .related-work-table th:nth-child(2) { width: 17%; }
+.related-work-comparison .related-work-table th:nth-child(3) { width: 22%; }
+.related-work-comparison .related-work-table th:nth-child(4) { width: 21%; }
+.related-work-comparison .related-work-table th:nth-child(5) { width: 20%; }
+.related-work-table-scroll:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
