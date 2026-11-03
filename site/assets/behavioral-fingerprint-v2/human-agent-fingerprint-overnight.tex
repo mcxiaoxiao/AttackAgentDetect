@@ -34,7 +34,7 @@
 \maketitle
 
 \begin{abstract}
-Execution mode can change the interpretation of behavioral similarity in log-based trace association. We construct an interpretable window fingerprint of local behavior (B), sequence evolution (S), and observed timing (T), and investigate whether it adds useful evidence to Human/Agent recognition and task-level association. In an exact five-level role-mixture rerun on 17 CTH tasks, command-baseline balanced accuracy (BA) declines from 53.6\% to 46.5\%; action-bigram BA declines from 57.4\% to 46.5\%. A post-observation, evidence-conditioned tree model increases task-held-out CTH BA from 65.1\% to 68.0\% and participant-held-out KYPO BA from 55.8\% to 60.1\%. With an entire source held out and known matching CyBench names removed from training, CTH BA rises from 52.0\% to 56.7\%, while Antieval BA falls from 71.9\% to 68.6\%. In the CTH source holdout, missed-link rate falls from 85.8\% to 72.9\% as false merges rise from 10.3\% to 13.7\%. These exploratory results locate a measurable association tradeoff across distinct log contracts. Same-task or same-condition labels are retrieval proxies, and collection conditions remain entangled with execution mode.
+Behavioral fingerprints make execution characteristics available to log-based trace association. We represent local behavior (B), sequence evolution (S), and observed timing (T) as interpretable, variable-length window matrices, with separate association and Human/Agent readouts. On matched task- or participant-held-out comparisons, conditioning command evidence on B/S raises balanced accuracy (BA) by $2.94\pp$ on CTH and $4.25\pp$ on KYPO; Antieval changes by $0.13\pp$. Removing B from the fixed-window CTH model reduces BA by $3.14\pp$. On 109 AIT runs, adding observed timing raises task-held-out mode-recognition BA from 53.0\% to 68.8\%. An exact five-level role-mixture experiment further shows declining baseline BA as Agent-role share increases in its controlled allocation. Source-held-out association changes range from $-3.27\pp$ on Antieval to $+4.71\pp$ on CTH, identifying the importance of the observation contract. These exploratory experiments use task or condition relations and establish source-specific fingerprint contributions, with complete transfer and control results retained.
 \end{abstract}
 
 \section{Introduction: execution mode as an association dimension}
@@ -55,7 +55,7 @@ Commands, order, timing & Behavior, sequence, timing & Mode scoring; association
 \label{fig:architecture}
 \end{figure}
 
-The experiments examine where execution characteristics matter and how fingerprint information enters. In an exact-share comparison, the baseline BA point estimates decline across the five tested Agent-role concentrations. An evidence-conditioned tree changes BA in CTH and KYPO, with different effects under source holdout. Timing adds predictive information in AIT audit logs. These findings motivate a fingerprint that qualifies command evidence rather than treating shared execution habits as proof of a common activity.
+The experiments connect each feature block to an observable contribution. Evidence-conditioned B/S increases held-out association BA in CTH and KYPO; a block ablation measures its contribution beyond command evidence and length. AIT supplies real launch times to test the additional timing block. The role-mixture experiment, source holdouts, and ranking comparisons establish the conditions under which these contributions hold. Figures and tables therefore distinguish association utility, execution-mode recognition, and the observable structure that supports each readout.
 
 \paragraph{Contributions.} (1) A log-derived, variable-length B/S/T fingerprint with interpretable features and explicit missingness. (2) An evaluation of execution-mode composition and fingerprint contributions to recognition and association. (3) A multi-source evaluation and reproducible evidence record that characterize the representation across common log contracts and held-out conditions.
 
@@ -83,7 +83,7 @@ This study & Mode; task association & CTH and multi-source cohorts & Commands; o
 These studies differ in candidate sets, task domains, and available observations; our relation labels are task or condition proxies. System behavior association offers a complementary foundation. ATLAS reconstructs attack stories from causal audit-graph sequences; HOLMES maps provenance evidence to attack stages and campaign signals; OSTINATO compares provenance-graph behavior across hosts; POIROT and SFM align threat-intelligence behavior with system records~\cite{atlas,holmes,ostinato,poirot,sfm}. These methods use richer process, object, causal, or attack-specific evidence than command-name sequences. The command-log fingerprint complements these process and provenance graph methods by operating on ordered event views and measured timing. Task-labelled retrieval supplies the relation contract for the present evaluation.
 
 \section{Data and observation contracts}
-The downloadable registry contains 1,407 source-qualified trace and task records from four source families. It is a heterogeneous analysis bundle, not one pooled benchmark. The experiments below use only the specified cohorts; the two supplemental external-source analyses are not included in the ZIP and are not redistributed here.
+The downloadable registry contains 1,407 source-qualified trace and task records from four source families. The bundle preserves separate source-specific cohorts and evaluation contracts. The experiments use the cohorts below, defined by relation labels, observed fields, minimum event counts, and held-out units. Honey and CyBiasBench are supplemental external-source analyses with their own upstream data access.
 
 \begin{table}[ht]
 \centering\small
@@ -109,11 +109,21 @@ CTH provides the main Human/Agent same-task setting. Human sessions were capture
 
 AIT is a troubleshooting benchmark, not an attack dataset. Its task and collection workflows co-vary with the released Human/Agent labels. We preserve a frozen 89-run comparison for continuity and include the complete 109-run eligible queue for an expanded analysis. Honey records command execution durations but not event start times; those durations are never treated as inter-command gaps. CyBiasBench has no precise time fields. Accordingly, T is omitted where unavailable.
 
-\begin{figure}[ht]
-\centering\includegraphics[width=\linewidth]{fingerprint-v2-cohort-coverage.pdf}
-\caption{Cohort sizes and observation contracts. Supplemental Honey and CyBiasBench analyses are separate from the 1,407-record download package.}
-\label{fig:cohorts}
-\end{figure}
+\begin{table}[ht]
+\centering\small
+\caption{Observed fields and evaluation role by source. Yes means the field is present in the analyzed view; a dash means it is unavailable. Honey execution duration is not treated as an event timestamp.}
+\label{tab:observation-contracts}
+\begin{tabularx}{\linewidth}{@{}p{.19\linewidth}p{.14\linewidth}p{.10\linewidth}p{.11\linewidth}p{.12\linewidth}p{.12\linewidth}Y@{}}
+\toprule
+Source & Unit & Order & Start time & Duration & Mode labels & Evaluation role \\
+\midrule
+CTH mixed tasks & 175 traces & Yes & -- & -- & H + A & Same-task retrieval; exact role mixtures \\
+AIT audit logs & 109 runs & Yes & Yes & -- & H + A & Mode recognition; observed launch rhythm \\
+Honey for the Agent & 13,080 sessions & Yes & -- & Yes & Agent & External-source command and duration analysis \\
+CyBiasBench & 450 sessions & Yes & -- & -- & Agent & Target-held-out request retrieval \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \section{Method: an interpretable B/S/T fingerprint}
 \subsection{Representation}
@@ -170,97 +180,31 @@ We retain the original 17-task core, its outer task folds, and the training-side
 \label{fig:exact-mixture}
 \end{figure}
 
-\subsection{Cross-mode retrieval measures the incremental ranking contribution}
-In the held-out eight-task gallery, command cosine reaches 33.65\% Hit@1 and 0.539 MRR. Command+B/S reaches 33.56\% Hit@1 and 0.535 MRR. The paired Hit@1 difference is $-0.08\pp$ (95\% task-cluster interval $[-5.71,+5.58]$); the chance baseline is 12.5\%. B-only and B+S standalone scores are lower (24.4\% and 26.1\% Hit@1). Directional Hit@1 is 36.3\% for Human-to-Agent and 33.2\% for Agent-to-Human command cosine; command+B/S is 33.8\% and 33.3\%, respectively.
-
-The earlier fixed 97-trace CTF panel remains a separate baseline: adding distinctive artifact names to command TF--IDF raised Hit@1 from 29.60\% to 79.31\% and task-macro BA from 57.35\% to 62.06\%; its false-merge rate remained 75.87\%. That comparison evaluates command-plus-artifact evidence, not the new B/S increment.
+\subsection{Conditioned fingerprints improve held-out association}
+Conditioning command evidence on B/S increases same-task association BA in the CTH and KYPO comparisons. With identical learners, training pairs, and test galleries, CTH improves from 65.07\% to 68.00\% ($+2.94\pp$, 95\% paired interval $[+0.43,+5.34]$), and KYPO from 55.83\% to 60.08\% ($+4.25\pp$, $[+1.03,+8.02]$). Antieval changes from 70.24\% to 70.38\% ($+0.13\pp$, $[-2.47,+2.61]$). Figure~\ref{fig:association-comparison} shows all three within-source comparisons, with task or participant holdout and training-side window selection.
 
 \begin{figure}[ht]
-\centering\includegraphics[width=.92\linewidth]{fingerprint-v2-retrieval-increment.pdf}
-\caption{Paired Hit@1 change after adding behavioral features. CTH and Honey intervals cluster by task or condition. CyBiasBench shows only the range across three targets, not a confidence interval.}
-\label{fig:retrieval-increment}
+\centering\includegraphics[width=\linewidth]{fingerprint-association-comparison.pdf}
+\caption{Evidence-conditioned association on all three within-source cohorts. Connected endpoints show the same shallow-tree family before and after adding B/S; labels report paired BA differences and 95\% cluster intervals. CTH and Antieval resample tasks; KYPO resamples query participants with galleries fixed. These post-observation intervals are exploratory and unadjusted.}
+\label{fig:association-comparison}
 \end{figure}
 
-\subsection{Timing contributes mode-related workflow information}
-In the frozen AIT cohort, B+S+T reaches 70.6\% task-macro BA on task holdout, compared with 55.5\% for B+S. The paired gain is $+15.1\pp$ (95\% interval $[+3.3,+26.7]$). In the expanded 109-run cohort, B+S+T reaches 68.8\% versus 53.0\%, a $+15.8\pp$ gain $[+6.1,+25.0]$. The representation therefore contains useful timing information for predicting these released labels within these task-group splits.
+Holding out an entire log source tests a stronger change in observation conditions. The source-held-out CTH model gains $4.71\pp$ in BA, and its FSR falls from 85.8\% to 72.9\%, accompanied by an FMR increase from 10.3\% to 13.7\%. KYPO changes by $+0.21\pp$ and Antieval by $-3.27\pp$ (Table~\ref{tab:association-ba-v3}). The source-held-out result therefore depends on the input contract: the CTH gain transfers to a new source, while the Antieval comparison records a loss. Known matching CyBench challenge names are purged from both outer and inner training sources.
 
-The collection design also exposes workflow effects. Command TF--IDF reaches 96.8\% and 95.1\% BA on the two task-held-out cohorts, and 82.6\% and 85.4\% under source-group holdout. B+S+T reaches only 44.4\% and 52.6\% on the source-held-out cohorts. AIT labels, task workflows, and capture processes co-vary; source holdout still overlaps task families. T measures the collection's timing structure, whose transfer is assessed by the source-group panel.
-
-The AIT controls sharpen this boundary. On the expanded 109-run cohort, the first eight-event B+S window reaches 72.3\% task-held-out BA, above the full-trace B+S score of 53.0\% (paired gain $+19.3\pp$, 95\% task-cluster interval $[+6.2,+31.9]$). The difference falls to $+5.6\pp$ $[-2.8,+12.9]$ under source-group holdout. Shuffling eight-event window order yields 55.8\% task-held-out BA, only $+2.8\pp$ versus full B+S $[-6.6,+12.5]$. B+S+T reaches 68.8\%; after shuffling observed gaps within each window while preserving their local distribution, it reaches 70.6\% ($+17.6\pp$ versus B+S, $[+7.4,+28.1]$). The source-group scores are 52.6\% and 49.9\%, respectively. The timing increment persists when within-window gap order is disrupted. Combined with the first-window result, this localizes the useful signal to workflow prefixes and local gap distributions.
-
-\begin{figure}[ht]
-\centering\includegraphics[width=\linewidth]{fingerprint-v2-ait-recognition.pdf}
-\caption{AIT task-macro balanced accuracy on frozen and expanded run cohorts. Intervals resample task groups over fixed out-of-fold predictions. Command vocabulary predicts the released labels strongly, while source holdout exposes substantial collection dependence.}
-\label{fig:recognition}
-\end{figure}
-
-\begin{figure}[ht]
-\centering\includegraphics[width=.82\linewidth]{fingerprint-v2-ait-timing-increment.pdf}
-\caption{Paired change in AIT task-macro BA when observed timing T is added to B+S. The source-holdout interval for the frozen 89-run cohort crosses zero; source group holdout still shares task families.}
-\label{fig:timing}
-\end{figure}
-
-\begin{figure}[ht]
-\centering\includegraphics[width=\linewidth]{fingerprint-v2-ait-ablation.pdf}
-\caption{AIT controls on the expanded 109-run cohort. The first eight-event window scores above full B+S under task holdout, while permuting gap order within windows preserves most of the B+S+T score. Dots show task-macro BA; bars are 95\% bootstrap intervals over 12 task groups; the dashed line is a 50\% reference.}
-\label{fig:ait-ablation}
-\end{figure}
-
-\subsection{Cross-sample evaluation identifies where fingerprints transfer}
-On Honey for the Agent, command cosine achieves 25.26\% Hit@1 in a five-candidate gallery; B+S yields 23.97\%, a paired change of $-1.30\pp$ with a 95\% condition-cluster interval $[-2.21,-0.35]$. Adding observed command execution duration to B+S changes Hit@1 by $-0.35\pp$ $[-0.87,+0.16]$. This duration is not an inter-command timestamp and does not improve the model-snapshot retrieval result.
-
-On CyBiasBench's 450 specified-family sessions, request-route cosine reaches 39.02\% Hit@1 across three held-out targets. Route+B/S reaches 39.94\%, a descriptive mean change of $+0.92\pp$; the per-target changes range from $-0.17$ to $+1.58\pp$. Balanced accuracy falls from 55.9\% to 52.2\%, while FMR falls from 13.6\% to 2.8\% and FSR rises from 74.7\% to 92.8\%. With only three target clusters, the small ranking change is not a reliable general gain. It illustrates that retrieval rank and thresholded association decisions must be examined separately.
-
-\subsection{A bounded refinement compares alignment and fusion mechanisms}
-We compare scalar fusion, cosine-conditioned interactions, all 48 component differences, and train-standardized masked DTW. Each model selects $C\in\{0.1,1,10\}$ using three inner task folds. A nested selector also chooses the model family on those inner folds. The outer galleries, queries, and task groups are identical to the 40-task comparison. The selected pipeline reaches 33.35\% Hit@1, a paired change of $-0.29\pp$ $[-5.67,+5.21]$. Fixed cross-fitted mode assistance reaches 30.52\% with command evidence and 31.15\% with command+B/S. Appendix~\ref{app:refinement} reports every candidate. This post-observation batch tests concrete mechanisms and retains the complete comparison.
-
-\subsection{Conditioned fingerprints under task, participant, and source holdout}
-The matched tree comparison produces task-macro BA changes of $+2.94\pp$ $[+0.43,+5.34]$ on CTH, $+4.25\pp$ $[+1.03,+8.02]$ on KYPO, and $+0.13\pp$ $[-2.47,+2.61]$ on Antieval under the respective task or participant holdouts. Under leave-one-source-out evaluation with known overlapping CyBench names purged from training, changes are $+4.71\pp$ $[+0.69,+8.83]$ on CTH, $+0.21\pp$ $[-1.06,+1.36]$ on KYPO, and $-3.27\pp$ $[-6.28,-0.22]$ on Antieval. Within-source results select the window in inner validation; source-held-out models use eight-event windows. The CTH source holdout shifts FSR from 85.8\% to 72.9\%, with FMR from 10.3\% to 13.7\%. These unadjusted intervals describe an exploratory comparison after earlier experiments and do not establish a universal gain.
 \begin{table}[ht]
 \centering\small
-\caption{Matched association BA across sources. Within-source folds hold out tasks (CTH, Antieval) or participants (KYPO); source holdout trains on the other sources after purging known matching task names. Changes and unadjusted 95\% cluster intervals are in percentage points.}
+\caption{Complete source-held-out association comparison. Training uses the other sources; B/S windows contain eight events. BA is in percent; differences and unadjusted 95\% cluster intervals are in percentage points.}
 \label{tab:association-ba-v3}
 \setlength{\tabcolsep}{4pt}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}
-\toprule Source & Holdout & Evidence & + B/S & $\Delta$BA [95\% CI] \\
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule Test source & Evidence & + B/S & $\Delta$BA [95\% CI] \\
 \midrule
-CTH & Task & 65.07 & 68.00 & $+2.94\;[+0.43,+5.34]$ \\
-KYPO & Participant & 55.83 & 60.08 & $+4.25\;[+1.03,+8.02]$ \\
-Antieval & Task & 70.24 & 70.38 & $+0.13\;[-2.47,+2.61]$ \\
-\addlinespace
-CTH & Source & 51.98 & 56.69 & $+4.71\;[+0.69,+8.83]$ \\
-KYPO & Source & 66.40 & 66.61 & $+0.21\;[-1.06,+1.36]$ \\
-Antieval & Source & 71.90 & 68.63 & $-3.27\;[-6.28,-0.22]$ \\
+CTH & 51.98 & 56.69 & $+4.71\;[+0.69,+8.83]$ \\
+KYPO & 66.40 & 66.61 & $+0.21\;[-1.06,+1.36]$ \\
+Antieval & 71.90 & 68.63 & $-3.27\;[-6.28,-0.22]$ \\
 \bottomrule
 \end{tabular*}
 \end{table}
-
-\begin{figure}[ht]
-\centering\includegraphics[width=\linewidth]{association-ba-v3.pdf}
-\caption{Paired BA change across six source-specific holdouts and the CTH leave-source-out operating tradeoff. CTH and Antieval intervals resample tasks; KYPO intervals resample query participants with fixed candidate galleries. Known matching CyBench names are excluded from source-held-out training.}
-\label{fig:association-ba-v3}
-\end{figure}
-
-\begin{table}[ht]
-\centering\small
-\caption{Additional transfer comparisons. Each row uses its stated outcome and held-out unit; changes are percentage points. The CyBiasBench interval is the range across three targets, not a confidence interval. Legacy denotes the earlier 24-value profile.}
-\label{tab:transfer}
-\setlength{\tabcolsep}{4pt}
-\begin{tabularx}{\linewidth}{@{}p{.15\linewidth}p{.18\linewidth}Yp{.27\linewidth}@{}}
-\toprule Source / $n$ & Holdout & Comparison; outcome & $\Delta$ [95\% CI] \\
-\midrule
-CTH / 175 & Task; opposite mode & Command $\to$ +B/S; Hit@1 & $-0.08\;[-5.71,+5.58]$ \\
-CTH / 219 & Task; Agent-only & Command $\to$ legacy; Hit@1 & $-3.57\;[-6.82,-0.43]$ \\
-AIT / 109 & Task & B/S $\to$ B/S/T; BA & $+15.83\;[+6.11,+25.00]$ \\
-AIT / 109 & Source group & B/S $\to$ B/S/T; BA & $+16.88\;[+8.19,+25.77]$ \\
-Honey / 13,080 & Model snapshot & Command $\to$ B/S; Hit@1 & $-1.30\;[-2.21,-0.35]$ \\
-CyBias / 450 & Target & Route $\to$ +B/S; Hit@1 & $+0.92$; $[-0.17,+1.58]^\dagger$ \\
-KYPO / 197 & Participant & Command $\to$ +B/S; Hit@1 & $-1.42\;[-2.59,-0.23]$ \\
-Antieval / 120 & Task & Command $\to$ legacy; Hit@1 & $-2.89\;[-7.50,+1.79]$ \\
-\bottomrule
-\end{tabularx}
-\end{table}
-KYPO contributes a Human-only, participant-disjoint comparison. Five folds separate all segments of a participant before fitting features or scores. The eligible cohort contains 197 records from 97 participants; the retrieval panel evaluates 190 queries across eight task levels, with one same-task candidate and four other-task candidates. All candidates are from held-out participants, and query and candidate participants differ. Command Hit@1 is 31.71\%, compared with 30.29\% for command+B/S. The 219-trace CTH row and Antieval row use the earlier 24-value window-profile protocol; they remain distinct from the new B/S representation. Table~\ref{tab:transfer} shows the strongest positive increments in AIT's task and collection-source splits, while expanded CTH, Honey, KYPO, and Antieval retrieval panels show lower Hit@1 after adding their named window profiles. CyBiasBench's modest mean increase varies across its three targets. Fingerprint value tracks the information retained by each source and observation contract.
 
 \subsection{Feature-block ablation on held-out CTH tasks}
 We isolate the fingerprint contribution on 175 traces from 40 mixed-mode CTH tasks. All rows use the same outer task folds, query--candidate galleries, evidence features, and shallow-tree family. Each model selects its depth and decision threshold on inner training tasks. The full configuration combines command and action-bigram evidence with command-conditioned B and S feature differences, using fixed eight-event windows. The length control adds only the log-length difference to the same evidence; the two ablations retain only S or only B, respectively. T is unavailable in this CTH command view and is evaluated separately on AIT.
@@ -282,7 +226,48 @@ Full (evidence + B/S) & 67.10 & Reference \\
 \end{tabular*}
 \end{table}
 
-Removing B reduces BA by $3.14\pp$ relative to the full model in this fixed-window comparison; removing S reduces the point estimate by $1.46\pp$, with an interval spanning zero. The length-only control also has an interval spanning zero relative to the full model. These paired results support a contribution from B under this particular CTH protocol; they do not establish that S has no effect, that length cannot matter, or that the gain transfers across sources. The full-model BA here differs from the nested-window CTH result in Table~\ref{tab:association-ba-v3} because the ablation fixes the window at eight events.
+Removing B reduces BA by $3.14\pp$ relative to the full model in this fixed-window comparison; removing S reduces the point estimate by $1.46\pp$, with an interval spanning zero. The length-only control also has an interval spanning zero relative to the full model. The fixed-window comparison identifies B as the clearest measured block contribution; the S and length contrasts retain wider uncertainty. The full-model BA here differs from the nested-window CTH result in Table~\ref{tab:association-ba-v3} because the ablation fixes the window at eight events.
+
+\subsection{Timing adds an interpretable execution-mode signal}
+On the complete 109-run AIT cohort, the linear B+S+T readout reaches 68.8\% task-macro BA, compared with 53.0\% for B+S. The paired gain is $+15.83\pp$ (95\% task-cluster interval $[+6.11,+25.00]$). Under source-group holdout, adding T raises BA from 35.8\% to 52.6\% ($+16.88\pp$, $[+8.19,+25.77]$). Figure~\ref{fig:recognition} compares all seven readouts on these same 109 runs. The source-group absolute score remains close to 50\%, and task families remain shared across folds. The frozen 89-run comparison is reported in Appendix~\ref{app:recognition}.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=\linewidth]{fingerprint-recognition-matrix.pdf}
+\caption{Recognition as a feature-by-holdout performance matrix on all 109 eligible AIT runs (61 Human, 48 Agent; 12 task groups). Cells show task-macro BA and 95\% task-cluster intervals on fixed out-of-fold predictions. The outlined row is the linear B/S/T readout; the bottom annotations are its paired T increment. Vocabulary is a separate baseline; collection workflows co-vary with the released labels.}
+\label{fig:recognition}
+\end{figure}
+
+The time block measures concrete launch structure. Figure~\ref{fig:timing} links the same two real Nextcloud traces used in the fingerprint matrix to the distribution across all 109 runs. The median of per-run median launch gaps is 0.553 seconds for Human-labelled runs and 9.007 seconds for Agent-labelled runs. These values describe login-associated process launches in this collection, including script-generated launches; the distribution gives each run one observation. This connects T to a measurable log property while keeping workflow and execution mode jointly visible.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=\linewidth]{fingerprint-observed-rhythm.pdf}
+\caption{Observed timing behind T. Left: real launch timestamps from the same Human and Agent traces as Figure~\ref{fig:matrix}, aligned to their own first observed launch with a shared seconds scale. Right: empirical cumulative distributions of one median launch gap per run over the complete 109-run cohort, with a zero-preserving logarithmic seconds scale above 0.1 seconds. At most the first 128 login-associated events are retained; zero gaps are included. The trace pair illustrates the measurement; the full-cohort panel describes its distribution.}
+\label{fig:timing}
+\end{figure}
+
+\paragraph{Controls locate the predictive information.} Table~\ref{tab:ait-controls} replaces a repeated score plot with explicit interventions. Using the first eight events gives 72.3\% task-held-out BA, compared with 53.0\% for full B+S ($+19.3\pp$, $[+6.2,+31.9]$); the corresponding source-group gain is $+5.6\pp$ $[-2.8,+12.9]$. Shuffling window order produces 55.8\% task-held-out BA. Permuting observed gap order within each window preserves the local gap distribution and gives 70.6\% for B+S+T, compared with 68.8\% before permutation. These controls locate useful information in workflow prefixes and per-window gap summaries; they provide little support for a distinct benefit from the tested fine-order summaries.
+
+\begin{table}[ht]
+\centering\small
+\caption{AIT feature controls, 109 runs. BA (\%) and 95\% task-cluster intervals are shown for both holdouts. Shuffled controls average 20 perturbations per trace.}
+\label{tab:ait-controls}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}Yrr@{}}
+\toprule Configuration & Task-group BA [95\% CI] & Source-group BA [95\% CI] \\
+\midrule
+B+S, full trace & $53.0\;[41.0,65.5]$ & $35.8\;[29.9,42.4]$ \\
+B+S, first eight events & $72.3\;[64.9,79.0]$ & $41.4\;[33.7,48.4]$ \\
+B+S, window order shuffled & $55.8\;[49.7,61.7]$ & $40.3\;[31.9,48.6]$ \\
+B+S+T, full trace & $68.8\;[61.8,75.8]$ & $52.6\;[43.4,62.7]$ \\
+B+S+T, gap order shuffled & $70.6\;[61.9,79.5]$ & $49.9\;[44.1,55.9]$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Ranking and observation contracts delimit the use of each readout}
+The association BA improvements concern decisions at training-selected thresholds. The opposite-mode CTH ranking comparison remains effectively unchanged: command cosine gives 33.65\% Hit@1 and 0.539 MRR, while the linear command+B/S score gives 33.56\% and 0.535 ($\Delta$Hit@1 $-0.08\pp$, $[-5.71,+5.58]$). Thus the current utility is a learned association decision and its interpretable component evidence, rather than a demonstrated general increase in top-one retrieval.
+
+SSH, HTTP, and Human-only cohorts test different observation contracts. Honey's B/S retrieval change is $-1.30\pp$ $[-2.21,-0.35]$; adding its observed execution durations changes Hit@1 by $-0.35\pp$ $[-0.87,+0.16]$. KYPO's linear ranking fusion changes Hit@1 by $-1.42\pp$ $[-2.59,-0.23]$. CyBiasBench's route+B/S score changes target-macro Hit@1 by $+0.92\pp$, with per-target differences from $-0.17$ to $+1.58\pp$. Its FMR falls from 13.6\% to 2.8\% as FSR rises from 74.7\% to 92.8\%, reducing BA from 55.9\% to 52.2\%. These comparisons retain their source-specific labels and fixed cohorts. Appendix~\ref{app:transfer} provides the complete table, including the legacy profiles and original artifact baseline; Appendix~\ref{app:refinement} records all fusion and alignment attempts.
 
 \section{Discussion and limitations}
 \paragraph{Implications for behavioral association.} Execution mode is a useful stratification variable when examining behavioral evidence. In the evaluated five-level allocation, both baseline BA point estimates decrease across the tested Agent-role shares; between the endpoints, missed links increase and false merges decrease. An interpretable fingerprint makes tool organization, repetition, sequence evolution, and timing available as separate evidence blocks. The source-held-out CTH fusion recovers some same-task links at the cost of additional merges, making the operating threshold and evidence contribution central to its use.
@@ -315,11 +300,54 @@ T & T7--T8 & Median log(1+observed event duration); median log(1+idle interval) 
 \end{longtable}
 
 \section{Reproduction, versions, and data handling}
-The versioned implementation is \texttt{attackagent/fingerprint\_v2.py}. Main experiment programs are \texttt{research/experiments/behavioral\_fingerprint\_v2/run\_ait\_recognition.py}, \texttt{run\_cth\_mixture.py}, \texttt{run\_cth\_cross\_mode.py}, \texttt{run.py} (Honey), and \texttt{run\_cybias\_retrieval.py}; figures are regenerated with \texttt{build\_figures.py}. Aggregate metrics, fold definitions, provenance, and query-level scores are versioned under \texttt{research/results/behavioral\_fingerprint\_v2/}. No model, framework, prompt, task ID, source ID, participant ID, or outcome field enters the fingerprint features.
+The versioned implementation is \texttt{attackagent/fingerprint\_v2.py}. Main experiment programs are \texttt{research/experiments/behavioral\_fingerprint\_v2/run\_ait\_recognition.py}, \texttt{run\_cth\_mixture.py}, \texttt{run\_cth\_cross\_mode.py}, \texttt{run.py} (Honey), and \texttt{run\_cybias\_retrieval.py}; the structural figures are regenerated with \texttt{build\_figures.py}, and the association slopes, recognition matrix, and observed launch distributions with \texttt{build\_evidence\_story.py}. Aggregate metrics, fold definitions, provenance, and query-level scores are versioned under \texttt{research/results/behavioral\_fingerprint\_v2/}. No model, framework, prompt, task ID, source ID, participant ID, or outcome field enters the fingerprint features.
 
 The follow-up programs under \texttt{research/experiments/association\_fingerprint\_v3/} reproduce the exact role mixture, within-source BA pilots, window controls, and purged leave-one-source-out comparison. The fixed-window block ablation and its paired full-model intervals are produced by \texttt{run\_tree\_ablation.py} and \texttt{summarize\_ablation\_against\_full.py}. The source-holdout analysis stores candidate scores, thresholds, and probability-preserving tree-path contributions in \texttt{ba\_leave\_source\_out\_purged\_pairs.csv}; task-level metrics and all attempted configurations are retained alongside it. One positive and seven negatives per query are evaluated in the source holdout, and candidate draws are fixed within each comparison.
 
 The downloadable 1,407-record bundle retains source-specific links, revisions, task keys, and licensing metadata. External Honey and CyBiasBench analyses use pinned public source snapshots; aggregate results are included, but no modified per-session CyBiasBench rows are redistributed. The original 97-trace pair panel remains separately versioned and should not be merged with the newer CTH cross-mode cohort. Source terms apply independently; the bundle has no blanket license.
+
+\section{Complete ranking and transfer comparisons}\label{app:transfer}
+The additional experiments use their stated source-specific relation, observation, and holdout contracts. Their full results are retained independently of the primary within-source BA comparisons. Sample eligibility follows the field and task requirements in Section~3.
+
+\begin{table}[ht]
+\centering\small
+\caption{Additional transfer comparisons. Each row uses its stated outcome and held-out unit; changes are percentage points. The CyBiasBench interval is the range across three targets, not a confidence interval. Legacy denotes the earlier 24-value profile.}
+\label{tab:transfer}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}p{.15\linewidth}p{.18\linewidth}Yp{.27\linewidth}@{}}
+\toprule Source / $n$ & Holdout & Comparison; outcome & $\Delta$ [95\% CI] \\
+\midrule
+CTH / 175 & Task; opposite mode & Command $\to$ +B/S; Hit@1 & $-0.08\;[-5.71,+5.58]$ \\
+CTH / 219 & Task; Agent-only & Command $\to$ legacy; Hit@1 & $-3.57\;[-6.82,-0.43]$ \\
+AIT / 109 & Task & B/S $\to$ B/S/T; BA & $+15.83\;[+6.11,+25.00]$ \\
+AIT / 109 & Source group & B/S $\to$ B/S/T; BA & $+16.88\;[+8.19,+25.77]$ \\
+Honey / 13,080 & Model snapshot & Command $\to$ B/S; Hit@1 & $-1.30\;[-2.21,-0.35]$ \\
+CyBias / 450 & Target & Route $\to$ +B/S; Hit@1 & $+0.92$; $[-0.17,+1.58]^\dagger$ \\
+KYPO / 197 & Participant & Command $\to$ +B/S; Hit@1 & $-1.42\;[-2.59,-0.23]$ \\
+Antieval / 120 & Task & Command $\to$ legacy; Hit@1 & $-2.89\;[-7.50,+1.79]$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The earlier fixed 97-trace CTF panel evaluates command and distinctive-artifact evidence: Hit@1 rises from 29.60\% to 79.31\% and task-macro BA from 57.35\% to 62.06\%, with FMR 75.87\%. Its input, fixed pairs, and artifact score are distinct from the B/S study. In the 175-trace opposite-mode gallery, B-only and B+S standalone scores give 24.4\% and 26.1\% Hit@1. Command directional Hit@1 is 36.3\% for Human-to-Agent and 33.2\% for Agent-to-Human; command+B/S gives 33.8\% and 33.3\%.
+
+The KYPO ranking panel uses 190 queries from 97 participants across eight task levels, with one same-task and four other-task candidates. Query and candidate participants differ. Command Hit@1 is 31.71\% and linear command+B/S is 30.29\%. Honey uses 10,368 queries over 48 prompt/cap/environment clusters; CyBiasBench has three held-out targets with 600 query draws each. CyBiasBench's target range is descriptive, while the other intervals use their stated cluster units.
+
+\section{Frozen AIT recognition comparison}\label{app:recognition}
+The 89-run cohort is retained for continuity. The complete 109-run cohort supplies the main performance matrix and all 109-run feature controls. On frozen AIT, adding T to B+S raises task-held-out BA by $15.1\pp$ $[+3.3,+26.7]$; the source-group paired interval spans zero. Table~\ref{tab:recognition-frozen} reports all seven frozen readouts.
+
+\begin{table}[ht]\centering\small
+\caption{Frozen 89-run AIT readouts: task-macro BA (\%) and 95\% task-cluster intervals.}\label{tab:recognition-frozen}
+\begin{tabularx}{\linewidth}{@{}Yrr@{}}\toprule Readout & Task-group holdout & Source-group holdout \\
+\midrule
+Length & $46.6\;[32.4,60.1]$ & $39.5\;[22.7,57.2]$ \\
+Legacy K1--K8 & $55.2\;[45.6,66.2]$ & $44.9\;[33.4,56.1]$ \\
+B & $56.3\;[40.9,71.6]$ & $39.9\;[25.6,54.2]$ \\
+B+S & $55.5\;[45.6,65.6]$ & $39.6\;[28.5,50.8]$ \\
+B+S+T (linear) & $70.6\;[63.6,78.5]$ & $44.4\;[31.7,54.7]$ \\
+B+S+T (trees) & $73.0\;[63.1,82.4]$ & $44.9\;[32.8,56.7]$ \\
+Command TF--IDF & $96.8\;[94.3,99.2]$ & $82.6\;[69.4,92.8]$ \\
+\bottomrule\end{tabularx}\end{table}
 
 \section{Complete refinement comparison}\label{app:refinement}
 \begin{table}[ht]\centering\small

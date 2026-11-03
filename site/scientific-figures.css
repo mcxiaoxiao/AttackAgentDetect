@@ -15,3 +15,7 @@
 @media (prefers-reduced-motion: reduce) {
   .scientific-figure-viewport { scroll-behavior: auto; }
 }
+
+.research-page .scientific-evidence-figure .scientific-figure-source img { max-height: none; }
+.evidence-controls-table caption { padding-bottom: 12px; color: var(--muted); font-size: 13px; line-height: 1.65; text-align: left; }
+.evidence-controls-table:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
