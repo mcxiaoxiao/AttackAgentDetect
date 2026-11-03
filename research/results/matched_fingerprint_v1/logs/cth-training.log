@@ -1,0 +1,70 @@
+profiles 4 complete 84 / 85
+profiles 8 complete 84 / 85
+profiles 16 complete 84 / 85
+cth traces 85 tasks 17 pairs 54400
+cth fold 0 train_tasks 11 test_tasks 6 test_pairs 19200
+candidate 4/mean_std/direct 0.2s
+candidate 4/mean_std/conditional 2.0s
+candidate 4/mean_std_trend/direct 0.6s
+candidate 4/mean_std_trend/conditional 1.2s
+candidate 8/mean_std/direct 0.6s
+candidate 8/mean_std/conditional 0.2s
+candidate 8/mean_std_trend/direct 1.0s
+candidate 8/mean_std_trend/conditional 0.6s
+candidate 16/mean_std/direct 0.3s
+candidate 16/mean_std/conditional 0.4s
+candidate 16/mean_std_trend/direct 0.3s
+candidate 16/mean_std_trend/conditional 2.7s
+cth 0 selected representation (4, 'mean_std', 'conditional') XGB 2
+cth 0 selected svm 10.0
+cth 0 selected tree 3
+cth fold 0 xgb BS fallback 1089 / 19200
+cth fold 0 xgb B fallback 1089 / 19200
+cth fold 0 xgb S fallback 1089 / 19200
+cth fold 0 svm BS fallback 1089 / 19200
+cth fold 0 tree BS fallback 1089 / 19200
+cth fold 0 complete 18.99 seconds
+cth fold 1 train_tasks 11 test_tasks 6 test_pairs 19200
+candidate 4/mean_std/direct 0.1s
+candidate 4/mean_std/conditional 0.1s
+candidate 4/mean_std_trend/direct 0.1s
+candidate 4/mean_std_trend/conditional 0.2s
+candidate 8/mean_std/direct 0.1s
+candidate 8/mean_std/conditional 0.2s
+candidate 8/mean_std_trend/direct 0.2s
+candidate 8/mean_std_trend/conditional 0.3s
+candidate 16/mean_std/direct 0.2s
+candidate 16/mean_std/conditional 0.1s
+candidate 16/mean_std_trend/direct 0.1s
+candidate 16/mean_std_trend/conditional 1.0s
+cth 1 selected representation (4, 'mean_std_trend', 'direct') XGB 3
+cth 1 selected svm 0.1
+cth 1 selected tree 8
+cth fold 1 xgb BS fallback 0 / 19200
+cth fold 1 xgb B fallback 0 / 19200
+cth fold 1 xgb S fallback 0 / 19200
+cth fold 1 svm BS fallback 0 / 19200
+cth fold 1 tree BS fallback 0 / 19200
+cth fold 1 complete 12.22 seconds
+cth fold 2 train_tasks 12 test_tasks 5 test_pairs 16000
+candidate 4/mean_std/direct 0.1s
+candidate 4/mean_std/conditional 0.2s
+candidate 4/mean_std_trend/direct 0.2s
+candidate 4/mean_std_trend/conditional 0.4s
+candidate 8/mean_std/direct 0.3s
+candidate 8/mean_std/conditional 0.2s
+candidate 8/mean_std_trend/direct 0.2s
+candidate 8/mean_std_trend/conditional 0.2s
+candidate 16/mean_std/direct 0.3s
+candidate 16/mean_std/conditional 1.0s
+candidate 16/mean_std_trend/direct 1.3s
+candidate 16/mean_std_trend/conditional 0.7s
+cth 2 selected representation (4, 'mean_std_trend', 'direct') XGB 3
+cth 2 selected svm 10.0
+cth 2 selected tree 3
+cth fold 2 xgb BS fallback 0 / 16000
+cth fold 2 xgb B fallback 0 / 16000
+cth fold 2 xgb S fallback 0 / 16000
+cth fold 2 svm BS fallback 0 / 16000
+cth fold 2 tree BS fallback 0 / 16000
+cth fold 2 complete 14.71 seconds

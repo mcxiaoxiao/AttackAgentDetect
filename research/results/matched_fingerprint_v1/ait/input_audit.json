@@ -1,0 +1,95 @@
+{
+  "dataset": "ait",
+  "trace_count": 109,
+  "task_count": 12,
+  "task_mode_counts": [
+    {
+      "task": "Nextcloud/exp1",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp2",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp3",
+      "human": 5,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp4",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp5",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp6",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "Nextcloud/exp7",
+      "human": 6,
+      "agent": 4
+    },
+    {
+      "task": "WordPress/exp1",
+      "human": 4,
+      "agent": 4
+    },
+    {
+      "task": "WordPress/exp2",
+      "human": 4,
+      "agent": 4
+    },
+    {
+      "task": "WordPress/exp3",
+      "human": 4,
+      "agent": 4
+    },
+    {
+      "task": "WordPress/exp4",
+      "human": 4,
+      "agent": 4
+    },
+    {
+      "task": "WordPress/exp5",
+      "human": 4,
+      "agent": 4
+    }
+  ],
+  "folds": {
+    "Nextcloud/exp1": 0,
+    "Nextcloud/exp2": 1,
+    "Nextcloud/exp3": 2,
+    "Nextcloud/exp4": 0,
+    "Nextcloud/exp5": 1,
+    "Nextcloud/exp6": 2,
+    "Nextcloud/exp7": 0,
+    "WordPress/exp1": 1,
+    "WordPress/exp2": 2,
+    "WordPress/exp3": 0,
+    "WordPress/exp4": 1,
+    "WordPress/exp5": 2
+  },
+  "pair_count": 43600,
+  "profile_unavailable_by_window": {
+    "4": [],
+    "8": [],
+    "16": []
+  },
+  "time_block_unavailable_by_window": {
+    "4": 0,
+    "8": 0,
+    "16": 0
+  },
+  "run_ids_unique": true,
+  "raw_hashes_unique": true,
+  "raw_record_locators": null
+}

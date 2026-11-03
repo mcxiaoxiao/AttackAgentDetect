@@ -1,0 +1,16 @@
+{
+  "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+  "numpy": "2.2.6",
+  "sklearn": "1.7.2",
+  "xgboost": "2.1.4",
+  "seed": 20261103,
+  "source_sha256": "3ae75772389024a824ecfcc73aa9328bea30ae1f3318e7e9ae7b0e6f2bf59f18",
+  "cth_registry_sha256": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+  "cth_evidence_sha256": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+  "folds_sha256": "1c07850d20282ed84b6ac2be14ecde9f0981d368cfb1dba0d5b64520bd48868d",
+  "ait_archive_sha256": "f3ff78d7fcb7db9068d6b0c6057659412c725830d0b05fb64cea319f0e638914",
+  "fingerprint_sha256": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+  "argument_profile_sha256": "fd834beb3db087498dda97afe63c8479f50032f8b2e01532496f36ca6a0fbd3e",
+  "python_seed": 20261103,
+  "baseline_commit": "553664fb5760858a215c12c9cd95a5add302b898"
+}

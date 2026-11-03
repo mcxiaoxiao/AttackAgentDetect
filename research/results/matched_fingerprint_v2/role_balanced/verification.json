@@ -1,0 +1,13 @@
+{
+  "frozen_candidate_pairs": {
+    "rows": 54400,
+    "equal_to_v1": true
+  },
+  "exact_role_allocations": 850,
+  "training_pair_rows": 1768,
+  "task_split_and_role_weights": "passed",
+  "prediction_rows_verified": 435200,
+  "task_macro_ba_identity": true,
+  "unique_pair_versions": 54400,
+  "prediction_sha256": "611ab170146f62723451685098051d0eb050d7262555dc695367caaca6b35667"
+}

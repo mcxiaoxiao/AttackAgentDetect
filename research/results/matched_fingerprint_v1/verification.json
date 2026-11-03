@@ -1,0 +1,89 @@
+{
+  "cth": {
+    "prediction_records_verified": 435200,
+    "tasks": 17,
+    "traces": 85,
+    "frozen_pairs": 54400
+  },
+  "ait": {
+    "prediction_records_verified": 218000,
+    "tasks": 12,
+    "traces": 109,
+    "frozen_pairs": 43600
+  },
+  "exact_role_allocations": 850,
+  "legacy_baseline_max_abs_error": 6.661338147750939e-16,
+  "original_table_snapshot": {
+    "count": 10,
+    "source": "human-agent-fingerprint-overnight.tex captured after main HEAD 7b93a87667f6145ed89d1eed82b7154663f99f4f",
+    "sha256": [
+      "100d2f8a932fcdef6c1d92261d832a2c45033387aaf677009861307b7a441680",
+      "38fe9bfea3ff8d84f34e3087dd0214a16c4d59d31d6176d3b22c760b61297511",
+      "3a50b53c99c3ab031bee6d9e62a6999eb937f9e9bf92a2b5f86f284c325c4506",
+      "01f94387c88c16593c0d4d73f283494f81ca530ee72b93c91b6fc188a25a8406",
+      "bbaafde9105990b67a3f9ff4138686b6169bd2d254435ff8d5f77e5ccde5a4cc",
+      "62181dd29c8919b1197ea10899345a7b15864f7bcbffc6608a7f8b6eaa0dc9ce",
+      "54316fd1ffcf3c21bc23fb85b706cea8ff71210063fefab18378e9a97cb92e9e",
+      "9df49f5bc9a530afd837b7de935ec44813070cd7e4476b0644d723f3934f27b6",
+      "a05d1e725534a7570e90eeecb2d6d093d586e242a07abdb9f440a4b25f7f0392",
+      "c8fbbd65d919972c985954ab19e7ed4fccb5a458f862750dd5511d5561730f5a"
+    ]
+  },
+  "original_tex_sha256": "a4767542e3d64b1db21c65c918e884ca956cd013fa9da26ad5bbf2b89328400a",
+  "preserved_original_tables": [
+    {
+      "label": "tab:related",
+      "sha256": "100d2f8a932fcdef6c1d92261d832a2c45033387aaf677009861307b7a441680",
+      "exact_occurrences": 1
+    },
+    {
+      "label": null,
+      "sha256": "38fe9bfea3ff8d84f34e3087dd0214a16c4d59d31d6176d3b22c760b61297511",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:observation-contracts",
+      "sha256": "3a50b53c99c3ab031bee6d9e62a6999eb937f9e9bf92a2b5f86f284c325c4506",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:association-ba-v3",
+      "sha256": "01f94387c88c16593c0d4d73f283494f81ca530ee72b93c91b6fc188a25a8406",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:fingerprint-ablation",
+      "sha256": "bbaafde9105990b67a3f9ff4138686b6169bd2d254435ff8d5f77e5ccde5a4cc",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:ait-controls",
+      "sha256": "62181dd29c8919b1197ea10899345a7b15864f7bcbffc6608a7f8b6eaa0dc9ce",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:features",
+      "sha256": "54316fd1ffcf3c21bc23fb85b706cea8ff71210063fefab18378e9a97cb92e9e",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:transfer",
+      "sha256": "9df49f5bc9a530afd837b7de935ec44813070cd7e4476b0644d723f3934f27b6",
+      "exact_occurrences": 1
+    },
+    {
+      "label": "tab:recognition-frozen",
+      "sha256": "a05d1e725534a7570e90eeecb2d6d093d586e242a07abdb9f440a4b25f7f0392",
+      "exact_occurrences": 1
+    },
+    {
+      "label": null,
+      "sha256": "c8fbbd65d919972c985954ab19e7ed4fccb5a458f862750dd5511d5561730f5a",
+      "exact_occurrences": 1
+    }
+  ],
+  "draft_tex_sha256": "fe9abdf341169a289f96f7aee9092dc63ffb7d15b4f8797e7b00f45e3a330279",
+  "all_previous_tables_exact": true,
+  "task_macro_ba_identity": true,
+  "combined_prediction_files": 39
+}

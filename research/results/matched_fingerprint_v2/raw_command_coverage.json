@@ -1,0 +1,996 @@
+{
+  "status": "aggregate_only_raw_audit",
+  "protocol": "frozen 17-task CTH cohort used by matched_fingerprint_v1",
+  "task_count": 17,
+  "trace_count": 85,
+  "folds": {
+    "cyber-task-horizons/cybench/lootstash": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": 0,
+    "cyber-task-horizons/cybench/back_to_the_past": 1,
+    "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": 0,
+    "cyber-task-horizons/nyuctf/2016q-rev-rock": 1
+  },
+  "raw_file_count": 43,
+  "raw_file_sha256": {
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-ogyy9cl9fe76c7u2/full.eval": "889df51d3142b8360fb65ee3a30afa935a1145fb619ac36b6440660301dd2f2d",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-9yv36t10vwzebrgl/2026-05-09T00-19-21+00-00_cybench_XB84CXHR36jHmbcJRp4GFL.eval": "b04c4de728a2bf4b787097d3e9cc7825baf17c6fb23d93c0a6e8ebac99f6dd3c",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-jcdoiurrc2a17nmv/2026-03-12T23-05-05+00-00_cybench_43a4KS3YzyjMoQjjDJGssW.eval": "d801b41d1f6014e4e9176a88a4fe2ddf6a73a98979a674ba772970e7c5b0f5dc",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/cybench/back_to_the_past/session_004_20260129_171037.eval.gz": "4bcb1bb6dbe1181a180a814ca2f541fb89c381604930b93d1d84e77bf8955f6c",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/cybench/back_to_the_past/session_332_20260302_165544.eval.gz": "5a9358f311dc178ac69e4ad5612608ff0725300931c7056d629ae8b6548f6130",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/cybench/lootstash/session_013_20260303_212350.eval.gz": "6b020ad59ad7d287f6e4667436e6944202183e87f2a8be2880dd08beb371380e",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/cybench/lootstash/session_225_20260302_213149.eval.gz": "b04d604c3ec9ff5510b0cd93887611461344372ca84070283b9c5f683142dc38",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-83d0a1kx3i5t3u6b/2026-03-12T21-11-32+00-00_intercode-ctf_R9JrRTZ7DrXeeCXNqg2QHk.eval": "4fc2d7721add5e4c41a0bf967c41c10f894f9514d1ec5132836d2ca7b049e0d6",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-x2n13zd6vulak29q/full.eval": "304c094a0e15eeec78401599e522b6e691f4b51ce97aaf1e4067536db9a1c122",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-q2eavajb0blxpmc1/2026-05-08T22-36-59+00-00_intercode-ctf_bVXADwfuhdypaxLQaYefrs.eval": "dc532b841589b197e40198909cf2b5698502c0bfcab4f8b59a64523c7991a86c",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_10/session_211_20260225_202106.eval.gz": "43d43d62f7c5ba5f267bcc85eb40c27b185079a459d6502e621a9bccb2c2821d",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_10/session_445_20260301_222016.eval.gz": "c087b403b974711b890f30f177008ef7f8b3a2fd3e7977bb24e688dcebd9f3a4",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_13/session_283_20260217_212338.eval.gz": "dabafc63621a561ae8941f3db344b24acdc586109786ef706031816dfd8db483",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_13/session_206_20260225_231301.eval.gz": "9506dc7c64c174afddabd666763c2448a84a3374779de885d49e7cf2397aeee0",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_14/session_259_20260304_061310.eval.gz": "d48ca50e47a080f197c2de122b2ba5b2da437a3345f8e0deb2d34587cfff6d97",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_14/session_415_20260303_142650.eval.gz": "2f096cffb704d10deff04a9422fade7981796d048bcdf7832a5f8aba97a76ac8",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_2/session_010_20260311_012850.eval.gz": "ee4e687d40b81e8c476fd991ff7a6d3ee31ec254d691ea4f6c45ea768f2a51b7",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_2/session_052_20260226_001720.eval.gz": "e785a1fe049285f3cf681a331b2516a30e91630b679a80a3a59d5375be7f771a",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_45/session_228_20260301_223611.eval.gz": "a0b101ef5c33681eaf85a4e78dc0c0f46baac31988a1cc551d2f0a6e698520ed",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_45/session_065_20260227_211657.eval.gz": "6fa542cb10d29298460128b2bd168f80314386fa3f996008f873c277c11ac58e",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_48/session_252_20260306_183930.eval.gz": "b9e839c4d565f477328847f68c340056c25d6c9bae382330f6c585c0b90e2fe7",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_48/session_039_20260304_234734.eval.gz": "115484f34eadf39d4692ee2d2b4797f9d65105b2cf99507bae11926fe6dd3ee9",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_50/session_399_20260225_232843.eval.gz": "58057959f2213aa38c3888f2f521ad1e692b0b73de07f09c66ee72df0196ff06",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_50/session_249_20260217_214417.eval.gz": "8f90d4b016d87694903a74c080189f13fa3b9cfb136cbac973e1214db225def2",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_51/session_355_20260217_220833.eval.gz": "75c29be86a93cd41423b0f8d32c195815b00282dcde33bbe6af75064a7010617",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_51/session_025_20260226_000548.eval.gz": "880f7d18936cb031d05483d0b4cce51604a4d83056b2439f7646f31e45178243",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_68/session_190_20260305_022444.eval.gz": "f836652f0a0bece53e2e66d9de9c575531291b22d3ef2a3f85f46e0789f4ee08",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_68/session_255_20260308_164651.eval.gz": "c8fa8a1fec33d945b829c498494b5f89196e27a34db9caff9cac7c308bdd1f93",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_77/session_417_20260303_132704.eval.gz": "85fde4aa79e7f1d1a621d4866ab2fc3d58868edb1dcda4323ab30ab983d7185e",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_77/session_401_20260301_223117.eval.gz": "a64ab5b6d8f506d8a83dd5736bd472732744b9986dd94bb646c5410671f78f53",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_81/session_123_20260225_203939.eval.gz": "d2d579de7a63aac279ffbb5727b0cd3a35807effe688f092d6dbd319b19c6558",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_81/session_034_20260301_223918.eval.gz": "3cd50baf179ed4e314fef4a7e0b1a4690b1a417d64893afd21bc8f727050c478",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_82/session_197_20260301_224431.eval.gz": "bc96cece9f726c058f89a9bd76f108c929b305c8a455d1dc04f2bddb2d62dd3a",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_82/session_488_20260225_205549.eval.gz": "292bce9806541ac04564575a598f4703c6eb510a61c47322c28b3b8e88198e84",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_83/session_185_20260303_143933.eval.gz": "374a0c882a95fd6e3a716600644cb3e29ecdd27f323c2d94d1e75dc0a820e216",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/intercode-ctf/intercode-ctf_reverse_task_83/session_372_20260301_225929.eval.gz": "eb8ca8c6034e53a3eee1e8b165fb1174ef68db8bc503c838ae12241ab434cd69",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-pndp4jp5hn3cutp0/full.eval": "cb944eef65ee1440ce2c35fa77afe8094a21130a7597db3ae213ebed2dc4c18b",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-a3yica4ok4ag8nui/2026-05-10T21-45-45+00-00_nyuctf_auLdSgbNKeASnUQWrjZbdq.eval": "399bc43d87e2f33e9557840b2f63c2a6ab257bb916c832e7444d5b41646c808f",
+    "research/data/raw/cyber-task-horizons/data/eval_logs/eval-set-bjldgp2ll9qroagt/2026-03-12T22-07-29+00-00_nyuctf_JHsQ7ZhyCe5UkcWU8SYjtP.eval": "13f8fb7a9b426e19e0cdac5aa5680c7365b04a8e427b8ba4b909fc55beb9a0dd",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/nyuctf/2016q-rev-rock/session_369_20260210_024355.eval.gz": "59c1f236f156dc916854655aecce255deb6541780a9830d7e5000f67f8eec6c3",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/nyuctf/2016q-rev-rock/session_464_20260225_204030.eval.gz": "2140158c3cdcee4b59ea338ece20a362737d50b0ff98b29a820c67a7849cb33c",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/nyuctf/2023q-rev-baby_s_first/session_222_20260308_163129.eval.gz": "7b3e341e832479338c12a5b1bc7163756fb005b2a73fa2ff98b7026294a59c66",
+    "research/data/raw/cyber-task-horizons/data/human/eval_logs/nyuctf/2023q-rev-baby_s_first/session_291_20260303_213139.eval.gz": "127f8e69a78d91466613780d68de47902436da6b7d59c4e3503fb714280b324d"
+  },
+  "adapter": "known-command-heads-lossy-v1",
+  "trace_adapter_sha256": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f",
+  "mismatched_head_traces": [],
+  "head_vocabulary_size": 32,
+  "head_vocabulary_top10_counts": [
+    [
+      "ls",
+      167
+    ],
+    [
+      "cat",
+      83
+    ],
+    [
+      "head",
+      77
+    ],
+    [
+      "grep",
+      68
+    ],
+    [
+      "cd",
+      62
+    ],
+    [
+      "find",
+      58
+    ],
+    [
+      "sed",
+      42
+    ],
+    [
+      "strings",
+      34
+    ],
+    [
+      "file",
+      33
+    ],
+    [
+      "curl",
+      30
+    ]
+  ],
+  "by_mode": {
+    "agent": {
+      "traces": 51,
+      "chunks": 314,
+      "recognized_invocations": 578,
+      "head_events": 578,
+      "events_with_arguments": 576,
+      "events_with_options": 370,
+      "argument_tokens": 1294,
+      "argument_event_fraction": 0.9965397923875432,
+      "option_event_fraction": 0.6401384083044983,
+      "mean_argument_tokens_per_invocation": 2.2387543252595155
+    },
+    "human": {
+      "traces": 34,
+      "chunks": 882,
+      "recognized_invocations": 240,
+      "head_events": 240,
+      "events_with_arguments": 163,
+      "events_with_options": 31,
+      "argument_tokens": 213,
+      "argument_event_fraction": 0.6791666666666667,
+      "option_event_fraction": 0.12916666666666668,
+      "mean_argument_tokens_per_invocation": 0.8875
+    }
+  },
+  "per_trace": [
+    {
+      "id": "125d73213a70b89dbbe1",
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "mode": "agent",
+      "head_events": 29,
+      "raw_shell_chunks": 23,
+      "recognized_invocations": 29,
+      "invocations_with_arguments": 29,
+      "invocations_with_options": 15
+    },
+    {
+      "id": "41dc7cb00040afb4c587",
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "mode": "agent",
+      "head_events": 47,
+      "raw_shell_chunks": 8,
+      "recognized_invocations": 47,
+      "invocations_with_arguments": 47,
+      "invocations_with_options": 29
+    },
+    {
+      "id": "efa1c8ca98c2d711f97f",
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "mode": "agent",
+      "head_events": 18,
+      "raw_shell_chunks": 13,
+      "recognized_invocations": 18,
+      "invocations_with_arguments": 18,
+      "invocations_with_options": 14
+    },
+    {
+      "id": "7020888b91b2a714d80b",
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "mode": "human",
+      "head_events": 48,
+      "raw_shell_chunks": 115,
+      "recognized_invocations": 48,
+      "invocations_with_arguments": 31,
+      "invocations_with_options": 8
+    },
+    {
+      "id": "a8bc6624bf8cc211f391",
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "mode": "human",
+      "head_events": 15,
+      "raw_shell_chunks": 32,
+      "recognized_invocations": 15,
+      "invocations_with_arguments": 13,
+      "invocations_with_options": 6
+    },
+    {
+      "id": "12aff33e5db88be407e2",
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "a35c1617a3362735b426",
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "mode": "agent",
+      "head_events": 11,
+      "raw_shell_chunks": 10,
+      "recognized_invocations": 11,
+      "invocations_with_arguments": 11,
+      "invocations_with_options": 7
+    },
+    {
+      "id": "da6b0b42851b3e9baf85",
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "mode": "agent",
+      "head_events": 16,
+      "raw_shell_chunks": 12,
+      "recognized_invocations": 16,
+      "invocations_with_arguments": 16,
+      "invocations_with_options": 10
+    },
+    {
+      "id": "bce84710b19dcb456ae0",
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "mode": "human",
+      "head_events": 6,
+      "raw_shell_chunks": 14,
+      "recognized_invocations": 6,
+      "invocations_with_arguments": 6,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "e811080353c51a4a113f",
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "mode": "human",
+      "head_events": 4,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "0c896ce94075bde2f70f",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "mode": "agent",
+      "head_events": 20,
+      "raw_shell_chunks": 6,
+      "recognized_invocations": 20,
+      "invocations_with_arguments": 20,
+      "invocations_with_options": 16
+    },
+    {
+      "id": "853f4015c53ad97e04a1",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "mode": "agent",
+      "head_events": 6,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 6,
+      "invocations_with_arguments": 6,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "fd4122bfe4d48b9fffdb",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "2d08e228dc48cd6f6d91",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "mode": "human",
+      "head_events": 5,
+      "raw_shell_chunks": 39,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "e1958f89f90d8b4e3255",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "1b7eff8fcbe99ad35cc4",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "mode": "agent",
+      "head_events": 1,
+      "raw_shell_chunks": 1,
+      "recognized_invocations": 1,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "6509037661a52e1462d2",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "b9da7273a7bd5cf3f091",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "0a9a68bd9f01dca0eca9",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "mode": "human",
+      "head_events": 3,
+      "raw_shell_chunks": 11,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "a8662a9e68cca83d9cf3",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "mode": "human",
+      "head_events": 3,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "0aed1be00bded23455cc",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "mode": "agent",
+      "head_events": 26,
+      "raw_shell_chunks": 14,
+      "recognized_invocations": 26,
+      "invocations_with_arguments": 26,
+      "invocations_with_options": 12
+    },
+    {
+      "id": "be76cf8ef939665ca05a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "mode": "agent",
+      "head_events": 13,
+      "raw_shell_chunks": 14,
+      "recognized_invocations": 13,
+      "invocations_with_arguments": 13,
+      "invocations_with_options": 7
+    },
+    {
+      "id": "c026d2e79e7692582162",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "mode": "agent",
+      "head_events": 42,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 42,
+      "invocations_with_arguments": 41,
+      "invocations_with_options": 25
+    },
+    {
+      "id": "07938cf4093515d7ee6c",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "mode": "human",
+      "head_events": 21,
+      "raw_shell_chunks": 35,
+      "recognized_invocations": 21,
+      "invocations_with_arguments": 10,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "d7780d3d41d34b72afbd",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "mode": "human",
+      "head_events": 38,
+      "raw_shell_chunks": 68,
+      "recognized_invocations": 38,
+      "invocations_with_arguments": 21,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "00668bd88922b834652e",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "mode": "agent",
+      "head_events": 18,
+      "raw_shell_chunks": 8,
+      "recognized_invocations": 18,
+      "invocations_with_arguments": 18,
+      "invocations_with_options": 12
+    },
+    {
+      "id": "64ef68f83fbe103a0926",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "mode": "agent",
+      "head_events": 16,
+      "raw_shell_chunks": 8,
+      "recognized_invocations": 16,
+      "invocations_with_arguments": 15,
+      "invocations_with_options": 7
+    },
+    {
+      "id": "9c425d3e8eadabefd88a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "mode": "agent",
+      "head_events": 12,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 12,
+      "invocations_with_arguments": 12,
+      "invocations_with_options": 8
+    },
+    {
+      "id": "6491f83ccf87f5cd5b51",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 12,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "c8ae6f29f05bb216f923",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "mode": "human",
+      "head_events": 4,
+      "raw_shell_chunks": 9,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "25b01cfb53d95ad32b62",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "25e29c8af7f648e72715",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "mode": "agent",
+      "head_events": 20,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 20,
+      "invocations_with_arguments": 20,
+      "invocations_with_options": 15
+    },
+    {
+      "id": "bbab46298b6aa9500a9f",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "2725590c19bedd11abf1",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "6570e1010f533fbebb76",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 21,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "1322e0251dced13b63cc",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "65394bf41d8bd52696c1",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "69d6cceaebad6cb723b9",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "19beb7cd9797e359339e",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "mode": "human",
+      "head_events": 3,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "d1fc13c9c1506e786c81",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "71283fb5cb2955e79c03",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "mode": "agent",
+      "head_events": 31,
+      "raw_shell_chunks": 9,
+      "recognized_invocations": 31,
+      "invocations_with_arguments": 31,
+      "invocations_with_options": 20
+    },
+    {
+      "id": "94b6d4ecae4f77fd13c9",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "dd97c45e2829bdf480a1",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "mode": "agent",
+      "head_events": 2,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "6b30a62d6a2f093fc333",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 21,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "f63717f82600069378d6",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 6,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "45f4b343f5705ddb17e4",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "mode": "agent",
+      "head_events": 8,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 8,
+      "invocations_with_arguments": 8,
+      "invocations_with_options": 7
+    },
+    {
+      "id": "be6be9ed6566e4b91018",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "ce3d3ae14e39b5d68f3a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "36af29b3644b4583baac",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "db5117b6a4d89cfa6721",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 62,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "778702abf9583183585a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "mode": "agent",
+      "head_events": 8,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 8,
+      "invocations_with_arguments": 8,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "8c68c9b500547c376421",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "ad70b07669b862913757",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "8d2fd8903dfa9ca15d7c",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "mode": "human",
+      "head_events": 6,
+      "raw_shell_chunks": 25,
+      "recognized_invocations": 6,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "a7c023778bfa2a5821b6",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "0502218f68e999e6b97a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "7ec3bdb3474a72c15091",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "80e88aad43d1bad7bfb3",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "073cd8bf596a630a0928",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "mode": "human",
+      "head_events": 11,
+      "raw_shell_chunks": 19,
+      "recognized_invocations": 11,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "8ddaef7d7d91cc61bd54",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 6,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "350d4cdfe29437913099",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 2
+    },
+    {
+      "id": "4ad7d2b0394235eb7def",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "mode": "agent",
+      "head_events": 4,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "cdf9a2b45a01a06a7b74",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "mode": "agent",
+      "head_events": 16,
+      "raw_shell_chunks": 9,
+      "recognized_invocations": 16,
+      "invocations_with_arguments": 16,
+      "invocations_with_options": 11
+    },
+    {
+      "id": "47ca085b32615faab8f5",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "mode": "human",
+      "head_events": 5,
+      "raw_shell_chunks": 9,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "f4754fdc0d7bedfc0641",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "19cd82d2e36b881c1915",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "mode": "agent",
+      "head_events": 3,
+      "raw_shell_chunks": 1,
+      "recognized_invocations": 3,
+      "invocations_with_arguments": 3,
+      "invocations_with_options": 3
+    },
+    {
+      "id": "77a5cc31b32ec7868a55",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "mode": "agent",
+      "head_events": 8,
+      "raw_shell_chunks": 6,
+      "recognized_invocations": 8,
+      "invocations_with_arguments": 8,
+      "invocations_with_options": 5
+    },
+    {
+      "id": "85615df77c34e8871e14",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "mode": "agent",
+      "head_events": 19,
+      "raw_shell_chunks": 9,
+      "recognized_invocations": 19,
+      "invocations_with_arguments": 19,
+      "invocations_with_options": 13
+    },
+    {
+      "id": "dee277b944ff93d56a53",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 7,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "fb594a12f3d2166a8fe1",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "mode": "human",
+      "head_events": 4,
+      "raw_shell_chunks": 22,
+      "recognized_invocations": 4,
+      "invocations_with_arguments": 4,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "15c9275b57c0ef57197a",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "mode": "agent",
+      "head_events": 2,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "6061655257270a82ec70",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "mode": "agent",
+      "head_events": 16,
+      "raw_shell_chunks": 12,
+      "recognized_invocations": 16,
+      "invocations_with_arguments": 16,
+      "invocations_with_options": 10
+    },
+    {
+      "id": "ccaf4f6ff6ae18a4fc7e",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "7dd50bdb6c35dfdcf0d5",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 8,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "9410b50edf98c4d0233f",
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "319ef1e35ab1276bd1eb",
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "mode": "agent",
+      "head_events": 14,
+      "raw_shell_chunks": 24,
+      "recognized_invocations": 14,
+      "invocations_with_arguments": 14,
+      "invocations_with_options": 6
+    },
+    {
+      "id": "4a053e093e11e040770d",
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "mode": "agent",
+      "head_events": 28,
+      "raw_shell_chunks": 12,
+      "recognized_invocations": 28,
+      "invocations_with_arguments": 28,
+      "invocations_with_options": 15
+    },
+    {
+      "id": "54828c33a141dc7a1925",
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "mode": "agent",
+      "head_events": 31,
+      "raw_shell_chunks": 25,
+      "recognized_invocations": 31,
+      "invocations_with_arguments": 31,
+      "invocations_with_options": 22
+    },
+    {
+      "id": "24642df6d91e44161075",
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "mode": "human",
+      "head_events": 22,
+      "raw_shell_chunks": 146,
+      "recognized_invocations": 22,
+      "invocations_with_arguments": 22,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "51ac196ff057660df18f",
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "mode": "human",
+      "head_events": 8,
+      "raw_shell_chunks": 129,
+      "recognized_invocations": 8,
+      "invocations_with_arguments": 8,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "4739bb2bface316454d9",
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "mode": "agent",
+      "head_events": 2,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 1
+    },
+    {
+      "id": "4947dd1c47012a525663",
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "mode": "agent",
+      "head_events": 6,
+      "raw_shell_chunks": 3,
+      "recognized_invocations": 6,
+      "invocations_with_arguments": 6,
+      "invocations_with_options": 5
+    },
+    {
+      "id": "e40148d7fc3e2310c489",
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "mode": "agent",
+      "head_events": 5,
+      "raw_shell_chunks": 2,
+      "recognized_invocations": 5,
+      "invocations_with_arguments": 5,
+      "invocations_with_options": 4
+    },
+    {
+      "id": "7842e263e32e2c8a0f82",
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 1,
+      "invocations_with_options": 0
+    },
+    {
+      "id": "ea027d2134231e9cb84e",
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "mode": "human",
+      "head_events": 2,
+      "raw_shell_chunks": 5,
+      "recognized_invocations": 2,
+      "invocations_with_arguments": 2,
+      "invocations_with_options": 0
+    }
+  ],
+  "privacy_note": "raw command content and argument values are not saved"
+}

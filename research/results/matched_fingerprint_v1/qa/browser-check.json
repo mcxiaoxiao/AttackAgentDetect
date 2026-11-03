@@ -1,0 +1,190 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "requestedLanguage": "zh",
+    "status": 200,
+    "detail": {
+      "lang": "zh-CN",
+      "header": "同一批配对：三种模型的指纹增量",
+      "rowCount": 9,
+      "tableWidth": 1290,
+      "wrapperWidth": 1290,
+      "wrapperScrollWidth": 1290,
+      "wrapperOverflow": "auto",
+      "imageLoaded": true,
+      "pageWidth": 1440,
+      "windowWidth": 1440,
+      "mainWidth": 1440,
+      "links": [
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip"
+      ]
+    },
+    "errors": [],
+    "failed": [
+      [
+        404,
+        "http://127.0.0.1:8765/deployment.json?v=1793712374519"
+      ]
+    ],
+    "linkChecks": [
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 960
+    },
+    "requestedLanguage": "en",
+    "status": 200,
+    "detail": {
+      "lang": "en",
+      "header": "Matched classifiers across exact role shares",
+      "rowCount": 9,
+      "tableWidth": 1290,
+      "wrapperWidth": 1290,
+      "wrapperScrollWidth": 1290,
+      "wrapperOverflow": "auto",
+      "imageLoaded": true,
+      "pageWidth": 1440,
+      "windowWidth": 1440,
+      "mainWidth": 1440,
+      "links": [
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip"
+      ]
+    },
+    "errors": [],
+    "failed": [
+      [
+        404,
+        "http://127.0.0.1:8765/deployment.json?v=1793712376330"
+      ]
+    ],
+    "linkChecks": [
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "requestedLanguage": "zh",
+    "status": 200,
+    "detail": {
+      "lang": "zh-CN",
+      "header": "同一批配对：三种模型的指纹增量",
+      "rowCount": 9,
+      "tableWidth": 760,
+      "wrapperWidth": 346,
+      "wrapperScrollWidth": 760,
+      "wrapperOverflow": "auto",
+      "imageLoaded": true,
+      "pageWidth": 390,
+      "windowWidth": 390,
+      "mainWidth": 390,
+      "links": [
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip"
+      ]
+    },
+    "errors": [],
+    "failed": [
+      [
+        404,
+        "http://127.0.0.1:8765/deployment.json?v=1793712377228"
+      ]
+    ],
+    "linkChecks": [
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "requestedLanguage": "en",
+    "status": 200,
+    "detail": {
+      "lang": "en",
+      "header": "Matched classifiers across exact role shares",
+      "rowCount": 9,
+      "tableWidth": 760,
+      "wrapperWidth": 346,
+      "wrapperScrollWidth": 760,
+      "wrapperOverflow": "auto",
+      "imageLoaded": true,
+      "pageWidth": 390,
+      "windowWidth": 390,
+      "mainWidth": 390,
+      "links": [
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip"
+      ]
+    },
+    "errors": [],
+    "failed": [
+      [
+        404,
+        "http://127.0.0.1:8765/deployment.json?v=1793712378021"
+      ]
+    ],
+    "linkChecks": [
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.pdf",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft.tex",
+        "status": 200
+      },
+      {
+        "href": "assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip",
+        "status": 200
+      }
+    ]
+  }
+]

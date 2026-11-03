@@ -1,0 +1,1601 @@
+{
+  "protocol": "frozen AA-only CTH task-group confirmation; 100 repeated fixed-gallery draws; task is bootstrap cluster",
+  "scope": "same-task means the same CTF challenge proxy, not activity/actor/campaign/organization identity",
+  "test_tasks": 26,
+  "test_traces": 59,
+  "query_galleries_per_repetition": 59,
+  "repetitions": 100,
+  "candidate_count": 4,
+  "pair_count_per_version": 23600,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261104,
+  "bootstrap_note": "100 gallery draws are averaged within each of 26 task clusters; they are not independent samples",
+  "pair_keys_identical_across_all_models_and_versions": true,
+  "models": {
+    "svm": {
+      "versions": {
+        "E": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.14803418803418802,
+              "fsr": 0.486923076923077,
+              "ba": 0.6825213675213675
+            },
+            "ci95": {
+              "fmr": [
+                0.11899412393162392,
+                0.17677350427350427
+              ],
+              "fsr": [
+                0.3196153846153846,
+                0.656025641025641
+              ],
+              "ba": [
+                0.5971452991452991,
+                0.7665288461538464
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.867189847222
+          ]
+        },
+        "E_args": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.1379700854700855,
+              "fsr": 0.553076923076923,
+              "ba": 0.6544764957264955
+            },
+            "ci95": {
+              "fmr": [
+                0.1034610042735043,
+                0.1736116452991453
+              ],
+              "fsr": [
+                0.385,
+                0.7217980769230768
+              ],
+              "ba": [
+                0.5711316773504274,
+                0.7375718482905982
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.773677271908
+          ]
+        },
+        "E_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.03632478632478632,
+              "fsr": 0.9874358974358974,
+              "ba": 0.48811965811965813
+            },
+            "ci95": {
+              "fmr": [
+                0.022905982905982905,
+                0.05106891025641025
+              ],
+              "fsr": [
+                0.9623076923076922,
+                1.0
+              ],
+              "ba": [
+                0.4757152777777776,
+                0.5054166666666666
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.897751116155
+          ]
+        },
+        "E_args_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.02623931623931624,
+              "fsr": 1.0,
+              "ba": 0.4868803418803418
+            },
+            "ci95": {
+              "fmr": [
+                0.014700854700854702,
+                0.03952991452991453
+              ],
+              "fsr": [
+                1.0,
+                1.0
+              ],
+              "ba": [
+                0.4802350427350428,
+                0.4926495726495726
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.923499064977
+          ]
+        }
+      },
+      "contrasts": {
+        "E_BS_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.11170940170940168,
+              "fsr": 0.5005128205128205,
+              "ba": -0.1944017094017094
+            },
+            "ci95": {
+              "fmr": [
+                -0.1396794871794871,
+                -0.08187820512820515
+              ],
+              "fsr": [
+                0.3335897435897437,
+                0.666025641025641
+              ],
+              "ba": [
+                -0.27687019230769233,
+                -0.11059775641025642
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.0967200854700855,
+              "ci95": [
+                -0.22053579059829057,
+                0.02772462606837607
+              ]
+            },
+            "mrr": {
+              "delta": -0.05972222222222222,
+              "ci95": [
+                -0.13980328525641025,
+                0.01819591346153836
+              ]
+            },
+            "auc": {
+              "delta": -0.059572649572649565,
+              "ci95": [
+                -0.14976709401709404,
+                0.021795405982906003
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 2253,
+              "errors_introduced": 346,
+              "tasks_with_net_error_reduction": 24
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 0,
+              "errors_introduced": 2904,
+              "tasks_with_net_error_reduction": 0
+            }
+          }
+        },
+        "E_args_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.010064102564102563,
+              "fsr": 0.06615384615384616,
+              "ba": -0.02804487179487182
+            },
+            "ci95": {
+              "fmr": [
+                -0.03344070512820513,
+                0.013055555555555558
+              ],
+              "fsr": [
+                -0.1103878205128205,
+                0.24423397435897432
+              ],
+              "ba": [
+                -0.11373237179487182,
+                0.056710470085470054
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.05847222222222222,
+              "ci95": [
+                -0.1429500534188034,
+                0.023624198717948682
+              ]
+            },
+            "mrr": {
+              "delta": -0.03519764957264955,
+              "ci95": [
+                -0.0837076655982906,
+                0.011324919871794896
+              ]
+            },
+            "auc": {
+              "delta": -0.03294871794871795,
+              "ci95": [
+                -0.0742852564102564,
+                0.007019497863247855
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 664,
+              "errors_introduced": 476,
+              "tasks_with_net_error_reduction": 13
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 492,
+              "errors_introduced": 908,
+              "tasks_with_net_error_reduction": 3
+            }
+          }
+        },
+        "E_args_BS_minus_E_args": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.11173076923076926,
+              "fsr": 0.446923076923077,
+              "ba": -0.16759615384615384
+            },
+            "ci95": {
+              "fmr": [
+                -0.14790651709401714,
+                -0.07760683760683763
+              ],
+              "fsr": [
+                0.2782019230769231,
+                0.615
+              ],
+              "ba": [
+                -0.2514962606837607,
+                -0.08403685897435899
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.07244658119658122,
+              "ci95": [
+                -0.18691292735042736,
+                0.049830929487179466
+              ]
+            },
+            "mrr": {
+              "delta": -0.04694444444444447,
+              "ci95": [
+                -0.12459094551282053,
+                0.03253846153846151
+              ]
+            },
+            "auc": {
+              "delta": -0.049871794871794876,
+              "ci95": [
+                -0.14115438034188035,
+                0.035085470085470076
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 2188,
+              "errors_introduced": 292,
+              "tasks_with_net_error_reduction": 25
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 0,
+              "errors_introduced": 2586,
+              "tasks_with_net_error_reduction": 0
+            }
+          }
+        }
+      },
+      "benchmark_task_families_descriptive": {
+        "cybench": {
+          "E": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.20666666666666667,
+              "fsr": 0.6699999999999999,
+              "ba": 0.5616666666666668
+            }
+          },
+          "E_args": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.15888888888888889,
+              "fsr": 1.0,
+              "ba": 0.42055555555555557
+            }
+          },
+          "E_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.04888888888888889,
+              "fsr": 1.0,
+              "ba": 0.4755555555555555
+            }
+          },
+          "E_args_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          }
+        },
+        "intercode-ctf_crypto": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.1487962962962963,
+              "fsr": 0.6155555555555555,
+              "ba": 0.617824074074074
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.1775925925925926,
+              "fsr": 0.6155555555555555,
+              "ba": 0.6034259259259259
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.06953703703703705,
+              "fsr": 1.0,
+              "ba": 0.4652314814814815
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.0462037037037037,
+              "fsr": 1.0,
+              "ba": 0.4768981481481482
+            }
+          }
+        },
+        "intercode-ctf_general_skills": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.20027777777777778,
+              "fsr": 0.5,
+              "ba": 0.6498611111111111
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.18916666666666668,
+              "fsr": 0.6666666666666666,
+              "ba": 0.5720833333333334
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.04,
+              "fsr": 1.0,
+              "ba": 0.48
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.03277777777777778,
+              "fsr": 1.0,
+              "ba": 0.48361111111111116
+            }
+          }
+        },
+        "intercode-ctf_reverse": {
+          "E": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.09644444444444444,
+              "fsr": 0.47000000000000003,
+              "ba": 0.7167777777777777
+            }
+          },
+          "E_args": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.081,
+              "fsr": 0.47000000000000003,
+              "ba": 0.7245
+            }
+          },
+          "E_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.019666666666666666,
+              "fsr": 1.0,
+              "ba": 0.49016666666666664
+            }
+          },
+          "E_args_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.019666666666666666,
+              "fsr": 1.0,
+              "ba": 0.49016666666666664
+            }
+          }
+        },
+        "nyuctf": {
+          "E": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.13319444444444442,
+              "fsr": 0.36833333333333335,
+              "ba": 0.749236111111111
+            }
+          },
+          "E_args": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.10284722222222221,
+              "fsr": 0.41708333333333336,
+              "ba": 0.7400347222222222
+            }
+          },
+          "E_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.0175,
+              "fsr": 0.9591666666666667,
+              "ba": 0.5116666666666667
+            }
+          },
+          "E_args_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.01375,
+              "fsr": 1.0,
+              "ba": 0.493125
+            }
+          }
+        }
+      }
+    },
+    "tree": {
+      "versions": {
+        "E": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.024188034188034186,
+              "fsr": 0.9615384615384616,
+              "ba": 0.5071367521367521
+            },
+            "ci95": {
+              "fmr": [
+                0.012349893162393164,
+                0.037008547008547006
+              ],
+              "fsr": [
+                0.8846153846153846,
+                1.0
+              ],
+              "ba": [
+                0.4827775106837607,
+                0.5495299145299145
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.846153846154
+          ]
+        },
+        "E_args": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.003995726495726496,
+              "fsr": 0.9875641025641025,
+              "ba": 0.5042200854700855
+            },
+            "ci95": {
+              "fmr": [
+                0.000811965811965812,
+                0.008076923076923077
+              ],
+              "fsr": [
+                0.9626923076923076,
+                1.0
+              ],
+              "ba": [
+                0.49724358974358973,
+                0.5163782051282051
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.846153846154
+          ]
+        },
+        "E_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            },
+            "ci95": {
+              "fmr": [
+                0.0,
+                0.0
+              ],
+              "fsr": [
+                1.0,
+                1.0
+              ],
+              "ba": [
+                0.5,
+                0.5
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            "inf"
+          ]
+        },
+        "E_args_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.09094017094017094,
+              "fsr": 0.7692307692307693,
+              "ba": 0.5699145299145301
+            },
+            "ci95": {
+              "fmr": [
+                0.06279914529914529,
+                0.12314102564102564
+              ],
+              "fsr": [
+                0.6153846153846154,
+                0.9230769230769231
+              ],
+              "ba": [
+                0.4988862179487181,
+                0.6495005341880342
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            1.0
+          ]
+        }
+      },
+      "contrasts": {
+        "E_BS_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.024188034188034186,
+              "fsr": 0.038461538461538464,
+              "ba": -0.007136752136752134
+            },
+            "ci95": {
+              "fmr": [
+                -0.037008547008547006,
+                -0.01234989316239317
+              ],
+              "fsr": [
+                0.0,
+                0.11538461538461539
+              ],
+              "ba": [
+                -0.04952991452991452,
+                0.017222489316239327
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.1069551282051282,
+              "ci95": [
+                -0.22861485042735044,
+                0.010763888888888868
+              ]
+            },
+            "mrr": {
+              "delta": -0.0787286324786325,
+              "ci95": [
+                -0.17204930110398864,
+                0.01468100071225068
+              ]
+            },
+            "auc": {
+              "delta": -0.09724358974358974,
+              "ci95": [
+                -0.2226826923076923,
+                0.031915865384615306
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 408,
+              "errors_introduced": 0,
+              "tasks_with_net_error_reduction": 11
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 0,
+              "errors_introduced": 200,
+              "tasks_with_net_error_reduction": 0
+            }
+          }
+        },
+        "E_args_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.02019230769230769,
+              "fsr": 0.02602564102564103,
+              "ba": -0.0029166666666666616
+            },
+            "ci95": {
+              "fmr": [
+                -0.03405982905982906,
+                -0.0074358974358974365
+              ],
+              "fsr": [
+                -0.0373076923076923,
+                0.11538461538461539
+              ],
+              "ba": [
+                -0.04831330128205128,
+                0.026496260683760688
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": 0.002745726495726485,
+              "ci95": [
+                -0.14791092414529913,
+                0.14606517094017088
+              ]
+            },
+            "mrr": {
+              "delta": -0.008116987179487199,
+              "ci95": [
+                -0.11429223424145302,
+                0.0922783564814815
+              ]
+            },
+            "auc": {
+              "delta": -0.02902777777777778,
+              "ci95": [
+                -0.15908707264957264,
+                0.09026014957264952
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 408,
+              "errors_introduced": 78,
+              "tasks_with_net_error_reduction": 10
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 97,
+              "errors_introduced": 200,
+              "tasks_with_net_error_reduction": 1
+            }
+          }
+        },
+        "E_args_BS_minus_E_args": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": 0.08694444444444444,
+              "fsr": -0.21833333333333332,
+              "ba": 0.06569444444444444
+            },
+            "ci95": {
+              "fmr": [
+                0.05869604700854701,
+                0.11861217948717946
+              ],
+              "fsr": [
+                -0.38461538461538464,
+                -0.0644871794871795
+              ],
+              "ba": [
+                -0.006838942307692308,
+                0.14649652777777777
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.12383547008547008,
+              "ci95": [
+                -0.29095659722222217,
+                0.0523464209401707
+              ]
+            },
+            "mrr": {
+              "delta": -0.083616452991453,
+              "ci95": [
+                -0.20978668091168098,
+                0.04938026397792023
+              ]
+            },
+            "auc": {
+              "delta": -0.08834401709401708,
+              "ci95": [
+                -0.2539890491452991,
+                0.08729914529914527
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 78,
+              "errors_introduced": 1525,
+              "tasks_with_net_error_reduction": 2
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 1200,
+              "errors_introduced": 97,
+              "tasks_with_net_error_reduction": 6
+            }
+          }
+        }
+      },
+      "benchmark_task_families_descriptive": {
+        "cybench": {
+          "E": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.0811111111111111,
+              "fsr": 1.0,
+              "ba": 0.45944444444444443
+            }
+          },
+          "E_args": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_args_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.022222222222222223,
+              "fsr": 1.0,
+              "ba": 0.48888888888888893
+            }
+          }
+        },
+        "intercode-ctf_crypto": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.026111111111111113,
+              "fsr": 1.0,
+              "ba": 0.48694444444444446
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.10259259259259261,
+              "fsr": 0.5,
+              "ba": 0.6987037037037037
+            }
+          }
+        },
+        "intercode-ctf_general_skills": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.03472222222222222,
+              "fsr": 1.0,
+              "ba": 0.4826388888888889
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.10833333333333334,
+              "fsr": 0.8333333333333334,
+              "ba": 0.5291666666666666
+            }
+          }
+        },
+        "intercode-ctf_reverse": {
+          "E": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.01,
+              "fsr": 1.0,
+              "ba": 0.495
+            }
+          },
+          "E_args": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_args_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.08311111111111111,
+              "fsr": 0.8,
+              "ba": 0.5584444444444444
+            }
+          }
+        },
+        "nyuctf": {
+          "E": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.01659722222222222,
+              "fsr": 0.875,
+              "ba": 0.5542013888888888
+            }
+          },
+          "E_args": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.012986111111111111,
+              "fsr": 0.9595833333333333,
+              "ba": 0.5137152777777778
+            }
+          },
+          "E_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.0,
+              "fsr": 1.0,
+              "ba": 0.5
+            }
+          },
+          "E_args_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.08263888888888889,
+              "fsr": 0.875,
+              "ba": 0.5211805555555555
+            }
+          }
+        }
+      }
+    },
+    "xgb": {
+      "versions": {
+        "E": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.11775641025641025,
+              "fsr": 0.7803846153846153,
+              "ba": 0.5509294871794872
+            },
+            "ci95": {
+              "fmr": [
+                0.08814049145299147,
+                0.14914690170940165
+              ],
+              "fsr": [
+                0.6371762820512822,
+                0.9084615384615385
+              ],
+              "ba": [
+                0.48654807692307694,
+                0.6237630876068376
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.719878077507
+          ]
+        },
+        "E_args": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.04318376068376069,
+              "fsr": 0.9861538461538462,
+              "ba": 0.48533119658119656
+            },
+            "ci95": {
+              "fmr": [
+                0.026410256410256412,
+                0.062072649572649574
+              ],
+              "fsr": [
+                0.9584615384615385,
+                1.0
+              ],
+              "ba": [
+                0.47098290598290604,
+                0.5037612179487178
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.765865802765
+          ]
+        },
+        "E_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.05634615384615385,
+              "fsr": 0.9106410256410256,
+              "ba": 0.5165064102564101
+            },
+            "ci95": {
+              "fmr": [
+                0.035277243589743594,
+                0.0800224358974359
+              ],
+              "fsr": [
+                0.7952564102564103,
+                1.0
+              ],
+              "ba": [
+                0.471602564102564,
+                0.5758442841880341
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.80719012022
+          ]
+        },
+        "E_args_BS": {
+          "threshold_metrics": {
+            "metrics": {
+              "fmr": 0.05566239316239317,
+              "fsr": 0.9491025641025641,
+              "ba": 0.4976175213675213
+            },
+            "ci95": {
+              "fmr": [
+                0.030811431623931622,
+                0.08423130341880339
+              ],
+              "fsr": [
+                0.8597435897435897,
+                1.0
+              ],
+              "ba": [
+                0.4653952991452991,
+                0.5452673611111111
+              ]
+            }
+          },
+          "fallback_pairs": 0,
+          "fallback_rate": 0.0,
+          "thresholds": [
+            0.811179935932
+          ]
+        }
+      },
+      "contrasts": {
+        "E_BS_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.06141025641025642,
+              "fsr": 0.13025641025641027,
+              "ba": -0.03442307692307694
+            },
+            "ci95": {
+              "fmr": [
+                -0.09955288461538463,
+                -0.023716880341880364
+              ],
+              "fsr": [
+                0.02705128205128206,
+                0.25666666666666665
+              ],
+              "ba": [
+                -0.09709508547008551,
+                0.01930582264957265
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.07710470085470086,
+              "ci95": [
+                -0.19997889957264958,
+                0.05178659188034181
+              ]
+            },
+            "mrr": {
+              "delta": -0.061749465811965824,
+              "ci95": [
+                -0.1563512954059829,
+                0.03855749198717944
+              ]
+            },
+            "auc": {
+              "delta": -0.08024572649572649,
+              "ci95": [
+                -0.21096527777777777,
+                0.057373130341880324
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 1773,
+              "errors_introduced": 729,
+              "tasks_with_net_error_reduction": 20
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 97,
+              "errors_introduced": 913,
+              "tasks_with_net_error_reduction": 1
+            }
+          }
+        },
+        "E_args_minus_E": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": -0.07457264957264956,
+              "fsr": 0.2057692307692308,
+              "ba": -0.06559829059829062
+            },
+            "ci95": {
+              "fmr": [
+                -0.0969017094017094,
+                -0.052927350427350424
+              ],
+              "fsr": [
+                0.07782051282051282,
+                0.351673076923075
+              ],
+              "ba": [
+                -0.13869738247863253,
+                -0.002072115384615405
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.01930555555555556,
+              "ci95": [
+                -0.08883840811965812,
+                0.04224439102564103
+              ]
+            },
+            "mrr": {
+              "delta": -0.01702724358974358,
+              "ci95": [
+                -0.06164182692307691,
+                0.02228151709401704
+              ]
+            },
+            "auc": {
+              "delta": -0.024091880341880346,
+              "ci95": [
+                -0.07110149572649573,
+                0.016955662393162353
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 1339,
+              "errors_introduced": 29,
+              "tasks_with_net_error_reduction": 23
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 0,
+              "errors_introduced": 1205,
+              "tasks_with_net_error_reduction": 0
+            }
+          }
+        },
+        "E_args_BS_minus_E_args": {
+          "paired_threshold_metric_change": {
+            "metrics": {
+              "fmr": 0.012478632478632477,
+              "fsr": -0.037051282051282046,
+              "ba": 0.01228632478632478
+            },
+            "ci95": {
+              "fmr": [
+                -0.01805608974358975,
+                0.04508547008547008
+              ],
+              "fsr": [
+                -0.12782051282051282,
+                0.02769230769230769
+              ],
+              "ba": [
+                -0.029861378205128214,
+                0.06878205128205127
+              ]
+            }
+          },
+          "ranking_change_on_fully_supported_galleries": {
+            "hit1": {
+              "delta": -0.07262820512820513,
+              "ci95": [
+                -0.21846233974358978,
+                0.0779308226495726
+              ]
+            },
+            "mrr": {
+              "delta": -0.049310897435897456,
+              "ci95": [
+                -0.15502377136752138,
+                0.06037459935897433
+              ]
+            },
+            "auc": {
+              "delta": -0.05319444444444444,
+              "ci95": [
+                -0.1876837606837607,
+                0.08604861111111109
+              ]
+            }
+          },
+          "ranking_coverage": {
+            "query_galleries_before": 5900,
+            "query_galleries_after": 5900,
+            "tasks": 26
+          },
+          "error_transitions": {
+            "different_task": {
+              "pairs": 17700,
+              "errors_corrected": 548,
+              "errors_introduced": 816,
+              "tasks_with_net_error_reduction": 10
+            },
+            "same_task": {
+              "pairs": 5900,
+              "errors_corrected": 297,
+              "errors_introduced": 108,
+              "tasks_with_net_error_reduction": 2
+            }
+          }
+        }
+      },
+      "benchmark_task_families_descriptive": {
+        "cybench": {
+          "E": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.16777777777777778,
+              "fsr": 0.6699999999999999,
+              "ba": 0.5811111111111111
+            }
+          },
+          "E_args": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.08888888888888889,
+              "fsr": 1.0,
+              "ba": 0.4555555555555556
+            }
+          },
+          "E_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.08888888888888889,
+              "fsr": 1.0,
+              "ba": 0.4555555555555556
+            }
+          },
+          "E_args_BS": {
+            "tasks": 1,
+            "metrics": {
+              "fmr": 0.08888888888888889,
+              "fsr": 1.0,
+              "ba": 0.4555555555555556
+            }
+          }
+        },
+        "intercode-ctf_crypto": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.13870370370370372,
+              "fsr": 0.6666666666666666,
+              "ba": 0.5973148148148147
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.03064814814814815,
+              "fsr": 1.0,
+              "ba": 0.4846759259259259
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.06731481481481483,
+              "fsr": 0.8333333333333334,
+              "ba": 0.549675925925926
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.05833333333333333,
+              "fsr": 1.0,
+              "ba": 0.47083333333333327
+            }
+          }
+        },
+        "intercode-ctf_general_skills": {
+          "E": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.11611111111111111,
+              "fsr": 1.0,
+              "ba": 0.4419444444444444
+            }
+          },
+          "E_args": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.03888888888888889,
+              "fsr": 1.0,
+              "ba": 0.48055555555555557
+            }
+          },
+          "E_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.06666666666666667,
+              "fsr": 1.0,
+              "ba": 0.4666666666666666
+            }
+          },
+          "E_args_BS": {
+            "tasks": 6,
+            "metrics": {
+              "fmr": 0.06833333333333333,
+              "fsr": 1.0,
+              "ba": 0.4658333333333333
+            }
+          }
+        },
+        "intercode-ctf_reverse": {
+          "E": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.10166666666666666,
+              "fsr": 0.9353333333333333,
+              "ba": 0.48149999999999993
+            }
+          },
+          "E_args": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.04122222222222223,
+              "fsr": 1.0,
+              "ba": 0.47938888888888886
+            }
+          },
+          "E_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.01211111111111111,
+              "fsr": 1.0,
+              "ba": 0.49394444444444446
+            }
+          },
+          "E_args_BS": {
+            "tasks": 5,
+            "metrics": {
+              "fmr": 0.009111111111111111,
+              "fsr": 1.0,
+              "ba": 0.49544444444444447
+            }
+          }
+        },
+        "nyuctf": {
+          "E": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.10708333333333332,
+              "fsr": 0.6179166666666667,
+              "ba": 0.6375
+            }
+          },
+          "E_args": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.051319444444444445,
+              "fsr": 0.955,
+              "ba": 0.49684027777777784
+            }
+          },
+          "E_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.06395833333333333,
+              "fsr": 0.8345833333333333,
+              "ba": 0.5507291666666666
+            }
+          },
+          "E_args_BS": {
+            "tasks": 8,
+            "metrics": {
+              "fmr": 0.06909722222222221,
+              "fsr": 0.8345833333333333,
+              "ba": 0.5481597222222222
+            }
+          }
+        }
+      }
+    }
+  },
+  "frozen_configuration": {
+    "representation": [
+      4,
+      "mean_std",
+      "conditional"
+    ],
+    "parameters": {
+      "svm": 1.0,
+      "tree": 3,
+      "xgb": 3
+    },
+    "thresholds": {
+      "svm": {
+        "E": {
+          "threshold": 0.8671898472216057,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.09411764705882353,
+          "oof_macro_fsr": 0.9294117647058825,
+          "oof_macro_ba": 0.488235294117647,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args": {
+          "threshold": 0.7736772719078645,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.0980392156862745,
+          "oof_macro_fsr": 0.8588235294117648,
+          "oof_macro_ba": 0.5215686274509803,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_BS": {
+          "threshold": 0.8977511161550984,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.0980392156862745,
+          "oof_macro_fsr": 0.8588235294117647,
+          "oof_macro_ba": 0.5215686274509803,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args_BS": {
+          "threshold": 0.923499064977187,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.09411764705882353,
+          "oof_macro_fsr": 0.8588235294117647,
+          "oof_macro_ba": 0.5235294117647058,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        }
+      },
+      "tree": {
+        "E": {
+          "threshold": 0.8461538461538461,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.03137254901960784,
+          "oof_macro_fsr": 0.9411764705882353,
+          "oof_macro_ba": 0.5137254901960784,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args": {
+          "threshold": 0.8461538461538461,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.047058823529411764,
+          "oof_macro_fsr": 0.9411764705882353,
+          "oof_macro_ba": 0.5058823529411764,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_BS": {
+          "threshold": null,
+          "threshold_is_infinite": true,
+          "oof_macro_fmr": 0.0,
+          "oof_macro_fsr": 1.0,
+          "oof_macro_ba": 0.5,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args_BS": {
+          "threshold": 1.0,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.02745098039215686,
+          "oof_macro_fsr": 0.9764705882352942,
+          "oof_macro_ba": 0.4980392156862745,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        }
+      },
+      "xgb": {
+        "E": {
+          "threshold": 0.719878077507019,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.09411764705882353,
+          "oof_macro_fsr": 0.8470588235294118,
+          "oof_macro_ba": 0.5294117647058824,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args": {
+          "threshold": 0.7658658027648926,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.06666666666666667,
+          "oof_macro_fsr": 0.9058823529411765,
+          "oof_macro_ba": 0.5137254901960784,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_BS": {
+          "threshold": 0.8071901202201843,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.09019607843137255,
+          "oof_macro_fsr": 0.7999999999999999,
+          "oof_macro_ba": 0.5549019607843136,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        },
+        "E_args_BS": {
+          "threshold": 0.8111799359321594,
+          "threshold_is_infinite": false,
+          "oof_macro_fmr": 0.09411764705882353,
+          "oof_macro_fsr": 0.7999999999999999,
+          "oof_macro_ba": 0.5529411764705883,
+          "oof_pairs": 340,
+          "oof_query_task_count": 17
+        }
+      }
+    },
+    "training_pairs": 272,
+    "unseen_task_manifest_sha256": "745cb4fa3bc99c6d84789de83c16fb04d95b2be943781a5bbfc681a8099a8985"
+  }
+}

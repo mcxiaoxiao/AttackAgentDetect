@@ -1,0 +1,14 @@
+{
+  "frozen_candidate_pairs": {
+    "rows": 54400,
+    "equal_to_v1": true
+  },
+  "exact_role_allocations": 850,
+  "training_validation_pair_rows": 1768,
+  "task_isolation": "passed",
+  "prediction_rows_verified": 598400,
+  "task_macro_ba_identity": true,
+  "argument_profile_traces": 85,
+  "prediction_sha256": "d3e8279b31af63648656dd670b9e6183870f04a857241cad4ae11bef227b47e3",
+  "source_profile_sha256": "fd834beb3db087498dda97afe63c8479f50032f8b2e01532496f36ca6a0fbd3e"
+}

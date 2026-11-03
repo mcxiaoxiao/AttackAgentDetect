@@ -1,0 +1,56 @@
+{
+  "exact_old_code_reproduced": true,
+  "per_pair_reconstruction": [
+    {
+      "agent_slots": 0,
+      "method": "command_cosine",
+      "max_error": 6.661338147750939e-16
+    },
+    {
+      "agent_slots": 0,
+      "method": "action_bigram_cosine",
+      "max_error": 1.6653345369377348e-16
+    },
+    {
+      "agent_slots": 8,
+      "method": "command_cosine",
+      "max_error": 4.440892098500626e-16
+    },
+    {
+      "agent_slots": 8,
+      "method": "action_bigram_cosine",
+      "max_error": 5.551115123125783e-16
+    },
+    {
+      "agent_slots": 16,
+      "method": "command_cosine",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "agent_slots": 16,
+      "method": "action_bigram_cosine",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "agent_slots": 24,
+      "method": "command_cosine",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "agent_slots": 24,
+      "method": "action_bigram_cosine",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "agent_slots": 32,
+      "method": "command_cosine",
+      "max_error": 2.220446049250313e-16
+    },
+    {
+      "agent_slots": 32,
+      "method": "action_bigram_cosine",
+      "max_error": 3.3306690738754696e-16
+    }
+  ],
+  "max_error": 6.661338147750939e-16
+}

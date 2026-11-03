@@ -1,0 +1,5231 @@
+{
+  "protocol": "frozen cross-source AA confirmation on NYU CTF challenge groups",
+  "scope": "same challenge is a task-retrieval proxy, not activity/actor/campaign identity",
+  "test_tasks": 160,
+  "test_traces": 585,
+  "query_galleries_per_repetition": 585,
+  "repetitions": 100,
+  "candidate_count": 4,
+  "pair_count_per_model_version": 234000,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261106,
+  "bootstrap_unit": "challenge task; repeated galleries averaged within each of 160 clusters",
+  "pair_keys_identical_across_learners_and_versions": true,
+  "all_pairs_have_fallback_false": true,
+  "absolute_metrics": {
+    "svm": {
+      "E": {
+        "metrics": {
+          "fmr": 0.2657968750000001,
+          "fsr": 0.57090625,
+          "ba": 0.5816484375
+        },
+        "ci95": {
+          "fmr": [
+            0.2523221788194445,
+            0.2788023871527778
+          ],
+          "fsr": [
+            0.5289522135416664,
+            0.6118188802083334
+          ],
+          "ba": [
+            0.5621479383680557,
+            0.601519162326389
+          ]
+        }
+      },
+      "E_BS": {
+        "metrics": {
+          "fmr": 0.0013350694444444445,
+          "fsr": 1.0,
+          "ba": 0.4993324652777781
+        },
+        "ci95": {
+          "fmr": [
+            0.0009826388888888888,
+            0.0017326388888888895
+          ],
+          "fsr": [
+            1.0,
+            1.0
+          ],
+          "ba": [
+            0.4991336805555558,
+            0.4995086805555557
+          ]
+        }
+      }
+    },
+    "tree": {
+      "E": {
+        "metrics": {
+          "fmr": 0.038527777777777765,
+          "fsr": 0.9677656249999999,
+          "ba": 0.496853298611111
+        },
+        "ci95": {
+          "fmr": [
+            0.03596349826388889,
+            0.04122743055555556
+          ],
+          "fsr": [
+            0.9543071614583328,
+            0.9801199218749997
+          ],
+          "ba": [
+            0.4909252387152778,
+            0.5032000434027779
+          ]
+        }
+      },
+      "E_BS": {
+        "metrics": {
+          "fmr": 0.08543229166666667,
+          "fsr": 0.8479635416666669,
+          "ba": 0.5333020833333334
+        },
+        "ci95": {
+          "fmr": [
+            0.07664730902777782,
+            0.09464071180555558
+          ],
+          "fsr": [
+            0.812259765625,
+            0.8815990885416664
+          ],
+          "ba": [
+            0.518503168402778,
+            0.5490388454861111
+          ]
+        }
+      }
+    },
+    "xgb": {
+      "E": {
+        "metrics": {
+          "fmr": 0.10723263888888886,
+          "fsr": 0.8695833333333333,
+          "ba": 0.5115920138888889
+        },
+        "ci95": {
+          "fmr": [
+            0.10149292534722223,
+            0.1128109375
+          ],
+          "fsr": [
+            0.8407811197916665,
+            0.8952923177083335
+          ],
+          "ba": [
+            0.49885961371527787,
+            0.5258307725694447
+          ]
+        }
+      },
+      "E_BS": {
+        "metrics": {
+          "fmr": 0.25393229166666664,
+          "fsr": 0.6086197916666667,
+          "ba": 0.5687239583333338
+        },
+        "ci95": {
+          "fmr": [
+            0.23914908854166664,
+            0.2684640625
+          ],
+          "fsr": [
+            0.5664634114583332,
+            0.6516255208333336
+          ],
+          "ba": [
+            0.5504193142361115,
+            0.586928580729167
+          ]
+        }
+      }
+    }
+  },
+  "paired_E_BS_minus_E": {
+    "svm": {
+      "metrics": {
+        "fmr": -0.2644618055555557,
+        "fsr": 0.42909375,
+        "ba": -0.08231597222222219
+      },
+      "ci95": {
+        "fmr": [
+          -0.277456857638889,
+          -0.2509096788194444
+        ],
+        "fsr": [
+          0.3881811197916668,
+          0.4710477864583335
+        ],
+        "ba": [
+          -0.10221091579861104,
+          -0.06276885850694443
+        ]
+      }
+    },
+    "tree": {
+      "metrics": {
+        "fmr": 0.046904513888888895,
+        "fsr": -0.11980208333333338,
+        "ba": 0.036448784722222224
+      },
+      "ci95": {
+        "fmr": [
+          0.03679162326388889,
+          0.05727109374999999
+        ],
+        "fsr": [
+          -0.160183203125,
+          -0.08168203125000005
+        ],
+        "ba": [
+          0.01974157986111111,
+          0.053735394965277745
+        ]
+      }
+    },
+    "xgb": {
+      "metrics": {
+        "fmr": 0.14669965277777777,
+        "fsr": -0.26096354166666674,
+        "ba": 0.05713194444444447
+      },
+      "ci95": {
+        "fmr": [
+          0.1327984375000001,
+          0.16055785590277794
+        ],
+        "fsr": [
+          -0.30722499999999997,
+          -0.21384166666666665
+        ],
+        "ba": [
+          0.036319140625,
+          0.07733862847222223
+        ]
+      }
+    }
+  },
+  "ranking": {
+    "svm": {
+      "delta_E_BS_minus_E": {
+        "hit1": {
+          "delta": -0.010578993055555555,
+          "ci95": [
+            -0.036359092881944444,
+            0.014406054687499998
+          ]
+        },
+        "mrr": {
+          "delta": -0.004878399884259259,
+          "ci95": [
+            -0.021679815899884262,
+            0.011416583478009227
+          ]
+        },
+        "auc": {
+          "delta": -0.0018124999999999895,
+          "ci95": [
+            -0.020059982638888876,
+            0.015748046874999998
+          ]
+        }
+      },
+      "galleries_per_version": {
+        "E": 58500,
+        "E_BS": 58500
+      }
+    },
+    "tree": {
+      "delta_E_BS_minus_E": {
+        "hit1": {
+          "delta": -0.055945746527777784,
+          "ci95": [
+            -0.08229615885416668,
+            -0.030868912760416665
+          ]
+        },
+        "mrr": {
+          "delta": -0.048934425636574075,
+          "ci95": [
+            -0.06741415925202549,
+            -0.031124620225694438
+          ]
+        },
+        "auc": {
+          "delta": -0.07131770833333333,
+          "ci95": [
+            -0.09355852864583332,
+            -0.04971191406250001
+          ]
+        }
+      },
+      "galleries_per_version": {
+        "E": 58500,
+        "E_BS": 58500
+      }
+    },
+    "xgb": {
+      "delta_E_BS_minus_E": {
+        "hit1": {
+          "delta": 0.03201953125,
+          "ci95": [
+            0.004496820746527774,
+            0.05898393012152777
+          ]
+        },
+        "mrr": {
+          "delta": 0.01939362702546297,
+          "ci95": [
+            0.0006356617115162137,
+            0.03744009512442129
+          ]
+        },
+        "auc": {
+          "delta": 0.018169270833333327,
+          "ci95": [
+            -0.0038154513888888995,
+            0.039731163194444426
+          ]
+        }
+      },
+      "galleries_per_version": {
+        "E": 58500,
+        "E_BS": 58500
+      }
+    }
+  },
+  "error_transitions": {
+    "svm": {
+      "pairs": 234000,
+      "by_relation": {
+        "different_task": {
+          "pairs": 175500,
+          "errors_corrected": 46923,
+          "errors_introduced": 150,
+          "tasks_net_error_reduction": 160,
+          "tasks_net_error_increase": 0
+        },
+        "same_task": {
+          "pairs": 58500,
+          "errors_corrected": 0,
+          "errors_introduced": 25020,
+          "tasks_net_error_reduction": 0,
+          "tasks_net_error_increase": 140
+        }
+      }
+    },
+    "tree": {
+      "pairs": 234000,
+      "by_relation": {
+        "different_task": {
+          "pairs": 175500,
+          "errors_corrected": 6732,
+          "errors_introduced": 15244,
+          "tasks_net_error_reduction": 41,
+          "tasks_net_error_increase": 118
+        },
+        "same_task": {
+          "pairs": 58500,
+          "errors_corrected": 8959,
+          "errors_introduced": 1926,
+          "tasks_net_error_reduction": 61,
+          "tasks_net_error_increase": 22
+        }
+      }
+    },
+    "xgb": {
+      "pairs": 234000,
+      "by_relation": {
+        "different_task": {
+          "pairs": 175500,
+          "errors_corrected": 11241,
+          "errors_introduced": 37348,
+          "tasks_net_error_reduction": 7,
+          "tasks_net_error_increase": 153
+        },
+        "same_task": {
+          "pairs": 58500,
+          "errors_corrected": 19708,
+          "errors_introduced": 4329,
+          "tasks_net_error_reduction": 118,
+          "tasks_net_error_increase": 20
+        }
+      }
+    }
+  },
+  "pair_counts_by_task": {
+    "svm:E": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    },
+    "svm:E_BS": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    },
+    "tree:E": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    },
+    "tree:E_BS": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    },
+    "xgb:E": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    },
+    "xgb:E_BS": {
+      "2017f-cry-ecxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-cry-lupin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017f-for-thoroughlystripped": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-48_bit_yeet_lab": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rabbithole": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017f-rev-rusty_road": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-almost_xor": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-cry-another_xor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-cry-baby_crypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-for-best_router": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-msc-cvv": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-pwn-zone": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2017q-rev-bananascript": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-gopherz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-realism": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-rev-tablez": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2017q-web-littlequery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-notmycupofcoffe": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2017q-web-orangev2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018f-cry-asr4cr": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-cry-lost_mind": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-msc-showdown": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018f-pwn-es1337": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-1nsayne": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-bdos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018f-rev-free_as_in_freedom": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-babycrypto": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2018q-cry-collusion": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-cry-flatcrypt": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-cry-lowe": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-simple_recovery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-for-whyos": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-msc-bin_t": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2018q-pwn-bigboy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-pwn-get_it": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-a_walk_through_x86_part_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2018q-rev-kvm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-pwn-arevenge": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019f-rev-mystery_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-steady_counting": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-rev-wrangly": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019f-web-biometric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-brillouin": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-cry-byte_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-cry-count_on_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-baby_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-got_milk": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-pop_goes_the_printer": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-popping_caps_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-small_boi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-pwn-traveller": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2019q-rev-beleaf": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-gibberish_check": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2019q-rev-halfpike": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2019q-rev-wizkid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-eccentric": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-hybrid2": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-cry-jackpot": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-cry-the_matrix": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-pwn-darkunion1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-rev-brrr": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-sourcery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020f-rev-yeet": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-sharkfacts": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020f-web-snailrace1": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-adversarial": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-authy": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-difib": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-modus_operandi": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-cry-smallsurp": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-blox2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-feather": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-pwn-grid": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-pwnvoltex": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-slithery": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2020q-pwn-thebardsfail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-baby_mult": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2020q-rev-not_malware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-cry-ibad": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-for-constela": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-for-no_time_to_register": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-msc-terminal_velocity": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-pwn-chatterbox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-pwn-horrorscope": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021f-rev-maze": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021f-rev-sfc": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-bits": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-crack_me": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-cry-ecc_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-forgery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-gotta_decrypt_them_all": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-cry-rsa_pop_quiz": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-save_the_tristate": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-msc-weak_password": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-pwn-haystack": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-krypto": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-pwn-password_checker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-macomal": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-rev-ncore": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-rev-ransomware": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-gatekeeping": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2021q-web-no_pass_needed": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2021q-web-scp_terminal": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2021q-web-securinotes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-cry-m_ster_0f_prn9": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-open_ellipti_ph": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-cry-polly_crack_this": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022f-msc-embrey0_leak": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-msc-super_guesser_g_me": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-cryptopwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-pwn-salt_server": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-parallel_vm": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022f-rev-roulette": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-gift_shop": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-cry-not_too_taxing": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-cry-too_much_in_common": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-cattheflag": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-msc-ezmaze": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-pwn-ezrop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-anyagacha": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2022q-rev-dockreleakage": {
+        "positive_pairs": 200,
+        "negative_pairs": 600,
+        "queries": 2
+      },
+      "2022q-rev-game": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2022q-rev-the_big_bang": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-describeme": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-cry-nervcenter": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-cry-textbook_rsa": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-ancient_forensics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-emoji": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-floating_points": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-for-forensings": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-for-hypokrinesthai": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-pyjail": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-sigmaslogistics": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-urkel": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-msc-vectors_machine": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-pwn-brainflop": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023f-pwn-virtualization_pwn": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-cell": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-unvirtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-rev-virtualization": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-shreeramquest": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023f-web-triathlon_or_sprint": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-circles": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-cry-lottery": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-cry-mental_poker": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-for-1black0white": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-for-br3akth3vau1t": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-android_dropper": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-msc-tradinggame": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-puffin": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-pwn-target_practice": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-pwn-unlimited_subway": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rebug_1": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-rev-rebug_2": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-rox": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-rev-whataxor": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      },
+      "2023q-web-cookie_injection": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-philanthropy": {
+        "positive_pairs": 300,
+        "negative_pairs": 900,
+        "queries": 3
+      },
+      "2023q-web-rainbow_notes": {
+        "positive_pairs": 400,
+        "negative_pairs": 1200,
+        "queries": 4
+      }
+    }
+  },
+  "leave_one_task_out": {
+    "svm": {
+      "full_delta_ba": -0.08231597222222223,
+      "minimum_delta_after_deleting_one_task": -0.08402603074772887,
+      "maximum_delta_after_deleting_one_task": -0.07995632424877708,
+      "most_negative_contributing_task": "2023q-web-rainbow_notes",
+      "most_positive_contributing_task": "2021q-pwn-haystack"
+    },
+    "tree": {
+      "full_delta_ba": 0.036448784722222224,
+      "minimum_delta_after_deleting_one_task": 0.033570055904961565,
+      "maximum_delta_after_deleting_one_task": 0.03783892382948987,
+      "most_negative_contributing_task": "2021q-pwn-krypto",
+      "most_positive_contributing_task": "2021q-web-scp_terminal"
+    },
+    "xgb": {
+      "full_delta_ba": 0.05713194444444445,
+      "minimum_delta_after_deleting_one_task": 0.05457721872816213,
+      "maximum_delta_after_deleting_one_task": 0.05912299091544375,
+      "most_negative_contributing_task": "2022f-cry-m_ster_0f_prn9",
+      "most_positive_contributing_task": "2021q-web-scp_terminal"
+    }
+  },
+  "training_parameters": {
+    "svm": 1.0,
+    "tree": 3,
+    "xgb": 3
+  },
+  "representation": [
+    4,
+    "mean_std",
+    "conditional"
+  ],
+  "thresholds": {
+    "svm": {
+      "E": 0.9831481668807706,
+      "E_BS": 0.9702893037382134
+    },
+    "tree": {
+      "E": 0.7185628742514977,
+      "E_BS": 0.880566801619434
+    },
+    "xgb": {
+      "E": 0.6841723322868347,
+      "E_BS": 0.6392512917518616
+    }
+  },
+  "training_pair_count": 3570,
+  "source_revision": "69def02a79e8b1d890e1e0d5c11106a9f40e11e1",
+  "provenance_sha256": {
+    "predictions": "208df72a15180c221ed63312cd3bbd0f12a592f37d58c1230bd1f4fce90adc8d",
+    "pair_manifest": "a25ad991e2d20f27e23f48d4e56d6e63e225921eacb6f8888805df6c3b6a0625",
+    "run_manifest": "c77feddbc1fadb2b090e0f388a4749996fffc8ca2d903cb4a3c958bd566b2b3b",
+    "analysis_script": "aed2cb2fee63499ae0708b3208c5b877655d539c8efe4592a361df132e2ad974"
+  }
+}

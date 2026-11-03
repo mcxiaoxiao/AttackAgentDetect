@@ -1,0 +1,564 @@
+{
+  "protocol": "per-pair-type inner-OOF FMR <= 10%; fixed global-run model configurations",
+  "source_pair_prediction_sha256": "d3e8279b31af63648656dd670b9e6183870f04a857241cad4ae11bef227b47e3",
+  "folds": {
+    "0": {
+      "representation": [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 2,
+          "thresholds": {
+            "evidence": {
+              "AA": null,
+              "HA": 0.8516694903373718,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.7765686511993408,
+              "HA": 0.8003160357475281,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9393939393939394
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.06153846153846154,
+                "fsr": 0.6666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.8484848484848485
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        },
+        "svm": {
+          "parameter": 10.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 2.1847427726543707,
+              "HA": 1.5425114679730518,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.993766857860514,
+              "HA": 1.011919683945625,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.046153846153846156,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.7575757575757576
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.046153846153846156,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.9090909090909091
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        },
+        "tree": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": null,
+              "HA": 0.8095238095238095,
+              "HH": 0.8095238095238095
+            },
+            "BS": {
+              "AA": 1.0,
+              "HA": 1.0,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.9393939393939394
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.03571428571428571,
+                "fsr": 0.7142857142857143
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.09230769230769231,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.8787878787878788
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        }
+      }
+    },
+    "1": {
+      "representation": [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.6999209523200989,
+              "HA": 0.7220574617385864,
+              "HH": 0.6887449026107788
+            },
+            "BS": {
+              "AA": 0.8481183648109436,
+              "HA": 0.7274625897407532,
+              "HH": 0.8844806551933289
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.09090909090909091,
+                "fsr": 0.6666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.08333333333333333,
+                "fsr": 0.7931034482758621
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.038461538461538464,
+                "fsr": 0.8181818181818181
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.03636363636363636,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.05952380952380952,
+                "fsr": 0.8620689655172413
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 0.9090909090909091
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        },
+        "svm": {
+          "parameter": 1.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.7836363406034221,
+              "HA": 1.1423158279669579,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": 0.49992296628814337,
+              "HH": 1.0032401915494986
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.05454545454545454,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.023809523809523808,
+                "fsr": 0.9310344827586207
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.0,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.047619047619047616,
+                "fsr": 0.7931034482758621
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.038461538461538464,
+                "fsr": 0.9090909090909091
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        },
+        "tree": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 1.0,
+              "HA": null,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": null,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.03636363636363636,
+                "fsr": 0.7333333333333334
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.0,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        }
+      }
+    },
+    "2": {
+      "representation": [
+        8,
+        "mean_std",
+        "direct"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.7112634181976318,
+              "HA": 0.790747880935669,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.8097389936447144,
+              "HA": 0.8303728103637695,
+              "HH": 0.8983378410339355
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.88
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.05714285714285714,
+                "fsr": 0.8
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.041666666666666664,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 0.8571428571428572
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        },
+        "svm": {
+          "parameter": 1.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.9881548573740898,
+              "HA": 1.3939247132505959,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.7262439991485666,
+              "HA": 0.9185872203556099,
+              "HH": 1.1257169400299707
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.02857142857142857,
+                "fsr": 0.92
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.013888888888888888,
+                "fsr": 0.9642857142857143
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.72
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.08333333333333333,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 0.8571428571428572
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        },
+        "tree": {
+          "parameter": 5,
+          "thresholds": {
+            "evidence": {
+              "AA": 1.0,
+              "HA": 1.0,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": 1.0,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.8
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.06944444444444445,
+                "fsr": 0.9642857142857143
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        }
+      }
+    }
+  }
+}

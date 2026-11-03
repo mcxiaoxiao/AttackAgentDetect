@@ -1,0 +1,46 @@
+\begin{table}[ht]
+\centering
+\scriptsize\setlength{\tabcolsep}{2.5pt}\renewcommand{\arraystretch}{1.1}
+\caption{Frozen NYU D-CIPHER AA challenge-retrieval comparison. The challenge filename defines the same-task proxy. Changes are E+B/S minus E; intervals cluster by 160 task groups.}
+\label{tab:nyu-aa-confirmation}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+Classifier & BA: E & BA: E+B/S & $\Delta$BA [95\% CI] & FMR: E+B/S & $\Delta$FMR & $\Delta$FSR \\ \midrule
+RBF-SVM & 58.16 & 49.93 & $-8.23\;[-10.22,-6.28]$ & 0.13 & -26.45 & +42.91 \\
+Decision tree & 49.69 & 53.33 & $+3.64\;[+1.97,+5.37]$ & 8.54 & +4.69 & -11.98 \\
+XGBoost & 51.16 & 56.87 & $+5.71\;[+3.63,+7.73]$ & 25.39 & +14.67 & -26.10 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\caption{CTH XGBoost error changes by pair type, averaged equally over the role shares where the type exists. HH, HA, and AA are trace-role pairs, not activity or actor labels.}
+\label{tab:cth-pair-type-deltas}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+Pair type & $\Delta$BA [95\% CI] & $\Delta$FMR & $\Delta$FSR \\ \midrule
+Human--Human & $-8.84\;[-20.34,+1.67]$ & +5.92 & +11.76 \\
+Human--Agent & $+1.29\;[-1.78,+4.71]$ & +15.66 & -18.23 \\
+Agent--Agent & $+1.39\;[-5.80,+8.03]$ & +9.77 & -12.54 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\scriptsize\setlength{\tabcolsep}{2.6pt}\renewcommand{\arraystretch}{1.08}
+\caption{CTH XGBoost results by exact Agent-role share. Values are task-macro means over the same paired candidates; $\Delta$BA intervals preserve task clustering.}
+\label{tab:cth-per-share-xgb}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}rrrrrr@{}}
+\toprule
+Agent roles & BA: E & BA: E+B/S & $\Delta$BA [95\% CI] & FMR: E+B/S & FSR: E+B/S \\ \midrule
+0\% & 61.35 & 52.68 & $-8.67\;[-20.26,+1.53]$ & 12.28 & 82.35 \\
+25\% & 56.68 & 52.47 & $-4.21\;[-10.70,+1.79]$ & 14.66 & 80.40 \\
+50\% & 53.92 & 52.76 & $-1.16\;[-4.74,+2.22]$ & 16.76 & 77.72 \\
+75\% & 53.36 & 54.45 & $+1.10\;[-3.33,+5.29]$ & 16.94 & 74.15 \\
+100\% & 54.99 & 56.03 & $+1.04\;[-6.73,+8.28]$ & 16.51 & 71.43 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,237 @@
+{
+  "status": "executed_once_frozen_cross_source_confirmation",
+  "source": "NYU-LLM-CTF leaderboard submissions; D-CIPHER only",
+  "source_revision": "69def02a79e8b1d890e1e0d5c11106a9f40e11e1",
+  "protocol_sha256": "76b56842c9dfb04a48c9e5b01ec828025bb6fbcfc14b7a3b73a4f0d4bfb9df71",
+  "task_manifest_sha256": "1673369863b49d980be7f013266d240d2322586af975c39dd2a3d718a98031b9",
+  "development_dataset": "CTH mixed-role CTF; 17 tasks, 85 traces",
+  "confirmation_scope": "160 unseen NYU CTF challenge task groups; 585 D-CIPHER traces; AA only",
+  "confirmation_tasks": 160,
+  "confirmation_traces": 585,
+  "query_galleries_per_repetition": 585,
+  "repetitions": 100,
+  "candidate_count": 4,
+  "pair_manifest_rows": 234000,
+  "prediction_rows": 1404000,
+  "training_pair_count": 3570,
+  "training_positive_pairs": 170,
+  "training_negative_pairs": 3400,
+  "training_weight_mass_by_label": {
+    "0": 136.00000000000003,
+    "1": 136.0
+  },
+  "representation": [
+    4,
+    "mean_std",
+    "conditional"
+  ],
+  "parameters": {
+    "svm": 1.0,
+    "tree": 3,
+    "xgb": 3
+  },
+  "thresholds": {
+    "svm": {
+      "E": 0.9831481668807706,
+      "E_BS": 0.9702893037382134
+    },
+    "tree": {
+      "E": 0.7185628742514977,
+      "E_BS": 0.880566801619434
+    },
+    "xgb": {
+      "E": 0.6841723322868347,
+      "E_BS": 0.6392512917518616
+    }
+  },
+  "threshold_calibration": {
+    "folds": {
+      "0": {
+        "training_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+        ],
+        "validation_tasks": [
+          "cyber-task-horizons/cybench/lootstash",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+        ],
+        "training_trace_count": 55,
+        "training_pair_count": 1485,
+        "positive_pairs": 110,
+        "negative_pairs": 1375,
+        "training_weight_mass_by_label": {
+          "0": 87.99999999999997,
+          "1": 88.0
+        },
+        "validation_pair_count": 120,
+        "validation_query_count": 30
+      },
+      "1": {
+        "training_tasks": [
+          "cyber-task-horizons/cybench/lootstash",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+          "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+        ],
+        "validation_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock"
+        ],
+        "training_trace_count": 55,
+        "training_pair_count": 1485,
+        "positive_pairs": 110,
+        "negative_pairs": 1375,
+        "training_weight_mass_by_label": {
+          "0": 87.99999999999997,
+          "1": 88.0
+        },
+        "validation_pair_count": 120,
+        "validation_query_count": 30
+      },
+      "2": {
+        "training_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/lootstash",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock"
+        ],
+        "validation_tasks": [
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+          "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+        ],
+        "training_trace_count": 60,
+        "training_pair_count": 1770,
+        "positive_pairs": 120,
+        "negative_pairs": 1650,
+        "training_weight_mass_by_label": {
+          "0": 96.0,
+          "1": 96.0
+        },
+        "validation_pair_count": 100,
+        "validation_query_count": 25
+      }
+    },
+    "threshold_metrics": {
+      "svm": {
+        "E": {
+          "threshold": 0.9831481668807706,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.0980392156862745,
+          "oof_macro_fsr": 0.8823529411764706,
+          "oof_macro_ba": 0.5098039215686275,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 0
+        },
+        "E_BS": {
+          "threshold": 0.9702893037382134,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.05490196078431372,
+          "oof_macro_fsr": 0.9764705882352942,
+          "oof_macro_ba": 0.48431372549019613,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 10
+        }
+      },
+      "tree": {
+        "E": {
+          "threshold": 0.7185628742514977,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.05098039215686274,
+          "oof_macro_fsr": 0.8941176470588236,
+          "oof_macro_ba": 0.5274509803921569,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 0
+        },
+        "E_BS": {
+          "threshold": 0.880566801619434,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.0196078431372549,
+          "oof_macro_fsr": 0.8705882352941178,
+          "oof_macro_ba": 0.5549019607843136,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 10
+        }
+      },
+      "xgb": {
+        "E": {
+          "threshold": 0.6841723322868347,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.047058823529411764,
+          "oof_macro_fsr": 0.8588235294117647,
+          "oof_macro_ba": 0.5470588235294117,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 0
+        },
+        "E_BS": {
+          "threshold": 0.6392512917518616,
+          "threshold_rule": "maximize OOF recall at pooled FMR <= 10%",
+          "oof_macro_fmr": 0.09019607843137255,
+          "oof_macro_fsr": 0.7647058823529412,
+          "oof_macro_ba": 0.5725490196078432,
+          "oof_pairs": 340,
+          "missing_fingerprint_pairs": 10
+        }
+      }
+    }
+  },
+  "candidate_partition_counts": {
+    "0": 48,
+    "1": 50,
+    "2": 62
+  },
+  "pair_manifest_sha256": "a25ad991e2d20f27e23f48d4e56d6e63e225921eacb6f8888805df6c3b6a0625",
+  "inputs_sha256": {
+    "nyu_manifest": "1673369863b49d980be7f013266d240d2322586af975c39dd2a3d718a98031b9",
+    "cth_registry": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "cth_evidence": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "protocol": "76b56842c9dfb04a48c9e5b01ec828025bb6fbcfc14b7a3b73a4f0d4bfb9df71",
+    "runner": "79b4c1cfd092ce0877729a612d5c172e77c08dd07502dcde1762311bb2ad3a68",
+    "features": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+    "command_parser": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f",
+    "pair_training": "4a65b6bed4a7de2609714dc6a34d7416dd8040d2f5c74db28623a931f4859e88"
+  },
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "xgboost": "2.1.4",
+    "seed": 20261106
+  },
+  "elapsed_seconds": 58.74,
+  "post_fit_source_edit": "Only generalized the fixed external pair-count assertion through a parameter whose default remains 234000, so unit tests can exercise the identical builder on a toy panel; model inputs, training, scoring and generated NYU pairs are unchanged."
+}

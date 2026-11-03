@@ -1,0 +1,1060 @@
+{
+  "dataset": "cth",
+  "fold": 0,
+  "train_tasks": [
+    "cyber-task-horizons/cybench/back_to_the_past",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+    "cyber-task-horizons/nyuctf/2016q-rev-rock",
+    "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+  ],
+  "test_tasks": [
+    "cyber-task-horizons/cybench/lootstash",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+  ],
+  "inner_folds": [
+    {
+      "inner": 0,
+      "fit_tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "validation_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "train_pairs": 80,
+      "validation_pairs": 120
+    },
+    {
+      "inner": 1,
+      "fit_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "validation_tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "train_pairs": 96,
+      "validation_pairs": 100
+    }
+  ],
+  "representation": [
+    4,
+    "mean_std",
+    "conditional"
+  ],
+  "train_pairs": 176,
+  "test_pairs": 19200,
+  "selection": {
+    "xgb": {
+      "parameter": 2,
+      "candidates": [
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.7763147950172424,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.8545454545454546,
+            0.5272727272727272
+          ],
+          "objective": 0.5212121212121212,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8307154774665833,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8545454545454544,
+            0.5242424242424243
+          ],
+          "objective": 0.5196969696969698,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8343062400817871,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.0909090909090909,
+            0.9090909090909091,
+            0.5
+          ],
+          "objective": 0.49696969696969695,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.789831817150116,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.08484848484848485,
+            0.8181818181818182,
+            0.5484848484848484
+          ],
+          "objective": 0.5318181818181817,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.806890606880188,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.0909090909090909,
+            0.8909090909090908,
+            0.5090909090909091
+          ],
+          "objective": 0.5121212121212122,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8346742987632751,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.03636363636363637,
+            0.9090909090909091,
+            0.5272727272727273
+          ],
+          "objective": 0.5106060606060606,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.7896117568016052,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8363636363636363,
+            0.5333333333333333
+          ],
+          "objective": 0.5242424242424242,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8388010859489441,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.9090909090909091,
+            0.496969696969697
+          ],
+          "objective": 0.5060606060606061,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8357818722724915,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.9090909090909091,
+            0.496969696969697
+          ],
+          "objective": 0.4954545454545455,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8182129263877869,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.04242424242424243,
+            0.9090909090909091,
+            0.5242424242424243
+          ],
+          "objective": 0.5196969696969698,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8528907895088196,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.06666666666666667,
+            0.9454545454545454,
+            0.49393939393939396
+          ],
+          "objective": 0.5045454545454545,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            4,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8565918207168579,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.0787878787878788,
+            0.9454545454545454,
+            0.4878787878787879
+          ],
+          "objective": 0.49090909090909096,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8424202799797058,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.05454545454545454,
+            0.8909090909090908,
+            0.5272727272727272
+          ],
+          "objective": 0.5212121212121212,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8657262921333313,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.07272727272727272,
+            0.9272727272727272,
+            0.5
+          ],
+          "objective": 0.5075757575757576,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.875929594039917,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.890909090909091,
+            0.5060606060606061
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8446992635726929,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.0606060606060606,
+            0.9272727272727272,
+            0.506060606060606
+          ],
+          "objective": 0.5106060606060605,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8483178615570068,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.9090909090909091,
+            0.5
+          ],
+          "objective": 0.5075757575757576,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8412351012229919,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8727272727272727,
+            0.5151515151515151
+          ],
+          "objective": 0.5045454545454545,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8630892634391785,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.0303030303030303,
+            0.9272727272727272,
+            0.5212121212121212
+          ],
+          "objective": 0.5181818181818182,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8991192579269409,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.012121212121212121,
+            0.9454545454545454,
+            0.5212121212121212
+          ],
+          "objective": 0.5181818181818182,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.875929594039917,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.890909090909091,
+            0.5060606060606061
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8300893306732178,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.8727272727272727,
+            0.5181818181818181
+          ],
+          "objective": 0.5166666666666666,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8469680547714233,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.08484848484848485,
+            0.8545454545454544,
+            0.5303030303030303
+          ],
+          "objective": 0.5227272727272727,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            8,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.837825357913971,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.8363636363636363,
+            0.5363636363636364
+          ],
+          "objective": 0.5151515151515151,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8315498232841492,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.048484848484848485,
+            0.9272727272727274,
+            0.5121212121212121
+          ],
+          "objective": 0.5136363636363637,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8550370931625366,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.0787878787878788,
+            0.9090909090909091,
+            0.5060606060606061
+          ],
+          "objective": 0.5106060606060606,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8732465505599976,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.06666666666666667,
+            0.9090909090909091,
+            0.5121212121212122
+          ],
+          "objective": 0.503030303030303,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8446063995361328,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.9454545454545454,
+            0.47878787878787876
+          ],
+          "objective": 0.49696969696969695,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8180004954338074,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8909090909090908,
+            0.506060606060606
+          ],
+          "objective": 0.5106060606060605,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8313548564910889,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.8727272727272727,
+            0.5181818181818183
+          ],
+          "objective": 0.5060606060606061,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8315498232841492,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.048484848484848485,
+            0.9272727272727274,
+            0.5121212121212121
+          ],
+          "objective": 0.5136363636363637,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.8550370931625366,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.0787878787878788,
+            0.9090909090909091,
+            0.5060606060606061
+          ],
+          "objective": 0.5106060606060606,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "direct"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.8732465505599976,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.06666666666666667,
+            0.9090909090909091,
+            0.5121212121212122
+          ],
+          "objective": 0.503030303030303,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 2,
+          "base_threshold": 0.7915685176849365,
+          "threshold": 0.8344670534133911,
+          "base_metrics": [
+            0.0787878787878788,
+            0.8909090909090908,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.9454545454545454,
+            0.47878787878787876
+          ],
+          "objective": 0.49696969696969695,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 3,
+          "base_threshold": 0.8254297375679016,
+          "threshold": 0.829400897026062,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8727272727272726,
+            0.5151515151515151
+          ],
+          "full_metrics": [
+            0.09090909090909091,
+            0.8909090909090908,
+            0.509090909090909
+          ],
+          "objective": 0.5121212121212121,
+          "fallback_count": 0
+        },
+        {
+          "representation": [
+            16,
+            "mean_std_trend",
+            "conditional"
+          ],
+          "parameter": 5,
+          "base_threshold": 0.8370793461799622,
+          "threshold": 0.823401689529419,
+          "base_metrics": [
+            0.08484848484848485,
+            0.9272727272727272,
+            0.49393939393939396
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8909090909090908,
+            0.506060606060606
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        }
+      ],
+      "variants": {
+        "head_only": {
+          "threshold": 0.7804614305496216
+        },
+        "evidence": {
+          "threshold": 0.7915685176849365
+        },
+        "BS": {
+          "threshold": 0.789831817150116,
+          "fallback_pairs": 1089,
+          "fallback_fraction": 0.05671875,
+          "inner_oof_macro": [
+            0.08484848484848485,
+            0.8181818181818182,
+            0.5484848484848484
+          ]
+        },
+        "B": {
+          "threshold": 0.7810982465744019,
+          "fallback_pairs": 1089,
+          "fallback_fraction": 0.05671875,
+          "inner_oof_macro": [
+            0.06666666666666667,
+            0.8909090909090908,
+            0.5212121212121213
+          ]
+        },
+        "S": {
+          "threshold": 0.714390218257904,
+          "fallback_pairs": 1089,
+          "fallback_fraction": 0.05671875,
+          "inner_oof_macro": [
+            0.09090909090909091,
+            0.9090909090909091,
+            0.5
+          ]
+        }
+      }
+    },
+    "svm": {
+      "parameter": 10.0,
+      "candidates": [
+        {
+          "parameter": 0.1,
+          "base_threshold": 0.4448178516311307,
+          "threshold": 0.2491576898734824,
+          "base_metrics": [
+            0.09696969696969697,
+            0.9454545454545454,
+            0.47878787878787876
+          ],
+          "full_metrics": [
+            0.06666666666666667,
+            0.9454545454545454,
+            0.4939393939393939
+          ],
+          "objective": 0.48636363636363633,
+          "fallback_count": 0
+        },
+        {
+          "parameter": 1.0,
+          "base_threshold": 1.0854163662003389,
+          "threshold": 0.44235078304508396,
+          "base_metrics": [
+            0.08484848484848484,
+            0.8727272727272727,
+            0.5212121212121212
+          ],
+          "full_metrics": [
+            0.08484848484848485,
+            0.9090909090909091,
+            0.503030303030303
+          ],
+          "objective": 0.5121212121212122,
+          "fallback_count": 0
+        },
+        {
+          "parameter": 10.0,
+          "base_threshold": 1.5425114679730518,
+          "threshold": 0.8641054209406822,
+          "base_metrics": [
+            0.09696969696969697,
+            0.8181818181818182,
+            0.5424242424242424
+          ],
+          "full_metrics": [
+            0.09696969696969697,
+            0.8545454545454544,
+            0.5242424242424243
+          ],
+          "objective": 0.5333333333333333,
+          "fallback_count": 0
+        }
+      ],
+      "variants": {
+        "head_only": {
+          "threshold": 2.0026467479998393
+        },
+        "evidence": {
+          "threshold": 1.5425114679730518
+        },
+        "BS": {
+          "threshold": 0.8641054209406822,
+          "fallback_pairs": 1089,
+          "fallback_fraction": 0.05671875,
+          "inner_oof_macro": [
+            0.09696969696969697,
+            0.8545454545454544,
+            0.5242424242424243
+          ]
+        }
+      }
+    },
+    "tree": {
+      "parameter": 3,
+      "candidates": [
+        {
+          "parameter": 3,
+          "base_threshold": null,
+          "threshold": null,
+          "base_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "full_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        },
+        {
+          "parameter": 5,
+          "base_threshold": null,
+          "threshold": null,
+          "base_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "full_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        },
+        {
+          "parameter": 8,
+          "base_threshold": null,
+          "threshold": null,
+          "base_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "full_metrics": [
+            0.0,
+            1.0,
+            0.5
+          ],
+          "objective": 0.5,
+          "fallback_count": 0
+        }
+      ],
+      "variants": {
+        "head_only": {
+          "threshold": null
+        },
+        "evidence": {
+          "threshold": null
+        },
+        "BS": {
+          "threshold": null,
+          "fallback_pairs": 1089,
+          "fallback_fraction": 0.05671875,
+          "inner_oof_macro": [
+            0.0,
+            1.0,
+            0.5
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 2.9
+}

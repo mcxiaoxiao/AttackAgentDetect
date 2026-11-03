@@ -1,0 +1,22 @@
+
+\begin{table}[ht]
+\centering\compacttable
+\caption{Matched XGBoost association ablation. E denotes command and action-bigram evidence. CTH entries average five Agent-role shares; AIT uses a fixed mixed-mode gallery. Rates are percentages; $\Delta$BA is relative to the same dataset's full row in percentage points. BA and $\Delta$ show 95\% task-cluster intervals. The datasets use different tasks and are interpreted separately.}
+\label{tab:matched-fingerprint-ablation}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr@{}}
+\toprule
+Dataset & Configuration & BA [95\% CI] & FMR & FSR & $\Delta$BA [95\% CI] \\
+\midrule
+CTH & E+B+S (full) & 53.68 [50.73,57.00] & 15.43 & 77.21 & Reference \\
+ & Remove B & 56.10 [51.97,60.50] & 14.47 & 73.34 & +2.42 [-3.17,+8.04] \\
+ & Remove S & 52.75 [49.70,55.97] & 13.13 & 81.37 & -0.93 [-2.50,+0.61] \\
+ & Evidence only & 56.06 [52.50,59.94] & 5.97 & 81.91 & +2.38 [-2.31,+7.24] \\
+\midrule
+AIT & E+B+S+T (full) & 51.92 [50.65,53.16] & 5.37 & 90.79 & Reference \\
+ & Remove B & 52.01 [51.06,53.04] & 3.53 & 92.45 & +0.09 [-1.03,+1.12] \\
+ & Remove S & 51.37 [50.16,52.81] & 5.24 & 92.02 & -0.55 [-1.65,+0.50] \\
+ & Remove T & 50.94 [49.44,52.57] & 5.28 & 92.84 & -0.98 [-2.14,+0.20] \\
+ & Evidence only & 50.12 [50.00,50.36] & 0.00 & 99.76 & -1.80 [-3.14,-0.38] \\
+\bottomrule
+\end{tabular*}
+\end{table}

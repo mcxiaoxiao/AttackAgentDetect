@@ -1,0 +1,602 @@
+{
+  "status": "frozen_before_confirmation_model_fit",
+  "source": "Cyber Task Horizons public CTF agent execution traces",
+  "source_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "independence_unit": "source-qualified CTF task group; no task appears in prior CTH association predictions or in the prior cross-source CyBench gallery",
+  "label_scope": "same source-qualified task is a retrieval proxy; it does not label actor, attack, campaign, or organization identity",
+  "protocol_compatibility": "Agent-only (AA) confirmation; no HH or HA pairs are available in the candidate cohort",
+  "feature_gate": {
+    "window": 4,
+    "minimum_events": 2,
+    "max_events": 128,
+    "blocks": [
+      "B",
+      "S"
+    ]
+  },
+  "raw_trace_policy": "only task IDs, trace IDs, and command counts are written; no command or argument values are copied",
+  "input_sha256": {
+    "evidence": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "registry": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5"
+  },
+  "previous_evaluations": {
+    "mixture_40_group_cross_mode": {
+      "task_group_count": 40,
+      "sha256": "359556814359d52e3b2dcbf7cd7b6d757d919ad2337e8b7b2605226ce3056b94"
+    },
+    "mixture_role_predictions": {
+      "task_group_count": 17,
+      "sha256": "ad238baa95472db2afe4a3b7799da4c62715a31299910c2df390ca11f3ee5cbe"
+    },
+    "overnight_agent_retrieval_48": {
+      "task_group_count": 48,
+      "sha256": "6dcc92854f5e16df5855aede1145906eb05d6470d755b8059f7b47bd187118ea"
+    },
+    "short_trace_agent_retrieval_86": {
+      "task_group_count": 86,
+      "sha256": "20825c1a8f8c6c7734c552483ddb8689352ec39936e7635742beeec47495ed61"
+    },
+    "matched_fingerprint_v1": {
+      "task_group_count": 17,
+      "sha256": "abc24f8ac306e3f7cf82d79833855b3316395213f673eed51c953f0c9a349f3f"
+    }
+  },
+  "audit_counts": {
+    "cth_ctf_task_groups": 158,
+    "cth_ctf_mixed_role_task_groups": 43,
+    "development_tasks_with_two_runs_per_role": 17,
+    "development_command_sequences": 59,
+    "prior_evaluation_task_groups_union": 106,
+    "prior_antieval_cybench_challenge_slugs": 32,
+    "unseen_agent_only_groups_with_2plus_usable_runs": 26,
+    "exclusions": {
+      "task_appears_in_prior_association_predictions": 66,
+      "mixed_human_agent_task_already_development": 43,
+      "same_cybench_slug_in_prior_antieval_retrieval": 11,
+      "fewer_than_two_fingerprint_eligible_agent_runs": 10,
+      "fewer_than_two_agent_runs": 2
+    }
+  },
+  "eligible_tasks": [
+    {
+      "task": "cyber-task-horizons/cybench/unbreakable",
+      "source_qualified_task": "cyber-task-horizons/cybench/unbreakable",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "542dae4a94d7138c85be",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "cd00b64d32d8466c0664",
+          "command_count": 7,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "eacd1e5aed0faabde9da",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_72",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_72",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "2c0ae330c1fd2cc2ecda",
+          "command_count": 3,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "49c05564b6fffca3c2d5",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_74",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_74",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "4308da005df9d686df6c",
+          "command_count": 10,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "76b128422561bf1824ec",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_79",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_79",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "72bd1a1dc6544481c4be",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "789483f5acdb0b293490",
+          "command_count": 4,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "ea3486570f234201da74",
+          "command_count": 3,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_86",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_86",
+      "agent_run_count": 3,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 1,
+      "traces": [
+        {
+          "trace_id": "583f7a2cd5c1964b5949",
+          "command_count": 4,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "fd57fc51efb18c7444b8",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_92",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_92",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "221d9fef335cde98ad60",
+          "command_count": 4,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "7e4030770881044d2266",
+          "command_count": 18,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_96",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_96",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "2fba0a6482455c7400a1",
+          "command_count": 6,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "50f11c69e5ff46284661",
+          "command_count": 10,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_19",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_19",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "14ed82819846ba26d29d",
+          "command_count": 56,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "cebd6de0a279628d2c0f",
+          "command_count": 3,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_27",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_27",
+      "agent_run_count": 3,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 1,
+      "traces": [
+        {
+          "trace_id": "147a5aac316c5300aa08",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "aa08919b76803115f03a",
+          "command_count": 13,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_30",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_30",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "b3a373619b4c5ed80e2d",
+          "command_count": 6,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "cec855fd05d66413effa",
+          "command_count": 10,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_32",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_32",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "8acac3946dfca4303e2a",
+          "command_count": 7,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "d78c6d618874ae9786f3",
+          "command_count": 12,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_60",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_60",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "206bc61c202beb74ef37",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "4a1a9f9edef15cc3e3c7",
+          "command_count": 5,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_63",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_63",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "69e0ca16680bf003e4ad",
+          "command_count": 45,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "cd8a4511bed7845df560",
+          "command_count": 7,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_52",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_52",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "c27307a39cd8b00d896b",
+          "command_count": 3,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "c89c71150231dfdc4a17",
+          "command_count": 5,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_53",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_53",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "361252d358519d57f72d",
+          "command_count": 12,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "8cac9ff52d4083cc2be5",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "ee0644f50556ff15e8ce",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_65",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_65",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "8c3071c9b3243e0b2ef0",
+          "command_count": 7,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "8ca31500156bc5fc1df6",
+          "command_count": 6,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_84",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_84",
+      "agent_run_count": 3,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 1,
+      "traces": [
+        {
+          "trace_id": "3c8c2711335828238734",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "6eb01fa14e028460d52c",
+          "command_count": 10,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_99",
+      "source_qualified_task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_99",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "1853f30d65c5f3cbdd34",
+          "command_count": 4,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "79794371b1010e03ff76",
+          "command_count": 9,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2013q-web-guess_harder",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2013q-web-guess_harder",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "427b0b70510c167f6523",
+          "command_count": 11,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "92080438417634f6e490",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "c31b5af6f8963df19e5b",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2017q-msc-serial",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2017q-msc-serial",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "5a50f9fe06341a4bd34c",
+          "command_count": 2,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "5eac7f2b1591727c350a",
+          "command_count": 3,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2018q-msc-algebra",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2018q-msc-algebra",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "3353fc8fbfa6a2320182",
+          "command_count": 2,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "7805d528be660f0d7d79",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2019f-cry-macrypto",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2019f-cry-macrypto",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "27668b91dcf6b5fba775",
+          "command_count": 7,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "e5f285eb2d9fc18b02b0",
+          "command_count": 21,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2021f-cry-collision_course",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2021f-cry-collision_course",
+      "agent_run_count": 2,
+      "eligible_trace_count": 2,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "13e76e4a6d2fecaf85da",
+          "command_count": 20,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "23a1708242cafa277e67",
+          "command_count": 7,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2021q-for-lazy_leaks",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2021q-for-lazy_leaks",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "3b8d2ca76a2a1ae960ca",
+          "command_count": 19,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "8dff91264e84a7f94675",
+          "command_count": 7,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "fe22432af75ee7fcbabc",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2022q-cry-beyond_quantum",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2022q-cry-beyond_quantum",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "23d7e7fe18f0db7368f6",
+          "command_count": 5,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "6c28590c7679e8c430cd",
+          "command_count": 8,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "a7c8d2c7abd75c31ecbf",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2023q-msc-linear_aggressor",
+      "source_qualified_task": "cyber-task-horizons/nyuctf/2023q-msc-linear_aggressor",
+      "agent_run_count": 3,
+      "eligible_trace_count": 3,
+      "training_sequence_duplicates_removed": 0,
+      "traces": [
+        {
+          "trace_id": "468873e729a5328fce4d",
+          "command_count": 2,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "72db684e2df908d74e96",
+          "command_count": 10,
+          "fingerprint_available": true
+        },
+        {
+          "trace_id": "90e542abed941d4ed1bf",
+          "command_count": 4,
+          "fingerprint_available": true
+        }
+      ]
+    }
+  ],
+  "frozen_utc_local": "2026-11-04 Asia/Shanghai",
+  "protocol_path": "research/experiments/matched_fingerprint_v2/independent_cth_aa_protocol.md",
+  "protocol_sha256": "261b197e026b82820a03a84a6304d327fb51cb662e782042fea3fa3168b677b1",
+  "pair_sampling": {
+    "repetitions": 100,
+    "one_same_task_candidate_per_query": true,
+    "different_task_candidates_per_query": 3,
+    "candidate_partition": "SHA-256(task_id) modulo 3",
+    "negative_tasks_restricted_to_same_partition": true,
+    "models_and_versions_share_identical_pair_manifest": true
+  }
+}

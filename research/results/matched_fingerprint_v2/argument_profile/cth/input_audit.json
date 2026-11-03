@@ -1,0 +1,133 @@
+{
+  "dataset": "cth",
+  "trace_count": 85,
+  "task_count": 17,
+  "task_mode_counts": [
+    {
+      "task": "cyber-task-horizons/cybench/back_to_the_past",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/cybench/lootstash",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2016q-rev-rock",
+      "human": 2,
+      "agent": 3
+    },
+    {
+      "task": "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first",
+      "human": 2,
+      "agent": 3
+    }
+  ],
+  "folds": {
+    "cyber-task-horizons/cybench/lootstash": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13": 0,
+    "cyber-task-horizons/cybench/back_to_the_past": 1,
+    "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": 0,
+    "cyber-task-horizons/nyuctf/2016q-rev-rock": 1
+  },
+  "pair_count": 54400,
+  "profile_unavailable_by_window": {
+    "4": [
+      "1b7eff8fcbe99ad35cc4"
+    ],
+    "8": [
+      "1b7eff8fcbe99ad35cc4"
+    ],
+    "16": [
+      "1b7eff8fcbe99ad35cc4"
+    ]
+  },
+  "time_block_unavailable_by_window": {
+    "4": 85,
+    "8": 85,
+    "16": 85
+  },
+  "run_ids_unique": true,
+  "raw_hashes_unique": null,
+  "raw_record_locators": 85,
+  "argument_profile_traces": 85,
+  "argument_profile_feature_count": 3394
+}

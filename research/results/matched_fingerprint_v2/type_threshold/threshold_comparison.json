@@ -1,0 +1,5331 @@
+{
+  "protocol": "same frozen CTH pairs, features, model parameters, and outer task folds; only threshold calibration changes",
+  "threshold_rule": "inner OOF threshold maximizing recall subject to FMR <= 10%, fitted separately within each pair type",
+  "caveat": "pair-type thresholds require Human/Agent role labels at decision time; this diagnostic tests threshold/composition drift and is not a role-free deployable method",
+  "task_count": 17,
+  "bootstrap_draws": 10000,
+  "seed": 20261103,
+  "bootstrap_unit": "query task; paired models and all five shares kept together",
+  "comparisons": {
+    "svm": {
+      "evidence": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0714705882352941,
+                "fsr": 0.9234558823529412,
+                "ba": 0.5025367647058824
+              },
+              "ci95": {
+                "fmr": [
+                  0.05686213235294118,
+                  0.0869362745098039
+                ],
+                "fsr": [
+                  0.8529393382352941,
+                  0.9766911764705881
+                ],
+                "ba": [
+                  0.47680116421568636,
+                  0.5363976715686274
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.04345588235294118,
+                "fsr": 0.932720588235294,
+                "ba": 0.5119117647058824
+              },
+              "ci95": {
+                "fmr": [
+                  0.02879779411764706,
+                  0.05929044117647058
+                ],
+                "fsr": [
+                  0.8971323529411764,
+                  0.9663988970588235
+                ],
+                "ba": [
+                  0.495625,
+                  0.528235294117647
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.02801470588235294,
+                "fsr": 0.009264705882352939,
+                "ba": 0.009375
+              },
+              "ci95": {
+                "fmr": [
+                  -0.041985906862745094,
+                  -0.015759191176470594
+                ],
+                "fsr": [
+                  -0.032058823529411765,
+                  0.06486397058823513
+                ],
+                "ba": [
+                  -0.018554227941176466,
+                  0.0313970588235294
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0724264705882353,
+                  "fsr": 0.9411764705882353,
+                  "ba": 0.4931985294117647
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.05919117647058823,
+                  "fsr": 0.9503676470588235,
+                  "ba": 0.49522058823529413
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.01053921568627451,
+                  "fsr": 0.9849264705882353,
+                  "ba": 0.502267156862745
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.06262254901960784,
+                  "fsr": 0.9433823529411764,
+                  "ba": 0.4969975490196079
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.03455882352941177,
+                  "fsr": 0.9547794117647059,
+                  "ba": 0.5053308823529412
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.07156862745098039,
+                  "fsr": 0.9161764705882353,
+                  "ba": 0.5061274509803921
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.06580882352941177,
+                  "fsr": 0.9,
+                  "ba": 0.5170955882352941
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.09154411764705882,
+                  "fsr": 0.8661764705882353,
+                  "ba": 0.5211397058823529
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10637254901960784,
+                  "fsr": 0.8238970588235294,
+                  "ba": 0.5348651960784314
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.07802807922980062,
+                "fsr": 0.9411764705882353,
+                "ba": 0.490397725090982
+              },
+              "ci95": {
+                "fmr": [
+                  0.037981298380613746,
+                  0.12222320936855213
+                ],
+                "fsr": [
+                  0.8235294117647058,
+                  1.0
+                ],
+                "ba": [
+                  0.4466143647187653,
+                  0.5540763962442684
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.07802807922980062,
+                "fsr": 0.058823529411764705,
+                "ba": 0.009602274909017963
+              },
+              "ci95": {
+                "fmr": [
+                  -0.12190175835745196,
+                  -0.03891003897302758
+                ],
+                "fsr": [
+                  0.0,
+                  0.17647058823529413
+                ],
+                "ba": [
+                  -0.05311494463654939,
+                  0.05299019278571099
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0724264705882353,
+                  "fsr": 0.9411764705882353,
+                  "ba": 0.4931985294117647
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.07439293598233995,
+                  "fsr": 0.9412153236459709,
+                  "ba": 0.49219587018584454
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.07884231536926148,
+                  "fsr": 0.9380664652567976,
+                  "ba": 0.4915456096869705
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.09090909090909091,
+                  "fsr": 0.9487179487179487,
+                  "ba": 0.48018648018648025
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.03292982546736558,
+                "fsr": 0.9708053687042845,
+                "ba": 0.49813240291417493
+              },
+              "ci95": {
+                "fmr": [
+                  0.017996482430834584,
+                  0.05199157685487315
+                ],
+                "fsr": [
+                  0.9343539844996421,
+                  1.0
+                ],
+                "ba": [
+                  0.4892318194585226,
+                  0.5085563673552452
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.01091541506803019,
+                "fsr": 0.9840704639386892,
+                "ba": 0.5025070604966403
+              },
+              "ci95": {
+                "fmr": [
+                  0.0029691940456023596,
+                  0.022608056439247137
+                ],
+                "fsr": [
+                  0.9582197341415455,
+                  1.0
+                ],
+                "ba": [
+                  0.496861415159485,
+                  0.5099677216059286
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.022014410399335386,
+                "fsr": 0.013265095234404696,
+                "ba": 0.004374657582465345
+              },
+              "ci95": {
+                "fmr": [
+                  -0.041511589607952676,
+                  -0.008099899079953184
+                ],
+                "fsr": [
+                  0.0,
+                  0.03979528570321409
+                ],
+                "ba": [
+                  -0.002568470264243891,
+                  0.00999288503532784
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.03188131313131313,
+                  "fsr": 0.9724334600760456,
+                  "ba": 0.49784261339632063
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.010101010101010102,
+                  "fsr": 0.9828897338403042,
+                  "ba": 0.5035046280293429
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.03508771929824561,
+                  "fsr": 0.9691977077363897,
+                  "ba": 0.49785728648268235
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.011535688536409516,
+                  "fsr": 0.9828080229226361,
+                  "ba": 0.5028281442704772
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.03236142262095482,
+                  "fsr": 0.9685114503816794,
+                  "ba": 0.4995635634986829
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.011534764498558154,
+                  "fsr": 0.9837786259541985,
+                  "ba": 0.5023433047736217
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.09613743690781934,
+                "fsr": 0.8747213421239558,
+                "ba": 0.5145706104841123
+              },
+              "ci95": {
+                "fmr": [
+                  0.06271784444724655,
+                  0.13736703529661032
+                ],
+                "fsr": [
+                  0.7818278879313212,
+                  0.9546648808684849
+                ],
+                "ba": [
+                  0.4755554483774292,
+                  0.5572614096338434
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.11434144552829027,
+                "fsr": 0.8292104243779699,
+                "ba": 0.5282240650468699
+              },
+              "ci95": {
+                "fmr": [
+                  0.07344901761667427,
+                  0.1596119926367093
+                ],
+                "fsr": [
+                  0.7312985167826681,
+                  0.9186037777830224
+                ],
+                "ba": [
+                  0.4837601229797787,
+                  0.5750506829900307
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.018204008620470932,
+                "fsr": -0.04551091774598588,
+                "ba": 0.013653454562757471
+              },
+              "ci95": {
+                "fmr": [
+                  0.0009167611723563816,
+                  0.03895418916898292
+                ],
+                "fsr": [
+                  -0.11321474241870663,
+                  0.0
+                ],
+                "ba": [
+                  -0.009964340479216075,
+                  0.04617103098478404
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.09740259740259741,
+                  "fsr": 0.8896103896103896,
+                  "ba": 0.5064935064935066
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.11688311688311688,
+                  "fsr": 0.8506493506493507,
+                  "ba": 0.5162337662337662
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.1037593984962406,
+                  "fsr": 0.8942598187311178,
+                  "ba": 0.5009903913863207
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.11729323308270677,
+                  "fsr": 0.850453172205438,
+                  "ba": 0.5161267973559276
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.09636443276390715,
+                  "fsr": 0.8766490765171504,
+                  "ba": 0.5134932453594712
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.10972404730617609,
+                  "fsr": 0.8317941952506596,
+                  "ba": 0.5292408787215821
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.09154411764705882,
+                  "fsr": 0.8661764705882353,
+                  "ba": 0.5211397058823529
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10637254901960784,
+                  "fsr": 0.8238970588235294,
+                  "ba": 0.5348651960784314
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 591,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 160
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 1,
+            "errors_introduced": 10
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 6,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 69,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 0,
+            "errors_introduced": 11
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 337,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 0,
+            "errors_introduced": 89
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 7,
+            "errors_introduced": 34
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 29,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 98,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 0,
+            "errors_introduced": 19
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 158,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 41
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 13,
+            "errors_introduced": 74
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 68,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 65,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 0,
+            "errors_introduced": 16
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 43,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 0,
+            "errors_introduced": 8
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 21,
+            "errors_introduced": 142
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 115,
+            "errors_introduced": 0
+          }
+        ]
+      },
+      "BS": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.09232843137254901,
+                "fsr": 0.8269852941176472,
+                "ba": 0.5403431372549019
+              },
+              "ci95": {
+                "fmr": [
+                  0.0744595588235294,
+                  0.11103002450980393
+                ],
+                "fsr": [
+                  0.7470569852941177,
+                  0.9033143382352941
+                ],
+                "ba": [
+                  0.508749693627451,
+                  0.5742297794117648
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0721813725490196,
+                "fsr": 0.8854411764705882,
+                "ba": 0.5211887254901961
+              },
+              "ci95": {
+                "fmr": [
+                  0.048749999999999995,
+                  0.09843198529411765
+                ],
+                "fsr": [
+                  0.8048492647058825,
+                  0.9499283088235294
+                ],
+                "ba": [
+                  0.49606587009803926,
+                  0.5540343137254902
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.020147058823529414,
+                "fsr": 0.05845588235294117,
+                "ba": -0.019154411764705875
+              },
+              "ci95": {
+                "fmr": [
+                  -0.03649509803921569,
+                  -0.0039950980392156835
+                ],
+                "fsr": [
+                  -0.005441176470588241,
+                  0.1323547794117647
+                ],
+                "ba": [
+                  -0.05147120098039215,
+                  0.00917892156862745
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.04767156862745098,
+                  "fsr": 0.7647058823529411,
+                  "ba": 0.593811274509804
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0055147058823529415,
+                  "fsr": 0.9411764705882353,
+                  "ba": 0.5266544117647058
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08799019607843138,
+                  "fsr": 0.8044117647058824,
+                  "ba": 0.5537990196078431
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.06642156862745098,
+                  "fsr": 0.8970588235294118,
+                  "ba": 0.5182598039215687
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.11556372549019608,
+                  "fsr": 0.8426470588235294,
+                  "ba": 0.5208946078431372
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.1,
+                  "fsr": 0.8669117647058824,
+                  "ba": 0.5165441176470589
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.11470588235294117,
+                  "fsr": 0.8551470588235294,
+                  "ba": 0.5150735294117648
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10441176470588236,
+                  "fsr": 0.856985294117647,
+                  "ba": 0.5193014705882353
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0957107843137255,
+                  "fsr": 0.868014705882353,
+                  "ba": 0.5181372549019607
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08455882352941177,
+                  "fsr": 0.8650735294117647,
+                  "ba": 0.5251838235294117
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.04368665030608618,
+                "fsr": 0.7647058823529411,
+                "ba": 0.5958037336704863
+              },
+              "ci95": {
+                "fmr": [
+                  0.010731824550573421,
+                  0.08147117227424511
+                ],
+                "fsr": [
+                  0.5294117647058824,
+                  0.9411764705882353
+                ],
+                "ba": [
+                  0.5164910065359861,
+                  0.691903701788226
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0052531193847742,
+                "fsr": 0.9411764705882353,
+                "ba": 0.5267852050134954
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.013485320196893637
+                ],
+                "fsr": [
+                  0.8235294117647058,
+                  1.0
+                ],
+                "ba": [
+                  0.49658894306385665,
+                  0.5837666719766292
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.03843353092131198,
+                "fsr": 0.17647058823529413,
+                "ba": -0.06901852865699107
+              },
+              "ci95": {
+                "fmr": [
+                  -0.0740631697441919,
+                  -0.007162584310803389
+                ],
+                "fsr": [
+                  0.0,
+                  0.35294117647058826
+                ],
+                "ba": [
+                  -0.1554692026547531,
+                  0.007162584310803391
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.04767156862745098,
+                  "fsr": 0.7647058823529411,
+                  "ba": 0.593811274509804
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0055147058823529415,
+                  "fsr": 0.9411764705882353,
+                  "ba": 0.5266544117647058
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0434878587196468,
+                  "fsr": 0.7615587846763541,
+                  "ba": 0.5974766783019996
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.005298013245033113,
+                  "fsr": 0.9431968295904888,
+                  "ba": 0.525752578582239
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.04141716566866267,
+                  "fsr": 0.770392749244713,
+                  "ba": 0.5940950425433121
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.003493013972055888,
+                  "fsr": 0.945619335347432,
+                  "ba": 0.525443825340256
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.042283298097251586,
+                  "fsr": 0.782051282051282,
+                  "ba": 0.5878327099257332
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.006342494714587738,
+                  "fsr": 0.9615384615384616,
+                  "ba": 0.5160595218734754
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.15074731899916427,
+                "fsr": 0.8605173965015495,
+                "ba": 0.49436764224964325
+              },
+              "ci95": {
+                "fmr": [
+                  0.09499919717902622,
+                  0.2084721832083757
+                ],
+                "fsr": [
+                  0.757720037610907,
+                  0.9462296659984754
+                ],
+                "ba": [
+                  0.4695219929833301,
+                  0.5230828681512789
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.14793566902312008,
+                "fsr": 0.8379012316675519,
+                "ba": 0.507081549654664
+              },
+              "ci95": {
+                "fmr": [
+                  0.09944910006981338,
+                  0.20420529369660523
+                ],
+                "fsr": [
+                  0.7391473104657372,
+                  0.9204771185575118
+                ],
+                "ba": [
+                  0.4783274131725581,
+                  0.5403837236780463
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.002811649976044193,
+                "fsr": -0.022616164833997515,
+                "ba": 0.012713907405020838
+              },
+              "ci95": {
+                "fmr": [
+                  -0.043239253197562784,
+                  0.036654470127052564
+                ],
+                "fsr": [
+                  -0.07838425122290155,
+                  0.03760351514383695
+                ],
+                "ba": [
+                  -0.006261522091011944,
+                  0.0320040590908063
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.14930555555555555,
+                  "fsr": 0.8536121673003803,
+                  "ba": 0.4985411385720321
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.14867424242424243,
+                  "fsr": 0.8326996197718631,
+                  "ba": 0.5093130689019472
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.15380918048546022,
+                  "fsr": 0.8624641833810889,
+                  "ba": 0.49186331806672545
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.15020427781783224,
+                  "fsr": 0.832378223495702,
+                  "ba": 0.5087087493432328
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.1518743992310157,
+                  "fsr": 0.8616412213740459,
+                  "ba": 0.49324218969746925
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.14706824735661647,
+                  "fsr": 0.8425572519083969,
+                  "ba": 0.5051872503674932
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.1015541277642481,
+                "fsr": 0.8660886325589596,
+                "ba": 0.5161786198383962
+              },
+              "ci95": {
+                "fmr": [
+                  0.070402894693157,
+                  0.13280399619101121
+                ],
+                "fsr": [
+                  0.7698763644733798,
+                  0.9541241005737052
+                ],
+                "ba": [
+                  0.47941559292095076,
+                  0.5554622193709008
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.09049464370201643,
+                "fsr": 0.8579707134308533,
+                "ba": 0.5257673214335652
+              },
+              "ci95": {
+                "fmr": [
+                  0.04885928791278642,
+                  0.1357586178002989
+                ],
+                "fsr": [
+                  0.7180748911555572,
+                  0.9642401249871129
+                ],
+                "ba": [
+                  0.4863621970317341,
+                  0.5772104033241087
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.011059484062231695,
+                "fsr": -0.008117919128106289,
+                "ba": 0.009588701595168996
+              },
+              "ci95": {
+                "fmr": [
+                  -0.0369001287389111,
+                  0.018181462831340426
+                ],
+                "fsr": [
+                  -0.07597545380824652,
+                  0.05162169642392765
+                ],
+                "ba": [
+                  -0.016418024404609544,
+                  0.03705964070610608
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.1038961038961039,
+                  "fsr": 0.8896103896103896,
+                  "ba": 0.5032467532467533
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.10173160173160173,
+                  "fsr": 0.8831168831168831,
+                  "ba": 0.5075757575757576
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.11027568922305764,
+                  "fsr": 0.8731117824773413,
+                  "ba": 0.5083062641498005
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.09223057644110276,
+                  "fsr": 0.8610271903323263,
+                  "ba": 0.5233711166132855
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.09680245291283399,
+                  "fsr": 0.8581794195250659,
+                  "ba": 0.5225090637810501
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.08541392904073587,
+                  "fsr": 0.8562005277044855,
+                  "ba": 0.5291927716273893
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0957107843137255,
+                  "fsr": 0.868014705882353,
+                  "ba": 0.5181372549019607
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08455882352941177,
+                  "fsr": 0.8650735294117647,
+                  "ba": 0.5251838235294117
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 344,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 480
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 10,
+            "errors_introduced": 9
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 2,
+            "errors_introduced": 1
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 100,
+            "errors_introduced": 98
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 48,
+            "errors_introduced": 26
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 173,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 0,
+            "errors_introduced": 275
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 74,
+            "errors_introduced": 38
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 19,
+            "errors_introduced": 11
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 131,
+            "errors_introduced": 116
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 75,
+            "errors_introduced": 33
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 76,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 116
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 143,
+            "errors_introduced": 91
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 33,
+            "errors_introduced": 30
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 100,
+            "errors_introduced": 85
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 52,
+            "errors_introduced": 32
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 17,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 0,
+            "errors_introduced": 28
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 243,
+            "errors_introduced": 152
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 64,
+            "errors_introduced": 56
+          }
+        ]
+      }
+    },
+    "tree": {
+      "evidence": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.03860294117647059,
+                "fsr": 0.9203676470588235,
+                "ba": 0.520514705882353
+              },
+              "ci95": {
+                "fmr": [
+                  0.022622549019607845,
+                  0.05607843137254901
+                ],
+                "fsr": [
+                  0.8506617647058825,
+                  0.9761783088235294
+                ],
+                "ba": [
+                  0.494642463235294,
+                  0.5528075980392156
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.03860294117647059,
+                "fsr": -0.07963235294117647,
+                "ba": 0.02051470588235294
+              },
+              "ci95": {
+                "fmr": [
+                  0.022647058823529416,
+                  0.055956495098039204
+                ],
+                "fsr": [
+                  -0.14845588235294116,
+                  -0.024264705882352938
+                ],
+                "ba": [
+                  -0.004987745098039216,
+                  0.05224387254901958
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.02267156862745098,
+                  "fsr": 0.8823529411764706,
+                  "ba": 0.5474877450980392
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.03713235294117647,
+                  "fsr": 0.9136029411764706,
+                  "ba": 0.5246323529411765
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.046691176470588236,
+                  "fsr": 0.9386029411764706,
+                  "ba": 0.5073529411764706
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.04718137254901961,
+                  "fsr": 0.9393382352941176,
+                  "ba": 0.5067401960784313
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.039338235294117646,
+                  "fsr": 0.9279411764705883,
+                  "ba": 0.5163602941176471
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.026206491097805266,
+                "fsr": 0.8823529411764706,
+                "ba": 0.545720283862862
+              },
+              "ci95": {
+                "fmr": [
+                  0.007051750466072716,
+                  0.049607308969373654
+                ],
+                "fsr": [
+                  0.7058823529411765,
+                  1.0
+                ],
+                "ba": [
+                  0.48524466433830643,
+                  0.6301822050182597
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.026206491097805266,
+                "fsr": -0.11764705882352941,
+                "ba": 0.045720283862862074
+              },
+              "ci95": {
+                "fmr": [
+                  0.007051750466072716,
+                  0.04900652818504444
+                ],
+                "fsr": [
+                  -0.29411764705882354,
+                  0.0
+                ],
+                "ba": [
+                  -0.014798491249655328,
+                  0.1317498726138383
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.02267156862745098,
+                  "fsr": 0.8823529411764706,
+                  "ba": 0.5474877450980392
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.023399558498896248,
+                  "fsr": 0.8844121532364597,
+                  "ba": 0.5460941441323219
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.02594810379241517,
+                  "fsr": 0.8897280966767371,
+                  "ba": 0.5421618997654238
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.03171247357293869,
+                  "fsr": 0.858974358974359,
+                  "ba": 0.5546565837263511
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.05838406651577562,
+                "fsr": 0.9572417904129112,
+                "ba": 0.4921870715356566
+              },
+              "ci95": {
+                "fmr": [
+                  0.024504051206718058,
+                  0.09961930344062014
+                ],
+                "fsr": [
+                  0.9062766858605135,
+                  1.0
+                ],
+                "ba": [
+                  0.47794597673982553,
+                  0.5053947134265665
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.05838406651577562,
+                "fsr": -0.042758209587088786,
+                "ba": -0.007812928464343408
+              },
+              "ci95": {
+                "fmr": [
+                  0.02390837577824813,
+                  0.10040501494923432
+                ],
+                "fsr": [
+                  -0.09372331413948638,
+                  0.0
+                ],
+                "ba": [
+                  -0.021504729351130646,
+                  0.005259643451171202
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.05618686868686869,
+                  "fsr": 0.9553231939163498,
+                  "ba": 0.49424496869839074
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.05791876952655611,
+                  "fsr": 0.9627507163323782,
+                  "ba": 0.4896652570705329
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.0637616148670298,
+                  "fsr": 0.95706106870229,
+                  "ba": 0.48958865821534014
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0391761783527467,
+                "fsr": 0.9278411985491328,
+                "ba": 0.5164913115490603
+              },
+              "ci95": {
+                "fmr": [
+                  0.010815098195244675,
+                  0.07259345035435188
+                ],
+                "fsr": [
+                  0.8317339116082276,
+                  1.0
+                ],
+                "ba": [
+                  0.48535111834964756,
+                  0.5553606708555804
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.0391761783527467,
+                "fsr": -0.07215880145086712,
+                "ba": 0.01649131154906021
+              },
+              "ci95": {
+                "fmr": [
+                  0.010815098195244675,
+                  0.07284496590475825
+                ],
+                "fsr": [
+                  -0.17087144501645185,
+                  0.0
+                ],
+                "ba": [
+                  -0.013908548879651093,
+                  0.05564009424487077
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.04112554112554113,
+                  "fsr": 0.9155844155844156,
+                  "ba": 0.5216450216450217
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.04411027568922306,
+                  "fsr": 0.9365558912386707,
+                  "ba": 0.5096669165360531
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.03745072273324573,
+                  "fsr": 0.9353562005277045,
+                  "ba": 0.5135965383695249
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.039338235294117646,
+                  "fsr": 0.9279411764705883,
+                  "ba": 0.5163602941176471
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 0,
+            "errors_introduced": 185
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 320,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 0,
+            "errors_introduced": 19
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 13,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 0,
+            "errors_introduced": 178
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 47,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 0,
+            "errors_introduced": 106
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 175,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 0,
+            "errors_introduced": 88
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 42,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 0,
+            "errors_introduced": 241
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 52,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 0,
+            "errors_introduced": 52
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 73,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 0,
+            "errors_introduced": 171
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 98,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 0,
+            "errors_introduced": 199
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 45,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 0,
+            "errors_introduced": 15
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 22,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 0,
+            "errors_introduced": 321
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 196,
+            "errors_introduced": 0
+          }
+        ]
+      },
+      "BS": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.007965686274509803,
+                "fsr": 1.0,
+                "ba": 0.49601715686274517
+              },
+              "ci95": {
+                "fmr": [
+                  0.0027450980392156863,
+                  0.014166666666666666
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.4929166666666667,
+                  0.4986274509803922
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.007965686274509803,
+                "fsr": 0.0,
+                "ba": -0.003982843137254903
+              },
+              "ci95": {
+                "fmr": [
+                  0.0027450980392156863,
+                  0.014142769607843128
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  -0.007071384803921572,
+                  -0.001372549019607845
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.000980392156862745,
+                  "fsr": 1.0,
+                  "ba": 0.49950980392156863
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0055147058823529415,
+                  "fsr": 1.0,
+                  "ba": 0.4972426470588235
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.011519607843137256,
+                  "fsr": 1.0,
+                  "ba": 0.4942401960784314
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.021813725490196077,
+                  "fsr": 1.0,
+                  "ba": 0.489093137254902
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.0,
+                "fsr": 0.0,
+                "ba": 0.0
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.0,
+                "fsr": 0.0,
+                "ba": 0.0
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.019492614324105074,
+                "fsr": 1.0,
+                "ba": 0.49025369283794745
+              },
+              "ci95": {
+                "fmr": [
+                  0.0065179306950611665,
+                  0.03491200719055912
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.48254399640472045,
+                  0.49674103465246944
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": 0.019492614324105074,
+                "fsr": 0.0,
+                "ba": -0.009746307162052536
+              },
+              "ci95": {
+                "fmr": [
+                  0.0065179306950611665,
+                  0.03513157055805937
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  -0.017565785279029685,
+                  -0.0032589653475305824
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.017316017316017316,
+                  "fsr": 1.0,
+                  "ba": 0.4913419913419913
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.022556390977443608,
+                  "fsr": 1.0,
+                  "ba": 0.4887218045112782
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.02058694699956198,
+                  "fsr": 1.0,
+                  "ba": 0.48970652650021906
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.021813725490196077,
+                  "fsr": 1.0,
+                  "ba": 0.489093137254902
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 0,
+            "errors_introduced": 8
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 0,
+            "errors_introduced": 45
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 0,
+            "errors_introduced": 94
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 0,
+            "errors_introduced": 178
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          }
+        ]
+      }
+    },
+    "xgb": {
+      "evidence": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.12772058823529414,
+                "fsr": 0.8009558823529412,
+                "ba": 0.5356617647058823
+              },
+              "ci95": {
+                "fmr": [
+                  0.06965563725490197,
+                  0.19482965686274506
+                ],
+                "fsr": [
+                  0.7061011029411766,
+                  0.8855147058823529
+                ],
+                "ba": [
+                  0.4947417279411765,
+                  0.5765079656862744
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.10183823529411765,
+                "fsr": 0.8374264705882352,
+                "ba": 0.5303676470588236
+              },
+              "ci95": {
+                "fmr": [
+                  0.04605392156862745,
+                  0.1648535539215686
+                ],
+                "fsr": [
+                  0.7433069852941178,
+                  0.9217665441176471
+                ],
+                "ba": [
+                  0.4940189950980392,
+                  0.567720588235294
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.025882352941176467,
+                "fsr": 0.036470588235294116,
+                "ba": -0.005294117647058819
+              },
+              "ci95": {
+                "fmr": [
+                  -0.032916666666666664,
+                  -0.0187248774509804
+                ],
+                "fsr": [
+                  0.0072794117647058815,
+                  0.0835294117647059
+                ],
+                "ba": [
+                  -0.029644607843137244,
+                  0.010477941176470584
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10477941176470588,
+                  "fsr": 0.7647058823529411,
+                  "ba": 0.5652573529411765
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.09681372549019608,
+                  "fsr": 0.8235294117647058,
+                  "ba": 0.539828431372549
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10833333333333334,
+                  "fsr": 0.8268382352941177,
+                  "ba": 0.5324142156862745
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.07438725490196078,
+                  "fsr": 0.8823529411764706,
+                  "ba": 0.5216299019607844
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.12549019607843137,
+                  "fsr": 0.8433823529411765,
+                  "ba": 0.5155637254901961
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08345588235294117,
+                  "fsr": 0.8863970588235294,
+                  "ba": 0.5150735294117648
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.13823529411764707,
+                  "fsr": 0.8209558823529411,
+                  "ba": 0.5204044117647059
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10404411764705883,
+                  "fsr": 0.8459558823529412,
+                  "ba": 0.525
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.16176470588235295,
+                  "fsr": 0.7488970588235294,
+                  "ba": 0.5446691176470588
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.15049019607843137,
+                  "fsr": 0.7488970588235294,
+                  "ba": 0.5503063725490196
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.10263461946342056,
+                "fsr": 0.7647058823529411,
+                "ba": 0.5663297490918191
+              },
+              "ci95": {
+                "fmr": [
+                  0.03586575830067934,
+                  0.18005845582848262
+                ],
+                "fsr": [
+                  0.5294117647058824,
+                  0.9411764705882353
+                ],
+                "ba": [
+                  0.4739634265315813,
+                  0.6708307036817656
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0965636164903503,
+                "fsr": 0.8235294117647058,
+                "ba": 0.5399534858724719
+              },
+              "ci95": {
+                "fmr": [
+                  0.030521470596748406,
+                  0.17363266135277963
+                ],
+                "fsr": [
+                  0.6470588235294118,
+                  1.0
+                ],
+                "ba": [
+                  0.4614538912980079,
+                  0.6301246073996402
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.006071002973070242,
+                "fsr": 0.058823529411764705,
+                "ba": -0.026376263219347232
+              },
+              "ci95": {
+                "fmr": [
+                  -0.015532993773048788,
+                  0.0
+                ],
+                "fsr": [
+                  0.0,
+                  0.17647058823529413
+                ],
+                "ba": [
+                  -0.08823529411764706,
+                  0.006918749929797319
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.10477941176470588,
+                  "fsr": 0.7647058823529411,
+                  "ba": 0.5652573529411765
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.09681372549019608,
+                  "fsr": 0.8235294117647058,
+                  "ba": 0.539828431372549
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.10573951434878587,
+                  "fsr": 0.760898282694848,
+                  "ba": 0.5666811014781831
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.09735099337748344,
+                  "fsr": 0.8196829590488771,
+                  "ba": 0.5414830237868198
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.11926147704590818,
+                  "fsr": 0.7416918429003021,
+                  "ba": 0.5695233400268949
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.11177644710578842,
+                  "fsr": 0.7960725075528701,
+                  "ba": 0.5460755226706708
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.09090909090909091,
+                  "fsr": 0.7628205128205128,
+                  "ba": 0.5731351981351982
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.09090909090909091,
+                  "fsr": 0.8461538461538461,
+                  "ba": 0.5314685314685315
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.10507149059532457,
+                "fsr": 0.9274276419583769,
+                "ba": 0.4837504337231491
+              },
+              "ci95": {
+                "fmr": [
+                  0.07431802176790929,
+                  0.13924944464318517
+                ],
+                "fsr": [
+                  0.8708967488215933,
+                  0.9752759140546864
+                ],
+                "ba": [
+                  0.45759285106422815,
+                  0.5124589929528625
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.031742300582560896,
+                "fsr": 0.982315490209776,
+                "ba": 0.4929711046038315
+              },
+              "ci95": {
+                "fmr": [
+                  0.010184351697980992,
+                  0.05548828856498312
+                ],
+                "fsr": [
+                  0.9547097866837192,
+                  1.0
+                ],
+                "ba": [
+                  0.4832599612537777,
+                  0.5014661667416229
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.07332919001276367,
+                "fsr": 0.05488784825139884,
+                "ba": 0.00922067088068241
+              },
+              "ci95": {
+                "fmr": [
+                  -0.09239409937015282,
+                  -0.05570545002521923
+                ],
+                "fsr": [
+                  0.015531067154923153,
+                  0.10247211962083645
+                ],
+                "ba": [
+                  -0.014522962144971372,
+                  0.030426853838800418
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.10542929292929293,
+                  "fsr": 0.9277566539923955,
+                  "ba": 0.4834070265391558
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.03125,
+                  "fsr": 0.9866920152091255,
+                  "ba": 0.4910289923954372
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.10982936794039894,
+                  "fsr": 0.923352435530086,
+                  "ba": 0.48340909826475753
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.03604902667627974,
+                  "fsr": 0.9813753581661891,
+                  "ba": 0.49128780757876556
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.10028836911246396,
+                  "fsr": 0.9236641221374046,
+                  "ba": 0.48802375437506573
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.02755527074655559,
+                  "fsr": 0.976145038167939,
+                  "ba": 0.49814984554275277
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.17022618314466065,
+                "fsr": 0.7599459913576799,
+                "ba": 0.5349139127488297
+              },
+              "ci95": {
+                "fmr": [
+                  0.08909111511685636,
+                  0.2623613069824146
+                ],
+                "fsr": [
+                  0.6307053028527829,
+                  0.8739480537607055
+                ],
+                "ba": [
+                  0.4785006597764972,
+                  0.5973258220479685
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.1591712318119946,
+                "fsr": 0.7599459913576799,
+                "ba": 0.5404413884151628
+              },
+              "ci95": {
+                "fmr": [
+                  0.08039858151612468,
+                  0.24780199611333426
+                ],
+                "fsr": [
+                  0.6290497546541651,
+                  0.87782305868345
+                ],
+                "ba": [
+                  0.48566808457710875,
+                  0.6028596135743978
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.011054951332666065,
+                "fsr": 0.0,
+                "ba": 0.005527475666333038
+              },
+              "ci95": {
+                "fmr": [
+                  -0.026761421641200538,
+                  0.004864962379752857
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  -0.002432481189876421,
+                  0.013380710820600267
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.15367965367965367,
+                  "fsr": 0.7857142857142857,
+                  "ba": 0.5303030303030303
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.14502164502164502,
+                  "fsr": 0.7857142857142857,
+                  "ba": 0.5346320346320346
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.1644110275689223,
+                  "fsr": 0.7764350453172205,
+                  "ba": 0.5295769635569285
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.15388471177944862,
+                  "fsr": 0.7764350453172205,
+                  "ba": 0.5348401214516654
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.16907577748576436,
+                  "fsr": 0.7559366754617414,
+                  "ba": 0.5374937735262472
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.15768725361366623,
+                  "fsr": 0.7559366754617414,
+                  "ba": 0.5431880354622962
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.16176470588235295,
+                  "fsr": 0.7488970588235294,
+                  "ba": 0.5446691176470588
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.15049019607843137,
+                  "fsr": 0.7488970588235294,
+                  "ba": 0.5503063725490196
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 65,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 160
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 6,
+            "errors_introduced": 2
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 235,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 0,
+            "errors_introduced": 62
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 38,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 0,
+            "errors_introduced": 89
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 41,
+            "errors_introduced": 20
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 307,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 0,
+            "errors_introduced": 81
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 15,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 36
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 91,
+            "errors_introduced": 39
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 227,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 0,
+            "errors_introduced": 55
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 0,
+            "errors_introduced": 13
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 151,
+            "errors_introduced": 59
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          }
+        ]
+      },
+      "BS": {
+        "pair_count": 54400,
+        "pair_keys_equal": true,
+        "strata": {
+          "ALL": {
+            "global": {
+              "metrics": {
+                "fmr": 0.10107843137254902,
+                "fsr": 0.8058088235294119,
+                "ba": 0.5465563725490196
+              },
+              "ci95": {
+                "fmr": [
+                  0.059018995098039206,
+                  0.14622610294117644
+                ],
+                "fsr": [
+                  0.6675716911764706,
+                  0.9218382352941177
+                ],
+                "ba": [
+                  0.5041053921568628,
+                  0.597843443627451
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.044803921568627454,
+                "fsr": 0.9308088235294119,
+                "ba": 0.5121936274509804
+              },
+              "ci95": {
+                "fmr": [
+                  0.031445465686274515,
+                  0.057720588235294114
+                ],
+                "fsr": [
+                  0.8858088235294119,
+                  0.9701470588235294
+                ],
+                "ba": [
+                  0.49285386029411765,
+                  0.5338973651960784
+                ]
+              },
+              "task_share_cells": 85,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.05627450980392157,
+                "fsr": 0.125,
+                "ba": -0.034362745098039216
+              },
+              "ci95": {
+                "fmr": [
+                  -0.09360294117647058,
+                  -0.021666666666666667
+                ],
+                "fsr": [
+                  0.029338235294117648,
+                  0.2348529411764706
+                ],
+                "ba": [
+                  -0.07518443627450981,
+                  0.0011908700980391915
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08137254901960785,
+                  "fsr": 0.8235294117647058,
+                  "ba": 0.5475490196078432
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.07622549019607844,
+                  "fsr": 0.8485294117647059,
+                  "ba": 0.5376225490196078
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.028431372549019607,
+                  "fsr": 0.9558823529411765,
+                  "ba": 0.5078431372549019
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.09142156862745097,
+                  "fsr": 0.8375,
+                  "ba": 0.5355392156862745
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.052573529411764706,
+                  "fsr": 0.9191176470588235,
+                  "ba": 0.5141544117647059
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.11139705882352942,
+                  "fsr": 0.79375,
+                  "ba": 0.5474264705882352
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.06580882352941177,
+                  "fsr": 0.8922794117647059,
+                  "ba": 0.5209558823529412
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.14497549019607844,
+                  "fsr": 0.725735294117647,
+                  "ba": 0.5646446078431373
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.07720588235294118,
+                  "fsr": 0.8867647058823529,
+                  "ba": 0.518014705882353
+                }
+              }
+            }
+          },
+          "HH": {
+            "global": {
+              "metrics": {
+                "fmr": 0.08440230837676303,
+                "fsr": 0.8235294117647058,
+                "ba": 0.5460341399292655
+              },
+              "ci95": {
+                "fmr": [
+                  0.03664451839709044,
+                  0.13770194526182528
+                ],
+                "fsr": [
+                  0.6470588235294118,
+                  1.0
+                ],
+                "ba": [
+                  0.4777662377938321,
+                  0.6259217452136753
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.0,
+                "fsr": 1.0,
+                "ba": 0.5
+              },
+              "ci95": {
+                "fmr": [
+                  0.0,
+                  0.0
+                ],
+                "fsr": [
+                  1.0,
+                  1.0
+                ],
+                "ba": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.0,
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.08440230837676303,
+                "fsr": 0.17647058823529413,
+                "ba": -0.04603413992926554
+              },
+              "ci95": {
+                "fmr": [
+                  -0.13736912443827676,
+                  -0.03637970159386361
+                ],
+                "fsr": [
+                  0.0,
+                  0.35294117647058826
+                ],
+                "ba": [
+                  -0.12634595326895415,
+                  0.021302341082501633
+                ]
+              }
+            },
+            "by_share": {
+              "0.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.08137254901960785,
+                  "fsr": 0.8235294117647058,
+                  "ba": 0.5475490196078432
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.25": {
+                "global": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.08057395143487858,
+                  "fsr": 0.8229854689564069,
+                  "ba": 0.5482202898043573
+                },
+                "type_specific": {
+                  "positive": 1514,
+                  "negative": 4530,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.08832335329341318,
+                  "fsr": 0.8217522658610272,
+                  "ba": 0.5449621904227798
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 2004,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.08879492600422834,
+                  "fsr": 0.8782051282051282,
+                  "ba": 0.5164999728953217
+                },
+                "type_specific": {
+                  "positive": 156,
+                  "negative": 473,
+                  "fmr": 0.0,
+                  "fsr": 1.0,
+                  "ba": 0.5
+                }
+              }
+            }
+          },
+          "HA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.06350107757591501,
+                "fsr": 0.8900184157167305,
+                "ba": 0.5232402533536772
+              },
+              "ci95": {
+                "fmr": [
+                  0.03474698462829857,
+                  0.09416282425061583
+                ],
+                "fsr": [
+                  0.7992099643342565,
+                  0.9601643764383323
+                ],
+                "ba": [
+                  0.4963090155893621,
+                  0.5602395212577163
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.06118957069822189,
+                "fsr": 0.8900184157167305,
+                "ba": 0.5243960067925237
+              },
+              "ci95": {
+                "fmr": [
+                  0.03220715569025763,
+                  0.09239040855598027
+                ],
+                "fsr": [
+                  0.7995118223840849,
+                  0.9601735938914547
+                ],
+                "ba": [
+                  0.49777283243564807,
+                  0.560959221148348
+                ]
+              },
+              "task_share_cells": 51,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.002311506877693126,
+                "fsr": 0.0,
+                "ba": 0.001155753438846567
+              },
+              "ci95": {
+                "fmr": [
+                  -0.006379853664717325,
+                  0.0
+                ],
+                "fsr": [
+                  0.0,
+                  0.0
+                ],
+                "ba": [
+                  0.0,
+                  0.003189926832358673
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.06029040404040404,
+                  "fsr": 0.8954372623574145,
+                  "ba": 0.5221361668010907
+                },
+                "type_specific": {
+                  "positive": 1052,
+                  "negative": 3168,
+                  "fmr": 0.05776515151515151,
+                  "fsr": 0.8954372623574145,
+                  "ba": 0.523398793063717
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.06633020908435472,
+                  "fsr": 0.8904011461318051,
+                  "ba": 0.5216343223919201
+                },
+                "type_specific": {
+                  "positive": 1396,
+                  "negative": 4161,
+                  "fmr": 0.06368661379476087,
+                  "fsr": 0.8904011461318051,
+                  "ba": 0.522956120036717
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.0637616148670298,
+                  "fsr": 0.8816793893129771,
+                  "ba": 0.5272794979099966
+                },
+                "type_specific": {
+                  "positive": 1048,
+                  "negative": 3121,
+                  "fmr": 0.062159564242230056,
+                  "fsr": 0.8816793893129771,
+                  "ba": 0.5280805232223964
+                }
+              }
+            }
+          },
+          "AA": {
+            "global": {
+              "metrics": {
+                "fmr": 0.1496381514530135,
+                "fsr": 0.7387203325040761,
+                "ba": 0.5558207580214553
+              },
+              "ci95": {
+                "fmr": [
+                  0.09656082285366743,
+                  0.20591075129854178
+                ],
+                "fsr": [
+                  0.5859104331036102,
+                  0.8751112250263521
+                ],
+                "ba": [
+                  0.5007205271485142,
+                  0.6168174205106977
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "type_specific": {
+              "metrics": {
+                "fmr": 0.08566234392601926,
+                "fsr": 0.897285523438226,
+                "ba": 0.5085260663178774
+              },
+              "ci95": {
+                "fmr": [
+                  0.06238546996956577,
+                  0.10882058920430948
+                ],
+                "fsr": [
+                  0.8264788989316258,
+                  0.9631343883424661
+                ],
+                "ba": [
+                  0.4722804034968802,
+                  0.5480651411071301
+                ]
+              },
+              "task_share_cells": 68,
+              "tasks_with_any_cell": 17,
+              "shares_with_cells": [
+                0.25,
+                0.5,
+                0.75,
+                1.0
+              ]
+            },
+            "paired_change_type_minus_global": {
+              "delta": {
+                "fmr": -0.06397580752699425,
+                "fsr": 0.15856519093414978,
+                "ba": -0.047294691703577765
+              },
+              "ci95": {
+                "fmr": [
+                  -0.11415882245040501,
+                  -0.01797345238585315
+                ],
+                "fsr": [
+                  0.03842743650947053,
+                  0.30520928752887094
+                ],
+                "ba": [
+                  -0.10891025407452817,
+                  0.0007375618695262764
+                ]
+              }
+            },
+            "by_share": {
+              "0.25": {
+                "global": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.14285714285714285,
+                  "fsr": 0.7792207792207793,
+                  "ba": 0.538961038961039
+                },
+                "type_specific": {
+                  "positive": 154,
+                  "negative": 462,
+                  "fmr": 0.10606060606060606,
+                  "fsr": 0.935064935064935,
+                  "ba": 0.47943722943722944
+                }
+              },
+              "0.5": {
+                "global": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.1468671679197995,
+                  "fsr": 0.7416918429003021,
+                  "ba": 0.5557204945899492
+                },
+                "type_specific": {
+                  "positive": 662,
+                  "negative": 1995,
+                  "fmr": 0.08220551378446116,
+                  "fsr": 0.8987915407854985,
+                  "ba": 0.5095014727150202
+                }
+              },
+              "0.75": {
+                "global": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.1462987297415681,
+                  "fsr": 0.7242744063324538,
+                  "ba": 0.5647134319629891
+                },
+                "type_specific": {
+                  "positive": 1516,
+                  "negative": 4566,
+                  "fmr": 0.07512045554095488,
+                  "fsr": 0.8885224274406333,
+                  "ba": 0.5181785585092059
+                }
+              },
+              "1.0": {
+                "global": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.14497549019607844,
+                  "fsr": 0.725735294117647,
+                  "ba": 0.5646446078431373
+                },
+                "type_specific": {
+                  "positive": 2720,
+                  "negative": 8160,
+                  "fmr": 0.07720588235294118,
+                  "fsr": 0.8867647058823529,
+                  "ba": 0.518014705882353
+                }
+              }
+            }
+          }
+        },
+        "error_transitions": [
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 664,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.0,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 480
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 462,
+            "errors_corrected": 20,
+            "errors_introduced": 3
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 154,
+            "errors_corrected": 0,
+            "errors_introduced": 24
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3168,
+            "errors_corrected": 8,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1052,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 4530,
+            "errors_corrected": 365,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.25,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 1514,
+            "errors_corrected": 0,
+            "errors_introduced": 268
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 1995,
+            "errors_corrected": 141,
+            "errors_introduced": 12
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 104
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 4161,
+            "errors_corrected": 11,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1396,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 2004,
+            "errors_corrected": 177,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.5,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 662,
+            "errors_corrected": 0,
+            "errors_introduced": 118
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 4566,
+            "errors_corrected": 348,
+            "errors_introduced": 23
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 1516,
+            "errors_corrected": 0,
+            "errors_introduced": 249
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "different_task",
+            "records": 3121,
+            "errors_corrected": 5,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HA",
+            "relation": "same_task",
+            "records": 1048,
+            "errors_corrected": 0,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "different_task",
+            "records": 473,
+            "errors_corrected": 42,
+            "errors_introduced": 0
+          },
+          {
+            "fraction": 0.75,
+            "pair_type": "HH",
+            "relation": "same_task",
+            "records": 156,
+            "errors_corrected": 0,
+            "errors_introduced": 19
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "different_task",
+            "records": 8160,
+            "errors_corrected": 593,
+            "errors_introduced": 40
+          },
+          {
+            "fraction": 1.0,
+            "pair_type": "AA",
+            "relation": "same_task",
+            "records": 2720,
+            "errors_corrected": 0,
+            "errors_introduced": 438
+          }
+        ]
+      }
+    }
+  },
+  "pair_counts_by_share_and_type": {
+    "0.0:ALL": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "0.0:HH": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "0.0:HA": {
+      "pairs": 0,
+      "positive": 0,
+      "negative": 0,
+      "query_tasks": 0
+    },
+    "0.0:AA": {
+      "pairs": 0,
+      "positive": 0,
+      "negative": 0,
+      "query_tasks": 0
+    },
+    "0.25:ALL": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "0.25:HH": {
+      "pairs": 6044,
+      "positive": 1514,
+      "negative": 4530,
+      "query_tasks": 17
+    },
+    "0.25:HA": {
+      "pairs": 4220,
+      "positive": 1052,
+      "negative": 3168,
+      "query_tasks": 17
+    },
+    "0.25:AA": {
+      "pairs": 616,
+      "positive": 154,
+      "negative": 462,
+      "query_tasks": 17
+    },
+    "0.5:ALL": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "0.5:HH": {
+      "pairs": 2666,
+      "positive": 662,
+      "negative": 2004,
+      "query_tasks": 17
+    },
+    "0.5:HA": {
+      "pairs": 5557,
+      "positive": 1396,
+      "negative": 4161,
+      "query_tasks": 17
+    },
+    "0.5:AA": {
+      "pairs": 2657,
+      "positive": 662,
+      "negative": 1995,
+      "query_tasks": 17
+    },
+    "0.75:ALL": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "0.75:HH": {
+      "pairs": 629,
+      "positive": 156,
+      "negative": 473,
+      "query_tasks": 17
+    },
+    "0.75:HA": {
+      "pairs": 4169,
+      "positive": 1048,
+      "negative": 3121,
+      "query_tasks": 17
+    },
+    "0.75:AA": {
+      "pairs": 6082,
+      "positive": 1516,
+      "negative": 4566,
+      "query_tasks": 17
+    },
+    "1.0:ALL": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    },
+    "1.0:HH": {
+      "pairs": 0,
+      "positive": 0,
+      "negative": 0,
+      "query_tasks": 0
+    },
+    "1.0:HA": {
+      "pairs": 0,
+      "positive": 0,
+      "negative": 0,
+      "query_tasks": 0
+    },
+    "1.0:AA": {
+      "pairs": 10880,
+      "positive": 2720,
+      "negative": 8160,
+      "query_tasks": 17
+    }
+  },
+  "validation_threshold_audit": {
+    "0": {
+      "representation": [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 2,
+          "thresholds": {
+            "evidence": {
+              "AA": null,
+              "HA": 0.8516694903373718,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.7765686511993408,
+              "HA": 0.8003160357475281,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9393939393939394
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.06153846153846154,
+                "fsr": 0.6666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.8484848484848485
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        },
+        "svm": {
+          "parameter": 10.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 2.1847427726543707,
+              "HA": 1.5425114679730518,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.993766857860514,
+              "HA": 1.011919683945625,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.046153846153846156,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.7575757575757576
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.046153846153846156,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.9090909090909091
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        },
+        "tree": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": null,
+              "HA": 0.8095238095238095,
+              "HH": 0.8095238095238095
+            },
+            "BS": {
+              "AA": 1.0,
+              "HA": 1.0,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.9393939393939394
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.03571428571428571,
+                "fsr": 0.7142857142857143
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 65,
+                "fmr": 0.09230769230769231,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 33,
+                "negative_pairs": 72,
+                "fmr": 0.09722222222222222,
+                "fsr": 0.8787878787878788
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 28,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 0,
+          "outer_fallback_pairs": 1089
+        }
+      }
+    },
+    "1": {
+      "representation": [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.6999209523200989,
+              "HA": 0.7220574617385864,
+              "HH": 0.6887449026107788
+            },
+            "BS": {
+              "AA": 0.8481183648109436,
+              "HA": 0.7274625897407532,
+              "HH": 0.8844806551933289
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.09090909090909091,
+                "fsr": 0.6666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.08333333333333333,
+                "fsr": 0.7931034482758621
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.038461538461538464,
+                "fsr": 0.8181818181818181
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.03636363636363636,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.05952380952380952,
+                "fsr": 0.8620689655172413
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 0.9090909090909091
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        },
+        "svm": {
+          "parameter": 1.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.7836363406034221,
+              "HA": 1.1423158279669579,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": 0.49992296628814337,
+              "HH": 1.0032401915494986
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.05454545454545454,
+                "fsr": 0.8666666666666667
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.023809523809523808,
+                "fsr": 0.9310344827586207
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.0,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.047619047619047616,
+                "fsr": 0.7931034482758621
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.038461538461538464,
+                "fsr": 0.9090909090909091
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        },
+        "tree": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 1.0,
+              "HA": null,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": null,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.03636363636363636,
+                "fsr": 0.7333333333333334
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 15,
+                "negative_pairs": 55,
+                "fmr": 0.0,
+                "fsr": 0.9333333333333333
+              },
+              "HA": {
+                "positive_pairs": 29,
+                "negative_pairs": 84,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HH": {
+                "positive_pairs": 11,
+                "negative_pairs": 26,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 6,
+          "outer_fallback_pairs": 0
+        }
+      }
+    },
+    "2": {
+      "representation": [
+        8,
+        "mean_std",
+        "direct"
+      ],
+      "models": {
+        "xgb": {
+          "parameter": 3,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.7112634181976318,
+              "HA": 0.790747880935669,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.8097389936447144,
+              "HA": 0.8303728103637695,
+              "HH": 0.8983378410339355
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.88
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.05714285714285714,
+                "fsr": 0.8
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.041666666666666664,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 0.8571428571428572
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        },
+        "svm": {
+          "parameter": 1.0,
+          "thresholds": {
+            "evidence": {
+              "AA": 0.9881548573740898,
+              "HA": 1.3939247132505959,
+              "HH": null
+            },
+            "BS": {
+              "AA": 0.7262439991485666,
+              "HA": 0.9185872203556099,
+              "HH": 1.1257169400299707
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.02857142857142857,
+                "fsr": 0.92
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.013888888888888888,
+                "fsr": 0.9642857142857143
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.72
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.08333333333333333,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 0.8571428571428572
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        },
+        "tree": {
+          "parameter": 5,
+          "thresholds": {
+            "evidence": {
+              "AA": 1.0,
+              "HA": 1.0,
+              "HH": null
+            },
+            "BS": {
+              "AA": null,
+              "HA": 1.0,
+              "HH": null
+            }
+          },
+          "inner_validation_metrics": {
+            "evidence": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.07142857142857142,
+                "fsr": 0.8
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.06944444444444445,
+                "fsr": 0.9642857142857143
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            },
+            "BS": {
+              "AA": {
+                "positive_pairs": 25,
+                "negative_pairs": 70,
+                "fmr": 0.0,
+                "fsr": 1.0
+              },
+              "HA": {
+                "positive_pairs": 28,
+                "negative_pairs": 72,
+                "fmr": 0.05555555555555555,
+                "fsr": 0.9285714285714286
+              },
+              "HH": {
+                "positive_pairs": 7,
+                "negative_pairs": 38,
+                "fmr": 0.0,
+                "fsr": 1.0
+              }
+            }
+          },
+          "fallback_pairs": 14,
+          "outer_fallback_pairs": 0
+        }
+      }
+    }
+  }
+}

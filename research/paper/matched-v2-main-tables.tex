@@ -1,0 +1,38 @@
+\begin{table}[ht]
+\centering
+\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
+\caption{Matched CTH classifier comparison averaged equally over five Agent-role shares. Every classifier uses the same paired candidate decisions. Changes are B/S minus evidence-only E in percentage points; 95\% intervals are paired task-cluster bootstrap intervals.}
+\label{tab:cth-matched-classifiers}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Classifier & BA: E & BA: E+B/S & $\Delta$BA [95\% CI] & $\Delta$FMR & $\Delta$FSR \\ \midrule
+RBF-SVM & 52.57 & 53.95 & $+1.38\;[-3.83,+6.53]$ & +6.99 & -9.74 \\
+Decision tree & 52.80 & 50.00 & $-2.80\;[-6.61,+0.57]$ & -6.59 & +12.19 \\
+XGBoost & 56.06 & 53.68 & $-2.38\;[-7.13,+2.25]$ & +9.46 & -4.70 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\scriptsize\setlength{\tabcolsep}{2.6pt}\renewcommand{\arraystretch}{1.12}
+\caption{Matched B/S/T ablation on the same candidate pairs. BA is task-macro balanced accuracy in percent; FMR and FSR are error rates in percent; $\Delta$BA compares with the full fingerprint for that dataset. Brackets are 95\% paired task-cluster bootstrap intervals (10,000 resamples). CTH averages the five role shares equally; AIT averages 12 tasks. Repeated pair decisions are not independent observations.}
+\label{tab:matched-bst-ablation}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc rrr r@{}}
+\toprule
+Configuration & B & S & T & BA (\%) [95\% CI] & FMR (\%) & FSR (\%) & $\Delta$BA (pp) [95\% CI] \\ \midrule
+\multicolumn{8}{@{}l}{\textbf{CTH: 17 task groups; five exact role shares}} \\
+Full & \present & \present & -- & $53.68\;[50.68,56.96]$ & 15.43 & 77.21 & Reference \\
+Remove B & -- & \present & -- & $56.10\;[51.99,60.39]$ & 14.47 & 73.34 & $+2.42\;[-3.09,+8.05]$ \\
+Remove S & \present & -- & -- & $52.75\;[49.67,55.96]$ & 13.13 & 81.37 & $-0.93\;[-2.52,+0.59]$ \\
+E only & -- & -- & -- & $56.06\;[52.42,59.91]$ & 5.97 & 81.91 & $+2.38\;[-2.28,+7.29]$ \\
+\midrule
+\multicolumn{8}{@{}l}{\textbf{AIT: 12 task groups; observed launch times}} \\
+Full & \present & \present & \present & $51.92\;[50.58,53.18]$ & 5.37 & 90.79 & Reference \\
+Remove B & -- & \present & \present & $52.01\;[51.08,53.03]$ & 3.53 & 92.45 & $+0.09\;[-1.05,+1.14]$ \\
+Remove S & \present & -- & \present & $51.37\;[50.15,52.84]$ & 5.24 & 92.02 & $-0.55\;[-1.66,+0.51]$ \\
+Remove T & \present & \present & -- & $50.94\;[49.38,52.58]$ & 5.28 & 92.84 & $-0.98\;[-2.10,+0.21]$ \\
+E only & -- & -- & -- & $50.12\;[50.00,50.36]$ & 0.00 & 99.76 & $-1.80\;[-3.14,-0.37]$ \\
+\bottomrule
+\end{tabular*}
+\end{table}

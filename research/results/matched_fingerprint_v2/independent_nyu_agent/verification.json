@@ -1,0 +1,18 @@
+{
+  "frozen_protocol_hashes_match": true,
+  "source_revision": "69def02a79e8b1d890e1e0d5c11106a9f40e11e1",
+  "confirmation_tasks": 160,
+  "confirmation_traces": 585,
+  "candidate_pairs": 234000,
+  "query_galleries": 58500,
+  "predictions": 1404000,
+  "training_pairs": 3570,
+  "all_pair_lists_identical": true,
+  "external_fallback_pairs": 0,
+  "training_task_isolation": true,
+  "candidate_partition_isolation": true,
+  "threshold_oof_fmr_limit": true,
+  "prediction_threshold_arithmetic": true,
+  "pair_manifest_sha256": "a25ad991e2d20f27e23f48d4e56d6e63e225921eacb6f8888805df6c3b6a0625",
+  "prediction_sha256": "208df72a15180c221ed63312cd3bbd0f12a592f37d58c1230bd1f4fce90adc8d"
+}

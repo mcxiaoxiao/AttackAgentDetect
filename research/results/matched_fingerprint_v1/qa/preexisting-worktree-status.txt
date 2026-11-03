@@ -1,0 +1,110 @@
+ M research/experiments/behavioral_fingerprint_v2/build_evidence_story.py
+ M research/experiments/behavioral_fingerprint_v2/build_figures.py
+ M research/experiments/behavioral_fingerprint_v2/package_manuscript.py
+ M research/paper/figures/fingerprint-association-comparison.pdf
+ M research/paper/figures/fingerprint-association-comparison.png
+ M research/paper/figures/fingerprint-association-comparison.svg
+ M research/paper/figures/fingerprint-observed-rhythm.pdf
+ M research/paper/figures/fingerprint-observed-rhythm.png
+ M research/paper/figures/fingerprint-observed-rhythm.svg
+ M research/paper/figures/fingerprint-recognition-matrix.pdf
+ M research/paper/figures/fingerprint-recognition-matrix.png
+ M research/paper/figures/fingerprint-recognition-matrix.svg
+ M research/paper/figures/fingerprint-v2-matrix-example.pdf
+ M research/paper/human-agent-fingerprint-overnight.tex
+ M site/assets/behavioral-fingerprint-v2/SOURCE-BUNDLE-README.txt
+ M site/assets/behavioral-fingerprint-v2/figures/fingerprint-association-comparison.pdf
+ M site/assets/behavioral-fingerprint-v2/figures/fingerprint-observed-rhythm.pdf
+ M site/assets/behavioral-fingerprint-v2/figures/fingerprint-recognition-matrix.pdf
+ M site/assets/behavioral-fingerprint-v2/figures/fingerprint-v2-matrix-example.pdf
+ M site/assets/behavioral-fingerprint-v2/fingerprint-association-comparison.pdf
+ M site/assets/behavioral-fingerprint-v2/fingerprint-association-comparison.png
+ M site/assets/behavioral-fingerprint-v2/fingerprint-association-comparison.svg
+ M site/assets/behavioral-fingerprint-v2/fingerprint-observed-rhythm.pdf
+ M site/assets/behavioral-fingerprint-v2/fingerprint-observed-rhythm.png
+ M site/assets/behavioral-fingerprint-v2/fingerprint-observed-rhythm.svg
+ M site/assets/behavioral-fingerprint-v2/fingerprint-recognition-matrix.pdf
+ M site/assets/behavioral-fingerprint-v2/fingerprint-recognition-matrix.png
+ M site/assets/behavioral-fingerprint-v2/fingerprint-recognition-matrix.svg
+ M site/assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.pdf
+ M site/assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.png
+ M site/assets/behavioral-fingerprint-v2/fingerprint-v2-matrix-example.svg
+ M site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight-source.zip
+ M site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-overnight.tex
+ M site/association-page.css
+ M site/behavior-based-trace-association.html
+ M site/dataset.html
+ M site/local-mode-detector.html
+ M site/related-work.html
+ M site/research.css
+ M site/research.html
+?? .hallmark/log.json
+?? research/experiments/behavioral_fingerprint_v2/build_association_mechanism.py
+?? research/experiments/behavioral_fingerprint_v2/build_bst_explainer.py
+?? research/experiments/behavioral_fingerprint_v2/build_mode_icons.py
+?? research/experiments/behavioral_fingerprint_v2/paper_style.py
+?? research/experiments/exact_mixture_matched_fingerprint_plan.md
+?? research/paper/figures/agent-retrieval-ablation.pdf
+?? research/paper/figures/agent-retrieval-cross-source.pdf
+?? research/paper/figures/ait-recognition-confusion.pdf
+?? research/paper/figures/ait-recognition-task-holdout.pdf
+?? research/paper/figures/ait-window-fingerprint-matrix.pdf
+?? research/paper/figures/association-ba-v3.png
+?? research/paper/figures/association-ba-v3.svg
+?? research/paper/figures/attackagent-owl.png
+?? research/paper/figures/ctf-mixture-errors.pdf
+?? research/paper/figures/ctf-pair-type-errors.pdf
+?? research/paper/figures/exact-mixture-v3.png
+?? research/paper/figures/exact-mixture-v3.svg
+?? research/paper/figures/fig4-cth-mixture-bst.png
+?? research/paper/figures/fig4-cth-mixture-bst.svg
+?? research/paper/figures/fig4_cth_mixture_bst.pdf
+?? research/paper/figures/fig4_cth_mixture_bst.png
+?? research/paper/figures/fig4_cth_mixture_bst.svg
+?? research/paper/figures/fingerprint-bst-dimensions.pdf
+?? research/paper/figures/fingerprint-bst-dimensions.png
+?? research/paper/figures/fingerprint-bst-dimensions.svg
+?? research/paper/figures/fingerprint-conditioned-association.pdf
+?? research/paper/figures/fingerprint-conditioned-association.png
+?? research/paper/figures/fingerprint-conditioned-association.svg
+?? research/paper/figures/fingerprint-v2-ait-ablation.png
+?? research/paper/figures/fingerprint-v2-ait-ablation.svg
+?? research/paper/figures/fingerprint-v2-ait-recognition.png
+?? research/paper/figures/fingerprint-v2-ait-recognition.svg
+?? research/paper/figures/fingerprint-v2-ait-timing-increment.png
+?? research/paper/figures/fingerprint-v2-ait-timing-increment.svg
+?? research/paper/figures/fingerprint-v2-architecture.png
+?? research/paper/figures/fingerprint-v2-architecture.svg
+?? research/paper/figures/fingerprint-v2-cohort-coverage.png
+?? research/paper/figures/fingerprint-v2-cohort-coverage.svg
+?? research/paper/figures/fingerprint-v2-error-strata.png
+?? research/paper/figures/fingerprint-v2-error-strata.svg
+?? research/paper/figures/fingerprint-v2-matrix-example.png
+?? research/paper/figures/fingerprint-v2-matrix-example.svg
+?? research/paper/figures/fingerprint-v2-retrieval-increment.png
+?? research/paper/figures/fingerprint-v2-retrieval-increment.svg
+?? research/paper/figures/mode-agent.pdf
+?? research/paper/figures/mode-agent.png
+?? research/paper/figures/mode-agent.svg
+?? research/paper/figures/mode-human.pdf
+?? research/paper/figures/mode-human.png
+?? research/paper/figures/mode-human.svg
+?? research/paper/human-agent-fingerprint-overnight.pdf
+?? research/results/behavioral_fingerprint_v2/association_mechanism_case.json
+?? site/assets/behavioral-fingerprint-v2/figures/attackagent-owl.png
+?? site/assets/behavioral-fingerprint-v2/figures/fingerprint-bst-dimensions.pdf
+?? site/assets/behavioral-fingerprint-v2/figures/fingerprint-conditioned-association.pdf
+?? site/assets/behavioral-fingerprint-v2/figures/mode-agent.pdf
+?? site/assets/behavioral-fingerprint-v2/figures/mode-human.pdf
+?? site/assets/behavioral-fingerprint-v2/fingerprint-bst-dimensions.pdf
+?? site/assets/behavioral-fingerprint-v2/fingerprint-bst-dimensions.png
+?? site/assets/behavioral-fingerprint-v2/fingerprint-bst-dimensions.svg
+?? site/assets/behavioral-fingerprint-v2/fingerprint-conditioned-association.pdf
+?? site/assets/behavioral-fingerprint-v2/fingerprint-conditioned-association.png
+?? site/assets/behavioral-fingerprint-v2/fingerprint-conditioned-association.svg
+?? site/assets/behavioral-fingerprint-v2/mode-agent.pdf
+?? site/assets/behavioral-fingerprint-v2/mode-agent.png
+?? site/assets/behavioral-fingerprint-v2/mode-agent.svg
+?? site/assets/behavioral-fingerprint-v2/mode-human.pdf
+?? site/assets/behavioral-fingerprint-v2/mode-human.png
+?? site/assets/behavioral-fingerprint-v2/mode-human.svg

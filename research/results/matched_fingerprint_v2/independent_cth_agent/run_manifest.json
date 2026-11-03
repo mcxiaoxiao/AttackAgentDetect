@@ -1,0 +1,321 @@
+{
+  "status": "executed_frozen_external_task_confirmation",
+  "source": "Cyber Task Horizons CTF; unseen source-qualified task groups only",
+  "source_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "evaluation_scope": "Agent-only AA; same_task is the challenge identity proxy",
+  "test_task_count": 26,
+  "test_trace_count": 59,
+  "test_query_count_per_repetition": 59,
+  "repetitions": 100,
+  "candidate_count": 4,
+  "training_task_count": 17,
+  "training_trace_count": 85,
+  "training_pair_count": 272,
+  "external_candidate_task_partition": {
+    "cyber-task-horizons/cybench/unbreakable": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_72": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_74": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_79": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_86": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_92": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_crypto/task_96": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_19": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_27": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_30": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_32": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_60": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_general_skills/task_63": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_52": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_53": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_65": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_84": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_99": 2,
+    "cyber-task-horizons/nyuctf/2013q-web-guess_harder": 1,
+    "cyber-task-horizons/nyuctf/2017q-msc-serial": 2,
+    "cyber-task-horizons/nyuctf/2018q-msc-algebra": 1,
+    "cyber-task-horizons/nyuctf/2019f-cry-macrypto": 0,
+    "cyber-task-horizons/nyuctf/2021f-cry-collision_course": 1,
+    "cyber-task-horizons/nyuctf/2021q-for-lazy_leaks": 0,
+    "cyber-task-horizons/nyuctf/2022q-cry-beyond_quantum": 0,
+    "cyber-task-horizons/nyuctf/2023q-msc-linear_aggressor": 2
+  },
+  "representation": [
+    4,
+    "mean_std",
+    "conditional"
+  ],
+  "parameters": {
+    "svm": 1.0,
+    "tree": 3,
+    "xgb": 3
+  },
+  "selection_audit": {
+    "representation_by_outer_fold": [
+      [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      [
+        8,
+        "mean_std",
+        "direct"
+      ]
+    ],
+    "parameter_by_outer_fold": {
+      "svm": [
+        10.0,
+        1.0,
+        1.0
+      ],
+      "tree": [
+        3,
+        3,
+        5
+      ],
+      "xgb": [
+        2,
+        3,
+        3
+      ]
+    },
+    "selection_rule": "mode of the three frozen outer-fold selections; ties resolve to prior representation and smaller parameter"
+  },
+  "thresholds": {
+    "svm": {
+      "E": {
+        "threshold": 0.8671898472216057,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.09411764705882353,
+        "oof_macro_fsr": 0.9294117647058825,
+        "oof_macro_ba": 0.488235294117647,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args": {
+        "threshold": 0.7736772719078645,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.0980392156862745,
+        "oof_macro_fsr": 0.8588235294117648,
+        "oof_macro_ba": 0.5215686274509803,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_BS": {
+        "threshold": 0.8977511161550984,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.0980392156862745,
+        "oof_macro_fsr": 0.8588235294117647,
+        "oof_macro_ba": 0.5215686274509803,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args_BS": {
+        "threshold": 0.923499064977187,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.09411764705882353,
+        "oof_macro_fsr": 0.8588235294117647,
+        "oof_macro_ba": 0.5235294117647058,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      }
+    },
+    "tree": {
+      "E": {
+        "threshold": 0.8461538461538461,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.03137254901960784,
+        "oof_macro_fsr": 0.9411764705882353,
+        "oof_macro_ba": 0.5137254901960784,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args": {
+        "threshold": 0.8461538461538461,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.047058823529411764,
+        "oof_macro_fsr": 0.9411764705882353,
+        "oof_macro_ba": 0.5058823529411764,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_BS": {
+        "threshold": null,
+        "threshold_is_infinite": true,
+        "oof_macro_fmr": 0.0,
+        "oof_macro_fsr": 1.0,
+        "oof_macro_ba": 0.5,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args_BS": {
+        "threshold": 1.0,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.02745098039215686,
+        "oof_macro_fsr": 0.9764705882352942,
+        "oof_macro_ba": 0.4980392156862745,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      }
+    },
+    "xgb": {
+      "E": {
+        "threshold": 0.719878077507019,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.09411764705882353,
+        "oof_macro_fsr": 0.8470588235294118,
+        "oof_macro_ba": 0.5294117647058824,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args": {
+        "threshold": 0.7658658027648926,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.06666666666666667,
+        "oof_macro_fsr": 0.9058823529411765,
+        "oof_macro_ba": 0.5137254901960784,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_BS": {
+        "threshold": 0.8071901202201843,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.09019607843137255,
+        "oof_macro_fsr": 0.7999999999999999,
+        "oof_macro_ba": 0.5549019607843136,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      },
+      "E_args_BS": {
+        "threshold": 0.8111799359321594,
+        "threshold_is_infinite": false,
+        "oof_macro_fmr": 0.09411764705882353,
+        "oof_macro_fsr": 0.7999999999999999,
+        "oof_macro_ba": 0.5529411764705883,
+        "oof_pairs": 340,
+        "oof_query_task_count": 17
+      }
+    }
+  },
+  "threshold_oof_folds": [
+    {
+      "fold": 0,
+      "fit_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "validation_tasks": [
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+      ],
+      "training_pair_count": 176,
+      "validation_query_count": 30,
+      "validation_pair_count": 120,
+      "validation_pair_types": {
+        "AA": 41,
+        "HA": 60,
+        "HH": 19
+      }
+    },
+    {
+      "fold": 1,
+      "fit_tasks": [
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "validation_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "training_pair_count": 176,
+      "validation_query_count": 30,
+      "validation_pair_count": 120,
+      "validation_pair_types": {
+        "HA": 61,
+        "AA": 41,
+        "HH": 18
+      }
+    },
+    {
+      "fold": 2,
+      "fit_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "validation_tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "training_pair_count": 192,
+      "validation_query_count": 25,
+      "validation_pair_count": 100,
+      "validation_pair_types": {
+        "HA": 52,
+        "AA": 37,
+        "HH": 11
+      }
+    }
+  ],
+  "pair_manifest_rows": 23600,
+  "prediction_rows": 283200,
+  "inputs_sha256": {
+    "trace_evidence": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "trace_registry": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "task_manifest": "745cb4fa3bc99c6d84789de83c16fb04d95b2be943781a5bbfc681a8099a8985",
+    "runner": "ac75116ef44830f450f03b15de783c86aa67ad7353f007d4ca8bcb85d3ae6326",
+    "fingerprint_v2": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+    "argument_profile": "fd834beb3db087498dda97afe63c8479f50032f8b2e01532496f36ca6a0fbd3e"
+  },
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "xgboost": "2.1.4",
+    "seed": 20261104
+  },
+  "elapsed_seconds": 4.18
+}

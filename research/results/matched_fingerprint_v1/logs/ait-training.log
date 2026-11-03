@@ -1,0 +1,61 @@
+profiles 4 complete 109 / 109
+profiles 8 complete 109 / 109
+profiles 16 complete 109 / 109
+ait traces 109 tasks 12 pairs 43600
+ait fold 0 train_tasks 8 test_tasks 4 test_pairs 15200
+candidate 4/mean_std/direct 0.1s
+candidate 4/mean_std/conditional 0.1s
+candidate 4/mean_std_trend/direct 0.1s
+candidate 4/mean_std_trend/conditional 0.1s
+candidate 8/mean_std/direct 0.1s
+candidate 8/mean_std/conditional 0.1s
+candidate 8/mean_std_trend/direct 0.1s
+candidate 8/mean_std_trend/conditional 0.2s
+candidate 16/mean_std/direct 0.1s
+candidate 16/mean_std/conditional 0.1s
+candidate 16/mean_std_trend/direct 0.1s
+candidate 16/mean_std_trend/conditional 0.1s
+ait 0 selected representation (4, 'mean_std', 'conditional') XGB 3
+ait fold 0 xgb BST fallback 0 / 15200
+ait fold 0 xgb ST fallback 0 / 15200
+ait fold 0 xgb BT fallback 0 / 15200
+ait fold 0 xgb BS fallback 0 / 15200
+ait fold 0 complete 3.88 seconds
+ait fold 1 train_tasks 8 test_tasks 4 test_pairs 14400
+candidate 4/mean_std/direct 0.1s
+candidate 4/mean_std/conditional 0.1s
+candidate 4/mean_std_trend/direct 0.2s
+candidate 4/mean_std_trend/conditional 0.2s
+candidate 8/mean_std/direct 0.1s
+candidate 8/mean_std/conditional 0.1s
+candidate 8/mean_std_trend/direct 0.2s
+candidate 8/mean_std_trend/conditional 0.2s
+candidate 16/mean_std/direct 0.1s
+candidate 16/mean_std/conditional 0.1s
+candidate 16/mean_std_trend/direct 0.1s
+candidate 16/mean_std_trend/conditional 0.2s
+ait 1 selected representation (4, 'mean_std', 'conditional') XGB 2
+ait fold 1 xgb BST fallback 0 / 14400
+ait fold 1 xgb ST fallback 0 / 14400
+ait fold 1 xgb BT fallback 0 / 14400
+ait fold 1 xgb BS fallback 0 / 14400
+ait fold 1 complete 3.67 seconds
+ait fold 2 train_tasks 8 test_tasks 4 test_pairs 14000
+candidate 4/mean_std/direct 0.4s
+candidate 4/mean_std/conditional 0.4s
+candidate 4/mean_std_trend/direct 0.5s
+candidate 4/mean_std_trend/conditional 1.2s
+candidate 8/mean_std/direct 0.6s
+candidate 8/mean_std/conditional 0.3s
+candidate 8/mean_std_trend/direct 0.2s
+candidate 8/mean_std_trend/conditional 0.2s
+candidate 16/mean_std/direct 0.1s
+candidate 16/mean_std/conditional 0.2s
+candidate 16/mean_std_trend/direct 0.2s
+candidate 16/mean_std_trend/conditional 0.2s
+ait 2 selected representation (4, 'mean_std', 'conditional') XGB 3
+ait fold 2 xgb BST fallback 0 / 14000
+ait fold 2 xgb ST fallback 0 / 14000
+ait fold 2 xgb BT fallback 0 / 14000
+ait fold 2 xgb BS fallback 0 / 14000
+ait fold 2 complete 6.6 seconds
