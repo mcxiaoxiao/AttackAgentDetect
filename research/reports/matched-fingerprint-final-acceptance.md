@@ -6,7 +6,7 @@ Starting commit: `7b93a87667f6145ed89d1eed82b7154663f99f4f`
 
 ## Outcome
 
-The planned matched experiments, targeted diagnostic rounds, one-shot external AA evaluation, manuscript, bilingual research page, and reproducibility bundle are complete. The prespecified robust-gain criteria were not met. The results support a bounded conclusion: B/S/T association effects depend on classifier, source, pair type, and the false-merge/false-split operating tradeoff. They do not establish a general Agent-related degradation or a universal fingerprint benefit.
+On the frozen external NYU Agent–Agent evaluation, B/S raises balanced accuracy by 5.71 percentage points for XGBoost and 3.64 points for the decision tree, with fewer missed links and more false merges. SVM loses 8.23 points on the same pairs. The CTH five-share comparison and AIT timing ablation leave their respective BA increments uncertain. These results do not meet the prespecified requirement for stable gains with both error rates decreasing. The evaluated relation is benchmark task identity.
 
 ## Experimental evidence and provenance
 
@@ -15,7 +15,7 @@ The planned matched experiments, targeted diagnostic rounds, one-shot external A
 - **External NYU AA:** frozen before fitting, with 160 task groups, 585 runs, 234,000 candidate pairs, 58,500 query galleries, and 1,404,000 predictions. The task-group split, pair equality, zero fallback, threshold arithmetic, and prediction manifest passed verification. This is a one-shot same-challenge retrieval proxy, not Human–Agent or verified attack-activity confirmation.
 - **Key result files:** CTH five-share analysis SHA-256 `026600a75fb39a0316c8f0cae9b311e5148a1f5c9880604e41198875ffae6e1d`; unified CTH/AIT ablation SHA-256 `9c0f4279bc38f18c72561e7536dcd346de299a7282f111e801675446afd96a0e`; NYU analysis SHA-256 `86a65cdb6a90b27699be48791b39a1dfc315ebe25a251f14da16ab28365b8451`.
 - **NYU frozen artifacts:** pair manifest SHA-256 `a25ad991e2d20f27e23f48d4e56d6e63e225921eacb6f8888805df6c3b6a0625`; predictions SHA-256 `208df72a15180c221ed63312cd3bbd0f12a592f37d58c1230bd1f4fce90adc8d`.
-- **Result builder:** `research/experiments/matched_fingerprint_v2/build_paper_results.py`, SHA-256 `dfa729a6dd515064d6d6956a0daa73cfb3d934cbc893aa5a8ac5a472c4a8195c`. It derives the manuscript tables, plots, and bilingual page data from frozen result JSON; SVG output keeps vector geometry while trimming redundant path whitespace.
+- **Result builder:** `research/experiments/matched_fingerprint_v2/build_paper_results.py`, SHA-256 `1811364316b07fb9e8b25dcd8947e5356b0a53928cb4b6c7e8c156e255cf62a6`. It derives the manuscript tables, plots, and bilingual page data from frozen result JSON; SVG output keeps vector geometry while trimming redundant path whitespace.
 
 ## Manuscript and page checks
 
@@ -34,7 +34,7 @@ The planned matched experiments, targeted diagnostic rounds, one-shot external A
 
 ## Final artifact digests
 
-The current PDF and TeX digests are SHA-256 `124cd160f74614611985b5131dbdfb618bc405265c43658298f8e8fe3da27a6e` and `fe9abdf341169a289f96f7aee9092dc63ffb7d15b4f8797e7b00f45e3a330279`. The independently compilable 101-file source ZIP is 57,776,300 bytes; its SHA-256 is `f520e567b4ff778234af7df0b0ddd1e628bfa39f8c8d2761a3857312b4c76871`.
+The current PDF and TeX digests are SHA-256 `46ad221c9498f817541124e312eb6781031a7b9b16e9f91d92b913bbf1138189` and `ea57427c3eb228d7cdf7b52dea5f33f349b7b86399f65d61ad0544ee971a9af3`. The independently compilable 101-file source ZIP is 57,776,179 bytes; its SHA-256 is `7e0124ab20cebaf776670a2d6bfef1ed5c04cbed7e053b3820efd8b7d5861d71`.
 
 ## Limits retained in the paper
 
