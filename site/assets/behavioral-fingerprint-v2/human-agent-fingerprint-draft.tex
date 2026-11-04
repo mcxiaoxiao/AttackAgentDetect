@@ -15,6 +15,7 @@
 \usepackage{xurl}
 \usepackage{hyperref}
 \usepackage{caption}
+\usepackage{placeins}
 \hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
 \graphicspath{{figures/}}
 \setlength{\parskip}{0.38em}
@@ -41,7 +42,7 @@
 
 \title{When Execution Composition Changes Trace Similarity\\
 \large A Matched Evaluation of Behavioral Fingerprints}
-\author{AttackAgent Detect Research Team}
+\author{\raisebox{-0.3em}{\includegraphics[height=1.35em,trim=70bp 33bp 65bp 32bp,clip]{attackagent-owl.png}}\hspace{0.45em}AttackAgent Detect}
 \date{4 November 2026}
 
 \begin{document}
@@ -54,20 +55,51 @@ We study how AI-Agent participation changes errors in linking traces from the sa
 \section{Introduction}
 Security investigations must decide which retained traces deserve joint inspection. Event-correlation systems use temporal, causal, provenance, or technique-level evidence to connect records into incident narratives~\cite{holmes,poirot,atlas,ostinato}. Many available traces, however, expose only commands, coarse actions, and sometimes timestamps. A pairwise method that uses those fields may be sensitive to how a task was executed: Human and Agent runs can follow different paths through the same task, while different tasks can share similar tool patterns.
 
-This creates two distinct decision errors. A \emph{false split} rejects two traces from the same benchmark task; a \emph{false merge} accepts traces from different tasks. We first ask how these errors vary when the Agent-role share of a fixed candidate comparison rises from zero to one. We then test whether a log-derived B/S/T fingerprint reduces these errors when added to the same learned association models and candidate pairs. The relation label is benchmark task identity, used as a retrieval proxy. It is not verified attack-activity, campaign, or operator identity.
+Figure~\ref{fig:architecture} traces the analysis from observable logs to a windowed fingerprint and two readouts. The pairwise readout uses fingerprints directly as association evidence. The execution-mode readout estimates the recorded Human/Agent label in a separate evaluation.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-v3-overview.png}
+\par\vspace{.15em}
+\noindent\makebox[\linewidth][l]{%
+\begin{minipage}[t]{.31\linewidth}\centering\small
+\textbf{Observable logs}\\Commands, order, timing
+\end{minipage}%
+\begin{minipage}[t]{.38\linewidth}\centering\small
+\textbf{B/S/T fingerprint}\\Behavior, sequence, timing
+\end{minipage}%
+\hspace{.09\linewidth}%
+\begin{minipage}[t]{.22\linewidth}\centering\small
+\textbf{Two readouts}\\Mode scores and links
+\end{minipage}%
+}\par
+\caption{Observable logs, a windowed behavioral fingerprint, and two separately evaluated readouts. The three sheets show the B, S, and T blocks of one trace, joined by columns into one matrix. Each trace is processed independently. Timing is recorded as missing where unobserved. Log fields and cell colors are illustrative.}
+\label{fig:architecture}
+\end{figure}
+
+The pairwise readout has two distinct errors. A \emph{false split} rejects two traces from the same benchmark task. A \emph{false merge} accepts traces from different tasks. We first ask how these errors vary as the share of Agent roles rises from zero to one. We then compare the same models and candidate pairs with and without the fingerprint. The relation label is benchmark task identity, used as a retrieval proxy.
 
 The exact-mixture experiment measures how errors from a fixed similarity threshold change across role allocations. The matched CTH experiment estimates the B/S increment on identical pairs for three learners, and AIT supplies observed launch times for the timing ablation. In the frozen NYU D-CIPHER evaluation, B/S raises BA for XGBoost and the decision tree by recovering more same-challenge links while accepting more different-challenge pairs. SVM loses BA on the same NYU pairs.
 
 Our contributions are: (1) a coupled five-share mixture test that reports false merges and missed links separately; (2) a matched, three-classifier comparison and a single B/S/T ablation table across CTH and AIT; and (3) a one-shot, cross-source Agent-only confirmation with explicit error transitions. We state what each task-proxy label permits and retain both unfavorable and uncertain results.
 
+\FloatBarrier
 \section{Related work}
 Attack-correlation methods align event, provenance, and technique evidence to reconstruct or search for attack behavior~\cite{holmes,poirot,atlas,ostinato,sfm}. Agent-trajectory work instead studies workflow representation or identification: Trace analyzes terminal behavior, LIDAR enrolls model--harness fingerprints, Known By Their Actions studies browser-agent traces, and ProcGrep treats coding trajectories as programs~\cite{trace,lidar,known,procgrep}. These tasks motivate log-derived behavioral features, but model identity and same-task trace association are different prediction targets. Cross-Agent studies campaign linking with synthetic labels~\cite{crossagent}; those labels also differ from the benchmark-task proxy used here. The experimental tables in the appendix preserve the broader earlier data-coverage and source-specific comparisons without combining their protocols with the new matched study.
 
 \section{Representation and association model}
 Let $x$ and $y$ be two traces, and let $z=1$ indicate that they share a benchmark task. The base evidence $E(x,y)$ contains command TF--IDF cosine and action-bigram TF--IDF cosine. Each trace also receives a windowed fingerprint: B summarizes local action organization and repetition; S summarizes novelty, revisits, and fragment reuse; T summarizes measured launch gaps or durations only when the source records the required time fields. Missing observations remain missing. No time value is inferred from event order or a workflow label.
 
+Figure~\ref{fig:bst-dimensions} defines the eight measurements in each block. With $J$ windows, the trace matrix has shape $J\times16$ for B/S and $J\times24$ for B/S/T. The fixed-length readout summarizes each feature column by its mean and standard deviation, with an across-window trend when selected in training. Figure~\ref{fig:matrix} shows measured AIT windows.
+
 For each available block, the pair representation appends the absolute difference between training-standardized trace summaries. In the selected conditional fusion, these differences are multiplied by command similarity before concatenation with $E$. B/S/T are evidence features for the pair classifier; the task, execution role, source, and path are not model inputs. The classifiers are RBF-SVM, a decision tree, and XGBoost. Their scores are not calibrated probabilities. If either trace lacks a complete required block, the pair uses the same-fold E-only score and threshold; these fallback decisions remain in the evaluation.
 
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-bst-dimensions.pdf}
+\caption{The 24 B/S/T measurements, using the block colors of Figure~\ref{fig:architecture}. Glyphs illustrate definitions. Lowercase symbols denote commands and uppercase symbols coarse actions. $n$ counts window events, $m$ valid adjacent action pairs, $U$ unique values, $\mathcal{H}$ prefix history, and $\Delta_t$ revisit lag. For observed timing, $g$ is a nonnegative gap in seconds, $\ell=\log(1+g)$, $d$ duration, and $i$ nonnegative idle time.}
+\label{fig:bst-dimensions}
+\end{figure}
+
+\FloatBarrier
 \section{Evaluation}
 \paragraph{Exact CTH role mixture.} The frozen CTH core has 17 task groups. In 170 coupled allocations, 16 tasks contribute query and candidate roles, with exactly 0, 8, 16, 24, or 32 Agent roles among the 32 allocated roles. Each query has one same-task and three different-task candidates. Candidate tasks and draws are paired across shares. The share is therefore a property of the constructed query galleries, not a resampled proportion of all source records. We retain the earlier command- and action-bigram-cosine baselines to describe this protocol.
 
@@ -79,7 +111,13 @@ We report balanced accuracy (BA), false-merge rate (FMR), and false-split rate (
 
 \section{Results}
 \subsection{The mixture baseline shifts toward missed links}
-Under the exact CTH role mixture, command-cosine BA changes from 53.59\% at 0\% Agent roles to 46.50\% at 100\% (endpoint difference $-7.10\pp$, 95\% task interval $[-15.45,+0.06]$). Action-bigram BA changes from 57.40\% to 46.48\% ($-10.92\pp$, $[-20.61,-3.06]$). Across these endpoints, FSR rises and FMR falls. Thus the observed overall decline reflects a shift in the fixed operating point toward rejecting links, not an increase in both error types. This pattern belongs to this task-proxy allocation and threshold protocol.
+Figure~\ref{fig:exact-mixture} shows both error rates and BA under the exact CTH role mixture. Command-cosine BA changes from 53.59\% at 0\% Agent roles to 46.50\% at 100\% (endpoint difference $-7.10\pp$, 95\% task interval $[-15.45,+0.06]$). Action-bigram BA changes from 57.40\% to 46.48\% ($-10.92\pp$, $[-20.61,-3.06]$). At the fixed threshold, missed links increase and false merges decrease from the first endpoint to the last.
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{exact-mixture-v3.pdf}
+\caption{Command and action-bigram cosine baselines at the five exact CTH role shares. From left to right, false merges, missed links, and balanced accuracy. Shading shows 95\% intervals from resampling the 17 task groups after averaging paired allocations within each task.}
+\label{fig:exact-mixture}
+\end{figure}
 
 \subsection{Matched CTH learners do not show a common B/S gain}
 Figure~\ref{fig:cth-five-share} shows the same-pair E and E+B/S curves. Averaged equally over the five shares, the XGBoost B/S arm changes BA by $-2.38\pp$ (95\% paired interval $[-7.13,+2.25]$), while FMR rises 9.46 points and FSR falls 4.70 points. SVM changes BA by $+1.38\pp$ $[-3.83,+6.53]$; its mean FMR also rises. The decision-tree B/S version rejects every candidate, giving 50\% BA, zero FMR, and 100\% FSR. None of the three learners satisfies the pre-specified requirement of a stable gain without an error trade-off. The small, five-share changes are made explicit in Figure~\ref{fig:cth-delta}; the intervals cross zero.
@@ -90,7 +128,7 @@ Figure~\ref{fig:cth-five-share} shows the same-pair E and E+B/S curves. Averaged
 \label{fig:cth-five-share}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!b]
 \centering\includegraphics[width=.92\linewidth]{cth-five-share-delta-ba.pdf}
 \caption{Paired BA change (E+B/S minus E) at each CTH share, in percentage points. The dashed line marks zero; intervals are task-cluster paired 95\% intervals.}
 \label{fig:cth-delta}
@@ -106,6 +144,7 @@ On the AIT association task proxy, adding measured T to E+B/S changes BA by $+0.
 
 On frozen NYU Agent-only challenge retrieval, adding B/S improves BA by $+5.71\pp$ $[+3.63,+7.73]$ for XGBoost and $+3.64\pp$ $[+1.97,+5.37]$ for the decision tree. With XGBoost, FSR falls from 86.96\% to 60.86\% and FMR rises from 10.72\% to 25.39\%. The tree shows the same error trade-off. SVM BA falls by $8.23\pp$ $[-10.22,-6.28]$. XGBoost also ranks the same-challenge candidate first more often, with a Hit@1 gain of $+3.20\pp$ $[+0.45,+5.90]$ (Appendix~\ref{app:nyu}).
 
+\FloatBarrier
 \section{Discussion}
 On NYU, the reduction in missed links outweighs the increase in false merges for XGBoost and the decision tree under BA's equal weighting of the two error rates. XGBoost's Hit@1 gain supports using its score to prioritize candidates for review on this benchmark. For automatic linking, the observed 25.39\% FMR with B/S exceeds the 10\% validation ceiling used to select the threshold on CTH. These two uses put different demands on the score and its decision threshold.
 
@@ -223,7 +262,7 @@ CyBiasBench & 450 sessions & \present & -- & -- & \mbox{A\,\agenticon} & Target-
 \end{table}
 
 
-\clearpage
+\FloatBarrier
 \subsection{Earlier association and ablation tables}
 
 \begin{table}[ht]
@@ -349,6 +388,44 @@ Command+B/S + cross-fitted mode & 31.15 & .522 & $\loss{-2.50}\;\textcolor{Resea
 
 % MATCHED-FINGERPRINT-V2-LEGACY-TABLES:END
 
+\FloatBarrier
+\section{Figures from the earlier protocols}\label{app:overnight-figures}
+These figures document the earlier AIT measurements, the evidence-conditioned tree example, and the within-source comparisons. Their captions identify the source and evaluation protocol.
+
+\subsection{Observed AIT behavior and timing}
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-v2-matrix-example.pdf}
+\caption{Two AIT traces from the same troubleshooting task, visualized as 24 B/S/T columns over variable-length windows. The shared blue--amber scale shows cohort-standardized values for display. Hatched cells mark missing observations.}
+\label{fig:matrix}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-observed-rhythm.pdf}
+\caption{Observed timing behind T. Left, real launch timestamps from the two traces in Figure~\ref{fig:matrix}, aligned to their own first observed launch with a shared seconds scale. Right, empirical distributions of one median launch gap per run over all 109 AIT runs. The scale is logarithmic above 0.1 seconds and preserves zero gaps. Each run contributes at most its first 128 login-associated events.}
+\label{fig:timing}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-recognition-matrix.pdf}
+\caption{Earlier execution-mode recognition on 109 AIT runs (61 Human, 48 Agent in 12 task groups). Cells report balanced accuracy and 95\% intervals for the recorded mode label. The outlined row shows the linear B/S/T readout and the bottom annotations show its paired T increment. Collection workflow co-varies with the released labels.}
+\label{fig:recognition}
+\end{figure}
+
+\FloatBarrier
+\subsection{Earlier evidence-conditioned association}
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-conditioned-association.pdf}
+\caption{Earlier conditioned tree scorer and one held-out CTH \texttt{locktalk} decision. Panel a shows how two evidence scores and 48 conditioned B/S differences enter the scorer. Panel b shows contributions to a selected score among 31 corrected cross-mode same-task pairs in the purged source holdout. Each model uses its own training-selected threshold.}
+\label{fig:conditioned-association}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{fingerprint-association-comparison.pdf}
+\caption{Earlier within-source evidence-conditioned association. Panel a compares the same shallow-tree family before and after adding B/S. Panel b shows paired BA changes and 95\% intervals. CTH and Antieval resample tasks. KYPO resamples query participants with galleries fixed. The intervals are exploratory and unadjusted.}
+\label{fig:association-comparison}
+\end{figure}
+
+\FloatBarrier
 \section{Reproduction record}
 The research package retains the v1/v2 evaluation scripts, frozen manifests, predictions, verification logs, and bounded development comparisons. The raw AIT archive and original run commands are not redistributed. The source bundle contains the permitted analysis materials and every figure referenced here. Source-specific upstream terms apply.
 

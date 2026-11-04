@@ -17,7 +17,11 @@ ZIP_PATH = DEST / "human-agent-fingerprint-draft-source.zip"
 FIGURES = [
     "cth-five-share-matched.pdf", "cth-five-share-delta-ba.pdf",
     "cth-xgb-pair-type-deltas.pdf", "nyu-aa-paired-deltas.pdf",
-    "mode-human.pdf", "mode-agent.pdf",
+    "mode-human.pdf", "mode-agent.pdf", "attackagent-owl.png",
+    "fingerprint-v3-overview.png", "fingerprint-bst-dimensions.pdf",
+    "exact-mixture-v3.pdf", "fingerprint-v2-matrix-example.pdf",
+    "fingerprint-observed-rhythm.pdf", "fingerprint-recognition-matrix.pdf",
+    "fingerprint-conditioned-association.pdf", "fingerprint-association-comparison.pdf",
 ]
 V1_FILES = [
     "environment.json", "baseline_reproduction.json", "metrics.json", "summary.csv",
@@ -91,7 +95,7 @@ cd research/paper
 tectonic --reruns 2 human-agent-fingerprint-draft.tex
 ```
 
-The manuscript uses the same 10 pt type and 0.72 in margins as the prior paper. The main text and references end on page 6; the complete PDF has 11 pages, with appendices following.
+The manuscript uses 10 pt type and 0.72 in margins. The references end on page 8, and the complete PDF has 15 pages with appendices. It includes all eight figures and the owl logo from the overnight draft.
 
 ## Recompute summary tables and figures
 
