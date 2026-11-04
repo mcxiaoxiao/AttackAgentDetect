@@ -15,12 +15,12 @@ On the frozen external NYU Agent–Agent evaluation, B/S raises balanced accurac
 - **External NYU AA:** frozen before fitting, with 160 task groups, 585 runs, 234,000 candidate pairs, 58,500 query galleries, and 1,404,000 predictions. The task-group split, pair equality, zero fallback, threshold arithmetic, and prediction manifest passed verification. This is a one-shot same-challenge retrieval proxy, not Human–Agent or verified attack-activity confirmation.
 - **Key result files:** CTH five-share analysis SHA-256 `026600a75fb39a0316c8f0cae9b311e5148a1f5c9880604e41198875ffae6e1d`; unified CTH/AIT ablation SHA-256 `9c0f4279bc38f18c72561e7536dcd346de299a7282f111e801675446afd96a0e`; NYU analysis SHA-256 `86a65cdb6a90b27699be48791b39a1dfc315ebe25a251f14da16ab28365b8451`.
 - **NYU frozen artifacts:** pair manifest SHA-256 `a25ad991e2d20f27e23f48d4e56d6e63e225921eacb6f8888805df6c3b6a0625`; predictions SHA-256 `208df72a15180c221ed63312cd3bbd0f12a592f37d58c1230bd1f4fce90adc8d`.
-- **Result builder:** `research/experiments/matched_fingerprint_v2/build_paper_results.py`, SHA-256 `1811364316b07fb9e8b25dcd8947e5356b0a53928cb4b6c7e8c156e255cf62a6`. It derives the manuscript tables, plots, and bilingual page data from frozen result JSON; SVG output keeps vector geometry while trimming redundant path whitespace.
+- **Result builder:** `research/experiments/matched_fingerprint_v2/build_paper_results.py`, SHA-256 `7a9aa4acc860f8d4f34ea980175d16dbbdf773324463df1150e84e2ce1fe98aa`. It derives the manuscript tables, plots, and bilingual page data from frozen result JSON; SVG output keeps vector geometry while trimming redundant path whitespace.
 
 ## Manuscript and page checks
 
-- `research/paper/human-agent-fingerprint-draft.tex` retains the original 10 pt type and 0.72 in margins. The references end on page 8. The complete PDF has 15 pages. The 10 historical table blocks occur once each and match their pre-edit SHA-256 snapshots exactly.
-- The draft uses all eight original figure assets and the owl logo from the overnight draft. The main text contains the overview, B/S/T formula atlas, and CTH baseline triptych. Appendix E documents the remaining figures under their earlier evaluation protocols. The author line reads AttackAgent Detect.
+- `research/paper/human-agent-fingerprint-draft.tex` retains the original 10 pt type and 0.72 in margins. The references end on page 8. The complete PDF has 13 pages. Three main-text tables give the evaluation cohorts, available fields, and the four NYU submissions. The matched ablation result is reported in prose and the full results are available in the research artifacts.
+- The draft uses all eight original figure assets and the owl logo from the overnight draft. The main text contains the overview, B/S/T formula atlas, and CTH baseline triptych. The appendices group the remaining figures with their feature definitions and evaluation protocols. The overnight source preserves its original table blocks. The author line reads AttackAgent Detect.
 - The PDF was compiled with Tectonic and rendered page-by-page for visual inspection. No missing figures, unresolved references, clipped tables, or visible overflow were found. Two bibliography underfull-box notices remain; they do not affect rendered legibility.
 - The source ZIP was extracted into a clean temporary directory and compiled independently. It contains the manuscript sources, referenced figures, frozen predictions/manifests, analyses, verifiers, and research notes; raw AIT logs and raw command text are excluded.
 - The local bilingual page was checked in Chinese and English at desktop and narrow viewport sizes. Browser console returned no errors or warnings. Document width matched the viewport; wide tables remain horizontally scrollable within their containers.
@@ -35,7 +35,7 @@ On the frozen external NYU Agent–Agent evaluation, B/S raises balanced accurac
 
 ## Final artifact digests
 
-The current PDF and TeX digests are SHA-256 `a49dcb220a460dab0531c43a80e19c53efe0f6b91b7c2d900fe5518c4a16f167` and `8026f6c967bcc554a933d015c201e3874f919550e51b5674bbab006e5c1ec44f`. The independently compilable 110-file source ZIP is 58,908,148 bytes. Its SHA-256 is `5af9b02a7cc74079471d382a1029def88694a9d6034c1b70f8a76d5b6db3125d`.
+The current PDF and TeX digests are SHA-256 `33044637543d95ff38186aa4e5099c95b7aae5321986d0b1a8cc27b41a22b635` and `2ba685c8b6c0d3c50ba871dc8dac91f76563f7132850d0019e2d7c6d7080bf03`. The independently compilable 111-file source ZIP is 58,922,574 bytes. Its SHA-256 is `80cb6a1a5865fd40d2a6db65dfbaf2cf6ce9c850fb377dfab6d1782b5164c0e4`.
 
 ## Limits retained in the paper
 

@@ -240,11 +240,7 @@ def plot_nyu(nyu):
     save_figure(fig, "nyu-aa-paired-deltas")
 
 
-def build_tex_main_tables(five, ablation):
-    configs = {
-        "cth": [("BS", "Full"), ("S", "Remove B"), ("B", "Remove S"), ("evidence", "E only")],
-        "ait": [("BST", "Full"), ("ST", "Remove B"), ("BT", "Remove S"), ("BS", "Remove T"), ("evidence", "E only")],
-    }
+def build_tex_main_tables(five):
     lines = [
         r"\begin{table}[ht]", r"\centering", r"\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}",
         r"\caption{Matched CTH classifier comparison averaged equally over five Agent-role shares. Every classifier uses the same paired candidate decisions. Changes are B/S minus evidence-only E in percentage points; 95\% intervals are paired task-cluster bootstrap intervals.}",
@@ -258,31 +254,6 @@ def build_tex_main_tables(five, ablation):
         row = [label, f"{pct(e['evidence']['metrics']['ba']):.2f}", f"{pct(e['BS']['metrics']['ba']):.2f}",
                latex_ci(delta, "ba", is_delta=True), f"{pct(delta['metrics']['fmr']):+.2f}", f"{pct(delta['metrics']['fsr']):+.2f}"]
         lines.append(" & ".join(row) + r" \\")
-    lines += [r"\bottomrule", r"\end{tabular*}", r"\end{table}", ""]
-    lines += [
-        r"\begin{table}[ht]", r"\centering", r"\scriptsize\setlength{\tabcolsep}{2.6pt}\renewcommand{\arraystretch}{1.12}",
-        r"\caption{Matched B/S/T ablation on the same candidate pairs. BA is task-macro balanced accuracy in percent; FMR and FSR are error rates in percent; $\Delta$BA compares with the full fingerprint for that dataset. Brackets are 95\% paired task-cluster bootstrap intervals (10,000 resamples). CTH averages the five role shares equally; AIT averages 12 tasks. Repeated pair decisions are not independent observations.}",
-        r"\label{tab:matched-bst-ablation}",
-        r"\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc rrr r@{}}", r"\toprule",
-        r"Configuration & B & S & T & BA (\%) [95\% CI] & FMR (\%) & FSR (\%) & $\Delta$BA (pp) [95\% CI] \\ \midrule",
-    ]
-    for dataset, rows in configs.items():
-        heading = r"CTH: 17 task groups; five exact role shares" if dataset == "cth" else r"AIT: 12 task groups; observed launch times"
-        lines.append(rf"\multicolumn{{8}}{{@{{}}l}}{{\textbf{{{heading}}}}} \\")
-        for config, label in rows:
-            e = ablation["results"][dataset][config]
-            b = r"\present" if "B" in config else "--"
-            s = r"\present" if "S" in config else "--"
-            t = r"\present" if "T" in config else "--"
-            ba = latex_ci(e, "ba")
-            fmr, fsr = f"{pct(e['metrics']['fmr']):.2f}", f"{pct(e['metrics']['fsr']):.2f}"
-            if config == ("BS" if dataset == "cth" else "BST"):
-                delta = "Reference"
-            else:
-                delta = latex_ci(e["delta_vs_full"], "ba", is_delta=True)
-            lines.append(rf"{label} & {b} & {s} & {t} & {ba} & {fmr} & {fsr} & {delta} \\")
-        if dataset == "cth":
-            lines.append(r"\midrule")
     lines += [r"\bottomrule", r"\end{tabular*}", r"\end{table}"]
     return "\n".join(lines) + "\n"
 
@@ -409,47 +380,13 @@ def install_site(fragment):
     SITE_PAGE.write_text(page)
 
 
-def install_original_tables():
-    """Append the ten pre-existing table blocks unchanged to the draft appendix."""
-    draft_path = ROOT / "research/paper/human-agent-fingerprint-draft.tex"
-    snapshot_path = ROOT / "research/results/matched_fingerprint_v1/original_table_snapshot.json"
-    draft = draft_path.read_text()
-    begin = "% MATCHED-FINGERPRINT-V2-LEGACY-TABLES:BEGIN"
-    end = "% MATCHED-FINGERPRINT-V2-LEGACY-TABLES:END"
-    if begin not in draft or end not in draft:
-        return
-    snap = load(snapshot_path)
-    blocks = [x["text"] for x in snap["tables"]]
-    expected = [x["sha256"] for x in snap["tables"]]
-    actual = [hashlib.sha256(b.encode()).hexdigest() for b in blocks]
-    if actual != expected or len(blocks) != 10:
-        raise RuntimeError("Original table snapshot no longer matches its stored hashes")
-    groups = [
-        ("\n\\subsection{Earlier source and cohort tables}\n", blocks[:3]),
-        ("\n\\clearpage\n\\subsection{Earlier association and ablation tables}\n", blocks[3:6]),
-        ("\n\\clearpage\n\\subsection{Earlier feature, transfer, and recognition tables}\n", blocks[6:]),
-    ]
-    parts = []
-    for heading, selected in groups:
-        parts.append(heading)
-        for block in selected:
-            if block.startswith(r"\begin{longtable}"):
-                parts.append("\\begingroup\\compacttable\n" + block + "\n\\endgroup\n")
-            else:
-                parts.append(block + "\n")
-    content = begin + "\n" + "\n".join(parts) + "\n" + end
-    draft = re.sub(re.escape(begin) + r".*?" + re.escape(end), lambda _: content, draft, flags=re.S)
-    draft_path.write_text(draft)
-
-
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     five, ablation, nyu = load(FIVE_PATH), load(ABLATION_PATH), load(NYU_PATH)
     data = normalized_inputs(five, ablation, nyu)
     (OUT / "paper_display_data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
-    (ROOT / "research/paper/matched-v2-main-tables.tex").write_text(build_tex_main_tables(five, ablation))
+    (ROOT / "research/paper/matched-v2-main-tables.tex").write_text(build_tex_main_tables(five))
     (ROOT / "research/paper/matched-v2-appendix-tables.tex").write_text(build_tex_appendix_tables(five, nyu))
-    install_original_tables()
     plot_cth_share(five)
     plot_delta_by_share(five)
     plot_pair_type(five)

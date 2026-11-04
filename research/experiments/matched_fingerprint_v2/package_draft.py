@@ -52,7 +52,8 @@ def collect():
             raise FileNotFoundError(src)
         entries[src] = rel
 
-    add(PAPER / "human-agent-fingerprint-draft.tex", Path("research/paper/human-agent-fingerprint-draft.tex"))
+    for name in ("human-agent-fingerprint-draft.tex", "human-agent-fingerprint-overnight.tex"):
+        add(PAPER / name, Path("research/paper") / name)
     for f in ("matched-v2-main-tables.tex", "matched-v2-appendix-tables.tex"):
         add(PAPER / f, Path("research/paper") / f)
     for name in FIGURES:
@@ -95,7 +96,7 @@ cd research/paper
 tectonic --reruns 2 human-agent-fingerprint-draft.tex
 ```
 
-The manuscript uses 10 pt type and 0.72 in margins. The references end on page 8, and the complete PDF has 15 pages with appendices. It includes all eight figures and the owl logo from the overnight draft.
+The manuscript uses 10 pt type and 0.72 in margins. The references end on page 8, and the complete PDF has 13 pages with appendices. The draft includes the original figures and owl logo. The evaluation section lists the active cohorts and the four NYU snapshots. The bundle also includes the overnight manuscript as a reference.
 
 ## Recompute summary tables and figures
 

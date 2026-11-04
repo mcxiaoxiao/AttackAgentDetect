@@ -107,23 +107,6 @@ checks["original_table_snapshot"] = {
     "sha256": [x["sha256"] for x in snapshot["tables"]]}
 checks["original_tex_sha256"] = hashlib.sha256(original.encode()).hexdigest()
 
-# Paper writing starts only after the experiment gate. At the research stage,
-# verify the frozen source tables without requiring a premature manuscript.
-draft_path = PAPER / "human-agent-fingerprint-draft.tex"
-if draft_path.exists():
-    draft = draft_path.read_text()
-    preserved = []
-    for expected in snapshot["tables"]:
-        found = draft.count(expected["text"])
-        assert found == 1, (expected["label"], found)
-        preserved.append({"label": expected["label"], "sha256": expected["sha256"],
-                          "exact_occurrences": found})
-    checks["preserved_original_tables"] = preserved
-    checks["draft_tex_sha256"] = hashlib.sha256(draft.encode()).hexdigest()
-    checks["all_previous_tables_exact"] = True
-else:
-    checks["draft_status"] = "not-yet-created; experiment gate is pending"
-
 data = json.loads((OUT / "metrics.json").read_text())
 for d in ("cth", "ait"):
     for x in data[d]["methods"]:
