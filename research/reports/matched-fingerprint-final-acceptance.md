@@ -35,7 +35,7 @@ On the frozen external NYU Agent–Agent evaluation, B/S raises balanced accurac
 
 ## Final artifact digests
 
-The current PDF and TeX digests are SHA-256 `33044637543d95ff38186aa4e5099c95b7aae5321986d0b1a8cc27b41a22b635` and `2ba685c8b6c0d3c50ba871dc8dac91f76563f7132850d0019e2d7c6d7080bf03`. The independently compilable 111-file source ZIP is 58,922,574 bytes. Its SHA-256 is `80cb6a1a5865fd40d2a6db65dfbaf2cf6ce9c850fb377dfab6d1782b5164c0e4`.
+The current PDF and TeX digests are SHA-256 `26e3b11b5610d134c2e4d0d80fd267ec279524085ef15bf02a93670fbf536c7b` and `eb951dc9762438e372e95247883d9d5116d1363c169e5a513697bfdffd8a1220`. The independently compilable 111-file source ZIP is 58,922,542 bytes. Its SHA-256 is `d3286cace2c20332854796994ca90eb6ccfe91afad527131f0ea82f5f0c04b5c`.
 
 ## Limits retained in the paper
 
