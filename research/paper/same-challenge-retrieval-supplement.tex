@@ -1,0 +1,257 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
+\setlength{\parskip}{.32em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{1em}
+\renewcommand{\arraystretch}{1.08}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\newcommand{\pp}{\ensuremath{\,\mathrm{pp}}}
+\newcommand{\ci}[2]{[#1,\,#2]}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{Supplementary Material for\\Same-Challenge Retrieval in Human and Agent CTF Logs}
+\author{AttackAgent Detect Research}
+\date{6 November 2026}
+
+\begin{document}
+\maketitle
+
+\section{Feature provenance and actual model dimensions}
+The B/S/T schema is a candidate measurement taxonomy derived from observable fields in ordered command/action logs. B measures local diversity, entropy, transitions, and repetition; S measures first-seen events, revisits, returns, and reused fragments; T measures launch gaps and, when available, duration/idle intervals. Earlier computer-security user models treated command order and inter-command timing as behavioral evidence, while UNIX profiling also considered command execution time~\cite{mcmahon,dao}. This supports timing as a plausible feature family, not our eight-slot allocation or each statistic's value for same-task retrieval. Indeed, earlier work found its timing metric less promising than its command-string metric and called for refinement~\cite{mcmahon}. Our 24 slots (eight per block) are a design convention, not a theoretically derived or label-selected count. T1--T6 are launch-gap summaries. T7--T8 require event durations and are optional, unvalidated extensions. The candidate schema has 24 slots; in AIT only six timing measures vary, and in CTH/NYU only the 16 B/S values are measured in our normalized trace views. This is distinct from the earlier 24-value summary of eight K1--K8 measures by mean, standard deviation, and trend.
+
+The model input is also not 24 columns. A per-trace summary retains either two statistics per measurement (mean/standard deviation) or three (mean/standard deviation/trend). The pair model appends absolute trace-summary differences to two evidence similarities. For the selected CTH and external Agent-only configurations, B/S therefore contributes 32 or 48 pair-difference values depending on pooling. CTH outer fold 0 selected four-event windows, mean/standard-deviation pooling, conditional fusion, and XGBoost depth 2; folds 1 and 2 selected four-event windows, mean/standard-deviation/trend pooling, direct fusion, and XGBoost depth 3. NYU and CTH AA use four-event, mean/standard-deviation, conditional fusion and XGBoost depth 3.
+
+\begin{table}[ht]
+\centering\footnotesize
+\caption{The 24-slot candidate schema. An experiment uses only measurements available in its source; T7--T8 are optional duration-dependent extensions.}
+\begin{tabularx}{\linewidth}{@{}p{.09\linewidth}p{.28\linewidth}Y@{}}
+\toprule Block & Measurement IDs & Operational definitions \\
+\midrule
+B & B1--B3 & Distinct command share; command-name entropy; dominant-command share. \\
+B & B4--B6 & Known adjacent-action switch fraction; next-action conditional entropy; longest same-action run fraction. \\
+B & B7--B8 & One minus unique mapped action-bigram share; identical adjacent-command fraction. \\
+S & S1--S3 & First-seen command share; long-revisit fraction; normalized log revisit span. \\
+S & S4--S5 & A-B-A action-return share; four-action first/last return share. \\
+S & S6--S8 & Reused command-bigram share; reused command-trigram share; divergence from the preceding-window action distribution. \\
+T & T1--T3 & Median log launch gap; interquartile range; gap burstiness. \\
+T & T4--T6 & Gap-at-most-one-second share; gap-at-least-ten-second share; lag-one log-gap correlation. \\
+T & T7--T8 & Optional duration-dependent extensions: median observed event duration; median observed idle interval after subtracting duration from next start. Not observed in AIT. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Missing fields remain missing. CTH and NYU normalized traces supply no event times; AIT provides process-launch timestamps but not event durations, so T7--T8 have no observations there. The raw CTH archive does include Human terminal I/O timing and timestamped Agent events, but these are different event units and we have not validated a shared per-command start/end mapping~\cite{cth,inspect}. Sparse cells are imputed with training-fold medians; AIT's all-missing T7--T8 columns remain constant after imputation and provide no information. A trace pair with an entirely absent required B/S block uses that fold's E score and E threshold.
+
+\section{Full CTH mixture curves}
+Table~\ref{tab:mixture-full} gives the point estimates underlying Figure 1 of the main paper. Each cell is a task-macro percentage. The same 17 query-task clusters are used at every role share, and the candidate draws are coupled across shares.
+
+\begin{table}[ht]
+\centering\footnotesize
+\caption{Absolute CTH mixture rates and ranking for both cosine baselines.}
+\label{tab:mixture-full}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule Method & Agent share & FMR & FSR & BA & Hit@1 & Gallery AUC \\
+\midrule
+Command cosine & 0\% & 28.11 & 64.71 & 53.59 & 57.37 & 68.59 \\
+& 25\% & 17.86 & 78.71 & 51.72 & 58.79 & 66.26 \\
+& 50\% & 11.70 & 88.90 & 49.70 & 59.88 & 63.65 \\
+& 75\% & 8.65 & 94.89 & 48.23 & 61.37 & 62.18 \\
+& 100\% & 9.14 & 97.87 & 46.50 & 63.35 & 63.34 \\
+\midrule
+Action bigram & 0\% & 32.27 & 52.94 & 57.40 & 53.13 & 63.79 \\
+& 25\% & 20.61 & 70.70 & 54.34 & 54.13 & 60.96 \\
+& 50\% & 12.83 & 84.56 & 51.31 & 53.80 & 57.13 \\
+& 75\% & 9.06 & 93.71 & 48.62 & 54.00 & 54.44 \\
+& 100\% & 9.18 & 97.87 & 46.48 & 53.08 & 52.31 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At the original XGBoost operating points, a retrospective threshold chosen from each held-out fold/share's test scores to maximize recall subject to pooled FMR $\leq10\%$ yielded task-macro recall of 29.41, 22.02, 17.06, 12.79, and 13.20\% for E, and 29.41, 14.26, 14.26, 14.45, and 12.28\% for E+B/S. This is an optimistic descriptive curve reading: the thresholds are selected from those same held-out scores and are not validated operating points.
+
+\begin{table}[ht]
+\centering\footnotesize
+\caption{Three-negative no-match stress check at the original frozen CTH XGBoost thresholds. Each entry is the task-macro percentage of query galleries for which at least one of the three different-task candidates is accepted after removing the positive candidate.}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule Arm & 0\% Agent & 25\% & 50\% & 75\% & 100\% \\
+\midrule
+E & 16.69 & 12.90 & 13.90 & 14.85 & 20.63 \\
+E+B/S & 25.63 & 32.94 & 38.09 & 39.08 & 39.49 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Leave-one-task-out endpoint differences for the action-bigram baseline ranged from $-25.76$ to $-19.12\pp$ in FMR, $+41.48$ to $+47.73\pp$ in FSR, and $-12.43$ to $-7.86\pp$ in BA. The respective directions held in all 17 omissions. For Hit@1, 7 omissions gave a positive difference and 10 a negative one; its mean difference was +0.05 percentage points. Gallery AUC declined in 12 of 17 omissions, but uncertainty included zero.
+
+\section{Exact sequence overlap sensitivity}
+The outer CTH split is task-disjoint, not command-sequence-disjoint. We normalized each trace to the command-head sequence used by the frozen matcher. Across the three outer folds, 9 of 30, 5 of 30, and 16 of 25 held-out traces had a complete command-head sequence also observed in the corresponding training tasks. There were no exact normalized-sequence matches between the 85 CTH training traces and the 585 eligible NYU traces. No eligible NYU challenge slug exactly matched a CTH training slug; one known pre-excluded slug, `2023q-rev-baby\_s\_first`, matched a CTH training slug and was excluded before model fitting.
+
+The predeclared sensitivity rule removed an entire 1:3 gallery if its query or any candidate had an exact sequence present in that fold's training tasks. It retained 2,114 of 13,600 full-cohort query galleries (15.5\%) and 15 query tasks overall; at both endpoint shares, paired estimates were available for five tasks. On this subset, action-bigram FMR was 0\% at both endpoints, FSR rose by 20 percentage points (95\% interval [0, 60]), and BA fell 10 percentage points ([-30, 0]). For frozen XGBoost E and E+B/S, intervals were wide and included no change. This analysis removes most of the galleries and cannot settle whether the full-sample mixture effect persists in a sequence-disjoint cohort. Per-fold trace IDs, retained counts, and metric rows are in the frozen audit output.
+
+\section{Five-arm mechanism control}
+The single new batch uses the same 17-task folds, 54,400 frozen evaluation pairs, and fold-specific XGBoost parameters and B/S representations. Training-pair counts were 176, 176, and 192 by outer fold. The five arms are E; E plus the mean and absolute difference of log command-head and raw shell-chunk counts; that control plus normalized command LCS, $2\,\mathrm{LCS}(x,y)/(|x|+|y|)$; the same control plus real B/S; and the same control plus B/S computed after a per-trace random permutation of commands and actions in lockstep. Count standardization, B/S imputation, representation transforms, and thresholds were fitted within the training fold. Each shuffle seed permutes each trace once and leaves the original E, counts, LCS, task labels, and pair candidates unchanged. The five fixed seeds are 20261105--20261109.
+
+The equal-share mean contrasts (percentage points; paired 95\% task intervals) were:
+
+\begin{itemize}
+\item E+records versus E: BA $-3.04$; FMR $+4.04$; FSR $+2.05$.
+\item E+records+LCS versus E+records: FMR $-3.21$ [-5.28, -1.35]; FSR $+2.12$ [-7.00, +11.13]; BA $+0.54$ [-3.55, +4.73]; Hit@1 $-0.05$ [-1.47, +1.24]; gallery AUC $-0.81$ [-2.78, +0.94].
+\item E+records+B/S versus E+records: FMR $+0.56$ [-3.08, +4.10]; FSR $+1.02$ [-8.32, +10.99]; BA $-0.79$ [-4.96, +3.51]; Hit@1 $-0.93$ [-5.09, +3.30]; gallery AUC $-0.84$ [-6.78, +5.04].
+\end{itemize}
+
+Table~\ref{tab:shuffle-seeds} reports every predeclared shuffle-seed contrast. None of the paired task intervals for BA, Hit@1, or gallery AUC excludes zero when real and shuffled order are compared at the equal-share mean. The negative control does not identify a stable order-specific B/S contribution. It also does not show that arbitrary permutation is a complete null for all B/S measures: local action counts and repetitions remain related to trace composition after shuffling.
+
+\section{Conditional XGBoost signal under expanded training-pair coverage}
+\label{sec:pairsupport}
+This development diagnostic reuses the same 17 CTH tasks, outer folds, XGBoost representation and parameters, and 54,400 evaluation pairs per arm. It changes training-pair coverage from the sampled set (eight positive pairs per training task plus sampled negatives) to all distinct available positive and negative pairs. Both conditions retain equal effective weight by class and observed HH/HA/AA pair type; the test query/candidate keys are identical. OOF thresholds are refit within each training condition. The E baseline contains command-head and action-bigram similarities. E+Args additionally represents option names, coarse argument types and positions, and argument-count buckets; raw argument values are discarded. B/S is then added to each baseline.
+
+Table~\ref{tab:pair-support-increment} reports all four XGBoost BA contrasts. Under all-pair training, E+Args+B/S improves point BA by 6.25 points over E+Args; this comes with a 13.06-point lower FSR and a 0.56-point higher FMR. Its nominal task-bootstrap interval excludes zero, but the simultaneous max-T interval crosses zero after adjustment across the four examined contrasts. This is an exploratory, same-cohort signal, not independent confirmation. The max-T family covers these four BA contrasts only, not every analysis conducted for this paper. The bootstrap resamples query tasks; candidate tasks recur across galleries and are not independently resampled here.
+
+\begin{table}[ht]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{XGBoost B/S increment by training-pair coverage and command baseline. Changes are B/S arm minus the corresponding baseline in percentage points, task-macro over five shares. Each BA cell shows nominal paired task-bootstrap 95\% CI; the final column gives the simultaneous max-T CI across these four BA contrasts.}
+\label{tab:pair-support-increment}
+\begin{tabularx}{\linewidth}{@{}p{.13\linewidth}p{.11\linewidth}rrY Y@{}}
+\toprule Training pairs & Baseline & $\Delta$FMR & $\Delta$FSR & $\Delta$BA, nominal 95\% CI & $\Delta$BA, max-T 95\% CI \\
+\midrule
+Sampled & E & +6.83 & $-8.93$ & +1.05 [$-2.82$, +4.99] & [$-3.86$, +5.96] \\
+Sampled & E+Args & +1.38 & $-5.06$ & +1.84 [$-2.55$, +6.49] & [$-3.85$, +7.53] \\
+All distinct & E & +0.70 & $-7.29$ & +3.29 [$-1.35$, +8.66] & [$-3.06$, +9.64] \\
+All distinct & E+Args & +0.56 & $-13.06$ & +6.25 [+1.17, +12.24] & [$-0.75$, +13.24] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[ht]
+\centering\scriptsize
+\caption{Real B/S minus the corresponding shuffled B/S control at the equally weighted five-share mean, in percentage points. Cells show mean [paired 95\% task interval].}
+\label{tab:shuffle-seeds}
+\begin{tabularx}{\linewidth}{@{}p{.13\linewidth}YYYYY@{}}
+\toprule Seed & $\Delta$FMR & $\Delta$FSR & $\Delta$BA & $\Delta$Hit@1 & $\Delta$AUC \\
+\midrule
+20261105 & +7.38 [4.68, 10.30] & -6.26 [-14.04, 0.40] & -0.56 [-3.22, 2.69] & +2.41 [-2.31, 7.12] & +3.41 [-3.18, 9.77] \\
+20261106 & +2.63 [-0.33, 5.60] & -1.62 [-9.98, 7.56] & -0.50 [-4.43, 3.20] & -0.41 [-4.92, 3.83] & -0.22 [-6.33, 5.44] \\
+20261107 & -0.32 [-5.32, 4.24] & -1.43 [-10.64, 8.07] & +0.87 [-3.62, 5.54] & +4.32 [-0.26, 8.91] & +5.45 [-0.62, 11.43] \\
+20261108 & +0.77 [-2.23, 3.93] & +1.49 [-7.09, 11.33] & -1.13 [-5.62, 2.60] & -0.66 [-4.26, 2.77] & -0.82 [-5.48, 3.80] \\
+20261109 & +0.01 [-1.81, 1.89] & +2.54 [-4.58, 10.59] & -1.28 [-5.37, 2.39] & +0.26 [-3.64, 3.88] & +1.15 [-4.37, 6.34] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Additional frozen model and source results}
+\paragraph{CTH mixed-role models.} Across the five shares, CTH XGBoost E+B/S changes BA by $-2.38\pp$ (95\% interval [-7.29, +2.30]), FMR by +9.46 percentage points [+5.50, +13.74], and FSR by -4.70 percentage points [-15.45, +6.10]. SVM's BA change is +1.38 percentage points [-3.83, +6.53]. The tree E+B/S threshold rejects every candidate, yielding 50\% BA (zero FMR and 100\% FSR). No learner meets the original requirement of a stable BA gain without an error trade-off.
+
+\paragraph{CTH Agent-only task confirmation.} The 26-task, 59-trace CTH AA test uses 100 draws per trace with one positive and three negatives (23,600 pairs per arm). All groups are new CTH task groups, and all pairs are Agent--Agent. XGBoost E has FMR 11.78\%, FSR 78.04\%, and BA 55.09\%; E+B/S has 5.63\%, 91.06\%, and 51.65\%. Paired changes are FMR $-6.14\pp$ [-9.96, -2.37], FSR +13.03 percentage points [+2.71, +25.67], BA $-3.44\pp$ [-9.71, +1.93]. Hit@1 changes by -7.71 percentage points [-20.00, +5.18], and AUC by -8.02 percentage points [-21.10, +5.74].
+
+\paragraph{NYU Agent-only cross-source confirmation.} The 160-task, 585-trace panel includes four snapshots of D-CIPHER, one Agent framework. The 100-draw panel has 234,000 pairs per version. XGBoost changes FMR by +14.67 percentage points [+13.28, +16.06], FSR by -26.10 percentage points [-30.72, -21.38], and BA by +5.71 percentage points [+3.63, +7.73]. Hit@1 changes +3.20 percentage points [+0.51, +5.92], pair AP +2.07 percentage points [+0.04, +4.08], and AUC +1.82 percentage points [-0.38, +3.97]. The CTH-derived 10\% FMR threshold yields 25.39\% test FMR for XGBoost E+B/S. The decision tree BA gain of +3.64 percentage points [+1.97, +5.37] accompanies Hit@1 change -5.59 percentage points [-8.11, -3.04] and AUC change -7.13 percentage points [-9.28, -4.94]; SVM BA changes -8.23 percentage points [-10.22, -6.28].
+
+\paragraph{CTH cross-task model-snapshot retrieval.} This label-aligned exploratory test uses 47 task groups and 141 Agent traces, with one trace for each of three recorded model snapshots per task. The normalized catalog has no participant IDs. Each query is matched against traces from different held-out task groups; its gallery contains one same-snapshot and two different-snapshot candidates. The primary view compares identical eight-command prefixes. Table~\ref{tab:cth-snapshot-bs} reports B/S minus E+length for the initial conditional fusion and a post-hoc direct-fusion sensitivity. Across both fusions, no learner has a positive Hit@1 and AUC increment together, and every interval includes zero. This tests recorded model-snapshot retrieval, not same-task association or human/operator identity.
+
+\begin{table}[ht]
+\centering\scriptsize
+\setlength{\tabcolsep}{2pt}
+\caption{CTH equal-prefix model-snapshot retrieval: B/S minus E+length in percentage points. Cells show paired two-way task-bootstrap mean [95\% interval]. Direct fusion is a post-hoc sensitivity.}
+\label{tab:cth-snapshot-bs}
+\begin{tabularx}{\linewidth}{@{}p{.12\linewidth}YYYY@{}}
+\toprule Learner & Conditional $\Delta$Hit@1 & Conditional $\Delta$AUC & Direct $\Delta$Hit@1 & Direct $\Delta$AUC \\
+\midrule
+SVM & $-0.73$ [$-4.72$, +3.17] & +1.05 [$-2.16$, +4.17] & $-2.03$ [$-6.79$, +2.67] & +0.82 [$-3.25$, +4.88] \\
+Tree & $-1.26$ [$-4.50$, +1.95] & $-1.33$ [$-4.27$, +1.61] & $-0.56$ [$-3.84$, +2.64] & $-0.32$ [$-3.27$, +2.55] \\
+XGBoost & $-0.40$ [$-4.16$, +3.43] & $-0.67$ [$-3.72$, +2.48] & $-0.42$ [$-4.25$, +3.47] & +0.04 [$-3.14$, +3.35] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For context, normalized command LCS was strongly predictive of recorded model snapshot in this cohort: equal-prefix Hit@1 gains over E+length ranged from +42.9 to +44.9 points and AUC gains from +58.1 to +60.3 points across learners. This demonstrates that the target is measurable from command sequences; the tested B/S summaries did not add reliable ranking value beyond the command and length baseline. Full-trace, shuffle-seed, gallery, and prediction outputs are included in the reproducibility bundle.
+
+\paragraph{AIT timing.} AIT contains 109 troubleshooting runs across 12 tasks and provides real process-launch timestamps. Adding observed launch-gap features T1--T6 to E+B/S changes XGBoost BA by +0.98 percentage points [-0.21, +2.10], Hit@1 by +0.68 percentage points [-1.46, +2.75], and AUC by +0.93 percentage points [-0.80, +2.66]. The intervals include zero; this experiment does not validate duration-dependent T7--T8, and the task/collection workflow covaries with recorded role.
+
+\paragraph{Other supplementary tests.} On a separate 111-challenge NYU snapshot retrieval panel, one positive and four candidates represent a different question: identifying which of four known D-CIPHER submissions generated a trace. Full-trace B/S changes AUC by +1.19 percentage points [+0.44, +1.97] and Hit@1 by +1.52 percentage points [+0.42, +2.68]; equal-length prefix checks are uncertain. Nested single-measure deletion on the 17 CTH tasks selected different removals by fold (B6, S7, B2); compact versus full B/S changes BA by $-0.59\pp$ [-2.02, +0.71] and AUC by $-0.32\pp$ [-1.92, +1.03]. Neither result supplies an independent same-challenge confirmation. Historical KYPO/Antieval cross-source results use a separate conditioned-tree protocol and are not pooled with these comparisons.
+
+\section{Mechanism outcomes by role share}
+Table~\ref{tab:mechanism-shares} gives every share for the five mechanism arms. Rates and ranking measures are task-macro point estimates; the shuffled arm averages the five fixed seeds. Seed-wise paired intervals are in Table~\ref{tab:shuffle-seeds}. Table~\ref{tab:mechanism-thresholds} lists the outer-fold OOF cutoffs used for the non-shuffled arms and the range across the five shuffled cutoffs. The full threshold audit, including each shuffled threshold and its OOF metrics, is in the accompanying machine-readable results.
+
+\begin{table}[ht]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{CTH mechanism-arm outcomes by recorded Agent-role share. Cells are task-macro percentages; shuffled B/S is the point-estimate mean across five seeds.}
+\label{tab:mechanism-shares}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule Arm & Agent share & FMR & FSR & BA & Hit@1 & Gallery AUC \\
+\midrule
+E & 0\% & 6.70 & 70.59 & 61.35 & 52.97 & 62.73 \\
+E & 25\% & 5.02 & 81.62 & 56.68 & 54.41 & 60.33 \\
+E & 50\% & 5.13 & 87.02 & 53.92 & 53.33 & 56.73 \\
+E & 75\% & 5.38 & 87.90 & 53.36 & 54.38 & 56.69 \\
+E & 100\% & 7.60 & 82.43 & 54.99 & 56.21 & 58.11 \\
+\midrule
+E+records & 0\% & 7.72 & 82.35 & 54.96 & 61.30 & 63.45 \\
+E+records & 25\% & 8.27 & 86.10 & 52.81 & 59.82 & 61.27 \\
+E+records & 50\% & 9.75 & 86.95 & 51.65 & 57.05 & 58.98 \\
+E+records & 75\% & 11.46 & 83.90 & 52.32 & 57.56 & 60.19 \\
+E+records & 100\% & 12.84 & 80.48 & 53.34 & 59.59 & 62.27 \\
+\midrule
+E+records+LCS & 0\% & 6.51 & 82.35 & 55.57 & 61.40 & 63.08 \\
+E+records+LCS & 25\% & 5.94 & 88.01 & 53.02 & 59.87 & 60.96 \\
+E+records+LCS & 50\% & 6.23 & 90.55 & 51.61 & 57.22 & 58.34 \\
+E+records+LCS & 75\% & 7.24 & 87.21 & 52.78 & 57.41 & 59.04 \\
+E+records+LCS & 100\% & 8.09 & 82.28 & 54.82 & 59.15 & 60.70 \\
+\midrule
+E+records+B/S & 0\% & 9.30 & 88.24 & 51.23 & 59.47 & 63.27 \\
+E+records+B/S & 25\% & 9.44 & 87.46 & 51.55 & 58.94 & 61.10 \\
+E+records+B/S & 50\% & 10.38 & 86.18 & 51.72 & 57.21 & 58.68 \\
+E+records+B/S & 75\% & 11.32 & 83.27 & 52.70 & 57.03 & 58.66 \\
+E+records+B/S & 100\% & 12.39 & 79.74 & 53.93 & 58.00 & 60.23 \\
+\midrule
+Shuffled B/S (5-seed mean) & 0\% & 8.37 & 84.71 & 53.46 & 58.33 & 62.36 \\
+Shuffled B/S (5-seed mean) & 25\% & 7.76 & 87.82 & 52.21 & 57.81 & 59.99 \\
+Shuffled B/S (5-seed mean) & 50\% & 8.13 & 88.90 & 51.49 & 55.51 & 56.60 \\
+Shuffled B/S (5-seed mean) & 75\% & 8.72 & 86.36 & 52.46 & 56.19 & 56.76 \\
+Shuffled B/S (5-seed mean) & 100\% & 9.37 & 82.40 & 54.11 & 56.89 & 57.25 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering\scriptsize
+\setlength{\tabcolsep}{2pt}
+\caption{Outer-fold OOF thresholds for the mechanism arms. Shuffled thresholds show the min--max across the five fixed seeds.}
+\label{tab:mechanism-thresholds}
+\begin{tabularx}{\linewidth}{@{}r p{.25\linewidth} r r r r r Y@{}}
+\toprule Fold & Selected representation & Depth & E & Counts & LCS & Real B/S & Shuffled B/S range \\
+\midrule
+0 & 4 / mean--std / conditional & 2 & .780 & .845 & .815 & .823 & .798--.888 \\
+1 & 4 / mean--std--trend / direct & 3 & .703 & .703 & .772 & .743 & .691--.796 \\
+2 & 4 / mean--std--trend / direct & 3 & .731 & .774 & .806 & .805 & .812--.847 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Reproducibility files}
+The accompanying source archive contains the short paper, this supplement, figures, frozen analysis scripts, pair predictions, manifests, and result summaries. It excludes raw NYU transcripts and raw command content. Reproduction of source-derived inputs requires the upstream CTH/AIT data and the pinned NYU repository revision in the local experiment environment. Every generated result directory records its protocol, source hashes, fold settings, seed, thresholds, and prediction hash.
+
+\begin{thebibliography}{9}\footnotesize
+\bibitem{mcmahon} M. M. McMahon and H. A. Sholl. Influence of State Size on User Models in a Network Security System. 13th International Conference on Parallel and Distributed Computing Systems, 2000. \url{https://www.researchgate.net/publication/282647993_Influence_of_State_Size_on_User_Models_in_a_Network_Security_System}
+\bibitem{dao} V. N. P. Dao, R. Vemuri, and S. J. Templeton. Profiling Users in the UNIX OS Environment. Lawrence Livermore National Laboratory preprint UCRL-JC-141022, 2000. \url{https://www.osti.gov/servlets/purl/15004770}
+\bibitem{cth} Lyptus Research. Cyber Task Horizons Data. Dataset and collection report, 2026. \url{https://github.com/lyptus-research/cyber-task-horizons-data}
+\bibitem{inspect} UK AI Safety Institute. Inspect AI: Event Reference. \url{https://inspect.aisi.org.uk/reference/inspect_ai.event.html}
+\end{thebibliography}
+
+\end{document}

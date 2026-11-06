@@ -1,14 +1,43 @@
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
-\scriptsize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.1}
-\caption{Matched CTH classifier comparison averaged equally over five Agent-role shares. Every classifier uses the same paired candidate decisions. Changes are B/S minus evidence-only E in percentage points; 95\% intervals are paired task-cluster bootstrap intervals.}
-\label{tab:cth-matched-classifiers}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+\caption{Full feature-block ablation for same-challenge association.}
+\label{tab:feature-block-ablation}
+\begin{tabularx}{\linewidth}{@{}p{.88in}Yrrr@{}}
 \toprule
-Classifier & BA: E & BA: E+B/S & $\Delta$BA [95\% CI] & $\Delta$FMR & $\Delta$FSR \\ \midrule
-RBF-SVM & 52.57 & 53.95 & $+1.38\;[-3.83,+6.53]$ & +6.99 & -9.74 \\
-Decision tree & 52.80 & 50.00 & $-2.80\;[-6.61,+0.57]$ & -6.59 & +12.19 \\
-XGBoost & 56.06 & 53.68 & $-2.38\;[-7.13,+2.25]$ & +9.46 & -4.70 \\
+Learner & Feature arm & BA (\%) & FMR (\%) & FSR (\%) \\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{CTH mixed roles (17 tasks; 54,400 pair decisions per arm)}} \\
+\textbf{RBF-SVM} & \textbf{E (baseline)} & \textbf{52.57} & \textbf{6.52} & \textbf{88.35} \\
+ & \quad E+B & \cellcolor{AblGoodLight}54.08{\scriptsize\,(+1.51)} & \cellcolor{AblBadMid}14.00{\scriptsize\,(+7.49)} & \cellcolor{AblGoodDeep}77.83{\scriptsize\,(-10.51)} \\
+ & \quad E+S & 52.45{\scriptsize\,(-0.12)} & \cellcolor{AblBadMid}13.57{\scriptsize\,(+7.05)} & \cellcolor{AblGoodMid}81.54{\scriptsize\,(-6.81)} \\
+ & \quad E+B+S & \cellcolor{AblGoodLight}53.95{\scriptsize\,(+1.38)} & \cellcolor{AblBadMid}13.50{\scriptsize\,(+6.99)} & \cellcolor{AblGoodDeep}78.60{\scriptsize\,(-9.74)} \\
+\addlinespace[.18em]
+\textbf{Decision tree} & \textbf{E (baseline)} & \textbf{52.80} & \textbf{6.59} & \textbf{87.81} \\
+ & \quad E+B & \cellcolor{AblBadLight}50.31{\scriptsize\,(-2.49)} & \cellcolor{AblGoodMid}0.93{\scriptsize\,(-5.66)} & \cellcolor{AblBadDeep}98.44{\scriptsize\,(+10.63)} \\
+ & \quad E+S & \cellcolor{AblBadLight}51.79{\scriptsize\,(-1.01)} & \cellcolor{AblGoodMid}0.89{\scriptsize\,(-5.70)} & \cellcolor{AblBadMid}95.53{\scriptsize\,(+7.72)} \\
+ & \quad E+B+S & \cellcolor{AblBadLight}50.00{\scriptsize\,(-2.80)} & \cellcolor{AblGoodMid}0.00{\scriptsize\,(-6.59)} & \cellcolor{AblBadDeep}100.00{\scriptsize\,(+12.19)} \\
+\addlinespace[.18em]
+\textbf{XGBoost} & \textbf{E (baseline)} & \textbf{56.06} & \textbf{5.97} & \textbf{81.91} \\
+ & \quad E+B & \cellcolor{AblBadMid}52.75{\scriptsize\,(-3.31)} & \cellcolor{AblBadMid}13.13{\scriptsize\,(+7.16)} & 81.37{\scriptsize\,(-0.54)} \\
+ & \quad E+S & 56.10{\scriptsize\,(+0.04)} & \cellcolor{AblBadDeep}14.47{\scriptsize\,(+8.50)} & \cellcolor{AblGoodDeep}73.34{\scriptsize\,(-8.57)} \\
+ & \quad E+B+S & \cellcolor{AblBadLight}53.68{\scriptsize\,(-2.38)} & \cellcolor{AblBadDeep}15.43{\scriptsize\,(+9.46)} & \cellcolor{AblGoodMid}77.21{\scriptsize\,(-4.70)} \\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{AIT audit logs (12 tasks; XGBoost; 43,600 pair decisions per arm)}} \\
+\textbf{XGBoost} & \textbf{E (baseline)} & \textbf{50.12} & \textbf{0.00} & \textbf{99.76} \\
+ & \quad E+B & 50.94{\scriptsize\,(+0.82)} & \cellcolor{AblBadLight}2.78{\scriptsize\,(+2.78)} & \cellcolor{AblGoodMid}95.34{\scriptsize\,(-4.42)} \\
+ & \quad E+S & \cellcolor{AblGoodMid}53.18{\scriptsize\,(+3.06)} & \cellcolor{AblBadMid}3.71{\scriptsize\,(+3.71)} & \cellcolor{AblGoodDeep}89.94{\scriptsize\,(-9.82)} \\
+ & \quad E+T1--T6 & \cellcolor{AblGoodLight}52.42{\scriptsize\,(+2.30)} & \cellcolor{AblBadMid}4.84{\scriptsize\,(+4.84)} & \cellcolor{AblGoodDeep}90.32{\scriptsize\,(-9.44)} \\
+ & \quad E+B+S & 50.94{\scriptsize\,(+0.82)} & \cellcolor{AblBadMid}5.28{\scriptsize\,(+5.28)} & \cellcolor{AblGoodMid}92.84{\scriptsize\,(-6.92)} \\
+ & \quad E+B+T1--T6 & \cellcolor{AblGoodLight}51.37{\scriptsize\,(+1.25)} & \cellcolor{AblBadMid}5.24{\scriptsize\,(+5.24)} & \cellcolor{AblGoodMid}92.02{\scriptsize\,(-7.74)} \\
+ & \quad E+S+T1--T6 & \cellcolor{AblGoodLight}52.01{\scriptsize\,(+1.89)} & \cellcolor{AblBadMid}3.53{\scriptsize\,(+3.53)} & \cellcolor{AblGoodMid}92.45{\scriptsize\,(-7.31)} \\
+ & \quad E+B+S+T1--T6$^{\dagger}$ & \cellcolor{AblGoodLight}51.92{\scriptsize\,(+1.80)} & \cellcolor{AblBadMid}5.37{\scriptsize\,(+5.37)} & \cellcolor{AblGoodDeep}90.79{\scriptsize\,(-8.97)} \\
 \bottomrule
-\end{tabular*}
+\end{tabularx}
+\par\vspace{.16em}
+\begin{minipage}{\linewidth}\footnotesize
+Each nonbaseline cell gives the absolute task-macro percentage followed by its signed percentage-point change from E. BA is higher-is-better; lower FMR/FSR is favorable. Changes smaller than 1 point remain unshaded; teal marks favorable and red unfavorable changes, with darker fills for larger changes. Shading is descriptive and does not encode significance. AIT measures only launch-gap T1--T6; $\dagger$ marks the full arm whose incremental contrast is E+B+S+T1--T6 versus E+B+S (BA +0.98, FMR +0.09, FSR $-2.05$ points; paired task intervals are in the experiment record). CTH and AIT retain their original fold-specific representations, learners, thresholds, and candidate pairs. Full intervals, denominators, thresholds, fallback counts, and fold settings are in the experiment record.
+\end{minipage}
 \end{table}

@@ -1,0 +1,37 @@
+{
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2",
+    "xgboost": "2.1.4"
+  },
+  "bootstrap_seed": 20261106,
+  "bootstrap_draws": 10000,
+  "analysis_sha256": "de4d1c96c498a672efcec60b94cd4673f8316d3959d5304f5fed3e3b81561b33",
+  "merged_predictions_sha256": "314552956a7d561942eeb131adfec87895b586864903e916dbba17400a722167",
+  "added_arms": {
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-0-svm-B.csv.gz": "fbf92ede850443c1ded3eac4cb7d2e985f550cd6d6067d9bff767022f81ef6a6",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-0-svm-S.csv.gz": "f1108b8dc2bda91e3dbcd48b50997e6abcf6718b87ca58351a7f789c69d2da64",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-0-tree-B.csv.gz": "f70bc18d5497fe876ee07aaebabbd12b82ed39356567c403c2f094e2903ed865",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-0-tree-S.csv.gz": "5d2ba692bf8a288ba6a36657de7b4d991bf7237bcb3987bc8a6d6f763ae47177",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-1-svm-B.csv.gz": "4183e8fba4df0b7b7045a98e078b29e394f76810a7f216d535dea796637a16aa",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-1-svm-S.csv.gz": "04e9c4bd84b73a5ed665a87bba6132fb35ca8558874dc13405d7516c360cf190",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-1-tree-B.csv.gz": "4087b7acfbe77e0c7b843d87e1999942733a06a5277513f6bc2e89dea358f114",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-1-tree-S.csv.gz": "ebda89da94da4cf73ff293661cd86e28bc52dab7e227b1a1aad059ccf92e54e7",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-2-svm-B.csv.gz": "99b1939483dd55e5ae28f7b439ae8cbdaac1b0aea78be64be627afd742bd8292",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-2-svm-S.csv.gz": "a2f9abf5ad238c750babb3fdf96b430de094b0d21316237d324e9f046c157d20",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-2-tree-B.csv.gz": "a2f42ffb4c0dfc87a07d4fe9d7e1751b737b1f0f0ada47136b58bf2c44b5477c",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/cth-fold-2-tree-S.csv.gz": "629dd788cd25ca25d04f3524fca4d016d293a17577f9945a9edf85c09b3d4e97",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-0-xgb-B.csv.gz": "04892ba1c55e181b3fb44f26a737f8e77af63963bf907ae4fcbf9d61977794ea",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-0-xgb-S.csv.gz": "4886b788699a91ae44b5ad66c611106359bffba9df322f110b292cf7505d3b38",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-0-xgb-T.csv.gz": "5904f2d89c81513531be9b58df39c23a1ed8b96df1024c69e56c226f3633fc4a",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-1-xgb-B.csv.gz": "d74bfbb06cc51ef56f6e725f1c3d85bb7fb3d001cf8a3e38178285fdcb781b06",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-1-xgb-S.csv.gz": "7dc09abd87f57986a9095bedb3be48088cfe7a684079d07bf9cd17b31358f0e8",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-1-xgb-T.csv.gz": "a01d2c8582d0f3c5b3ca2431b8543dc22d0530d8e738e0a543ff38ef7255d5bb",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-2-xgb-B.csv.gz": "2e1113d9b464f8d55e5ca7543d53ce8934db8c34851389ae9fdf456c25d38d07",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-2-xgb-S.csv.gz": "999e3743821bd9a59a8169dd3083e22359a6929a71f6b933928ffc8de68883a4",
+    "research/results/matched_fingerprint_v2/expanded_ablation_20261106/added_predictions/ait-fold-2-xgb-T.csv.gz": "b637d9cd9575f24cc14236db6d415b7474e9fa307b603245fa1e592e552eccac"
+  },
+  "nyu_predictions_sha256": "208df72a15180c221ed63312cd3bbd0f12a592f37d58c1230bd1f4fce90adc8d"
+}

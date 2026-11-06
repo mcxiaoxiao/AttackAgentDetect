@@ -1,19 +1,26 @@
 # Research papers and notes
 
-## Current draft
+## Current short paper
 
-[`human-agent-fingerprint-draft.tex`](human-agent-fingerprint-draft.tex) and its compiled PDF are the current manuscript artifacts. The source bundle is published at [`site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip`](../../site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip). The main text includes the original three-step overview, the B/S/T formula atlas, and the CTH baseline triptych from the overnight draft. The evaluation section documents CTH, AIT, and NYU with the original Human/Agent icons and a separate NYU snapshot breakdown. The appendices group the remaining figures by measurement or evaluation protocol. The references end on page 8. The complete PDF has 13 pages with appendices and uses the original 10 pt type and 0.72 in margins.
+[`same-challenge-retrieval-shortpaper.tex`](same-challenge-retrieval-shortpaper.tex) is the current review-ready short paper. Its compiled PDF is five pages including references, within the eight-page limit. The accompanying [`same-challenge-retrieval-supplement.tex`](same-challenge-retrieval-supplement.tex) compiles to five pages and holds full feature definitions, threshold diagnostics, the five-seed mechanism control, exact-sequence-overlap sensitivity, complete source-specific results, and supplementary AIT/snapshot tests.
 
-On external NYU Agent-only challenge retrieval, B/S raises balanced accuracy by 5.71 percentage points for XGBoost and 3.64 points for the decision tree. Both models miss fewer links and falsely merge more different-challenge pairs. SVM loses 8.23 points on the same pairs. The CTH five-share comparison and AIT timing ablation leave their respective BA increments uncertain. The evaluated relation is benchmark task identity. The appendix preserves the historical tables verbatim from the earlier [`human-agent-fingerprint-overnight.tex`](human-agent-fingerprint-overnight.tex) snapshot.
+The revised study centers on same-task retrieval under changing recorded Human/Agent role composition. It does not treat task identity as actor, activity, or campaign attribution. The new CTH mechanism control finds no stable B/S gain beyond trace-volume and command-sequence controls; the CTH and NYU Agent-only panels show different error trade-offs. The main article therefore presents the evidence as a bounded measurement result.
 
-Compile from this directory with `tectonic --reruns 2 human-agent-fingerprint-draft.tex`. The two generated association-table files are `matched-v2-main-tables.tex` and `matched-v2-appendix-tables.tex`; experiment inputs, scripts, analysis and figure sources are under `research/experiments/matched_fingerprint_v2/` and `research/results/matched_fingerprint_v2/`.
+Compile from this directory with:
 
-## Reproduction material
+```sh
+tectonic --reruns 2 same-challenge-retrieval-shortpaper.tex
+tectonic --reruns 2 same-challenge-retrieval-supplement.tex
+```
 
-- [`research/experiments/behavioral_fingerprint_v2/`](../experiments/behavioral_fingerprint_v2/README.md) documents the current B/S/T protocol and reproduction commands.
-- [`research/results/behavioral_fingerprint_v2/`](../results/behavioral_fingerprint_v2/) contains versioned outputs, splits, predictions, metrics, and provenance.
-- [`overnight-fingerprint-v1.md`](../reports/overnight-fingerprint-v1.md) and [`research/results/overnight_fingerprint_v1/`](../results/overnight_fingerprint_v1/README.md) preserve the earlier frozen run and its results.
-- [`human-agent-fingerprint-main.tex`](human-agent-fingerprint-main.tex) remains a broader research-design draft; proposed experiments in it are not completed results.
-- `main.tex` and its included sections preserve the earlier command-and-artifact task-retrieval manuscript.
+## Previous drafts and reports
 
-The overnight source bundle remains available as a historical artifact. The current source bundle includes all files needed to compile the draft independently, plus frozen pair predictions, manifests, aggregate analyses, and verification scripts; raw AIT logs and command text are excluded.
+[`human-agent-fingerprint-draft.tex`](human-agent-fingerprint-draft.tex) is preserved as the preceding broader draft and is no longer the current short-paper version. Its local PDF and the historical overnight draft are retained. The site-hosted PDF and [source ZIP](../../site/assets/behavioral-fingerprint-v2/human-agent-fingerprint-draft-source.zip) are an older packaged snapshot and were not updated by this review.
+
+The experiment protocol, scripts, manifests, frozen predictions, aggregate summaries, and provenance are under `research/experiments/matched_fingerprint_v2/` and `research/results/matched_fingerprint_v2/`. The two new short-paper analyses write to `shortpaper_frozen_20261105/` and `shortpaper_mechanism_20261105/`. Raw NYU transcripts and raw command content are not included in the local short-paper bundle.
+
+The clean-extraction-verified local bundle is [`same-challenge-retrieval-20261106.zip`](../reproducibility/same-challenge-retrieval-20261106.zip). It contains frozen pair predictions and a standard-library script that re-aggregates the main reported point estimates without refitting. Full feature extraction and model reproduction still require the upstream source logs and pinned NYU revision. Review findings and evidence limits are in [`same-challenge-retrieval-shortpaper-review-2026-11-05.md`](../reports/same-challenge-retrieval-shortpaper-review-2026-11-05.md).
+
+- [`fingerprint-target-and-ranker-2026-11-05.md`](../reports/fingerprint-target-and-ranker-2026-11-05.md) records the earlier ranking and snapshot studies.
+- [`fingerprint-dimension-and-ranking-followup-2026-11-05.md`](../reports/fingerprint-dimension-and-ranking-followup-2026-11-05.md) records feature coverage and dimension-selection diagnostics.
+- [`matched-fingerprint-v2.md`](../reports/matched-fingerprint-v2.md) preserves the broader experimental history and older protocols.

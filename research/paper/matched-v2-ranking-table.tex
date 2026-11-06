@@ -1,0 +1,42 @@
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.10}
+\caption{Candidate-ranking performance for the predeclared feature comparisons.}
+\label{tab:ranking-diagnostics}
+\begin{tabularx}{\linewidth}{@{}p{1.02in}Yrrr@{}}
+\toprule
+Learner & Scored evidence & Hit@1 (\%) & Gallery AUC (\%) & Pair AP (\%) \\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{CTH mixed roles: E+B+S compared with E}} \\
+\textbf{RBF-SVM} & \textbf{E (baseline)} & \textbf{33.75} & \textbf{58.73} & \textbf{39.78} \\
+ & \quad E+B+S & \cellcolor{AblGoodMid}38.45{\scriptsize\,(+4.70)} & \cellcolor{AblGoodMid}62.22{\scriptsize\,(+3.49)} & \cellcolor{AblGoodLight}42.66{\scriptsize\,(+2.88)} \\
+\addlinespace[.15em]
+\textbf{Decision tree} & \textbf{E (baseline)} & \textbf{34.91} & \textbf{60.30} & \textbf{35.21} \\
+ & \quad E+B+S & \cellcolor{AblGoodLight}36.27{\scriptsize\,(+1.37)} & 59.77{\scriptsize\,(-0.53)} & \cellcolor{AblGoodLight}36.44{\scriptsize\,(+1.23)} \\
+\addlinespace[.15em]
+\textbf{XGBoost} & \textbf{E (baseline)} & \textbf{34.40} & \textbf{58.92} & \textbf{40.97} \\
+ & \quad E+B+S & \cellcolor{AblGoodLight}37.01{\scriptsize\,(+2.61)} & \cellcolor{AblGoodLight}61.73{\scriptsize\,(+2.81)} & 41.06{\scriptsize\,(+0.08)} \\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{AIT XGBoost: T increment is compared with E+B+S}} \\
+\textbf{XGBoost} & \textbf{E (baseline)} & \textbf{40.20} & \textbf{63.34} & \textbf{38.25} \\
+ & \quad E+B+S & \cellcolor{AblBadMid}33.33{\scriptsize\,(-6.88)} & \cellcolor{AblBadMid}57.87{\scriptsize\,(-5.47)} & \cellcolor{AblBadMid}32.60{\scriptsize\,(-5.65)} \\
+ & \quad E+B+S+T1--T6$^{\dagger}$ & 34.01{\scriptsize\,(+0.68)} & 58.80{\scriptsize\,(+0.93)} & \cellcolor{AblGoodLight}34.11{\scriptsize\,(+1.50)} \\
+\midrule
+\multicolumn{5}{@{}l}{\textbf{NYU Agent-only external evaluation: frozen E+B+S compared with E}} \\
+\textbf{RBF-SVM} & \textbf{E (baseline)} & \textbf{39.73} & \textbf{65.75} & \textbf{42.77} \\
+ & \quad E+B+S & \cellcolor{AblBadLight}38.67{\scriptsize\,(-1.06)} & 65.56{\scriptsize\,(-0.18)} & \cellcolor{AblBadLight}41.35{\scriptsize\,(-1.41)} \\
+\addlinespace[.15em]
+\textbf{Decision tree} & \textbf{E (baseline)} & \textbf{36.92} & \textbf{63.94} & \textbf{35.29} \\
+ & \quad E+B+S & \cellcolor{AblBadMid}31.33{\scriptsize\,(-5.59)} & \cellcolor{AblBadMid}56.80{\scriptsize\,(-7.13)} & \cellcolor{AblBadLight}32.29{\scriptsize\,(-3.00)} \\
+\addlinespace[.15em]
+\textbf{XGBoost} & \textbf{E (baseline)} & \textbf{34.74} & \textbf{61.29} & \textbf{39.55} \\
+ & \quad E+B+S & \cellcolor{AblGoodMid}37.94{\scriptsize\,(+3.20)} & \cellcolor{AblGoodLight}63.10{\scriptsize\,(+1.82)} & \cellcolor{AblGoodLight}41.62{\scriptsize\,(+2.07)} \\
+\bottomrule
+\end{tabularx}
+\par\vspace{.16em}
+\begin{minipage}{\linewidth}\footnotesize
+Cells give absolute task-macro percentages and signed paired changes in parentheses. CTH and NYU changes compare E+B+S with E; the AIT $\dagger$ row gives the incremental change over E+B+S. Higher ranking values are favorable. Pale-to-deeper teal/red backgrounds encode fixed absolute-change bands of 1--$<3$, 3--$<8$, and $\geq8$ points; changes below 1 point are unshaded. Colors do not encode statistical significance. If any pair in a four-candidate gallery lacks a required block, all four ranking scores use the matched E score. Complete factorial ranking estimates are in the appendix; task-cluster intervals are in the experiment record.
+\end{minipage}
+\end{table}

@@ -1,0 +1,88 @@
+{
+  "status": "completed_exploratory_familywise_adjustment",
+  "estimand": "XGBoost BA increment from adding B/S, averaged equally over five role shares and 17 query-task clusters",
+  "family": "four inspected contrasts: two command baselines by two training-pair coverage conditions",
+  "bootstrap_unit": "query task; paired common task resamples across all four contrasts",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261105,
+  "adjustment": "two-sided max-T simultaneous 95% intervals using the bootstrap covariance across four contrasts",
+  "max_t_critical_value": 2.463658430674379,
+  "tasks": [
+    "cyber-task-horizons/cybench/back_to_the_past",
+    "cyber-task-horizons/cybench/lootstash",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+    "cyber-task-horizons/nyuctf/2016q-rev-rock",
+    "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+  ],
+  "input_hashes": {
+    "pair_predictions.csv.gz": "7a5ae9eda9c105baeffc5e547beb2e413ed29146d5eea4e579585fb545a0cfb9",
+    "analysis.json": "c9b553acdb60eaf8a01ce4f7ef68813ff9439ea7a6b05a3a5756bb8225e708d5",
+    "analyze_pair_support_multiplicity.py": "2b72fb36b2852fe137bc1a240e298d08a8d7acd17ca82a31585242bd7fde88a2"
+  },
+  "contrasts": {
+    "sampled_8_per_task:E_BS_minus_E": {
+      "delta_ba_percentage_points": 1.0502450980392164,
+      "nominal_percentile_ci95_percentage_points": [
+        -2.8163296568627447,
+        4.993933823529411
+      ],
+      "max_t_simultaneous_ci95_percentage_points": [
+        -3.8640157744662105,
+        5.964505970544644
+      ],
+      "bootstrap_se_percentage_points": 1.994700568601242
+    },
+    "sampled_8_per_task:E_args_BS_minus_E_args": {
+      "delta_ba_percentage_points": 1.8406862745098052,
+      "nominal_percentile_ci95_percentage_points": [
+        -2.54782475490196,
+        6.485447303921567
+      ],
+      "max_t_simultaneous_ci95_percentage_points": [
+        -3.853350829786299,
+        7.534723378805909
+      ],
+      "bootstrap_se_percentage_points": 2.3112120712031787
+    },
+    "all_pairs:E_BS_minus_E": {
+      "delta_ba_percentage_points": 3.294117647058823,
+      "nominal_percentile_ci95_percentage_points": [
+        -1.3541666666666665,
+        8.660845588235288
+      ],
+      "max_t_simultaneous_ci95_percentage_points": [
+        -3.0564885663246213,
+        9.644723860442268
+      ],
+      "bootstrap_se_percentage_points": 2.5777137505401218
+    },
+    "all_pairs:E_args_BS_minus_E_args": {
+      "delta_ba_percentage_points": 6.248774509803921,
+      "nominal_percentile_ci95_percentage_points": [
+        1.170220588235294,
+        12.236611519607841
+      ],
+      "max_t_simultaneous_ci95_percentage_points": [
+        -0.7464945531673663,
+        13.24404357277521
+      ],
+      "bootstrap_se_percentage_points": 2.839382674105707
+    }
+  },
+  "point_estimate_crosscheck": {
+    "all_pairs_E_BS_minus_E_ba": 3.294117647058823,
+    "all_pairs_E_args_BS_minus_E_args_ba": 6.248774509803921
+  }
+}

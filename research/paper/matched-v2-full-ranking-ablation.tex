@@ -1,0 +1,42 @@
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.07}
+\caption{Complete factorial ranking ablation. Values are absolute percentages followed by changes from E.}
+\label{tab:full-ranking-ablation}
+\begin{tabularx}{\linewidth}{@{}p{.82in}p{1.15in}Yrrr@{}}
+\toprule Source & Learner & Feature arm & Hit@1 & Gallery AUC & Pair AP \\
+\midrule
+CTH & \textbf{RBF-SVM} & \textbf{E (baseline)} & \textbf{33.75} & \textbf{58.73} & \textbf{39.78} \\
+ &  & \quad E+B & \cellcolor{AblGoodMid}36.93{\scriptsize\,(+3.18)} & \cellcolor{AblGoodLight}60.63{\scriptsize\,(+1.90)} & \cellcolor{AblGoodLight}40.90{\scriptsize\,(+1.13)} \\
+ &  & \quad E+S & \cellcolor{AblGoodLight}35.52{\scriptsize\,(+1.77)} & \cellcolor{AblGoodLight}61.67{\scriptsize\,(+2.94)} & 40.57{\scriptsize\,(+0.79)} \\
+ &  & \quad E+B+S & \cellcolor{AblGoodMid}38.45{\scriptsize\,(+4.70)} & \cellcolor{AblGoodMid}62.22{\scriptsize\,(+3.49)} & \cellcolor{AblGoodLight}42.66{\scriptsize\,(+2.88)} \\
+\addlinespace[.12em]
+ & \textbf{Decision tree} & \textbf{E (baseline)} & \textbf{34.91} & \textbf{60.30} & \textbf{35.21} \\
+ &  & \quad E+B & \cellcolor{AblBadMid}27.49{\scriptsize\,(-7.41)} & \cellcolor{AblBadMid}53.62{\scriptsize\,(-6.69)} & \cellcolor{AblBadMid}30.90{\scriptsize\,(-4.31)} \\
+ &  & \quad E+S & \cellcolor{AblBadLight}32.08{\scriptsize\,(-2.83)} & \cellcolor{AblBadMid}56.14{\scriptsize\,(-4.17)} & \cellcolor{AblBadLight}34.07{\scriptsize\,(-1.15)} \\
+ &  & \quad E+B+S & \cellcolor{AblGoodLight}36.27{\scriptsize\,(+1.37)} & 59.77{\scriptsize\,(-0.53)} & \cellcolor{AblGoodLight}36.44{\scriptsize\,(+1.23)} \\
+\addlinespace[.12em]
+ & \textbf{XGBoost} & \textbf{E (baseline)} & \textbf{34.40} & \textbf{58.92} & \textbf{40.97} \\
+ &  & \quad E+B & 33.53{\scriptsize\,(-0.87)} & 58.81{\scriptsize\,(-0.11)} & \cellcolor{AblBadLight}38.98{\scriptsize\,(-1.99)} \\
+ &  & \quad E+S & \cellcolor{AblGoodLight}36.95{\scriptsize\,(+2.55)} & \cellcolor{AblGoodLight}61.49{\scriptsize\,(+2.57)} & 40.68{\scriptsize\,(-0.30)} \\
+ &  & \quad E+B+S & \cellcolor{AblGoodLight}37.01{\scriptsize\,(+2.61)} & \cellcolor{AblGoodLight}61.73{\scriptsize\,(+2.81)} & 41.06{\scriptsize\,(+0.08)} \\
+\addlinespace[.12em]
+\midrule
+AIT & \textbf{XGBoost} & \textbf{E (baseline)} & \textbf{40.20} & \textbf{63.34} & \textbf{38.25} \\
+ &  & \quad E+B & \cellcolor{AblBadMid}34.20{\scriptsize\,(-6.00)} & \cellcolor{AblBadMid}57.47{\scriptsize\,(-5.86)} & \cellcolor{AblBadMid}33.35{\scriptsize\,(-4.90)} \\
+ &  & \quad E+S & \cellcolor{AblBadMid}37.05{\scriptsize\,(-3.15)} & \cellcolor{AblBadMid}60.31{\scriptsize\,(-3.02)} & \cellcolor{AblBadLight}35.80{\scriptsize\,(-2.45)} \\
+ &  & \quad E+T1--T6 & \cellcolor{AblBadLight}39.02{\scriptsize\,(-1.19)} & 62.78{\scriptsize\,(-0.56)} & \cellcolor{AblBadLight}36.73{\scriptsize\,(-1.52)} \\
+ &  & \quad E+B+S & \cellcolor{AblBadMid}33.33{\scriptsize\,(-6.88)} & \cellcolor{AblBadMid}57.87{\scriptsize\,(-5.47)} & \cellcolor{AblBadMid}32.60{\scriptsize\,(-5.65)} \\
+ &  & \quad E+B+T1--T6 & \cellcolor{AblBadMid}35.53{\scriptsize\,(-4.67)} & \cellcolor{AblBadMid}59.46{\scriptsize\,(-3.88)} & \cellcolor{AblBadMid}33.96{\scriptsize\,(-4.29)} \\
+ &  & \quad E+S+T1--T6 & \cellcolor{AblBadLight}38.02{\scriptsize\,(-2.18)} & \cellcolor{AblBadLight}61.70{\scriptsize\,(-1.64)} & \cellcolor{AblBadLight}36.76{\scriptsize\,(-1.49)} \\
+ &  & \quad E+B+S+T1--T6 & \cellcolor{AblBadMid}34.01{\scriptsize\,(-6.19)} & \cellcolor{AblBadMid}58.80{\scriptsize\,(-4.53)} & \cellcolor{AblBadMid}34.11{\scriptsize\,(-4.14)} \\
+\addlinespace[.12em]
+\bottomrule
+\end{tabularx}
+\par\vspace{.12em}
+\begin{minipage}{\linewidth}\footnotesize
+Each change is a paired task-level percentage-point difference from the same learner/source E baseline; the AIT $+$T increment is separately shown in the main ranking table. Teal/red shading uses the fixed magnitude bands described in Table~\ref{tab:ranking-diagnostics}; colors do not encode significance. CTH includes 17 task clusters and 54,400 pair decisions per arm; AIT includes 12 clusters and 43,600 decisions per arm. Gallery ranking uses whole-gallery E fallback when any candidate lacks a required block. Intervals, tie counts, and fallback details are recorded in the accompanying experiment Markdown and JSON.
+\end{minipage}
+\end{table}
