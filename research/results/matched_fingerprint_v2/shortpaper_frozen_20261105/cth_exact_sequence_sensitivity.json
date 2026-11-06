@@ -1,0 +1,517 @@
+{
+  "rule": "drop complete 4-candidate galleries if query or any candidate sequence occurs in that outer fold training tasks",
+  "flagged_test_traces_by_fold": {
+    "0": [
+      "25b01cfb53d95ad32b62",
+      "2725590c19bedd11abf1",
+      "350d4cdfe29437913099",
+      "6509037661a52e1462d2",
+      "6570e1010f533fbebb76",
+      "b9da7273a7bd5cf3f091",
+      "bbab46298b6aa9500a9f",
+      "dee277b944ff93d56a53",
+      "f4754fdc0d7bedfc0641"
+    ],
+    "1": [
+      "80e88aad43d1bad7bfb3",
+      "8c68c9b500547c376421",
+      "8ddaef7d7d91cc61bd54",
+      "a7c023778bfa2a5821b6",
+      "e1958f89f90d8b4e3255"
+    ],
+    "2": [
+      "36af29b3644b4583baac",
+      "4739bb2bface316454d9",
+      "65394bf41d8bd52696c1",
+      "69d6cceaebad6cb723b9",
+      "6b30a62d6a2f093fc333",
+      "7842e263e32e2c8a0f82",
+      "7dd50bdb6c35dfdcf0d5",
+      "9410b50edf98c4d0233f",
+      "ccaf4f6ff6ae18a4fc7e",
+      "ce3d3ae14e39b5d68f3a",
+      "d1fc13c9c1506e786c81",
+      "db5117b6a4d89cfa6721",
+      "dd97c45e2829bdf480a1",
+      "e40148d7fc3e2310c489",
+      "ea027d2134231e9cb84e",
+      "f63717f82600069378d6"
+    ]
+  },
+  "counts": {
+    "command_cosine": {
+      "all_candidate_pairs": 54400,
+      "removed_galleries": 11486,
+      "removed_pair_rows": 45944,
+      "retained_complete_galleries": 2114,
+      "retained_query_tasks": 15,
+      "all_galleries": 13600
+    },
+    "action_bigram_cosine": {
+      "all_candidate_pairs": 54400,
+      "removed_galleries": 11486,
+      "removed_pair_rows": 45944,
+      "retained_complete_galleries": 2114,
+      "retained_query_tasks": 15,
+      "all_galleries": 13600
+    },
+    "XGB E": {
+      "all_candidate_pairs": 54400,
+      "removed_galleries": 11486,
+      "removed_pair_rows": 45944,
+      "retained_complete_galleries": 2114,
+      "retained_query_tasks": 15,
+      "all_galleries": 13600
+    },
+    "XGB E+B/S": {
+      "all_candidate_pairs": 54400,
+      "removed_galleries": 11486,
+      "removed_pair_rows": 45944,
+      "retained_complete_galleries": 2114,
+      "retained_query_tasks": 15,
+      "all_galleries": 13600
+    }
+  },
+  "endpoint_differences": [
+    {
+      "arm": "command_cosine",
+      "subset": "all",
+      "metric": "fmr",
+      "mean_endpoint_difference": -0.1897058823529412,
+      "ci95": [
+        -0.31004901960784315,
+        -0.08222732843137258
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "all",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.3316176470588235,
+      "ci95": [
+        0.11764705882352941,
+        0.5669117647058823
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "all",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.07095588235294116,
+      "ci95": [
+        -0.1579672181372549,
+        0.001717218137254896
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "all",
+      "metric": "hit1",
+      "mean_endpoint_difference": 0.05986519607843139,
+      "ci95": [
+        -0.016575520833333315,
+        0.14185049019607843
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "all",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.052512254901960764,
+      "ci95": [
+        -0.14442555147058822,
+        0.037994791666666645
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fmr",
+      "mean_endpoint_difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.2,
+      "ci95": [
+        0.0,
+        0.6
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.1,
+      "ci95": [
+        -0.3,
+        0.0
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "hit1",
+      "mean_endpoint_difference": -0.11708896087572558,
+      "ci95": [
+        -0.16505681818181822,
+        -0.05360071301247771
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "command_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.09375811280223048,
+      "ci95": [
+        -0.12840749120160888,
+        -0.04665404040404042
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "all",
+      "metric": "fmr",
+      "mean_endpoint_difference": -0.23088235294117648,
+      "ci95": [
+        -0.3987775735294118,
+        -0.08357536764705888
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "all",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.44926470588235295,
+      "ci95": [
+        0.21397058823529413,
+        0.6845588235294118
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "all",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.10919117647058825,
+      "ci95": [
+        -0.2056433823529412,
+        -0.028982843137254917
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "all",
+      "metric": "hit1",
+      "mean_endpoint_difference": -0.0005208333333333331,
+      "ci95": [
+        -0.12959788602941177,
+        0.12907781862745096
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "all",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.1147671568627451,
+      "ci95": [
+        -0.2528799019607843,
+        0.0383057598039214
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fmr",
+      "mean_endpoint_difference": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.2,
+      "ci95": [
+        0.0,
+        0.6
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.1,
+      "ci95": [
+        -0.3,
+        0.0
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "hit1",
+      "mean_endpoint_difference": 0.11452644849703675,
+      "ci95": [
+        -0.16126696832579185,
+        0.4143062982768865
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "action_bigram_cosine",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": 0.11962818227524115,
+      "ci95": [
+        -0.15417797888386123,
+        0.41768568033273923
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E",
+      "subset": "all",
+      "metric": "fmr",
+      "mean_endpoint_difference": 0.00894607843137255,
+      "ci95": [
+        -0.03284313725490196,
+        0.047552083333333287
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E",
+      "subset": "all",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.11838235294117648,
+      "ci95": [
+        -0.1477941176470588,
+        0.3959558823529412
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E",
+      "subset": "all",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.06366421568627455,
+      "ci95": [
+        -0.19975490196078435,
+        0.06771139705882348
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E",
+      "subset": "all",
+      "metric": "hit1",
+      "mean_endpoint_difference": 0.032444852941176494,
+      "ci95": [
+        -0.1283716299019608,
+        0.1925283394607843
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E",
+      "subset": "all",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.04620098039215688,
+      "ci95": [
+        -0.20355545343137255,
+        0.11648590686274504
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fmr",
+      "mean_endpoint_difference": 0.00433269096632268,
+      "ci95": [
+        -0.06128065774804904,
+        0.05871451083727297
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fsr",
+      "mean_endpoint_difference": 0.2674509803921568,
+      "ci95": [
+        -0.2650980392156863,
+        0.8
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "ba",
+      "mean_endpoint_difference": -0.13589183567923974,
+      "ci95": [
+        -0.39712509712509714,
+        0.1253414257666176
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "hit1",
+      "mean_endpoint_difference": -0.10245501505811608,
+      "ci95": [
+        -0.3407471981520894,
+        0.1358371680358573
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.10809321740587725,
+      "ci95": [
+        -0.34061499313417476,
+        0.12409352476168334
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "all",
+      "metric": "fmr",
+      "mean_endpoint_difference": 0.04227941176470587,
+      "ci95": [
+        -0.06225490196078433,
+        0.14240502450980386
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "all",
+      "metric": "fsr",
+      "mean_endpoint_difference": -0.10919117647058825,
+      "ci95": [
+        -0.3463327205882353,
+        0.14595588235294119
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "all",
+      "metric": "ba",
+      "mean_endpoint_difference": 0.03345588235294119,
+      "ci95": [
+        -0.06109221813725489,
+        0.12696537990196072
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "all",
+      "metric": "hit1",
+      "mean_endpoint_difference": -0.031587009803921574,
+      "ci95": [
+        -0.1928331801470588,
+        0.13158777573529412
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "all",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.12261029411764704,
+      "ci95": [
+        -0.2854181985294118,
+        0.04897058823529399
+      ],
+      "tasks_paired": 17
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fmr",
+      "mean_endpoint_difference": -0.05069811416678423,
+      "ci95": [
+        -0.19128803942103173,
+        0.08989181108746327
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "fsr",
+      "mean_endpoint_difference": -0.06588235294117648,
+      "ci95": [
+        -0.6,
+        0.5341176470588235
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "ba",
+      "mean_endpoint_difference": 0.058290233553980365,
+      "ci95": [
+        -0.1685185185185185,
+        0.2903774800434008
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "hit1",
+      "mean_endpoint_difference": -0.23979982500922398,
+      "ci95": [
+        -0.46619399119399113,
+        0.0018428394211641996
+      ],
+      "tasks_paired": 5
+    },
+    {
+      "arm": "XGB E+B/S",
+      "subset": "drop_train_sequence_overlap",
+      "metric": "gallery_auc",
+      "mean_endpoint_difference": -0.29723424404051,
+      "ci95": [
+        -0.5226625226625227,
+        -0.07180596541849736
+      ],
+      "tasks_paired": 5
+    }
+  ]
+}

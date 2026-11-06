@@ -1,0 +1,525 @@
+{
+  "protocol": "nested single-window-measure selection on CTH task-held-out development folds",
+  "selection": "maximize inner task-macro BA at each arm's threshold calibrated for pooled validation FMR <= 10%; compare full B/S and 16 one-measure removals; exact ties prefer a removal",
+  "model": "XGBoost; each outer fold reuses the representation and parameter selected inside that fold's training tasks by the original matched study",
+  "comparison_arms": [
+    "command_only",
+    "evidence",
+    "full",
+    "selected_compact"
+  ],
+  "fallback": "the saved score and threshold both use E on pairs missing a required block",
+  "independent_unit": "CTH challenge task; each task's 5 role-share cells are averaged equally",
+  "development_status": "exploratory because this 17-task CTH cohort has been examined in prior iterations",
+  "bootstrap": {
+    "unit": "query task",
+    "draws": 10000,
+    "seed": 20261104
+  },
+  "input_sha256": {
+    "research/results/matched_fingerprint_v1/pair_predictions.csv.gz": "c6af21f2111738decbb32cdbbeb56ec7ef31e956d256576e1069b9e5bb234d90",
+    "research/experiments/matched_fingerprint_v1/run.py": "6a377798928cbf1217bec0568366840a99fa2ca4aaf556065d122ee5630c617a"
+  },
+  "outer_folds": {
+    "0": {
+      "training_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+      ],
+      "representation": [
+        4,
+        "mean_std",
+        "conditional"
+      ],
+      "xgb_parameter": 2,
+      "inner_selected": "B6",
+      "inner_oof_metrics": {
+        "evidence": {
+          "threshold": 0.7804614305496216,
+          "fmr": 0.08484848484848485,
+          "fsr": 0.9454545454545454,
+          "ba": 0.4848484848484849,
+          "fallback_pairs": 0
+        },
+        "command_only": {
+          "threshold": Infinity,
+          "fmr": 0.0,
+          "fsr": 1.0,
+          "ba": 0.5,
+          "fallback_pairs": 0
+        },
+        "full": {
+          "threshold": 0.8003160357475281,
+          "fmr": 0.08484848484848485,
+          "fsr": 0.7999999999999999,
+          "ba": 0.5575757575757576,
+          "fallback_pairs": 0
+        },
+        "B1": {
+          "threshold": 0.7945748567581177,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.8181818181818182,
+          "ba": 0.5424242424242425,
+          "fallback_pairs": 0
+        },
+        "B2": {
+          "threshold": 0.7919999361038208,
+          "fmr": 0.07272727272727272,
+          "fsr": 0.7818181818181817,
+          "ba": 0.5727272727272728,
+          "fallback_pairs": 0
+        },
+        "B3": {
+          "threshold": 0.78603196144104,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.8181818181818182,
+          "ba": 0.5424242424242425,
+          "fallback_pairs": 0
+        },
+        "B4": {
+          "threshold": 0.8099198341369629,
+          "fmr": 0.060606060606060615,
+          "fsr": 0.9272727272727274,
+          "ba": 0.506060606060606,
+          "fallback_pairs": 0
+        },
+        "B5": {
+          "threshold": 0.8091694712638855,
+          "fmr": 0.0606060606060606,
+          "fsr": 0.8727272727272727,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 0
+        },
+        "B6": {
+          "threshold": 0.8385310173034668,
+          "fmr": 0.06666666666666667,
+          "fsr": 0.7818181818181817,
+          "ba": 0.5757575757575757,
+          "fallback_pairs": 0
+        },
+        "B7": {
+          "threshold": 0.7631927132606506,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.8363636363636363,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 0
+        },
+        "B8": {
+          "threshold": 0.7933908104896545,
+          "fmr": 0.08484848484848485,
+          "fsr": 0.7818181818181817,
+          "ba": 0.5666666666666667,
+          "fallback_pairs": 0
+        },
+        "S1": {
+          "threshold": 0.7870729565620422,
+          "fmr": 0.09090909090909091,
+          "fsr": 0.7999999999999999,
+          "ba": 0.5545454545454546,
+          "fallback_pairs": 0
+        },
+        "S2": {
+          "threshold": 0.8023005127906799,
+          "fmr": 0.07272727272727274,
+          "fsr": 0.8181818181818182,
+          "ba": 0.5545454545454546,
+          "fallback_pairs": 0
+        },
+        "S3": {
+          "threshold": 0.7898282408714294,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.7999999999999999,
+          "ba": 0.5606060606060606,
+          "fallback_pairs": 0
+        },
+        "S4": {
+          "threshold": 0.8003160357475281,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.8363636363636363,
+          "ba": 0.5424242424242424,
+          "fallback_pairs": 0
+        },
+        "S5": {
+          "threshold": 0.7842870354652405,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.7818181818181817,
+          "ba": 0.5606060606060607,
+          "fallback_pairs": 0
+        },
+        "S6": {
+          "threshold": 0.7892218828201294,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.7999999999999999,
+          "ba": 0.5515151515151516,
+          "fallback_pairs": 0
+        },
+        "S7": {
+          "threshold": 0.8001977205276489,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.7999999999999999,
+          "ba": 0.5606060606060606,
+          "fallback_pairs": 0
+        },
+        "S8": {
+          "threshold": 0.7839077711105347,
+          "fmr": 0.09090909090909091,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5272727272727273,
+          "fallback_pairs": 0
+        }
+      },
+      "selected_dimension_drop": "B6"
+    },
+    "1": {
+      "training_tasks": [
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "test_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "representation": [
+        4,
+        "mean_std_trend",
+        "direct"
+      ],
+      "xgb_parameter": 3,
+      "inner_selected": "S7",
+      "inner_oof_metrics": {
+        "evidence": {
+          "threshold": 0.7029586434364319,
+          "fmr": 0.07272727272727272,
+          "fsr": 0.8727272727272727,
+          "ba": 0.5272727272727272,
+          "fallback_pairs": 0
+        },
+        "command_only": {
+          "threshold": 0.6715890765190125,
+          "fmr": 0.048484848484848485,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5484848484848486,
+          "fallback_pairs": 0
+        },
+        "full": {
+          "threshold": 0.6951871514320374,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "B1": {
+          "threshold": 0.702031672000885,
+          "fmr": 0.07272727272727274,
+          "fsr": 0.8727272727272729,
+          "ba": 0.5272727272727273,
+          "fallback_pairs": 6
+        },
+        "B2": {
+          "threshold": 0.717993974685669,
+          "fmr": 0.07878787878787878,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "B3": {
+          "threshold": 0.6990272998809814,
+          "fmr": 0.08484848484848484,
+          "fsr": 0.890909090909091,
+          "ba": 0.5121212121212122,
+          "fallback_pairs": 6
+        },
+        "B4": {
+          "threshold": 0.6807518601417542,
+          "fmr": 0.09090909090909091,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5272727272727273,
+          "fallback_pairs": 6
+        },
+        "B5": {
+          "threshold": 0.6955047249794006,
+          "fmr": 0.07272727272727272,
+          "fsr": 0.8727272727272727,
+          "ba": 0.5272727272727272,
+          "fallback_pairs": 6
+        },
+        "B6": {
+          "threshold": 0.8521163463592529,
+          "fmr": 0.012121212121212121,
+          "fsr": 0.9454545454545453,
+          "ba": 0.5212121212121212,
+          "fallback_pairs": 6
+        },
+        "B7": {
+          "threshold": 0.6951871514320374,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "B8": {
+          "threshold": 0.7062948942184448,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.9090909090909091,
+          "ba": 0.496969696969697,
+          "fallback_pairs": 6
+        },
+        "S1": {
+          "threshold": 0.706521213054657,
+          "fmr": 0.06666666666666667,
+          "fsr": 0.8727272727272729,
+          "ba": 0.5303030303030304,
+          "fallback_pairs": 6
+        },
+        "S2": {
+          "threshold": 0.6951871514320374,
+          "fmr": 0.0606060606060606,
+          "fsr": 0.8727272727272727,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "S3": {
+          "threshold": 0.6846489906311035,
+          "fmr": 0.09696969696969697,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5242424242424243,
+          "fallback_pairs": 6
+        },
+        "S4": {
+          "threshold": 0.6840808987617493,
+          "fmr": 0.09090909090909091,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5272727272727273,
+          "fallback_pairs": 6
+        },
+        "S5": {
+          "threshold": 0.6959163546562195,
+          "fmr": 0.07878787878787878,
+          "fsr": 0.8727272727272727,
+          "ba": 0.5242424242424243,
+          "fallback_pairs": 6
+        },
+        "S6": {
+          "threshold": 0.6951871514320374,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "S7": {
+          "threshold": 0.6951871514320374,
+          "fmr": 0.0787878787878788,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 6
+        },
+        "S8": {
+          "threshold": 0.6864604353904724,
+          "fmr": 0.08484848484848485,
+          "fsr": 0.8545454545454546,
+          "ba": 0.5303030303030304,
+          "fallback_pairs": 6
+        }
+      },
+      "selected_dimension_drop": "S7"
+    },
+    "2": {
+      "training_tasks": [
+        "cyber-task-horizons/cybench/back_to_the_past",
+        "cyber-task-horizons/cybench/lootstash",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82",
+        "cyber-task-horizons/nyuctf/2016q-rev-rock"
+      ],
+      "test_tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ],
+      "representation": [
+        4,
+        "mean_std_trend",
+        "direct"
+      ],
+      "xgb_parameter": 3,
+      "inner_selected": "B2",
+      "inner_oof_metrics": {
+        "evidence": {
+          "threshold": 0.7312370538711548,
+          "fmr": 0.09444444444444444,
+          "fsr": 0.8166666666666668,
+          "ba": 0.5444444444444444,
+          "fallback_pairs": 0
+        },
+        "command_only": {
+          "threshold": Infinity,
+          "fmr": 0.0,
+          "fsr": 1.0,
+          "ba": 0.5,
+          "fallback_pairs": 0
+        },
+        "full": {
+          "threshold": 0.785925567150116,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8166666666666665,
+          "ba": 0.5416666666666666,
+          "fallback_pairs": 14
+        },
+        "B1": {
+          "threshold": 0.808890700340271,
+          "fmr": 0.09444444444444444,
+          "fsr": 0.9,
+          "ba": 0.5027777777777779,
+          "fallback_pairs": 14
+        },
+        "B2": {
+          "threshold": 0.7842623591423035,
+          "fmr": 0.07777777777777778,
+          "fsr": 0.8333333333333334,
+          "ba": 0.5444444444444444,
+          "fallback_pairs": 14
+        },
+        "B3": {
+          "threshold": 0.7847387790679932,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8666666666666667,
+          "ba": 0.5166666666666666,
+          "fallback_pairs": 14
+        },
+        "B4": {
+          "threshold": 0.7909160256385803,
+          "fmr": 0.09444444444444444,
+          "fsr": 0.8333333333333331,
+          "ba": 0.5361111111111111,
+          "fallback_pairs": 14
+        },
+        "B5": {
+          "threshold": 0.7986257672309875,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.9166666666666666,
+          "ba": 0.4916666666666667,
+          "fallback_pairs": 14
+        },
+        "B6": {
+          "threshold": 0.8616270422935486,
+          "fmr": 0.06666666666666667,
+          "fsr": 0.9666666666666667,
+          "ba": 0.48333333333333334,
+          "fallback_pairs": 14
+        },
+        "B7": {
+          "threshold": 0.7872278690338135,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8333333333333331,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 14
+        },
+        "B8": {
+          "threshold": 0.7891348600387573,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8166666666666665,
+          "ba": 0.5416666666666666,
+          "fallback_pairs": 14
+        },
+        "S1": {
+          "threshold": 0.8016234636306763,
+          "fmr": 0.08888888888888889,
+          "fsr": 0.8833333333333333,
+          "ba": 0.513888888888889,
+          "fallback_pairs": 14
+        },
+        "S2": {
+          "threshold": 0.7888665199279785,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8333333333333331,
+          "ba": 0.5333333333333333,
+          "fallback_pairs": 14
+        },
+        "S3": {
+          "threshold": 0.7980534434318542,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8666666666666667,
+          "ba": 0.5166666666666667,
+          "fallback_pairs": 14
+        },
+        "S4": {
+          "threshold": 0.7872278690338135,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8500000000000001,
+          "ba": 0.525,
+          "fallback_pairs": 14
+        },
+        "S5": {
+          "threshold": 0.8004071116447449,
+          "fmr": 0.08888888888888889,
+          "fsr": 0.8500000000000001,
+          "ba": 0.5305555555555556,
+          "fallback_pairs": 14
+        },
+        "S6": {
+          "threshold": 0.8419386148452759,
+          "fmr": 0.05555555555555556,
+          "fsr": 0.9166666666666666,
+          "ba": 0.513888888888889,
+          "fallback_pairs": 14
+        },
+        "S7": {
+          "threshold": 0.7872278690338135,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8166666666666665,
+          "ba": 0.5416666666666666,
+          "fallback_pairs": 14
+        },
+        "S8": {
+          "threshold": 0.7996174097061157,
+          "fmr": 0.09999999999999999,
+          "fsr": 0.8500000000000001,
+          "ba": 0.525,
+          "fallback_pairs": 14
+        }
+      },
+      "selected_dimension_drop": "B2"
+    }
+  },
+  "prediction_file": "research/results/matched_fingerprint_v2/dimension_selection_20261104/outer_fold_predictions.csv.gz",
+  "prediction_sha256": "9a717ecc9f93ee857db6c01c770eea0134c7704196e920cb87f14079637dd5a4"
+}

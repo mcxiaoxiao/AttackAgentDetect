@@ -1,0 +1,201 @@
+{
+  "protocol": "finite feature availability by trace at 8-event windows; no raw values emitted",
+  "feature_definition_source": "attackagent/fingerprint_v2.py",
+  "input_sha256": {
+    "research/experiments/matched_fingerprint_v1/run.py": "6a377798928cbf1217bec0568366840a99fa2ca4aaf556065d122ee5630c617a"
+  },
+  "datasets": {
+    "cth": {
+      "trace_count": 85,
+      "complete_block_traces": {
+        "B": 84,
+        "S": 84,
+        "T": 0
+      },
+      "features": {
+        "B": {
+          "command_diversity": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "command_entropy": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "dominant_command_share": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "action_switch_rate": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "next_action_conditional_entropy": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "longest_action_run_share": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "action_pair_reuse": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "adjacent_command_repeat": {
+            "traces_with_any_finite_window_value": 84
+          }
+        },
+        "S": {
+          "first_seen_command_share": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "revisit_share": {
+            "traces_with_any_finite_window_value": 42
+          },
+          "normalized_revisit_span": {
+            "traces_with_any_finite_window_value": 42
+          },
+          "aba_action_return_share": {
+            "traces_with_any_finite_window_value": 58
+          },
+          "lag3_action_return_share": {
+            "traces_with_any_finite_window_value": 55
+          },
+          "reused_command_bigram_share": {
+            "traces_with_any_finite_window_value": 84
+          },
+          "reused_command_trigram_share": {
+            "traces_with_any_finite_window_value": 64
+          },
+          "action_distribution_shift": {
+            "traces_with_any_finite_window_value": 26
+          }
+        },
+        "T": {
+          "median_log_gap": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "log_gap_iqr": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "gap_burstiness": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "fast_gap_share": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "slow_gap_share": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "lag1_log_gap_correlation": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "median_log_duration": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "median_log_idle_interval": {
+            "traces_with_any_finite_window_value": 0
+          }
+        }
+      },
+      "window_size": 8
+    },
+    "ait": {
+      "trace_count": 109,
+      "complete_block_traces": {
+        "B": 109,
+        "S": 109,
+        "T": 109
+      },
+      "features": {
+        "B": {
+          "command_diversity": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "command_entropy": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "dominant_command_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "action_switch_rate": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "next_action_conditional_entropy": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "longest_action_run_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "action_pair_reuse": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "adjacent_command_repeat": {
+            "traces_with_any_finite_window_value": 109
+          }
+        },
+        "S": {
+          "first_seen_command_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "revisit_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "normalized_revisit_span": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "aba_action_return_share": {
+            "traces_with_any_finite_window_value": 82
+          },
+          "lag3_action_return_share": {
+            "traces_with_any_finite_window_value": 107
+          },
+          "reused_command_bigram_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "reused_command_trigram_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "action_distribution_shift": {
+            "traces_with_any_finite_window_value": 101
+          }
+        },
+        "T": {
+          "median_log_gap": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "log_gap_iqr": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "gap_burstiness": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "fast_gap_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "slow_gap_share": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "lag1_log_gap_correlation": {
+            "traces_with_any_finite_window_value": 109
+          },
+          "median_log_duration": {
+            "traces_with_any_finite_window_value": 0
+          },
+          "median_log_idle_interval": {
+            "traces_with_any_finite_window_value": 0
+          }
+        }
+      },
+      "window_size": 8
+    },
+    "nyu": {
+      "trace_count": 585,
+      "complete_block_traces": {
+        "B": 585,
+        "S": 585,
+        "T": 0
+      },
+      "features": {
+        "B": "all eligible runs have complete B/S under the frozen protocol",
+        "S": "all eligible runs have complete B/S under the frozen protocol",
+        "T": "timestamps and durations are unavailable"
+      },
+      "source": "frozen NYU run manifest; no raw timing fields in the model contract"
+    }
+  }
+}

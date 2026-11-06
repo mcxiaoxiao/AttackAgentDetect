@@ -1,0 +1,102 @@
+{
+  "cth_training_tasks": 17,
+  "cth_training_traces": 85,
+  "cth_test_fold_sequence_overlap": [
+    {
+      "fold": 0,
+      "training_traces": 55,
+      "test_traces": 30,
+      "duplicate_test_traces": 9,
+      "test_trace_ids": [
+        "6509037661a52e1462d2",
+        "b9da7273a7bd5cf3f091",
+        "25b01cfb53d95ad32b62",
+        "bbab46298b6aa9500a9f",
+        "2725590c19bedd11abf1",
+        "6570e1010f533fbebb76",
+        "350d4cdfe29437913099",
+        "f4754fdc0d7bedfc0641",
+        "dee277b944ff93d56a53"
+      ],
+      "tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_13",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_45",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_81",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_82"
+      ]
+    },
+    {
+      "fold": 1,
+      "training_traces": 55,
+      "test_traces": 30,
+      "duplicate_test_traces": 5,
+      "test_trace_ids": [
+        "e1958f89f90d8b4e3255",
+        "8c68c9b500547c376421",
+        "a7c023778bfa2a5821b6",
+        "80e88aad43d1bad7bfb3",
+        "8ddaef7d7d91cc61bd54"
+      ],
+      "tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_10",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_68",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_77"
+      ]
+    },
+    {
+      "fold": 2,
+      "training_traces": 60,
+      "test_traces": 25,
+      "duplicate_test_traces": 16,
+      "test_trace_ids": [
+        "65394bf41d8bd52696c1",
+        "69d6cceaebad6cb723b9",
+        "d1fc13c9c1506e786c81",
+        "dd97c45e2829bdf480a1",
+        "6b30a62d6a2f093fc333",
+        "f63717f82600069378d6",
+        "ce3d3ae14e39b5d68f3a",
+        "36af29b3644b4583baac",
+        "db5117b6a4d89cfa6721",
+        "ccaf4f6ff6ae18a4fc7e",
+        "7dd50bdb6c35dfdcf0d5",
+        "9410b50edf98c4d0233f",
+        "4739bb2bface316454d9",
+        "e40148d7fc3e2310c489",
+        "7842e263e32e2c8a0f82",
+        "ea027d2134231e9cb84e"
+      ],
+      "tasks": [
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_48",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_50",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_51",
+        "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_83",
+        "cyber-task-horizons/nyuctf/2023q-rev-baby_s_first"
+      ]
+    }
+  ],
+  "nyu_exact_normalized_sequence_overlap_count": 0,
+  "nyu_exact_overlap_task_count": 0,
+  "nyu_exact_overlap_tasks": [],
+  "nyu_eligible_task_slug_overlap_with_cth_training": [],
+  "nyu_manifest_preexcluded_task_slug_overlap_with_cth_training": [
+    "2023q-rev-baby_s_first"
+  ],
+  "nyu_manifest_preexcluded_count": null,
+  "interpretation": "Exact sequence and slug matches are audit flags, not proof of identical source tasks.",
+  "input_sha256": {
+    "research/experiments/matched_fingerprint_v2/analyze_shortpaper_frozen.py": "46db185da289c893585aa4972d156726dac476332f5c3a6510777686a30ba46d",
+    "research/results/association_fingerprint_v3/exact_mixture.json": "a01d22d507c2e7d536a905b6de388d372b6e60d16f26b71f0c2fd19c7c3dccc6",
+    "research/experiments/matched_fingerprint_v1/run.py": "6a377798928cbf1217bec0568366840a99fa2ca4aaf556065d122ee5630c617a",
+    "research/experiments/overnight_fingerprint_v1/run.py": "6b08a26e04e91940336f39d82e4f03e5344bcaf1d0ffb8791358b7a16ba56f44",
+    "research/results/overnight_fingerprint_v1/task_folds.csv": "1c07850d20282ed84b6ac2be14ecde9f0981d368cfb1dba0d5b64520bd48868d",
+    "research/results/matched_fingerprint_v1/cth/fold-0-xgb-evidence.csv.gz": "70cc0495f96cb9d45206f575631822668d4343a0de5e20b50e3bec2b1d050221",
+    "research/results/matched_fingerprint_v1/cth/fold-0-xgb-BS.csv.gz": "8fb619fa64076f786e1691a84b4b9d624afe529cb5a57f62b2a1f821f8edf34e",
+    "research/results/matched_fingerprint_v1/cth/fold-1-xgb-evidence.csv.gz": "159ec6cd84a1f286d2e80d9f9c8b8076d0ffd5d357db32f8efdaa5d970f688e5",
+    "research/results/matched_fingerprint_v1/cth/fold-1-xgb-BS.csv.gz": "6258151ac06bff34aee69a0c802f954c8b0eaf9bed7573b5f87eba7b26d982c1",
+    "research/results/matched_fingerprint_v1/cth/fold-2-xgb-evidence.csv.gz": "f0e1c21c347fb05d63c0a4cf43ebc754e61fe0499e1101e8415fcb0025954818",
+    "research/results/matched_fingerprint_v1/cth/fold-2-xgb-BS.csv.gz": "9a15c6e92da15f138f69e4c96732152250f6d9ca80e102ddcc080b00a4b17fc6",
+    "research/results/matched_fingerprint_v2/independent_nyu_task_manifest.json": "1673369863b49d980be7f013266d240d2322586af975c39dd2a3d718a98031b9",
+    "research/experiments/matched_fingerprint_v2/run_independent_nyu_agent.py": "79b4c1cfd092ce0877729a612d5c172e77c08dd07502dcde1762311bb2ad3a68"
+  }
+}

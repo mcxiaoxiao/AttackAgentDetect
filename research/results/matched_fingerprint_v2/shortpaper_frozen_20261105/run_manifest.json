@@ -1,0 +1,37 @@
+{
+  "protocol": "shortpaper_review_protocol.md",
+  "seed": 20261105,
+  "bootstrap_draws": 10000,
+  "frozen_scores_only": true,
+  "cth_pairs": 54400,
+  "cth_tasks": 17,
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  },
+  "inputs_sha256": {
+    "research/experiments/matched_fingerprint_v2/analyze_shortpaper_frozen.py": "46db185da289c893585aa4972d156726dac476332f5c3a6510777686a30ba46d",
+    "research/results/association_fingerprint_v3/exact_mixture.json": "a01d22d507c2e7d536a905b6de388d372b6e60d16f26b71f0c2fd19c7c3dccc6",
+    "research/experiments/matched_fingerprint_v1/run.py": "6a377798928cbf1217bec0568366840a99fa2ca4aaf556065d122ee5630c617a",
+    "research/experiments/overnight_fingerprint_v1/run.py": "6b08a26e04e91940336f39d82e4f03e5344bcaf1d0ffb8791358b7a16ba56f44",
+    "research/results/overnight_fingerprint_v1/task_folds.csv": "1c07850d20282ed84b6ac2be14ecde9f0981d368cfb1dba0d5b64520bd48868d",
+    "research/results/matched_fingerprint_v1/cth/fold-0-xgb-evidence.csv.gz": "70cc0495f96cb9d45206f575631822668d4343a0de5e20b50e3bec2b1d050221",
+    "research/results/matched_fingerprint_v1/cth/fold-0-xgb-BS.csv.gz": "8fb619fa64076f786e1691a84b4b9d624afe529cb5a57f62b2a1f821f8edf34e",
+    "research/results/matched_fingerprint_v1/cth/fold-1-xgb-evidence.csv.gz": "159ec6cd84a1f286d2e80d9f9c8b8076d0ffd5d357db32f8efdaa5d970f688e5",
+    "research/results/matched_fingerprint_v1/cth/fold-1-xgb-BS.csv.gz": "6258151ac06bff34aee69a0c802f954c8b0eaf9bed7573b5f87eba7b26d982c1",
+    "research/results/matched_fingerprint_v1/cth/fold-2-xgb-evidence.csv.gz": "f0e1c21c347fb05d63c0a4cf43ebc754e61fe0499e1101e8415fcb0025954818",
+    "research/results/matched_fingerprint_v1/cth/fold-2-xgb-BS.csv.gz": "9a15c6e92da15f138f69e4c96732152250f6d9ca80e102ddcc080b00a4b17fc6",
+    "research/results/matched_fingerprint_v2/independent_nyu_task_manifest.json": "1673369863b49d980be7f013266d240d2322586af975c39dd2a3d718a98031b9",
+    "research/experiments/matched_fingerprint_v2/run_independent_nyu_agent.py": "79b4c1cfd092ce0877729a612d5c172e77c08dd07502dcde1762311bb2ad3a68"
+  },
+  "outputs": [
+    "mixture_metrics.csv",
+    "frozen_metric_summaries.csv",
+    "retrospective_fmr10.json",
+    "no_match_gallery_rows.csv.gz",
+    "leave_one_task_summary.json",
+    "sequence_and_alias_audit.json",
+    "cth_exact_sequence_sensitivity.json"
+  ]
+}

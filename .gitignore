@@ -11,3 +11,13 @@ dist/
 research/public-cyber-task-horizons/
 research/data/raw/
 research/data/external/
+
+# Local LaTeX build artifacts
+research/paper/*.aux
+research/paper/*.log
+research/paper/*.out
+research/paper/*.xdv
+research/paper/*.synctex.gz
+
+# Local review-tool log
+.hallmark/

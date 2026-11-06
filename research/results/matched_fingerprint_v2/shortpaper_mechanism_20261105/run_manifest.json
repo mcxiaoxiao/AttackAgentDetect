@@ -1,0 +1,84 @@
+{
+  "status": "completed_one_frozen_five_arm_mechanism_batch",
+  "protocol": "shortpaper_review_protocol.md",
+  "protocol_sha256": "3c3c08d2522d26d3ff7d3bf75225fe0d32e5cc7b7f2815a62e6ed6fbef2628e1",
+  "test_tasks": 17,
+  "test_traces": 85,
+  "outer_folds": 3,
+  "pairs_per_arm": 54400,
+  "prediction_rows": 489600,
+  "agent_role_shares": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "training_pair_counts_by_fold": {
+    "0": 176,
+    "1": 176,
+    "2": 192
+  },
+  "representation_by_fold": {
+    "0": [
+      4,
+      "mean_std",
+      "conditional"
+    ],
+    "1": [
+      4,
+      "mean_std_trend",
+      "direct"
+    ],
+    "2": [
+      4,
+      "mean_std_trend",
+      "direct"
+    ]
+  },
+  "xgb_depth_by_fold": {
+    "0": 2,
+    "1": 3,
+    "2": 3
+  },
+  "shuffle_seeds": [
+    20261105,
+    20261106,
+    20261107,
+    20261108,
+    20261109
+  ],
+  "arm_pairings_identical": true,
+  "fallback_counts": {
+    "E:0": 0,
+    "E+records:0": 0,
+    "E+records+B/S:0": 1089,
+    "E+records+LCS:0": 0,
+    "E+records+shuffled-B/S:20261105": 1089,
+    "E+records+shuffled-B/S:20261106": 1089,
+    "E+records+shuffled-B/S:20261107": 1089,
+    "E+records+shuffled-B/S:20261108": 1089,
+    "E+records+shuffled-B/S:20261109": 1089
+  },
+  "threshold_audit_sha256": "b625084e5c9ef963978fbcb366c9e5eb8bce6ab85b90b0506600f343f5fa5d24",
+  "prediction_sha256": "5a05f21279e282a8ab5ef7d05872c11e2d09f5cbc0ffddd8cfc7eb5e42bca074",
+  "inputs_sha256": {
+    "research/experiments/matched_fingerprint_v2/run_shortpaper_mechanism.py": "ff23181bf07564e8d9b32e98f9e6b0b8fa774f007cfa6c6201a30643f77bbf35",
+    "research/experiments/matched_fingerprint_v1/run.py": "6a377798928cbf1217bec0568366840a99fa2ca4aaf556065d122ee5630c617a",
+    "research/results/matched_fingerprint_v2/raw_command_coverage.json": "8cc810496d99b5a742697a8108edc7cd3f4a3caef7b401903b31f8e1b0d46e85",
+    "research/experiments/matched_fingerprint_v2/shortpaper_review_protocol.md": "3c3c08d2522d26d3ff7d3bf75225fe0d32e5cc7b7f2815a62e6ed6fbef2628e1",
+    "attackagent/fingerprint_v2.py": "9c3141e1a8d5b7f463807131120b9c1209d5e3741080d93da9c2eabdf928d2e7",
+    "attackagent/traces.py": "9de7e546e1bdb5da06f05cc96cb3d4beeaca4a72ae6927b92700e40c6f3df98f",
+    "research/results/behavior_corpus_v1/evidence.jsonl": "090e2f90c30dbf19db6e56e4ecafea81a356b9db98e455a303f18ebce910e01c",
+    "research/results/behavior_corpus_v1/trace_registry.csv": "571527d9acb8161488a39dd7e497b94bd433edc58452f497663705360e0ec2e5",
+    "research/results/matched_fingerprint_v1/cth/fold-0-audit.json": "8f3a7dc824910b28493881034875b853b94bc1b99c89c01a301a8fda1cb5aa6d",
+    "research/results/matched_fingerprint_v1/cth/fold-1-audit.json": "40a207768a818044c3cc55f660492cffcad916e01f73ab2ab416029f315b5594",
+    "research/results/matched_fingerprint_v1/cth/fold-2-audit.json": "5312aee29ad6a8639a9abb7f4e29af20723fe64c01db8c096c83d177cb6f24fa"
+  },
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  },
+  "elapsed_seconds": 17.86
+}

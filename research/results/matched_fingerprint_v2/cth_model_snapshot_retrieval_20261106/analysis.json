@@ -1,0 +1,3598 @@
+{
+  "status": "completed_exploratory_task_disjoint_model_snapshot_retrieval",
+  "target": "same recorded model snapshot across different CTF task groups",
+  "source_revision": "178c0da1800f9c07311e1b8d6c61dd8104e7b4ae",
+  "snapshot_labels": [
+    "claude-opus-4.6",
+    "claude-sonnet-4.6",
+    "gpt-5.5"
+  ],
+  "snapshot_trace_counts": {
+    "claude-opus-4.6": 47,
+    "claude-sonnet-4.6": 47,
+    "gpt-5.5": 47
+  },
+  "task_count": 47,
+  "trace_count": 141,
+  "folds": {
+    "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie": 0,
+    "cyber-task-horizons/cybench/rpgo": 1,
+    "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t": 2,
+    "cyber-task-horizons/cybench/packedaway": 0,
+    "cyber-task-horizons/nyuctf/2017q-rev-prophecy": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2": 2,
+    "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all": 0,
+    "cyber-task-horizons/cybench/labyrinth_linguist": 1,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14": 2,
+    "cyber-task-horizons/cybench/chunky": 0,
+    "cyber-task-horizons/cybench/missingbits": 1,
+    "cyber-task-horizons/cybench/network_tools": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71": 0,
+    "cyber-task-horizons/nyuctf/2020f-rev-rap": 1,
+    "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck": 2,
+    "cyber-task-horizons/nyuctf/2018q-msc-short_circuit": 0,
+    "cyber-task-horizons/cybench/flecks_of_gold": 1,
+    "cyber-task-horizons/nyuctf/2020f-web-picgram": 2,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70": 0,
+    "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode": 1,
+    "cyber-task-horizons/nyuctf/2015q-web-k_stairs": 2,
+    "cyber-task-horizons/nyuctf/2017q-pwn-pilot": 0,
+    "cyber-task-horizons/cybench/glacier-exchange": 1,
+    "cyber-task-horizons/nyuctf/2017q-web-orange": 2,
+    "cyber-task-horizons/nyuctf/2017q-for-missed_registration": 0,
+    "cyber-task-horizons/cybench/locktalk": 1,
+    "cyber-task-horizons/cybench/frog_waf": 2,
+    "cyber-task-horizons/cybench/data_siege": 0,
+    "cyber-task-horizons/cybench/crushing": 1,
+    "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking": 2,
+    "cyber-task-horizons/cybench/back_to_the_past": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94": 1,
+    "cyber-task-horizons/nyuctf/2021q-pwn-alien_math": 2,
+    "cyber-task-horizons/nyuctf/2015q-rev-ftp": 0,
+    "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8": 1,
+    "cyber-task-horizons/nyuctf/2013q-msc-networking_1": 2,
+    "cyber-task-horizons/cybench/sop": 0,
+    "cyber-task-horizons/nyuctf/2016q-for-kill": 1,
+    "cyber-task-horizons/cybench/noisy_crc": 2,
+    "cyber-task-horizons/nyuctf/2020q-pwn-roppity": 0,
+    "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1": 1,
+    "cyber-task-horizons/nyuctf/2019q-rev-call_site": 2,
+    "cyber-task-horizons/cybench/just_another_pickle_jail": 0,
+    "cyber-task-horizons/nyuctf/2023q-web-smug_dino": 1,
+    "cyber-task-horizons/nyuctf/2016q-pwn-hungman": 2,
+    "cyber-task-horizons/nyuctf/2016q-rev-rock": 0,
+    "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard": 1
+  },
+  "fusion": "conditional",
+  "primary_view": "equal_prefix8",
+  "secondary_view": "full",
+  "outer_folds": {
+    "equal_prefix8": {
+      "0": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie"
+        ],
+        "train_pair_count": 4185,
+        "train_positive_count": 1395,
+        "train_negative_count": 2790,
+        "test_pair_count": 2160,
+        "test_gallery_count": 720,
+        "train_test_task_intersection": []
+      },
+      "1": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "train_pair_count": 4185,
+        "train_positive_count": 1395,
+        "train_negative_count": 2790,
+        "test_pair_count": 2160,
+        "test_gallery_count": 720,
+        "train_test_task_intersection": []
+      },
+      "2": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking"
+        ],
+        "train_pair_count": 4464,
+        "train_positive_count": 1488,
+        "train_negative_count": 2976,
+        "test_pair_count": 1890,
+        "test_gallery_count": 630,
+        "train_test_task_intersection": []
+      }
+    },
+    "full": {
+      "0": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie"
+        ],
+        "train_pair_count": 4185,
+        "train_positive_count": 1395,
+        "train_negative_count": 2790,
+        "test_pair_count": 2160,
+        "test_gallery_count": 720,
+        "train_test_task_intersection": []
+      },
+      "1": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "train_pair_count": 4185,
+        "train_positive_count": 1395,
+        "train_negative_count": 2790,
+        "test_pair_count": 2160,
+        "test_gallery_count": 720,
+        "train_test_task_intersection": []
+      },
+      "2": {
+        "train_tasks": [
+          "cyber-task-horizons/cybench/back_to_the_past",
+          "cyber-task-horizons/cybench/chunky",
+          "cyber-task-horizons/cybench/crushing",
+          "cyber-task-horizons/cybench/data_siege",
+          "cyber-task-horizons/cybench/flecks_of_gold",
+          "cyber-task-horizons/cybench/glacier-exchange",
+          "cyber-task-horizons/cybench/just_another_pickle_jail",
+          "cyber-task-horizons/cybench/labyrinth_linguist",
+          "cyber-task-horizons/cybench/locktalk",
+          "cyber-task-horizons/cybench/missingbits",
+          "cyber-task-horizons/cybench/packedaway",
+          "cyber-task-horizons/cybench/rpgo",
+          "cyber-task-horizons/cybench/sop",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_70",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_71",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_8",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_94",
+          "cyber-task-horizons/nyuctf/2015q-rev-ftp",
+          "cyber-task-horizons/nyuctf/2016q-cry-sleeping_guard",
+          "cyber-task-horizons/nyuctf/2016q-for-kill",
+          "cyber-task-horizons/nyuctf/2016q-rev-rock",
+          "cyber-task-horizons/nyuctf/2017q-for-missed_registration",
+          "cyber-task-horizons/nyuctf/2017q-pwn-pilot",
+          "cyber-task-horizons/nyuctf/2017q-rev-prophecy",
+          "cyber-task-horizons/nyuctf/2018q-msc-short_circuit",
+          "cyber-task-horizons/nyuctf/2018q-pwn-shellpointcode",
+          "cyber-task-horizons/nyuctf/2018q-rev-a_walk_through_x86_part_1",
+          "cyber-task-horizons/nyuctf/2020f-rev-rap",
+          "cyber-task-horizons/nyuctf/2020q-pwn-roppity",
+          "cyber-task-horizons/nyuctf/2022q-cry-gotta_crack_them_all",
+          "cyber-task-horizons/nyuctf/2023q-pwn-my_first_pwnie",
+          "cyber-task-horizons/nyuctf/2023q-web-smug_dino"
+        ],
+        "test_tasks": [
+          "cyber-task-horizons/cybench/frog_waf",
+          "cyber-task-horizons/cybench/network_tools",
+          "cyber-task-horizons/cybench/noisy_crc",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_14",
+          "cyber-task-horizons/intercode-ctf/intercode-ctf_reverse/task_2",
+          "cyber-task-horizons/nyuctf/2013q-msc-networking_1",
+          "cyber-task-horizons/nyuctf/2015q-web-k_stairs",
+          "cyber-task-horizons/nyuctf/2016q-pwn-hungman",
+          "cyber-task-horizons/nyuctf/2017f-pwn-humm_sch_t",
+          "cyber-task-horizons/nyuctf/2017q-rev-grumpcheck",
+          "cyber-task-horizons/nyuctf/2017q-web-orange",
+          "cyber-task-horizons/nyuctf/2019q-rev-call_site",
+          "cyber-task-horizons/nyuctf/2020f-web-picgram",
+          "cyber-task-horizons/nyuctf/2021q-pwn-alien_math",
+          "cyber-task-horizons/nyuctf/2022q-pwn-unsafe_linking"
+        ],
+        "train_pair_count": 4464,
+        "train_positive_count": 1488,
+        "train_negative_count": 2976,
+        "test_pair_count": 1890,
+        "test_gallery_count": 630,
+        "train_test_task_intersection": []
+      }
+    }
+  },
+  "bootstrap_draws": 10000,
+  "bootstrap_unit": "two-way query-task and gallery-task resampling within held-out fold",
+  "pair_count_per_view_learner_real_arm": 6210,
+  "prediction_rows": 298080,
+  "gallery_rows": 99360,
+  "candidate_gallery_contract": "one same-snapshot and two different-snapshot candidates; query/gallery tasks differ and both are held out",
+  "input_hashes": {
+    "research/results/behavior_trace_dataset_v2/traces/trace-catalog-v2.json": "7f22f8cb6e2d1a6bc40cc95854a1462065bfd82d2b3a9c767a20ae3e21d08d25",
+    "research/experiments/matched_fingerprint_v2/cth_model_snapshot_retrieval_protocol.md": "38922bb9b10d7c978be2714166df74c6b379e764d8d766e8218f586b4b8895f6",
+    "research/experiments/matched_fingerprint_v2/run_cth_model_snapshot_retrieval.py": "9c2b3bfab20de0e4f680e90942b2841726ec4fe536e6f30b7e4e3ba33e923549",
+    "research/experiments/matched_fingerprint_v2/run_arguments.py": "3ae75772389024a824ecfcc73aa9328bea30ae1f3318e7e9ae7b0e6f2bf59f18"
+  },
+  "catalog_schema_version": 2,
+  "environment": {
+    "python": "3.10.16 (main, Mar 17 2025, 21:30:07) [Clang 20.1.0 ]",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  },
+  "elapsed_seconds": 113.68,
+  "results": {
+    "equal_prefix8": {
+      "svm": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4409546324439941,
+                "ci95": [
+                  0.39959583930567383,
+                  0.4860645315684348
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5808426207362378,
+                "ci95": [
+                  0.5452976269553496,
+                  0.6186188039157497
+                ]
+              },
+              "mrr": {
+                "mean": 0.673932417726744,
+                "ci95": [
+                  0.6492720421867663,
+                  0.7010649970187609
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.42916807384892486,
+                "ci95": [
+                  0.3902187016480631,
+                  0.47080695391094374
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.582531239446133,
+                "ci95": [
+                  0.5490454270579554,
+                  0.6179383833778179
+                ]
+              },
+              "mrr": {
+                "mean": 0.6705664377650193,
+                "ci95": [
+                  0.6469600278236843,
+                  0.696027640748019
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.011786558595069219,
+                  "ci95": [
+                    -0.03626430928402013,
+                    0.014026299764069166
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.0016886187098952288,
+                  "ci95": [
+                    -0.01893076729242792,
+                    0.022840736170012935
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0033659799617246078,
+                  "ci95": [
+                    -0.01756612236944122,
+                    0.011336296488434072
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4336429134301475,
+                "ci95": [
+                  0.3947052140169928,
+                  0.47562837948172443
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5913796014859845,
+                "ci95": [
+                  0.5610777398871333,
+                  0.6240680984490841
+                ]
+              },
+              "mrr": {
+                "mean": 0.6750075049720439,
+                "ci95": [
+                  0.6524367008053475,
+                  0.699494575661882
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.007311719013846585,
+                  "ci95": [
+                    -0.047172016854063074,
+                    0.03165976040191129
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.010536980749746627,
+                  "ci95": [
+                    -0.021600355906509654,
+                    0.041709056763631014
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0010750872452999216,
+                  "ci95": [
+                    -0.02211999762061778,
+                    0.02360166771385272
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": 0.004474839581222634,
+                  "ci95": [
+                    -0.03373456288878585,
+                    0.042158733433551164
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.008848362039851398,
+                  "ci95": [
+                    -0.022906446889979542,
+                    0.039853586879603914
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.004441067207024529,
+                  "ci95": [
+                    -0.01814900268969532,
+                    0.02640620749783429
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4018799954970168,
+                "ci95": [
+                  0.3629666995203444,
+                  0.4424517493041759
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5606129685916921,
+                "ci95": [
+                  0.527069965715136,
+                  0.5951094163737068
+                ]
+              },
+              "mrr": {
+                "mean": 0.6541643213629029,
+                "ci95": [
+                  0.6307322529999512,
+                  0.6788458489480088
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.03907463694697727,
+                  "ci95": [
+                    -0.07792661567199916,
+                    -0.0023541548286799075
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.02022965214454575,
+                  "ci95": [
+                    -0.0509183796469285,
+                    0.009791531955596771
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.019768096363841026,
+                  "ci95": [
+                    -0.04204902041087039,
+                    0.0013868076456685086
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.031762917933130685,
+                  "ci95": [
+                    -0.07188770573281393,
+                    0.009163162294003218
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.03076663289429238,
+                  "ci95": [
+                    -0.06538298115965988,
+                    0.0038377096292351353
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.020843183609140947,
+                  "ci95": [
+                    -0.04492171510674963,
+                    0.003351290373968983
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4210627040414274,
+                "ci95": [
+                  0.3822116966660754,
+                  0.46134277893726605
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5755741303613645,
+                "ci95": [
+                  0.5437123638615026,
+                  0.608977170983776
+                ]
+              },
+              "mrr": {
+                "mean": 0.6655456114675973,
+                "ci95": [
+                  0.6423051778346173,
+                  0.6895030140007461
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.01989192840256665,
+                  "ci95": [
+                    -0.05603479630427499,
+                    0.016184214576588217
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.005268490374873314,
+                  "ci95": [
+                    -0.03274213767089122,
+                    0.022168214091015607
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.008386806259146673,
+                  "ci95": [
+                    -0.02846594801878054,
+                    0.011867176232417311
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.012580209388720065,
+                  "ci95": [
+                    -0.050376888361568006,
+                    0.024707297634137
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.01580547112461994,
+                  "ci95": [
+                    -0.045853046389680054,
+                    0.01441606969618464
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.009461893504446595,
+                  "ci95": [
+                    -0.03104787304455759,
+                    0.012344241149412906
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.40995159293031636,
+                "ci95": [
+                  0.37078204421944777,
+                  0.45152098047502587
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.570339412360689,
+                "ci95": [
+                  0.5403383581192672,
+                  0.6029602173672582
+                ]
+              },
+              "mrr": {
+                "mean": 0.6600970017636684,
+                "ci95": [
+                  0.6374701485440807,
+                  0.6842668125375148
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.03100303951367772,
+                  "ci95": [
+                    -0.06970216882952988,
+                    0.006374456565662909
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.010503208375548856,
+                  "ci95": [
+                    -0.03991531493331669,
+                    0.018467910256789594
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.013835415963075581,
+                  "ci95": [
+                    -0.03573043739703065,
+                    0.007179470442531215
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.023691320499831137,
+                  "ci95": [
+                    -0.060020783704302104,
+                    0.012174827667678379
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.021040189125295483,
+                  "ci95": [
+                    -0.04975383839741954,
+                    0.007061494832021047
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.014910503208375503,
+                  "ci95": [
+                    -0.03541404593144843,
+                    0.005453554529432013
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4177192389958347,
+                "ci95": [
+                  0.37780243862959567,
+                  0.4602757167940262
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5757092198581562,
+                "ci95": [
+                  0.5421812043876721,
+                  0.6107572707192105
+                ]
+              },
+              "mrr": {
+                "mean": 0.6644761529513302,
+                "ci95": [
+                  0.6406926320323036,
+                  0.6899183795227832
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.02323539344815939,
+                  "ci95": [
+                    -0.06235201206055503,
+                    0.016762751197272805
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.005133400878081673,
+                  "ci95": [
+                    -0.034813719058807716,
+                    0.024679367718779717
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.009456264775413725,
+                  "ci95": [
+                    -0.03153626022802573,
+                    0.012205490771079205
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.015923674434312807,
+                  "ci95": [
+                    -0.05545719457070279,
+                    0.022205239988665814
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.0156703816278283,
+                  "ci95": [
+                    -0.046228796075580496,
+                    0.013827151007167002
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.010531352020713647,
+                  "ci95": [
+                    -0.03303894962160717,
+                    0.011323338501369795
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4018124507486209,
+                "ci95": [
+                  0.36157277693535333,
+                  0.4435067292347157
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5662529550827423,
+                "ci95": [
+                  0.5342428235468413,
+                  0.5999085606976987
+                ]
+              },
+              "mrr": {
+                "mean": 0.6560218019437877,
+                "ci95": [
+                  0.6324092121703505,
+                  0.6805228701492142
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.0391421816953732,
+                  "ci95": [
+                    -0.07666720169312248,
+                    -0.003919806404095054
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.01458966565349551,
+                  "ci95": [
+                    -0.042230497855388606,
+                    0.012012194294387322
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.017910615782956274,
+                  "ci95": [
+                    -0.038679398115898746,
+                    0.001677375369810302
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.03183046268152662,
+                  "ci95": [
+                    -0.07156771705385727,
+                    0.007390820079159395
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.025126646403242137,
+                  "ci95": [
+                    -0.05613337923297605,
+                    0.005722687680059605
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.018985703028256196,
+                  "ci95": [
+                    -0.041303337411418145,
+                    0.0033323438226360315
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "tree": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.42622987729370704,
+                "ci95": [
+                  0.39406680234887337,
+                  0.46112718927899
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5799307666328943,
+                "ci95": [
+                  0.5519969213476575,
+                  0.6097332962682208
+                ]
+              },
+              "mrr": {
+                "mean": 0.6687202146422003,
+                "ci95": [
+                  0.6487593593438052,
+                  0.6901128980651229
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.42893166722953957,
+                "ci95": [
+                  0.3974669411270276,
+                  0.4631062291014894
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5811972306653159,
+                "ci95": [
+                  0.5535670198959064,
+                  0.6103884957839161
+                ]
+              },
+              "mrr": {
+                "mean": 0.6700429659649516,
+                "ci95": [
+                  0.6504660462397799,
+                  0.6909755986780585
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.0027017899358325326,
+                  "ci95": [
+                    -0.0030422293855691908,
+                    0.008779198545807953
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.0012664640324215881,
+                  "ci95": [
+                    -0.0027341419765360975,
+                    0.005164222268126406
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.001322751322751281,
+                  "ci95": [
+                    -0.001850556455100119,
+                    0.004596795376937246
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.41358775188562424,
+                "ci95": [
+                  0.3788225600813617,
+                  0.44967971416254343
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5665906788247214,
+                "ci95": [
+                  0.5349064205761416,
+                  0.5992081616467182
+                ]
+              },
+              "mrr": {
+                "mean": 0.6600594769034485,
+                "ci95": [
+                  0.6381467457086617,
+                  0.6827620944830731
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.012642125408082794,
+                  "ci95": [
+                    -0.04500113483865028,
+                    0.019490572738434367
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.013340087808172973,
+                  "ci95": [
+                    -0.04265447373824259,
+                    0.016114305824403808
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.008660737738751867,
+                  "ci95": [
+                    -0.02867636596463259,
+                    0.011530321849280383
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": -0.015343915343915326,
+                  "ci95": [
+                    -0.046472833812258287,
+                    0.01586108190113058
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.014606551840594562,
+                  "ci95": [
+                    -0.04395406553769433,
+                    0.014747857456919597
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.009983489061503148,
+                  "ci95": [
+                    -0.029769711408316555,
+                    0.0098389234098138
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.41390858944050435,
+                "ci95": [
+                  0.3872693776232969,
+                  0.4429327464888286
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5646825396825397,
+                "ci95": [
+                  0.541463523372272,
+                  0.5889279028148142
+                ]
+              },
+              "mrr": {
+                "mean": 0.659530376374348,
+                "ci95": [
+                  0.6431006496760475,
+                  0.6772026365966299
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.01232128785320269,
+                  "ci95": [
+                    -0.03289563621971737,
+                    0.00793746413896297
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.01524822695035466,
+                  "ci95": [
+                    -0.03166599484426688,
+                    0.0006747398338377079
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.009189838267852357,
+                  "ci95": [
+                    -0.021352258386021873,
+                    0.0025530558766498662
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.00032083755488010457,
+                  "ci95": [
+                    -0.029636943756098665,
+                    0.029154051049422296
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.0019081391421816862,
+                  "ci95": [
+                    -0.03069146545932634,
+                    0.02550469070934807
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0005291005291004902,
+                  "ci95": [
+                    -0.019422134931203896,
+                    0.017927224761124887
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4048575931554655,
+                "ci95": [
+                  0.37905279591122976,
+                  0.4331183577211179
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5589243498817966,
+                "ci95": [
+                  0.5367469278945304,
+                  0.5830258703837337
+                ]
+              },
+              "mrr": {
+                "mean": 0.6545939810124206,
+                "ci95": [
+                  0.6387756948870477,
+                  0.6718265038208673
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.02137228413824155,
+                  "ci95": [
+                    -0.041727357798122,
+                    -0.0019222640375692005
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.021006416751097712,
+                  "ci95": [
+                    -0.03754509986926195,
+                    -0.005112944051884116
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.014126233629779716,
+                  "ci95": [
+                    -0.0262778152162224,
+                    -0.0026190679549072866
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.008730158730158755,
+                  "ci95": [
+                    -0.03916941204086051,
+                    0.02096009172537388
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.007666328942924738,
+                  "ci95": [
+                    -0.03678901212418545,
+                    0.020793389140497942
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0054654958910278495,
+                  "ci95": [
+                    -0.02507045237723824,
+                    0.013620622175897327
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.41023302938196554,
+                "ci95": [
+                  0.37886103387502995,
+                  0.44467855765531483
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5606973995271867,
+                "ci95": [
+                  0.532536055011729,
+                  0.590383474072376
+                ]
+              },
+              "mrr": {
+                "mean": 0.656976809636384,
+                "ci95": [
+                  0.6374627327402062,
+                  0.678180129562756
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.015996847911741496,
+                  "ci95": [
+                    -0.04208322995929339,
+                    0.010230269652408275
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.019233367105707666,
+                  "ci95": [
+                    -0.04332707754726544,
+                    0.00472983261168598
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.011743405005816276,
+                  "ci95": [
+                    -0.028269296664008042,
+                    0.004716608279445902
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.0033547225036587025,
+                  "ci95": [
+                    -0.03123017135532532,
+                    0.024160371920841396
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.005893279297534693,
+                  "ci95": [
+                    -0.03236253319562532,
+                    0.020268963694660046
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0030826672670644095,
+                  "ci95": [
+                    -0.02047682714784885,
+                    0.014322102675067696
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4087920747495215,
+                "ci95": [
+                  0.38176462420650425,
+                  0.4382362087475441
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5619976359338062,
+                "ci95": [
+                  0.5383676525400548,
+                  0.5873041664577762
+                ]
+              },
+              "mrr": {
+                "mean": 0.6569299035611091,
+                "ci95": [
+                  0.6401789884256694,
+                  0.6749988618478953
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.017437802544185532,
+                  "ci95": [
+                    -0.03670471610942479,
+                    0.0013221276969355089
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.017933130699088085,
+                  "ci95": [
+                    -0.033971181396302556,
+                    -0.002402764370504016
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.011790311081091187,
+                  "ci95": [
+                    -0.02345201484796861,
+                    -0.0005966192650480208
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.004795677136102738,
+                  "ci95": [
+                    -0.03405527556934167,
+                    0.023468382527445934
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.004593042890915111,
+                  "ci95": [
+                    -0.03179353079654647,
+                    0.022495554658020354
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.00312957334233932,
+                  "ci95": [
+                    -0.021573450605699773,
+                    0.015143304607335956
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.39532815490262296,
+                "ci95": [
+                  0.36625699123596445,
+                  0.42628250312455973
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5476106045254981,
+                "ci95": [
+                  0.5216561925061951,
+                  0.5745974687805877
+                ]
+              },
+              "mrr": {
+                "mean": 0.647646253142707,
+                "ci95": [
+                  0.6295549892992888,
+                  0.6665167490958147
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.030901722391084074,
+                  "ci95": [
+                    -0.056145461816544416,
+                    -0.006406121294678242
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.03232016210739619,
+                  "ci95": [
+                    -0.05403003933830476,
+                    -0.01089568311012734
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.021073961499493366,
+                  "ci95": [
+                    -0.036399738155769634,
+                    -0.0059427768056600026
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.01825959698300128,
+                  "ci95": [
+                    -0.049014654224960236,
+                    0.010178052556881825
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.018980074299223215,
+                  "ci95": [
+                    -0.04766083199034549,
+                    0.00814877308121963
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.012413223760741499,
+                  "ci95": [
+                    -0.03179985185258043,
+                    0.005948896972981052
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "xgb": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4422492401215805,
+                "ci95": [
+                  0.4040566395398859,
+                  0.48152248947670445
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5949003714961162,
+                "ci95": [
+                  0.564458278781646,
+                  0.6254663580314552
+                ]
+              },
+              "mrr": {
+                "mean": 0.6790498705392323,
+                "ci95": [
+                  0.6568313007300183,
+                  0.7019796550556869
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4493808398063717,
+                "ci95": [
+                  0.40980878570072865,
+                  0.4904522695571734
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6028790949003715,
+                "ci95": [
+                  0.5711590912964836,
+                  0.6353091784404494
+                ]
+              },
+              "mrr": {
+                "mean": 0.6840866449022476,
+                "ci95": [
+                  0.6608698411008536,
+                  0.7080006693878683
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.007131599684791212,
+                  "ci95": [
+                    -0.014825788838513649,
+                    0.029091723445631705
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.007978723404255317,
+                  "ci95": [
+                    -0.008827663181648349,
+                    0.024742107738393318
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.005036774363015306,
+                  "ci95": [
+                    -0.007133845896285234,
+                    0.01734244499509933
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4382359563210627,
+                "ci95": [
+                  0.3978114977264838,
+                  0.47983160581471795
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5882387706855792,
+                "ci95": [
+                  0.553053882352436,
+                  0.6245749309452244
+                ]
+              },
+              "mrr": {
+                "mean": 0.6754915756688806,
+                "ci95": [
+                  0.6507111713968959,
+                  0.7007010946468588
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.004013283800517797,
+                  "ci95": [
+                    -0.04159326069675408,
+                    0.0343194789660121
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.006661600810537016,
+                  "ci95": [
+                    -0.03723334963412366,
+                    0.02482715134885615
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0035582948703516415,
+                  "ci95": [
+                    -0.025244974075123033,
+                    0.018592955139774575
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": -0.01114488348530901,
+                  "ci95": [
+                    -0.047158611530666555,
+                    0.025318578272167262
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.014640324214792333,
+                  "ci95": [
+                    -0.045831588549655966,
+                    0.016164269673181124
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.008595069233366948,
+                  "ci95": [
+                    -0.029753826385260296,
+                    0.0127642333924446
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.42348305752561066,
+                "ci95": [
+                  0.38176693924384975,
+                  0.4667083965913553
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5672070246538331,
+                "ci95": [
+                  0.5316876689200714,
+                  0.6027436696155158
+                ]
+              },
+              "mrr": {
+                "mean": 0.6635633607264813,
+                "ci95": [
+                  0.6383199583528802,
+                  0.6893461290595114
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.01876618259596985,
+                  "ci95": [
+                    -0.054950106116767046,
+                    0.018080228983070476
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.027693346842283084,
+                  "ci95": [
+                    -0.05881626022289423,
+                    0.003180867784412275
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.015486509812751015,
+                  "ci95": [
+                    -0.03703921406892396,
+                    0.0065614868318790735
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.014752898795452052,
+                  "ci95": [
+                    -0.05935991089958651,
+                    0.02912467409292861
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.021031746031746068,
+                  "ci95": [
+                    -0.060200567508422106,
+                    0.01656789361030037
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.011928214942399373,
+                  "ci95": [
+                    -0.03883443015130645,
+                    0.014506177128520049
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.41793875942812114,
+                "ci95": [
+                  0.3781303955512486,
+                  0.4597323770283197
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5799138804457954,
+                "ci95": [
+                  0.5481834966968223,
+                  0.6135291127195803
+                ]
+              },
+              "mrr": {
+                "mean": 0.6659508799579721,
+                "ci95": [
+                  0.6425638275203943,
+                  0.6906672746145678
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.02431048069345937,
+                  "ci95": [
+                    -0.060918193390302224,
+                    0.013147144966740739
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.014986491050320794,
+                  "ci95": [
+                    -0.04553327364162933,
+                    0.015239380850509873
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.013098990581260184,
+                  "ci95": [
+                    -0.034447758806825185,
+                    0.008755100234130854
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.02029719689294157,
+                  "ci95": [
+                    -0.06465187238608675,
+                    0.023824868546156425
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.008324890239783778,
+                  "ci95": [
+                    -0.043850637302179106,
+                    0.02804456950894201
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.009540695710908542,
+                  "ci95": [
+                    -0.03523463173260651,
+                    0.016535867636885238
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4194810311831588,
+                "ci95": [
+                  0.3801447637341641,
+                  0.46006764377942494
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5754305977710233,
+                "ci95": [
+                  0.5414162715790997,
+                  0.6089202385773872
+                ]
+              },
+              "mrr": {
+                "mean": 0.6649705429847274,
+                "ci95": [
+                  0.6414393102264184,
+                  0.6889266136501838
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.022768208938421686,
+                  "ci95": [
+                    -0.057641999868887434,
+                    0.011884351630050407
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.019469773725092843,
+                  "ci95": [
+                    -0.047748372562628365,
+                    0.009051116791003736
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.014079327554504917,
+                  "ci95": [
+                    -0.03373532075095732,
+                    0.005888017211572229
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.01875492513790389,
+                  "ci95": [
+                    -0.059766175739892846,
+                    0.02146500266424837
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.012808172914555827,
+                  "ci95": [
+                    -0.0450740097418313,
+                    0.018716362227237892
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.010521032684153275,
+                  "ci95": [
+                    -0.03381140937860398,
+                    0.012163869625915912
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.424822695035461,
+                "ci95": [
+                  0.3870258483581024,
+                  0.4639815654406951
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5751182033096927,
+                "ci95": [
+                  0.5431119932253808,
+                  0.6075522443593657
+                ]
+              },
+              "mrr": {
+                "mean": 0.6666469661150511,
+                "ci95": [
+                  0.6438226343352417,
+                  0.6900773043322395
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.017426545086119516,
+                  "ci95": [
+                    -0.05422577743688314,
+                    0.020557721766575925
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.019782168186423532,
+                  "ci95": [
+                    -0.04968975690725112,
+                    0.011439557294818752
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.012402904424181127,
+                  "ci95": [
+                    -0.03388003787527661,
+                    0.009925088146264728
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.013413261285601719,
+                  "ci95": [
+                    -0.05694064999682159,
+                    0.029781245214805414
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.013120567375886516,
+                  "ci95": [
+                    -0.049642824675836375,
+                    0.023067010268261908
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.008844609553829486,
+                  "ci95": [
+                    -0.03409574328723866,
+                    0.016855685365382234
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.3990825171676235,
+                "ci95": [
+                  0.36202357762007686,
+                  0.4380852791991959
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5599966227625802,
+                "ci95": [
+                  0.5285254830701352,
+                  0.5931361524199744
+                ]
+              },
+              "mrr": {
+                "mean": 0.6530263799767346,
+                "ci95": [
+                  0.6307736442247067,
+                  0.6763672479941293
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.043166722953957015,
+                  "ci95": [
+                    -0.08018851800626944,
+                    -0.005768535509654753
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.034903748733535966,
+                  "ci95": [
+                    -0.06471963605955196,
+                    -0.005087050731442915
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.026023490562497642,
+                  "ci95": [
+                    -0.047026059252576184,
+                    -0.004551275696235015
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.03915343915343922,
+                  "ci95": [
+                    -0.08002585019123469,
+                    0.0022920660473552887
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.02824214792299895,
+                  "ci95": [
+                    -0.062368411123751445,
+                    0.005957639232287538
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.022465195692146,
+                  "ci95": [
+                    -0.04618329343452683,
+                    0.0016396289410222087
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "full": {
+      "svm": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4825059101654846,
+                "ci95": [
+                  0.44618802501567706,
+                  0.519052760537606
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6369638635596082,
+                "ci95": [
+                  0.6075094748090828,
+                  0.6663569394407809
+                ]
+              },
+              "mrr": {
+                "mean": 0.7064899245750309,
+                "ci95": [
+                  0.6850209445334936,
+                  0.7281744846233759
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4860520094562648,
+                "ci95": [
+                  0.4500378486841339,
+                  0.5213098234414244
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6340763255656873,
+                "ci95": [
+                  0.6044056082633602,
+                  0.6627406992139155
+                ]
+              },
+              "mrr": {
+                "mean": 0.7067094450073172,
+                "ci95": [
+                  0.6851378959162556,
+                  0.7276649665452983
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.0035460992907802025,
+                  "ci95": [
+                    -0.021609630394199154,
+                    0.028398934683492933
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.002887537993920941,
+                  "ci95": [
+                    -0.02185920145994665,
+                    0.015282279735134222
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.00021952043228634643,
+                  "ci95": [
+                    -0.013698448563651159,
+                    0.013837210913241312
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4752786220871327,
+                "ci95": [
+                  0.4385432959502237,
+                  0.5131136091068141
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6315602836879433,
+                "ci95": [
+                  0.6036142697487641,
+                  0.659883513611612
+                ]
+              },
+              "mrr": {
+                "mean": 0.7022796352583587,
+                "ci95": [
+                  0.6812841697094003,
+                  0.7237170582376481
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.007227288078351934,
+                  "ci95": [
+                    -0.0437440260784315,
+                    0.030388035576755255
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.005403579871664954,
+                  "ci95": [
+                    -0.032708910215154534,
+                    0.022857097313407484
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.004210289316672222,
+                  "ci95": [
+                    -0.024682385357409076,
+                    0.016589167540243525
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": -0.010773387369132137,
+                  "ci95": [
+                    -0.04877614931374044,
+                    0.029112456703495073
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.002516041877744013,
+                  "ci95": [
+                    -0.03159206100729767,
+                    0.026505986471155776
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.004429809748958569,
+                  "ci95": [
+                    -0.025889117088413342,
+                    0.01762145252530031
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.47561634582911183,
+                "ci95": [
+                  0.4432233272518314,
+                  0.5082151794010545
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6335021952043228,
+                "ci95": [
+                  0.6061262216125165,
+                  0.660093482285598
+                ]
+              },
+              "mrr": {
+                "mean": 0.7030395136778116,
+                "ci95": [
+                  0.6837058997999634,
+                  0.7220804020901267
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.006889564336372778,
+                  "ci95": [
+                    -0.04209660745698956,
+                    0.027249400322262952
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.0034616683552853855,
+                  "ci95": [
+                    -0.030727747100575267,
+                    0.022573440504938758
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0034504108972193137,
+                  "ci95": [
+                    -0.023585209898937927,
+                    0.01603836675282269
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.0003377237419791568,
+                  "ci95": [
+                    -0.03864460118258024,
+                    0.03884941111488814
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.0019419115163795686,
+                  "ci95": [
+                    -0.024983475583967518,
+                    0.029298781334952832
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0007598784194529085,
+                  "ci95": [
+                    -0.020564387046540573,
+                    0.021531693363997784
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.48355285376561974,
+                "ci95": [
+                  0.45071450480326114,
+                  0.5177957211993848
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.642434988179669,
+                "ci95": [
+                  0.6157408066907885,
+                  0.6694395396464329
+                ]
+              },
+              "mrr": {
+                "mean": 0.7086626139817629,
+                "ci95": [
+                  0.6895017944800551,
+                  0.7284401163199884
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.0010469436001351307,
+                  "ci95": [
+                    -0.03432399635040122,
+                    0.034922409649482865
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.00547112462006083,
+                  "ci95": [
+                    -0.02015255576040047,
+                    0.03148189554818561
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.002172689406731987,
+                  "ci95": [
+                    -0.017522072987607617,
+                    0.021218751496422918
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.008274231678487065,
+                  "ci95": [
+                    -0.03176357129054835,
+                    0.047689450296081494
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.010874704491725784,
+                  "ci95": [
+                    -0.01659103880041445,
+                    0.0377759441522681
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.006382978723404209,
+                  "ci95": [
+                    -0.015209701948001366,
+                    0.02757277953817998
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4635258358662614,
+                "ci95": [
+                  0.4254504623826722,
+                  0.5020150607243734
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6227963525835867,
+                "ci95": [
+                  0.5923452642490267,
+                  0.6523148766088164
+                ]
+              },
+              "mrr": {
+                "mean": 0.6954407294832826,
+                "ci95": [
+                  0.6732128407722051,
+                  0.7175069837742719
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.018980074299223215,
+                  "ci95": [
+                    -0.055962306021111546,
+                    0.017093631700797543
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.014167510976021536,
+                  "ci95": [
+                    -0.039312361876336396,
+                    0.010661778450438041
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.011049195091748287,
+                  "ci95": [
+                    -0.03083606407018984,
+                    0.008323290879712252
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.01175278622087128,
+                  "ci95": [
+                    -0.05351948921977153,
+                    0.030337734598812185
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.008763931104356582,
+                  "ci95": [
+                    -0.03852985560855082,
+                    0.021329853806619958
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.006838905775076065,
+                  "ci95": [
+                    -0.029584290021381746,
+                    0.016371770986480256
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.49753461668355287,
+                "ci95": [
+                  0.464061993750021,
+                  0.5307921318866955
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6457784532252617,
+                "ci95": [
+                  0.6175759508567559,
+                  0.6731845847160085
+                ]
+              },
+              "mrr": {
+                "mean": 0.7144376899696048,
+                "ci95": [
+                  0.6943707224631245,
+                  0.7341233910164588
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.015028706518068258,
+                  "ci95": [
+                    -0.020180925969464678,
+                    0.049753117036046325
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.008814589665653516,
+                  "ci95": [
+                    -0.01670370795495493,
+                    0.03496846818582896
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.007947765394573869,
+                  "ci95": [
+                    -0.011424934474713166,
+                    0.027471254103717934
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.022255994596420192,
+                  "ci95": [
+                    -0.017143459397689773,
+                    0.061568851253578534
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.01421816953731847,
+                  "ci95": [
+                    -0.012358849559454396,
+                    0.04149559126779449
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.012158054711246091,
+                  "ci95": [
+                    -0.008738771599557016,
+                    0.0336486782690959
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4725092874029044,
+                "ci95": [
+                  0.43716226976243056,
+                  0.5083572330344289
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6272205336035124,
+                "ci95": [
+                  0.5973179379513124,
+                  0.6561050828358537
+                ]
+              },
+              "mrr": {
+                "mean": 0.6999099403354722,
+                "ci95": [
+                  0.6789296889543516,
+                  0.7209343906057301
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.009996622762580232,
+                  "ci95": [
+                    -0.04750012305487039,
+                    0.028399320996254602
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.009743329956095836,
+                  "ci95": [
+                    -0.03774240095965993,
+                    0.01925511836041356
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.006579984239558745,
+                  "ci95": [
+                    -0.02767421708737814,
+                    0.015320530704329254
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.0027693346842282973,
+                  "ci95": [
+                    -0.04159874272380628,
+                    0.03707725916869225
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.004339750084430882,
+                  "ci95": [
+                    -0.033077240143365966,
+                    0.02459070352006534
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0023696949228865227,
+                  "ci95": [
+                    -0.02393952306613794,
+                    0.01983991069183571
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "tree": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.46427445682764823,
+                "ci95": [
+                  0.4339668099260715,
+                  0.49612225787286235
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6177220533603512,
+                "ci95": [
+                  0.5920009973676679,
+                  0.644156818763071
+                ]
+              },
+              "mrr": {
+                "mean": 0.6939988367293332,
+                "ci95": [
+                  0.6755071899928258,
+                  0.7132390004919616
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.46411122368569174,
+                "ci95": [
+                  0.4337555109654489,
+                  0.4957774569046646
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.617646065518406,
+                "ci95": [
+                  0.591722144291534,
+                  0.6441140746426718
+                ]
+              },
+              "mrr": {
+                "mean": 0.693919096401366,
+                "ci95": [
+                  0.6754874709463734,
+                  0.7130785718490533
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.00016323314195648697,
+                  "ci95": [
+                    -0.009825462073396601,
+                    0.009476162489646972
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -7.598784194529085e-05,
+                  "ci95": [
+                    -0.006526296127430451,
+                    0.006468544772937395
+                  ]
+                },
+                "mrr": {
+                  "mean": -7.974032796720376e-05,
+                  "ci95": [
+                    -0.00538200825203213,
+                    0.0052314205533393774
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4477541371158392,
+                "ci95": [
+                  0.42102114551128766,
+                  0.475307575435628
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.5963947990543735,
+                "ci95": [
+                  0.5736229359371562,
+                  0.6196413656190572
+                ]
+              },
+              "mrr": {
+                "mean": 0.6813829787234041,
+                "ci95": [
+                  0.6652388692648744,
+                  0.698195300916194
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.016520319711809006,
+                  "ci95": [
+                    -0.03638302662744768,
+                    0.002942161085223044
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.021327254305977705,
+                  "ci95": [
+                    -0.03981843915408795,
+                    -0.003525619446708625
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.012615858005929015,
+                  "ci95": [
+                    -0.025185329634374053,
+                    -0.0006955643349241616
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": -0.01635708656985252,
+                  "ci95": [
+                    -0.03764931048721589,
+                    0.0038102172610093568
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.021251266464032414,
+                  "ci95": [
+                    -0.040277091405124255,
+                    -0.0030386027277804067
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.012536117677961811,
+                  "ci95": [
+                    -0.025522873101215295,
+                    -0.00019610812150183427
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.45419903185860633,
+                "ci95": [
+                  0.42762326047619054,
+                  0.4835523624809451
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6062394461330631,
+                "ci95": [
+                  0.5837192016991406,
+                  0.6300245388079759
+                ]
+              },
+              "mrr": {
+                "mean": 0.686812825997223,
+                "ci95": [
+                  0.6707699284990313,
+                  0.7043106165300532
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.010075424969041902,
+                  "ci95": [
+                    -0.032396464869722086,
+                    0.013106522069906324
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.01148260722728811,
+                  "ci95": [
+                    -0.03114791165397427,
+                    0.00916004616719637
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.007186010732110115,
+                  "ci95": [
+                    -0.020738482578718957,
+                    0.006974283992627888
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.006444894742767104,
+                  "ci95": [
+                    -0.014378319914272946,
+                    0.02812518512427309
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.009844647078689595,
+                  "ci95": [
+                    -0.008277576057837174,
+                    0.029042014716104875
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0054298472738189,
+                  "ci95": [
+                    -0.007120807379138369,
+                    0.01880359901457849
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4569514803557357,
+                "ci95": [
+                  0.42995480957901894,
+                  0.4861419325579403
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6085697399527186,
+                "ci95": [
+                  0.5851267516761511,
+                  0.6323951718527665
+                ]
+              },
+              "mrr": {
+                "mean": 0.6885070734361514,
+                "ci95": [
+                  0.6719133301146292,
+                  0.7059641873100151
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.007322976471912546,
+                  "ci95": [
+                    -0.035594770047055316,
+                    0.020767305858896665
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.009152313407632673,
+                  "ci95": [
+                    -0.03407731021091804,
+                    0.015109461162867233
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.005491763293181795,
+                  "ci95": [
+                    -0.02288326391598363,
+                    0.011524220938023872
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.00919734323989646,
+                  "ci95": [
+                    -0.017834852302304735,
+                    0.03704295810860146
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.012174940898345032,
+                  "ci95": [
+                    -0.011163064469407227,
+                    0.03619165645820868
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.00712409471274722,
+                  "ci95": [
+                    -0.009327745281415677,
+                    0.02399587668421806
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.45006754474839583,
+                "ci95": [
+                  0.4208988699946127,
+                  0.4803838007417927
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6058679500168862,
+                "ci95": [
+                  0.5826296926293839,
+                  0.6298826719037929
+                ]
+              },
+              "mrr": {
+                "mean": 0.6853118315884272,
+                "ci95": [
+                  0.6681298271906001,
+                  0.7030604558296807
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.014206912079252398,
+                  "ci95": [
+                    -0.039680960596100934,
+                    0.01236757862337133
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.011854103343465039,
+                  "ci95": [
+                    -0.03263475271011998,
+                    0.009785858030231609
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.008687005140905923,
+                  "ci95": [
+                    -0.023695989727479577,
+                    0.007145441139780126
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.0023134076325566078,
+                  "ci95": [
+                    -0.023740454966425684,
+                    0.02887722018545652
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.009473150962512666,
+                  "ci95": [
+                    -0.01152137005027359,
+                    0.031531763891799146
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.003928852865023091,
+                  "ci95": [
+                    -0.011219127668769152,
+                    0.019673422946075804
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.45489136552966336,
+                "ci95": [
+                  0.429502658723606,
+                  0.4817810426711738
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.605386693684566,
+                "ci95": [
+                  0.583292159272499,
+                  0.6279101134973827
+                ]
+              },
+              "mrr": {
+                "mean": 0.6867593530714097,
+                "ci95": [
+                  0.6710320659137553,
+                  0.7029968016712922
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.009383091297984869,
+                  "ci95": [
+                    -0.03370831472873528,
+                    0.014503823280858672
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.012335359675785251,
+                  "ci95": [
+                    -0.03362214880565476,
+                    0.009012646889777645
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0072394836579234845,
+                  "ci95": [
+                    -0.02185218497793833,
+                    0.0075034954937005125
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.007137228413824137,
+                  "ci95": [
+                    -0.015342831504872582,
+                    0.030486559359062113
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.008991894630192454,
+                  "ci95": [
+                    -0.011394925501515276,
+                    0.03047382518817042
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.00537637434800553,
+                  "ci95": [
+                    -0.008526024507641705,
+                    0.02006188578818159
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.46026117302713043,
+                "ci95": [
+                  0.429996494930194,
+                  0.4928798847462151
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6064927389395474,
+                "ci95": [
+                  0.5811268441368294,
+                  0.6329832428904739
+                ]
+              },
+              "mrr": {
+                "mean": 0.6889179706555593,
+                "ci95": [
+                  0.6705911543074459,
+                  0.7082857994888393
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": -0.004013283800517797,
+                  "ci95": [
+                    -0.029116339111949056,
+                    0.021780866863925004
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.011229314420803882,
+                  "ci95": [
+                    -0.03202576710658104,
+                    0.011115054996457908
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.005080866073773893,
+                  "ci95": [
+                    -0.020009733640062432,
+                    0.010600218794862408
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.012507035911291209,
+                  "ci95": [
+                    -0.013305534164072635,
+                    0.038915769642499945
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.010097939885173823,
+                  "ci95": [
+                    -0.011864606841341512,
+                    0.03339407932993252
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.007534991932155122,
+                  "ci95": [
+                    -0.00802514094652646,
+                    0.023965462552497138
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "xgb": {
+        "E+length": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.47150737363503314,
+                "ci95": [
+                  0.43310059539526513,
+                  0.5116595467768528
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6272458628841607,
+                "ci95": [
+                  0.5963252773308437,
+                  0.657563019629213
+                ]
+              },
+              "mrr": {
+                "mean": 0.6995844121730646,
+                "ci95": [
+                  0.6772332575876991,
+                  0.7225056116706748
+                ]
+              }
+            },
+            "deltas_vs": {}
+          }
+        },
+        "E+length+LCS": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.48380614657210397,
+                "ci95": [
+                  0.4481772390966211,
+                  0.5213129864478393
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6342620736237757,
+                "ci95": [
+                  0.6031520510541891,
+                  0.6646179391823999
+                ]
+              },
+              "mrr": {
+                "mean": 0.7060227400652932,
+                "ci95": [
+                  0.6842942758359235,
+                  0.72848280993683
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.012298772937070823,
+                  "ci95": [
+                    -0.013206148454002595,
+                    0.037546024894681854
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.007016210739615003,
+                  "ci95": [
+                    -0.011872492345214692,
+                    0.025167993560668327
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.006438327892228646,
+                  "ci95": [
+                    -0.00784603194045228,
+                    0.020488708389665693
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+B/S": {
+          "0": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4770235280873578,
+                "ci95": [
+                  0.43980529917732436,
+                  0.5164376428866708
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6248226950354611,
+                "ci95": [
+                  0.5931997090061563,
+                  0.6580719693430294
+                ]
+              },
+              "mrr": {
+                "mean": 0.7006154077076062,
+                "ci95": [
+                  0.6778220756687037,
+                  0.7243710886997751
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.005516154452324673,
+                  "ci95": [
+                    -0.029980791459124023,
+                    0.04212976361083473
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.00242316784869967,
+                  "ci95": [
+                    -0.03089850937744918,
+                    0.026842249185683106
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0010309955345416677,
+                  "ci95": [
+                    -0.019318339199541748,
+                    0.021991160109475896
+                  ]
+                }
+              },
+              "E+length+LCS": {
+                "hit1": {
+                  "mean": -0.00678261848474615,
+                  "ci95": [
+                    -0.04254209266130847,
+                    0.029830288621253215
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.009439378588314673,
+                  "ci95": [
+                    -0.040352489099788495,
+                    0.021396507211880276
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.005407332357686978,
+                  "ci95": [
+                    -0.02705362025365512,
+                    0.015900905875429548
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "E+length+shuffled-B/S": {
+          "20261106": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4828886637397275,
+                "ci95": [
+                  0.4458580441777381,
+                  0.5215403268402906
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6343296183721715,
+                "ci95": [
+                  0.6055595372561202,
+                  0.6641319557884359
+                ]
+              },
+              "mrr": {
+                "mean": 0.705739427370633,
+                "ci95": [
+                  0.684483810421296,
+                  0.7280232814152571
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.011381290104694353,
+                  "ci95": [
+                    -0.021112457051033824,
+                    0.04498937576576038
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.007083755488010768,
+                  "ci95": [
+                    -0.01854406677790789,
+                    0.03343966456716764
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0061550151975684475,
+                  "ci95": [
+                    -0.012450123224152326,
+                    0.02525460730059446
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.00586513565236968,
+                  "ci95": [
+                    -0.03292204185847549,
+                    0.04372778765870834
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.009506923336710438,
+                  "ci95": [
+                    -0.01982852498695349,
+                    0.038828258891747396
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.00512401966302678,
+                  "ci95": [
+                    -0.01671180601743124,
+                    0.026702299046206787
+                  ]
+                }
+              }
+            }
+          },
+          "20261107": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.47426545086119554,
+                "ci95": [
+                  0.43750144317447176,
+                  0.5117266506612489
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6317122593718338,
+                "ci95": [
+                  0.6026938539219932,
+                  0.6617775989556508
+                ]
+              },
+              "mrr": {
+                "mean": 0.7019925700776763,
+                "ci95": [
+                  0.6806290947882134,
+                  0.7239178106935704
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.002758077226162392,
+                  "ci95": [
+                    -0.03306378407250859,
+                    0.03810400563596526
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.004466396487673108,
+                  "ci95": [
+                    -0.02249249966829838,
+                    0.03185688404453415
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0024081579046117962,
+                  "ci95": [
+                    -0.017588155818216655,
+                    0.022585827340994305
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.002758077226162281,
+                  "ci95": [
+                    -0.041966917851169544,
+                    0.03593607393341412
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.006889564336372778,
+                  "ci95": [
+                    -0.0231212363706802,
+                    0.03562389197016607
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0013771623700701285,
+                  "ci95": [
+                    -0.020638844491261167,
+                    0.023007060256103842
+                  ]
+                }
+              }
+            }
+          },
+          "20261108": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4784757401778678,
+                "ci95": [
+                  0.44347397480519635,
+                  0.5142312707127316
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6347180006754475,
+                "ci95": [
+                  0.6059589335928365,
+                  0.663428397533848
+                ]
+              },
+              "mrr": {
+                "mean": 0.7043979136177716,
+                "ci95": [
+                  0.6836361552515874,
+                  0.725455419218553
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.00696836654283467,
+                  "ci95": [
+                    -0.03014578761439377,
+                    0.042775478404247856
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.007472137791286748,
+                  "ci95": [
+                    -0.019341589834738472,
+                    0.03395501694061949
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.004813501444707047,
+                  "ci95": [
+                    -0.0156981431481695,
+                    0.024378318355686657
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.0014522120905099967,
+                  "ci95": [
+                    -0.03996313559414766,
+                    0.041747637907061215
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.009895305639986418,
+                  "ci95": [
+                    -0.02243301664290293,
+                    0.04198228664088947
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.003782505910165379,
+                  "ci95": [
+                    -0.019879491345580216,
+                    0.027149831447011243
+                  ]
+                }
+              }
+            }
+          },
+          "20261109": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.49920072047731623,
+                "ci95": [
+                  0.4623499058653487,
+                  0.5362429160386377
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6519925700776764,
+                "ci95": [
+                  0.6228973906717484,
+                  0.6805937960940079
+                ]
+              },
+              "mrr": {
+                "mean": 0.7170644301849974,
+                "ci95": [
+                  0.6957817470563814,
+                  0.7382373043270889
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.027693346842283084,
+                  "ci95": [
+                    -0.01082330518439311,
+                    0.06603927048225837
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.024746707193515682,
+                  "ci95": [
+                    -0.0023393026411628434,
+                    0.05231814342848087
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.017480018011932885,
+                  "ci95": [
+                    -0.003379901130870127,
+                    0.0385205590650024
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": 0.02217719238995841,
+                  "ci95": [
+                    -0.020731283570726677,
+                    0.06335111372166598
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.027169875042215352,
+                  "ci95": [
+                    -0.005665682349548295,
+                    0.058805549108170006
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.016449022477391217,
+                  "ci95": [
+                    -0.007714198423531556,
+                    0.039509955104428535
+                  ]
+                }
+              }
+            }
+          },
+          "20261110": {
+            "absolute": {
+              "hit1": {
+                "mean": 0.4738489249127547,
+                "ci95": [
+                  0.4362780191612187,
+                  0.5142252123390916
+                ]
+              },
+              "gallery_auc": {
+                "mean": 0.6271361026680176,
+                "ci95": [
+                  0.5983144073570166,
+                  0.6574327167973646
+                ]
+              },
+              "mrr": {
+                "mean": 0.700328342526924,
+                "ci95": [
+                  0.6787736114159284,
+                  0.7235096821405123
+                ]
+              }
+            },
+            "deltas_vs": {
+              "E+length": {
+                "hit1": {
+                  "mean": 0.0023415512777215652,
+                  "ci95": [
+                    -0.03299648315131294,
+                    0.03725202291012882
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": -0.00010976021614317322,
+                  "ci95": [
+                    -0.02449307776186981,
+                    0.024092582219277316
+                  ]
+                },
+                "mrr": {
+                  "mean": 0.0007439303538594455,
+                  "ci95": [
+                    -0.017943827721799407,
+                    0.01972015098868452
+                  ]
+                }
+              },
+              "E+length+B/S": {
+                "hit1": {
+                  "mean": -0.003174603174603108,
+                  "ci95": [
+                    -0.03935162511593437,
+                    0.031755170658537356
+                  ]
+                },
+                "gallery_auc": {
+                  "mean": 0.0023134076325564967,
+                  "ci95": [
+                    -0.024750942739346114,
+                    0.029158583596636797
+                  ]
+                },
+                "mrr": {
+                  "mean": -0.0002870651806822222,
+                  "ci95": [
+                    -0.02018926947597681,
+                    0.019705604247914663
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
