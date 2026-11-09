@@ -1,0 +1,10 @@
+{
+  "source_metrics_sha256": "a9ae0d1d95b09c06e42fb5604a9568f0df8757402142df49cc3e9d05974a53d8",
+  "script_sha256": "05cb98c51384eaec694ba367e97d3b242eee449961c52e5d041dbc8c953026e4",
+  "dataset": "extended_all_eligible_min4",
+  "seed": 20261103,
+  "figures": [
+    "ait-mode-recognition-generalization",
+    "ait-mode-recognition-confusion"
+  ]
+}

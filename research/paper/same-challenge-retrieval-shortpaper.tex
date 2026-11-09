@@ -34,7 +34,7 @@
 \maketitle
 
 \begin{abstract}
-Security teams may need to retrieve related traces from mixed Human and Agent logs, but a shared benchmark task is only a retrieval proxy, not evidence of a shared operator or attack. We measure how recorded role composition changes same-challenge retrieval errors and whether local-behavior/sequence features (B/S) add information beyond command evidence. In 17 Cyber Task Horizons (CTH) tasks, increasing the Agent share from 0\% to 100\% changes the action-bigram baseline's false-merge rate from 32.27\% to 9.18\% and false-split rate from 52.94\% to 97.87\%. Hit@1 is nearly unchanged (53.13\% to 53.08\%), while gallery AUC falls 11.48 points; the thresholded error shift therefore does not mean that candidate order improves. The primary matched analysis finds no common B/S gain. An exploratory XGBoost diagnostic with expanded training-pair coverage and value-redacted command-argument syntax yields a conditional +6.25-point balanced-accuracy increment (nominal 95\% CI [+1.17,+12.24]), but its max-T interval across four related contrasts includes zero ([-0.75,+13.24]). Agent-only CTH and NYU evaluations also show opposing B/S error trade-offs. The evidence supports reporting composition, ranking, and both error rates separately; it does not support a general behavioral-fingerprint claim.
+Security teams may need to retrieve related traces from mixed Human and Agent logs, but a shared benchmark task is only a retrieval proxy, not evidence of a shared operator or attack. We measure how recorded role composition changes same-challenge retrieval errors and whether local-behavior/sequence features (B/S) add information beyond command evidence. In 17 Cyber Task Horizons (CTH) tasks, increasing the Agent share from 0\% to 100\% changes the action-bigram baseline's false-merge rate from 32.27\% to 9.18\% and false-split rate from 52.94\% to 97.87\%. Hit@1 is nearly unchanged (53.13\% to 53.08\%), while gallery AUC falls 11.48 points; the thresholded error shift therefore does not mean that candidate order improves. The primary matched analysis finds no common B/S gain. An exploratory XGBoost diagnostic with expanded training-pair coverage and value-redacted command-argument syntax yields a conditional +6.25-point balanced-accuracy increment (nominal 95\% CI [+1.17,+12.24]), but its max-T interval across four related contrasts includes zero ([-0.75,+13.24]). Agent-only CTH and NYU evaluations also show opposing B/S error trade-offs. Under a common auditd capture contract (AIT), command vocabulary recognizes the recorded Human/Agent label and persists across held-out source groups (85.4\% balanced accuracy), whereas the B/S/T fingerprint returns to chance (52.6\%), locating the transferable mode signal in command evidence rather than the behavioral taxonomy. The evidence supports reporting composition, ranking, and both error rates separately; it does not support a general behavioral-fingerprint claim.
 \end{abstract}
 
 \section{Introduction}
@@ -109,6 +109,35 @@ NYU AA & 10.72 / 86.96 & 25.39 / 60.86 & +14.67 [13.28, 16.06] & $-26.10$ [$-30.
 \end{tabularx}
 \end{table}
 
+\subsection{Execution-mode recognition under a common capture contract}
+The CTH mixture cannot separate execution mode from collection interface, because Human terminal input and Agent tool calls are recorded differently. AIT removes that confound: its 109 eligible runs (61 Human, 48 Agent, 12 troubleshooting task groups) are all recorded through the same auditd EXECVE contract, and collection format, actor, task, and application are excluded from the feature inputs~\cite{ait}. We therefore ask whether the recorded Human/Agent label is recognizable when the capture mechanism is held fixed, and whether the B/S/T fingerprint or command vocabulary carries that signal. Table~\ref{tab:aitmode} and Figure~\ref{fig:aitmode} report task-macro balanced accuracy under two holdouts: leaving one task group out (actors still seen in training) and leaving one source/actor group out (actors unseen).
+
+Command TF--IDF recognizes the label strongly and generalizes: 95.1\% under task holdout and 85.4\% under source holdout (AUROC 0.94). The behavioral fingerprint does not. Adding timing lifts B/S from 53.0\% to 68.8\% under task holdout, but under source holdout B/S+T falls to 52.6\% (interval [43.4, 62.7], compatible with chance) and B/S alone to 35.8\%; a shallow ExtraTrees comparator on the same B/S/T inputs likewise drops to 47.1\%. The apparent timing gain under task holdout therefore reflects actor-specific workflow regularities rather than a transferable Human-versus-Agent behavioral signature. The transferable mode signal in this domain resides in command vocabulary, not in the B/S/T taxonomy---the same provenance conclusion as the retrieval controls, now under a common capture contract. Two bounds apply: AIT is Nextcloud/WordPress troubleshooting, not attack activity, and its labels, tasks, and collection workflows still co-vary, so this is a domain-specific recognition measurement, not an attribution or cross-domain capability.
+
+\begin{table}[!ht]
+\centering\footnotesize
+\caption{AIT execution-mode recognition, 109 runs under one auditd contract. Task-macro balanced accuracy \% with 95\% task-cluster intervals; AUROC under source-group holdout. Format, actor, task, and app are not features.}
+\label{tab:aitmode}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}p{.24\linewidth}p{.26\linewidth}p{.26\linewidth}Y@{}}
+\toprule
+Readout & Task holdout & Source holdout & Source AUROC \\
+\midrule
+Log-length baseline & 57.4 [44.2, 70.8] & 32.9 [23.5, 43.7] & 0.31 \\
+Legacy core-8 & 49.4 [38.5, 60.8] & 39.3 [32.0, 46.0] & 0.43 \\
+B + S & 53.0 [41.0, 65.5] & 35.8 [29.9, 42.4] & 0.32 \\
+B + S + T & 68.8 [61.8, 75.8] & 52.6 [43.4, 62.7] & 0.54 \\
+Command TF--IDF & 95.1 [92.0, 97.9] & 85.4 [77.4, 93.1] & 0.94 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!ht]
+\centering\includegraphics[width=.98\linewidth]{ait-mode-recognition-generalization.pdf}
+\caption{AIT mode recognition under task-group versus source-group holdout. Filled circles reuse actors; open squares hold actor groups out. Command vocabulary persists across unseen actors while the B/S/T fingerprint returns toward the chance line. Bars are 95\% task-cluster intervals.}
+\label{fig:aitmode}
+\end{figure}
+
 \section{Discussion and conclusion}
 The main finding is an operating-point sensitivity: when the recorded role assigned to fixed CTH task galleries changes, a frozen action-similarity threshold shifts from accepting many different-task pairs to rejecting nearly all same-task pairs. Hit@1 barely changes and gallery AUC trends down. This distinction matters for analyst triage, where ranking can prioritize candidates, and for automatic linking, where a transferred threshold controls false merges. In a three-negative no-match stress check, 39.49\% of all-Agent CTH galleries using the frozen B/S XGBoost arm accept at least one negative; the corresponding E rate is 20.63\%. The threshold's validation target alone would hide this gallery-level burden.
 
@@ -116,7 +145,7 @@ The mechanism analysis offers a more specific answer about feature provenance. L
 
 Three limitations bound the result. First, only 17 mixed-role CTH tasks support the composition study, and task-disjoint folds still share some exact command sequences across training and held-out tasks. Second, collection interface and recorded role covary, so the mixture is not causal evidence about human versus Agent execution. Third, CTH AA and NYU AA differ in training-pair construction, while NYU covers four D-CIPHER snapshots within one framework; neither supplies independent mixed-role confirmation. The benchmark label remains same-task identity throughout.
 
-We conclude that any claim about trace fingerprints should report the target relation, role composition, score ranking, both error rates, and threshold transfer together. Composition-related error migration is the clearest result; the strongest same-task B/S result is conditional on one learner, expanded pair coverage, and a richer command baseline, and still needs independent replication. The practical result is a measurement caution for same-challenge retrieval, not an attribution capability.
+We conclude that any claim about trace fingerprints should report the target relation, role composition, score ranking, both error rates, and threshold transfer together. Composition-related error migration is the clearest result; the strongest same-task B/S result is conditional on one learner, expanded pair coverage, and a richer command baseline, and still needs independent replication. The common-contract AIT mode test converges with the retrieval controls: command vocabulary, not the B/S/T taxonomy, carries the signal that survives held-out actors. The practical result is a measurement caution for same-challenge retrieval, not an attribution capability.
 
 \begin{thebibliography}{99}\footnotesize
 \bibitem{trace} M. Ediga and S. Chattopadhyay. Trace: Unmasking AI Attack Agents Through Terminal Behavior Fingerprinting. arXiv:2605.01186, 2026. \url{https://arxiv.org/abs/2605.01186}
