@@ -1,0 +1,35 @@
+\begin{table}[!htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.06}
+\caption{S-dimension and gallery-threshold follow-up on the same outer candidates. Base is E+B for CTH and E+B+T for AIT. Pair cutoff uses the original inner pairwise FMR rule; gallery guard uses inner task-macro FMR and no-match constraints. S variants append the named S features to Base. Rates are task-macro percentages; higher Hit@1/BA and lower FMR/FSR/no-match are favorable. Bold marks the best value per dataset and metric. The 2$\times$ hard-negative arms match their parent arms at reported precision and are omitted.}
+\label{tab:s-gallery-followup}
+\begin{tabularx}{\linewidth}{@{}p{.40in}p{1.52in}*{5}{>{\centering\arraybackslash}X}@{}}
+\toprule
+Data & Profile / cutoff & Hit@1 $\uparrow$ & BA $\uparrow$ & FMR $\downarrow$ & FSR $\downarrow$ & No-match $\downarrow$ \\
+\midrule
+CTH & E & 44.40 & 52.04 & \textbf{6.47} & 89.46 & \textbf{18.45} \\
+ & Base, pair cutoff & 49.85 & 53.79 & 8.79 & 83.64 & 23.81 \\
+ & Base, gallery guard & 49.85 & 53.24 & 8.69 & 84.84 & 22.99 \\
+ & Full S, pair cutoff & 47.74 & \textbf{54.87} & 7.78 & \textbf{82.48} & 23.91 \\
+ & Full S, gallery guard & 47.74 & 54.35 & 7.58 & 83.72 & 22.98 \\
+ & S scalar summaries & 49.96 & 54.12 & 7.01 & 84.74 & 20.06 \\
+ & S revisit / reuse & \textbf{50.87} & 53.47 & 8.34 & 84.72 & 21.18 \\
+ & S + smoothed transitions & 50.42 & 54.12 & 7.01 & 84.74 & 20.06 \\
+ & S + category n-grams & 50.03 & 54.06 & 7.14 & 84.74 & 20.65 \\
+ & Nested selection & 47.60 & 53.10 & 8.92 & 84.88 & 24.34 \\
+\midrule
+AIT & E & 49.50 & 57.05 & \textbf{5.69} & 80.22 & \textbf{21.90} \\
+ & Base, pair cutoff & \textbf{57.92} & 63.82 & 9.41 & \textbf{62.96} & 35.01 \\
+ & Base, gallery guard & \textbf{57.92} & 63.32 & 6.88 & 66.47 & 27.86 \\
+ & Full S, pair cutoff & 55.54 & 61.33 & 7.93 & 69.40 & 29.65 \\
+ & Full S, gallery guard & 55.54 & 61.29 & 6.32 & 71.10 & 25.82 \\
+ & S scalar summaries & 56.73 & 61.91 & 7.36 & 68.81 & 28.83 \\
+ & S revisit / reuse & 56.39 & 63.64 & 7.38 & 65.34 & 28.75 \\
+ & S + smoothed transitions & 57.22 & 61.24 & 7.50 & 70.02 & 28.69 \\
+ & S + category n-grams & 56.85 & \textbf{64.13} & 8.22 & 63.51 & 30.29 \\
+ & Nested selection & 56.93 & 61.63 & 7.45 & 69.28 & 28.82 \\
+\bottomrule
+\end{tabularx}
+\end{table}

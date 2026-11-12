@@ -13,6 +13,18 @@ from collections.abc import Sequence
 import numpy as np
 
 from .traces import ATOM_GROUP
+from research.experiments.behavioral_fingerprint_v2.command_categories import (
+    categorize_command,
+    CATEGORY_LIST,
+    NUM_CATEGORIES,
+)
+from research.experiments.behavioral_fingerprint_v2.command_profile import (
+    canonicalize_command,
+    command_profile_vector,
+    command_presence_vector,
+    COMMAND_PROFILE_TAXONOMY,
+    NUM_PROFILE,
+)
 
 B_NAMES = tuple(f"B{i}" for i in range(1, 9))
 S_NAMES = tuple(f"S{i}" for i in range(1, 9))
@@ -247,6 +259,208 @@ def summarize(matrix: np.ndarray) -> np.ndarray:
 def combine_summary(blocks: dict[str, np.ndarray], names: Sequence[str] = ("B", "S")) -> np.ndarray:
     """Concatenate selected block summaries while preserving feature order."""
     return np.concatenate([summarize(blocks[name]) for name in names])
+
+
+# =============================================================================
+# Command-category-aware features (B_cat, S_cat, T_cat)
+# =============================================================================
+
+def category_distribution(commands: Sequence[str]) -> np.ndarray:
+    """B_cat: command category distribution vector (8 features).
+
+    Returns proportion of commands in each category. Unknown commands
+    are excluded from the denominator (not counted as a category).
+    """
+    cats = [categorize_command(cmd) for cmd in commands]
+    # Filter out "unknown" for proportion calculation
+    known_cats = [c for c in cats if c != "unknown"]
+    if not known_cats:
+        return np.full(NUM_CATEGORIES, np.nan)
+    counts = Counter(known_cats)
+    total = len(known_cats)
+    return np.asarray([counts.get(cat, 0) / total for cat in CATEGORY_LIST], dtype=float)
+
+
+def category_transitions(commands: Sequence[str]) -> np.ndarray:
+    """S_cat: category bigram transition frequencies (64 features).
+
+    Returns flattened 8x8 matrix of category-to-category transition
+    frequencies. Only transitions between known categories are counted.
+    """
+    cats = [categorize_command(cmd) for cmd in commands]
+    # Filter to known categories only
+    known = [(i, cats[i]) for i in range(len(cats)) if cats[i] != "unknown"]
+    if len(known) < 2:
+        return np.full(NUM_CATEGORIES * NUM_CATEGORIES, np.nan)
+    # Build transition counts
+    trans_counts = Counter()
+    for i in range(len(known) - 1):
+        idx1, cat1 = known[i]
+        idx2, cat2 = known[i + 1]
+        # Only count consecutive in original sequence
+        if idx2 == idx1 + 1:
+            trans_counts[(cat1, cat2)] += 1
+    total = sum(trans_counts.values())
+    if total == 0:
+        return np.full(NUM_CATEGORIES * NUM_CATEGORIES, np.nan)
+    # Flatten to vector
+    result = np.zeros(NUM_CATEGORIES * NUM_CATEGORIES, dtype=float)
+    for i, cat1 in enumerate(CATEGORY_LIST):
+        for j, cat2 in enumerate(CATEGORY_LIST):
+            result[i * NUM_CATEGORIES + j] = trans_counts.get((cat1, cat2), 0) / total
+    return result
+
+
+def category_timing(commands: Sequence[str], timestamps: Sequence[float | None]) -> np.ndarray:
+    """T_cat: per-category median inter-command gap (8 features).
+
+    For each category, compute median log-gap between consecutive
+    commands in that category. Categories with <2 commands get NaN.
+    """
+    cats = [categorize_command(cmd) for cmd in commands]
+    ts = [None if x is None else float(x) for x in timestamps]
+    # Group timestamps by category
+    cat_times: dict[str, list[float]] = {cat: [] for cat in CATEGORY_LIST}
+    for cmd, cat, t in zip(commands, cats, ts):
+        if cat != "unknown" and t is not None:
+            cat_times[cat].append(t)
+    # Compute median gap per category
+    result = np.full(NUM_CATEGORIES, np.nan, dtype=float)
+    for i, cat in enumerate(CATEGORY_LIST):
+        times = sorted(cat_times[cat])
+        if len(times) < 2:
+            continue
+        gaps = [times[j+1] - times[j] for j in range(len(times) - 1) if times[j+1] >= times[j]]
+        if gaps:
+            result[i] = float(np.median(np.log1p(np.asarray(gaps, dtype=float))))
+    return result
+
+
+def category_features(commands: Sequence[str], timestamps: Sequence[float | None] | None = None
+                      ) -> dict[str, np.ndarray]:
+    """Compute all category-aware features.
+
+    Returns dict with keys 'B_cat', 'S_cat', 'T_cat'.
+    B_cat: 8 features (category distribution)
+    S_cat: 64 features (category transitions)
+    T_cat: 8 features (per-category timing)
+    """
+    if timestamps is None:
+        timestamps = [None] * len(commands)
+    return {
+        "B_cat": category_distribution(commands),
+        "S_cat": category_transitions(commands),
+        "T_cat": category_timing(commands, timestamps),
+    }
+
+
+def combine_category_summary(cat_features: dict[str, np.ndarray],
+                             names: Sequence[str] = ("B_cat", "S_cat", "T_cat")) -> np.ndarray:
+    """Concatenate category feature vectors.
+
+    Unlike B/S/T matrices, category features are already per-trace
+    summaries (not windowed), so we just concatenate directly.
+    """
+    return np.concatenate([cat_features[name] for name in names])
+
+
+# =============================================================================
+# Command-preference block (V): fixed-length vocabulary-aware readout
+# =============================================================================
+# The transferable execution-mode signal on AIT is command preference (which
+# executables and adjacent command pairs an actor favours), not fine-grained
+# windowed behaviour. This block absorbs that signal into a fixed-length
+# fingerprint: k_cmd sublinear-TF-IDF command weights followed by k_bigram
+# adjacent-command frequencies. The vocabulary and IDF are fit on training
+# traces only, so held-out actors never contribute vocabulary.
+
+def fit_command_vocabulary(command_sequences: Sequence[Sequence[str]],
+                           k_cmd: int = 32, k_bigram: int = 16) -> dict:
+    """Fit a command-preference vocabulary on training traces only.
+
+    Returns a vocabulary artifact with the top-k_cmd command names and
+    top-k_bigram adjacent command pairs (frequency ranked, lexical tie-break),
+    plus smoothed IDF weights for the command unigrams.
+    """
+    cmd_counts: Counter = Counter()
+    cmd_df: Counter = Counter()
+    bigram_counts: Counter = Counter()
+    n_docs = 0
+    for commands in command_sequences:
+        cmds = [str(c) for c in commands]
+        n_docs += 1
+        cmd_counts.update(cmds)
+        cmd_df.update(set(cmds))
+        bigram_counts.update(zip(cmds, cmds[1:]))
+    cmd_items = sorted(cmd_counts.items(), key=lambda kv: (-kv[1], str(kv[0])))
+    cmd_vocab = [t for t, _ in cmd_items[:k_cmd]]
+    cmd_idf = {t: math.log((1 + n_docs) / (1 + cmd_df.get(t, 0))) + 1 for t in cmd_vocab}
+    bi_items = sorted(bigram_counts.items(), key=lambda kv: (-kv[1], str(kv[0])))
+    bigram_vocab = [t for t, _ in bi_items[:k_bigram]]
+    return {"cmd_vocab": cmd_vocab, "cmd_idf": cmd_idf, "bigram_vocab": bigram_vocab,
+            "k_cmd": k_cmd, "k_bigram": k_bigram}
+
+
+def command_preference_vector(commands: Sequence[str], vocab: dict) -> np.ndarray:
+    """Fixed-length command-preference readout for one trace.
+
+    Layout: [k_cmd sublinear-TF-IDF command weights | k_bigram bigram frequencies].
+    Commands absent from the training vocabulary contribute zero, so the vector
+    is defined for any trace once the vocabulary artifact is fixed.
+    """
+    cmds = [str(c) for c in commands]
+    cmd_vocab = vocab["cmd_vocab"]
+    bigram_vocab = vocab["bigram_vocab"]
+    cmd_idx = {t: j for j, t in enumerate(cmd_vocab)}
+    bi_idx = {t: j for j, t in enumerate(bigram_vocab)}
+    out = np.zeros(len(cmd_vocab) + len(bigram_vocab), dtype=float)
+    n = len(cmds)
+    if n:
+        for token, count in Counter(cmds).items():
+            if token in cmd_idx:
+                out[cmd_idx[token]] = (1 + math.log(count)) * vocab["cmd_idf"][token]
+    if n > 1:
+        for token, count in Counter(zip(cmds, cmds[1:])).items():
+            if token in bi_idx:
+                out[len(cmd_vocab) + bi_idx[token]] = count / (n - 1)
+    return out
+
+
+def command_composition_profile(commands: Sequence[str]) -> np.ndarray:
+    """Default corpus-independent command-composition block of the fingerprint.
+
+    A fixed-taxonomy, single-log BINARY tool-repertoire profile (NUM_PROFILE
+    presence slots). Presence/absence transfers across unseen actors better than
+    frequency, and no training vocabulary or IDF is used, so these are genuine
+    profile dimensions integrable into the B/S/T schema. The sublinear frequency
+    variant remains available as ``command_profile_vector`` for ablation.
+    """
+    return command_presence_vector(commands)
+
+
+def default_fingerprint_summary(blocks: dict[str, np.ndarray], commands: Sequence[str],
+                                timestamps: Sequence[float | None] | None = None,
+                                names: Sequence[str] = ("B", "S", "T")) -> np.ndarray:
+    """Default integrated fingerprint: each block pairs 8 scalar slots with one vector element.
+
+    Layout: [B scalar | B tool-repertoire (279 presence + 8 category mix) |
+    S scalar | S category transitions (64) | T scalar | T category timing (8)].
+    Every vector element is computed from a single log against the fixed command
+    taxonomy, so the schema stays a genuine profile: one high-dimensional element
+    per block, no external block, no scalar-element proliferation.
+    """
+    cat = category_features(commands, timestamps)
+    parts = []
+    for name in names:
+        parts.append(combine_summary(blocks, (name,)))
+        if name == "B":
+            parts.append(command_composition_profile(commands))  # 279 presence
+            parts.append(cat["B_cat"])                            # 8 category mix
+        elif name == "S":
+            parts.append(cat["S_cat"])                            # 64 transitions
+        elif name == "T":
+            parts.append(cat["T_cat"])                            # 8 per-category timing
+    return np.concatenate(parts)
 
 
 def masked_dtw(left: np.ndarray, right: np.ndarray, min_shared_columns: int = 3) -> float:
