@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+\centering\scriptsize
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1.0}
+\captionsetup{font=scriptsize}
+\caption{Task-macro percentages for same-task, same-mode retrieval (depth-3 XGBoost). Bold marks each dataset's best; colors show change from E (under one point unshaded). Higher Hit@1/BA and lower FMR/FSR/no-match are preferred. No-match counts galleries with any accepted candidate; T uses observed launch gaps.}
+\label{tab:same-mode-bst}
+\begin{tabularx}{.95\linewidth}{@{}p{.48in}@{\hspace{.10in}}p{1.02in}@{\hspace{.14in}}*{5}{@{}>{\centering\arraybackslash}X@{}}}
+\toprule
+Data & Features & Hit@1 $\uparrow$ & BA $\uparrow$ & FMR $\downarrow$ & FSR $\downarrow$ & No-match $\downarrow$ \\
+\midrule
+CTH & E & 44.40 & 52.04 & \textbf{6.47} & 89.46 & \textbf{18.45} \\
+ & E+B & \cellcolor{AblGoodMid}\textbf{49.85} & \cellcolor{AblGoodLight}53.79 & \cellcolor{AblBadLight}8.79 & \cellcolor{AblGoodMid}83.64 & \cellcolor{AblBadMid}23.81 \\
+ & E+S & 44.96 & \cellcolor{AblGoodMid}\textbf{56.02} & \cellcolor{AblBadMid}12.69 & \cellcolor{AblGoodDeep}\textbf{75.26} & \cellcolor{AblBadDeep}33.52 \\
+ & E+B+S & \cellcolor{AblGoodMid}47.74 & \cellcolor{AblGoodLight}54.87 & \cellcolor{AblBadLight}7.78 & \cellcolor{AblGoodMid}82.48 & \cellcolor{AblBadMid}23.91 \\
+\midrule
+AIT & E & 49.50 & 57.05 & \textbf{5.69} & 80.22 & \textbf{21.90} \\
+ & E+B & \cellcolor{AblGoodMid}54.90 & \cellcolor{AblGoodMid}\textbf{63.84} & \cellcolor{AblBadMid}10.09 & \cellcolor{AblGoodDeep}\textbf{62.23} & \cellcolor{AblBadDeep}34.91 \\
+ & E+S & \cellcolor{AblBadMid}46.16 & \cellcolor{AblGoodLight}58.06 & \cellcolor{AblBadLight}6.95 & \cellcolor{AblGoodMid}76.94 & \cellcolor{AblBadMid}26.49 \\
+ & E+T & 49.60 & \cellcolor{AblGoodLight}59.60 & 6.55 & \cellcolor{AblGoodMid}74.26 & \cellcolor{AblBadLight}24.62 \\
+ & E+B+S & \cellcolor{AblGoodMid}53.72 & \cellcolor{AblGoodMid}61.21 & \cellcolor{AblBadMid}8.74 & \cellcolor{AblGoodDeep}68.84 & \cellcolor{AblBadDeep}32.99 \\
+ & E+B+T & \cellcolor{AblGoodDeep}\textbf{57.92} & \cellcolor{AblGoodMid}63.82 & \cellcolor{AblBadMid}9.41 & \cellcolor{AblGoodDeep}62.96 & \cellcolor{AblBadDeep}35.01 \\
+ & E+S+T & 49.21 & \cellcolor{AblGoodLight}58.44 & \cellcolor{AblBadLight}7.70 & \cellcolor{AblGoodMid}75.42 & \cellcolor{AblBadMid}28.09 \\
+ & E+B+S+T & \cellcolor{AblGoodMid}55.54 & \cellcolor{AblGoodMid}61.33 & \cellcolor{AblBadLight}7.93 & \cellcolor{AblGoodDeep}69.40 & \cellcolor{AblBadMid}29.65 \\
+\bottomrule
+\end{tabularx}
+\end{table}

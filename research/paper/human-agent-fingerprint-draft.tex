@@ -149,8 +149,9 @@ The new same-mode evaluation uses direct fusion with the expanded per-trace B/S/
 \subsection{Independent single-log Human/Agent score}
 The A/H application classifies one trace at a time using the category-normalized B/S/T representation. A balanced logistic model is fit inside each task-held-out or source-group-held-out fold, with missing-value imputation and feature scaling learned on training runs only. Its output is an uncalibrated, continuous Agent-direction score; the fixed 0.5 cutoff is used only to report BA, Human false-positive rate, and Agent recall. For explanation, each standardized feature's coefficient-weighted value is grouped by B, S, and T. These terms reconstruct that fold's logit exactly, but they are descriptive model contributions, not causal effects. This A/H result is an independent fingerprint application and is never used by the association model.
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=.90\linewidth]{fingerprint-bst-dimensions.pdf}
+\newpage
+\begin{figure}[H]
+\centering\includegraphics[width=.76\linewidth,height=.66\textheight,keepaspectratio]{fingerprint-bst-dimensions.pdf}
 \caption{The 22-measurement B/S/T window schema. Glyphs illustrate definitions. Lowercase symbols denote commands and uppercase symbols coarse actions. $n$ counts window events, $m$ valid adjacent action pairs, $U$ unique values, $\mathcal{H}$ prefix history, and $\Delta_t$ revisit lag. For observed launch-gap timing, $g$ is a nonnegative gap in seconds and $\ell=\log(1+g)$. The A/H application maps command symbols to fixed operation categories before computing these measures; command-presence methods remain separate reference baselines.}
 \label{fig:bst-dimensions}
 \end{figure}
