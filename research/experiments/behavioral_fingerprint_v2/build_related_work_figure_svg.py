@@ -33,9 +33,9 @@ GREEN_EDGE = "#afd7c5"
 GRAY_LIGHT = "#f0f1f2"
 GRAY_EDGE = "#c7cbd0"
 
-parts = ["""<svg xmlns="http://www.w3.org/2000/svg" width="3344" height="1360" viewBox="0 0 1672 680" role="img" aria-labelledby="title desc">
+parts = ["""<svg xmlns="http://www.w3.org/2000/svg" width="3204" height="1360" viewBox="35 0 1602 680" role="img" aria-labelledby="title desc">
 <title id="title">Model identification and behavioral profiling routes</title>
-<desc id="desc">Agent traces jointly reflect tool, model, and skill effects. The figure contrasts reference-limited model identification with fixed-feature behavioral profiling across model and version variants.</desc>
+<desc id="desc">Agent traces jointly reflect tool, model, task, and skill effects. Route A assigns only within known identity references. Route B reuses a shared behavioral fingerprint across compatible logs and offers relative similarity cues for analyst-led association review.</desc>
 <defs>
  <linearGradient id="headA" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e4f1fc"/><stop offset="1" stop-color="#d4e9fb"/></linearGradient>
  <linearGradient id="headB" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e7f5f3"/><stop offset=".52" stop-color="#e9f1fb"/><stop offset="1" stop-color="#edf1f5"/></linearGradient>
@@ -138,8 +138,8 @@ def brand_entry(x: float, y: float, label: str, icon: str | None,
     text(label_x, y + size * .77, label, font_size, INK, 700)
 
 
-# Two method routes with matched log inputs and a compact capability comparison.
-# Both log boxes use the same background; route colors distinguish the analyses.
+# Two complementary routes with matched log inputs and a capability comparison.
+# The route labels describe different targets rather than ranking effectiveness.
 tools = [("Codex", "codex"), ("DSH", "dsh"), ("OpenCode", "opencode"),
          ("Claude Code", "claude-code"), ("ChatGPT", "chatgpt"),
          ("Kimi", "kimi"), ("Qwen", "qwen"), ("…", None)]
@@ -150,70 +150,111 @@ GREEN_FILL = "#e5f0eb"
 
 # Panel A: identity assignment is bounded by the labeled reference set L.
 text(45, 40, "A", 23, "#315f7d", 700)
-text(78, 40, "Prior work: model identification", 22, INK, 700)
+text(78, 40, "Route A · reference-based identity", 22, INK, 700)
 line(45, 54, 1627, 54, "#9fb4c9", 1.0)
 
-rect(45, 69, 720, 130, LOG_FILL, LOG_EDGE, 1.0, 2)
+rect(45, 69, 540, 130, LOG_FILL, LOG_EDGE, 1.0, 8)
 text(68, 94, "Agent-generated execution logs", 20, INK, 700)
 for i, (label, icon) in enumerate(tools):
     row, col = divmod(i, 4)
-    brand_entry(68 + col * 164, 108 + row * 28, label, icon, 18, 19)
+    brand_entry(68 + col * 118, 108 + row * 28, label, icon, 18, 16)
 text(68, 173, "Tool/harness · model · skills → observed trace", 16, MUTED)
 text(68, 191, "Labeled references + target trace", 16, MUTED)
 
-arrow(768, 134, 795, 134, "#315f7d", 1.7)
-rect(802, 69, 352, 130, BLUE_FILL, "#698ba5", 1.0, 2)
-text(824, 96, "Reference-based classification", 19, INK, 700)
-text(824, 123, "match target within label set L", 17, MUTED)
-text(824, 157, "ŷ = argmaxₘ∈L s(x, m)", 18, INK, 600)
+arrow(595, 134, 650, 134, "#315f7d", 1.7)
+rect(660, 69, 270, 130, BLUE_FILL, "#698ba5", 1.0, 8)
+text(682, 96, "Reference-based match", 18, INK, 700)
+text(682, 123, "within known label set L", 15, MUTED)
+text(682, 157, "ŷ = argmaxₘ∈L s(x, m)", 16, INK, 600)
 
-arrow(1157, 134, 1184, 134, "#315f7d", 1.7)
-rect(1191, 69, 436, 130, "#f8fbfd", "#698ba5", 1.0, 2)
-text(1214, 99, "Model / harness label", 20, INK, 700)
-text(1214, 137, "ŷ ∈ L", 23, INK, 700)
-text(1214, 164, "Joint effects obscure component attribution", 16, MUTED)
-text(1214, 186, "Unseen configuration → add references", 16, "#a65337", 600)
+arrow(940, 134, 995, 134, "#315f7d", 1.7)
+rect(1005, 69, 622, 130, "#f8fbfd", "#698ba5", 1.0, 8)
+text(1028, 96, "Known-set identity assignment", 19, INK, 700)
+parts.append('<rect x="1028" y="111" width="350" height="74" rx="8" fill="#ffffff" stroke="#8ea6ba" stroke-width="1.2" stroke-dasharray="6 4"/>')
+text(1044, 132, "L · labeled model / harness references", 14, MUTED, 600)
+for i, (label, shade) in enumerate([
+    ("m₁", "#d8e8f7"), ("m₂", "#b8d2ef"), ("m₃", "#e7f1fd"),
+    ("m₄", "#c5daf0"), ("m₅", "#e0edf9"), ("m₆", "#d0e2f5"), ("…", "#e7f1fd"),
+]):
+    x = 1044 + i * 45
+    rect(x, 145, 40, 26, shade, BLUE_EDGE, .8, 13)
+    text(x + 20, 163, label, 12, BLUE, 700, "middle")
+parts.append('<rect x="1392" y="111" width="216" height="74" rx="8" fill="#fff8f3" stroke="#d8a18b" stroke-width="1.1"/>')
+text(1500, 132, "UNKNOWN", 15, RUST, 700, "middle")
+text(1500, 151, "outside L", 13, MUTED, 600, "middle")
+text(1500, 167, "e.g., unseen task / challenge", 10, "#9b7200", 600, "middle")
+text(1500, 180, "model / Agent not registered", 10, "#9b7200", 600, "middle")
 
 # Panel B: diverse model and version logs share one event feature set.
 text(45, 243, "B", 23, "#287b70", 700)
-text(78, 243, "Behavioral profiling", 22, INK, 700)
+text(78, 243, "Route B (this study) · behavioral fingerprint", 22, INK, 700)
 line(45, 257, 1627, 257, "#9fb4c9", 1.0)
 
-rect(45, 272, 720, 130, LOG_FILL, LOG_EDGE, 1.0, 2)
+rect(45, 272, 540, 130, LOG_FILL, LOG_EDGE, 1.0, 8)
 text(68, 297, "Agent-generated execution logs", 20, INK, 700)
 for i, (label, icon) in enumerate(tools):
     row, col = divmod(i, 4)
-    brand_entry(68 + col * 164, 311 + row * 28, label, icon, 18, 19)
-text(68, 375, "Models  m₁, m₂, …    ·    Versions  v₁, v₂, …", 16, MUTED)
-text(68, 394, "Skills / prompts vary across traces", 16, MUTED)
+    brand_entry(68 + col * 118, 311 + row * 28, label, icon, 18, 16)
+text(68, 375, "Models, versions, tools, and skills vary", 15, MUTED)
+text(68, 394, "Model / harness identity may be unknown", 15, MUTED)
 
-arrow(768, 340, 795, 340, "#315f7d", 1.7)
-rect(802, 272, 352, 136, GREEN_FILL, "#7ca99d", 1.0, 2)
-text(824, 299, "Shared K1–K8 profile", 20, INK, 700)
-text(824, 322, "fixed definitions for compatible logs", 18, MUTED)
-const_col_x = 828
-cell_gap = 38
-for i in range(8):
-    text(const_col_x + i * cell_gap + 14, 348, f"K{i+1}", 15, INK, 700, "middle")
-matrix = [
-    ["#84b4cb", "#c7dde7", "#edf3f8", "#92bfd3", "#d9e8ee", "#aacbd9", "#edf3f8", "#7daec6"],
-    ["#dbe9ef", "#8cb8cd", "#c8dde7", "#edf3f8", "#91bed2", "#d7e7ed", "#a6c8d7", "#edf3f8"],
+arrow(595, 340, 650, 340, "#315f7d", 1.7)
+rect(660, 272, 270, 136, GREEN_FILL, "#7ca99d", 1.0, 8)
+text(682, 299, "Shared B/S/T fingerprint", 17, INK, 700)
+text(682, 321, "same feature space across configurations", 12, MUTED)
+text(682, 341, "identity may remain unknown", 13, GREEN, 600)
+blocks = [
+    ("B", ["#8eb7cf", "#b7d0dd", "#dce8ee"]),
+    ("S", ["#83b8a7", "#b4d4c9", "#deece6"]),
+    ("T", ["#aab0b7", "#c8cdd2", "#e4e7ea"]),
 ]
-for row_index, row in enumerate(matrix):
-    y = 356 + row_index * 15
-    for col_index, shade in enumerate(row):
-        rect(const_col_x + col_index * cell_gap, y, 28, 10, shade, "#9db8ca", .45, .5)
+for block_index, (name, shades) in enumerate(blocks):
+    x = 685 + block_index * 79
+    text(x + 21, 359, name, 14, INK, 700, "middle")
+    for row_index in range(3):
+        for col_index in range(2):
+            rect(x + col_index * 22, 365 + row_index * 11, 17, 7,
+                 shades[(row_index + col_index) % len(shades)], "#9db8ca", .45, 1.2)
+line(930, 340, 950, 340, "#315f7d", 1.5)
+line(950, 304, 950, 374, "#315f7d", 1.1)
+arrow(950, 304, 995, 304, "#315f7d", 1.5)
+arrow(950, 374, 995, 374, "#315f7d", 1.5)
+rect(1005, 272, 622, 64, "#ffffff", "#9eb8cc", .9, 8)
+text(1028, 298, "Recorded-mode cue", 19, INK, 700)
+text(1028, 321, "Human / Agent context", 16, MUTED)
+rect(1340, 285, 92, 29, BLUE, BLUE, .8, 15)
+text(1386, 304, "Human", 13, WHITE, 700, "middle")
+rect(1444, 285, 92, 29, BLUE_LIGHT, BLUE_EDGE, .8, 15)
+text(1490, 304, "Agent", 13, BLUE, 700, "middle")
 
-line(1158, 340, 1170, 340, "#315f7d", 1.5)
-line(1170, 316, 1170, 376, "#315f7d", 1.1)
-arrow(1170, 316, 1184, 316, "#315f7d", 1.5)
-arrow(1170, 376, 1184, 376, "#315f7d", 1.5)
-rect(1191, 279, 436, 66, "#ffffff", "#9eb8cc", .9, 2)
-text(1214, 306, "Recorded-mode score", 19, INK, 700)
-text(1214, 330, "Human / Agent estimate", 16, MUTED)
-rect(1191, 350, 436, 66, "#ffffff", "#9eb8cc", .9, 2)
-text(1214, 377, "Trace-relation score", 19, INK, 700)
-text(1214, 401, "pairwise comparison", 16, MUTED)
+# Relative trace similarity is illustrative evidence for analyst review.
+rect(1005, 340, 622, 68, "#ffffff", "#9eb8cc", .9, 8)
+text(1028, 367, "Trace similarity & relation cues", 17, INK, 700)
+text(1028, 391, "Candidate links for analyst review", 14, MUTED)
+query_node = (1350, 374)
+candidate_nodes = [
+    (1420, 352, "A", .92, 3.1),
+    (1485, 360, "B", .72, 2.7),
+    (1550, 352, "C", .52, 2.3),
+    (1420, 396, "D", .40, 2.1),
+    (1485, 388, "E", .27, 1.9),
+    (1550, 396, "F", .18, 1.7),
+]
+for node_x, node_y, _, opacity, width in candidate_nodes:
+    parts.append(
+        f'<path d="M{query_node[0]} {query_node[1]} L{node_x} {node_y}" '
+        f'fill="none" stroke="#1760d5" stroke-opacity="{opacity}" '
+        f'stroke-width="{width}" stroke-linecap="round"/>'
+    )
+nodes = [(query_node[0], query_node[1], "q", BLUE, BLUE, WHITE, 1.5)]
+nodes.extend((x, y, label, GREEN, GREEN, WHITE, 3.5)
+             for x, y, label, _, _ in candidate_nodes)
+for node_x, node_y, label, fill, stroke, color, baseline_offset in nodes:
+    parts.append(f'<circle cx="{node_x}" cy="{node_y}" r="9" fill="{fill}" stroke="{stroke}" stroke-width="1.4"/>')
+    parts.append(
+        f'<text x="{node_x - 1.0}" y="{node_y + baseline_offset}" font-family="Arial,Helvetica,sans-serif" '
+        f'font-size="10" font-weight="700" fill="{color}" text-anchor="middle">{escape(label)}</text>'
+    )
 
 # Checks and crosses compare the two routes' primary capabilities.
 text(45, 450, "Capability comparison", 20, INK, 700)
@@ -221,12 +262,12 @@ rect(45, 462, 1582, 34, "#f2f6f9", "none", 0, 0)
 line(800, 462, 800, 634, "#d7e0e7", .8)
 line(1200, 462, 1200, 634, "#d7e0e7", .8)
 text(65, 485, "Capability", 18, MUTED, 700)
-text(1000, 485, "Model identification", 18, "#315f7d", 700, "middle")
-text(1414, 485, "Behavioral profiling", 18, "#287b70", 700, "middle")
+text(1000, 485, "Route A · identity", 18, "#315f7d", 700, "middle")
+text(1414, 485, "Route B (this study)", 18, "#287b70", 700, "middle")
 capabilities = [
     ("Assign model / harness identity", True, False),
-    ("Apply fixed features across tool/model/version/skill variants", False, True),
-    ("Estimate mode and score trace relations", False, True),
+    ("Use common B/S/T measures on compatible logs", False, True),
+    ("Support similarity and trace-relation review", False, True),
 ]
 row_top = 496
 row_height = 46

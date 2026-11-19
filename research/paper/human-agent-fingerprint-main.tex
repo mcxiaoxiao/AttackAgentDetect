@@ -7,13 +7,21 @@
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
 \usepackage{caption}
+\usepackage{etoolbox}
 \usepackage{placeins}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \setlist{nosep,leftmargin=*}
 \setlength{\emergencystretch}{2em}
-\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\captionsetup{font=normalsize,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\captionsetup[table]{font=normalsize}
+\newcommand{\compacttableformat}{%
+  \small\setlength{\tabcolsep}{1.5pt}%
+  \renewcommand{\arraystretch}{0.90}%
+}
+\AtBeginEnvironment{table}{\compacttableformat}
+\AtBeginEnvironment{longtable}{\compacttableformat}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \definecolor{ResearchTeal}{HTML}{238B8E}
 \definecolor{AblGoodLight}{HTML}{EAF3F2}
@@ -39,146 +47,141 @@
 \maketitle
 \begin{center}
 \small\textbf{Round status:} historical task-only retrieval results, current same-task/same-mode B/S/T results, an AIT mode-estimation pilot, and source audit are included.\\
-The proposed K1--K8 matrix-specific association and independent-source transfer evaluations remain open.
+Independent-source transfer and real-activity association remain open.
 \end{center}
 
 \begin{abstract}
-Behavior-based trace association uses tool choice and operation order to retrieve related executions, but recorded behavior can also reflect the task, model, harness, prompt, and collection interface. We present an observation-aware, fold-adaptive framework that selects available evidence and training-fold settings, then reports candidate ranking and link errors separately. The source-linked catalog contains 1,142 nonempty normalized records from Cyber Task Horizons and two Hugging Face releases, with source-qualified tasks and explicit observation contracts. A historical CTH task-only study counted every same-task pair, including HA, as positive; its role-mixture curves showed threshold-error shifts and its matched ablation found no learner-common BA gain from B/S. The current CTH/AIT retrieval experiment uses a stricter target: positive iff task and recorded mode both match, so all HA pairs are negative. Some B/S(/T) arms improve Hit@1 but also raise false acceptance. In a separate AIT pilot on 109 troubleshooting runs, category-enriched B/S/T reached 64.4\% balanced accuracy under source-group holdout, compared with 85.4\% for Command TF--IDF. Collection workflow remains a plausible source of label signal, so these results estimate recorded-mode labels rather than intrinsic actors. The proposed K1--K8 matrix-specific association and independent-source transfer evaluations remain open.
+Security analysis can require comparing host-visible execution traces to prioritize candidate runs across CTF tasks, vulnerability reproductions, and shell-based troubleshooting. Command choice and order provide observable evidence, but traces also reflect task, model, harness, prompt, and collection interface. We present an observation-aware, fold-adaptive framework that augments command evidence with B/S/T summaries and reports candidate ranking and link errors separately. The source-linked catalog contains 1,142 nonempty normalized records from Cyber Task Horizons and two Hugging Face releases, with source-qualified tasks and explicit observation contracts; these are benchmark and troubleshooting records, not operational incident traces. A historical CTH task-only study counted every same-task pair, including HA, as positive; its role-mixture curves showed threshold-error shifts and its matched ablation found no learner-common BA gain from B/S. The current CTH/AIT retrieval experiment uses a stricter target: positive iff task and recorded mode both match, so all HA pairs are negative. Some B/S(/T) arms improve Hit@1 but also raise false acceptance. In a separate AIT pilot on 109 troubleshooting runs, category-enriched B/S/T reached 64.4\% balanced accuracy under source-group holdout, compared with 85.4\% for Command TF--IDF. Collection workflow remains a plausible source of label signal, so these results estimate released mode labels rather than intrinsic actors. Independent-source transfer and real-activity association remain open.
 \end{abstract}
 
 \section{Introduction}
-Security investigations often compare process traces from separate executions, but the logs may omit who or what initiated each command. A human and an Agent can take different command paths on the same task, while unrelated tasks can share tools and command sequences. Existing correlation methods use complementary evidence, including action sequences, event flows, and provenance relations~\cite{atlas,holmes,poirot,ostinato}. The resulting link depends on the relation under study and on which events the collector records.
+Cybersecurity analysis compares host-visible execution traces across sessions—for example, repeated CTF tasks, vulnerability reproductions, or shell-based troubleshooting. Command and process-launch events can help rank candidate runs for analyst review, but their patterns also reflect the task, toolchain, model or harness, and collection interface; logs may omit reliable actor provenance. Existing correlation methods use complementary evidence, including action sequences, event flows, and provenance relations~\cite{atlas,holmes,poirot,ostinato}. Here, a candidate link is a retrieval cue under a declared benchmark relation, not a finding that two traces belong to one incident or campaign.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=.90\linewidth]{figures/fingerprint-v3-overview.png}
-\caption{Study design. Observable logs feed a windowed fingerprint computed from the defined feature measurements and two separately evaluated readouts. Inner task folds select processing and model settings; held-out tasks are reserved for evaluation. Timing remains missing when unobserved; displayed fields and values are illustrative.}
+\caption{Study design for host-visible security-trace analysis. Observable logs feed a windowed fingerprint computed from the defined feature measurements and two separately evaluated readouts. Inner task folds select processing and model settings; held-out tasks are reserved for evaluation. Timing remains missing when unobserved; displayed fields and values are illustrative.}
 \label{fig:architecture}
 \end{figure}
 
-Coding-agent products such as Codex and Claude Code illustrate how models, harnesses, and tool interfaces can change while host systems continue to record executable events~\cite{codex,claudecode}. An observed trace is jointly shaped by the Agent tool/harness, underlying model, task context, and any active skills or prompts. These effects interact before events reach the host, so a trace may not uniquely reveal which component caused a behavior. Agent-identity guidance emphasizes linking an Agent to its task originator and retaining trustworthy evidence of its actions~\cite{nistagent}. When that provenance is incomplete, analysts still need to interpret the observed execution. Model identity, recorded mode, and the relation between two traces are distinct questions.
+Host-side security activity may involve a person, conventional automation, or an LLM Agent, but the available cohorts do not provide matched and reliable labels for all three. Coding-agent products such as Codex and Claude Code illustrate how models, harnesses, and tool interfaces can change while host systems continue to record executable events~\cite{codex,claudecode}. An observed trace is jointly shaped by the Agent tool/harness, underlying model, task context, and any active skills or prompts. These effects interact before events reach the host, so a trace may not uniquely reveal which component caused a behavior. Agent-identity guidance emphasizes linking an Agent to its task originator and retaining trustworthy evidence of its actions~\cite{nistagent}. When that provenance is incomplete, analysts still need to interpret the observed execution. Model identity, recorded mode, and the relation between two traces are distinct questions.
 
-We define a retrieval positive as a pair that shares both a benchmark-qualified task and its recorded execution mode. Same-task Human--Agent pairs are hard negatives. This target tests retrieval under a benchmark relation; it does not establish shared attack activity or identify a common operator, campaign, or Agent instance.
+For controlled evaluation, a retrieval positive is a pair that shares both a benchmark-qualified security task and its recorded execution mode. Same-task Human--Agent pairs are hard negatives. This target tests candidate retrieval under a benchmark relation; it does not establish shared attack activity or identify a common operator, campaign, or Agent instance.
 
-Figure~\ref{fig:architecture} shows the proposed representation. Sessionized, ordered host-side events are normalized into consecutive windows, and eight core measurements (K1--K8) describe each window. The profile records visible execution at the host boundary, not hidden reasoning or a complete prompt-and-response history. Feature extraction requires no enrolled model identity when a log satisfies the event contract. This design property does not establish that a learned score transfers to an updated or unseen Agent.
+Figure~\ref{fig:architecture} shows the proposed representation. Sessionized, ordered host-side events are normalized into consecutive windows, and B/S/T measurements summarize local behavior, sequence organization, and timing when timestamps are available. The profile records visible execution at the host boundary, not hidden reasoning or a complete prompt-and-response history. Feature extraction requires no enrolled model identity when a log satisfies the event contract. This design property does not establish that a learned score transfers to an updated or unseen Agent.
 
-The same profile supports two separately evaluated readouts. A single-trace score estimates the recorded Human/Agent source label. A pair scorer compares two profiles alongside command evidence for a relation such as same-challenge retrieval. The Human/Agent estimate does not gate association, and neither output identifies a vendor model, controller, operator, or campaign. The contribution is an interpretable observation-level representation with distinct, explicitly labeled uses, rather than another model-identity classifier.
+The B/S/T profile is used in two separate analyses. A single-trace score estimates the recorded Human/Agent source label, while a pair scorer compares host-visible traces alongside command evidence to rank candidates under the benchmark relation. The mode estimate does not gate association, and neither output identifies a vendor model, controller, operator, or campaign.
 
-We ask three questions:
+The paper contributes in three ways:
 \begin{enumerate}
-\item \textbf{RQ1---Association sensitivity:} how do established behavioral association baselines behave as the proportion of Agent traces changes, and which Human--Human, Human--Agent, or Agent--Agent comparisons account for any change?
-\item \textbf{RQ2---Fingerprint representation:} can an observable, time-ordered matrix describe relevant execution differences and support Human/Agent estimation beyond whole-session statistics and lexical baselines?
-\item \textbf{RQ3---Incremental value and transfer:} does directly adding the matrix improve association at matched operating points, and does the effect persist under held-out tasks, models, or sources?
+\item It defines an observation-aware B/S/T profile for host-visible executable-event logs and reports which measurements are available in each security-task cohort.
+\item It distinguishes recorded-mode estimation from benchmark-qualified trace retrieval and defines a same-task, same-mode target in which same-task Human--Agent pairs are hard negatives.
+\item It reports exploratory comparisons across CTF, shell-troubleshooting, and vulnerability-task collections against command-based baselines, including role-stratified errors and task/source holdouts.
 \end{enumerate}
-The evaluation separates the historical task-only analysis from the current same-task, same-mode target. The historical study counts same-task Human--Agent pairs as positive; the current CTH/AIT study treats them as negatives. Neither validates the proposed K1--K8 temporal matrix or establishes real-activity association. Matrix-specific evaluation and independent-source transfer remain open.
+The evaluation separates the historical task-only analysis from the current same-task, same-mode target: the former counts same-task Human--Agent pairs as positive, while the latter treats them as negatives. Current association results use windowed B/S/T summaries. Independent-source transfer and real-activity association remain open.
 
 \FloatBarrier
 
 \section{Related Work}
 \label{sec:related-work}
+For cybersecurity review, the immediate question is whether observed host-side traces merit comparison; model identity, recorded execution mode, and campaign or activity linkage are separate questions. We first position the identity and workflow literature, then relate the benchmark retrieval target to security trace-correlation work.
+
 \subsection{Agent Identity and Workflow}
-Recent work on Agent execution asks which model produced a trace or how an Agent organizes a task. Trace classifies model families from terminal-command sequences. LIDAR uses controlled coding probes to identify models and harnesses, while AgentTrace uses schema-constrained probes and subsequent repair sequences to identify an underlying model~\cite{trace,lidar,agenttracepaper}. These methods treat execution behavior as evidence of model identity under their evaluated probes and label sets. Our profile describes host-visible behavior without assigning a model name.
+Recent work on Agent execution asks which model produced a trace or how an Agent organizes a task. Trace classifies model families from terminal-command sequences. LIDAR uses controlled coding probes to identify models and harnesses, while AgentTrace uses schema-constrained probes and subsequent repair sequences to identify an underlying model~\cite{trace,lidar,agenttracepaper}. These methods treat execution behavior as evidence of identity under their evaluated probes and labels. A reference-based identity route is bounded by its enrolled set: an unrecognized model, version, or harness remains unknown until matching labeled references are added. This gives identity assignment practical value for covered configurations while limiting its reach when reference coverage is incomplete or configurations change. That open-set boundary motivates a complementary behavioral-fingerprint route here; it does not rank the two routes universally.
 
-Studies of workflows and execution-mode differences examine other settings. ProcGrep represents coding-Agent trajectories as local procedures. HABITS compares Human and shopping-Agent sessions, and AIT/AECID studies administrators and Agents in shell-based troubleshooting~\cite{procgrep,habits,ait}. Their observation interfaces and labels differ from the process-trace retrieval target here. The same K1--K8 definitions can be applied to any log that meets the event contract, but transfer of a learned score to a new deployment still requires validation.
+Studies of workflows and execution-mode differences examine other settings. ProcGrep represents coding-Agent trajectories as local procedures. HABITS compares Human and shopping-Agent sessions, and AIT/AECID studies administrators and Agents in shell-based troubleshooting~\cite{procgrep,habits,ait}. Their observation interfaces and labels differ from the process-trace retrieval target here. B/S/T measurements can be computed when a log meets the event contract; a shared feature representation can therefore be reused across compatible logs with different models, versions, tools, or skills, even when identity is unknown. This portability of measurement does not by itself establish transfer of predictive performance; interpretation still depends on telemetry coverage and task context. Route B uses those shared measurements to surface relative behavioral-similarity cues for analyst-led association review. It does not identify the model or establish that two traces belong to the same real-world activity.
 
-Figure~\ref{fig:related-work-routes} contrasts model-family identification with behavioral profiling on the same Agent-generated execution logs.
+Figure~\ref{fig:related-work-routes} presents two routes for reading host-visible security-execution logs. Route A assigns identity within a labeled reference set; Route B uses shared B/S/T measurements to surface relative similarity cues for analyst review. The routes address different questions rather than ranking overall effectiveness.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/fingerprint-related-work-routes-editable.png}
-\caption{Both routes take logs generated by the listed Agents (Codex, DSH, OpenCode, Claude Code, ChatGPT, Kimi, Qwen, and others; DSH denotes DeepSeek Harness~\cite{dsh}). Logs reflect the joint effects of tools/harnesses, models, task context, and skills/prompts, leaving component-level attribution uncertain. Panel A matches a target within the labeled set $L$; unseen configurations require additional references. Panel B applies fixed K1--K8 definitions across compatible logs and estimates execution mode and trace relations. Checks and crosses mark route capabilities.}
+\caption{The routes address different questions in security-trace analysis. Route A assigns identity within a labeled reference set; an out-of-set configuration remains unknown until enrolled. Route B reuses a common B/S/T feature representation across compatible host-visible logs with varying configurations to surface similarity and relation cues for analyst-led review. The Human/Agent pills denote recorded-mode labels; $q$ and candidates A--F illustrate links for analyst review. Link opacity is illustrative, not a calibrated score, probability, identity, or real-activity claim.}
 \label{fig:related-work-routes}
 \end{figure}
 
 \subsection{Security Behavior and Trace Relations}
 Security correlation systems use several forms of relation evidence. ATLAS learns attack-step sequences from audit logs; HOLMES correlates suspicious information flows; POIROT aligns threat descriptions with kernel audit records; and OSTINATO compares attack activity across hosts~\cite{atlas,holmes,poirot,ostinato}. Cross-Agent links asynchronous Agent sessions using proxy-visible events and synthetic campaign labels~\cite{crossagent}. CyBiasBench instead measures attack-selection preferences across Agent, target, and attack-family conditions, while Synthetic APTs studies controlled behavioral resemblance~\cite{cybias,syntheticapt}. These targets concern attack behavior or campaign relations. Our same-task, same-mode label supports benchmark retrieval and does not establish a shared real-world activity. Table~\ref{tab:related} summarizes the distinctions.
 
+
 \begin{table}[htbp]
-\centering\small
-\setlength{\tabcolsep}{3.2pt}
-\renewcommand{\arraystretch}{1.10}
-\caption{Related studies compared by target, dataset scope, observed evidence, and label or intervention. Their labels and candidate sets are not interchangeable.}
+\centering
+\caption{Prior studies and this study by target, observed data, and labels.}
 \label{tab:related}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.16\linewidth}>{\raggedright\arraybackslash}p{.19\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.26\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}X@{}}
 \toprule
-\textbf{Study} & \textbf{Target} & \textbf{Scope} & \textbf{Observed data} & \textbf{Label / intervention} \\
+\textbf{Study} & \textbf{Target} & \textbf{Observed data / labels} \\
 \midrule
-\multicolumn{5}{@{}l}{\textit{System identity and workflow}} \\
-Trace~\cite{trace} & Model family & 7 families; 3 frameworks & Terminal commands & Model labels; passive traces and follow-on probe \\
-ProcGrep~\cite{procgrep} & Agent workflow & 10 coding Agents & Coding actions and procedures & Workflow profile; passive traces \\
-LIDAR~\cite{lidar} & Base model & 36 models; 2 frameworks & Coding behavior & Controlled probes; model/harness references \\
-AgentTrace~\cite{agenttracepaper} & Base model & Black-box coding Agents & Schema errors and repair traces & Active probes \\
-Known By Their Actions~\cite{known} & Browser model & 14 models; 4 environments & UI events and timing & Model labels; passive traces \\
-AIT/AECID~\cite{ait} & Recorded execution mode & Troubleshooting sessions & Commands, timing, syscall summaries & Human/Agent source labels; passive logs \\
+\multicolumn{3}{@{}l}{\textit{System identity and workflow}} \\
+Trace~\cite{trace} & Model family & Terminal commands; model labels \\
+ProcGrep~\cite{procgrep} & Agent workflow & Coding actions \\
+LIDAR~\cite{lidar} & Model/harness & Coding probes; model/harness labels \\
+AgentTrace~\cite{agenttracepaper} & Base model & Schema errors and repairs \\
+Known By Their Actions~\cite{known} & Browser model & UI events and timing; model labels \\
+AIT/AECID~\cite{ait} & Execution mode & Commands, timing, syscalls; Human/Agent source labels \\
 \midrule
-\multicolumn{5}{@{}l}{\textit{Cyber-agent behavior and relation evidence}} \\
-CyBiasBench~\cite{cybias} & Attack preference & 5 Agents; 3 targets & HTTP requests & Agent, target, and attack family \\
-Cross-Agent~\cite{crossagent} & Campaign links & Synthetic sessions & Events, text, and timing & Synthetic campaign labels; logs and probes \\
-Synthetic APTs~\cite{syntheticapt} & Behavioral resemblance & 1 model; 5 personas & Emulated TTP profiles & Controlled persona conditions \\
-\textbf{This study} & Trace association & 3 evaluation cohorts; 2 endpoints & Command sequences; observed launch gaps & Same-challenge proxy and source-mode labels \\
+\multicolumn{3}{@{}l}{\textit{Cyber-agent behavior and relation evidence}} \\
+CyBiasBench~\cite{cybias} & Attack preference & HTTP requests; Agent, target, and family labels \\
+Cross-Agent~\cite{crossagent} & Campaign links & Events, text, timing; synthetic campaign labels \\
+Synthetic APTs~\cite{syntheticapt} & Behavioral profiles & Emulated TTPs; controlled personas \\
+\textbf{This study} & Trace association & Commands, launch gaps; challenge and source-mode labels \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\section{Task and Inputs}
-\subsection{Units and Labels}
-A session or independently delimited source run is the measurement unit. Human/Agent annotations describe the released source condition and remain in an evaluator sidecar. They are not extracted from usernames, file paths, or source-format markers. Ambiguous mixtures and fixed automation need separate handling rather than forced binary identities.
+\section{Dataset and Task Definition}
+\subsection{Task Definition and Labels}
+The unit is a session or independently delimited source run. Human/Agent labels are source annotations kept in an evaluator sidecar, not inferred from identity fields. CTF positives share a source-qualified challenge; CVE and command-task tracks use vulnerability-target and fixture-version keys. Execution mode is a stratification variable, while real activity labels define a separate endpoint.
 
-Association labels are defined per track. In the current CTF track, a positive means the same source-qualified challenge. The CVE track can use a vulnerability-target key while retaining the one-day information condition; the command-task track retains its fixture version. No cross-source task equivalence is inferred solely from a matching title. If activity labels become available, they form a separate endpoint. A pair's execution-mode combination is a stratification variable, not its relation label.
+\subsection{Evaluation Cohorts}
+Table~\ref{tab:cohorts} summarizes the eligible traces used for retrieval and recorded-mode analysis.
+\begin{table}[htbp]
+\centering
+\caption{Evaluation cohorts. Counts are eligible traces, not independent pair decisions; H and A denote released source labels.}
+\label{tab:cohorts}
+\scriptsize
+\begin{tabularx}{\linewidth}{@{}p{.19\linewidth}p{.17\linewidth}X@{}}
+\toprule
+\textbf{Source} & \textbf{Samples} & \textbf{Description} \\
+\midrule
+CTH~\cite{cth} & \agentsamples{51};\,\humansamples{34} & 17 CTF tasks; 5 gallery shares; no timing. \\
+AIT~\cite{ait} & \agentsamples{48};\,\humansamples{61} & 12 troubleshooting tasks; source-mode labels and launch times. \\
+\mbox{NYU D-CIPHER~\cite{nyu}} & \agentsamples{585} & 160 challenges; external retrieval; no timing. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
+CTH and NYU use challenge identity as a retrieval proxy, not a label for shared activity. AIT estimates released source-mode labels, which co-vary with collection workflow.
 
-\subsection{Event Contract}
-The minimum contract is an event reference, an executable name, an ordering relation, and an auditable sessionization rule. Linux audit execution records are the first implementation target. Audit configuration must actually retain the relevant execution events; installing auditd alone is not a completeness guarantee \cite{auditctl}. Records belonging to the same audit event must be joined before counting an execution.
+\subsection{Event Data and Preprocessing}
+Each run requires an event reference, executable name, ordering relation, and auditable sessionization rule. Linux audit records are the current input; records for the same audit event are joined before counting executions \cite{auditctl}. Sysmon and Windows event 4688 are feasibility examples, not implemented adapters; the 4688 command-line field depends on policy \cite{sysmon,event4688}. Successful \texttt{execve} replaces the process image, and process-start times do not record when a user or model receives feedback \cite{execve}; pipelines and loops are not inferred from child executable names alone.
 
-Windows Sysmon process-creation events and Security event 4688 illustrate other common process-log sources \cite{sysmon,event4688}. They are schema feasibility examples, not implemented or evaluated adapters in this round. The 4688 command-line field depends on policy and is empty by default; argument-dependent features consequently cannot be a mandatory cross-source input \cite{event4688}. Authentication-only logs, generic application messages, and HTTP-only logs do not satisfy an executable-stream contract merely because they contain timestamps.
+A versioned adapter canonicalizes executable names and retains unknowns. Collector-specific session rules and deterministic timestamp tie-breaks are recorded; concurrency is not treated as semantic order. Identity, path, model, and task fields are excluded from features, and filtering is label-independent. These observability limits determine which measurements are admitted (Table~\ref{tab:tiers}).
 
+\subsection{Dataset Audit}
+\label{sec:corpus}
+The catalog contains 1,142 records with a retained common-command view: 664 core CTF records and 478 vulnerability-reproduction or command-task supplements. It includes 79 Human-source and 1,063 Agent-source records; 54 source-qualified tasks have both labels (207 traces). CTH provides 87 decoded records from 90 Human archives, 79 with commands; Antieval contributes 190 records (189 with commands), and AgentTrace contributes 400 runs (338 with commands). The expanded counts and exclusions are in Table~\ref{tab:expanded} \cite{cth,hfcybench,agenttracedata}.
 
-The audit result of an \texttt{execve} syscall must not be confused with the launched program's eventual exit status: successful \texttt{execve} replaces the process image \cite{execve}. Likewise, a process-start timestamp is not the time at which a person or model received feedback. A pipeline or loop cannot generally be reconstructed from child executable names alone. These constraints remove several attractive but currently unobservable dimensions from the primary study.
+A saved-profile audit found 24 legacy feature definitions and no nonnumeric or nonfinite observed values (Table~\ref{tab:audit}); overlapping exports are not independent samples. The common-command adapter is lossy, and 414 selected records without a retained command view were excluded. The existing library supports audit joining, session normalization, and legacy profiles, but not all argument, feedback, resource, and timing fields; B/S/T results are computed in the study pipeline. Source capture differs between Human terminal and Agent tool-call records, so these exports do not form a matched host-log cohort. Raw prompts and private-looking fields are not republished; source licenses and provenance are retained in the catalog.
 
-\subsection{Normalization and Boundaries}
-An adapter canonicalizes executable names with one versioned policy and retains unknown names. Arguments, target paths, collector fields, and identities do not enter the core profile. A fixed action map assigns recognized executable names to coarse categories. The existing implementation supplies categories for discovery, reading, search, execution, building, networking, modification, and environment operations. This is a tool-category map, not proof of what an invocation accomplished; for example, an interpreter may perform many different operations.
+\section{Method}
+\subsection{Feature Representation}
+For host-visible security telemetry, the profile organizes observable command behavior into three blocks. B summarizes local command and action patterns, including diversity and repetition; S summarizes sequence organization, including first-seen actions, revisits, and returns; T summarizes launch-gap timing when timestamps are available. The candidate schema contains eight measurements per block. Duration-dependent timing measurements require event durations and are unavailable in the current cohorts. These summaries describe recorded execution structure; they are not maliciousness scores or ATT\&CK technique labels.
 
-Unknown categories remain at their original sequence positions. They do not create a direct transition between previously separated known actions. Shell built-ins and in-process library calls may not generate a new executable event; process-level profiles therefore describe the visible execution footprint rather than all decisions or actions.
+CTH and NYU retrieval experiments use B/S because comparable event times are unavailable. AIT provides launch timestamps and supports B/S/T, but not duration-dependent measurements. Missing timing values remain unobserved rather than being inferred from tool, model, or source identity. The profile describes the execution evidence retained by the event contract, not hidden reasoning or a complete prompt-and-response history.
 
-Session construction uses a recorded collector-specific policy, such as a validated login/session grouping with a fixed inactivity rule. Missing or unreliable session evidence is reported; unrelated processes are not silently concatenated into a confident session prediction. Host names, user names, PIDs, session identifiers, record keys, model names, and task identifiers are excluded from model features. They may support event reconstruction and evaluation grouping.
-
-Ordering is defined by observable timestamps and deterministic event tie-breaks. Concurrent operations do not acquire a semantic causal order merely through sorting. The evaluation includes tie-order and session-boundary sensitivity where those ambiguities are present. Wrapper filtering and duplicate-event removal follow fixed, label-independent rules and preserve their event references and counts.
-
-\section{Eight-Feature Profile}
-\subsection{Definitions}
-Let a session contain executable names $c_1,\ldots,c_n$ and mapped action categories $a_1,\ldots,a_n$, where an unrecognized category is $\bot$. Let $p(c)$ be the empirical executable distribution and define the eligible adjacent pairs
-\begin{equation}
-\mathcal E=\{i:1\leq i<n,\ a_i\neq\bot,\ a_{i+1}\neq\bot\}.
-\end{equation}
-For $(u,v)$ in the action vocabulary, let $q(u,v)$ be its frequency over $\mathcal E$, and let $q_{\mathrm{out}}(u)=\sum_v q(u,v)$. The outgoing marginal is calculated over eligible transitions, rather than all action occurrences.
-
-
-An empty session has no defined core profile. Undefined denominators produce missing values, not zero; K6 is also missing when no known-category run exists. Minimum evidence requirements for prediction are fixed using development data before final evaluation. Very short sessions can have mathematically defined but unstable entropy estimates; a numerical value alone does not certify sufficient evidence.
-
-K4 is complementary to adjacent action repetition, so both are not counted as separate features. K8 concerns executable names and must never be renamed ``failed-command retry rate.'' K1, K2, and K7 are length-sensitive; their usefulness is tested against an explicit length baseline and matched observation budgets.
-
-\subsection{Feature Selection}
-The literature synthesis originally organized 21 candidates into tool selection, action organization, command construction, repetition/feedback, resource exploration, and timing. The mandatory profile now retains only candidates supported by the minimum contract: former F01--F07 and F12, renamed K1--K8. This decision precedes new outcome evaluation and is based on observability, not favorable classification scores.
-
-Two argument summaries---median argument count and the share of invocations with parsed options---remain an optional, separately evaluated module. Complete argv or an explicitly validated parser is required. Submitted shell chains, batch construction, response-conditioned retries, resource revisits, and feedback-to-decision intervals are not part of the core result. Missing richer fields are not reconstructed by guessing from tool names.
-
-Counts, duration, parse coverage, unknown-action rate, and feature availability are quality/control fields. They support admission, diagnostics, and explicit baselines. They are not presented as intrinsic behavioral traits. The primary classifier does not receive collector identity or missingness indicators as a shortcut to the source label.
-
-\subsection{Profile and Prediction}
-The report displays raw feature values, relevant denominators, and reference-distribution positions learned from the training set. An action-composition heatmap uses consecutive event windows; its number of windows can grow with session length. It has no mandatory four-stage partition and no automatic reconnaissance/exploitation phase labels. A separate transition chart shows observed action pairs and representative event references.
-
-For a development-fixed window width $b$, window $W_j$ contains at most $b$ consecutive executable events, and the displayed value for category $u$ is
+\subsection{Scoring}
+For a development-fixed window width $b$, window $W_j$ contains at most $b$ consecutive executable events. An auxiliary action-composition summary for category $u$ is
 \begin{equation}
  h_{j,u}=\frac{\sum_{i\in W_j}\ind[a_i=u]}{|W_j|}.
 \end{equation}
-An explicit unknown column retains unmapped events, so each nonempty row sums to one. The final partial window is labeled with its event count. The window count is $\lceil n/b\rceil$; it is a display resolution, not a fixed number of attack stages. Event-budget-aligned panels support comparisons without stretching a short session to resemble a long one. These windows are not treated as independent labeled training samples.
+An explicit unknown column retains unmapped events, so each nonempty row sums to one. The final partial window is labeled with its event count. The window count is $\lceil n/b\rceil$; it is a display resolution, not a fixed number of attack stages. These windows are not treated as independent labeled training samples.
 
-The exported profile keeps its feature version, session-boundary policy, action-map version, raw values, denominators, coverage summary, and supporting event references. A prediction record separately stores the model version, score, decision threshold, and any abstention reason. This separation permits rechecking a measured profile without accepting a classifier's source estimate.
+The association analysis compares command evidence alone with the same scorer augmented by windowed summaries of the observed B/S/T measurements. Preprocessing is fitted within the training folds. A separate single-trace classifier estimates the recorded Human/Agent label; it does not gate pairwise association. Pair scores rank candidates under the benchmark relation and are not calibrated probabilities of shared malicious activity. Neither readout identifies a vendor model, controller, operator, or campaign.
 
-A classifier returns a session-source estimate only after the evidence checks. Its output is distinct from measured values. Feature-group explanations identify evidence associated with a prediction; they do not infer internal reasoning, autonomy, or an operator's psychological traits.
-
-\subsection{Category Extension}
+\subsection{Category Features}
 \label{subsec:category_extension}
-The core K1--K8 profile and the B/S/T windowed matrices are command-agnostic: they describe execution structure without regard to which executable was invoked. The AIT common-log pilot (Section~\ref{sec:pilot}) revealed a large gap between a lexical Command TF--IDF baseline (85.4\% source-holdout balanced accuracy) and the behavioral fingerprint (52.6\%), suggesting the transferable signal resides in command vocabulary rather than pure behavioral patterns.
+The B/S/T windowed measurements describe execution structure, while command-category features retain coarse information about which kinds of executable were invoked. In the AIT shell-troubleshooting pilot (Section~\ref{sec:pilot}), command-level B/S/T reached 52.6\% source-group balanced accuracy, compared with 85.4\% for Command TF--IDF. This cohort-specific gap motivates testing category summaries alongside sequence and timing evidence; it does not show that lexical cues transfer to other security sources, especially because collection workflow may shape the released labels.
 
 To test whether command identity can be absorbed into the behavioral representation without abandoning its structural interpretation, we extend B/S/T with three command-category blocks:
 
@@ -189,88 +192,22 @@ To test whether command identity can be absorbed into the behavioral representat
 \end{itemize}
 
 
-The extended feature vector \texttt{B+S+T+Cat} concatenates the original 72-dimensional windowed summary (24 values per block $\times$ 3 summary statistics) with the 80-dimensional category features (8 + 64 + 8), yielding 152 dimensions before imputation. Category features are computed per-trace rather than per-window to avoid dimensionality explosion; they are appended to the windowed summary as global trace-level descriptors.
+The category-enhanced representation combines 72 windowed B/S/T summary values (24 measurements by three statistics) with 80 command-category features (8 frequencies, 64 transitions, and 8 timing summaries), for 152 dimensions before imputation. Category features are computed per trace and appended as global descriptors.
 
-This extension tests a middle ground between pure behavioral patterns (B/S/T) and pure vocabulary (TF--IDF): do coarse command categories, combined with behavioral structure, generalize better than behavior alone?
+For the AIT recorded-mode endpoint, this extension tests whether coarse command categories add inspectable command-family context to behavioral structure. Its performance is cohort-specific and is not treated as evidence of cross-source security transfer.
 
-Figure~\ref{fig:bst-dimensions} documents the 24-slot B/S/T candidate schema used in the earlier retrieval study; it is not the same object as the compact K1--K8 matrix defined here. CTH and NYU retrieval experiments measured B/S, while AIT supplied only launch-gap T1--T6. The duration-dependent T7--T8 slots were unavailable and are not treated as measured evidence.
+Supplementary Figure~\ref{fig:bst-dimensions} shows the 24-slot B/S/T candidate schema. CTH and NYU retrieval experiments measured B/S, while AIT supplied only launch-gap T1--T6. The duration-dependent T7--T8 slots were unavailable and are not treated as measured evidence.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.92\linewidth]{figures/fingerprint-bst-dimensions.pdf}
-\caption{The 24-slot B/S/T candidate schema. Block colors distinguish local behavior (B), sequence organization (S), and observed timing (T). T1--T6 describe launch gaps; duration-dependent T7--T8 are optional and unavailable in AIT.}
-\label{fig:bst-dimensions}
-\end{figure}
-\FloatBarrier
-
-\section{Fingerprint Matrix and Association}
-\label{sec:matrix}
-The fingerprint matrix is distinct from the action-composition heatmap: its columns are the eight measurements K1--K8, rather than eight action categories. For consecutive windows $W_j$, define
-\begin{equation}
- F_{j,k}=K_k\bigl((c_i)_{i\in W_j}\bigr),\qquad
- F\in\mathbb R^{J\times 8}.
-\end{equation}
-A corresponding validity mask records undefined measurements. For a fixed action map, feature specification, and window policy, computing $F$ requires no learned representation parameters or model-identity labels. Window width and minimum evidence requirements are fixed on development data. The number of rows follows the observed sequence length; it is not a fixed four-stage attack model. For a trajectory-derived command view, the same formulas describe only retained command heads, not every host execution. Host-log and trajectory-view outcomes are reported separately.
-
-A simple proposed matrix baseline compares standardized windows with dynamic time warping. Scaling uses training sessions only. For two rows, a local distance averages squared differences over their shared valid columns. An alignment path then compares the evolving profiles while allowing different numbers of observed steps. Insufficient shared evidence produces an unavailable comparison. This is a baseline use of an existing alignment method, not a new decomposition algorithm; SVD, HOSVD, and TSA are outside this round.
-
-The association comparison has a direct form: a baseline command-similarity score alone versus the same score together with matrix similarity in a small training-fitted pair scorer. Pair labels come only from training tasks, and all preprocessing is fitted inside the training partition. The principal ablation removes the entire matrix; further ablations remove tool-selection, action-organization, or repetition columns and refit under identical partitions. An additional Human/Agent classifier can use the matrix as input, but its score is not assumed to be a required association feature. A separate recognition-branch ablation is warranted only if such a branch actually enters the final method.
-
-\section{Completed Work}
-\subsection{Literature and Feasibility}
-The current round completed a focused review of Human/Agent log studies, terminal fingerprinting, procedural Agent representations, and session-level behavior analysis. Each proposed feature now has an observation requirement and an interpretation boundary. Common-log documentation motivated contracting the primary feature set and separating optional measurements, as summarized in Table~\ref{tab:tiers}.
-
-The existing library contains audit-record joining/session normalization and versioned legacy behavioral-profile extraction. Its public evidence object currently retains command names, actions, references, and quality information. It does not expose all argument, feedback, resource, and timing fields required by the broader 21-feature proposal. The exploratory pilot implements and checks the eight scalar definitions in an experiment workspace. Public-library integration and the temporal matrix association method remain pending; this is not an implementation-completion claim for the full proposed method.
-
-\subsection{Profile Export Audit}
-An audit of saved profiles and separate evaluator labels recorded the two collections in Table~\ref{tab:audit}. The script checks unique trace IDs, label joins, the legacy feature inventory, numeric validity, and presence of fields required by a controlled follow-up. It does not train a classifier or read historical effectiveness summaries.
-
-
-The audit found 24 legacy feature definitions and no nonnumeric or nonfinite values among nonmissing feature entries in these exports. This does not establish completeness, correctness of every extractor, or effectiveness of the new eight-feature specification. The two collections overlap and must not be summed into 304 independent samples. Their exported registries do not include the activity, controller, repeat, delegation-condition, and harness-version fields required by the previously proposed controlled delegation study.
-
-These records originate from earlier use of public Cyber Task Horizons material \cite{cth}. Human terminal capture and Agent tool-call capture differ. The exports can support parser/profile audits and explicitly exploratory record-label analysis, but they do not provide a matched host-log Human/Agent benchmark by changing label names. Historical task-retrieval metrics address a different endpoint and are not results of the present Human/Agent study.
-
-\subsection{Source Catalog}
-\label{sec:corpus}
-The expanded catalog contains 1,142 records with a nonempty explicit common-command view (Table~\ref{tab:expanded}). It is built from pinned local CTH files and two downloaded Hugging Face sources \cite{cth,hfcybench,agenttracedata}. The 664 CTF records form the core; 478 records belong to vulnerability-reproduction or command-task supplements. There are 79 Human-source and 1,063 Agent-source records. Fifty-four source-qualified task groups contain both source classes, with 207 records in that matched subset. Most newly added records are Agent-only; catalog growth does not remove the Human-sampling bottleneck.
-
-
-CTH input manifests cover 90 Human archives; 87 decoded sample records are present, of which 79 retain a common command. Overlapping Agent retry snapshots are selected deterministically per evaluation set, task, and epoch rather than counted as new executions. Antieval contributes six model files with 190 records, of which 189 retain commands. AgentTrace contributes 400 NL2Bash runs from two Qwen configurations, of which 338 retain commands. Its fixture hashes can differ between runs, so identical task indices are not automatically treated as the same experimental condition.
-
-The catalog uses the versioned, lossy command-head adapter to expose a common comparison view. It does not recover omitted tools or in-process operations. Across the three selected sources, 414 decoded/selected records have no explicit retained common-command view and are excluded with recorded reasons. Raw prompts, outputs, answers, and private-looking path fields are not republished. CTH is CC BY 4.0; AgentTrace records Apache-2.0 with upstream task terms; Antieval does not state a unified source license, which remains explicit in the registry. The public catalog contains source links, task/model metadata, counts, and command-name previews rather than a wholesale copy of the source logs.
-
-\subsection{Cohort Comparison}
-The source-linked catalog in Table~\ref{tab:expanded} describes available records; the three cohorts below are the eligible data actually used by the main retrieval and mode-estimation analyses. Their labels and observed fields are not interchangeable.
-
-\begin{table}[htbp]
-\centering\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.10}
-\caption{Evaluation cohorts. Counts are eligible traces, not independent pair decisions; H and A denote source labels.}
-\label{tab:cohorts}
-\makebox[\linewidth][l]{%
-\begin{tabularx}{\dimexpr\linewidth+0.32in\relax}{@{}p{.22\linewidth}p{.29\linewidth}X@{}}
-\toprule
-\textbf{Source} & \textbf{Samples} & \textbf{Description} \\
-\midrule
-CTH mixed-role~\cite{cth} & \agentsamples{51};\,\humansamples{34} & 17 CTF tasks; five gallery shares for same-challenge retrieval. The normalized command views have no matched timing. \\
-AIT audit logs~\cite{ait} & \agentsamples{48};\,\humansamples{61} & 109 runs across 12 troubleshooting tasks; recorded-mode recognition and launch-gap analysis. Durations are unavailable. \\
-NYU D-CIPHER~\cite{nyu} & \agentsamples{585} & 585 Agent runs across 160 CTF challenges; frozen external same-challenge retrieval. Event timing is unavailable. \\
-\bottomrule
-\end{tabularx}
-}%
-\end{table}
-
-CTH and NYU use challenge identity as a retrieval proxy; neither labels shared attack activity. AIT estimates the released source-mode label, which co-varies with collection workflow. The three endpoints therefore remain separate in both analysis and interpretation.
-
-\subsection{Current Same-Mode Retrieval}
+\section{Results}
+\subsection{Same-Mode Retrieval Results}
 The current mixed-role retrieval target is positive only when two traces share both a benchmark-qualified task and the same recorded mode. Every HA pair is negative, including same-task Human--Agent pairs, in training, threshold selection, and held-out evaluation. Table~\ref{tab:same-mode-bst} reports the fixed B/S/T ablation on matched candidate galleries. The CTH and AIT cohorts were previously inspected, so these results are exploratory.
 \begin{table}[!htbp]
-\centering\small
-\setlength{\tabcolsep}{3.6pt}
-\renewcommand{\arraystretch}{1.08}
+\centering
+
 \caption{Fixed B/S/T ablation for same-task, same-mode retrieval with depth-3 XGBoost. Positive pairs share both task and recorded mode, so same-task HA pairs are negative. FMR includes all negative pair types. Task-macro rates are percentages. Green and red mark favorable and unfavorable changes relative to E; changes below one point are unshaded. T uses observed launch gaps. No-match is the share of no-match galleries with any accepted candidate.}
 \label{tab:same-mode-bst}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.96}
 \begin{tabular}{@{}llrrrrr@{}}
 \toprule
 Data & Features & Hit@1 & BA & FMR & FSR & No-match \\
@@ -291,13 +228,12 @@ AIT & E & 49.50 & 57.05 & 5.69 & 80.22 & 21.90 \\
 \bottomrule
 \end{tabular}
 \end{table}
-The complete learner comparison in Table~\ref{tab:same-mode-all-learners} keeps the CTH RBF-SVM and decision-tree rows alongside XGBoost and evaluates them under the same labels and matched galleries.
+Query-mode ranking by HH/AA positive pairs is reported in Appendix Table~\ref{tab:pairtype-gallery-ranking}. Table~\ref{tab:same-mode-svm-xgb} compares the RBF-SVM and XGBoost learners; role-stratified decision errors are in Appendix~\ref{app:same-mode-supplement}.
 \begin{table}[!htbp]
-\centering\scriptsize
-\setlength{\tabcolsep}{2.3pt}
-\renewcommand{\arraystretch}{1.08}
-\caption{Complete learner comparison for the current same-task, same-mode retrieval target. Each task-held-out gallery has one same-task, same-mode positive and three negatives, including the same-task cross-mode HA hard negative. CTH reports RBF-SVM, decision tree, and XGBoost; AIT reports XGBoost.}
-\label{tab:same-mode-all-learners}
+\centering
+
+\caption{RBF-SVM and XGBoost comparison for the current same-task, same-mode retrieval target. Each task-held-out gallery has one same-task, same-mode positive and three negatives, including the same-task cross-mode HA hard negative. CTH reports both learners; AIT reports XGBoost.}
+\label{tab:same-mode-svm-xgb}
 \begin{tabular}{@{}p{.78in}p{1.03in}rrrrrr@{}}
 \toprule
 Learner & Feature arm & BA & FMR & FSR & Hit@1 & Gallery AUC & Pair AP \\
@@ -307,11 +243,6 @@ RBF-SVM & E (baseline) & \textbf{52.05} & \textbf{3.04} & \textbf{92.85} & \text
  & E+B & \cellcolor{AblGoodLight}54.85{\tiny\, (+2.80)} & \cellcolor{AblBadDeep}13.80{\tiny\, (+10.75)} & \cellcolor{AblGoodDeep}76.49{\tiny\, (-16.35)} & \cellcolor{AblGoodDeep}48.79{\tiny\, (+14.55)} & \cellcolor{AblGoodDeep}71.83{\tiny\, (+13.88)} & \cellcolor{AblGoodDeep}49.51{\tiny\, (+8.32)} \\
  & E+S & \cellcolor{AblGoodLight}53.94{\tiny\, (+1.88)} & \cellcolor{AblBadDeep}16.99{\tiny\, (+13.95)} & \cellcolor{AblGoodDeep}75.14{\tiny\, (-17.71)} & \cellcolor{AblGoodDeep}42.91{\tiny\, (+8.67)} & \cellcolor{AblGoodMid}64.28{\tiny\, (+6.34)} & \cellcolor{AblGoodLight}43.71{\tiny\, (+2.52)} \\
  & E+B+S & \cellcolor{AblGoodMid}58.57{\tiny\, (+6.52)} & \cellcolor{AblBadDeep}12.14{\tiny\, (+9.09)} & \cellcolor{AblGoodDeep}70.72{\tiny\, (-22.13)} & \cellcolor{AblGoodDeep}52.82{\tiny\, (+18.58)} & \cellcolor{AblGoodDeep}74.36{\tiny\, (+16.41)} & \cellcolor{AblGoodDeep}51.75{\tiny\, (+10.56)} \\
-\addlinespace[.10em]
-Decision tree & E (baseline) & \textbf{50.92} & \textbf{0.52} & \textbf{97.64} & \textbf{46.32} & \textbf{69.22} & \textbf{42.22} \\
- & E+B & 50.00{\tiny\, (-0.92)} & 0.00{\tiny\, (-0.52)} & \cellcolor{AblBadLight}100.00{\tiny\, (+2.36)} & \cellcolor{AblBadDeep}28.00{\tiny\, (-18.32)} & \cellcolor{AblBadDeep}53.75{\tiny\, (-15.48)} & \cellcolor{AblBadDeep}27.48{\tiny\, (-14.74)} \\
- & E+S & 50.00{\tiny\, (-0.92)} & 0.00{\tiny\, (-0.52)} & \cellcolor{AblBadLight}100.00{\tiny\, (+2.36)} & \cellcolor{AblBadDeep}30.17{\tiny\, (-16.15)} & \cellcolor{AblBadDeep}56.54{\tiny\, (-12.68)} & \cellcolor{AblBadDeep}28.42{\tiny\, (-13.79)} \\
- & E+B+S & 50.00{\tiny\, (-0.92)} & 0.00{\tiny\, (-0.52)} & \cellcolor{AblBadLight}100.00{\tiny\, (+2.36)} & \cellcolor{AblBadDeep}29.20{\tiny\, (-17.11)} & \cellcolor{AblBadDeep}55.30{\tiny\, (-13.92)} & \cellcolor{AblBadDeep}27.93{\tiny\, (-14.29)} \\
 \addlinespace[.10em]
 XGBoost & E (baseline) & \textbf{52.04} & \textbf{6.47} & \textbf{89.46} & \textbf{44.40} & \textbf{67.88} & \textbf{48.00} \\
  & E+B & \cellcolor{AblGoodLight}53.79{\tiny\, (+1.75)} & \cellcolor{AblBadLight}8.79{\tiny\, (+2.32)} & \cellcolor{AblGoodMid}83.64{\tiny\, (-5.82)} & \cellcolor{AblGoodMid}49.85{\tiny\, (+5.44)} & \cellcolor{AblGoodMid}72.92{\tiny\, (+5.05)} & \cellcolor{AblGoodMid}52.19{\tiny\, (+4.19)} \\
@@ -330,61 +261,13 @@ XGBoost & E (baseline) & \textbf{57.05} & \textbf{5.69} & \textbf{80.22} & \text
 \bottomrule
 \end{tabular}
 \par\smallskip{\tiny
-Values are task-macro percentages; parentheses show paired percentage-point changes from E within the same dataset and learner. Same-task HA pairs are negative throughout fitting, threshold selection, and evaluation. FMR includes all negative types; FSR uses only same-task, same-mode positives. Gallery AUC is averaged within matched galleries; Pair AP is pooled within task at 25\% positive prevalence. Candidate identities are shared across arms. Whole-gallery E scores are used for ranking when any pair falls back. Paired 95\% task-cluster intervals are recorded in \texttt{research/results/same\_mode\_bst/all\_learner\_mode\_metrics.json}.}
+Values are task-macro percentages; parentheses show paired percentage-point changes from E within the same dataset and learner. Same-task HA pairs are negative throughout fitting, threshold selection, and evaluation. FMR includes all negative types; FSR uses only same-task, same-mode positives. Gallery AUC is averaged within matched galleries; Pair AP is pooled within task at 25\% positive prevalence. Candidate identities are shared across arms. Whole-gallery E scores are used for ranking when any pair falls back.}
 \end{table}
-The role-stratified follow-up reports HA false-link rates separately and splits Hit@1 by query mode; HA FSR and BA are undefined because HA has no positive pairs.
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.08}
-\caption{Role-pair decision errors for the frozen same-task, same-mode S-gallery follow-up. E is the command/action baseline. Base is E+B on CTH and E+B+T on AIT; Full S appends S. Both profile rows use the gallery-guarded threshold.}
-\label{tab:pairtype-guarded-errors}
-\begin{tabularx}{\linewidth}{@{}p{.34in}p{.82in}r*{5}{>{\centering\arraybackslash}X}@{}}
-\toprule
-Data & Pair type & Tasks & E: FA / FSR & Base: FA / FSR & Full S: FA / FSR & Base $\Delta$BA [95\% CI] & Full S $\Delta$BA [95\% CI] \\
-\midrule
-CTH & Human--Human & 17 & 6.26 / 88.24 & 23.15 / 76.47 & 24.82 / 76.47 & -2.56 [-12.09, +5.18] & -3.40 [-12.99, +4.32] \\
- & Human--Agent & 17 & 6.36 / -- & 5.99 / -- & 4.16 / -- & -- & -- \\
- & Agent--Agent & 17 & 6.94 / 90.27 & 8.06 / 90.41 & 7.45 / 88.55 & -0.63 [-6.71, +4.59] & +0.61 [-3.09, +4.43] \\
-\midrule
-AIT & Human--Human & 12 & 8.28 / 88.16 & 13.29 / 70.11 & 12.06 / 79.13 & +6.52 [+3.17, +9.85] & +2.63 [-1.19, +6.24] \\
- & Human--Agent & 12 & 5.00 / -- & 4.34 / -- & 3.67 / -- & -- & -- \\
- & Agent--Agent & 12 & 5.71 / 70.65 & 10.69 / 62.33 & 11.29 / 62.23 & +1.67 [-6.53, +9.82] & +1.42 [-5.43, +8.70] \\
-\bottomrule
-\end{tabularx}
-\par\vspace{.12em}
-\begin{minipage}{\linewidth}\footnotesize
-Cells are task-macro percentages. For HH and AA, FA is the within-mode false-merge rate and FSR is the missed-link rate. Under the same-mode label, every HA pair is negative, so its FA cell is the cross-mode false-link rate; FSR and BA are undefined and shown as --. $\Delta$BA is paired against E over task clusters, with 10,000 percentile bootstrap draws. Repeated gallery allocations are averaged within task and are not independent samples. These are retrospective diagnostics on previously inspected cohorts.
-\end{minipage}
-\end{table}
-\begin{table}[!htbp]
-\centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.08}
-\caption{Matched-gallery Hit@1 by query mode under the same-task, same-mode label. H queries have HH positives; A queries have AA positives.}
-\label{tab:pairtype-gallery-ranking}
-\begin{tabularx}{\linewidth}{@{}p{.4in}Y r >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X@{}}
-\toprule
-Data & Positive type / query & Tasks & E Hit@1 & Base $\Delta$ vs E [95\% CI] & Full S $\Delta$ vs E [95\% CI] \\
-\midrule
-CTH & HH positive (H query) & 17 & 48.45 & -1.99 [-17.97, +13.48] & +1.54 [-19.60, +21.13] \\
- & AA positive (A query) & 17 & 41.71 & +10.40 [+2.51, +18.15] & +4.53 [-1.63, +10.97] \\
-\midrule
-AIT & HH positive (H query) & 12 & 38.29 & +15.60 [+8.49, +22.46] & +11.31 [+3.43, +19.14] \\
- & AA positive (A query) & 12 & 63.33 & -0.37 [-9.91, +9.65] & -0.66 [-11.43, +10.36] \\
-\bottomrule
-\end{tabularx}
-\par\vspace{.12em}
-\begin{minipage}{\linewidth}\footnotesize
-Values are task-macro Hit@1 percentages. Base and Full S use the gallery-guarded profiles defined in Table~\ref{tab:pairtype-guarded-errors}; ranking scores are threshold-free, with uniform fractional credit for score ties. Changes are paired task-cluster percentage points from E with 10,000 percentile bootstrap draws. All four matched candidates are retained, including cross-mode negatives.
-\end{minipage}
-\end{table}
+\FloatBarrier
 Length/presence controls and training-fold selection, guarded-threshold, and S-dimension sensitivities are detailed in Appendix~\ref{app:additional-results}. Historical task-only and cross-task configuration analyses are retained there under their original labels and protocols.
 
-\subsection{Historical Task-Only Mixtures}
-This completed earlier evaluation used a different target: any shared benchmark task was positive, including same-task cross-mode HA pairs. It is retained as historical context and is not pooled with the current same-task, same-mode results. It does not validate the K1--K8 matrix or identify shared attack activity. Figure~\ref{fig:exact-mixture} shows how the fixed-threshold error balance changed as the Agent share in constructed CTH galleries rose: from all-Human to all-Agent galleries, action-bigram FMR fell 23.09 percentage points while FSR rose 44.93 points. Hit@1 was nearly unchanged, and the 11.48-point gallery-AUC decline was uncertain.
+\subsection{Historical Retrieval Results}
+This completed earlier evaluation used a different target: any shared benchmark task was positive, including same-task cross-mode HA pairs. It is retained as historical context and is not pooled with the current same-task, same-mode results. It does not identify shared attack activity. Figure~\ref{fig:exact-mixture} shows how the fixed-threshold error balance changed as the Agent share in constructed CTH galleries rose: from all-Human to all-Agent galleries, action-bigram FMR fell 23.09 percentage points while FSR rose 44.93 points. Hit@1 was nearly unchanged, and the 11.48-point gallery-AUC decline was uncertain.
 
 \begin{figure}[htbp]
 \centering
@@ -396,7 +279,7 @@ This completed earlier evaluation used a different target: any shared benchmark 
 The earlier matched CTH and AIT analyses used the historical task-only target. Their combined learner table, full feature ablations, and role-stratified reaggregations appear together in the appendix; none is part of the current same-mode comparison.
 \FloatBarrier
 
-\subsection{Common-Log Classification Pilot}
+\subsection{Recorded-Mode Classification Results}
 \label{sec:pilot}
 A fixed exploratory batch used AIT/AECID original troubleshooting runs \cite{ait}. From 109 source-labeled intervals, a login-attributable executable view admitted 109 runs (61 Human, 48 Agent) under predeclared evidence requirements (minimum 4 events). Models received no identities or collector fields. GPT4.1 V2/V3 repetitions were grouped with their base model. Transformations were fitted inside each training partition, and no parameter search was performed.
 
@@ -412,26 +295,25 @@ Figure~\ref{fig:ait-cohort-mean-bst} summarizes the same cohort by averaging eac
 Across the early windows, the clearest mean differences appear in timing: Human runs have higher burstiness (T3) and a larger share of sub-second gaps (T4), while Agent runs have longer median gaps (T1) and a larger share of gaps of at least ten seconds (T5). Agent runs also have lower S8 values, indicating less change in action-category distributions between adjacent windows. These are descriptive patterns in this AIT cohort; task and collection workflow may contribute, so the figure does not establish a general Human/Agent fingerprint.
 
 \begin{table}[htbp]
-\centering\small
-\caption{AIT recorded-mode classification on the same 109 runs (61 Human, 48 Agent). Task holdout tests unseen task groups; source holdout tests unseen actor groups. BA intervals are 95\% task-cluster intervals.}
+\centering
+\caption{AIT recorded-mode classification on 109 runs (61 Human, 48 Agent). Task holdout tests unseen task groups; source holdout tests unseen actor groups.}
 \label{tab:ait_results}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.10}
+
 \begin{tabularx}{\linewidth}{@{}l>{\centering\arraybackslash}X>{\centering\arraybackslash}Xr@{}}
 \toprule
 Readout & Task holdout BA (\%) & Source holdout BA (\%) & Source AUROC \\
 \midrule
-B/S/T, command-level & 68.8 [61.8, 75.8] & 52.6 [43.4, 62.7] & 0.54 \\
-B/S/T, category-normalized & 75.8 [69.7, 81.3] & 59.6 [51.2, 67.0] & 0.61 \\
-B/S/T + category summaries & \cellcolor{AblGoodLight}89.4 [82.7, 95.3] & \cellcolor{AblGoodLight}64.4 [55.6, 74.0] & \cellcolor{AblGoodLight}0.72 \\
-Full fingerprint (B/S/T + categories + tool repertoire) & \cellcolor{AblGoodMid}92.6 [86.3, 97.6] & \cellcolor{AblGoodMid}79.7 [70.2, 89.4] & \cellcolor{AblGoodMid}0.90 \\
-Fixed tool repertoire, single log & \cellcolor{AblGoodDeep}95.1 [91.7, 98.3] & \cellcolor{AblGoodDeep}92.0 [86.8, 96.5] & \cellcolor{AblGoodDeep}0.96 \\
-\textbf{Command TF--IDF reference} & \cellcolor{AblGoodDeep}\textbf{95.1 [92.0, 97.9]} & \cellcolor{AblGoodDeep}\textbf{85.4 [77.4, 93.1]} & \cellcolor{AblGoodDeep}\textbf{0.94} \\
+B/S/T, command-level & 68.8 & 52.6 & 0.54 \\
+Category-level B/S/T & 75.8 & 59.6 & 0.61 \\
+B/S/T with category features & \cellcolor{AblGoodLight}89.4 & \cellcolor{AblGoodLight}64.4 & \cellcolor{AblGoodLight}0.72 \\
+Full fingerprint (B/S/T with category features and tool repertoire) & \cellcolor{AblGoodMid}92.6 & \cellcolor{AblGoodMid}79.7 & \cellcolor{AblGoodMid}0.90 \\
+Tool-repertoire vector, single log & \cellcolor{AblGoodDeep}95.1 & \cellcolor{AblGoodDeep}92.0 & \cellcolor{AblGoodDeep}0.96 \\
+\textbf{Command TF--IDF reference} & \cellcolor{AblGoodDeep}\textbf{95.1} & \cellcolor{AblGoodDeep}\textbf{85.4} & \cellcolor{AblGoodDeep}\textbf{0.94} \\
 \bottomrule
 \end{tabularx}
 \par\vspace{.12em}
 \begin{minipage}{\linewidth}\footnotesize
-Balanced-accuracy intervals are 95\% task-cluster intervals shown in square brackets. The full fingerprint combines 72 B/S/T summary features, 80 command-category features, and a 279-dimensional fixed tool-repertoire vector. Fixed tool repertoire and Command TF--IDF are reference controls. Shading marks the fingerprint progression and reference controls; it does not encode statistical significance. Source AUROC is the pooled source-holdout point estimate.
+Values are task-macro balanced accuracy (BA) and pooled source-holdout AUROC. The full fingerprint combines 72 B/S/T summary features, 80 command-category features, and a 279-dimensional fixed tool-repertoire vector. Fixed tool repertoire and Command TF--IDF are reference controls. Shading marks the fingerprint progression and reference controls; it does not encode statistical significance. Source AUROC is the pooled source-holdout point estimate.
 \end{minipage}
 \end{table}
 
@@ -441,28 +323,28 @@ For the full fingerprint, the task-holdout interval is 86.3--97.6\%; it resample
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\linewidth]{figures/ait-mode-recognition-generalization-v2.pdf}
-\caption{AIT execution-mode recognition under task-group versus source-group holdout. Filled circles reuse actors; open squares hold actor groups unseen. B+S+T+Category (purple) absorbs part of the vocabulary signal while retaining behavioral structure.}
-\label{fig:ait_generalization_v2}
+\includegraphics[width=\linewidth]{figures/ait-mode-recognition-generalization-v4.pdf}
+\caption{Task-macro balanced accuracy for recorded-mode classifiers on 109 AIT runs. Bars are 95\% task-cluster intervals; filled circles denote task-group holdout and open squares denote source-group holdout.}
+\label{fig:ait_generalization_v4}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\linewidth]{figures/ait-mode-recognition-confusion-v2.pdf}
-\caption{Source-group holdout confusion matrices. Command TF--IDF separates recorded labels cleanly; B+S+T+Category shows moderate agent recall; B+S+T fingerprint collapses toward chance.}
-\label{fig:ait_confusion_v2}
+\includegraphics[width=0.98\linewidth]{figures/ait-mode-recognition-confusion-v4.pdf}
+\caption{Source-group holdout confusion matrices for the full fingerprint and two reference methods on 109 AIT runs (61 Human, 48 Agent). Cells show counts and row-normalized percentages; panel headings report task-macro BA and pooled AUROC. The full fingerprint combines B/S/T summaries, command categories, and fixed tool-repertoire features.}
+\label{fig:ait_confusion_v4}
 \end{figure}
 
-\section{Prospective Evaluation}
-\subsection{Historical Mixture Sweep}
+\section{Experimental Design}
+\subsection{Gallery-Composition Evaluation}
 The earlier CTH task-only prototype uses 17 task groups and five predeclared gallery shares (Figure~\ref{fig:exact-mixture}); same-task HA pairs count as positive in that analysis. Its errors describe the constructed candidate sets and are separate from the current HA-negative same-mode results. Follow-up should repeat any composition study on an independently collected mixed-source cohort with matched observation fields, adequate Human and Agent repeats, and task-disjoint development and evaluation. At shares where a pair type is absent, its error rate remains unavailable rather than zero. More Agent-only records improve model/task coverage but cannot supply missing Human repeats. No monotonic error change is assumed.
 
-\subsection{Errors and Baselines}
+\subsection{Error Metrics and Baselines}
 For each mixture, we report overall association outcomes and Human--Human, Human--Agent, and Agent--Agent strata. This separates a change within a pair type from a change caused by pair composition. Errors are defined against the track's relation label: wrong-task acceptance and same-task rejection in the CTF proxy, rather than demonstrated real-activity false attribution. Representative cases illustrate the complete statistical results, rather than replace them.
 
-Fixed comparisons include command-name unigram/bigram similarity, a small local sequence baseline, and the same association scorer with the matrix added. The matrix-removal comparison measures incremental value; group removals explain which observable columns contribute. Whole-session K1--K8 and a lexical Human/Agent classifier remain reference methods for the separate execution-mode endpoint. All methods receive the same source filtering and budgets. A model family's name, task identifier, source path, answer, and evaluation label are never inference features.
+Fixed comparisons include command-name unigram/bigram similarity, a small local sequence baseline, and the same association scorer with the matrix added. The matrix-removal comparison measures incremental value; group removals explain which observable columns contribute. A lexical Human/Agent classifier remains a reference method for the separate execution-mode endpoint. All methods receive the same source filtering and budgets. A model family's name, task identifier, source path, answer, and evaluation label are never inference features.
 
-\subsection{Input Heterogeneity and Transfer}
+\subsection{Transfer Evaluation}
 A shared interface does not require a universal meaning for every positive label. Each track declares its observation unit, retained fields, relation definition, and admissible metrics. Within-track outcomes are reported before any macro aggregation. Source-qualified tasks and explicit fixture/variant metadata prevent apparent diversity from silently changing the ground truth.
 
 The transfer panels leave out tasks, execution systems, and data sources separately. Queries and gallery references are distinct executions; all derived windows and related retries remain with their source session. A held-out source with only Agent labels can support task-retrieval transfer, but cannot by itself provide a two-class Human/Agent balanced-accuracy test. Where a source shares underlying tasks or copied traces with another release, the split groups that lineage or reports a separate matched-task condition.
@@ -470,27 +352,81 @@ The transfer panels leave out tasks, execution systems, and data sources separat
 For association we report retrieval quality, wrong-task acceptance, same-task rejection, and coverage at fixed operating points. For mode estimation we report balanced accuracy, macro-F1, Human false positives, Agent false negatives, and abstention. Uncertainty groups sessions and repeated task/controller conditions appropriately; pair counts and event counts do not become independent sample sizes. Breadth is a property of the curated inputs. Generalization is an outcome to be established by these held-out evaluations.
 
 \section{Discussion}
-The intended tool supports multiple behavioral retrieval and association settings through explicit input and relation contracts. CTF task matching, vulnerability-target retrieval, and command/fixture stress tests provide complementary settings. They need not be reduced to TTP-based organization attribution. This makes heterogeneous sampling relevant to the research objective, while requiring separate validation of what transfers across conditions.
+In a cybersecurity workflow, the intended role is to help an analyst prioritize host-visible trace pairs for review across CTF tasks, vulnerability reproductions, and shell-based troubleshooting. The current cohorts test benchmark- and source-defined retrieval relations; they do not provide ground truth for shared incidents or operational activity. Executable-event summaries are not ATT\&CK labels, and a candidate link is not campaign, operator, or organization attribution. The settings are complementary, but transfer between them must be tested rather than assumed.
 
-The current CTH/AIT retrieval evidence uses the same-task, same-mode target and shows feature-dependent ranking and false-acceptance trade-offs. A separate historical CTH task-only analysis found gallery-composition shifts under a different label, where same-task HA pairs were positive. The AIT recorded-mode pilot shows a source-holdout gap between category features and lexical TF--IDF. These results do not show that Agent participation degrades every association method, that the proposed K1--K8 matrix resolves observed errors, or that the tool already generalizes broadly. Successful transfer would need to outperform appropriate lexical/sequence baselines under the same observation and labeling rules. Profile extraction does not require model-specific enrollment; fitted scorers and transferred thresholds still require validation for the intended relation and source.
+The current CTH/AIT retrieval evidence uses the same-task, same-mode benchmark target and shows feature-dependent ranking and false-acceptance trade-offs. A separate historical CTH task-only analysis found gallery-composition shifts under a different label, where same-task HA pairs were positive. The AIT recorded-mode pilot shows a within-cohort source-group gap between category-enriched features and lexical TF--IDF; it is not an independent-source security evaluation. These results do not show that Agent participation degrades every association method, that B/S/T resolves all observed errors, or that the framework already transfers to incident telemetry. Transfer would need to outperform appropriate lexical and sequence baselines under matched observation fields and independently labeled security relations. Profile extraction does not require model-specific enrollment; fitted scorers and thresholds still require validation for the intended relation and source.
 
-\paragraph{Execution-mode labeling limitation.} The Human/Agent dichotomy is a coarse design choice, not a complete taxonomy of cyber-operation execution. Traditional attacks may be fully scripted or combine human decisions with conventional automation, while the available Human and Agent labels identify record sources rather than the decision-maker for every action. Because we lack a matched, common-telemetry cohort with reliable labels for human-operated, script-driven, and LLM-Agent runs, we can offer only a best-effort interpretation of observed trace differences, not strict attribution of the actual decision-maker.
+\paragraph{Label Limitations.} The Human/Agent dichotomy is a coarse design choice, not a complete taxonomy of cyber-operation execution. Traditional attacks may be fully scripted or combine human decisions with conventional automation, while the available Human and Agent labels identify record sources rather than the decision-maker for every action. Because we lack a matched, common-telemetry cohort with reliable labels for human-operated, script-driven, and LLM-Agent runs, we can offer only a best-effort interpretation of observed trace differences, not strict attribution of the actual decision-maker.
 
 \section{Conclusion}
-We propose an observation-aware, fold-adaptive framework that can combine command evidence with interpretable behavioral, sequence, and timing dimensions for trace association, while keeping recorded-mode estimation as a separate readout. Current same-task, same-mode CTH/AIT results show ranking and false-acceptance trade-offs; earlier task-only mixture results are reported separately because they count same-task HA pairs as positive. Neither establishes a universal fingerprint or real-activity linkage. On 109 AIT runs, category-enriched B/S/T reaches 64.4\% balanced accuracy under source-group holdout, below the 85.4\% Command TF--IDF reference; collection workflow remains a plausible source of label signal. The reusable contribution is a measurement framework with explicit observation and relation contracts, feature selection within training folds, and separate ranking and error readouts. Its utility for new association settings remains to be established with matrix-specific and independently collected evaluations.
+For cybersecurity trace review, we present an observation-aware, fold-adaptive framework that combines command evidence with interpretable behavioral, sequence, and timing measurements while keeping recorded-mode estimation separate from pair retrieval. On the benchmark-defined same-task, same-mode CTH/AIT target, feature arms show ranking and false-acceptance trade-offs; historical task-only mixture results remain separate because they count same-task HA pairs as positive. Neither target establishes a real incident or activity link. On 109 AIT troubleshooting runs, category-enriched B/S/T reaches 64.4\% balanced accuracy under source-group holdout, below the 85.4\% Command TF--IDF reference; collection workflow remains a plausible source of label signal. The contribution is an auditable measurement and evaluation framework for generating candidate trace cues, not an operational incident-attribution system. Utility for security investigations remains to be established on independently collected telemetry with matched observation fields and activity labels.
 
 \clearpage
 \appendix
-\section{Additional Results and Methods}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+\section{Additional Results}
 \label{app:additional-results}
 
-\subsection{Feature Provenance and Dimensions}
+\subsection{Role-Stratified Errors}
+Query-mode ranking by positive pair type is summarized in Appendix Table~\ref{tab:pairtype-gallery-ranking}.
+
+\begin{table}[!htbp]
+\centering
+
+\caption{Matched-gallery Hit@1 by query mode under the same-task, same-mode label. H queries have HH positives; A queries have AA positives.}
+\label{tab:pairtype-gallery-ranking}
+\begin{tabularx}{\linewidth}{@{}p{.4in}Y r >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X@{}}
+\toprule
+Data & Positive type / query & Tasks & E Hit@1 & Base $\Delta$ vs E & Full S $\Delta$ vs E \\
+\midrule
+CTH & HH positive (H query) & 17 & 48.45 & -1.99 & +1.54 \\
+ & AA positive (A query) & 17 & 41.71 & +10.40 & +4.53 \\
+\midrule
+AIT & HH positive (H query) & 12 & 38.29 & +15.60 & +11.31 \\
+ & AA positive (A query) & 12 & 63.33 & -0.37 & -0.66 \\
+\bottomrule
+\end{tabularx}
+\par\vspace{.12em}
+\begin{minipage}{\linewidth}\footnotesize
+Values are task-macro Hit@1 percentages. Base and Full S use the gallery-guarded profiles defined in Table~\ref{tab:pairtype-guarded-errors}; ranking scores are threshold-free, with uniform fractional credit for score ties. Changes are task-macro percentage-point differences from E. All four matched candidates are retained, including cross-mode negatives.
+\end{minipage}
+\end{table}
+\label{app:same-mode-supplement}
+Role-stratified decision errors for the same-task, same-mode target are reported below. Values are point estimates.
+
+
+\begin{table}[!htbp]
+\centering
+
+\caption{Role-pair decision errors for the frozen same-task, same-mode S-gallery follow-up. E is the command/action baseline. Base is E+B on CTH and E+B+T on AIT; Full S appends S. Both profile rows use the gallery-guarded threshold.}
+\label{tab:pairtype-guarded-errors}
+\begin{tabularx}{\linewidth}{@{}p{.34in}p{.82in}r*{5}{>{\centering\arraybackslash}X}@{}}
+\toprule
+Data & Pair type & Tasks & E: FA / FSR & Base: FA / FSR & Full S: FA / FSR & Base $\Delta$BA & Full S $\Delta$BA \\
+\midrule
+CTH & Human--Human & 17 & 6.26 / 88.24 & 23.15 / 76.47 & 24.82 / 76.47 & -2.56 & -3.40 \\
+ & Human--Agent & 17 & 6.36 / -- & 5.99 / -- & 4.16 / -- & -- & -- \\
+ & Agent--Agent & 17 & 6.94 / 90.27 & 8.06 / 90.41 & 7.45 / 88.55 & -0.63 & +0.61 \\
+\midrule
+AIT & Human--Human & 12 & 8.28 / 88.16 & 13.29 / 70.11 & 12.06 / 79.13 & +6.52 & +2.63 \\
+ & Human--Agent & 12 & 5.00 / -- & 4.34 / -- & 3.67 / -- & -- & -- \\
+ & Agent--Agent & 12 & 5.71 / 70.65 & 10.69 / 62.33 & 11.29 / 62.23 & +1.67 & +1.42 \\
+\bottomrule
+\end{tabularx}
+\par\vspace{.12em}
+\begin{minipage}{\linewidth}\footnotesize
+Cells are task-macro percentages. For HH and AA, FA is the within-mode false-merge rate and FSR is the missed-link rate. Under the same-mode label, every HA pair is negative, so its FA cell is the cross-mode false-link rate; FSR and BA are undefined and shown as --. $\Delta$BA is the task-macro percentage-point change from E. Repeated gallery allocations are averaged within task and are not independent samples. These are retrospective diagnostics on previously inspected cohorts.
+\end{minipage}
+\end{table}
+
+\subsection{Feature Definitions}
 The B/S/T schema is a candidate measurement taxonomy derived from observable fields in ordered command/action logs. B measures local diversity, entropy, transitions, and repetition; S measures first-seen events, revisits, returns, and reused fragments; T measures launch gaps and, when available, duration/idle intervals. Earlier computer-security user models treated command order and inter-command timing as behavioral evidence, while UNIX profiling also considered command execution time~\cite{mcmahon,dao}. These studies support timing as a plausible feature family, but do not establish the value of each statistic for retrieval. The schema has 24 candidate slots: eight per block, including two optional duration measures. T1--T6 summarize observed launch gaps; T7--T8 require event durations. CTH uses B/S in the current matched evaluation because its normalized views lack comparable event times; AIT provides observed T1--T6 launch gaps but no event durations.
 
 For the current same-mode evaluation, each trace is divided into eight-event windows with a 128-event cap; the minimum usable window is two events on CTH and four on AIT. The per-trace representation summarizes each observed measurement by its mean, standard deviation, and normalized-position trend, then appends category summaries. The pair model concatenates command and action-bigram similarities with absolute differences between training-standardized trace representations. B also includes fixed-tool-presence Jaccard overlap. CTH uses B/S; AIT uses B/S/T. Imputation and scaling are fit on outer-training tasks only. If a required block is wholly unavailable for a pair, its score falls back to the fold's E score and threshold; galleries with a fallback pair use E scores for ranking. These are the settings behind the primary same-mode tables below.
 
 \begin{table}[ht]
-\centering\footnotesize
+\centering
 \caption{The 24-slot candidate schema. An experiment uses only measurements available in its source; T7--T8 are optional duration-dependent extensions.}
 \begin{tabularx}{\linewidth}{@{}p{.09\linewidth}p{.28\linewidth}Y@{}}
 \toprule Block & Measurement IDs & Operational definitions \\
@@ -508,14 +444,21 @@ T & T7--T8 & Optional duration-dependent extensions: median observed event durat
 \end{tabularx}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.92\linewidth]{figures/fingerprint-bst-dimensions.pdf}
+\caption{The 24-slot B/S/T candidate schema. Block colors distinguish local behavior (B), sequence organization (S), and observed timing (T). T1--T6 describe launch gaps; duration-dependent T7--T8 are optional and unavailable in AIT.}
+\label{fig:bst-dimensions}
+\end{figure}
+\FloatBarrier
+
 Missing fields remain missing. CTH and NYU normalized traces supply no event times; AIT provides process-launch timestamps but not event durations, so T7--T8 have no observations there. The raw CTH archive does include Human terminal I/O timing and timestamped Agent events, but these are different event units and we have not validated a shared per-command start/end mapping~\cite{cth,inspect}. Sparse cells are imputed with training-fold medians; AIT's all-missing T7--T8 columns remain constant after imputation and provide no information. A trace pair with an entirely absent required B/S block uses that fold's E score and E threshold.
 
-\subsection{Same-Mode Controls and Operating Points}
+\subsection{Additional Controls}
 The main text reports the fixed B/S(/T) comparison, complete learner comparison, and role-stratified errors. The following matched-candidate analyses add length and tool-overlap controls, training-fold block selection, guarded thresholds, and sequence-feature sensitivities. They use the same-task, same-mode target throughout; every HA pair is negative.
 \begin{table}[!htbp]
-\centering\small
-\setlength{\tabcolsep}{3.6pt}
-\renewcommand{\arraystretch}{1.08}
+\centering
+
 \caption{Length/presence and tool-overlap controls for same-task, same-mode retrieval. Same-task cross-mode HA pairs are negative. Rates are task-macro percentages; colors compare with E. B$^{-}$ omits tool-presence overlap.}
 \label{tab:same-mode-controls}
 \begin{tabular}{@{}llrrrrr@{}}
@@ -535,9 +478,8 @@ AIT & E & 49.50 & 57.05 & 5.69 & 80.22 & 21.90 \\
 \end{tabular}
 \end{table}
 \begin{table}[!htbp]
-\centering\small
-\setlength{\tabcolsep}{3.6pt}
-\renewcommand{\arraystretch}{1.08}
+\centering
+
 \caption{Exploratory same-task, same-mode retrieval. Task-macro rates are percentages. Same-task cross-mode HA pairs are negative. Block selection and thresholds use training tasks only. Teal and red mark changes from E; changes below one point are unshaded. No-match is the share of no-match galleries with any accepted candidate.}
 \label{tab:same-mode-selected}
 \begin{tabular}{@{}llrrrrr@{}}
@@ -560,9 +502,7 @@ AIT & E & 49.50 & 57.05 & 5.69 & 80.22 & 21.90 \\
 \end{table}
 \begin{table}[!htbp]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.06}
+
 \caption{S-dimension and gallery-threshold follow-up on the same outer candidates under the same-task, same-mode target; same-task cross-mode HA pairs are negative. Base is E+B for CTH and E+B+T for AIT. Pair cutoff uses the original inner pairwise FMR rule; gallery guard uses inner task-macro FMR and no-match constraints. S variants append the named S features to Base. Rates are task-macro percentages; higher Hit@1/BA and lower FMR/FSR/no-match are favorable. Bold marks the best value per dataset and metric. The 2$\times$ hard-negative arms match their parent arms at reported precision and are omitted.}
 \label{tab:s-gallery-followup}
 \begin{tabularx}{\linewidth}{@{}p{.40in}p{1.52in}*{5}{>{\centering\arraybackslash}X}@{}}
@@ -594,14 +534,14 @@ AIT & E & 49.50 & 57.05 & \textbf{5.69} & 80.22 & \textbf{21.90} \\
 \end{tabularx}
 \end{table}
 
-\subsection{Historical and Alternative Targets}
+\subsection{Historical Analyses}
 The earlier task-only analyses use $z_{task}=1$ whenever two traces share a benchmark-qualified task; under that target, same-task cross-mode HA pairs are positive. The model-snapshot panels instead ask which recorded submission configuration produced a trace across different tasks. These results are retained under their original targets and protocols. None is pooled with the primary same-task, same-mode results above or presented as evidence for the current HA-negative target.
 
-\subsubsection{CTH Role-Composition Curves}
+\subsubsection{Role-Composition Results}
 Table~\ref{tab:mixture-full} gives the point estimates for the earlier CTH role-composition analysis. Each cell is a task-macro percentage. The same 17 query-task clusters are used at every role share, and the candidate draws are coupled across shares. This historical task-only result is separate from the current same-mode retrieval experiment.
 
 \begin{table}[ht]
-\centering\footnotesize
+\centering
 \caption{Historical task-only CTH mixture rates and ranking for both cosine baselines. Same-task cross-mode HA pairs count as positive in this analysis.}
 \label{tab:mixture-full}
 \begin{tabular}{@{}lrrrrrr@{}}
@@ -625,7 +565,7 @@ Action bigram & 0\% & 32.27 & 52.94 & 57.40 & 53.13 & 63.79 \\
 At the original XGBoost operating points, a retrospective threshold chosen from each held-out fold/share's test scores to maximize recall subject to pooled FMR $\leq10\%$ yielded task-macro recall of 29.41, 22.02, 17.06, 12.79, and 13.20\% for E, and 29.41, 14.26, 14.26, 14.45, and 12.28\% for E+B/S. This is an optimistic descriptive curve reading: the thresholds are selected from those same held-out scores and are not validated operating points.
 
 \begin{table}[ht]
-\centering\footnotesize
+\centering
 \caption{Three-negative no-match stress check at the original frozen CTH XGBoost thresholds. Each entry is the task-macro percentage of query galleries for which at least one of the three different-task candidates is accepted after removing the positive candidate.}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule Arm & 0\% Agent & 25\% & 50\% & 75\% & 100\% \\
@@ -643,7 +583,7 @@ The outer CTH split is task-disjoint, not command-sequence-disjoint. We normaliz
 
 The predeclared sensitivity rule removed an entire 1:3 gallery if its query or any candidate had an exact sequence present in that fold's training tasks. It retained 2,114 of 13,600 full-cohort query galleries (15.5\%) and 15 query tasks overall; at both endpoint shares, paired estimates were available for five tasks. On this subset, action-bigram FMR was 0\% at both endpoints, FSR rose by 20 percentage points (95\% interval [0, 60]), and BA fell 10 percentage points ([-30, 0]). For frozen XGBoost E and E+B/S, intervals were wide and included no change. This analysis removes most of the galleries and cannot settle whether the full-sample mixture effect persists in a sequence-disjoint cohort. Per-fold trace IDs, retained counts, and metric rows are in the frozen audit output.
 
-\subsubsection{Five-Arm Mechanism Control}
+\subsubsection{Feature Ablation}
 The single new batch uses the same 17-task folds, 54,400 frozen evaluation pairs, and fold-specific XGBoost parameters and B/S representations. Training-pair counts were 176, 176, and 192 by outer fold. The five arms are E; E plus the mean and absolute difference of log command-head and raw shell-chunk counts; that control plus normalized command LCS, $2\,\mathrm{LCS}(x,y)/(|x|+|y|)$; the same control plus real B/S; and the same control plus B/S computed after a per-trace random permutation of commands and actions in lockstep. Count standardization, B/S imputation, representation transforms, and thresholds were fitted within the training fold. Each shuffle seed permutes each trace once and leaves the original E, counts, LCS, task labels, and pair candidates unchanged. The five fixed seeds are 20261105--20261109.
 
 The equal-share mean contrasts (percentage points; paired 95\% task intervals) were:
@@ -656,15 +596,15 @@ The equal-share mean contrasts (percentage points; paired 95\% task intervals) w
 
 Table~\ref{tab:shuffle-seeds} reports every predeclared shuffle-seed contrast. None of the paired task intervals for BA, Hit@1, or gallery AUC excludes zero when real and shuffled order are compared at the equal-share mean. The negative control does not identify a stable order-specific B/S contribution. It also does not show that arbitrary permutation is a complete null for all B/S measures: local action counts and repetitions remain related to trace composition after shuffling.
 
-\subsubsection{XGBoost with Expanded Pair Coverage}
+\subsubsection{Expanded Pair Evaluation}
 \label{sec:pairsupport}
 This development diagnostic reuses the same 17 CTH tasks, outer folds, XGBoost representation and parameters, and 54,400 evaluation pairs per arm. It changes training-pair coverage from the sampled set (eight positive pairs per training task plus sampled negatives) to all distinct available positive and negative pairs. Both conditions retain equal effective weight by class and observed HH/HA/AA pair type; the test query/candidate keys are identical. OOF thresholds are refit within each training condition. The E baseline contains command-head and action-bigram similarities. E+Args additionally represents option names, coarse argument types and positions, and argument-count buckets; raw argument values are discarded. B/S is then added to each baseline.
 
 Table~\ref{tab:pair-support-increment} reports all four XGBoost BA contrasts. Under all-pair training, E+Args+B/S improves point BA by 6.25 points over E+Args; this comes with a 13.06-point lower FSR and a 0.56-point higher FMR. Its nominal task-bootstrap interval excludes zero, but the simultaneous max-T interval crosses zero after adjustment across the four examined contrasts. This is an exploratory, same-cohort signal, not independent confirmation. The max-T family covers these four BA contrasts only, not every analysis conducted for this paper. The bootstrap resamples query tasks; candidate tasks recur across galleries and are not independently resampled here.
 
 \begin{table}[ht]
-\centering\scriptsize
-\setlength{\tabcolsep}{3pt}
+\centering
+
 \caption{XGBoost B/S increment by training-pair coverage and command baseline. Changes are B/S arm minus the corresponding baseline in percentage points, task-macro over five shares. Each BA cell shows nominal paired task-bootstrap 95\% CI; the final column gives the simultaneous max-T CI across these four BA contrasts.}
 \label{tab:pair-support-increment}
 \begin{tabularx}{\linewidth}{@{}p{.13\linewidth}p{.11\linewidth}rrY Y@{}}
@@ -679,7 +619,7 @@ All distinct & E+Args & +0.56 & $-13.06$ & +6.25 [+1.17, +12.24] & [$-0.75$, +13
 \end{table}
 
 \begin{table}[ht]
-\centering\scriptsize
+\centering
 \caption{Real B/S minus the corresponding shuffled B/S control at the equally weighted five-share mean, in percentage points. Cells show mean [paired 95\% task interval].}
 \label{tab:shuffle-seeds}
 \begin{tabularx}{\linewidth}{@{}p{.13\linewidth}YYYYY@{}}
@@ -694,7 +634,7 @@ All distinct & E+Args & +0.56 & $-13.06$ & +6.25 [+1.17, +12.24] & [$-0.75$, +13
 \end{tabularx}
 \end{table}
 
-\subsubsection{Frozen Model and Source Results}
+\subsubsection{Cross-Source Evaluation}
 These panels are retained under their original frozen protocols. The mixed-role CTH and AIT analyses use task-only labels, so same-task HA pairs are positive. By contrast, every pair in the CTH Agent-only and NYU Agent-only panels is A--A; their evaluation labels therefore coincide with the same-task, same-mode rule. This label equivalence does not make them same-mode refits: their original fitted models, thresholds, and candidate protocols remain frozen, and the panels are reported as separate diagnostics rather than pooled with the primary results.
 \paragraph{CTH mixed-role models.} Across the five shares, CTH XGBoost E+B/S changes BA by $-2.38\pp$ (95\% interval [-7.29, +2.30]), FMR by +9.46 percentage points [+5.50, +13.74], and FSR by -4.70 percentage points [-15.45, +6.10]. SVM's BA change is +1.38 percentage points [-3.83, +6.53]. The tree E+B/S threshold rejects every candidate, yielding 50\% BA (zero FMR and 100\% FSR). No learner meets the original requirement of a stable BA gain without an error trade-off.
 
@@ -704,12 +644,12 @@ These panels are retained under their original frozen protocols. The mixed-role 
 
 \paragraph{AIT timing under the historical target.} AIT contains 109 troubleshooting runs across 12 tasks and provides real process-launch timestamps. In this earlier task-only retrieval run, adding observed launch-gap features T1--T6 to E+B/S changes XGBoost BA by +0.98 percentage points [-0.21, +2.10], Hit@1 by +0.68 percentage points [-1.46, +2.75], and AUC by +0.93 percentage points [-0.80, +2.66]. The intervals include zero; this result is separate from the current same-mode B/S/T ablation and does not validate duration-dependent T7--T8.
 
-\subsubsection{Model-Snapshot Retrieval}
+\subsubsection{Model-Snapshot Evaluation}
 \paragraph{CTH cross-task model-snapshot retrieval.} This separate exploratory target uses 47 task groups and 141 Agent traces, with one trace for each of three recorded model snapshots per task. The normalized catalog has no participant IDs. Each query is matched against traces from different held-out task groups; its gallery contains one same-snapshot and two different-snapshot candidates. The primary view compares identical eight-command prefixes. Table~\ref{tab:cth-snapshot-bs} reports B/S minus E+length for the initial conditional fusion and a post-hoc direct-fusion sensitivity. Across both fusions, no learner has a positive Hit@1 and AUC increment together, and every interval includes zero. This tests recorded model-snapshot retrieval, not same-task association or human/operator identity; it is not combined with the primary same-task, same-mode estimates.
 
 \begin{table}[ht]
-\centering\scriptsize
-\setlength{\tabcolsep}{2pt}
+\centering
+
 \caption{CTH equal-prefix model-snapshot retrieval: B/S minus E+length in percentage points. Cells show paired two-way task-bootstrap mean [95\% interval]. Direct fusion is a post-hoc sensitivity.}
 \label{tab:cth-snapshot-bs}
 \begin{tabularx}{\linewidth}{@{}p{.12\linewidth}YYYY@{}}
@@ -726,12 +666,12 @@ For context, normalized command LCS was strongly predictive of recorded model sn
 
 \paragraph{Additional target-specific diagnostics.} On a separate 111-challenge NYU panel, one positive and four candidates identify which of four known D-CIPHER submissions generated a trace. Full-trace B/S changes AUC by +1.19 percentage points [+0.44, +1.97] and Hit@1 by +1.52 percentage points [+0.42, +2.68]; equal-length prefix checks are uncertain. This configuration target is distinct from task-and-mode retrieval. Nested single-measure deletion on the 17 CTH tasks used the historical task-only target and selected different removals by fold (B6, S7, B2); compact versus full B/S changes BA by $-0.59\pp$ [-2.02, +0.71] and AUC by $-0.32\pp$ [-1.92, +1.03]. Historical KYPO/Antieval cross-source results use another conditioned-tree protocol and are not pooled with either target.
 
-\subsubsection{Mechanism Outcomes by Role Share}
+\subsubsection{Results by Role Share}
 Table~\ref{tab:mechanism-shares} gives every share for the five mechanism arms. Rates and ranking measures are task-macro point estimates; the shuffled arm averages the five fixed seeds. Seed-wise paired intervals are in Table~\ref{tab:shuffle-seeds}. Table~\ref{tab:mechanism-thresholds} lists the outer-fold OOF cutoffs used for the non-shuffled arms and the range across the five shuffled cutoffs. The full threshold audit, including each shuffled threshold and its OOF metrics, is in the accompanying machine-readable results.
 
 \begin{table}[ht]
-\centering\scriptsize
-\setlength{\tabcolsep}{3pt}
+\centering
+
 \caption{Historical task-only CTH mechanism-arm outcomes by recorded Agent-role share. Cells are task-macro percentages; shuffled B/S is the point-estimate mean across five seeds.}
 \label{tab:mechanism-shares}
 \begin{tabular}{@{}lrrrrrr@{}}
@@ -771,8 +711,8 @@ Shuffled B/S (5-seed mean) & 100\% & 9.37 & 82.40 & 54.11 & 56.89 & 57.25 \\
 \end{table}
 
 \begin{table}[ht]
-\centering\scriptsize
-\setlength{\tabcolsep}{2pt}
+\centering
+
 \caption{Outer-fold OOF thresholds for the mechanism arms. Shuffled thresholds show the min--max across the five fixed seeds.}
 \label{tab:mechanism-thresholds}
 \begin{tabularx}{\linewidth}{@{}r p{.25\linewidth} r r r r r Y@{}}
@@ -785,15 +725,13 @@ Shuffled B/S (5-seed mean) & 100\% & 9.37 & 82.40 & 54.11 & 56.89 & 57.25 \\
 \end{tabularx}
 \end{table}
 
-\section{Study Design and Measurement}
+\section{Experimental Setup}
 
-\subsection{Historical Role-Pair Ablation}
+\subsection{Historical Pair-Type Results}
 The following tables all use the historical task-only target: a same-task cross-mode HA pair is positive. The original model scores and thresholds were trained and selected under that target; the HH/HA/AA breakdown is a post-hoc reaggregation, not a same-mode refit.
 \begin{table}[!htbp]
 \centering
-\scriptsize
-\setlength{\tabcolsep}{2.1pt}
-\renewcommand{\arraystretch}{1.08}
+
 \caption{Combined feature-block ablation and candidate-ranking results for same-challenge retrieval under the historical same-task-only label.}
 \label{tab:association-results}
 \resizebox{\linewidth}{!}{%
@@ -848,9 +786,7 @@ Values are task-macro percentages; parentheses show paired percentage-point chan
 \end{table}
 \begin{table}[!htbp]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.10}
+
 \caption{Full feature-block ablation for same-challenge association under the historical same-task-only label.}
 \label{tab:feature-block-ablation}
 \begin{tabularx}{\linewidth}{@{}p{.88in}Yrrr@{}}
@@ -891,9 +827,7 @@ Cells show task-macro percentages and changes from E in parentheses. Teal and re
 \end{table}
 \begin{table}[!htbp]
 \centering
-\small
-\setlength{\tabcolsep}{3.5pt}
-\renewcommand{\arraystretch}{1.10}
+
 \caption{Candidate-ranking performance for the predeclared feature comparisons.}
 \label{tab:ranking-diagnostics}
 \begin{tabularx}{\linewidth}{@{}p{1.02in}Yrrr@{}}
@@ -932,9 +866,6 @@ Cells give absolute task-macro percentages and signed paired changes in parenthe
 \end{minipage}
 \end{table}
 \begingroup
-\scriptsize
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.04}
 \setlength{\LTleft}{0pt plus 1fill}
 \setlength{\LTright}{0pt plus 1fill}
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{.48in}>{\raggedright\arraybackslash}p{.62in}>{\raggedright\arraybackslash}p{1.30in}r >{\centering\arraybackslash}p{.78in}>{\centering\arraybackslash}p{.78in}>{\centering\arraybackslash}p{1.56in}@{}}
@@ -1013,9 +944,6 @@ HH, HA, and AA denote Human--Human, Human--Agent, and Agent--Agent trace pairs. 
 \endgroup
 
 \begingroup
-\scriptsize
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.04}
 \setlength{\LTleft}{0pt plus 1fill}
 \setlength{\LTright}{0pt plus 1fill}
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{.56in}>{\raggedright\arraybackslash}p{.68in}>{\raggedright\arraybackslash}p{1.30in}r >{\centering\arraybackslash}p{.88in}>{\centering\arraybackslash}p{1.02in}>{\centering\arraybackslash}p{.92in}@{}}
@@ -1094,14 +1022,14 @@ Positive type is the unordered query/positive-candidate role pair: HH, HA, or AA
 \endgroup
 
 \begin{table}[htbp]
-\centering\small
+\centering
 \caption{Log observability determines the admitted measurement tier. Availability must be checked per collector and session.}
 \label{tab:tiers}
 \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}YY@{}}
 \toprule
 Tier & Required evidence & Status in this round \\
 \midrule
-Core execution & Executable names, order, event references, session boundaries & Eight candidate core features \\
+Core execution & Executable names, order, event references, session boundaries & B/S/T measurements when required fields are observed \\
 Arguments & Reconstructed argv or a reliably parsed command line & Optional argument-count and option-use extension \\
 Shell structure & Actual submitted shell syntax with boundaries & Pipeline, condition-chain, and batch features deferred \\
 Feedback & Operation completion and feedback paired with the subsequent decision & Retry/adaptation features deferred \\
@@ -1113,28 +1041,7 @@ Decision timing & Feedback-ready and next-submission times on comparable clocks 
 
 
 \begin{table}[htbp]
-\centering\small
-\caption{Proposed core statistics. They are candidate observations, not established Human/Agent discriminators.}
-\label{tab:core}
-\begin{tabularx}{\linewidth}{@{}p{0.055\linewidth}p{0.245\linewidth}Y@{}}
-\toprule
-ID & Measurement & Definition and interpretation \\
-\midrule
-K1 & Executable diversity & $|\{c_i\}|/n$; observed tool vocabulary relative to event count. \\
-K2 & Executable entropy & $-\sum_c p(c)\log_2 p(c)$; distributional diversity. \\
-K3 & Dominant-tool share & $\max_c p(c)$; concentration on one executable. \\
-K4 & Action switching & $|\mathcal E|^{-1}\sum_{i\in\mathcal E}\ind[a_i\ne a_{i+1}]$; local category changes. \\
-K5 & Conditional action entropy & $-\sum_{u,v:q(u,v)>0}q(u,v)\log_2[q(u,v)/q_{\mathrm{out}}(u)]$; empirical next-action diversity. \\
-K6 & Longest action-run share & $L_{\max}/n$; longest contiguous known-category run relative to all executable events. Unknown categories break a run. \\
-K7 & Action-pair reuse & $1-|\{(a_i,a_{i+1}):i\in\mathcal E\}|/|\mathcal E|$; repeated two-step combinations. \\
-K8 & Adjacent executable repetition & $(n-1)^{-1}\sum_{i=1}^{n-1}\ind[c_i=c_{i+1}]$; repeated executable names, irrespective of arguments or outcome. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-
-\begin{table}[htbp]
-\centering\small
+\centering
 \caption{Command category definitions. Categories group executables with similar operational semantics.}
 \label{tab:categories}
 \begin{tabularx}{\linewidth}{@{}p{0.18\linewidth}Y@{}}
@@ -1155,7 +1062,7 @@ Agent tools & \texttt{inspect\_shell}, \texttt{run\_command} \\
 
 
 \begin{table}[htbp]
-\centering\small
+\centering
 \caption{Completed input audit of overlapping historical exports. Counts are record-source labels, not newly verified execution-controller labels.}
 \label{tab:audit}
 \begin{tabular}{@{}lrrrr@{}}
@@ -1170,7 +1077,7 @@ Cross-benchmark rerun export & 127 & 73 & 54 & 0 / 0 \\
 
 
 \begin{table}[htbp]
-\centering\small
+\centering
 \caption{Actually ingested records, after snapshot selection and removal of empty common-command views. Counts are coverage, not independent test sample sizes.}
 \label{tab:expanded}
 \begin{tabularx}{\linewidth}{@{}YrrrY@{}}
@@ -1186,22 +1093,22 @@ Total & 1,142 & 79 & 1,063 & Separate tracks and source-qualified labels \\
 \end{tabularx}
 \end{table}
 
-\section{Candidate Feature Disposition}
-Table~\ref{tab:inventory} preserves the broader design history. The inventory has six families and 21 candidate measurements; the primary profile has three observable groups and eight scalar measurements. These are different levels of description, not competing claims about the final dimension count.
+\section{Feature Inventory}
+Table~\ref{tab:inventory} preserves the broader design history. The inventory has six families and 21 candidate measurements. The B/S/T schema groups observable measurements into local behavior, sequence organization, and timing; its candidate slots reflect different observation requirements across cohorts.
 
 \begin{table}[htbp]
-\centering\small
+\centering
 \caption{Disposition of all 21 initial candidates under the common-log contract.}
 \label{tab:inventory}
 \begin{tabularx}{\linewidth}{@{}p{0.13\linewidth}p{0.18\linewidth}YY@{}}
 \toprule
 Original IDs & Family & Candidate measurements & Decision \\
 \midrule
-F01--F03 & Tool selection & Diversity, entropy, dominant-tool share & Core K1--K3 \\
-F04--F07 & Action organization & Switching, conditional entropy, longest run, action-pair reuse & Core K4--K7 \\
+F01--F03 & Tool selection & Diversity, entropy, dominant-tool share & Represented in B/S/T summaries \\
+F04--F07 & Action organization & Switching, conditional entropy, longest run, action-pair reuse & Represented in B/S summaries \\
 F08--F09 & Command construction & Argument count, option-use share & Optional with reliable argv \\
 F10--F11 & Command construction & Shell chains, batch/multiple-command construction & Deferred; submitted syntax required \\
-F12 & Repetition/feedback & Adjacent executable-name repetition & Core K8; no outcome inference \\
+F12 & Repetition/feedback & Adjacent executable-name repetition & Included as an observable behavior summary \\
 F13--F15 & Repetition/feedback & Exact-command retry, changed-argument retry, tool switching after failure & Deferred; completion feedback and resource pairing required \\
 F16--F18 & Resource exploration & Resource diversity, revisits, namespace/category switching & Deferred; attributable access events required \\
 F19--F21 & Timing & Feedback-to-submission gap, relative gap variability, burstiness & Deferred; comparable decision-boundary timestamps required \\
@@ -1211,7 +1118,7 @@ F19--F21 & Timing & Feedback-to-submission gap, relative gap variability, bursti
 
 The optional argument module is evaluated only on a cohort meeting the same argument-availability rule for both classes. The deferred families remain hypotheses about potentially useful evidence. Their presence in the inventory is neither an extraction claim nor a finding of importance.
 
-\section{Reproducibility and Artifacts}
+\section{Reproducibility}
 The pinned inputs are retrieved with \texttt{python3 research/scripts/fetch\_behavior\_corpus\_v1.py --download}; its 120 files total 1,443,787,470 bytes and are validated by size and SHA-256. The corpus is reproduced with \texttt{python3 research/scripts/build\_behavior\_corpus\_v1.py}; its registry, exclusion list, source hashes, and normalized evidence are under \path{research/results/behavior_corpus_v1/}. The common-log pilot is under \path{research/experiments/log_fingerprint_pilot_v1/}. The expanded website catalog is separate from the historical 97-trace pair inspector.
 
 The manuscript is self-contained at \path{research/paper/human-agent-fingerprint-main.tex}. The broader feature-design history is in \path{research/plans/human-agent-fingerprint-dimensions-v1.md}. The round progress report is \path{research/reports/human-agent-fingerprint-round1-progress.md}.
