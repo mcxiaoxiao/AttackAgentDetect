@@ -33,9 +33,9 @@ GREEN_EDGE = "#afd7c5"
 GRAY_LIGHT = "#f0f1f2"
 GRAY_EDGE = "#c7cbd0"
 
-parts = ["""<svg xmlns="http://www.w3.org/2000/svg" width="3344" height="1840" viewBox="0 0 1672 920" role="img" aria-labelledby="title desc">
+parts = ["""<svg xmlns="http://www.w3.org/2000/svg" width="3344" height="1360" viewBox="0 0 1672 680" role="img" aria-labelledby="title desc">
 <title id="title">Model identification and behavioral profiling routes</title>
-<desc id="desc">A comparison of model identification and behavioral profiling from Agent-generated logs, with a capability matrix.</desc>
+<desc id="desc">Agent traces jointly reflect tool, model, and skill effects. The figure contrasts reference-limited model identification with fixed-feature behavioral profiling across model and version variants.</desc>
 <defs>
  <linearGradient id="headA" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e4f1fc"/><stop offset="1" stop-color="#d4e9fb"/></linearGradient>
  <linearGradient id="headB" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e7f5f3"/><stop offset=".52" stop-color="#e9f1fb"/><stop offset="1" stop-color="#edf1f5"/></linearGradient>
@@ -43,7 +43,7 @@ parts = ["""<svg xmlns="http://www.w3.org/2000/svg" width="3344" height="1840" v
  <linearGradient id="ecosystemFill" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#e4f7f0"/><stop offset="1" stop-color="#e2f1ec"/></linearGradient>
  <marker id="arrowTip" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#174b78"/></marker>
 </defs>
-<rect width="1672" height="920" fill="#ffffff"/>
+<rect width="1672" height="680" fill="#ffffff"/>
 """]
 
 
@@ -138,107 +138,106 @@ def brand_entry(x: float, y: float, label: str, icon: str | None,
     text(label_x, y + size * .77, label, font_size, INK, 700)
 
 
-# A and B show the input and output of each method class. Brand marks are
-# inline without app-style cards; restrained fills retain the original palette.
+# Two method routes with matched log inputs and a compact capability comparison.
+# Both log boxes use the same background; route colors distinguish the analyses.
 tools = [("Codex", "codex"), ("DSH", "dsh"), ("OpenCode", "opencode"),
          ("Claude Code", "claude-code"), ("ChatGPT", "chatgpt"),
          ("Kimi", "kimi"), ("Qwen", "qwen"), ("…", None)]
+LOG_FILL = "#edf3f8"
+LOG_EDGE = "#698ba5"
+BLUE_FILL = "#e1edf5"
+GREEN_FILL = "#e5f0eb"
 
-# Panel A: model identification from labeled Agent traces.
-rect(23, 20, 1626, 230, WHITE, "#829ab0", 1.1, 4)
-parts.append('<path d="M33 20 H1639 Q1649 20 1649 30 V60 H23 V30 Q23 20 33 20 Z" fill="url(#headA)"/>')
-text(43, 49, "A", 25, NAVY, 700)
-text(94, 49, "Prior work: model identification", 23, INK, 700)
+# Panel A: identity assignment is bounded by the labeled reference set L.
+text(45, 40, "A", 23, "#315f7d", 700)
+text(78, 40, "Prior work: model identification", 22, INK, 700)
+line(45, 54, 1627, 54, "#9fb4c9", 1.0)
 
-rect(64, 72, 765, 142, "#f8fbfe", "#698ba5", 1.0, 3)
-text(88, 101, "Agent-generated execution logs", 22, INK, 700)
-text(88, 127, "labeled references + target execution trace", 19, MUTED)
+rect(45, 69, 720, 130, LOG_FILL, LOG_EDGE, 1.0, 2)
+text(68, 94, "Agent-generated execution logs", 20, INK, 700)
 for i, (label, icon) in enumerate(tools):
     row, col = divmod(i, 4)
-    brand_entry(96 + col * 176, 137 + row * 32, label, icon, 19, 17)
+    brand_entry(68 + col * 164, 108 + row * 28, label, icon, 18, 19)
+text(68, 173, "Tool/harness · model · skills → observed trace", 16, MUTED)
+text(68, 191, "Labeled references + target trace", 16, MUTED)
 
-arrow(833, 143, 893, 143, "#315f7d", 1.9)
-rect(900, 72, 711, 142, "#ffffff", "#698ba5", 1.0, 3)
-text(922, 101, "Model-family identification", 22, INK, 700)
-text(922, 127, "labeled references → target label", 19, MUTED)
-rect(922, 148, 667, 48, "#e9f3fb", "#bfd5e6", .8, 2)
-text(1255, 179, "Model / harness label", 20, INK, 700, "middle")
+arrow(768, 134, 795, 134, "#315f7d", 1.7)
+rect(802, 69, 352, 130, BLUE_FILL, "#698ba5", 1.0, 2)
+text(824, 96, "Reference-based classification", 19, INK, 700)
+text(824, 123, "match target within label set L", 17, MUTED)
+text(824, 157, "ŷ = argmaxₘ∈L s(x, m)", 18, INK, 600)
 
-# Panel B: behavioral profiling from the same Agent log sources.
-rect(23, 268, 1626, 358, WHITE, "#829ab0", 1.1, 4)
-parts.append('<path d="M33 268 H1639 Q1649 268 1649 278 V308 H23 V278 Q23 268 33 268 Z" fill="url(#headB)"/>')
-text(43, 297, "B", 25, NAVY, 700)
-text(94, 297, "Behavioral profiling", 23, INK, 700)
+arrow(1157, 134, 1184, 134, "#315f7d", 1.7)
+rect(1191, 69, 436, 130, "#f8fbfd", "#698ba5", 1.0, 2)
+text(1214, 99, "Model / harness label", 20, INK, 700)
+text(1214, 137, "ŷ ∈ L", 23, INK, 700)
+text(1214, 164, "Joint effects obscure component attribution", 16, MUTED)
+text(1214, 186, "Unseen configuration → add references", 16, "#a65337", 600)
 
-rect(85, 321, 1500, 80, "url(#ecosystemFill)", "#b9d8cb", .8, 4)
-text(111, 354, "Agent-generated logs", 20, INK, 700)
-text(111, 379, "one trace per Agent", 17, MUTED)
+# Panel B: diverse model and version logs share one event feature set.
+text(45, 243, "B", 23, "#287b70", 700)
+text(78, 243, "Behavioral profiling", 22, INK, 700)
+line(45, 257, 1627, 257, "#9fb4c9", 1.0)
+
+rect(45, 272, 720, 130, LOG_FILL, LOG_EDGE, 1.0, 2)
+text(68, 297, "Agent-generated execution logs", 20, INK, 700)
 for i, (label, icon) in enumerate(tools):
     row, col = divmod(i, 4)
-    brand_entry(438 + col * 276, 333 + row * 33, label, icon, 19, 17)
+    brand_entry(68 + col * 164, 311 + row * 28, label, icon, 18, 19)
+text(68, 375, "Models  m₁, m₂, …    ·    Versions  v₁, v₂, …", 16, MUTED)
+text(68, 394, "Skills / prompts vary across traces", 16, MUTED)
 
-# The source logs are pooled into an event representation, then profiled.
-for x in (566, 842, 1118, 1394):
-    line(x, 401, x, 416, TEAL, 1.4)
-line(251, 416, 1394, 416, TEAL, 1.4)
-arrow(251, 416, 251, 439, TEAL, 1.7)
-
-rect(49, 446, 405, 74, "#ffffff", "#698ba5", 1.0, 3)
-text(75, 477, "Execution-event log", 20, INK, 700)
-text(75, 502, "ordered executable events", 17, MUTED)
-arrow(456, 483, 512, 483, "#315f7d", 1.9)
-
-rect(521, 434, 561, 151, "url(#matrixFill)", "#527b99", 1.1, 3)
-text(545, 460, "K1–K8 behavioral profile", 20, INK, 700)
-text(545, 483, "one row per consecutive event window", 17, MUTED)
-const_col_x = 657
-cell_gap = 47
+arrow(768, 340, 795, 340, "#315f7d", 1.7)
+rect(802, 272, 352, 136, GREEN_FILL, "#7ca99d", 1.0, 2)
+text(824, 299, "Shared K1–K8 profile", 20, INK, 700)
+text(824, 322, "fixed definitions for compatible logs", 18, MUTED)
+const_col_x = 828
+cell_gap = 38
 for i in range(8):
-    text(const_col_x + i * cell_gap + 18, 509, f"K{i+1}", 17, INK, 700, "middle")
+    text(const_col_x + i * cell_gap + 14, 348, f"K{i+1}", 15, INK, 700, "middle")
 matrix = [
-    ["#c7dce8", "#83b1d0", "#e7f1f6", "#cbdfea", "#91bcd7", "#e4eef4", "#c5dbe7", "#8fb8d1"],
-    ["#f7fbfd", "#d8e7ef", "#d0e2ec", "#f7fbfd", "#d7e7ef", "#c5dce8", "#f7fbfd", "#d8e7ef"],
-    ["#8db9d4", "#d1e3ed", "#f7fbfd", "#7eafd0", "#c6dce8", "#f7fbfd", "#8ab7d3", "#c8dfe9"],
+    ["#84b4cb", "#c7dde7", "#edf3f8", "#92bfd3", "#d9e8ee", "#aacbd9", "#edf3f8", "#7daec6"],
+    ["#dbe9ef", "#8cb8cd", "#c8dde7", "#edf3f8", "#91bed2", "#d7e7ed", "#a6c8d7", "#edf3f8"],
 ]
 for row_index, row in enumerate(matrix):
-    y = 519 + row_index * 19
+    y = 356 + row_index * 15
     for col_index, shade in enumerate(row):
-        rect(const_col_x + col_index * cell_gap, y, 38, 15, shade, "#9db8ca", .55, .5)
+        rect(const_col_x + col_index * cell_gap, y, 28, 10, shade, "#9db8ca", .45, .5)
 
-line(1085, 510, 1138, 510, "#315f7d", 1.7)
-line(1138, 469, 1138, 545, "#315f7d", 1.35)
-arrow(1138, 469, 1171, 469, "#315f7d", 1.7)
-arrow(1138, 545, 1171, 545, "#315f7d", 1.7)
-rect(1178, 438, 444, 63, "#ffffff", "#9eb8cc", 1.0, 3)
-text(1200, 465, "Recorded-mode estimate", 20, INK, 700)
-text(1200, 487, "Human / Agent score", 17, MUTED)
-rect(1178, 514, 444, 63, "#ffffff", "#9eb8cc", 1.0, 3)
-text(1200, 541, "Trace-relation score", 20, INK, 700)
-text(1200, 563, "pairwise comparison", 17, MUTED)
+line(1158, 340, 1170, 340, "#315f7d", 1.5)
+line(1170, 316, 1170, 376, "#315f7d", 1.1)
+arrow(1170, 316, 1184, 316, "#315f7d", 1.5)
+arrow(1170, 376, 1184, 376, "#315f7d", 1.5)
+rect(1191, 279, 436, 66, "#ffffff", "#9eb8cc", .9, 2)
+text(1214, 306, "Recorded-mode score", 19, INK, 700)
+text(1214, 330, "Human / Agent estimate", 16, MUTED)
+rect(1191, 350, 436, 66, "#ffffff", "#9eb8cc", .9, 2)
+text(1214, 377, "Trace-relation score", 19, INK, 700)
+text(1214, 401, "pairwise comparison", 16, MUTED)
 
-# Capability matrix: checks and crosses compare the methods directly.
-rect(23, 645, 1626, 252, WHITE, "#9fb4c9", 1.0, 3)
-rect(24, 646, 1624, 47, "#f2f6f9", "none", 0, 4)
-line(850, 646, 850, 897, "#d7e0e7", .9)
-line(1245, 646, 1245, 897, "#d7e0e7", .9)
-text(52, 677, "Capability", 19, MUTED, 700)
-text(1065, 677, "Model identification", 19, "#315f7d", 700, "middle")
-text(1420, 677, "Behavioral profiling", 19, "#287b70", 700, "middle")
+# Checks and crosses compare the two routes' primary capabilities.
+text(45, 450, "Capability comparison", 20, INK, 700)
+rect(45, 462, 1582, 34, "#f2f6f9", "none", 0, 0)
+line(800, 462, 800, 634, "#d7e0e7", .8)
+line(1200, 462, 1200, 634, "#d7e0e7", .8)
+text(65, 485, "Capability", 18, MUTED, 700)
+text(1000, 485, "Model identification", 18, "#315f7d", 700, "middle")
+text(1414, 485, "Behavioral profiling", 18, "#287b70", 700, "middle")
 capabilities = [
-    ("Assign a model / harness label", True, False),
-    ("Estimate recorded execution mode", False, True),
-    ("Construct a K1–K8 behavioral profile", False, True),
-    ("Score relations between traces", False, True),
+    ("Assign model / harness identity", True, False),
+    ("Apply fixed features across tool/model/version/skill variants", False, True),
+    ("Estimate mode and score trace relations", False, True),
 ]
-row_top = 694
-row_height = 50
+row_top = 496
+row_height = 46
 for i, (label, model_id, behavior) in enumerate(capabilities):
     y = row_top + i * row_height
-    if i:
-        line(42, y, 1630, y, "#d7e0e7", 1.0)
-    text(52, y + 32, label, 20, INK)
-    (check if model_id else cross)(1052, y + 12, 20)
-    (check if behavior else cross)(1408, y + 12, 20)
+    line(45, y, 1627, y, "#d7e0e7", .8)
+    text(65, y + 29, label, 19, INK)
+    (check if model_id else cross)(990, y + 10, 20)
+    (check if behavior else cross)(1404, y + 10, 20)
+line(45, row_top + len(capabilities) * row_height, 1627,
+     row_top + len(capabilities) * row_height, "#d7e0e7", .8)
 vector_elements = "\n".join(parts[1:])
 svg = (
     parts[0]
