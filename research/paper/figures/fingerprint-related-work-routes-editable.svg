@@ -59,10 +59,11 @@
 <rect x="1314" y="145" width="40" height="26" rx="13" fill="#e7f1fd" stroke="#a9c8f3" stroke-width="0.8"/>
 <text x="1334" y="163" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" font-style="normal" fill="#1760d5" text-anchor="middle">…</text>
 <rect x="1392" y="111" width="216" height="74" rx="8" fill="#fff8f3" stroke="#d8a18b" stroke-width="1.1"/>
-<text x="1500" y="132" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" font-style="normal" fill="#a65337" text-anchor="middle">UNKNOWN</text>
-<text x="1500" y="151" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#536274" text-anchor="middle">outside L</text>
-<text x="1500" y="167" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="600" font-style="normal" fill="#9b7200" text-anchor="middle">e.g., unseen task / challenge</text>
-<text x="1500" y="180" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="600" font-style="normal" fill="#9b7200" text-anchor="middle">model / Agent not registered</text>
+<g id="unknown-hacker-icon" transform="translate(1396 126)" aria-label="Illustrative hacker icon"><path d="M22 2 C11 2 4 10 4 21 L4 28 C8 21 14 18 22 18 C30 18 36 21 40 28 L40 21 C40 10 33 2 22 2 Z" fill="#06172f"/><path d="M12 21 C12 14 16 9 22 9 C28 9 32 14 32 21 L32 24 C26 21 18 21 12 24 Z" fill="#f0c45b"/><circle cx="18" cy="18" r="1.4" fill="#06172f"/><circle cx="26" cy="18" r="1.4" fill="#06172f"/><path d="M2 53 C4 39 11 31 22 31 C33 31 40 39 42 53 Z" fill="#06172f"/><rect x="8" y="38" width="28" height="15" rx="2" fill="#fff8e7" stroke="#06172f" stroke-width="1.2"/><rect x="11" y="41" width="22" height="8" rx="1" fill="#dceaf7"/><path d="M6 54 H38" fill="none" stroke="#06172f" stroke-width="2" stroke-linecap="round"/></g>
+<text x="1528" y="132" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" font-style="normal" fill="#a65337" text-anchor="middle">UNKNOWN</text>
+<text x="1528" y="151" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#536274" text-anchor="middle">outside L</text>
+<text x="1528" y="167" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="600" font-style="normal" fill="#9b7200" text-anchor="middle">e.g., unseen task / challenge</text>
+<text x="1528" y="180" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="600" font-style="normal" fill="#9b7200" text-anchor="middle">model / Agent not registered</text>
 <text x="45" y="243" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" font-style="normal" fill="#287b70" text-anchor="start">B</text>
 <text x="78" y="243" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" font-style="normal" fill="#06172f" text-anchor="start">Route B (this study) · behavioral fingerprint</text>
 <line x1="45" y1="257" x2="1627" y2="257" stroke="#9fb4c9" stroke-width="1.0" stroke-linecap="round"/>

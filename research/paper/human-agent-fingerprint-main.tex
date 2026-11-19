@@ -96,7 +96,7 @@ Figure~\ref{fig:related-work-routes} presents two routes for reading host-visibl
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\linewidth]{figures/fingerprint-related-work-routes-editable.png}
-\caption{The routes address different questions in security-trace analysis. Route A assigns identity within a labeled reference set; an out-of-set configuration remains unknown until enrolled. Route B reuses a common B/S/T feature representation across compatible host-visible logs with varying configurations to surface similarity and relation cues for analyst-led review. The Human/Agent pills denote recorded-mode labels; $q$ and candidates A--F illustrate links for analyst review. Link opacity is illustrative, not a calibrated score, probability, identity, or real-activity claim.}
+\caption{The routes address different questions in security-trace analysis. Route A assigns identity within a labeled reference set; an out-of-set configuration remains unknown until enrolled. The hooded-computer icon in the UNKNOWN box is illustrative and does not denote an attributed actor. Route B reuses a common B/S/T feature representation across compatible host-visible logs with varying configurations to surface similarity and relation cues for analyst-led review. The Human/Agent pills denote recorded-mode labels; $q$ and candidates A--F illustrate links for analyst review. Link opacity is illustrative, not a calibrated score, probability, identity, or real-activity claim.}
 \label{fig:related-work-routes}
 \end{figure}
 
@@ -108,6 +108,7 @@ Security correlation systems use several forms of relation evidence. ATLAS learn
 \centering
 \caption{Prior studies and this study by target, observed data, and labels.}
 \label{tab:related}
+\scriptsize
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.26\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}X@{}}
 \toprule
 \textbf{Study} & \textbf{Target} & \textbf{Observed data / labels} \\
@@ -200,15 +201,16 @@ Supplementary Figure~\ref{fig:bst-dimensions} shows the 24-slot B/S/T candidate 
 
 \section{Results}
 \subsection{Same-Mode Retrieval Results}
-The current mixed-role retrieval target is positive only when two traces share both a benchmark-qualified task and the same recorded mode. Every HA pair is negative, including same-task Human--Agent pairs, in training, threshold selection, and held-out evaluation. Table~\ref{tab:same-mode-bst} reports the fixed B/S/T ablation on matched candidate galleries. The CTH and AIT cohorts were previously inspected, so these results are exploratory.
+The current mixed-role retrieval target is positive only when two traces share both a benchmark-qualified task and the same recorded mode. Every HA pair is negative, including same-task Human--Agent pairs, in training, threshold selection, and held-out evaluation. Table~\ref{tab:same-mode-bst} reports the fixed B/S/T ablation on matched candidate galleries. Across both cohorts, every feature arm lowers FSR but raises FMR and no-match relative to E, indicating an error trade-off rather than a general reduction in errors. The CTH and AIT cohorts were previously inspected, so these results are exploratory.
 \begin{table}[!htbp]
 \centering
 
-\caption{Fixed B/S/T ablation for same-task, same-mode retrieval with depth-3 XGBoost. Positive pairs share both task and recorded mode, so same-task HA pairs are negative. FMR includes all negative pair types. Task-macro rates are percentages. Green and red mark favorable and unfavorable changes relative to E; changes below one point are unshaded. T uses observed launch gaps. No-match is the share of no-match galleries with any accepted candidate.}
+\caption{Fixed B/S/T ablation for same-task, same-mode retrieval with depth-3 XGBoost. Positive pairs share both task and recorded mode, so same-task HA pairs are negative. FMR (false match rate) is the percentage of negative pairs accepted as matches and includes all negative types. No-match is the percentage of query galleries, after removing the positive, for which at least one negative candidate is accepted. Rates are task-macro percentages; lower FMR, FSR, and no-match are favorable. Green and red mark favorable and unfavorable changes relative to E; changes below one point are unshaded. T uses observed launch gaps.}
 \label{tab:same-mode-bst}
-\setlength{\tabcolsep}{3pt}
+\scriptsize
+\setlength{\tabcolsep}{1.5pt}
 \renewcommand{\arraystretch}{0.96}
-\begin{tabular}{@{}llrrrrr@{}}
+\begin{tabularx}{\linewidth}{@{}p{.58in}p{1.05in}*{5}{>{\centering\arraybackslash}X}@{}}
 \toprule
 Data & Features & Hit@1 & BA & FMR & FSR & No-match \\
 \midrule
@@ -226,7 +228,7 @@ AIT & E & 49.50 & 57.05 & 5.69 & 80.22 & 21.90 \\
  & E+S+T & 49.21 & \cellcolor{AblGoodLight}58.44 & \cellcolor{AblBadLight}7.70 & \cellcolor{AblGoodMid}75.42 & \cellcolor{AblBadMid}28.09 \\
  & E+B+S+T & \cellcolor{AblGoodMid}55.54 & \cellcolor{AblGoodMid}61.33 & \cellcolor{AblBadLight}7.93 & \cellcolor{AblGoodDeep}69.40 & \cellcolor{AblBadMid}29.65 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 Query-mode ranking by HH/AA positive pairs is reported in Appendix Table~\ref{tab:pairtype-gallery-ranking}. Table~\ref{tab:same-mode-svm-xgb} compares the RBF-SVM and XGBoost learners; role-stratified decision errors are in Appendix~\ref{app:same-mode-supplement}.
 \begin{table}[!htbp]
@@ -234,6 +236,7 @@ Query-mode ranking by HH/AA positive pairs is reported in Appendix Table~\ref{ta
 
 \caption{RBF-SVM and XGBoost comparison for the current same-task, same-mode retrieval target. Each task-held-out gallery has one same-task, same-mode positive and three negatives, including the same-task cross-mode HA hard negative. CTH reports both learners; AIT reports XGBoost.}
 \label{tab:same-mode-svm-xgb}
+\scriptsize
 \begin{tabular}{@{}p{.78in}p{1.03in}rrrrrr@{}}
 \toprule
 Learner & Feature arm & BA & FMR & FSR & Hit@1 & Gallery AUC & Pair AP \\
@@ -298,6 +301,7 @@ Across the early windows, the clearest mean differences appear in timing: Human 
 \centering
 \caption{AIT recorded-mode classification on 109 runs (61 Human, 48 Agent). Task holdout tests unseen task groups; source holdout tests unseen actor groups.}
 \label{tab:ait_results}
+\scriptsize
 
 \begin{tabularx}{\linewidth}{@{}l>{\centering\arraybackslash}X>{\centering\arraybackslash}Xr@{}}
 \toprule
@@ -317,7 +321,7 @@ Values are task-macro balanced accuracy (BA) and pooled source-holdout AUROC. Th
 \end{minipage}
 \end{table}
 
-The full fingerprint reaches 92.6\% balanced accuracy on task holdout, close to Command TF--IDF at 95.1\%. This shows that a structured trajectory representation can retain nearly the same task-held-out Human/Agent separation while making behavior and tool-use evidence inspectable. On the harder source-group holdout, the full fingerprint reaches 79.7\%, compared with 85.4\% for Command TF--IDF and 92.0\% for the fixed tool-repertoire control. The gap between the two holdouts shows that transfer to unseen actors remains the harder condition; collection workflow may still contribute to the recorded-label signal, so these results measure recognition of the dataset's recorded execution mode rather than intrinsic or universal Agent identity.
+The fixed tool-repertoire vector is a strong single-log reference, with higher point estimates than the full fingerprint. Still, after compressing each trace into an interpretable fingerprint, task-holdout balanced accuracy remains close to this reference (92.6\% vs. 95.1\%). This suggests that the fingerprint preserves strong recognition on held-out tasks while making behavior and tool-use evidence inspectable. Its lower source-holdout score (79.7\% vs. 92.0\%) shows that recognition transfers less well to unseen actor groups. These results concern recorded execution mode in this cohort; collection workflow may also contribute to the signal.
 
 For the full fingerprint, the task-holdout interval is 86.3--97.6\%; it resamples the observed task groups and does not represent a population of unseen people or models. Its Human false-positive rate is 9.8\% and Agent false-negative rate is 4.2\% at the fixed 0.5 threshold. The lexical and tool-repertoire controls remain strong, and posthoc inspection found asymmetric occurrence of shell-related tools such as basename, bash, groups, mesg, and dircolors. These controls help interpret the score: the current evidence supports a strong, inspectable classifier on this cohort, while unseen-source transfer and interface effects remain active questions.
 

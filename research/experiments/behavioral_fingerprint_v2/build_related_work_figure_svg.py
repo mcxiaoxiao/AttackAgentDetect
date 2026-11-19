@@ -85,6 +85,24 @@ def check(x: float, y: float, size: float = 25) -> None:
     )
 
 
+def hacker_icon(x: float, y: float) -> None:
+    """Small illustrative hooded-computer-user glyph for the out-of-set box."""
+    parts.append(
+        f'<g id="unknown-hacker-icon" transform="translate({x} {y})" aria-label="Illustrative hacker icon">'
+        '<path d="M22 2 C11 2 4 10 4 21 L4 28 C8 21 14 18 22 18 '
+        'C30 18 36 21 40 28 L40 21 C40 10 33 2 22 2 Z" fill="#06172f"/>'
+        '<path d="M12 21 C12 14 16 9 22 9 C28 9 32 14 32 21 L32 24 '
+        'C26 21 18 21 12 24 Z" fill="#f0c45b"/>'
+        '<circle cx="18" cy="18" r="1.4" fill="#06172f"/>'
+        '<circle cx="26" cy="18" r="1.4" fill="#06172f"/>'
+        '<path d="M2 53 C4 39 11 31 22 31 C33 31 40 39 42 53 Z" fill="#06172f"/>'
+        '<rect x="8" y="38" width="28" height="15" rx="2" fill="#fff8e7" stroke="#06172f" stroke-width="1.2"/>'
+        '<rect x="11" y="41" width="22" height="8" rx="1" fill="#dceaf7"/>'
+        '<path d="M6 54 H38" fill="none" stroke="#06172f" stroke-width="2" stroke-linecap="round"/>'
+        '</g>'
+    )
+
+
 def cross(x: float, y: float, size: float = 22) -> None:
     line(x, y, x + size, y + size, RUST, 4)
     line(x + size, y, x, y + size, RUST, 4)
@@ -180,10 +198,11 @@ for i, (label, shade) in enumerate([
     rect(x, 145, 40, 26, shade, BLUE_EDGE, .8, 13)
     text(x + 20, 163, label, 12, BLUE, 700, "middle")
 parts.append('<rect x="1392" y="111" width="216" height="74" rx="8" fill="#fff8f3" stroke="#d8a18b" stroke-width="1.1"/>')
-text(1500, 132, "UNKNOWN", 15, RUST, 700, "middle")
-text(1500, 151, "outside L", 13, MUTED, 600, "middle")
-text(1500, 167, "e.g., unseen task / challenge", 10, "#9b7200", 600, "middle")
-text(1500, 180, "model / Agent not registered", 10, "#9b7200", 600, "middle")
+hacker_icon(1396, 126)
+text(1528, 132, "UNKNOWN", 15, RUST, 700, "middle")
+text(1528, 151, "outside L", 13, MUTED, 600, "middle")
+text(1528, 167, "e.g., unseen task / challenge", 9, "#9b7200", 600, "middle")
+text(1528, 180, "model / Agent not registered", 9, "#9b7200", 600, "middle")
 
 # Panel B: diverse model and version logs share one event feature set.
 text(45, 243, "B", 23, "#287b70", 700)
